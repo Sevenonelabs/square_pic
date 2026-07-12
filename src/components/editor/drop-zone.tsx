@@ -21,6 +21,7 @@ export function DropZone({ onFile, compact }: Props) {
   const handleChange = () => {
     const file = inputRef.current?.files?.[0];
     if (file) onFile(file);
+    if (inputRef.current) inputRef.current.value = "";
   };
 
   return (

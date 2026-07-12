@@ -1,6 +1,6 @@
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'sha256-PNPK/4YftWOsk75hkcEE1I44Bht1p5BGlZApb+dhXNs=' 'sha256-7D+MUc7yHeafco5WvShveDoJ2HsVnC6gXeCiz5mEx9k=' https://www.googletagmanager.com https://www.google-analytics.com",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
   "img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com",

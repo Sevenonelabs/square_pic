@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from "react";
 import { ToolAsHeroLayout } from "@/components/layout/tool-as-hero-layout";
-import { ToolLinks } from "@/components/layout/tool-links";
 import type { EditorState } from "@/lib/editor-renderer";
 
 const DEFAULTS = {
@@ -15,7 +14,7 @@ const COLOR_SWATCHES = [
   "#F055C8", "#782328", "#B4B928", "#1E2382",
 ];
 
-export default function Home() {
+export function ResizeTool() {
   const [state, setState] = useState<EditorState>({
     image: null,
     mode: "blur",
@@ -33,18 +32,14 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <ToolAsHeroLayout
-        state={state}
-        onStateChange={update}
-        headline="Make Any Image Perfectly Square Online"
-        highlightWord="Perfectly Square"
-        badge="100% Free · No Signup · Privacy-First"
-        microcopy="All editing happens locally in your browser with no uploads, no watermarks, and no signup required. Export in PNG, JPEG, or WebP format at full quality."
-        colorSwatches={COLOR_SWATCHES}
-      />
-
-      <ToolLinks />
-    </>
+    <ToolAsHeroLayout
+      state={state}
+      onStateChange={update}
+      headline="Square Pic – Social Media Resizer"
+      highlightWord="Social Media Resizer"
+      badge="100% Free · No Signup · Privacy-First"
+      microcopy="Resize your images for any social platform — Instagram, Facebook, X, TikTok, and more. All editing happens locally in your browser with no uploads."
+      colorSwatches={COLOR_SWATCHES}
+    />
   );
 }

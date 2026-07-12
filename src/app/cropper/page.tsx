@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CropperTool } from "@/components/cropper/cropper-tool";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
   title: "Free Online Photo Cropper - Perfect Crop",
@@ -15,6 +16,7 @@ export default function CropperPage() {
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Photo Cropper", url: `${SITE}/cropper` }]} />
       <CropperTool />
+      <ToolLinks current="/cropper" />
     </>
   );
 }

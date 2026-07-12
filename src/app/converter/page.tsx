@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ConverterTool } from "@/components/converter/converter-tool";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
   title: "Free Image Converter - JPG, PNG & WebP",
@@ -15,6 +16,7 @@ export default function ConverterPage() {
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Converter", url: `${SITE}/converter` }]} />
       <ConverterTool />
+      <ToolLinks current="/converter" />
     </>
   );
 }

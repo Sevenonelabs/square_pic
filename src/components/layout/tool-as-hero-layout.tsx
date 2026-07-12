@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback } from "react";
+import { useState, useCallback } from "react";
 import { EditorCanvas } from "@/components/editor/canvas";
 import { DropZone } from "@/components/editor/drop-zone";
 import type { EditorState } from "@/lib/editor-renderer";
 import { trackEvent } from "@/lib/analytics";
+import SOCIAL_PRESETS from "@/data/social-presets.json";
 
 export interface ToolAsHeroLayoutProps {
   state: EditorState;
@@ -32,6 +33,25 @@ export function ToolAsHeroLayout({
   downloadEventName = "editor-square-image",
 }: ToolAsHeroLayoutProps) {
   const hasImage = state.image !== null;
+  const [uploading, setUploading] = useState(false);
+  const [socialPlatform, setSocialPlatform] = useState<string | null>(null);
+
+  const presets = SOCIAL_PRESETS as Record<string, {
+    label: string; description: string;
+    types: Record<string, { label: string; w: number; h: number; aspect: string }>;
+  }>;
+
+  const activeTypes = socialPlatform ? presets[socialPlatform]?.types : null;
+
+  const activePresetLabel = (() => {
+    if (!state.targetWidth || !state.targetHeight) return null;
+    for (const [pk, pv] of Object.entries(presets)) {
+      for (const [tk, tv] of Object.entries(pv.types)) {
+        if (tv.w === state.targetWidth && tv.h === state.targetHeight) return `${pv.label} · ${tv.label}`;
+      }
+    }
+    return `${state.targetWidth}×${state.targetHeight}`;
+  })();
 
   const handleFile = useCallback(
     (file: File) => {
@@ -43,12 +63,15 @@ export function ToolAsHeroLayout({
         alert(`File is too large. Please upload an image under ${MAX_SIZE_MB} MB.`);
         return;
       }
+      setUploading(true);
       const url = URL.createObjectURL(file);
       const img = new Image();
       img.onload = () => {
+        setUploading(false);
         onStateChange({ image: img });
       };
       img.onerror = () => {
+        setUploading(false);
         URL.revokeObjectURL(url);
         alert("Could not load the image. The file may be corrupted.");
       };
@@ -96,7 +119,13 @@ export function ToolAsHeroLayout({
         <div className="flex flex-row gap-5 w-full max-md:flex-col max-md:gap-3" style={{ maxWidth: 1360 }}>
           <div className="flex-1 flex items-center justify-center p-3 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-md border border-[rgba(255,255,255,0.10)] relative overflow-hidden min-h-[450px] max-md:min-h-[350px]">
             {!hasImage ? (
-              <div className="flex flex-col items-center justify-center gap-5 w-full h-full text-center">
+              <div className="flex flex-col items-center justify-center gap-5 w-full h-full text-center relative">
+                {uploading && (
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[rgba(3,4,6,0.85)]">
+                    <div className="w-8 h-8 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
+                    <span className="text-[0.75rem] text-[#8d9aaa] font-semibold">Loading image...</span>
+                  </div>
+                )}
                 {badge && (
                   <div className="inline-flex items-center gap-2 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] rounded-sm px-4 py-1.5 text-[0.68rem] text-[#06b6d4] font-semibold">
                     <span className="text-[#06b6d4] font-extrabold">✓</span> {badge}
@@ -210,6 +239,57 @@ export function ToolAsHeroLayout({
                     className="w-full h-[2px] appearance-none bg-[rgba(255,255,255,0.06)] outline-none" />
                 </div>
               </div>
+            </div>
+
+            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-md p-3">
+              <h3 className="text-[0.62rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Social Size</h3>
+              {activePresetLabel && (
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[0.65rem] text-[var(--accent)] font-semibold truncate mr-2">{activePresetLabel}</span>
+                  <button
+                    onClick={() => { onStateChange({ targetWidth: 0, targetHeight: 0 }); setSocialPlatform(null); }}
+                    className="text-[0.6rem] text-[#576675] font-bold uppercase tracking-wider hover:text-[#8d9aaa] transition-colors shrink-0"
+                  >
+                    Clear
+                  </button>
+                </div>
+              )}
+              <div className="flex flex-wrap gap-1 mb-2">
+                {Object.entries(presets).map(([key, val]) => (
+                  <button
+                    key={key}
+                    onClick={() => setSocialPlatform(socialPlatform === key ? null : key)}
+                    className={`text-[0.6rem] font-bold px-2 py-1 rounded-sm border transition-all ${
+                      socialPlatform === key
+                        ? "bg-[rgba(6,182,212,0.10)] text-[#06b6d4] border-[rgba(6,182,212,0.15)]"
+                        : "bg-transparent text-[#576675] border-[rgba(255,255,255,0.06)] hover:text-[#8d9aaa] hover:border-[rgba(255,255,255,0.10)]"
+                    }`}
+                  >
+                    {val.label}
+                  </button>
+                ))}
+              </div>
+              {activeTypes && (
+                <div className="flex flex-col gap-0.5">
+                  {Object.entries(activeTypes).map(([tk, tv]) => {
+                    const isActive = state.targetWidth === tv.w && state.targetHeight === tv.h;
+                    return (
+                      <button
+                        key={tk}
+                        onClick={() => { onStateChange({ targetWidth: tv.w, targetHeight: tv.h }); }}
+                        className={`flex items-center justify-between px-2 py-1.5 rounded-sm text-[0.65rem] font-semibold border transition-all ${
+                          isActive
+                            ? "bg-[rgba(6,182,212,0.08)] text-[#06b6d4] border-[rgba(6,182,212,0.12)]"
+                            : "bg-transparent text-[#8d9aaa] border-transparent hover:bg-[rgba(255,255,255,0.03)] hover:text-[#e6edf5]"
+                        }`}
+                      >
+                        <span>{tv.label}</span>
+                        <span className="text-[0.55rem] opacity-60">{tv.w}×{tv.h}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             <button

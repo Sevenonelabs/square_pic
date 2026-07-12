@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CompressorTool } from "@/components/compressor/compressor-tool";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
   title: "Free Image Compressor - JPG, PNG & WebP",
@@ -15,6 +16,7 @@ export default function CompressorPage() {
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Compressor", url: `${SITE}/compressor` }]} />
       <CompressorTool />
+      <ToolLinks current="/compressor" />
     </>
   );
 }
