@@ -1,0 +1,28 @@
+# ── AI crawler management ─────────────────────────────
+# Block AI model training crawlers while preserving search indexing
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# ── Allow all other crawlers ─────────────────────────
+User-agent: *
+Allow: /
+Allow: /assets/
+Disallow: /api/
+
+Sitemap: https://squarepic-next.vercel.app/sitemap.xml
+
+# When using a custom domain, replace the URL above with:
+# Sitemap: https://yourdomain.com/sitemap.xml

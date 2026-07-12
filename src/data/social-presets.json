@@ -1,0 +1,134 @@
+{
+  "instagram": {
+    "label": "Instagram",
+    "description": "Instagram image sizes for posts, stories, profiles, and reels. Square posts are 1080x1080, portrait is 1080x1350, landscape is 1080x566.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 320, "h": 320, "aspect": "1:1" },
+      "landscape": { "label": "Landscape Post", "w": 1080, "h": 566, "aspect": "1.91:1" },
+      "portrait": { "label": "Portrait Post", "w": 1080, "h": 1350, "aspect": "4:5" },
+      "square": { "label": "Square Post", "w": 1080, "h": 1080, "aspect": "1:1" },
+      "stories": { "label": "Stories/Reels", "w": 1080, "h": 1920, "aspect": "9:16" }
+    }
+  },
+  "facebook": {
+    "label": "Facebook",
+    "description": "Facebook image sizes for posts, profiles, covers, and stories. Cover photos are 851x315, shared posts work best at 1200x630.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 320, "h": 320, "aspect": "1:1" },
+      "landscape": { "label": "Landscape Post", "w": 1080, "h": 566, "aspect": "1.91:1" },
+      "portrait": { "label": "Portrait Post", "w": 1080, "h": 1350, "aspect": "4:5" },
+      "square": { "label": "Square Post", "w": 1080, "h": 1080, "aspect": "1:1" },
+      "stories": { "label": "Stories/Reels", "w": 1080, "h": 1920, "aspect": "9:16" },
+      "cover": { "label": "Cover Photo", "w": 851, "h": 315, "aspect": "2.7:1" }
+    }
+  },
+  "twitter": {
+    "label": "X (Twitter)",
+    "description": "X (Twitter) image sizes for profile photos, header images, and in-stream posts. Headers display at 1500x500 on desktop.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 400, "h": 400, "aspect": "1:1" },
+      "landscape": { "label": "Landscape Post", "w": 1600, "h": 900, "aspect": "16:9" },
+      "portrait": { "label": "Portrait Post", "w": 1080, "h": 1350, "aspect": "4:5" },
+      "square": { "label": "Square Post", "w": 1080, "h": 1080, "aspect": "1:1" },
+      "cover": { "label": "Cover Photo", "w": 1500, "h": 500, "aspect": "3:1" }
+    }
+  },
+  "linkedin": {
+    "label": "LinkedIn",
+    "description": "LinkedIn image sizes for profiles, posts, company pages, and cover images. Banner display is 1128x191, shared images are 1200x627.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 400, "h": 400, "aspect": "1:1" },
+      "landscape": { "label": "Landscape Post", "w": 1200, "h": 627, "aspect": "1.91:1" },
+      "portrait": { "label": "Portrait Post", "w": 720, "h": 900, "aspect": "4:5" },
+      "square": { "label": "Square Post", "w": 1200, "h": 1200, "aspect": "1:1" },
+      "cover": { "label": "Cover Photo", "w": 1128, "h": 191, "aspect": "5.9:1" }
+    }
+  },
+  "tiktok": {
+    "label": "TikTok",
+    "description": "TikTok image sizes for profile pictures, videos, and ads. The platform uses 9:16 portrait (1080x1920) as the primary format for all video content.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 200, "h": 200, "aspect": "1:1" },
+      "landscape": { "label": "Landscape Post", "w": 1920, "h": 1080, "aspect": "16:9" },
+      "portrait": { "label": "Portrait Post", "w": 1080, "h": 1920, "aspect": "9:16" },
+      "square": { "label": "Square Post", "w": 1080, "h": 1080, "aspect": "1:1" },
+      "stories": { "label": "Stories/Reels", "w": 1080, "h": 1080, "aspect": "1:1" }
+    }
+  },
+  "youtube": {
+    "label": "YouTube",
+    "description": "YouTube image sizes for thumbnails, channel art, and profile photos. Video thumbnails are 1280x720, channel art banners are 2560x1440.",
+    "types": {
+      "thumbnail": { "label": "Video Thumbnail", "w": 1280, "h": 720, "aspect": "16:9" },
+      "channelArt": { "label": "Channel Art", "w": 2560, "h": 1440, "aspect": "16:9" },
+      "profile": { "label": "Profile Picture", "w": 800, "h": 800, "aspect": "1:1" },
+      "cover": { "label": "Banner Display", "w": 1546, "h": 423, "aspect": "3.65:1" }
+    }
+  },
+  "pinterest": {
+    "label": "Pinterest",
+    "description": "Pinterest image sizes for pins, profile photos, and board covers. Standard pins use the tall 2:3 aspect ratio at 1000x1500 pixels.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 165, "h": 165, "aspect": "1:1" },
+      "pinStandard": { "label": "Standard Pin", "w": 1000, "h": 1500, "aspect": "2:3" },
+      "pinSquare": { "label": "Square Pin", "w": 1000, "h": 1000, "aspect": "1:1" },
+      "boardCover": { "label": "Board Cover", "w": 600, "h": 600, "aspect": "1:1" }
+    }
+  },
+  "snapchat": {
+    "label": "Snapchat",
+    "description": "Snapchat image sizes for snaps, stories, geofilters, and ads. All full-screen Snapchat content uses 1080x1920 in 9:16 portrait orientation.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 320, "h": 320, "aspect": "1:1" },
+      "story": { "label": "Story/Snap", "w": 1080, "h": 1920, "aspect": "9:16" },
+      "geofilter": { "label": "Geofilter", "w": 1080, "h": 1920, "aspect": "9:16" },
+      "ad": { "label": "Snap Ad", "w": 1080, "h": 1920, "aspect": "9:16" }
+    }
+  },
+  "whatsapp": {
+    "label": "WhatsApp",
+    "description": "WhatsApp image sizes for profile pictures, status updates, and business profiles. Status images display full-screen at 1080x1920.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 500, "h": 500, "aspect": "1:1" },
+      "status": { "label": "Status Image", "w": 1080, "h": 1920, "aspect": "9:16" },
+      "businessCover": { "label": "Business Cover", "w": 800, "h": 800, "aspect": "1:1" }
+    }
+  },
+  "twitch": {
+    "label": "Twitch",
+    "description": "Twitch image sizes for profile pictures, banners, panels, and offline screens. Panels are small 320x160 informational boxes below streams.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 300, "h": 300, "aspect": "1:1" },
+      "banner": { "label": "Banner", "w": 1200, "h": 480, "aspect": "2.5:1" },
+      "panel": { "label": "Panel", "w": 320, "h": 160, "aspect": "2:1" },
+      "offlineBanner": { "label": "Offline Banner", "w": 1920, "h": 1080, "aspect": "16:9" }
+    }
+  },
+  "reddit": {
+    "label": "Reddit",
+    "description": "Reddit image sizes for profile pictures, banners, and post images. Reddit banners are extremely wide at 4000x128 pixels.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 256, "h": 256, "aspect": "1:1" },
+      "banner": { "label": "Banner", "w": 4000, "h": 128, "aspect": "31.25:1" },
+      "postImage": { "label": "Post Image", "w": 1200, "h": 675, "aspect": "16:9" }
+    }
+  },
+  "telegram": {
+    "label": "Telegram",
+    "description": "Telegram image sizes for profile pictures and channel covers. Profile photos display in circular crops, so centering the subject matters.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 500, "h": 500, "aspect": "1:1" },
+      "channelCover": { "label": "Channel Cover", "w": 320, "h": 320, "aspect": "1:1" }
+    }
+  },
+  "discord": {
+    "label": "Discord",
+    "description": "Discord image sizes for avatars, server icons, banners, and splash screens. Server banners display at 960x540 on the channel list header.",
+    "types": {
+      "profile": { "label": "Profile Picture", "w": 512, "h": 512, "aspect": "1:1" },
+      "serverIcon": { "label": "Server Icon", "w": 512, "h": 512, "aspect": "1:1" },
+      "serverBanner": { "label": "Server Banner", "w": 960, "h": 540, "aspect": "16:9" },
+      "serverSplash": { "label": "Server Splash", "w": 960, "h": 540, "aspect": "16:9" }
+    }
+  }
+}
