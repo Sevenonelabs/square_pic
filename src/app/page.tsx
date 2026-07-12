@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { ToolAsHeroLayout } from "@/components/layout/tool-as-hero-layout";
 import { ToolLinks } from "@/components/layout/tool-links";
+import { JsonLd } from "@/components/schema-scripts";
 import type { EditorState } from "@/lib/editor-renderer";
 
 const DEFAULTS = {
@@ -34,6 +35,26 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "SquarePic",
+        alternateName: "Square Pic - Square Image Tool",
+        url: "https://squarepic-next.vercel.app",
+        description: "Free online square image maker and social media photo resizer. No uploads, no signup.",
+        logo: "https://squarepic-next.vercel.app/images/logo.png",
+        sameAs: ["https://github.com/Sevenonelabs/square_pic"],
+      }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        name: "SquarePic - Free Square Image Maker",
+        url: "https://squarepic-next.vercel.app",
+        description: "Make any photo perfectly square for Instagram and social media. Free online image resizer with blur backgrounds, solid fills, and smart crop.",
+        applicationCategory: "MultimediaApplication",
+        operatingSystem: "Any",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      }} />
       <ToolAsHeroLayout
         state={state}
         onStateChange={update}

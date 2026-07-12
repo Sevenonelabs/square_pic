@@ -59,7 +59,7 @@ export function OrgSchema() {
         alternateName: "Square Pic Square Image tool",
         url: "https://squarepic-next.vercel.app",
         description: "Free online square image maker and social media photo resizer.",
-        logo: "https://squarepic-next.vercel.app/squareframe_preview.png",
+        logo: "https://squarepic-next.vercel.app/images/logo.png",
         sameAs: ["https://github.com/Sevenonelabs/square_pic"],
       }}
     />

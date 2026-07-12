@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
   title: "FAQ - Frequently Asked Questions",
   description: "Find answers to common questions about SquarePic. Learn how to make square images, resize photos, and edit pictures online for free.",
   openGraph: { title: "FAQ - Frequently Asked Questions | SquarePic" },
+  alternates: { canonical: "https://squarepic-next.vercel.app/faq" },
 };
 
 const SITE = "https://squarepic-next.vercel.app";
@@ -48,6 +49,15 @@ export default function FAQPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "FAQ", url: `${SITE}/faq` }]} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: FAQS.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      }} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-6">Frequently Asked Questions</h1>
       <div className="space-y-5">

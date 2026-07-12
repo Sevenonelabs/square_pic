@@ -16,8 +16,9 @@ export function Navbar() {
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-3 left-1/2 -translate-x-1/2 w-auto min-w-[380px] max-w-[calc(100vw-24px)] h-11 bg-[rgba(5,5,7,0.82)] backdrop-blur-[28px] saturate-[1.6] border border-[rgba(255,255,255,0.06)] rounded-lg px-2 z-50 flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.4)] max-lg:min-w-0 max-lg:w-[calc(100%-16px)] max-lg:px-1.5 max-lg:h-10 max-md:top-1.5 max-md:h-9"
     >
-      <a href="/" className="text-[0.82rem] font-extrabold tracking-tight whitespace-nowrap text-[#e6edf5] no-underline max-lg:text-[0.7rem] max-md:text-[0.65rem]">
-        SquarePic
+      <a href="/" className="flex items-center gap-1.5 no-underline">
+        <img src="/images/logo-icon.svg" alt="" width="18" height="18" className="shrink-0" style={{ filter: "brightness(10)" }} />
+        <span className="text-[0.82rem] font-extrabold tracking-tight whitespace-nowrap text-[#e6edf5] max-lg:text-[0.7rem] max-md:text-[0.65rem]">SquarePic</span>
       </a>
 
       <div className="flex items-center h-11 gap-2 flex-1 justify-end max-lg:h-10 max-md:h-9">

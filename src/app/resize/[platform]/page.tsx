@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import presets from "@/data/social-presets.json";
+import { PLATFORM_ICONS } from "@/data/social-icons";
 
 type Props = { params: Promise<{ platform: string }> };
 
@@ -165,7 +166,12 @@ export default async function PlatformPage({ params }: Props) {
       }} />
       <div className="max-w-[920px] w-full mx-auto px-5 py-6">
       <div className="text-center mb-8 p-8 bg-gradient-to-br from-[rgba(6,182,212,0.04)] to-[rgba(139,92,246,0.04)] border border-[rgba(6,182,212,0.08)] rounded-lg">
-        <h1 className="text-[1.5rem] font-extrabold tracking-tight mb-2">{p.label} Image Sizes: Complete Dimensions Guide</h1>
+        <h1 className="text-[1.5rem] font-extrabold tracking-tight mb-2 flex items-center justify-center gap-3">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 text-[var(--accent)]">
+            <path d={PLATFORM_ICONS[key] || "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"} />
+          </svg>
+          {p.label} Image Sizes: Complete Dimensions Guide
+        </h1>
         <p className="text-[0.85rem] text-[#8d9aaa] max-w-[600px] mx-auto leading-relaxed">{p.description}</p>
         <div className="flex justify-center gap-2 flex-wrap mt-5">
           {types.map(([k, t]: any) => (
@@ -177,8 +183,8 @@ export default async function PlatformPage({ params }: Props) {
       </div>
 
       <div className="flex items-center gap-2 mb-4">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 text-[var(--accent)]">
+          <path d={PLATFORM_ICONS[key] || "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"} />
         </svg>
         <span className="text-[1rem] font-extrabold text-[#e6edf5]">All {p.label} Image Sizes</span>
       </div>
