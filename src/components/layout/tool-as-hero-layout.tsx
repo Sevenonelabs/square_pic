@@ -139,19 +139,20 @@ export function ToolAsHeroLayout({
   }, [state.image, downloadFilename, downloadEventName, exportFormat]);
 
   const renderHeadline = () => {
-    if (!highlightWord) return headline;
+    const nl = (s: string) => s.split("\n").map((p, i) => i ? [<br key={i} />, p] : p);
+    if (!highlightWord) return nl(headline);
     const idx = headline.indexOf(highlightWord);
-    if (idx === -1) return headline;
+    if (idx === -1) return nl(headline);
     const before = headline.slice(0, idx);
     const after = headline.slice(idx + highlightWord.length);
     return (
       <>
-        {before}
+        {nl(before)}
         <span className="relative inline-block">
           {highlightWord}
           <span className="absolute left-0 bottom-1 w-full h-1.5 bg-[var(--accent)] opacity-15 rounded-sm" />
         </span>
-        {after}
+        {nl(after)}
       </>
     );
   };
