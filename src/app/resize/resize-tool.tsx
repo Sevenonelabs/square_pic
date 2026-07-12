@@ -38,7 +38,6 @@ export function ResizeTool() {
       headline="Square Pic – Social Media Resizer"
       highlightWord="Social Media Resizer"
       badge="100% Free · No Signup · Privacy-First"
-      microcopy="Resize your images for any social platform — Instagram, Facebook, X, TikTok, and more. All editing happens locally in your browser with no uploads."
       colorSwatches={COLOR_SWATCHES}
     />
   );

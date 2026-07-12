@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 export const TOOLS = [
   {
     href: "/resize",
@@ -25,53 +29,76 @@ export const TOOLS = [
   },
 ];
 
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
+
 export function ToolLinks({ current }: { current?: string }) {
   return (
-    <section className="max-w-[1400px] mx-auto px-6 pb-16 w-full max-md:px-3">
-      <div className="text-center mb-6">
+    <section className="max-w-[1400px] mx-auto px-6 pb-20 w-full max-md:px-3">
+      <div className="text-center mb-8">
         <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5]">
           More Free Photo Tools
         </h2>
-        <p className="text-[0.75rem] text-[#8d9aaa] font-medium mt-0.5">
-          Crop, convert, compress &amp; resize — all in your browser.
+        <p className="text-[0.75rem] text-[#8d9aaa] font-medium mt-1 leading-relaxed">
+          Crop, convert, compress & resize - all in your browser.
         </p>
       </div>
-      <div className="grid grid-cols-4 gap-3 max-lg:grid-cols-2 max-md:grid-cols-2 max-sm:grid-cols-1">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="grid grid-cols-4 gap-4 max-lg:grid-cols-2 max-md:grid-cols-2 max-sm:grid-cols-1"
+      >
         {TOOLS.map((tool) => {
           const isCurrent = current === tool.href;
           return (
-            <a
+            <motion.a
               key={tool.href}
+              variants={item}
               href={tool.href}
-              className={`group flex items-center gap-3 rounded-lg px-4 py-3 no-underline transition-all duration-300 ${
+              className={`group flex items-center gap-3 rounded-xl px-4 py-4 no-underline transition-all duration-300 ${
                 isCurrent
                   ? "bg-[var(--accent)]/8 border border-[var(--accent)]/15 cursor-default"
                   : "bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5"
               }`}
             >
-              <div className={`w-8 h-8 shrink-0 flex items-center justify-center rounded-sm border transition-colors ${
+              <div className={`w-10 h-10 shrink-0 flex items-center justify-center rounded-lg border transition-colors ${
                 isCurrent
                   ? "bg-[var(--accent)]/12 border-[var(--accent)]/20"
                   : "bg-[rgba(255,255,255,0.04)] border-[rgba(255,255,255,0.06)] group-hover:border-[var(--accent)]"
               }`}>
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d={tool.icon} />
                 </svg>
               </div>
               <div className="min-w-0">
-                <h3 className={`text-[0.78rem] font-extrabold m-0 truncate transition-colors ${
+                <h3 className={`text-[0.85rem] font-extrabold m-0 truncate transition-colors ${
                   isCurrent ? "text-[var(--accent)]" : "text-[#e6edf5] group-hover:text-[var(--accent)]"
                 }`}>
                   {tool.label}
                 </h3>
-                <p className="text-[0.65rem] text-[#8d9aaa] m-0 truncate leading-relaxed">
+                <p className="text-[0.68rem] text-[#8d9aaa] m-0 truncate leading-relaxed">
                   {tool.desc}
                 </p>
               </div>
-            </a>
+            </motion.a>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -40,7 +40,6 @@ export default function Home() {
         headline="Make Any Image Perfectly Square Online"
         highlightWord="Perfectly Square"
         badge="100% Free · No Signup · Privacy-First"
-        microcopy="All editing happens locally in your browser with no uploads, no watermarks, and no signup required. Export in PNG, JPEG, or WebP format at full quality."
         colorSwatches={COLOR_SWATCHES}
       />
 

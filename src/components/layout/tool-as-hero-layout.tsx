@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect, useRef } from "react";
+import { motion } from "motion/react";
 import { EditorCanvas } from "@/components/editor/canvas";
 import { DropZone } from "@/components/editor/drop-zone";
 import type { EditorState } from "@/lib/editor-renderer";
@@ -34,6 +35,16 @@ export interface ToolAsHeroLayoutProps {
 }
 
 const MAX_SIZE_MB = 20;
+const STYLE_MODES = ["blur", "solid", "crop"] as const;
+
+const panelVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, delay: 0.1 + i * 0.05, ease: [0.16, 1, 0.3, 1] as const },
+  }),
+};
 
 export function ToolAsHeroLayout({
   state,
@@ -78,10 +89,10 @@ export function ToolAsHeroLayout({
     if (!state.targetWidth || !state.targetHeight) return null;
     for (const [pk, pv] of Object.entries(presets)) {
       for (const [tk, tv] of Object.entries(pv.types)) {
-        if (tv.w === state.targetWidth && tv.h === state.targetHeight) return `${pv.label} · ${tv.label}`;
+        if (tv.w === state.targetWidth && tv.h === state.targetHeight) return `${pv.label} - ${tv.label}`;
       }
     }
-    return `${state.targetWidth}×${state.targetHeight}`;
+    return `${state.targetWidth}x${state.targetHeight}`;
   })();
 
   const handleFile = useCallback(
@@ -146,10 +157,17 @@ export function ToolAsHeroLayout({
   };
 
   return (
-    <section className="max-w-[1400px] mx-auto px-6 w-full max-md:px-3">
-      <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5 relative max-md:p-2">
-        <div className="flex flex-row gap-5 w-full max-md:flex-col max-md:gap-3" style={{ maxWidth: 1360 }}>
-          <div className="flex-1 flex items-center justify-center p-3 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-md border border-[rgba(255,255,255,0.10)] relative overflow-hidden min-h-[450px] max-md:min-h-[350px]">
+    <section className="max-w-[1400px] mx-auto px-4 md:px-6 w-full">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+        className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-4 md:p-5"
+      >
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/20 to-transparent" />
+
+        <div className="flex flex-row gap-4 md:gap-5 w-full max-md:flex-col max-md:gap-4" style={{ maxWidth: 1360 }}>
+          <div className="flex-1 flex items-center justify-center p-4 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-lg border border-[rgba(255,255,255,0.10)] relative overflow-hidden min-h-[450px] max-md:min-h-[350px]">
             {!hasImage ? (
               <div className="flex flex-col items-center justify-center gap-5 w-full h-full text-center relative">
                 {uploading && (
@@ -158,41 +176,66 @@ export function ToolAsHeroLayout({
                     <span className="text-[0.75rem] text-[#8d9aaa] font-semibold">Loading image...</span>
                   </div>
                 )}
-                <h1 className="text-[clamp(2rem,4vw,3.2rem)] font-black tracking-[-2px] leading-[1.05] text-[#e6edf5] max-w-[600px]">
-                  {renderHeadline()}
-                </h1>
-                {microcopy && (
-                  <p className="text-[0.85rem] text-[#8d9aaa] max-w-[480px] font-medium leading-relaxed">
-                    {microcopy}
-                  </p>
-                )}
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex flex-col items-center gap-4"
+                >
+                  <h1 className="text-[clamp(2rem,4vw,3.2rem)] font-black tracking-[-2px] leading-[1.05] text-[#e6edf5] max-w-[600px]">
+                    {renderHeadline()}
+                  </h1>
+                  {microcopy && (
+                    <p className="text-[0.85rem] text-[#8d9aaa] max-w-[480px] font-medium leading-relaxed">
+                      {microcopy}
+                    </p>
+                  )}
+                </motion.div>
                 <div className="w-full max-w-[400px]">
                   <DropZone onFile={handleFile} compact />
                 </div>
+                {badge && (
+                  <span className="inline-flex items-center gap-1.5 text-[0.6rem] font-bold tracking-[0.08em] uppercase text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-3 py-1 rounded-sm">
+                    {badge}
+                  </span>
+                )}
               </div>
             ) : (
               <EditorCanvas state={state} onStateChange={onStateChange} />
             )}
           </div>
 
-          <aside className="flex flex-col gap-2 w-[310px] shrink-0 max-md:w-full">
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-md p-3">
-              <h3 className="text-[0.62rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Outer Border (Padding)</h3>
-              <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1">
+          <aside className="flex flex-col gap-3 w-[310px] shrink-0 max-md:w-full max-md:max-h-[400px] max-md:overflow-y-auto">
+            {/* Padding */}
+            <motion.div
+              custom={0}
+              initial="hidden"
+              animate="visible"
+              variants={panelVariants}
+              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3.5"
+            >
+              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Outer Border (Padding)</h3>
+              <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1.5">
                 <span>Padding</span>
                 <span>{state.paddingPercent}%</span>
               </div>
               <input
                 type="range" min="0" max="40" value={state.paddingPercent}
                 onChange={(e) => onStateChange({ paddingPercent: Number(e.target.value) })}
-                className="w-full h-[2px] appearance-none bg-[rgba(255,255,255,0.06)] outline-none accent-[var(--accent)]"
               />
-            </div>
+            </motion.div>
 
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-md p-3">
-              <h3 className="text-[0.62rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Style</h3>
-              <div className="flex gap-1 bg-[rgba(0,0,0,0.25)] p-[3px] rounded-sm border border-[rgba(255,255,255,0.06)]">
-                {(["blur", "solid", "crop"] as const).map((m) => (
+            {/* Style + conditional sub-panel */}
+            <motion.div
+              custom={1}
+              initial="hidden"
+              animate="visible"
+              variants={panelVariants}
+              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3.5"
+            >
+              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Style</h3>
+              <div className="flex gap-1 bg-[rgba(0,0,0,0.25)] p-[3px] rounded-md border border-[rgba(255,255,255,0.06)]">
+                {STYLE_MODES.map((m) => (
                   <button
                     key={m}
                     onClick={() => onStateChange({ mode: m })}
@@ -206,70 +249,82 @@ export function ToolAsHeroLayout({
                   </button>
                 ))}
               </div>
-            </div>
 
-            {state.mode === "blur" && (
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-md p-3">
-                <h3 className="text-[0.62rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Blur Intensity</h3>
-                <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1">
-                  <span>Blur</span>
-                  <span>{state.blurAmount}px</span>
+              {state.mode === "blur" && (
+                <div className="mt-3 pt-3 border-t border-[rgba(255,255,255,0.06)]">
+                  <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Blur Intensity</h3>
+                  <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1.5">
+                    <span>Blur</span>
+                    <span>{state.blurAmount}px</span>
+                  </div>
+                  <input type="range" min="0" max="100" value={state.blurAmount}
+                    onChange={(e) => onStateChange({ blurAmount: Number(e.target.value) })} />
                 </div>
-                <input type="range" min="0" max="100" value={state.blurAmount}
-                  onChange={(e) => onStateChange({ blurAmount: Number(e.target.value) })}
-                  className="w-full h-[2px] appearance-none bg-[rgba(255,255,255,0.06)] outline-none" />
-              </div>
-            )}
+              )}
 
-            {state.mode === "solid" && (
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-md p-3">
-                <h3 className="text-[0.62rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Background Color</h3>
-                <div className="grid grid-cols-8 gap-1 mb-2.5">
-                  {colorSwatches.map((c) => (
-                    <button
-                      key={c}
-                      onClick={() => onStateChange({ backgroundColor: c })}
-                      className="w-full aspect-square rounded-sm cursor-pointer border-2 transition-all hover:scale-110"
-                      style={{
-                        background: c,
-                        borderColor: state.backgroundColor === c ? "var(--accent)" : "transparent",
-                        boxShadow: state.backgroundColor === c ? "0 0 0 2px #07080b, 0 0 0 3px var(--accent)" : "none",
-                      }}
-                    />
-                  ))}
+              {state.mode === "solid" && (
+                <div className="mt-3 pt-3 border-t border-[rgba(255,255,255,0.06)]">
+                  <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Background Color</h3>
+                  <div className="grid grid-cols-8 gap-1.5 mb-2.5">
+                    {colorSwatches.map((c) => (
+                      <button
+                        key={c}
+                        onClick={() => onStateChange({ backgroundColor: c })}
+                        className="w-full aspect-square rounded-md cursor-pointer border-2 transition-all duration-200 hover:scale-110 hover:shadow-[0_0_12px_rgba(255,255,255,0.06)]"
+                        style={{
+                          background: c,
+                          borderColor: state.backgroundColor === c ? "var(--accent)" : "transparent",
+                          boxShadow: state.backgroundColor === c
+                            ? "0 0 0 2px #07080b, 0 0 0 3px var(--accent)"
+                            : "0 0 0 1px rgba(255,255,255,0.06)",
+                        }}
+                      />
+                    ))}
+                  </div>
+                  <input type="color" value={state.backgroundColor}
+                    onChange={(e) => onStateChange({ backgroundColor: e.target.value })} />
                 </div>
-                <input type="color" value={state.backgroundColor}
-                  onChange={(e) => onStateChange({ backgroundColor: e.target.value })}
-                  className="w-full h-[30px] border border-[rgba(255,255,255,0.06)] rounded-sm bg-transparent cursor-pointer p-0.5" />
-              </div>
-            )}
+              )}
+            </motion.div>
 
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-md p-3">
-              <h3 className="text-[0.62rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Adjustments</h3>
-              <div className="space-y-2">
+            {/* Adjustments */}
+            <motion.div
+              custom={2}
+              initial="hidden"
+              animate="visible"
+              variants={panelVariants}
+              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3.5"
+            >
+              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Adjustments</h3>
+              <div className="space-y-3">
                 <div>
-                  <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1">
+                  <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1.5">
                     <span>Zoom</span>
                     <span>{state.imageScale}%</span>
                   </div>
                   <input type="range" min="50" max="200" value={state.imageScale}
-                    onChange={(e) => onStateChange({ imageScale: Number(e.target.value) })}
-                    className="w-full h-[2px] appearance-none bg-[rgba(255,255,255,0.06)] outline-none" />
+                    onChange={(e) => onStateChange({ imageScale: Number(e.target.value) })} />
                 </div>
                 <div>
-                  <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1">
+                  <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1.5">
                     <span>Edge Radius</span>
                     <span>{state.cornerRadius}px</span>
                   </div>
                   <input type="range" min="0" max="100" value={state.cornerRadius}
-                    onChange={(e) => onStateChange({ cornerRadius: Number(e.target.value) })}
-                    className="w-full h-[2px] appearance-none bg-[rgba(255,255,255,0.06)] outline-none" />
+                    onChange={(e) => onStateChange({ cornerRadius: Number(e.target.value) })} />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-md p-3">
-              <h3 className="text-[0.62rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Social Size</h3>
+            {/* Social Size */}
+            <motion.div
+              custom={3}
+              initial="hidden"
+              animate="visible"
+              variants={panelVariants}
+              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3.5"
+            >
+              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Social Size</h3>
               {activePresetLabel && (
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[0.65rem] text-[var(--accent)] font-semibold truncate mr-2">{activePresetLabel}</span>
@@ -311,25 +366,32 @@ export function ToolAsHeroLayout({
                         }`}
                       >
                         <span>{tv.label}</span>
-                        <span className="text-[0.55rem] opacity-60">{tv.w}×{tv.h}</span>
+                        <span className="text-[0.55rem] opacity-60">{tv.w}x{tv.h}</span>
                       </button>
                     );
                   })}
                 </div>
               )}
-            </div>
+            </motion.div>
 
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-md p-3">
-              <h3 className="text-[0.62rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Export</h3>
+            {/* Export + Download */}
+            <motion.div
+              custom={4}
+              initial="hidden"
+              animate="visible"
+              variants={panelVariants}
+              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3.5"
+            >
+              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Export</h3>
               <div className="flex gap-1 mb-2">
                 {FORMATS.map((fmt) => (
                   <button
                     key={fmt.value}
                     onClick={() => setExportFormat(fmt.value)}
-                    className={`flex-1 text-[0.6rem] font-bold px-1 py-1 rounded-sm border transition-all ${
+                    className={`flex-1 text-[0.6rem] font-bold px-1 py-1.5 rounded-sm border transition-all ${
                       exportFormat === fmt.value
                         ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
-                        : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa]"
+                        : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa] hover:border-[rgba(255,255,255,0.10)]"
                     }`}
                   >
                     {fmt.label}
@@ -337,22 +399,24 @@ export function ToolAsHeroLayout({
                 ))}
               </div>
               {hasImage && estimatedSize !== null && (
-                <div className="text-[0.65rem] text-[#8d9aaa] text-center">
+                <div className="text-[0.65rem] text-[#8d9aaa] text-center mb-2">
                   Est. size: <strong className="text-[var(--accent)]">{formatBytes(estimatedSize)}</strong>
                 </div>
               )}
-            </div>
 
-            <button
-              onClick={handleDownload}
-              disabled={!hasImage}
-              className="w-full bg-[var(--accent)] text-black border-none py-2.5 rounded-md font-extrabold text-sm cursor-pointer transition-all hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100 shadow-[0_4px_16px_var(--accent-glow)]"
-            >
-              Download {exportFormat.toUpperCase()}
-            </button>
+              <motion.button
+                whileHover={hasImage ? { scale: 1.02 } : {}}
+                whileTap={hasImage ? { scale: 0.97 } : {}}
+                onClick={handleDownload}
+                disabled={!hasImage}
+                className="w-full bg-[var(--accent)] text-black border-none py-2.5 rounded-lg font-extrabold text-sm cursor-pointer transition-all duration-200 hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100 shadow-[0_4px_20px_var(--accent-glow)]"
+              >
+                Download {exportFormat.toUpperCase()}
+              </motion.button>
+            </motion.div>
           </aside>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
