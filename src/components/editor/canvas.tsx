@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useCallback, useState } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import { renderToCanvas, type EditorState } from "@/lib/editor-renderer";
 import { DropZone } from "./drop-zone";
 
@@ -13,7 +13,7 @@ const MAX_SIZE_MB = 20;
 
 export function EditorCanvas({ state, onStateChange }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [hasImage, setHasImage] = useState(false);
+  const hasImage = state.image !== null;
   const renderScheduled = useRef(false);
 
   const scheduleRender = useCallback(() => {
@@ -46,7 +46,6 @@ export function EditorCanvas({ state, onStateChange }: Props) {
       const img = new Image();
       img.onload = () => {
         onStateChange({ image: img });
-        setHasImage(true);
       };
       img.onerror = () => {
         URL.revokeObjectURL(url);
@@ -62,7 +61,6 @@ export function EditorCanvas({ state, onStateChange }: Props) {
       URL.revokeObjectURL(state.image.src);
     }
     onStateChange({ image: null });
-    setHasImage(false);
   }, [state.image, onStateChange]);
 
   return (

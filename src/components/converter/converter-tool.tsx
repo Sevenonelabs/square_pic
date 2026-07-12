@@ -192,7 +192,7 @@ export function ConverterTool() {
         <div className="space-y-2">
           {files.map((item) => (
             <div key={item.id} className="flex items-center gap-3 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3 transition-all hover:bg-[rgba(255,255,255,0.04)] flex-wrap">
-              <img src={item.src} className="w-11 h-11 rounded-md object-cover bg-black/30 border border-[rgba(255,255,255,0.06)]" alt="" />
+              <img src={item.src} className="w-11 h-11 rounded-md object-cover bg-black/30 border border-[rgba(255,255,255,0.06)]" alt={item.name} />
               <div className="flex-1 min-w-[150px]">
                 <div className="text-[0.82rem] font-bold text-[#e6edf5] truncate max-w-[250px]">{item.name}</div>
                 <div className="flex items-center gap-2 text-[0.68rem] text-[#8d9aaa]">{formatBytes(item.size)}</div>

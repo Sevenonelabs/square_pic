@@ -223,7 +223,7 @@ export function CompressorTool() {
                     </button>
                   </div>
                   <div className="relative w-full aspect-[16/10] rounded-sm overflow-hidden bg-black border border-[rgba(255,255,255,0.05)]">
-                    <img src={item.src} className="w-full h-full object-cover" alt="" />
+                    <img src={item.src} className="w-full h-full object-cover" alt={item.name} />
                     {item.status === "compressing" && (
                       <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
                         <div className="w-5 h-5 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
