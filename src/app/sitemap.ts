@@ -7,7 +7,7 @@ const STATIC_PAGES = [
   { path: "/compressor", priority: 0.9, freq: "weekly" as const },
   { path: "/converter", priority: 0.9, freq: "weekly" as const },
   { path: "/cropper", priority: 0.9, freq: "weekly" as const },
-  { path: "/resize", priority: 0.9, freq: "weekly" as const },
+  // /resize now redirects to /
   { path: "/about", priority: 0.5, freq: "monthly" as const },
   { path: "/faq", priority: 0.5, freq: "monthly" as const },
   { path: "/support", priority: 0.4, freq: "monthly" as const },

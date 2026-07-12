@@ -58,7 +58,7 @@ export default function Home() {
       <ToolAsHeroLayout
         state={state}
         onStateChange={update}
-        headline="Make Any Image Perfectly Square Online"
+        headline="Make Any Image Perfectly Square Online with SquarePic – Social Media Resizer"
         highlightWord="Perfectly Square"
         badge="100% Free · No Signup · Privacy-First"
         colorSwatches={COLOR_SWATCHES}
