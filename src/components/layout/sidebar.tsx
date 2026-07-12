@@ -45,11 +45,11 @@ export function Sidebar() {
                   onClick={closeSidebar}
                   className={`flex items-center gap-2.5 px-2.5 py-2.5 text-sm font-semibold rounded-sm transition-all duration-300 border border-transparent no-underline ${
                     isActive
-                      ? "bg-[rgba(6,182,212,0.10)] text-[#06b6d4] border-[rgba(6,182,212,0.15)]"
+                      ? "bg-[rgba(6,182,212,0.10)] text-[var(--accent)] border-[rgba(6,182,212,0.15)]"
                       : "text-[#8d9aaa] hover:bg-[rgba(255,255,255,0.04)] hover:text-[#e6edf5] hover:border-[rgba(255,255,255,0.06)] hover:translate-x-1"
                   }`}
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 opacity-60">
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 opacity-60">
                     <path d={link.icon} />
                   </svg>
                   {link.label}

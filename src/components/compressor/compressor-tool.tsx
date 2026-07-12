@@ -114,7 +114,7 @@ export function CompressorTool() {
           files.length > 0 ? "border-[rgba(255,255,255,0.06)] bg-[rgba(0,0,0,0.15)]" : "border-[rgba(255,255,255,0.15)] bg-[rgba(0,0,0,0.08)] hover:border-[var(--accent)] hover:shadow-[0_0_16px_var(--accent-glow)]"
         }`}
       >
-        <svg className="w-10 h-10 mx-auto mb-3 text-[var(--accent)] opacity-80" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+        <svg aria-hidden="true" className="w-10 h-10 mx-auto mb-3 text-[var(--accent)] opacity-80" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
         </svg>
         <h3 className="text-[1.1rem] font-bold mb-1">Drop images here or click to browse</h3>
@@ -200,7 +200,7 @@ export function CompressorTool() {
               </div>
 
               <button onClick={runCompression} disabled={compressing || files.length === 0}
-                className="w-full bg-[var(--accent)] text-black border-none py-2 rounded-md font-extrabold text-sm cursor-pointer transition-all hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed shadow-[0_4px_16px_var(--accent-glow)]"
+                className="w-full bg-[var(--accent)] text-black border-none py-2 rounded-md font-extrabold text-sm cursor-pointer transition-all hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100 shadow-[0_4px_16px_var(--accent-glow)]"
               >
                 {compressing ? "Compressing..." : "Compress All"}
               </button>
@@ -251,7 +251,7 @@ export function CompressorTool() {
                       URL.revokeObjectURL(url);
                     }}
                     disabled={item.status !== "done"}
-                    className="w-full bg-[var(--accent)] text-black border-none py-1.5 rounded-sm text-[0.68rem] font-extrabold cursor-pointer transition-all hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed"
+                    className="w-full bg-[var(--accent)] text-black border-none py-1.5 rounded-sm text-[0.68rem] font-extrabold cursor-pointer transition-all hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100"
                   >
                     Download
                   </button>
@@ -278,7 +278,7 @@ export function CompressorTool() {
               </button>
               {anyDone && (
                 <button onClick={downloadZip}
-                  className="bg-[var(--accent)] text-black px-3 py-1.5 rounded-md text-[0.72rem] font-extrabold cursor-pointer hover:brightness-110 shadow-[0_4px_12px_var(--accent-glow)]">
+                  className="bg-[var(--accent)] text-black px-3 py-1.5 rounded-md text-[0.72rem] font-extrabold cursor-pointer hover:brightness-110 active:brightness-125 shadow-[0_4px_12px_var(--accent-glow)]">
                   Download ZIP
                 </button>
               )}

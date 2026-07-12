@@ -26,7 +26,7 @@ export function DropZone({ onFile, compact }: Props) {
 
   return (
     <div
-      className="w-full h-full flex flex-col items-center justify-center gap-3 cursor-pointer bg-[rgba(255,255,255,0.015)] border-[1.5px] border-dashed border-[rgba(255,255,255,0.06)] rounded-md transition-all duration-300 hover:border-[var(--accent)] hover:bg-[rgba(6,182,212,0.10)]"
+      className="w-full max-w-[500px] aspect-square flex flex-col items-center justify-center gap-3 cursor-pointer bg-[rgba(255,255,255,0.015)] border-[1.5px] border-dashed border-[rgba(255,255,255,0.10)] rounded-md transition-all duration-300 hover:border-[var(--accent)] hover:bg-[var(--accent)]/5"
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}
     >
@@ -43,6 +43,7 @@ export function DropZone({ onFile, compact }: Props) {
         <span className="bg-[var(--accent)] text-black px-5 py-2.5 rounded-md font-extrabold text-sm cursor-pointer transition-all duration-300 hover:brightness-110 shadow-[0_4px_16px_var(--accent-glow)]">
           Upload Your Image
         </span>
+        <span className="text-[0.68rem] text-[#576675] font-semibold">or drag &amp; drop</span>
       </label>
       <input
         ref={inputRef}

@@ -1,11 +1,25 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { EditorCanvas } from "@/components/editor/canvas";
 import { DropZone } from "@/components/editor/drop-zone";
 import type { EditorState } from "@/lib/editor-renderer";
 import { trackEvent } from "@/lib/analytics";
 import SOCIAL_PRESETS from "@/data/social-presets.json";
+
+type ExportFormat = "png" | "jpeg" | "webp";
+
+const FORMATS: { value: ExportFormat; label: string; ext: string; mime: string }[] = [
+  { value: "png", label: "PNG", ext: "png", mime: "image/png" },
+  { value: "jpeg", label: "JPEG", ext: "jpg", mime: "image/jpeg" },
+  { value: "webp", label: "WebP", ext: "webp", mime: "image/webp" },
+];
+
+function formatBytes(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
 
 export interface ToolAsHeroLayoutProps {
   state: EditorState;
@@ -35,6 +49,23 @@ export function ToolAsHeroLayout({
   const hasImage = state.image !== null;
   const [uploading, setUploading] = useState(false);
   const [socialPlatform, setSocialPlatform] = useState<string | null>(null);
+  const [exportFormat, setExportFormat] = useState<ExportFormat>("png");
+  const [estimatedSize, setEstimatedSize] = useState<number | null>(null);
+  const estimateTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  const captureEstimate = useCallback(() => {
+    const canvas = document.querySelector("canvas");
+    if (!canvas) { setEstimatedSize(null); return; }
+    const fmt = FORMATS.find((f) => f.value === exportFormat)!;
+    canvas.toBlob((blob) => {
+      if (blob) setEstimatedSize(blob.size);
+    }, fmt.mime);
+  }, [exportFormat]);
+
+  useEffect(() => {
+    clearTimeout(estimateTimer.current);
+    estimateTimer.current = setTimeout(captureEstimate, 400);
+  }, [state.image, state.paddingPercent, state.imageScale, state.cornerRadius, state.mode, state.blurAmount, state.backgroundColor, state.targetWidth, state.targetHeight, exportFormat, captureEstimate]);
 
   const presets = SOCIAL_PRESETS as Record<string, {
     label: string; description: string;
@@ -84,16 +115,17 @@ export function ToolAsHeroLayout({
     const canvas = document.querySelector("canvas");
     if (!canvas || !state.image) return;
     trackEvent("download", downloadEventName);
+    const fmt = FORMATS.find((f) => f.value === exportFormat)!;
     canvas.toBlob((blob) => {
       if (!blob) return;
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
-      a.download = `${downloadFilename}.png`;
+      a.download = `${downloadFilename}.${fmt.ext}`;
       a.href = url;
       a.click();
       URL.revokeObjectURL(url);
-    }, "image/png");
-  }, [state.image, downloadFilename, downloadEventName]);
+    }, fmt.mime);
+  }, [state.image, downloadFilename, downloadEventName, exportFormat]);
 
   const renderHeadline = () => {
     if (!highlightWord) return headline;
@@ -124,11 +156,6 @@ export function ToolAsHeroLayout({
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[rgba(3,4,6,0.85)]">
                     <div className="w-8 h-8 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
                     <span className="text-[0.75rem] text-[#8d9aaa] font-semibold">Loading image...</span>
-                  </div>
-                )}
-                {badge && (
-                  <div className="inline-flex items-center gap-2 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] rounded-sm px-4 py-1.5 text-[0.68rem] text-[#06b6d4] font-semibold">
-                    <span className="text-[#06b6d4] font-extrabold">✓</span> {badge}
                   </div>
                 )}
                 <h1 className="text-[clamp(2rem,4vw,3.2rem)] font-black tracking-[-2px] leading-[1.05] text-[#e6edf5] max-w-[600px]">
@@ -261,7 +288,7 @@ export function ToolAsHeroLayout({
                     onClick={() => setSocialPlatform(socialPlatform === key ? null : key)}
                     className={`text-[0.6rem] font-bold px-2 py-1 rounded-sm border transition-all ${
                       socialPlatform === key
-                        ? "bg-[rgba(6,182,212,0.10)] text-[#06b6d4] border-[rgba(6,182,212,0.15)]"
+                        ? "bg-[var(--accent)]/10 text-[var(--accent)] border-[var(--accent)]/20"
                         : "bg-transparent text-[#576675] border-[rgba(255,255,255,0.06)] hover:text-[#8d9aaa] hover:border-[rgba(255,255,255,0.10)]"
                     }`}
                   >
@@ -279,7 +306,7 @@ export function ToolAsHeroLayout({
                         onClick={() => { onStateChange({ targetWidth: tv.w, targetHeight: tv.h }); }}
                         className={`flex items-center justify-between px-2 py-1.5 rounded-sm text-[0.65rem] font-semibold border transition-all ${
                           isActive
-                            ? "bg-[rgba(6,182,212,0.08)] text-[#06b6d4] border-[rgba(6,182,212,0.12)]"
+                            ? "bg-[var(--accent)]/8 text-[var(--accent)] border-[var(--accent)]/12"
                             : "bg-transparent text-[#8d9aaa] border-transparent hover:bg-[rgba(255,255,255,0.03)] hover:text-[#e6edf5]"
                         }`}
                       >
@@ -292,12 +319,36 @@ export function ToolAsHeroLayout({
               )}
             </div>
 
+            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-md p-3">
+              <h3 className="text-[0.62rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Export</h3>
+              <div className="flex gap-1 mb-2">
+                {FORMATS.map((fmt) => (
+                  <button
+                    key={fmt.value}
+                    onClick={() => setExportFormat(fmt.value)}
+                    className={`flex-1 text-[0.6rem] font-bold px-1 py-1 rounded-sm border transition-all ${
+                      exportFormat === fmt.value
+                        ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
+                        : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa]"
+                    }`}
+                  >
+                    {fmt.label}
+                  </button>
+                ))}
+              </div>
+              {hasImage && estimatedSize !== null && (
+                <div className="text-[0.65rem] text-[#8d9aaa] text-center">
+                  Est. size: <strong className="text-[var(--accent)]">{formatBytes(estimatedSize)}</strong>
+                </div>
+              )}
+            </div>
+
             <button
               onClick={handleDownload}
               disabled={!hasImage}
-              className="w-full bg-[var(--accent)] text-black border-none py-2.5 rounded-md font-extrabold text-sm cursor-pointer transition-all hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed shadow-[0_4px_16px_var(--accent-glow)]"
+              className="w-full bg-[var(--accent)] text-black border-none py-2.5 rounded-md font-extrabold text-sm cursor-pointer transition-all hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100 shadow-[0_4px_16px_var(--accent-glow)]"
             >
-              Download Square Image
+              Download {exportFormat.toUpperCase()}
             </button>
           </aside>
         </div>

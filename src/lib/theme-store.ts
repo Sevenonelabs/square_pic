@@ -16,15 +16,10 @@ export const THEMES: Record<string, ThemeColor> = {
   amber: { accent: "#f59e0b", glow: "rgba(245,158,11,0.3)" },
 };
 
-interface ThemeState {
-  current: ThemeColor;
-  apply: (accent: string, glow: string) => void;
-}
+const THEME_KEYS = Object.keys(THEMES);
 
 function getRandomTheme(): ThemeColor {
-  if (typeof window === "undefined") return THEMES.cyan;
-  const keys = Object.keys(THEMES);
-  const key = keys[Math.floor(Math.random() * keys.length)];
+  const key = THEME_KEYS[Math.floor(Math.random() * THEME_KEYS.length)];
   return THEMES[key];
 }
 
@@ -34,15 +29,21 @@ function applyToDocument(accent: string, glow: string) {
   document.documentElement.style.setProperty("--accent-glow", glow);
 }
 
-export const useTheme = create<ThemeState>((set) => {
-  const initial = getRandomTheme();
-  applyToDocument(initial.accent, initial.glow);
+interface ThemeState {
+  current: ThemeColor;
+  apply: (accent: string, glow: string) => void;
+  pickRandom: () => void;
+}
 
-  return {
-    current: initial,
-    apply: (accent, glow) => {
-      applyToDocument(accent, glow);
-      set({ current: { accent, glow } });
-    },
-  };
-});
+export const useTheme = create<ThemeState>((set) => ({
+  current: THEMES.violet,
+  apply: (accent, glow) => {
+    applyToDocument(accent, glow);
+    set({ current: { accent, glow } });
+  },
+  pickRandom: () => {
+    const t = getRandomTheme();
+    applyToDocument(t.accent, t.glow);
+    set({ current: t });
+  },
+}));

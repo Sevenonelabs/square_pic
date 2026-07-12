@@ -1,9 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
 import { useTheme, THEMES } from "@/lib/theme-store";
 
 export function Navbar() {
-  const { current, apply } = useTheme();
+  const { current, apply, pickRandom } = useTheme();
+
+  useEffect(() => { pickRandom(); }, [pickRandom]);
 
   return (
     <header className="fixed top-3 left-1/2 -translate-x-1/2 w-auto min-w-[380px] max-w-[calc(100vw-24px)] h-11 bg-[rgba(5,5,7,0.82)] backdrop-blur-[28px] saturate-[1.6] border border-[rgba(255,255,255,0.06)] rounded-lg px-1.5 z-50 flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.4)] max-lg:min-w-0 max-lg:w-[calc(100%-16px)] max-lg:px-1 max-lg:h-10 max-md:top-1.5 max-md:h-9">
@@ -23,7 +26,7 @@ export function Navbar() {
             <button
               key={name}
               onClick={() => apply(color.accent, color.glow)}
-              className="w-3.5 h-3.5 rounded-full border-2 border-transparent cursor-pointer shrink-0 transition-all duration-300 hover:scale-130 max-md:w-2.5 max-md:h-2.5"
+              className="w-3.5 h-3.5 rounded-full border-2 border-transparent cursor-pointer shrink-0 transition-all duration-300 hover:scale-130 focus-visible:scale-130 max-md:w-2.5 max-md:h-2.5"
               style={{
                 background: color.accent,
                 borderColor: current.accent === color.accent ? "rgba(255,255,255,0.85)" : "transparent",

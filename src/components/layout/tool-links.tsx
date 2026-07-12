@@ -45,16 +45,16 @@ export function ToolLinks({ current }: { current?: string }) {
               href={tool.href}
               className={`group flex items-center gap-3 rounded-lg px-4 py-3 no-underline transition-all duration-300 ${
                 isCurrent
-                  ? "bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.15)] cursor-default"
+                  ? "bg-[var(--accent)]/8 border border-[var(--accent)]/15 cursor-default"
                   : "bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5"
               }`}
             >
               <div className={`w-8 h-8 shrink-0 flex items-center justify-center rounded-sm border transition-colors ${
                 isCurrent
-                  ? "bg-[rgba(6,182,212,0.12)] border-[rgba(6,182,212,0.20)]"
+                  ? "bg-[var(--accent)]/12 border-[var(--accent)]/20"
                   : "bg-[rgba(255,255,255,0.04)] border-[rgba(255,255,255,0.06)] group-hover:border-[var(--accent)]"
               }`}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d={tool.icon} />
                 </svg>
               </div>

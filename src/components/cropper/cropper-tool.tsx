@@ -262,7 +262,7 @@ export function CropperTool() {
       {!image ? (
         <div onClick={() => fileInputRef.current?.click()} onDragOver={(e) => e.preventDefault()} onDrop={(e) => { e.preventDefault(); handleFile(e.dataTransfer.files[0]); }}
           className="border-2 border-dashed border-[rgba(255,255,255,0.15)] rounded-lg p-16 text-center cursor-pointer transition-all hover:border-[var(--accent)] hover:shadow-[0_0_16px_var(--accent-glow)]">
-          <svg className="w-12 h-12 mx-auto mb-4 text-[var(--accent)] opacity-80" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+          <svg aria-hidden="true" className="w-12 h-12 mx-auto mb-4 text-[var(--accent)] opacity-80" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.58-4.58a1 1 0 011.41 0L11 12m0 0l2.59-2.59a1 1 0 011.41 0L20 16m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
           <h3 className="text-[1.2rem] font-bold mb-1">Drop an image or click to browse</h3>
@@ -329,7 +329,7 @@ export function CropperTool() {
                   className="w-full h-[2px] appearance-none bg-[rgba(255,255,255,0.06)] outline-none mb-2" />
               )}
               <button onClick={handleExport}
-                className="w-full bg-[var(--accent)] text-black border-none py-2 rounded-md font-extrabold text-sm cursor-pointer transition-all hover:brightness-110 shadow-[0_4px_16px_var(--accent-glow)]">
+                className="w-full bg-[var(--accent)] text-black border-none py-2 rounded-md font-extrabold text-sm cursor-pointer transition-all hover:brightness-110 active:brightness-125 shadow-[0_4px_16px_var(--accent-glow)]">
                 Export Crop
               </button>
             </div>
