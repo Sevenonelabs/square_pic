@@ -15,30 +15,10 @@ const COLOR_SWATCHES = [
 ];
 
 const TOOLS = [
-  {
-    href: "/converter",
-    label: "Image Converter",
-    desc: "Convert images to JPG, PNG, WebP, AVIF, and more — batch convert with no uploads.",
-    icon: "M23 4v6h-6M1 20v-6h6M3.5 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.5 15",
-  },
-  {
-    href: "/compressor",
-    label: "Image Compressor",
-    desc: "Reduce image file size without losing quality. Compress single or batch images.",
-    icon: "M4 14h6v6M20 10h-6V4M14 10l7-7M10 14l-7 7",
-  },
-  {
-    href: "/resize",
-    label: "Social Media Resizer",
-    desc: "Resize images for Instagram, Facebook, X, LinkedIn, TikTok, YouTube, and more.",
-    icon: "M2 2h20v20H2zM16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01",
-  },
-  {
-    href: "/cropper",
-    label: "Photo Cropper",
-    desc: "Crop images to any aspect ratio with precision. Free-form or preset dimensions.",
-    icon: "M6.13 1L6 16a2 2 0 0 0 2 2h15M1 6.13L16 6a2 2 0 0 1 2 2v15",
-  },
+  { href: "/converter", label: "Image Converter", desc: "JPG, PNG, WebP, AVIF", icon: "M23 4v6h-6M1 20v-6h6M3.5 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.5 15" },
+  { href: "/compressor", label: "Image Compressor", desc: "Reduce file size, batch", icon: "M4 14h6v6M20 10h-6V4M14 10l7-7M10 14l-7 7" },
+  { href: "/resize", label: "Social Media Resizer", desc: "Instagram, Facebook, X, TikTok", icon: "M2 2h20v20H2zM16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01" },
+  { href: "/cropper", label: "Photo Cropper", desc: "Free-form & preset ratios", icon: "M6.13 1L6 16a2 2 0 0 0 2 2h15M1 6.13L16 6a2 2 0 0 1 2 2v15" },
 ];
 
 export default function Home() {
@@ -70,32 +50,32 @@ export default function Home() {
         colorSwatches={COLOR_SWATCHES}
       />
 
-      <section className="max-w-[1400px] mx-auto px-6 pb-20 w-full max-md:px-3">
-        <div className="text-center mb-8">
-          <h2 className="text-[clamp(1.3rem,2.5vw,1.8rem)] font-black tracking-[-1px] text-[#e6edf5]">
+      <section className="max-w-[1400px] mx-auto px-6 pb-16 w-full max-md:px-3">
+        <div className="text-center mb-6">
+          <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5]">
             More Free Photo Tools
           </h2>
-          <p className="text-[0.82rem] text-[#8d9aaa] font-medium mt-1">
-            Crop, convert, compress, and resize your images — all in your browser.
+          <p className="text-[0.75rem] text-[#8d9aaa] font-medium mt-0.5">
+            Crop, convert, compress &amp; resize — all in your browser.
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-4 max-lg:grid-cols-2 max-md:grid-cols-1 max-md:gap-3">
+        <div className="grid grid-cols-4 gap-3 max-lg:grid-cols-2 max-md:grid-cols-2 max-sm:grid-cols-1">
           {TOOLS.map((tool) => (
             <a
               key={tool.href}
               href={tool.href}
-              className="group flex flex-col gap-3 bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5"
+              className="group flex items-center gap-3 bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-lg px-4 py-3 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5"
             >
-              <div className="w-9 h-9 flex items-center justify-center rounded-sm bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] group-hover:border-[var(--accent)] transition-colors">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="w-8 h-8 shrink-0 flex items-center justify-center rounded-sm bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] group-hover:border-[var(--accent)] transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d={tool.icon} />
                 </svg>
               </div>
-              <div className="flex flex-col gap-0.5">
-                <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] m-0 group-hover:text-[var(--accent)] transition-colors">
+              <div className="min-w-0">
+                <h3 className="text-[0.78rem] font-extrabold text-[#e6edf5] m-0 truncate group-hover:text-[var(--accent)] transition-colors">
                   {tool.label}
                 </h3>
-                <p className="text-[0.72rem] text-[#8d9aaa] leading-relaxed m-0">
+                <p className="text-[0.65rem] text-[#8d9aaa] m-0 truncate leading-relaxed">
                   {tool.desc}
                 </p>
               </div>

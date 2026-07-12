@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "motion/react";
 import { useUI } from "@/lib/ui-store";
 
 const LINKS = [
@@ -18,24 +17,15 @@ export function Sidebar() {
 
   return (
     <>
-      <AnimatePresence>
-        {sidebarOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
-            onClick={closeSidebar}
-          />
-        )}
-      </AnimatePresence>
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300"
+          onClick={closeSidebar}
+        />
+      )}
 
-      <motion.aside
-        initial={{ x: -280 }}
-        animate={{ x: sidebarOpen ? 0 : -280 }}
-        transition={{ type: "spring", damping: 30, stiffness: 300 }}
-        className="fixed top-0 left-0 w-[280px] h-dvh z-50 bg-[rgba(5,5,7,0.92)] backdrop-blur-[28px] saturate-[1.5] border-r border-[rgba(255,255,255,0.06)] p-5 flex flex-col gap-3 overflow-y-auto shadow-[10px_0_40px_rgba(0,0,0,0.5)]"
+      <aside
+        className={`fixed top-0 left-0 w-[280px] h-dvh z-[45] bg-[rgba(5,5,7,0.92)] backdrop-blur-[28px] saturate-[1.5] border-r border-[rgba(255,255,255,0.06)] p-5 flex flex-col gap-3 overflow-y-auto shadow-[10px_0_40px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-[280px]'}`}
       >
         <div className="flex flex-col gap-1.5 mb-3">
           <span className="badge-item-sidebar">Free</span>
@@ -68,7 +58,7 @@ export function Sidebar() {
             })}
           </nav>
         </div>
-      </motion.aside>
+      </aside>
     </>
   );
 }

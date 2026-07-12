@@ -111,14 +111,7 @@ export function ToolAsHeroLayout({
                   </p>
                 )}
                 <div className="w-full max-w-[400px]">
-                  <DropZone onFile={handleFile}>
-                    <svg className="w-10 h-10 text-[var(--accent)] opacity-60" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                    </svg>
-                    <button className="bg-[var(--accent)] text-black border-none px-5 py-2.5 rounded-md font-extrabold text-sm cursor-pointer transition-all duration-300 hover:brightness-110 shadow-[0_4px_16px_var(--accent-glow)]" type="button">
-                      Upload Your Image
-                    </button>
-                  </DropZone>
+                  <DropZone onFile={handleFile} compact />
                 </div>
               </div>
             ) : (
