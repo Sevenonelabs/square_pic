@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="/images/logo-icon.svg">
+    <img src="/images/logo-icon.svg" width="80" height="80" alt="SquarePic">
+  </picture>
+  <br/>
+  <strong>SquarePic</strong>
+</p>
 
-## Getting Started
+<p align="center">
+  Free · Privacy-first · Online image editing toolkit
+</p>
 
-First, run the development server:
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js_16-000?logo=next.js&logoColor=fff" alt="Next.js 16">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?logo=tailwindcss&logoColor=fff" alt="Tailwind CSS v4">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT">
+</p>
+
+---
+
+**SquarePic** lets you square, resize, crop, compress, and convert images — all in your browser. No uploads, no watermarks, no signup.
+
+→ [squarepic.app](https://squarepic-next.vercel.app)
+
+## Features
+
+| Tool | Description |
+|---|---|
+| **Square Image Editor** | Fit any photo into a perfect square with blur, solid fill, or smart crop |
+| **Image Resizer** | Resize to exact social media dimensions (Instagram, X, LinkedIn, etc.) |
+| **Photo Cropper** | Interactive crop with 8 drag handles and aspect ratio presets |
+| **Image Converter** | Convert between JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, TIFF (8 formats) |
+| **Image Compressor** | Compress with quality slider or target-size mode; batch + ZIP export |
+
+All processing is powered by the **HTML5 Canvas API** — your images never leave your device.
+
+## Quick Start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Start development server (Turbopack) |
+| `npm run build` | Production build |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Animation:** Motion
+- **State:** Zustand
+- **Icons:** Phosphor Icons
+- **Fonts:** Asap Condensed, Syne Mono
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+No image data is ever sent to a server. All operations run on the client.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT — see [LICENSE](LICENSE).
