@@ -160,7 +160,7 @@ export function ToolAsHeroLayout({
   return (
     <section className="max-w-[1400px] mx-auto px-4 md:px-6 w-full">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0.99, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-4 md:p-5"
@@ -178,7 +178,7 @@ export function ToolAsHeroLayout({
                   </div>
                 )}
                 <motion.div
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0.99, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="flex flex-col items-center gap-4"

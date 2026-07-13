@@ -13,6 +13,16 @@ const STATIC_PAGES = [
   { path: "/support", priority: 0.4, freq: "monthly" as const },
   { path: "/privacy", priority: 0.3, freq: "monthly" as const },
   { path: "/terms", priority: 0.3, freq: "monthly" as const },
+  { path: "/guides", priority: 0.7, freq: "weekly" as const },
+  { path: "/guides/social-media-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
+  { path: "/blog", priority: 0.7, freq: "weekly" as const },
+  { path: "/blog/how-to-square-image-for-any-platform", priority: 0.6, freq: "monthly" as const },
+  { path: "/blog/privacy-first-image-editing", priority: 0.6, freq: "monthly" as const },
+  { path: "/blog/category", priority: 0.4, freq: "monthly" as const },
+  { path: "/blog/category/how-to", priority: 0.4, freq: "monthly" as const },
+  { path: "/blog/category/privacy", priority: 0.4, freq: "monthly" as const },
+  { path: "/blog/category/social-media-sizes", priority: 0.4, freq: "monthly" as const },
+  { path: "/blog/category/image-formats", priority: 0.4, freq: "monthly" as const },
 ];
 
 const SLUG_MAP: Record<string, string> = {
@@ -23,7 +33,7 @@ const SLUG_MAP: Record<string, string> = {
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.SITE_URL || "https://squarepic-next.vercel.app";
+  const siteUrl = process.env.SITE_URL || "https://www.squarepic.io";
   const today = new Date().toISOString().split("T")[0];
 
   const staticEntries = STATIC_PAGES.map((p) => ({
@@ -40,5 +50,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...platformEntries];
+  const formatPairs = [
+    "png-to-jpg", "jpg-to-png", "png-to-webp", "jpg-to-webp",
+    "webp-to-png", "webp-to-jpg", "png-to-gif", "jpg-to-gif",
+    "png-to-ico", "jpg-to-ico", "png-to-avif", "jpg-to-avif",
+  ];
+
+  const formatEntries = formatPairs.map((pair) => ({
+    url: `${siteUrl}/converter/${pair}`,
+    lastModified: today,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...platformEntries, ...formatEntries];
 }

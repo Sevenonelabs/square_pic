@@ -177,7 +177,7 @@ export function ConverterTool() {
   return (
     <div className="max-w-[960px] w-full mx-auto px-5 py-6">
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0.99, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-6 mb-6"

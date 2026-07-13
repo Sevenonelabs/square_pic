@@ -1,13 +1,34 @@
 "use client";
 
-import { useEffect } from "react";
-import { motion } from "motion/react";
+import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "motion/react";
 import { useTheme, THEMES } from "@/lib/theme-store";
+
+const TOOLS = [
+  { href: "/", label: "Square Image" },
+  { href: "/converter", label: "Converter" },
+  { href: "/compressor", label: "Compressor" },
+  { href: "/cropper", label: "Cropper" },
+];
 
 export function Navbar() {
   const { current, apply, pickRandom } = useTheme();
+  const [toolsOpen, setToolsOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const toolsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { pickRandom(); }, [pickRandom]);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (toolsRef.current && !toolsRef.current.contains(e.target as Node)) {
+        setToolsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
 
   return (
     <motion.header
@@ -16,13 +37,62 @@ export function Navbar() {
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-3 left-1/2 -translate-x-1/2 w-auto min-w-[380px] max-w-[calc(100vw-24px)] h-11 bg-[rgba(5,5,7,0.82)] backdrop-blur-[28px] saturate-[1.6] border border-[rgba(255,255,255,0.06)] rounded-lg px-2 z-50 flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.4)] max-lg:min-w-0 max-lg:w-[calc(100%-16px)] max-lg:px-1.5 max-lg:h-10 max-md:top-1.5 max-md:h-9"
     >
-      <a href="/" className="flex items-center gap-1.5 no-underline">
-        <img src="/images/logo.png" alt="" width="18" height="18" className="shrink-0 object-contain" />
-        <span className="text-[0.82rem] font-extrabold tracking-tight whitespace-nowrap text-[#e6edf5] max-lg:text-[0.7rem] max-md:text-[0.65rem]">SquarePic</span>
-      </a>
+      <div className="flex items-center gap-3 max-md:gap-1.5">
+        <Link href="/" className="flex items-center gap-1.5 no-underline">
+          <img src="/images/logo-256.png" alt="SquarePic" width="18" height="18" className="shrink-0 object-contain" />
+          <span className="text-[0.82rem] font-extrabold tracking-tight whitespace-nowrap text-[#e6edf5] max-lg:text-[0.7rem] max-md:text-[0.65rem]">SquarePic</span>
+        </Link>
+
+        <nav className="flex items-center gap-0.5 max-md:hidden">
+          <Link href="/" className="text-[0.7rem] font-semibold text-[#8d9aaa] px-2 py-1 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.03)] transition-all">
+            Home
+          </Link>
+
+          <div ref={toolsRef} className="relative">
+            <button
+              onClick={() => setToolsOpen(!toolsOpen)}
+              className="flex items-center gap-1 text-[0.7rem] font-semibold text-[#8d9aaa] px-2 py-1 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.03)] transition-all cursor-pointer bg-transparent border-none"
+            >
+              Tools
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform ${toolsOpen ? "rotate-180" : ""}`}>
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <AnimatePresence>
+              {toolsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -4, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -4, scale: 0.96 }}
+                  transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute top-full left-0 mt-1 w-44 bg-[rgba(10,10,14,0.95)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-lg p-1 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+                >
+                  {TOOLS.map((tool) => (
+                    <Link
+                      key={tool.href}
+                      href={tool.href}
+                      onClick={() => setToolsOpen(false)}
+                      className="block text-[0.72rem] font-semibold text-[#8d9aaa] px-3 py-1.5 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all"
+                    >
+                      {tool.label}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <Link href="/guides" className="text-[0.7rem] font-semibold text-[#8d9aaa] px-2 py-1 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.03)] transition-all">
+            Guides
+          </Link>
+          <Link href="/blog" className="text-[0.7rem] font-semibold text-[#8d9aaa] px-2 py-1 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.03)] transition-all">
+            Blog
+          </Link>
+        </nav>
+      </div>
 
       <div className="flex items-center h-11 gap-2 flex-1 justify-end max-lg:h-10 max-md:h-9">
-        <div className="flex items-center gap-1.5 max-lg:hidden">
+        <div className="flex items-center gap-1.5 max-md:hidden">
           {["100% Free", "No Watermarks", "Privacy-First"].map((label) => (
             <span
               key={label}
@@ -54,7 +124,47 @@ export function Navbar() {
             />
           ))}
         </div>
+
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="hidden max-md:flex items-center justify-center w-11 h-11 bg-transparent border border-[rgba(255,255,255,0.06)] rounded-sm cursor-pointer text-[#8d9aaa] hover:text-[#e6edf5] transition-all"
+          aria-label="Menu"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            {mobileOpen ? (
+              <>
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </>
+            )}
+          </svg>
+        </button>
       </div>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.96 }}
+            transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden max-md:block absolute top-full left-2 right-2 mt-1 bg-[rgba(10,10,14,0.95)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-lg p-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+          >
+            <Link href="/" onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">Home</Link>
+            {TOOLS.map((tool) => (
+              <Link key={tool.href} href={tool.href} onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">{tool.label}</Link>
+            ))}
+            <Link href="/guides" onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">Guides</Link>
+            <Link href="/blog" onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">Blog</Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

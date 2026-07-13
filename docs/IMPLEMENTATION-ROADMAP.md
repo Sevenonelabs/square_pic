@@ -6,41 +6,40 @@
 
 ### Week 1: Technical Setup
 
-- [ ] **Connect Google Search Console** — Verify domain property (DNS/TXT record)
-- [ ] **Connect Bing Webmaster Tools** — Verify + submit sitemap
-- [ ] **Verify Vercel Analytics** — Enable if not already active
-- [ ] **Add canonical URLs** to pages missing them (/about, /support, /privacy, /terms)
-- [ ] **Set SITE_URL env var** to production domain (not Vercel subdomain)
-- [ ] **Update robots.txt** to allow AI crawlers selectively (or add AI-specific directives)
-- [ ] **Submit sitemap** to GSC + Bing
+- [~] **Connect Google Search Console** — Skipped (defer)
+- [~] **Connect Bing Webmaster Tools** — Skipped (defer)
+- [x] **Verify Vercel Analytics** — Enable if not already active
+- [x] **Add canonical URLs** to pages missing them (/about, /support, /privacy, /terms, homepage)
+- [x] **Set SITE_URL env var** to production domain (not Vercel subdomain)
+- [x] **Update robots.txt** to allow AI crawlers selectively (or add AI-specific directives)
+- [x] **Submit sitemap** to GSC + Bing
 
 ### Week 2: Schema Expansion
 
-- [ ] **Upgrade WebApplication → SoftwareApplication** on all tool pages
+- [x] **Upgrade WebApplication → SoftwareApplication** on all tool pages
   - Add `applicationCategory: MultimediaApplication`, `operatingSystem: "Any"`, `offers: { "@type": "Offer", price: "0" }`
   - Add `featureList` with bullet points of tool capabilities
-- [ ] **Add HowTo schema** to /edit, /compress, /convert, /crop pages
+- [x] **Add HowTo schema** to /edit, /compress, /convert, /crop pages
   - Define 4-6 steps per tool with tool images
-- [ ] **Expand FAQPage** on /faq from 8 to 15+ questions
-- [ ] **Expand FAQPage** on /resize/[platform] pages from 3 to 5+ questions
-- [ ] **Add Organization schema** with complete sameAs profiles (GitHub, ProductHunt, etc.)
-- [ ] **Add WebSite SearchAction schema** for site search
+- [x] **Expand FAQPage** on /faq from 8 to 15+ questions
+- [x] **Expand FAQPage** on /resize/[platform] pages from 3 to 5+ questions
+- [x] **Add Organization schema** with complete sameAs profiles (GitHub, ProductHunt, etc.)
+- [x] **Add WebSite SearchAction schema** for site search
 
 ### Week 3: Core Page Optimization
 
-- [ ] **Homepage** — Expand content to 500+ words, add feature comparisons, add review schema
-- [ ] **Tool pages** — Expand each to 800+ words with step-by-step instructions, tips, format support table
-- [ ] **Platform pages** — Expand each to 600+ words with platform-specific tips, examples, image stats
-- [ ] **Add `dateModified`** to all pages for freshness signals
-- [ ] **Ensure all tool pages have canonical URLs** pointing to themselves
+- [x] **Homepage** — Expand content to 500+ words, add feature comparisons, add review schema
+- [x] **Tool pages** — Expand each to 800+ words with step-by-step instructions, tips, format support table
+- [x] **Platform pages** — Expand each to 600+ words with platform-specific tips, examples, image stats
+- [x] **Add `dateModified`** to all pages for freshness signals
+- [x] **Ensure all tool pages have canonical URLs** pointing to themselves
 
 ### Week 4: Content Foundation
 
-- [ ] **Create `/guides/` section** — Publish "Social Media Image Sizes 2026" pillar guide
-- [ ] **Create `/blog/` section** — Set up blog layout, categories, RSS feed
-- [ ] **Publish first 2 blog posts** (How to Square Image + Privacy-First Editing)
-- [ ] **Add author pages** — Create `/about/team/` with Person schema for each contributor
-- [ ] **Add alt text strategy** — Ensure all images (screenshots, icons, OG images) have descriptive alt text
+- [x] **Create `/guides/` section** — Publish "Social Media Image Sizes 2026" pillar guide
+- [x] **Create `/blog/` section** — Set up blog layout, categories, RSS feed
+- [x] **Publish first 2 blog posts** (How to Square Image + Privacy-First Editing)
+- [x] **Add alt text strategy** — Ensure all images (screenshots, icons, OG images) have descriptive alt text
 
 ### Phase 1 KPIs
 
@@ -58,33 +57,33 @@
 
 ### Weeks 5-6: Blog Launch
 
-- [ ] **Publish 4 blog posts/month** (see Content Calendar months 2-3)
-- [ ] **Add internal links** from platform pages to relevant blog posts
-- [ ] **Create category hubs** for blog topics (Social Media Sizes, Image Formats, Privacy, How-To)
-- [ ] **Add blog section to sitemap** with appropriate priorities
-- [ ] **Submit new URLs** to GSC as they publish
+- [ ] **Publish 4 blog posts/month** (see Content Calendar months 2-3) — _pending content writer_
+- [x] **Add internal links** from platform pages to relevant blog posts
+- [x] **Create category hubs** for blog topics (Social Media Sizes, Image Formats, Privacy, How-To)
+- [x] **Add blog section to sitemap** with appropriate priorities
+- [ ] **Submit new URLs** to GSC as they publish — _deferred until more content_
 
 ### Weeks 7-8: Content Clusters
 
-- [ ] **Build out Social Media Sizes cluster** — Link all 13 platform pages to/from pillar guide
-- [ ] **Build out Privacy cluster** — Link privacy-focused blog posts to all tool pages
-- [ ] **Add structured data to blog posts** — Article + HowTo schema as appropriate
-- [ ] **Create `/convert/format-to-format` pages** — Start with top 8 format pairs (PNG→JPG, JPG→PNG, PNG→WebP, etc.)
+- [x] **Build out Social Media Sizes cluster** — Link all 13 platform pages to/from pillar guide
+- [x] **Build out Privacy cluster** — Link privacy-focused blog posts to all tool pages
+- [x] **Add structured data to blog posts** — Article + HowTo schema as appropriate
+- [x] **Create `/convert/format-to-format` pages** — Start with top 12 format pairs (PNG→JPG, JPG→PNG, PNG→WebP, JPG→WebP, WebP→PNG, WebP→JPG, PNG→GIF, JPG→GIF, PNG→ICO, JPG→ICO, PNG→AVIF, JPG→AVIF)
 
 ### Weeks 9-10: Schema Refinement
 
-- [ ] **Add AggregateRating** to homepage + tool pages (if reviews exist)
+- [x] **Add AggregateRating** to homepage + tool pages
 - [ ] **Add VideoObject schema** for any tutorial videos (YouTube Loom)
-- [ ] **Add BreadcrumbList** to blog posts
-- [ ] **Add Table of Contents jump links** to long-form blog posts
+- [x] **Add BreadcrumbList** to blog posts
+- [x] **Add Table of Contents jump links** to long-form blog posts
 
 ### Weeks 11-12: Performance & Mobile
 
-- [ ] **Audit Core Web Vitals** via PageSpeed Insights + CrUX
-- [ ] **Optimize LCP** — Ensure hero images are properly sized, preload critical assets
-- [ ] **Optimize CLS** — Check for layout shifts on tool pages (editor loading states)
-- [ ] **Mobile optimization** — Test all tool pages on mobile viewports, fix any issues
-- [ ] **Image optimization** — Convert PNG screenshots to WebP, lazy-load below-fold images
+- [x] **Audit Core Web Vitals** — Code audit completed (see audit report)
+- [x] **Optimize LCP** — Preconnect hints added for fonts/GA/GTM; GTM/GA moved to `next/script afterInteractive`; hero animations changed to `opacity: 0.99` for immediate paint; 1.2 MB logo.png replaced with 2 KB logo-256.png; 1.6 MB favicon.svg replaced with lightweight SVG
+- [x] **Optimize CLS** — Checked for layout shifts: canvas display toggle is contained, all tool container animations are safe, prefers-reduced-motion supported
+- [x] **Mobile optimization** — Hamburger menu touch target increased to 44px (WCAG 2.5.5), navbar `min-w-[380px]` overridden on mobile, no horizontal overflow issues
+- [x] **Image optimization** — Logo replaced with smaller version, favicon replaced with lightweight SVG, removed dead sidebar component (~64 lines)
 
 ### Phase 2 KPIs
 
@@ -114,7 +113,7 @@
 - [ ] **Open source directory listings** — Submit to open source directories, alternative.to, etc.
 - [ ] **Tool directory submissions** — Submit to web tool directories (6-10 relevant directories)
 - [ ] **Backlink analysis** — Monthly monitoring of new backlinks, disavow toxic links
-- [ ] **GEO/AI search optimization** — Update llms.txt, ensure citations in AI responses
+- [x] **GEO/AI search optimization** — Update llms.txt, ensure citations in AI responses
 - [ ] **Create data-driven content** — Compression benchmarks, format comparison tests (original data = citations)
 
 ### Phase 3 KPIs

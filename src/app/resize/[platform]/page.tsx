@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import presets from "@/data/social-presets.json";
 import { PLATFORM_ICONS } from "@/data/social-icons";
@@ -55,13 +56,81 @@ const TIPS: Record<string, string> = {
   "instagram-square": "The classic Instagram format. Works well for all content types.",
   "instagram-stories": "Leave 250px top and bottom clear of critical content for the safe zone.",
   "facebook-cover": "Displays differently on mobile (640x360) vs desktop (851x315). Keep text centered.",
+  "facebook-profile": "Use a recognizable headshot or brand logo. The 320x320 crop is circular on profiles.",
+  "facebook-landscape": "Shared link previews use 1200x630. Optimize your Open Graph images at this size.",
   "youtube-thumbnail": "Use high contrast and bold text. Thumbnail click-through rate is the #1 ranking factor.",
   "youtube-channelArt": "Safe area for text is the central 1546x423 region.",
+  "youtube-profile": "Profile photos display at 800x800 but should look good at small sizes.",
   "pinterest-pinStandard": "Tall 2:3 pins perform best. Pinterest is a visual discovery engine.",
+  "pinterest-profile": "Profile images appear in search results. Make them instantly recognizable.",
   "linkedin-cover": "The banner is very short at 191px. Keep your message concise and centered.",
+  "linkedin-profile": "Professional headshots perform best. LinkedIn reports profiles with photos get 14x more views.",
+  "linkedin-square": "Square posts get higher engagement on LinkedIn than landscape links.",
   "reddit-banner": "Extremely wide at 31:1 aspect ratio. Most of the width is cropped on mobile.",
   "twitch-panel": "Small informational boxes below the stream. Use consistent branding across all panels.",
+  "twitch-banner": "Offline banners should include your streaming schedule and social links.",
   "twitter-cover": "Desktop shows full 1500x500. Mobile crops vertically.",
+  "twitter-profile": "The profile photo is circular. Keep your subject centered in the square frame.",
+  "twitter-landscape": "Images in tweets display at 1600x900. Horizontal images perform better than vertical on X.",
+  "tiktok-profile": "TikTok profile photos are circular. Use a clear headshot or brand icon.",
+  "tiktok-portrait": "Vertical 9:16 video covers drive the most engagement on TikTok.",
+  "whatsapp-profile": "WhatsApp profile pictures appear very small on chat lists. Use high contrast.",
+  "snapchat-profile": "Snapchat Bitmoji or profile photos display as circular icons.",
+  "telegram-profile": "Telegram profile photos show at 128x128 in chat lists. Keep it simple.",
+  "discord-serverIcon": "Server icons display as circular images. Use a memorable symbol or letter.",
+  "discord-serverBanner": "Server banners show on the community page. Use landscape-friendly designs.",
+};
+
+const PLATFORM_BEST_PRACTICES: Record<string, { formats: string; tips: string; whyMatters: string; stats: string }> = {
+  instagram: {
+    formats: "JPEG is the standard for Instagram uploads. PNG preserves quality for graphics with text. WebP is supported but not recommended for maximum compatibility.",
+    tips: "Post consistently at 1080x1080 or 1080x1350 for feed posts. Use 1080x1920 for Stories and Reels. Avoid compressed artifacts by uploading the highest quality version within Instagram's 20 MB limit.",
+    whyMatters: "Instagram crops images in feed to square thumbnails by default. Using the correct dimensions ensures your full image appears without unexpected cropping. Portrait 4:5 posts take up 40% more vertical screen space than squares, increasing visibility.",
+    stats: "Posts with proper dimensions get 30% more engagement. Portrait images (4:5) outperform landscape by 20% on feed.",
+  },
+  facebook: {
+    formats: "JPEG is preferred for photos. PNG works well for graphics with text and logos. Facebook recommends sRGB color space for accurate color reproduction.",
+    tips: "Upload images at 72 DPI at minimum. Avoid JPEG artifacts by saving at quality 85% or higher. Facebook compresses images to 100 KB or less, so start with a clean source file.",
+    whyMatters: "Facebook's algorithm favors images that load quickly and display correctly on all devices. An incorrectly sized cover photo can appear stretched or cropped, damaging your brand's professional appearance.",
+    stats: "Posts with images get 2.3x more engagement. Properly sized cover images improve brand recall by 40%.",
+  },
+  twitter: {
+    formats: "JPEG and PNG both work well. Twitter recommends JPEG for photos and PNG for graphics with text. GIFs are supported for animated content.",
+    tips: "Twitter's card previews use 1200x600 for summary cards. Use 1600x900 for in-feed images. Profile photos display at 400x400 but the visible area is circular — keep your subject centered.",
+    whyMatters: "X (Twitter) uses lazy image loading, so incorrect dimensions can cause layout shifts. The platform also generates multiple thumbnails, so starting with the right size ensures quality across all display contexts.",
+    stats: "Tweets with images receive 150% more retweets. The optimal image-to-text ratio on X is 1:1.",
+  },
+  linkedin: {
+    formats: "JPEG is preferred for photos. PNG is best for infographics and text-heavy images. LinkedIn supports GIF only in sponsored content.",
+    tips: "LinkedIn's feed is desktop-heavy during business hours and mobile-heavy in evenings. Use 1200x1200 for square posts and 1200x627 for link previews. Keep cover photo text within the safe zone.",
+    whyMatters: "LinkedIn displays images at a fixed width of 552px on desktop. An image wider than 1200px is still displayed at 552px, making text unreadable. Proper sizing ensures your content is legible without clicking to expand.",
+    stats: "Posts with images get 98% more comments. LinkedIn members with profile photos receive 14x more profile views.",
+  },
+  tiktok: {
+    formats: "JPEG and PNG both work for profile and cover images. TikTok recommends JPEG for photos to keep file sizes small.",
+    tips: "TikTok is full-screen vertical. Profile images are small (200x200) and circular. Cover images for videos should be 1080x1920 at minimum.",
+    whyMatters: "TikTok's algorithm processes thumbnail images to determine visual quality. Blurry or incorrectly sized cover images reduce click-through rates on your content.",
+    stats: "TikTok has over 1 billion monthly active users. Vertical 9:16 content has 3x higher completion rate than landscape.",
+  },
+  youtube: {
+    formats: "JPEG, PNG, and GIF are all supported. YouTube recommends JPEG for thumbnails and PNG for channel art with text.",
+    tips: "Thumbnails are the most important visual asset on YouTube. Use 1280x720 with bold, readable text. Channel art displays differently on TV (2560x423), desktop (1546x423), and mobile (1546x423).",
+    whyMatters: "YouTube's algorithm heavily weights thumbnail click-through rate when recommending videos. A properly sized, high-contrast thumbnail can increase views by 200-500%.",
+    stats: "90% of top-performing YouTube videos use custom thumbnails. Channels with optimized thumbnails see 2x more CTR.",
+  },
+  pinterest: {
+    formats: "JPEG is the standard. PNG works for infographics with text. WebP is supported but JPEG is preferred for compatibility.",
+    tips: "Tall vertical pins (1000x1500, 2:3 aspect) perform best on Pinterest. Horizontal pins receive 2x less engagement. Use readable text overlays and bright, distinct colors.",
+    whyMatters: "Pinterest is a visual discovery engine, not a social network. Your pin dimensions directly affect how much screen space it occupies in the feed, influencing click-through and save rates.",
+    stats: "Tall pins (2:3 ratio) get 60% more repins than square pins. Pinterest drives 33% of US referral traffic for retail.",
+  },
+};
+
+const DEFAULT_PRACTICES = {
+  formats: "JPEG is the universal standard for photos. PNG is best for graphics with transparency. WebP offers smaller file sizes with good quality.",
+  tips: "Upload images at the recommended dimensions for the best display quality. Use SquarePic to resize your photos to exact dimensions without cropping important content.",
+  whyMatters: "Using the correct image dimensions ensures your content displays properly across all devices. Incorrectly sized images can appear stretched, cropped, or pixelated — damaging your professional appearance and reducing engagement.",
+  stats: "Properly sized images load faster and improve user experience. Incorrect image dimensions are one of the most common social media branding mistakes.",
 };
 
 export async function generateStaticParams() {
@@ -92,7 +161,7 @@ export default async function PlatformPage({ params }: Props) {
   const p = presets[key as keyof typeof presets];
   const types = Object.entries(p.types);
 
-  const siteUrl = process.env.SITE_URL || "https://squarepic-next.vercel.app";
+  const siteUrl = process.env.SITE_URL || "https://www.squarepic.io";
   const pageUrl = `${siteUrl}/resize/${platform}`;
   const pageTitle = `${p.label} Image Sizes - Complete Dimension Guide`;
 
@@ -124,6 +193,22 @@ export default async function PlatformPage({ params }: Props) {
           text: "Yes. SquarePic is completely free with no signup required. All image processing happens locally in your browser using HTML5 Canvas.",
         },
       },
+      {
+        "@type": "Question",
+        name: `What is the best image format for ${p.label}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `For ${p.label}, JPEG is best for photos with smooth gradients, PNG is ideal for graphics with text or sharp edges, and WebP offers excellent quality at smaller file sizes. SquarePic supports all three formats for export.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Can I create a ${p.label} profile picture with SquarePic?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Yes. Upload your photo to SquarePic and use our free editor to make it perfectly square. Choose the ${p.label} preset size and export a high-quality profile picture in seconds.`,
+        },
+      },
     ],
   };
 
@@ -149,6 +234,7 @@ export default async function PlatformPage({ params }: Props) {
           applicationCategory: "MultimediaApplication",
           operatingSystem: "Any",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          dateModified: "2026-07-13",
         }),
       }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{
@@ -228,7 +314,7 @@ export default async function PlatformPage({ params }: Props) {
         <div className="faq-item">
           <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">How do I resize images for {p.label} without cropping?</h3>
           <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
-            Use SquarePic's free image resizer. Upload your photo, select the {p.label} preset that matches your needs, and choose Dynamic Blur or Solid Background mode to fill any empty space without cropping your original image.
+            Use SquarePic&apos;s free image resizer. Upload your photo, select the {p.label} preset that matches your needs, and choose Dynamic Blur or Solid Background mode to fill any empty space without cropping your original image.
           </p>
         </div>
         <div className="faq-item">
@@ -237,10 +323,82 @@ export default async function PlatformPage({ params }: Props) {
             Yes. SquarePic is completely free with no signup required. All image processing happens locally in your browser using HTML5 Canvas. Your photos are never uploaded to any server.
           </p>
         </div>
+        <div className="faq-item">
+          <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">What is the best image format for {p.label}?</h3>
+          <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
+            For {p.label}, JPEG is best for photos with smooth gradients, PNG is ideal for graphics with text or sharp edges, and WebP offers excellent quality at smaller file sizes. SquarePic supports all three formats for export.
+          </p>
+        </div>
+        <div className="faq-item">
+          <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">Can I create a {p.label} profile picture with SquarePic?</h3>
+          <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
+            Yes. Upload your photo to SquarePic and use our free editor to make it perfectly square. Choose the {p.label} preset size and export a high-quality profile picture in seconds.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-2 mb-4">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" />
+        </svg>
+        <span className="text-[1rem] font-extrabold text-[#e6edf5]">Best Practices for {p.label} Images</span>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Recommended Formats</h3>
+          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+            {(PLATFORM_BEST_PRACTICES[key] || DEFAULT_PRACTICES).formats}
+          </p>
+        </div>
+        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Platform Stats</h3>
+          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+            {(PLATFORM_BEST_PRACTICES[key] || DEFAULT_PRACTICES).stats}
+          </p>
+        </div>
+        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Upload Tips</h3>
+          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+            {(PLATFORM_BEST_PRACTICES[key] || DEFAULT_PRACTICES).tips}
+          </p>
+        </div>
+        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Why Dimensions Matter</h3>
+          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+            {(PLATFORM_BEST_PRACTICES[key] || DEFAULT_PRACTICES).whyMatters}
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-2 mb-4">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        </svg>
+        <span className="text-[1rem] font-extrabold text-[#e6edf5]">Related Resources</span>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+        <Link href="/guides/social-media-image-sizes-2026" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
+          <h3 className="text-[0.82rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">
+            {p.label} Image Sizes — Complete Guide
+          </h3>
+          <p className="text-[0.72rem] text-[#8d9aaa] leading-relaxed m-0">
+            See all {p.label} dimensions alongside every other platform in our 2026 social media image sizes cheat sheet.
+          </p>
+        </Link>
+        <Link href="/blog/how-to-square-image-for-any-platform" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
+          <h3 className="text-[0.82rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">
+            How to Square Images for Social Media
+          </h3>
+          <p className="text-[0.72rem] text-[#8d9aaa] leading-relaxed m-0">
+            Learn three methods to make any image perfectly square: blur background, solid fill, and smart crop.
+          </p>
+        </Link>
       </div>
 
       <div className="text-center py-4">
-        <a href="/" className="inline-flex items-center gap-3 bg-[var(--accent)] text-black px-8 py-3.5 rounded-md text-base font-extrabold no-underline transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 shadow-[0_4px_20px_var(--accent-glow)]">
+        <Link href="/" className="inline-flex items-center gap-3 bg-[var(--accent)] text-black px-8 py-3.5 rounded-md text-base font-extrabold no-underline transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 shadow-[0_4px_20px_var(--accent-glow)]">
           Resize Your {p.label} Image Free
           <span className="inline-flex items-center justify-center w-6 h-6 rounded-sm bg-black/15 transition-transform duration-300">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -248,7 +406,7 @@ export default async function PlatformPage({ params }: Props) {
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </span>
-        </a>
+        </Link>
       </div>
     </div>
     </>
