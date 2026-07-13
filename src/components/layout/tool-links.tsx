@@ -29,6 +29,14 @@ export const TOOLS = [
   },
 ];
 
+const RESOURCES = [
+  { href: "/guides", label: "Guides & Tutorials", desc: "Image editing guides and tips" },
+  { href: "/blog", label: "Blog", desc: "Tutorials, tips & insights" },
+  { href: "/compare", label: "Comparisons", desc: "SquarePic vs other tools" },
+  { href: "/research", label: "Research", desc: "Benchmarks & studies" },
+  { href: "/image-size-calculator", label: "Size Calculator", desc: "Find the perfect dimensions" },
+];
+
 const container = {
   hidden: {},
   show: {
@@ -98,6 +106,31 @@ export function ToolLinks({ current }: { current?: string }) {
             </motion.a>
           );
         })}
+      </motion.div>
+
+      <div className="text-center mt-12 mb-6">
+        <h2 className="text-[clamp(1rem,1.8vw,1.3rem)] font-black tracking-[-1px] text-[#e6edf5]">
+          Resources & Guides
+        </h2>
+      </div>
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="grid grid-cols-5 gap-3 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
+      >
+        {RESOURCES.map((res) => (
+          <motion.a
+            key={res.href}
+            variants={item}
+            href={res.href}
+            className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl px-4 py-3.5 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5"
+          >
+            <h3 className="text-[0.8rem] font-extrabold text-[#e6edf5] m-0 group-hover:text-[var(--accent)] transition-colors">{res.label}</h3>
+            <p className="text-[0.65rem] text-[#8d9aaa] m-0 mt-0.5 leading-relaxed">{res.desc}</p>
+          </motion.a>
+        ))}
       </motion.div>
     </section>
   );

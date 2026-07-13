@@ -12,11 +12,19 @@ const TOOLS = [
   { href: "/cropper", label: "Cropper" },
 ];
 
+const MORE_LINKS = [
+  { href: "/compare", label: "Comparisons" },
+  { href: "/research", label: "Research" },
+  { href: "/image-size-calculator", label: "Size Calculator" },
+];
+
 export function Navbar() {
   const { current, apply, pickRandom } = useTheme();
   const [toolsOpen, setToolsOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const toolsRef = useRef<HTMLDivElement>(null);
+  const moreRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { pickRandom(); }, [pickRandom]);
 
@@ -24,6 +32,9 @@ export function Navbar() {
     const handleClick = (e: MouseEvent) => {
       if (toolsRef.current && !toolsRef.current.contains(e.target as Node)) {
         setToolsOpen(false);
+      }
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setMoreOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClick);
@@ -88,6 +99,40 @@ export function Navbar() {
           <Link href="/blog" className="text-[0.7rem] font-semibold text-[#8d9aaa] px-2 py-1 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.03)] transition-all">
             Blog
           </Link>
+
+          <div ref={moreRef} className="relative">
+            <button
+              onClick={() => setMoreOpen(!moreOpen)}
+              className="flex items-center gap-1 text-[0.7rem] font-semibold text-[#8d9aaa] px-2 py-1 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.03)] transition-all cursor-pointer bg-transparent border-none"
+            >
+              More
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform ${moreOpen ? "rotate-180" : ""}`}>
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <AnimatePresence>
+              {moreOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -4, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -4, scale: 0.96 }}
+                  transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute top-full left-0 mt-1 w-44 bg-[rgba(10,10,14,0.95)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-lg p-1 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+                >
+                  {MORE_LINKS.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMoreOpen(false)}
+                      className="block text-[0.72rem] font-semibold text-[#8d9aaa] px-3 py-1.5 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </nav>
       </div>
 
@@ -162,6 +207,10 @@ export function Navbar() {
             ))}
             <Link href="/guides" onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">Guides</Link>
             <Link href="/blog" onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">Blog</Link>
+            <div className="h-px bg-[rgba(255,255,255,0.04)] my-1" />
+            {MORE_LINKS.map((link) => (
+              <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#576675] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">{link.label}</Link>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
