@@ -44,7 +44,7 @@ export default function CropperPage() {
             { title: "Precision Crop Controls", desc: "Our photo cropper gives you eight drag handles for pixel-perfect control. Resize the crop area freely or lock the aspect ratio to maintain consistent dimensions across multiple images." },
             { title: "Aspect Ratio Lock", desc: "Keep your crop proportional with built-in presets for Instagram (1:1), portrait (4:5), widescreen (16:9), and story (9:16). The lock button toggles freeform mode for custom dimensions." },
             { title: "Zoom and Pan", desc: "Zoom in for detailed adjustments and pan around the image to position the crop area exactly where you want it. Fine-tune your composition without losing resolution." },
-            { title: "Export at Full Resolution", desc: "The cropped image exports at the exact pixel dimensions you defined — no downscaling. Download as JPEG, PNG, or WebP for maximum flexibility." },
+            { title: "Export at Full Resolution", desc: "The cropped image exports at the exact pixel dimensions you defined -- no downscaling. Download as JPEG, PNG, or WebP for maximum flexibility." },
           ].map((c) => (
             <div key={c.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">{c.title}</h3>
@@ -91,17 +91,17 @@ export default function CropperPage() {
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Cropping Best Practices</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-              <li>Follow the rule of thirds — position key subjects along the grid lines for balanced compositions.</li>
+              <li>Follow the rule of thirds -- position key subjects along the grid lines for balanced compositions.</li>
               <li>Avoid cropping too tightly around faces. Leave some breathing room for social media rounded corners.</li>
               <li>Use the same aspect ratio for a series of posts to create a cohesive feed aesthetic.</li>
               <li>For print, always crop at the final output resolution to avoid quality loss from upscaling.</li>
-              <li>Check platform guidelines — each social network has specific optimal image dimensions.</li>
+              <li>Check platform guidelines -- each social network has specific optimal image dimensions.</li>
             </ul>
           </div>
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Common Cropping Mistakes</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-              <li><strong className="text-[#e6edf5]">Cropping at joints:</strong> Avoid cutting off limbs at the ankle, wrist, or knee — it looks unnatural.</li>
+              <li><strong className="text-[#e6edf5]">Cropping at joints:</strong> Avoid cutting off limbs at the ankle, wrist, or knee -- it looks unnatural.</li>
               <li><strong className="text-[#e6edf5]">Too much headroom:</strong> Leaving too much space above the subject makes the image feel empty.</li>
               <li><strong className="text-[#e6edf5]">Ignoring orientation:</strong> A vertical crop for a horizontal layout wastes pixels and looks awkward.</li>
               <li><strong className="text-[#e6edf5]">Over-cropping:</strong> Removing too much context can make the subject unrecognizable or the story unclear.</li>

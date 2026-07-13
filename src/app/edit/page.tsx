@@ -199,7 +199,7 @@ export default function EditPage() {
           {[
             { title: "Dynamic Blur Background", desc: "The most popular choice. Extends your image with a blurred copy of itself to fill the square. The blur gradient blends naturally, making it look like a intentional design choice rather than a filler." },
             { title: "Solid Color Fill", desc: "Adds a solid color background around your image. Choose from preset swatches or pick any custom color. Works great for product photos, brand assets, and minimalist aesthetics." },
-            { title: "Smart Crop", desc: "Automatically crops the center of your image into a perfect square. No background needed — ideal when your subject is centered and you want maximum visibility." },
+            { title: "Smart Crop", desc: "Automatically crops the center of your image into a perfect square. No background needed -- ideal when your subject is centered and you want maximum visibility." },
             { title: "Social Media Presets", desc: "Select your platform from the presets panel and instantly resize to the exact dimensions required. Covers Instagram, Facebook, X/Twitter, LinkedIn, TikTok, YouTube, and more." },
           ].map((c) => (
             <div key={c.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
@@ -225,11 +225,11 @@ export default function EditPage() {
                 {[
                   { plat: "Instagram", post: "1080x1080", prof: "320x320", story: "1080x1920" },
                   { plat: "Facebook", post: "1200x1200", prof: "180x180", story: "1080x1920" },
-                  { plat: "X / Twitter", post: "1200x1200", prof: "400x400", story: "—" },
-                  { plat: "LinkedIn", post: "1200x1200", prof: "400x400", story: "—" },
+                  { plat: "X / Twitter", post: "1200x1200", prof: "400x400", story: "--" },
+                  { plat: "LinkedIn", post: "1200x1200", prof: "400x400", story: "--" },
                   { plat: "TikTok", post: "1080x1080", prof: "200x200", story: "1080x1920" },
-                  { plat: "YouTube", post: "1280x1280", prof: "800x800", story: "—" },
-                  { plat: "Pinterest", post: "1000x1000", prof: "165x165", story: "—" },
+                  { plat: "YouTube", post: "1280x1280", prof: "800x800", story: "--" },
+                  { plat: "Pinterest", post: "1000x1000", prof: "165x165", story: "--" },
                 ].map((r) => (
                   <tr key={r.plat} className="border-b border-[rgba(255,255,255,0.03)]">
                     <td className="font-semibold text-[#e6edf5] py-2.5 pr-3">{r.plat}</td>
@@ -247,7 +247,7 @@ export default function EditPage() {
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Pro Tips for Square Images</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-              <li>Use Dynamic Blur when your image has a busy background that cannot be cropped cleanly — the blur creates a seamless extension.</li>
+              <li>Use Dynamic Blur when your image has a busy background that cannot be cropped cleanly -- the blur creates a seamless extension.</li>
               <li>For brand consistency, use Solid Color fill with your brand color as the background.</li>
               <li>Keep 10–15% padding around your subject when using blur backgrounds to prevent important content from touching the edge.</li>
               <li>Square profile pictures should have the subject centered and filling at least 70% of the frame for recognizability at small sizes.</li>
@@ -259,7 +259,7 @@ export default function EditPage() {
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Consistent feed aesthetic:</strong> Square images create a uniform grid on Instagram and other platforms that display thumbnails in a gallery.</li>
               <li><strong className="text-[#e6edf5]">Better engagement:</strong> Square images take up more visual space on mobile feeds than landscape images, increasing scroll-stopping power.</li>
-              <li><strong className="text-[#e6edf5]">Universal compatibility:</strong> Squares work everywhere — no awkward cropping or letterboxing when shared across platforms.</li>
+              <li><strong className="text-[#e6edf5]">Universal compatibility:</strong> Squares work everywhere -- no awkward cropping or letterboxing when shared across platforms.</li>
               <li><strong className="text-[#e6edf5]">Professional appearance:</strong> Consistently sized square images make your profile look curated and professional.</li>
             </ul>
           </div>

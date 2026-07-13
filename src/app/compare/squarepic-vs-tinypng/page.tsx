@@ -24,7 +24,7 @@ export default function VsTinypngPage() {
         <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-6">
           TinyPNG is well-known for PNG and JPEG compression using smart lossy algorithms. But it is a
           single-purpose tool. SquarePic combines compression with resizing, cropping, conversion, and
-          squaring — all without uploading your files.
+          squaring -- all without uploading your files.
         </p>
 
         <div className="overflow-x-auto mb-8">
@@ -40,7 +40,7 @@ export default function VsTinypngPage() {
               {[
                 { feat: "Price", sp: "Free forever", tp: "Free (500 images/mo) + Pro ($)" },
                 { feat: "Signup Required", sp: "No", tp: "No (free tier)" },
-                { feat: "Client-Side Only", sp: "Yes", tp: "No — uploads to server" },
+                { feat: "Client-Side Only", sp: "Yes", tp: "No -- uploads to server" },
                 { feat: "Max File Size", sp: "20 MB", tp: "Free: 5 MB, Pro: 50 MB" },
                 { feat: "Image Squaring", sp: "Yes", tp: "No" },
                 { feat: "Blur Background", sp: "Yes", tp: "No" },
@@ -76,7 +76,7 @@ export default function VsTinypngPage() {
             </div>
             <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">Key Advantage: All-in-One</h3>
-              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">TinyPNG only compresses. SquarePic compresses, resizes, crops, converts, and squares images. You can compress an image, convert it to WebP, resize it for Instagram, and add a blur background — all in one session, all locally.</p>
+              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">TinyPNG only compresses. SquarePic compresses, resizes, crops, converts, and squares images. You can compress an image, convert it to WebP, resize it for Instagram, and add a blur background -- all in one session, all locally.</p>
             </div>
           </div>
         </section>

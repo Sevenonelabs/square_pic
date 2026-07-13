@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   title: "FAQ - Frequently Asked Questions",
   description: "Find answers to common questions about SquarePic. Learn how to make square images, resize photos, and edit pictures online for free.",
   openGraph: { title: "FAQ - Frequently Asked Questions | SquarePic" },
-  alternates: { canonical: "https://squarepic-next.vercel.app/faq" },
+  alternates: { canonical: "https://www.squarepic.io/faq" },
 };
 
-const SITE = "https://squarepic-next.vercel.app";
+const SITE = "https://www.squarepic.io";
 
 const FAQS = [
   {
@@ -42,6 +42,38 @@ const FAQS = [
   {
     q: "Which platforms is this tool best for?",
     a: "Square images are ideal when you need to resize images for social media like Instagram grids, LinkedIn posts, Facebook updates, profile pictures, YouTube thumbnails, and product listings on marketplaces.",
+  },
+  {
+    q: "How can I contact support?",
+    a: "If you need help or any questions, you can email us at support@squarepic.io. We aim to respond as quickly as possible.",
+  },
+  {
+    q: "What image formats does SquarePic support?",
+    a: "SquarePic supports JPEG, PNG, WebP, GIF, BMP, TIFF, AVIF, and ICO formats. You can upload, edit, and export in any of these formats directly in your browser.",
+  },
+  {
+    q: "Can I resize images for specific social media platforms?",
+    a: "Yes. SquarePic includes preset dimensions for 13 social media platforms including Instagram, Facebook, Twitter/X, LinkedIn, TikTok, YouTube, Pinterest, Snapchat, WhatsApp, Twitch, Reddit, Telegram, and Discord. Each platform has its specific size requirements built in.",
+  },
+  {
+    q: "Is there a file size limit?",
+    a: "Yes, the maximum file size for upload is 20 MB. Most photos and screenshots fall well under this limit. If your file is larger, try compressing it first using our free image compressor tool.",
+  },
+  {
+    q: "Does SquarePic work on mobile devices?",
+    a: "Yes. SquarePic works on any modern browser, including Chrome, Safari, Firefox, and Edge on both desktop and mobile devices. The interface adapts to your screen size for a smooth editing experience on phones and tablets.",
+  },
+  {
+    q: "Can I batch process multiple images?",
+    a: "Our image compressor supports batch processing -- you can upload multiple files, compress them all at once, and download them individually or as a ZIP archive. The square image editor processes one image at a time for precise control over each result.",
+  },
+  {
+    q: "What is the difference between Dynamic Blur, Solid Background, and Smart Crop?",
+    a: "Dynamic Blur fills empty space with a blurred copy of your image for a professional look. Solid Background lets you choose a custom color to fill the space. Smart Crop automatically detects the best crop area and squares your image by cropping instead of padding.",
+  },
+  {
+    q: "How does SquarePic compare to other image editors?",
+    a: "SquarePic is completely free with no signup, no watermarks, and no uploads. All processing happens locally in your browser using HTML5 Canvas, making it one of the fastest and most private options available. Unlike many tools, we never store your images on any server.",
   },
 ];
 

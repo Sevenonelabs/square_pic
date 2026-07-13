@@ -40,7 +40,7 @@ export default function PrivacyFirstEditingPost() {
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-6">
           When you edit a photo online, where does it go? The answer might surprise you. Most web-based
           image editors upload your photos to their servers for processing. That holiday snapshot, your
-          passport photo, or a confidential product image — all of it gets transmitted to a remote server
+          passport photo, or a confidential product image -- all of it gets transmitted to a remote server
           you do not control.
         </p>
 
@@ -65,11 +65,11 @@ export default function PrivacyFirstEditingPost() {
           <li>You select an image from your device. It is loaded into your browser&apos;s memory.</li>
           <li>The image <strong className="text-[#e6edf5]">never leaves your device</strong>. No upload occurs.</li>
           <li>JavaScript reads the pixel data from the canvas and applies edits in real time.</li>
-          <li>The final image is created as a downloadable blob — still on your device.</li>
+          <li>The final image is created as a downloadable blob -- still on your device.</li>
           <li>When you close the tab, the image data is gone from browser memory.</li>
         </ol>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          This is exactly how <Link href="/" className="text-[var(--accent)] no-underline hover:underline">SquarePic</Link> works. Every edit — squaring, blurring, cropping, converting, compressing — happens locally in your browser. No server, no upload, no account.
+          This is exactly how <Link href="/" className="text-[var(--accent)] no-underline hover:underline">SquarePic</Link> works. Every edit -- squaring, blurring, cropping, converting, compressing -- happens locally in your browser. No server, no upload, no account.
         </p>
 
         <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Privacy by Design</h2>

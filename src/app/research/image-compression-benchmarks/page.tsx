@@ -12,7 +12,7 @@ const SITE = "https://www.squarepic.io";
 
 const BENCHMARKS = [
   { quality: "100%", jpeg: 245, png: 412, webp: 178, avif: 112, note: "Maximum quality, largest files" },
-  { quality: "90%", jpeg: 98, png: 412, webp: 64, avif: 41, note: "Visually lossless — recommended for photos" },
+  { quality: "90%", jpeg: 98, png: 412, webp: 64, avif: 41, note: "Visually lossless -- recommended for photos" },
   { quality: "80%", jpeg: 52, png: 412, webp: 36, avif: 23, note: "Excellent quality, great for web" },
   { quality: "70%", jpeg: 34, png: 412, webp: 24, avif: 16, note: "Good quality, ideal for hero images" },
   { quality: "60%", jpeg: 24, png: 412, webp: 18, avif: 12, note: "Noticeable artifacts on close inspection" },
@@ -36,7 +36,7 @@ export default function CompressionBenchmarksPage() {
         { name: "Image Compression Benchmarks", url: `${SITE}/research/image-compression-benchmarks` },
       ]} />
       <ArticleSchema
-        title="Image Compression Benchmarks 2026 — JPEG vs PNG vs WebP vs AVIF"
+        title="Image Compression Benchmarks 2026 -- JPEG vs PNG vs WebP vs AVIF"
         description="Independent benchmark comparing JPEG, PNG, WebP, and AVIF compression across 8 quality levels with file sizes, ratios, and loading time estimates."
         url={`${SITE}/research/image-compression-benchmarks`}
         datePublished="2026-07-13"
@@ -50,7 +50,7 @@ export default function CompressionBenchmarksPage() {
 
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           Choosing the right image format and quality setting is one of the most impactful decisions for
-          web performance. This study benchmarks four formats — JPEG, PNG, WebP, and AVIF — across eight
+          web performance. This study benchmarks four formats -- JPEG, PNG, WebP, and AVIF -- across eight
           quality levels using a standard 1920x1080 test image with photographic content.
         </p>
 

@@ -23,7 +23,7 @@ export default function VsIloveimgPage() {
         <h1 className="text-[1.8rem] font-extrabold tracking-tight mb-3">SquarePic vs iLoveIMG (2026)</h1>
         <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-6">
           iLoveIMG is one of the most popular free image editing websites. It offers compression, resizing,
-          cropping, and format conversion — similar to SquarePic. But there are key differences in how
+          cropping, and format conversion -- similar to SquarePic. But there are key differences in how
           they handle your images.
         </p>
 
@@ -40,7 +40,7 @@ export default function VsIloveimgPage() {
               {[
                 { feat: "Price", sp: "Free forever", il: "Free tier + Pro ($)" },
                 { feat: "Signup Required", sp: "No", il: "No (free tier)" },
-                { feat: "Client-Side Only", sp: "Yes", il: "No — uploads to server" },
+                { feat: "Client-Side Only", sp: "Yes", il: "No -- uploads to server" },
                 { feat: "Max File Size", sp: "20 MB", il: "Free: 25 MB, Pro: 100 MB" },
                 { feat: "Image Squaring", sp: "Yes (blur, solid, crop)", il: "Yes (crop only)" },
                 { feat: "Blur Background", sp: "Yes", il: "No" },
@@ -68,7 +68,7 @@ export default function VsIloveimgPage() {
           <div className="flex flex-col gap-3">
             <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">Privacy</h3>
-              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">iLoveIMG uploads your images to their servers for processing. They state files are deleted after one hour, but during processing your images exist on a remote server. SquarePic processes everything locally — your images never leave your device.</p>
+              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">iLoveIMG uploads your images to their servers for processing. They state files are deleted after one hour, but during processing your images exist on a remote server. SquarePic processes everything locally -- your images never leave your device.</p>
             </div>
             <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">Social Media Features</h3>

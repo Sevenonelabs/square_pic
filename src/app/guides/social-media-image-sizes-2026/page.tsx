@@ -179,7 +179,7 @@ export default function SocialMediaImageSizesPage() {
         <section className="mb-10">
           <h2 className="text-[1.3rem] font-extrabold text-[#e6edf5] mb-3">Why Correct Image Sizes Matter</h2>
           <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-3">
-            Social media platforms process your images through multiple display layers — feed, search results,
+            Social media platforms process your images through multiple display layers -- feed, search results,
             shared links, and notifications. Each context uses a different crop or size. When you upload an
             image at the wrong dimensions, the platform has to guess how to display it, often leading to:
           </p>
@@ -191,7 +191,7 @@ export default function SocialMediaImageSizesPage() {
           </ul>
           <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed">
             SquarePic makes it easy to resize your images to the exact dimensions each platform requires.
-            All processing happens locally in your browser — your images never leave your device.
+            All processing happens locally in your browser -- your images never leave your device.
           </p>
         </section>
 

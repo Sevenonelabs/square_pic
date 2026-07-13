@@ -113,7 +113,7 @@ export default function ImageSizeCalculatorPage() {
                   href={`/resize/${m.platform}`}
                   className="block text-[0.75rem] text-[var(--accent)] no-underline hover:underline mt-1"
                 >
-                  {plat?.label || m.platform} — {m.label} ({m.w}×{m.h})
+                  {plat?.label || m.platform} -- {m.label} ({m.w}×{m.h})
                 </Link>
               );
             })}

@@ -14,7 +14,7 @@ const CATEGORIES = [
   { slug: "how-to", name: "How-To", desc: "Step-by-step tutorials for resizing, cropping, compressing, and converting images.", count: 1 },
   { slug: "privacy", name: "Privacy", desc: "Privacy-first image editing, client-side processing, and data protection best practices.", count: 1 },
   { slug: "social-media-sizes", name: "Social Media Sizes", desc: "Complete dimension guides for every social media platform.", count: 0 },
-  { slug: "image-formats", name: "Image Formats", desc: "JPEG vs PNG vs WebP vs AVIF — when to use each format and how to convert between them.", count: 0 },
+  { slug: "image-formats", name: "Image Formats", desc: "JPEG vs PNG vs WebP vs AVIF -- when to use each format and how to convert between them.", count: 0 },
 ];
 
 export default function BlogCategoryPage() {

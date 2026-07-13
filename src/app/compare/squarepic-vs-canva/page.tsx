@@ -40,7 +40,7 @@ export default function VsCanvaPage() {
               {[
                 { feat: "Price", sp: "Free forever", c: "Freemium (Pro $13/mo)" },
                 { feat: "Signup Required", sp: "No", c: "Yes" },
-                { feat: "Client-Side Only", sp: "Yes", c: "No — server processing" },
+                { feat: "Client-Side Only", sp: "Yes", c: "No -- server processing" },
                 { feat: "Image Squaring", sp: "Yes (blur, solid, crop)", c: "Yes (crop only)" },
                 { feat: "Blur Background", sp: "Yes", c: "No (free tier)" },
                 { feat: "Smart Crop", sp: "Yes", c: "Yes" },
@@ -52,7 +52,7 @@ export default function VsCanvaPage() {
                 { feat: "Watermarks", sp: "None", c: "Yes (free tier)" },
                 { feat: "Open Source", sp: "Yes (MIT)", c: "No" },
                 { feat: "Privacy", sp: "Images never leave device", c: "Stored on Canva servers" },
-                { feat: "Learning Curve", sp: "Instant — upload and edit", c: "Moderate — many features" },
+                { feat: "Learning Curve", sp: "Instant -- upload and edit", c: "Moderate -- many features" },
               ].map((r) => (
                 <tr key={r.feat} className="border-b border-[rgba(255,255,255,0.03)]">
                   <td className="text-[#e6edf5] font-semibold py-2.5 pr-4">{r.feat}</td>
@@ -69,7 +69,7 @@ export default function VsCanvaPage() {
           <div className="flex flex-col gap-3">
             <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">Speed & Simplicity</h3>
-              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">SquarePic is designed for one thing — editing images fast. Upload, adjust, download. No account creation, no template browsing, no overwhelming interface. Canva requires signup and navigating a full design tool even for a simple resize.</p>
+              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">SquarePic is designed for one thing -- editing images fast. Upload, adjust, download. No account creation, no template browsing, no overwhelming interface. Canva requires signup and navigating a full design tool even for a simple resize.</p>
             </div>
             <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">Privacy</h3>
@@ -77,7 +77,7 @@ export default function VsCanvaPage() {
             </div>
             <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">Pricing</h3>
-              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">SquarePic is 100% free — every feature, every tool, no limits. Canva's free tier adds watermarks to your designs and limits access to premium templates and features. Canva Pro costs $13/month.</p>
+              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">SquarePic is 100% free -- every feature, every tool, no limits. Canva's free tier adds watermarks to your designs and limits access to premium templates and features. Canva Pro costs $13/month.</p>
             </div>
           </div>
         </section>

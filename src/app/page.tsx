@@ -85,12 +85,12 @@ export default function Home() {
           </h2>
           <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
             Making a perfect square image for social media takes just three steps. No signup, no uploads,
-            no watermarks — all processing stays in your browser.
+            no watermarks -- all processing stays in your browser.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
           {[
-            { step: "01", title: "Upload Your Photo", desc: "Drag and drop any image — JPG, PNG, WebP — up to 20 MB. SquarePic works entirely in your browser, so your file never leaves your device." },
+            { step: "01", title: "Upload Your Photo", desc: "Drag and drop any image -- JPG, PNG, WebP -- up to 20 MB. SquarePic works entirely in your browser, so your file never leaves your device." },
             { step: "02", title: "Choose Your Style", desc: "Pick from Dynamic Blur, Solid Color, or Smart Crop to fill the square. Adjust padding, zoom, and corner radius until it looks perfect." },
             { step: "03", title: "Download & Share", desc: "Export your square image as PNG, JPEG, or WebP at the exact dimensions you need. Ready for Instagram, LinkedIn, Twitter, and more." },
           ].map((s) => (
@@ -113,7 +113,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
               { title: "100% Free, No Signup", desc: "No accounts, no trials, no credit cards. Every feature is unlocked immediately and always will be." },
-              { title: "Privacy-First Processing", desc: "Your images never leave your device. All processing happens locally via HTML5 Canvas — zero server uploads." },
+              { title: "Privacy-First Processing", desc: "Your images never leave your device. All processing happens locally via HTML5 Canvas -- zero server uploads." },
               { title: "No Watermarks", desc: "Your downloads are clean. We never add watermarks, overlays, or branding to your images." },
               { title: "Multiple Export Formats", desc: "Download as PNG, JPEG, or WebP. Choose the format that works best for your platform." },
               { title: "Social Media Presets", desc: "Built-in dimensions for Instagram, X/Twitter, LinkedIn, TikTok, YouTube, and 13+ platforms." },

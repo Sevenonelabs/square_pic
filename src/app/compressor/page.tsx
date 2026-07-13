@@ -40,10 +40,10 @@ export default function CompressorPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           {[
-            { title: "Quality vs File Size", desc: "Higher quality retains more detail but creates larger files. For web use, quality 70–85% is ideal — images look nearly identical to originals but are 50–80% smaller. For thumbnails, quality 40–60% works well." },
+            { title: "Quality vs File Size", desc: "Higher quality retains more detail but creates larger files. For web use, quality 70–85% is ideal -- images look nearly identical to originals but are 50–80% smaller. For thumbnails, quality 40–60% works well." },
             { title: "Target Size Mode", desc: "Need an image under 100 KB? Enable target size mode and set your goal. The compressor automatically adjusts the quality slider to hit your exact file size target, saving you manual trial and error." },
             { title: "Batch Compression", desc: "Compress multiple images at once to save time. Upload several files, set your quality or target size, and download them all as a ZIP archive. Each image is compressed individually for optimal results." },
-            { title: "Lossy vs Lossless", desc: "JPEG compression is lossy — some data is discarded to reduce size. PNG compression is lossless — quality stays identical. WebP supports both modes. Choose based on whether you need perfect quality or smaller files." },
+            { title: "Lossy vs Lossless", desc: "JPEG compression is lossy -- some data is discarded to reduce size. PNG compression is lossless -- quality stays identical. WebP supports both modes. Choose based on whether you need perfect quality or smaller files." },
           ].map((c) => (
             <div key={c.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">{c.title}</h3>
