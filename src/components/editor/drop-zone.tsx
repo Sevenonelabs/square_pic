@@ -49,7 +49,7 @@ export function DropZone({ onFile, compact }: Props) {
         <motion.span
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.97 }}
-          className="bg-[var(--accent)] text-white px-6 py-2.5 rounded-lg font-extrabold text-sm cursor-pointer transition-all duration-300 hover:brightness-110 shadow-[0_4px_20px_var(--accent-glow)]"
+          className="bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/20 px-6 py-2.5 rounded-lg font-extrabold text-sm cursor-pointer transition-all duration-300 hover:bg-[var(--accent)]/20 shadow-none"
         >
           Upload Your Image
         </motion.span>
