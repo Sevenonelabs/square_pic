@@ -27,6 +27,9 @@ const STATIC_PAGES = [
   { path: "/compare/squarepic-vs-iloveimg", priority: 0.6, freq: "monthly" as const },
   { path: "/compare/squarepic-vs-tinypng", priority: 0.6, freq: "monthly" as const },
   { path: "/compare/squarepic-vs-canva", priority: 0.6, freq: "monthly" as const },
+  { path: "/research", priority: 0.5, freq: "monthly" as const },
+  { path: "/research/image-compression-benchmarks", priority: 0.7, freq: "monthly" as const },
+  { path: "/image-size-calculator", priority: 0.8, freq: "weekly" as const },
 ];
 
 const SLUG_MAP: Record<string, string> = {

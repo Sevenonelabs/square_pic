@@ -109,6 +109,60 @@ export function ArticleSchema({
   );
 }
 
+export function VideoObjectSchema({
+  name,
+  description,
+  thumbnailUrl,
+  contentUrl,
+  uploadDate,
+  duration,
+}: {
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  contentUrl: string;
+  uploadDate: string;
+  duration?: string;
+}) {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        name,
+        description,
+        thumbnailUrl,
+        contentUrl,
+        uploadDate,
+        ...(duration ? { duration } : {}),
+      }}
+    />
+  );
+}
+
+export function FAQPageSchema({
+  questions,
+}: {
+  questions: { question: string; answer: string }[];
+}) {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: questions.map((q) => ({
+          "@type": "Question",
+          name: q.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: q.answer,
+          },
+        })),
+      }}
+    />
+  );
+}
+
 export function PersonSchema({
   name,
   jobTitle,

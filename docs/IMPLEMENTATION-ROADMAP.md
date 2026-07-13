@@ -114,7 +114,10 @@
 - [ ] **Tool directory submissions** — Submit to web tool directories (6-10 relevant directories)
 - [ ] **Backlink analysis** — Monthly monitoring of new backlinks, disavow toxic links
 - [x] **GEO/AI search optimization** — Update llms.txt, ensure citations in AI responses
-- [ ] **Create data-driven content** — Compression benchmarks, format comparison tests (original data = citations)
+- [x] **Create data-driven content** — Compression benchmarks, format comparison tests (original data = citations)
+- [ ] **Open source directory listings** — _requires manual submission_
+- [ ] **Tool directory submissions** — _requires manual submission_
+- [ ] **Backlink analysis** — _requires ongoing monitoring_
 
 ### Phase 3 KPIs
 
@@ -134,9 +137,9 @@
 ### Months 7-9: Thought Leadership
 
 - [ ] **Publish original research** — Image compression benchmark study, social media image size trends
-- [ ] **Create interactive content** — Image size calculator, dimension comparison tool
+- [x] **Create interactive content** — Image size calculator, dimension comparison tool
 - [ ] **Influencer outreach** — Partner with design/dev YouTubers for mentions
-- [ ] **Advanced schema implementation** — Add/update emerging schema types
+- [x] **Advanced schema implementation** — Add VideoObject, FAQPage schema components
 - [ ] **Content refresh** — Update all 2026 data for 2027, add freshness signals
 - [ ] **Internationalization research** — Assess multilingual SEO opportunity (Spanish, German, French, Japanese)
 
