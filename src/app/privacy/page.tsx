@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">1</span>
           No Data Collection
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           SquarePic does not collect, store, or transmit your images. All image processing happens entirely within your web browser using the HTML5 Canvas API. Your photos never leave your device.
         </p>
       </section>
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">2</span>
           Local Storage
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           We use localStorage to remember your accent color preference (theme). This data stays on your device and is never sent to our servers. No cookies are used for tracking purposes.
         </p>
       </section>
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">3</span>
           Analytics
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           We use Google Analytics (GA4) and Google Tag Manager to collect anonymous usage statistics. This helps us understand which tools are most popular and improve the site. No personal information or image data is collected.
         </p>
       </section>
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">4</span>
           Third-Party Services
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           We use Google Fonts for typography. Google may collect usage data as described in their privacy policy. We do not use any other third-party services that process your data.
         </p>
       </section>
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">5</span>
           Data Retention
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           We do not store or retain any images you process through SquarePic. All image data exists only in your browser's memory during the editing session and is permanently deleted when you close the page. Your images are never transmitted over the network.
         </p>
       </section>
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">6</span>
           Contact
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           If you have questions about this privacy policy, please visit our FAQ page or contact us through the support page. We are committed to protecting your privacy and being transparent about how SquarePic works.
         </p>
       </section>

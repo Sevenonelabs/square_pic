@@ -184,7 +184,7 @@ export function ConverterTool() {
       >
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/20 to-transparent" />
         <h1 className="text-[1.65rem] font-extrabold tracking-tight mb-1">Free Image Converter</h1>
-        <p className="text-[0.9rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">
+        <p className="text-[0.95rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">
           Convert images between formats including JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, and TIFF.
         </p>
       </motion.div>

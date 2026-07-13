@@ -221,19 +221,19 @@ export default async function PlatformPage({ params }: Props) {
       <div className="space-y-5 mb-8">
         <div className="faq-item">
           <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">What is the standard image size for {p.label}?</h3>
-          <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
+          <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
             {p.label} supports multiple image formats. The most common sizes are {Object.values(p.types).slice(0, 3).map((t: any) => `${t.w}x${t.h} pixels`).join(", ")}. Use SquarePic to resize your photos to any of these exact dimensions.
           </p>
         </div>
         <div className="faq-item">
           <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">How do I resize images for {p.label} without cropping?</h3>
-          <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
+          <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
             Use SquarePic's free image resizer. Upload your photo, select the {p.label} preset that matches your needs, and choose Dynamic Blur or Solid Background mode to fill any empty space without cropping your original image.
           </p>
         </div>
         <div className="faq-item">
           <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">Is {p.label} image resizing free?</h3>
-          <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
+          <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
             Yes. SquarePic is completely free with no signup required. All image processing happens locally in your browser using HTML5 Canvas. Your photos are never uploaded to any server.
           </p>
         </div>

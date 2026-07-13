@@ -98,7 +98,7 @@ export function CompressorTool() {
       >
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/20 to-transparent" />
         <h1 className="text-[1.65rem] font-extrabold tracking-tight mb-1">Free Image Compressor</h1>
-        <p className="text-[0.9rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">
+        <p className="text-[0.95rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">
           Compress JPG, PNG, and WebP images online without losing quality. Reduce file sizes for faster website loading and easier sharing.
         </p>
       </motion.div>

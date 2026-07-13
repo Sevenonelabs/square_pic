@@ -11,7 +11,7 @@
   --color-text-primary: #e6edf5;
   --color-text-secondary: #8d9aaa;
   --color-text-tertiary: #576675;
-  --font-sans: "Asap Condensed", "Syne Mono", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "Syne Mono", monospace;
   --radius-sm: 4px;
   --radius-md: 6px;

@@ -22,7 +22,7 @@ export default function TermsPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">1</span>
           Acceptance of Terms
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           By using SquarePic, you agree to these terms of service. If you do not agree, please do not use our tools.
         </p>
       </section>
@@ -32,7 +32,7 @@ export default function TermsPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">2</span>
           Use of Service
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           SquarePic provides free online image editing tools for personal and commercial use. You may use our tools to edit, resize, crop, and convert images. You are responsible for ensuring you have the rights to edit and use any images you upload.
         </p>
       </section>
@@ -42,7 +42,7 @@ export default function TermsPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">3</span>
           No Warranty
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           SquarePic is provided "as is" without warranty of any kind. While we strive to keep the tools available and functional, we do not guarantee uninterrupted service.
         </p>
       </section>
@@ -52,7 +52,7 @@ export default function TermsPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">4</span>
           Limitation of Liability
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           SquarePic shall not be liable for any damages arising from the use or inability to use our tools. All image processing is client-side, and we are not responsible for any data loss.
         </p>
       </section>
@@ -62,7 +62,7 @@ export default function TermsPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">5</span>
           Intellectual Property
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           SquarePic and its tools are provided for free use. You retain all rights to the images you process using our tools. We do not claim any ownership over your content. The SquarePic brand name, logo, and website design are our intellectual property and may not be reproduced without permission.
         </p>
       </section>
@@ -72,7 +72,7 @@ export default function TermsPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">6</span>
           Changes to Terms
         </h2>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           We reserve the right to update these terms at any time. Continued use of SquarePic after changes constitutes acceptance of the new terms. We encourage you to review this page periodically for any updates.
         </p>
       </section>

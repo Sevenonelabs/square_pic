@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Asap_Condensed, Syne_Mono } from "next/font/google";
+import { Inter, Syne_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
-const asap = Asap_Condensed({
+const inter = Inter({
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   display: "swap",
@@ -46,7 +46,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${asap.variable} ${syneMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${syneMono.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{

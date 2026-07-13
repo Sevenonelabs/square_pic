@@ -30,7 +30,7 @@ export function DropZone({ onFile, compact }: Props) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-      className="w-full max-w-[250px] mx-auto aspect-square flex flex-col items-center justify-center gap-2 cursor-pointer bg-[rgba(255,255,255,0.015)] border-[1.5px] border-dashed border-[rgba(255,255,255,0.08)] rounded-lg transition-all duration-300 hover:border-[var(--accent)] hover:bg-[var(--accent)]/5 group"
+      className="w-full max-w-[250px] mx-auto aspect-[5/4] flex flex-col items-center justify-center gap-2 cursor-pointer bg-[rgba(255,255,255,0.015)] border-[1.5px] border-dashed border-[rgba(255,255,255,0.08)] rounded-lg transition-all duration-300 hover:border-[var(--accent)] hover:bg-[var(--accent)]/5 group"
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}
     >
@@ -42,7 +42,7 @@ export function DropZone({ onFile, compact }: Props) {
         </div>
         {!compact && (
           <>
-            <h2 className="text-[0.9rem] font-bold text-[#e6edf5]">Free Online Image Resizer & Square Photo Maker</h2>
+            <h2 className="text-[0.95rem] font-bold text-[#e6edf5]">Free Online Image Resizer & Square Photo Maker</h2>
             <p className="text-[0.7rem] text-[#8d9aaa] max-w-[90%] text-center leading-relaxed">SquarePic is your free photo cropper and online image resizer. Easily resize images for social media without losing quality.</p>
           </>
         )}

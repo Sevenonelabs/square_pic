@@ -47,7 +47,7 @@ const item = {
 
 export function ToolLinks({ current }: { current?: string }) {
   return (
-    <section className="max-w-[1400px] mx-auto px-6 pb-20 w-full max-md:px-3">
+    <section className="max-w-[1400px] mx-auto px-6 pt-5 pb-10 w-full max-md:px-3">
       <div className="text-center mb-8">
         <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5]">
           More Free Photo Tools

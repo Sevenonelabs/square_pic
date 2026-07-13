@@ -64,7 +64,7 @@ export default function FAQPage() {
         {FAQS.map((faq, i) => (
           <div key={i}>
             <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">{faq.q}</h3>
-            <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">{faq.a}</p>
+            <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">{faq.a}</p>
           </div>
         ))}
       </div>
