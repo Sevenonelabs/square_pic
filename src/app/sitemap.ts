@@ -18,11 +18,10 @@ const STATIC_PAGES = [
   { path: "/blog", priority: 0.7, freq: "weekly" as const },
   { path: "/blog/how-to-square-image-for-any-platform", priority: 0.6, freq: "monthly" as const },
   { path: "/blog/privacy-first-image-editing", priority: 0.6, freq: "monthly" as const },
-  { path: "/blog/category", priority: 0.4, freq: "monthly" as const },
-  { path: "/blog/category/how-to", priority: 0.4, freq: "monthly" as const },
-  { path: "/blog/category/privacy", priority: 0.4, freq: "monthly" as const },
-  { path: "/blog/category/social-media-sizes", priority: 0.4, freq: "monthly" as const },
-  { path: "/blog/category/image-formats", priority: 0.4, freq: "monthly" as const },
+  { path: "/blog-categories/how-to", priority: 0.4, freq: "monthly" as const },
+  { path: "/blog-categories/privacy", priority: 0.4, freq: "monthly" as const },
+  { path: "/blog-categories/social-media-sizes", priority: 0.4, freq: "monthly" as const },
+  { path: "/blog-categories/image-formats", priority: 0.4, freq: "monthly" as const },
   { path: "/compare", priority: 0.5, freq: "monthly" as const },
   { path: "/compare/squarepic-vs-iloveimg", priority: 0.6, freq: "monthly" as const },
   { path: "/compare/squarepic-vs-tinypng", priority: 0.6, freq: "monthly" as const },
@@ -40,7 +39,7 @@ const SLUG_MAP: Record<string, string> = {
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.SITE_URL || "https://squarepic.io";
+  const siteUrl = process.env.SITE_URL || "https://www.squarepic.io";
   const today = new Date().toISOString().split("T")[0];
 
   const staticEntries = STATIC_PAGES.map((p) => ({
@@ -72,4 +71,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticEntries, ...platformEntries, ...formatEntries];
 }
-
