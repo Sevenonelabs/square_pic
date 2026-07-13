@@ -183,7 +183,7 @@ export function ToolAsHeroLayout({
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="flex flex-col items-center gap-4"
                 >
-                  <h1 className="text-[clamp(1.1rem,2.2vw,1.76rem)] font-black tracking-[-2px] leading-[1.05] text-[#e6edf5] max-w-[600px]">
+                  <h1 className="text-[clamp(1.1rem,2.2vw,1.76rem)] font-black tracking-[-2px] leading-[1.05] text-white max-w-[600px]">
                     {renderHeadline()}
                   </h1>
                   {microcopy && (
