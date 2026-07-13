@@ -101,15 +101,15 @@
 
 ### Months 4-5: Authority Content
 
-- [ ] **Publish comparison pages** (SquarePic vs iLoveIMG, vs TinyPNG, vs Canva)
-- [ ] **Publish listicle posts** ("Top 10 Free Image Editors No Signup")
-- [ ] **Create "Best Of" roundups** — industry-specific (best photo editors for real estate, for social media managers, for devs)
-- [ ] **Expand format-specific tool pages** — target every format combination that has search volume
-- [ ] **Guest post outreach** — Publish on dev blogs, design blogs, privacy blogs (with backlinks)
+- [x] **Publish comparison pages** (SquarePic vs iLoveIMG, vs TinyPNG, vs Canva)
+- [ ] **Publish listicle posts** — _pending content writer_
+- [ ] **Create "Best Of" roundups** — _pending content writer_
+- [ ] **Expand format-specific tool pages** — _deferred; 19 format pairs already covered_
+- [ ] **Guest post outreach** — _requires content to reference_
 
 ### Months 5-6: Link Building & GEO
 
-- [ ] **GitHub SEO** — Optimize README, add links to tool pages, encourage GitHub stars → referral traffic
+- [x] **GitHub SEO** — Optimize README, add links to tool pages, encourage GitHub stars → referral traffic
 - [ ] **Open source directory listings** — Submit to open source directories, alternative.to, etc.
 - [ ] **Tool directory submissions** — Submit to web tool directories (6-10 relevant directories)
 - [ ] **Backlink analysis** — Monthly monitoring of new backlinks, disavow toxic links

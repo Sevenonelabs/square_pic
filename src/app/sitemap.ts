@@ -23,6 +23,10 @@ const STATIC_PAGES = [
   { path: "/blog/category/privacy", priority: 0.4, freq: "monthly" as const },
   { path: "/blog/category/social-media-sizes", priority: 0.4, freq: "monthly" as const },
   { path: "/blog/category/image-formats", priority: 0.4, freq: "monthly" as const },
+  { path: "/compare", priority: 0.5, freq: "monthly" as const },
+  { path: "/compare/squarepic-vs-iloveimg", priority: 0.6, freq: "monthly" as const },
+  { path: "/compare/squarepic-vs-tinypng", priority: 0.6, freq: "monthly" as const },
+  { path: "/compare/squarepic-vs-canva", priority: 0.6, freq: "monthly" as const },
 ];
 
 const SLUG_MAP: Record<string, string> = {
