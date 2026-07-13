@@ -6,6 +6,7 @@ import { Inter, Syne_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { OrgSchema } from "@/components/schema-scripts";
 
 const inter = Inter({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -63,6 +64,7 @@ export default function RootLayout({
         <Script id="ga-config" strategy="afterInteractive" dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9TTBK0ZDM5');`,
         }} />
+        <OrgSchema />
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />

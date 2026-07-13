@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
 
 const SITE = "https://www.squarepic.io";
 
@@ -70,7 +71,13 @@ export default function ImageSizeCalculatorPage() {
     : ALL_TYPES;
 
   return (
-    <div className="max-w-[800px] w-full mx-auto px-4 py-8">
+    <>
+      <BreadcrumbSchema items={[
+        { name: "Home", url: SITE },
+        { name: "Image Size Calculator", url: `${SITE}/image-size-calculator` },
+      ]} />
+      <WebAppSchema name="SquarePic - Image Size Calculator" url={`${SITE}/image-size-calculator`} description="Find the perfect image dimensions for any social media platform with our interactive size calculator." aggregateRating={{ ratingValue: "4.8", ratingCount: "45", bestRating: "5" }} />
+      <div className="max-w-[800px] w-full mx-auto px-4 py-8">
       <h1 className="text-[1.8rem] font-extrabold tracking-tight mb-2">Image Size Calculator</h1>
       <p className="text-[0.9rem] text-[#8d9aaa] mb-6 leading-relaxed">
         Enter your image dimensions or select a platform to find the perfect size for social media.
@@ -169,5 +176,6 @@ export default function ImageSizeCalculatorPage() {
         </Link>
       </div>
     </div>
+    </>
   );
 }

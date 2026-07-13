@@ -115,9 +115,6 @@
 - [ ] **Backlink analysis** — Monthly monitoring of new backlinks, disavow toxic links
 - [x] **GEO/AI search optimization** — Update llms.txt, ensure citations in AI responses
 - [x] **Create data-driven content** — Compression benchmarks, format comparison tests (original data = citations)
-- [ ] **Open source directory listings** — _requires manual submission_
-- [ ] **Tool directory submissions** — _requires manual submission_
-- [ ] **Backlink analysis** — _requires ongoing monitoring_
 
 ### Phase 3 KPIs
 
@@ -147,7 +144,7 @@
 
 - [ ] **Monthly content audit** — Identify low-performing pages for rewrite or consolidation
 - [ ] **Quarterly keyword gap analysis** — Re-assess competitive landscape, find new opportunities
-- [ ] **Schema audit** — Check for errors/warnings in GSC, fix any issues
+- [x] **Schema audit** — Full code-level audit completed; OrgSchema injected globally in root layout; schema added to image-size-calculator; logo reference fixed
 - [ ] **Core Web Vitals monitoring** — Continuous perf monitoring via Vercel Analytics + CrUX
 - [ ] **Traffic diversification** — Build social media presence (Twitter/X, Reddit, ProductHunt) for non-organic channels
 - [ ] **Annual strategy review** — Update SEO strategy based on year 1 performance
