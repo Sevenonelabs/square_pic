@@ -40,7 +40,7 @@ const SLUG_MAP: Record<string, string> = {
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.SITE_URL || "https://www.squarepic.io";
+  const siteUrl = process.env.SITE_URL || "https://squarepic.io";
   const today = new Date().toISOString().split("T")[0];
 
   const staticEntries = STATIC_PAGES.map((p) => ({
@@ -72,3 +72,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticEntries, ...platformEntries, ...formatEntries];
 }
+

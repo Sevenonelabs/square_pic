@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   title: "FAQ - Frequently Asked Questions",
   description: "Find answers to common questions about SquarePic. Learn how to make square images, resize photos, and edit pictures online for free.",
   openGraph: { title: "FAQ - Frequently Asked Questions | SquarePic" },
-  alternates: { canonical: "https://www.squarepic.io/faq" },
+  alternates: { canonical: "https://squarepic.io/faq" },
 };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 const FAQS = [
   {
@@ -104,3 +104,4 @@ export default function FAQPage() {
     </>
   );
 }
+

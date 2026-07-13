@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Square Image Editor - Make Photos Square Online",
   description: "Upload any photo and convert it to a perfect square. Dynamic blur backgrounds or solid fills. No uploads, no watermarks, 100% free.",
   openGraph: { title: "Square Image Editor - Make Photos Square Online | SquarePic" },
-  alternates: { canonical: "https://www.squarepic.io/edit" },
+  alternates: { canonical: "https://squarepic.io/edit" },
 };
 
 export default function EditLayout({ children }: { children: React.ReactNode }) {
@@ -21,3 +21,4 @@ export default function EditLayout({ children }: { children: React.ReactNode }) 
     </>
   );
 }
+

@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: "How to Square an Image for Any Social Media Platform",
   description: "Step-by-step guide to making perfect square images for Instagram, LinkedIn, Facebook, and more. Learn three methods: blur background, solid fill, and smart crop.",
   openGraph: { title: "How to Square an Image for Any Social Media Platform | SquarePic" },
-  alternates: { canonical: "https://www.squarepic.io/blog/how-to-square-image-for-any-platform" },
+  alternates: { canonical: "https://squarepic.io/blog/how-to-square-image-for-any-platform" },
 };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 export default function HowToSquareImagePost() {
   return (
@@ -148,3 +148,4 @@ export default function HowToSquareImagePost() {
     </>
   );
 }
+

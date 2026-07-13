@@ -5,9 +5,10 @@ export const metadata: Metadata = {
   title: "Terms of Service - Free Online Image Editor",
   description: "Review SquarePic's terms of service for using our free online image editor, square photo maker, and image resizer tools.",
   openGraph: { title: "Terms of Service - Free Online Image Editor | SquarePic" },
+  alternates: { canonical: "https://squarepic.io/terms" },
 };
 
-const SITE = "https://squarepic-next.vercel.app";
+const SITE = "https://squarepic.io";
 
 export default function TermsPage() {
   return (
@@ -76,7 +77,18 @@ export default function TermsPage() {
           We reserve the right to update these terms at any time. Continued use of SquarePic after changes constitutes acceptance of the new terms. We encourage you to review this page periodically for any updates.
         </p>
       </section>
+
+      <section className="mb-6">
+        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">7</span>
+          Contact
+        </h2>
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
+          If you have any questions about these terms, please email us at <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>.
+        </p>
+      </section>
     </div>
     </>
   );
 }
+

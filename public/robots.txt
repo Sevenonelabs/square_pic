@@ -22,7 +22,8 @@ Allow: /
 Allow: /assets/
 Disallow: /api/
 
-Sitemap: https://squarepic-next.vercel.app/sitemap.xml
+Sitemap: https://squarepic.io/sitemap.xml
 
 # When using a custom domain, replace the URL above with:
 # Sitemap: https://yourdomain.com/sitemap.xml
+

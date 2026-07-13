@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   title: "Free Online Photo Cropper - Perfect Crop",
   description: "Crop photos online for free with precision controls. Aspect ratio presets, zoom, pan, and export to JPEG, PNG, or WebP.",
   openGraph: { title: "Free Online Photo Cropper - Perfect Crop | SquarePic" },
-  alternates: { canonical: "https://www.squarepic.io/cropper" },
+  alternates: { canonical: "https://squarepic.io/cropper" },
 };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 export default function CropperPage() {
   return (
@@ -121,3 +121,4 @@ export default function CropperPage() {
     </>
   );
 }
+

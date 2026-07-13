@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   title: "Free Image Converter - JPG, PNG & WebP",
   description: "Convert images to JPG, PNG, or WebP formats online for free. Batch convert multiple images at once with no uploads required.",
   openGraph: { title: "Free Image Converter - JPG, PNG & WebP | SquarePic" },
-  alternates: { canonical: "https://www.squarepic.io/converter" },
+  alternates: { canonical: "https://squarepic.io/converter" },
 };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 export default function ConverterPage() {
   return (
@@ -143,3 +143,4 @@ export default function ConverterPage() {
     </>
   );
 }
+

@@ -40,8 +40,8 @@ export default function EditPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.squarepic.io" },
-          { "@type": "ListItem", position: 2, name: "Square Image Tool", item: "https://www.squarepic.io/edit" },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://squarepic.io" },
+          { "@type": "ListItem", position: 2, name: "Square Image Tool", item: "https://squarepic.io/edit" },
         ],
       }} />
       <div className="max-w-[1400px] mx-auto px-6 py-4 max-md:px-3 max-md:py-2">
@@ -268,3 +268,4 @@ export default function EditPage() {
     </>
   );
 }
+

@@ -1,29 +1,29 @@
 # SquarePic — Free Online Image Editor
-# https://squarepic-next.vercel.app
+# https://squarepic.io
 
 ## About
 SquarePic is a free online image editor that lets you resize, crop, compress, and convert images. All processing happens locally in your browser — no uploads, no watermarks, no signup required.
 
 ## Tools
-- Square Image Editor: https://squarepic-next.vercel.app/edit
-- Image Compressor: https://squarepic-next.vercel.app/compressor
-- Image Converter: https://squarepic-next.vercel.app/converter
-- Photo Cropper: https://squarepic-next.vercel.app/cropper
+- Square Image Editor: https://squarepic.io/edit
+- Image Compressor: https://squarepic.io/compressor
+- Image Converter: https://squarepic.io/converter
+- Photo Cropper: https://squarepic.io/cropper
 
 ## Platform Size Guides
-- Instagram Image Sizes: https://squarepic-next.vercel.app/resize/instagram
-- Facebook Image Sizes: https://squarepic-next.vercel.app/resize/facebook
-- X (Twitter) Image Sizes: https://squarepic-next.vercel.app/resize/x-twitter
-- LinkedIn Image Sizes: https://squarepic-next.vercel.app/resize/linkedin
-- TikTok Image Sizes: https://squarepic-next.vercel.app/resize/tiktok
-- YouTube Image Sizes: https://squarepic-next.vercel.app/resize/youtube
-- Pinterest Image Sizes: https://squarepic-next.vercel.app/resize/pinterest
-- Snapchat Image Sizes: https://squarepic-next.vercel.app/resize/snapchat
-- WhatsApp Image Sizes: https://squarepic-next.vercel.app/resize/whatsapp
-- Twitch Image Sizes: https://squarepic-next.vercel.app/resize/twitch
-- Reddit Image Sizes: https://squarepic-next.vercel.app/resize/reddit
-- Telegram Image Sizes: https://squarepic-next.vercel.app/resize/telegram
-- Discord Image Sizes: https://squarepic-next.vercel.app/resize/discord
+- Instagram Image Sizes: https://squarepic.io/resize/instagram
+- Facebook Image Sizes: https://squarepic.io/resize/facebook
+- X (Twitter) Image Sizes: https://squarepic.io/resize/x-twitter
+- LinkedIn Image Sizes: https://squarepic.io/resize/linkedin
+- TikTok Image Sizes: https://squarepic.io/resize/tiktok
+- YouTube Image Sizes: https://squarepic.io/resize/youtube
+- Pinterest Image Sizes: https://squarepic.io/resize/pinterest
+- Snapchat Image Sizes: https://squarepic.io/resize/snapchat
+- WhatsApp Image Sizes: https://squarepic.io/resize/whatsapp
+- Twitch Image Sizes: https://squarepic.io/resize/twitch
+- Reddit Image Sizes: https://squarepic.io/resize/reddit
+- Telegram Image Sizes: https://squarepic.io/resize/telegram
+- Discord Image Sizes: https://squarepic.io/resize/discord
 
 ## Features
 - All processing is client-side (HTML5 Canvas) — images never leave your device
@@ -31,3 +31,4 @@ SquarePic is a free online image editor that lets you resize, crop, compress, an
 - Batch compress with slider or target-size mode
 - Batch convert between 8 image formats
 - Interactive crop with 8 drag handles and aspect ratio presets
+

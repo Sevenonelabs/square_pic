@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: "SquarePic vs iLoveIMG - Detailed Comparison (2026)",
   description: "Compare SquarePic vs iLoveIMG: features, pricing, privacy, and limitations. See why client-side image processing is the better choice for privacy-conscious users.",
   openGraph: { title: "SquarePic vs iLoveIMG - Comparison | SquarePic" },
-  alternates: { canonical: "https://www.squarepic.io/compare/squarepic-vs-iloveimg" },
+  alternates: { canonical: "https://squarepic.io/compare/squarepic-vs-iloveimg" },
 };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 export default function VsIloveimgPage() {
   return (
@@ -90,3 +90,4 @@ export default function VsIloveimgPage() {
     </>
   );
 }
+

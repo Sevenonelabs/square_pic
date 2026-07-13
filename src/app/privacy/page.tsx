@@ -5,9 +5,10 @@ export const metadata: Metadata = {
   title: "Privacy Policy - Free Online Image Editor",
   description: "Your privacy matters. Read the SquarePic privacy policy to understand how we handle your data and images. No uploads, no tracking.",
   openGraph: { title: "Privacy Policy - Free Online Image Editor | SquarePic" },
+  alternates: { canonical: "https://squarepic.io/privacy" },
 };
 
-const SITE = "https://squarepic-next.vercel.app";
+const SITE = "https://squarepic.io";
 
 export default function PrivacyPage() {
   return (
@@ -72,11 +73,15 @@ export default function PrivacyPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">6</span>
           Contact
         </h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           If you have questions about this privacy policy, please visit our FAQ page or contact us through the support page. We are committed to protecting your privacy and being transparent about how SquarePic works.
+        </p>
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
+          You can reach us at <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>.
         </p>
       </section>
     </div>
     </>
   );
 }
+

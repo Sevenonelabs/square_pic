@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   title: "Social Media Image Sizes 2026: Complete Cheat Sheet",
   description: "The ultimate guide to 2026 social media image sizes. Updated dimensions for Instagram, Facebook, X/Twitter, LinkedIn, TikTok, YouTube, Pinterest, and more.",
   openGraph: { title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic" },
-  alternates: { canonical: "https://www.squarepic.io/guides/social-media-image-sizes-2026" },
+  alternates: { canonical: "https://squarepic.io/guides/social-media-image-sizes-2026" },
 };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 const SLUG_MAP: Record<string, string> = {
   instagram: "instagram",
@@ -207,3 +207,4 @@ export default function SocialMediaImageSizesPage() {
     </>
   );
 }
+

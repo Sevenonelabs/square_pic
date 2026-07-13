@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   title: "Image Compression Benchmarks 2026 - JPEG vs PNG vs WebP vs AVIF",
   description: "Independent benchmark comparing JPEG, PNG, WebP, and AVIF compression across 8 quality levels. Original data on file sizes, compression ratios, and estimated load times.",
   openGraph: { title: "Image Compression Benchmarks 2026 | SquarePic Research" },
-  alternates: { canonical: "https://www.squarepic.io/research/image-compression-benchmarks" },
+  alternates: { canonical: "https://squarepic.io/research/image-compression-benchmarks" },
 };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 const BENCHMARKS = [
   { quality: "100%", jpeg: 245, png: 412, webp: 178, avif: 112, note: "Maximum quality, largest files" },
@@ -219,3 +219,4 @@ export default function CompressionBenchmarksPage() {
     </>
   );
 }
+

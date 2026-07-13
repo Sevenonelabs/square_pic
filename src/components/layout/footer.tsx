@@ -42,6 +42,8 @@ export function Footer() {
       <p className="text-center text-[0.8rem] text-[#576675] tracking-[0.02em] mt-6 pt-4 border-t border-[rgba(255,255,255,0.04)] max-md:text-[0.65rem]">
         &copy; 2026 SquarePic - Free online square image maker.
         <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline ml-1">Open source</a>
+        <span className="mx-2">&middot;</span>
+        <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>
       </p>
     </footer>
   );

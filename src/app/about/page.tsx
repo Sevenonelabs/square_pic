@@ -5,9 +5,10 @@ export const metadata: Metadata = {
   title: "About - Free Online Square Image Editor",
   description: "Learn about SquarePic, the privacy-first online image editor. Make any photo square for Instagram and social media. No uploads, no watermarks.",
   openGraph: { title: "About - Free Online Square Image Editor | SquarePic" },
+  alternates: { canonical: "https://squarepic.io/about" },
 };
 
-const SITE = "https://squarepic-next.vercel.app";
+const SITE = "https://squarepic.io";
 
 export default function AboutPage() {
   return (
@@ -69,10 +70,11 @@ export default function AboutPage() {
           Open Source
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          SquarePic is open source software built by <strong className="text-[#e6edf5]">SevenOneLabs</strong>. The source code is available on <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">GitHub</a>. Contributions, issues, and feature requests are welcome.
+          SquarePic is open source software built by <strong className="text-[#e6edf5]">SevenOneLabs</strong>. The source code is available on <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">GitHub</a>. Contributions, issues, and feature requests are welcome. You can also reach us at <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>.
         </p>
       </section>
     </div>
     </>
   );
 }
+

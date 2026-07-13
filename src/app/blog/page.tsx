@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: "Blog - Image Editing Tips & Tutorials",
   description: "Image editing tutorials, social media size guides, and tips from the SquarePic team.",
   openGraph: { title: "Blog - Image Editing Tips & Tutorials | SquarePic" },
-  alternates: { canonical: "https://www.squarepic.io/blog" },
+  alternates: { canonical: "https://squarepic.io/blog" },
 };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 const CATEGORIES = [
   { name: "Social Media Sizes", slug: "social-media-sizes", count: 1 },
@@ -106,3 +106,4 @@ export default function BlogPage() {
     </>
   );
 }
+

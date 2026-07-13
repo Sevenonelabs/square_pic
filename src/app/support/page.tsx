@@ -5,9 +5,10 @@ export const metadata: Metadata = {
   title: "Contact Support - Free Image Editor Help",
   description: "Need help with SquarePic? Contact support for assistance with resizing images, editing photos, and making square pictures online.",
   openGraph: { title: "Contact Support - Free Image Editor Help | SquarePic" },
+  alternates: { canonical: "https://squarepic.io/support" },
 };
 
-const SITE = "https://squarepic-next.vercel.app";
+const SITE = "https://squarepic.io";
 
 export default function SupportPage() {
   return (
@@ -69,11 +70,15 @@ export default function SupportPage() {
 
       <section className="mb-6">
         <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Contact Us</h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           If you need further assistance, please visit our <a href="/faq" className="text-[var(--accent)] no-underline hover:underline">FAQ page</a> for common questions, or check our <a href="/privacy" className="text-[var(--accent)] no-underline hover:underline">Privacy Policy</a> and <a href="/terms" className="text-[var(--accent)] no-underline hover:underline">Terms of Service</a>.
+        </p>
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
+          You can also email us directly at <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>.
         </p>
       </section>
     </div>
     </>
   );
 }
+

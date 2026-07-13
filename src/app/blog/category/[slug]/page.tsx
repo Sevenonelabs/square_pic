@@ -5,7 +5,7 @@ import { BreadcrumbSchema } from "@/components/schema-scripts";
 
 type Props = { params: Promise<{ slug: string }> };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 const CATEGORIES: Record<string, { name: string; desc: string }> = {
   "how-to": { name: "How-To", desc: "Step-by-step tutorials and guides." },

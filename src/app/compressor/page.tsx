@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   title: "Free Image Compressor - JPG, PNG & WebP",
   description: "Compress JPG, PNG, and WebP images online without losing quality. Reduce file sizes for faster website loading and easier sharing.",
   openGraph: { title: "Free Image Compressor - JPG, PNG & WebP | SquarePic" },
-  alternates: { canonical: "https://www.squarepic.io/compressor" },
+  alternates: { canonical: "https://squarepic.io/compressor" },
 };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 export default function CompressorPage() {
   return (
@@ -117,3 +117,4 @@ export default function CompressorPage() {
     </>
   );
 }
+

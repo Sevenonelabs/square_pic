@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 const PLATFORMS = [
   { key: "instagram", label: "Instagram" },
@@ -179,3 +179,4 @@ export default function ImageSizeCalculatorPage() {
     </>
   );
 }
+

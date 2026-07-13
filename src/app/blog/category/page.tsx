@@ -5,10 +5,10 @@ import { BreadcrumbSchema } from "@/components/schema-scripts";
 export const metadata: Metadata = {
   title: "Blog Categories",
   description: "Browse SquarePic blog posts by category: social media sizes, image formats, privacy, and how-to guides.",
-  alternates: { canonical: "https://www.squarepic.io/blog/category" },
+  alternates: { canonical: "https://squarepic.io/blog/category" },
 };
 
-const SITE = "https://www.squarepic.io";
+const SITE = "https://squarepic.io";
 
 const CATEGORIES = [
   { slug: "how-to", name: "How-To", desc: "Step-by-step tutorials for resizing, cropping, compressing, and converting images.", count: 1 },
@@ -49,3 +49,4 @@ export default function BlogCategoryPage() {
     </>
   );
 }
+

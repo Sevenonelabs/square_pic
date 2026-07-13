@@ -39,10 +39,10 @@ export default function Home() {
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: "SquarePic",
-        url: "https://www.squarepic.io",
+        url: "https://squarepic.io",
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://www.squarepic.io/?q={search_term_string}",
+          target: "https://squarepic.io/?q={search_term_string}",
           "query-input": "required name=search_term_string",
         },
       }} />
@@ -51,16 +51,16 @@ export default function Home() {
         "@type": "Organization",
         name: "SquarePic",
         alternateName: "Square Pic - Square Image Tool",
-        url: "https://www.squarepic.io",
+        url: "https://squarepic.io",
         description: "Free online square image maker and social media photo resizer. No uploads, no signup.",
-        logo: "https://www.squarepic.io/images/logo.png",
+        logo: "https://squarepic.io/images/logo.png",
         sameAs: ["https://github.com/Sevenonelabs/square_pic"],
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "WebApplication",
         name: "SquarePic - Free Square Image Maker",
-        url: "https://www.squarepic.io",
+        url: "https://squarepic.io",
         description: "Make any photo perfectly square for Instagram and social media. Free online image resizer with blur backgrounds, solid fills, and smart crop.",
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",
@@ -177,7 +177,7 @@ export default function Home() {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         name: "SquarePic - Free Square Image Maker",
-        url: "https://www.squarepic.io",
+        url: "https://squarepic.io",
         description: "Free online square image maker with blur backgrounds, solid fills, and smart crop. Privacy-first, no uploads, no signup.",
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",
@@ -193,3 +193,4 @@ export default function Home() {
     </>
   );
 }
+

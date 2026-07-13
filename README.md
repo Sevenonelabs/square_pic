@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.squarepic.io">
+  <a href="https://squarepic.io">
     <img src="https://img.shields.io/badge/Website-squarepic.io-8b5cf6?logo=google-chrome&logoColor=fff" alt="Website">
   </a>
   <img src="https://img.shields.io/badge/Next.js_16-000?logo=next.js&logoColor=fff" alt="Next.js 16">
@@ -28,17 +28,17 @@
 
 **SquarePic** is a free, privacy-first online image editing toolkit. Resize, crop, compress, convert, and square images — all in your browser. No uploads, no watermarks, no signup.
 
-> → [squarepic.io](https://www.squarepic.io) — try it now, no account needed.
+> → [squarepic.io](https://squarepic.io) — try it now, no account needed.
 
 ## ✨ Live Tools
 
 | Tool | Link | Description |
 |------|------|-------------|
-| **Square Image Editor** | [squarepic.io](https://www.squarepic.io) | Fit any photo into a perfect square with blur, solid fill, or smart crop |
-| **Image Converter** | [squarepic.io/converter](https://www.squarepic.io/converter) | Convert between JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, TIFF |
-| **Image Compressor** | [squarepic.io/compressor](https://www.squarepic.io/compressor) | Compress with quality slider or target-size mode; batch ZIP export |
-| **Photo Cropper** | [squarepic.io/cropper](https://www.squarepic.io/cropper) | Interactive crop with 8 drag handles and aspect ratio presets |
-| **Social Media Sizes Guide** | [squarepic.io/guides](https://www.squarepic.io/guides) | Complete dimension cheat sheet for all platforms |
+| **Square Image Editor** | [squarepic.io](https://squarepic.io) | Fit any photo into a perfect square with blur, solid fill, or smart crop |
+| **Image Converter** | [squarepic.io/converter](https://squarepic.io/converter) | Convert between JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, TIFF |
+| **Image Compressor** | [squarepic.io/compressor](https://squarepic.io/compressor) | Compress with quality slider or target-size mode; batch ZIP export |
+| **Photo Cropper** | [squarepic.io/cropper](https://squarepic.io/cropper) | Interactive crop with 8 drag handles and aspect ratio presets |
+| **Social Media Sizes Guide** | [squarepic.io/guides](https://squarepic.io/guides) | Complete dimension cheat sheet for all platforms |
 
 All processing is powered by the **HTML5 Canvas API** — your images **never leave your device**.
 
@@ -79,12 +79,12 @@ Open [localhost:3000](http://localhost:3000) in your browser.
 
 ## 📚 Guides & Blog
 
-- [Social Media Image Sizes 2026](https://www.squarepic.io/guides/social-media-image-sizes-2026) — Complete cheat sheet for all platforms
-- [How to Square an Image](https://www.squarepic.io/blog/how-to-square-image-for-any-platform) — Step-by-step tutorial
-- [Privacy-First Image Editing](https://www.squarepic.io/blog/privacy-first-image-editing) — Why client-side processing matters
-- [SquarePic vs iLoveIMG](https://www.squarepic.io/compare/squarepic-vs-iloveimg) — Honest comparison
-- [SquarePic vs TinyPNG](https://www.squarepic.io/compare/squarepic-vs-tinypng) — Feature comparison
-- [SquarePic vs Canva](https://www.squarepic.io/compare/squarepic-vs-canva) — Detailed breakdown
+- [Social Media Image Sizes 2026](https://squarepic.io/guides/social-media-image-sizes-2026) — Complete cheat sheet for all platforms
+- [How to Square an Image](https://squarepic.io/blog/how-to-square-image-for-any-platform) — Step-by-step tutorial
+- [Privacy-First Image Editing](https://squarepic.io/blog/privacy-first-image-editing) — Why client-side processing matters
+- [SquarePic vs iLoveIMG](https://squarepic.io/compare/squarepic-vs-iloveimg) — Honest comparison
+- [SquarePic vs TinyPNG](https://squarepic.io/compare/squarepic-vs-tinypng) — Feature comparison
+- [SquarePic vs Canva](https://squarepic.io/compare/squarepic-vs-canva) — Detailed breakdown
 
 ## 🤝 Contributing
 
@@ -93,3 +93,4 @@ Contributions, issues, and feature requests are welcome. Open an [issue](https:/
 ## 📄 License
 
 MIT — see [LICENSE](LICENSE).
+
