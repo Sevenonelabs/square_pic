@@ -1,22 +1,4 @@
-# ── AI crawler management ─────────────────────────────
-# Block AI model training crawlers while preserving search indexing
-
-User-agent: GPTBot
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: Bytespider
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-# ── Allow all other crawlers ─────────────────────────
+# ── Allow all crawlers ────────────────────────────────
 User-agent: *
 Allow: /
 Allow: /assets/
