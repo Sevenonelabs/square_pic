@@ -57,9 +57,9 @@ export default function CompressionBenchmarksPage() {
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mb-8">
           <h2 className="text-[1.1rem] font-extrabold text-[#e6edf5] mb-1">Key Findings</h2>
           <ul className="text-[0.85rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-1.5 mt-3">
-            <li><strong className="text-[#e6edf5]">AVIF</strong> delivers 55–83% smaller files than JPEG at the same quality level.</li>
-            <li><strong className="text-[#e6edf5]">WebP</strong> achieves 25–35% better compression than JPEG across all quality levels.</li>
-            <li><strong className="text-[#e6edf5]">PNG</strong> is consistent across quality settings (lossless) but 2–4x larger than JPEG at high quality.</li>
+            <li><strong className="text-[#e6edf5]">AVIF</strong> delivers 55-83% smaller files than JPEG at the same quality level.</li>
+            <li><strong className="text-[#e6edf5]">WebP</strong> achieves 25-35% better compression than JPEG across all quality levels.</li>
+            <li><strong className="text-[#e6edf5]">PNG</strong> is consistent across quality settings (lossless) but 2-4x larger than JPEG at high quality.</li>
             <li>At quality 80%, all lossy formats are visually indistinguishable from the original in blind tests.</li>
             <li>Switching from JPEG to WebP at quality 80% reduces file size by 31% with no visible difference.</li>
           </ul>
@@ -185,9 +185,9 @@ export default function CompressionBenchmarksPage() {
         <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mb-3">Format Recommendations</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
           {[
-            { fmt: "JPEG", best: "Photos, social media, email", quality: "80–90%" },
+            { fmt: "JPEG", best: "Photos, social media, email", quality: "80-90%" },
             { fmt: "PNG", best: "Logos, screenshots, graphics with text", quality: "Lossless" },
-            { fmt: "WebP", best: "Modern websites, performance-critical pages", quality: "75–85%" },
+            { fmt: "WebP", best: "Modern websites, performance-critical pages", quality: "75-85%" },
             { fmt: "AVIF", best: "Next-gen web, HDR content", quality: "70–80%" },
           ].map((r) => (
             <div key={r.fmt} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">

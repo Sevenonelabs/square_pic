@@ -35,7 +35,7 @@ export function ResizeTool() {
     <ToolAsHeroLayout
       state={state}
       onStateChange={update}
-      headline="Square Pic – Social Media Resizer"
+      headline="Square Pic - Social Media Resizer"
       highlightWord="Social Media Resizer"
       badge="100% Free · No Signup · Privacy-First"
       colorSwatches={COLOR_SWATCHES}

@@ -80,7 +80,7 @@ export default function ConverterPage() {
           {[
             { title: "When to Convert to JPEG", desc: "JPEG remains the gold standard for photographs and complex images on the web. Use JPEG when you need broad compatibility and small file sizes and do not require transparency. Most social media platforms recommend JPEG for photo uploads." },
             { title: "When to Convert to PNG", desc: "PNG is the go-to format for images that need transparency -- logos, icons, screenshots, and graphics with sharp text. PNG compression is lossless, so the image quality is preserved exactly. The trade-off is larger file sizes compared to JPEG." },
-            { title: "When to Convert to WebP", desc: "WebP is Google's modern format that delivers JPEG-quality images at 25–35% smaller file sizes. It supports both lossy and lossless compression plus transparency. Use WebP for website hero images, thumbnails, and anywhere page speed matters." },
+            { title: "When to Convert to WebP", desc: "WebP is Google's modern format that delivers JPEG-quality images at 25-35% smaller file sizes. It supports both lossy and lossless compression plus transparency. Use WebP for website hero images, thumbnails, and anywhere page speed matters." },
             { title: "When to Convert to AVIF", desc: "AVIF offers even better compression than WebP -- typically 50% smaller than JPEG at the same quality. It supports HDR and wide color gamut. Use AVIF for next-generation web performance, but always provide JPEG or WebP fallbacks for older browsers." },
           ].map((c) => (
             <div key={c.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">

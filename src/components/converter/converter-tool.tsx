@@ -196,7 +196,7 @@ export function ConverterTool() {
         onClick={() => inputRef.current?.click()}
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => { e.preventDefault(); addFiles(e.dataTransfer.files); }}
-        className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all mb-4 ${
+        className={`border-2 border-dashed rounded-xl p-16 text-center cursor-pointer transition-all mb-4 min-h-[280px] flex flex-col items-center justify-center ${
           files.length > 0
             ? "border-[rgba(255,255,255,0.06)] bg-[rgba(0,0,0,0.15)]"
             : "border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.015)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/5"
@@ -207,8 +207,8 @@ export function ConverterTool() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
           </svg>
         </div>
-        <h3 className="text-[1.2rem] font-bold mb-1">Drop images here or click to browse</h3>
-        <p className="text-[0.85rem] text-[#8d9aaa] mb-0">Supports all common image formats</p>
+        <h3 className="text-[1.3rem] font-bold mb-2">Drop images here or click to browse</h3>
+        <p className="text-[0.9rem] text-[#8d9aaa] mb-0">Supports all common image formats</p>
         <input ref={inputRef} type="file" hidden multiple accept="image/*" onChange={(e) => e.target.files && addFiles(e.target.files)} />
       </motion.div>
 

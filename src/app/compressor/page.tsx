@@ -40,7 +40,7 @@ export default function CompressorPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           {[
-            { title: "Quality vs File Size", desc: "Higher quality retains more detail but creates larger files. For web use, quality 70–85% is ideal -- images look nearly identical to originals but are 50–80% smaller. For thumbnails, quality 40–60% works well." },
+            { title: "Quality vs File Size", desc: "Higher quality retains more detail but creates larger files. For web use, quality 70-85% is ideal - images look nearly identical to originals but are 50–80% smaller. For thumbnails, quality 40-60% works well." },
             { title: "Target Size Mode", desc: "Need an image under 100 KB? Enable target size mode and set your goal. The compressor automatically adjusts the quality slider to hit your exact file size target, saving you manual trial and error." },
             { title: "Batch Compression", desc: "Compress multiple images at once to save time. Upload several files, set your quality or target size, and download them all as a ZIP archive. Each image is compressed individually for optimal results." },
             { title: "Lossy vs Lossless", desc: "JPEG compression is lossy -- some data is discarded to reduce size. PNG compression is lossless -- quality stays identical. WebP supports both modes. Choose based on whether you need perfect quality or smaller files." },
@@ -67,8 +67,8 @@ export default function CompressorPage() {
               <tbody>
                 {[
                   { fmt: "JPEG", comp: "Lossy", best: "Photos, web images", saving: "50–80%" },
-                  { fmt: "PNG", comp: "Lossless", best: "Screenshots, logos, graphics with text", saving: "10–40%" },
-                  { fmt: "WebP", comp: "Lossy + Lossless", best: "Web performance, modern sites", saving: "25–35% vs JPEG" },
+                  { fmt: "PNG", comp: "Lossless", best: "Screenshots, logos, graphics with text", saving: "10-40%" },
+                  { fmt: "WebP", comp: "Lossy + Lossless", best: "Web performance, modern sites", saving: "25-35% vs JPEG" },
                 ].map((r) => (
                   <tr key={r.fmt} className="border-b border-[rgba(255,255,255,0.03)]">
                     <td className="font-semibold text-[#e6edf5] py-2.5 pr-4">{r.fmt}</td>

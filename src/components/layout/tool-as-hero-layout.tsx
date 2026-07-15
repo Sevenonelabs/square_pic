@@ -192,7 +192,7 @@ export function ToolAsHeroLayout({
                     </p>
                   )}
                 </motion.div>
-                <div className="w-full max-w-[400px]">
+                <div className="w-full max-w-[520px]">
                   <DropZone onFile={handleFile} compact />
                 </div>
                 {badge && (
@@ -213,7 +213,7 @@ export function ToolAsHeroLayout({
               initial="hidden"
               animate="visible"
               variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3.5"
+              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3.5"
             >
               <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Outer Border (Padding)</h3>
               <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1.5">
@@ -232,7 +232,7 @@ export function ToolAsHeroLayout({
               initial="hidden"
               animate="visible"
               variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3.5"
+              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3.5"
             >
               <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Style</h3>
               <div className="flex gap-1 bg-[rgba(0,0,0,0.25)] p-[3px] rounded-md border border-[rgba(255,255,255,0.06)]">
@@ -294,7 +294,7 @@ export function ToolAsHeroLayout({
               initial="hidden"
               animate="visible"
               variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3.5"
+              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3.5"
             >
               <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Adjustments</h3>
               <div className="space-y-3">
@@ -323,7 +323,7 @@ export function ToolAsHeroLayout({
               initial="hidden"
               animate="visible"
               variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3.5"
+              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3.5"
             >
               <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Social Size</h3>
               {activePresetLabel && (
@@ -381,7 +381,7 @@ export function ToolAsHeroLayout({
               initial="hidden"
               animate="visible"
               variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3.5"
+              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3.5"
             >
               <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Export</h3>
               <div className="flex gap-1 mb-2">

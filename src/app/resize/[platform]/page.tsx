@@ -96,7 +96,7 @@ const PLATFORM_BEST_PRACTICES: Record<string, { formats: string; tips: string; w
   },
   twitter: {
     formats: "JPEG and PNG both work well. Twitter recommends JPEG for photos and PNG for graphics with text. GIFs are supported for animated content.",
-    tips: "Twitter's card previews use 1200x600 for summary cards. Use 1600x900 for in-feed images. Profile photos display at 400x400 but the visible area is circular — keep your subject centered.",
+    tips: "Twitter's card previews use 1200x600 for summary cards. Use 1600x900 for in-feed images. Profile photos display at 400x400 but the visible area is circular - keep your subject centered.",
     whyMatters: "X (Twitter) uses lazy image loading, so incorrect dimensions can cause layout shifts. The platform also generates multiple thumbnails, so starting with the right size ensures quality across all display contexts.",
     stats: "Tweets with images receive 150% more retweets. The optimal image-to-text ratio on X is 1:1.",
   },
@@ -129,7 +129,7 @@ const PLATFORM_BEST_PRACTICES: Record<string, { formats: string; tips: string; w
 const DEFAULT_PRACTICES = {
   formats: "JPEG is the universal standard for photos. PNG is best for graphics with transparency. WebP offers smaller file sizes with good quality.",
   tips: "Upload images at the recommended dimensions for the best display quality. Use SquarePic to resize your photos to exact dimensions without cropping important content.",
-  whyMatters: "Using the correct image dimensions ensures your content displays properly across all devices. Incorrectly sized images can appear stretched, cropped, or pixelated — damaging your professional appearance and reducing engagement.",
+  whyMatters: "Using the correct image dimensions ensures your content displays properly across all devices. Incorrectly sized images can appear stretched, cropped, or pixelated - damaging your professional appearance and reducing engagement.",
   stats: "Properly sized images load faster and improve user experience. Incorrect image dimensions are one of the most common social media branding mistakes.",
 };
 
@@ -381,7 +381,7 @@ export default async function PlatformPage({ params }: Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
         <Link href="/guides/social-media-image-sizes-2026" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
           <h3 className="text-[0.82rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">
-            {p.label} Image Sizes — Complete Guide
+            {p.label} Image Sizes - Complete Guide
           </h3>
           <p className="text-[0.72rem] text-[#8d9aaa] leading-relaxed m-0">
             See all {p.label} dimensions alongside every other platform in our 2026 social media image sizes cheat sheet.

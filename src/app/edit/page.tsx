@@ -247,9 +247,9 @@ export default function EditPage() {
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Pro Tips for Square Images</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-              <li>Use Dynamic Blur when your image has a busy background that cannot be cropped cleanly -- the blur creates a seamless extension.</li>
+              <li>Use Dynamic Blur when your image has a busy background that cannot be cropped cleanly - the blur creates a seamless extension.</li>
               <li>For brand consistency, use Solid Color fill with your brand color as the background.</li>
-              <li>Keep 10–15% padding around your subject when using blur backgrounds to prevent important content from touching the edge.</li>
+              <li>Keep 10-15% padding around your subject when using blur backgrounds to prevent important content from touching the edge.</li>
               <li>Square profile pictures should have the subject centered and filling at least 70% of the frame for recognizability at small sizes.</li>
               <li>Export as PNG for sharp text and logos; use JPEG or WebP for photographs to keep file sizes manageable.</li>
             </ul>

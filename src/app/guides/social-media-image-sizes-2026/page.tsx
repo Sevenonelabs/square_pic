@@ -162,7 +162,7 @@ export default function SocialMediaImageSizesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
               { title: "Use the Right Format", desc: "JPEG for photos, PNG for graphics with text, WebP for modern web performance. Most platforms accept all three." },
-              { title: "Stay Within File Size Limits", desc: "Most platforms cap uploads at 20–30 MB. Compress your images before uploading to avoid errors." },
+              { title: "Stay Within File Size Limits", desc: "Most platforms cap uploads at 20-30 MB. Compress your images before uploading to avoid errors." },
               { title: "Check Safe Zones", desc: "Profile pictures and cover photos often have circular crops or safe zones. Keep key content centered." },
               { title: "Optimize for Mobile First", desc: "Over 80% of social media browsing happens on mobile. Test your images on a phone screen before posting." },
               { title: "Be Consistent", desc: "Use the same profile picture size and style across all platforms for brand recognition." },
