@@ -139,6 +139,31 @@ export function CropperTool() {
   }, [crop, zoom, pan]);
 
   useEffect(() => {
+    if (!image || !canvasRef.current || !crop) return;
+    const cw = canvasRef.current.width;
+    const ch = canvasRef.current.height;
+    const s = Math.min(cw / image.naturalWidth, ch / image.naturalHeight);
+    const imgLeft = (pan.x + cw - image.naturalWidth * s * zoom) / 2;
+    const imgTop = (pan.y + ch - image.naturalHeight * s * zoom) / 2;
+    const imgRight = (pan.x + cw + image.naturalWidth * s * zoom) / 2;
+    const imgBottom = (pan.y + ch + image.naturalHeight * s * zoom) / 2;
+
+    let nx = crop.x, ny = crop.y, nw = crop.w, nh = crop.h;
+    nx = Math.max(nx, imgLeft);
+    ny = Math.max(ny, imgTop);
+    nw = Math.min(nw, imgRight - nx);
+    nh = Math.min(nh, imgBottom - ny);
+    nw = Math.max(20, Math.min(nw, cw - nx));
+    nh = Math.max(20, Math.min(nh, ch - ny));
+    nx = Math.max(0, Math.min(nx, cw - nw));
+    ny = Math.max(0, Math.min(ny, ch - nh));
+
+    if (nx !== crop.x || ny !== crop.y || nw !== crop.w || nh !== crop.h) {
+      setCrop({ x: nx, y: ny, w: nw, h: nh });
+    }
+  }, [zoom, pan, image, crop]);
+
+  useEffect(() => {
     if (image) render();
   }, [image, render]);
 
@@ -256,9 +281,28 @@ export function CropperTool() {
       nx = Math.max(0, Math.min(nx, cw - nw));
       ny = Math.max(0, Math.min(ny, ch - nh));
 
+      const img2 = imgRef.current;
+      if (img2) {
+        const s = Math.min(cw / img2.naturalWidth, ch / img2.naturalHeight);
+        const imgLeft = (pan.x + cw - img2.naturalWidth * s * zoom) / 2;
+        const imgTop = (pan.y + ch - img2.naturalHeight * s * zoom) / 2;
+        const imgRight = (pan.x + cw + img2.naturalWidth * s * zoom) / 2;
+        const imgBottom = (pan.y + ch + img2.naturalHeight * s * zoom) / 2;
+
+        nx = Math.max(nx, imgLeft);
+        ny = Math.max(ny, imgTop);
+        nw = Math.min(nw, imgRight - nx);
+        nh = Math.min(nh, imgBottom - ny);
+      }
+
+      nw = Math.max(20, Math.min(nw, cw - nx));
+      nh = Math.max(20, Math.min(nh, ch - ny));
+      nx = Math.max(0, Math.min(nx, cw - nw));
+      ny = Math.max(0, Math.min(ny, ch - nh));
+
       setCrop({ x: nx, y: ny, w: nw, h: nh });
     },
-    [dragging, crop, zoom, ratio]
+    [dragging, crop, zoom, ratio, pan]
   );
 
   const handlePointerUp = useCallback(() => {
