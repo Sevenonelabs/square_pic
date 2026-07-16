@@ -51,16 +51,6 @@ export default function PrivacyPage() {
       <section className="mb-6">
         <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">4</span>
-          Third-Party Services
-        </h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          We use Google Fonts for typography. Google may collect usage data as described in their privacy policy. We do not use any other third-party services that process your data.
-        </p>
-      </section>
-
-      <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">5</span>
           Data Retention
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -70,7 +60,7 @@ export default function PrivacyPage() {
 
       <section className="mb-6">
         <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">6</span>
+          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">5</span>
           Contact
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">

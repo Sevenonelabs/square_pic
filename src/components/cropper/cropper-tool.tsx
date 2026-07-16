@@ -309,9 +309,15 @@ export function CropperTool() {
     setDragging(null);
   }, []);
 
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    setZoom((z) => Math.max(0.1, Math.min(10, z - e.deltaY * 0.002)));
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const handler = (e: WheelEvent) => {
+      e.preventDefault();
+      setZoom((z) => Math.max(0.1, Math.min(10, z - e.deltaY * 0.002)));
+    };
+    el.addEventListener("wheel", handler, { passive: false });
+    return () => el.removeEventListener("wheel", handler);
   }, []);
 
   const handleFile = useCallback((file: File) => {
@@ -395,7 +401,6 @@ export function CropperTool() {
             <div
               ref={containerRef}
               className="relative bg-[#0a0c12] border border-[rgba(255,255,255,0.10)] overflow-hidden aspect-square p-1"
-              onWheel={handleWheel}
               onPointerDown={handleCanvasPointerDown}
               onPointerMove={handlePointerMove}
               onPointerUp={handlePointerUp}
