@@ -250,6 +250,7 @@ export function CompressorTool() {
                     </button>
                   </div>
                   <div className="relative w-full aspect-[16/10] rounded-md overflow-hidden bg-black border border-[rgba(255,255,255,0.05)]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={item.src} className="w-full h-full object-cover" alt={item.name} />
                     {item.status === "compressing" && (
                       <div className="absolute inset-0 bg-black/60 flex items-center justify-center">

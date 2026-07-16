@@ -77,7 +77,7 @@ export default function VsCanvaPage() {
             </div>
             <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">Pricing</h3>
-              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">SquarePic is 100% free -- every feature, every tool, no limits. Canva's free tier adds watermarks to your designs and limits access to premium templates and features. Canva Pro costs $13/month.</p>
+              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">SquarePic is 100% free -- every feature, every tool, no limits. Canva&apos;s free tier adds watermarks to your designs and limits access to premium templates and features. Canva Pro costs $13/month.</p>
             </div>
           </div>
         </section>

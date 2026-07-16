@@ -77,6 +77,25 @@ const FAQS = [
   },
 ];
 
+const SECTIONS = [
+  {
+    title: "Getting Started",
+    items: [0, 1, 2, 3],
+  },
+  {
+    title: "Privacy & Security",
+    items: [4, 5, 6],
+  },
+  {
+    title: "Platforms & Formats",
+    items: [7, 8, 9, 10],
+  },
+  {
+    title: "Technical Details",
+    items: [11, 12, 13, 14, 15],
+  },
+];
+
 export default function FAQPage() {
   return (
     <>
@@ -84,14 +103,21 @@ export default function FAQPage() {
       <FAQPageSchema questions={FAQS.map((f) => ({ question: f.q, answer: f.a }))} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-6">Frequently Asked Questions</h1>
-      <div className="space-y-5">
-        {FAQS.map((faq, i) => (
-          <div key={i}>
-            <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">{faq.q}</h3>
-            <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">{faq.a}</p>
+      {SECTIONS.map((section) => (
+        <section key={section.title} className="mb-8">
+          <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-3 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">
+            {section.title}
+          </h2>
+          <div className="space-y-5">
+            {section.items.map((i) => (
+              <div key={i}>
+                <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">{FAQS[i].q}</h3>
+                <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">{FAQS[i].a}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </section>
+      ))}
     </div>
     </>
   );

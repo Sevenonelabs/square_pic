@@ -5,9 +5,9 @@ import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
-  title: "Free Image Converter - JPG, PNG & WebP",
-  description: "Convert images to JPG, PNG, or WebP formats online for free. Batch convert multiple images at once with no uploads required.",
-  openGraph: { title: "Free Image Converter - JPG, PNG & WebP | SquarePic" },
+  title: "Free Image Converter - JPG, PNG, WebP & More",
+  description: "Convert images between JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO formats online for free. Batch convert multiple images at once with no uploads required.",
+  openGraph: { title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic" },
   alternates: { canonical: "https://squarepic.io/converter" },
 };
 
@@ -17,7 +17,7 @@ export default function ConverterPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Converter", url: `${SITE}/converter` }]} />
-      <WebAppSchema name="SquarePic - Image Converter" url={SITE + "/converter"} description="Convert images between JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, and TIFF formats online for free." aggregateRating={{ ratingValue: "4.9", ratingCount: "112", bestRating: "5" }} />
+      <WebAppSchema name="SquarePic - Image Converter" url={SITE + "/converter"} description="Convert images between JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, and TIFF formats online for free." />
       <HowToSchema steps={[
         { name: "Upload your images", text: "Select one or more images to convert. Supports JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, and TIFF formats." },
         { name: "Choose the output format", text: "Pick your target format from the dropdown. Each file can have its own format and quality settings." },

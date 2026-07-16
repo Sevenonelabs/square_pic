@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import { EditorCanvas } from "@/components/editor/canvas";
 import type { EditorState } from "@/lib/editor-renderer";
 import { trackEvent } from "@/lib/analytics";
-import { BreadcrumbSchema, WebAppSchema, JsonLd } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
 import { ToolLinks } from "@/components/layout/tool-links";
 
 const DEFAULTS = {
@@ -37,7 +37,13 @@ export default function EditPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: "https://squarepic.io" }, { name: "Square Image Tool", url: "https://squarepic.io/edit" }]} />
-      <WebAppSchema name="SquarePic - Square Image Editor" url="https://squarepic.io/edit" description="Make any photo perfectly square for Instagram and social media. Adjust blur, padding, zoom, and corner radius." aggregateRating={{ ratingValue: "4.9", ratingCount: "127", bestRating: "5" }} />
+      <WebAppSchema name="SquarePic - Square Image Editor" url="https://squarepic.io/edit" description="Make any photo perfectly square for Instagram and social media. Adjust blur, padding, zoom, and corner radius." />
+      <HowToSchema steps={[
+        { name: "Upload your photo", text: "Select an image from your device. Supports JPEG, PNG, WebP, and other common formats up to 20 MB." },
+        { name: "Choose a square style", text: "Pick from Dynamic Blur, Solid Color Fill, or Smart Crop to fill the square canvas around your image." },
+        { name: "Adjust the settings", text: "Fine-tune padding, zoom, corner radius, blur intensity, or background color until the composition looks right." },
+        { name: "Download the square image", text: "Export your perfectly squared image as PNG, JPEG, or WebP. Ready for Instagram, LinkedIn, and more." },
+      ]} />
       <div className="max-w-[1400px] mx-auto px-6 py-4 max-md:px-3 max-md:py-2">
       <h1 className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[#576675] mb-1 ml-1">Square Image Editor</h1>
       <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5 relative max-md:p-2">

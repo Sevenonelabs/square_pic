@@ -119,7 +119,7 @@ export function encodeGIF(
   gif.push(0x00);
   const minCodeSize = Math.ceil(Math.log2(colorCount));
   gif.push(minCodeSize < 2 ? 2 : minCodeSize);
-  let lzwBuf: number[] = [];
+  const lzwBuf: number[] = [];
   let buf = 0, bits = 0;
   let cs = initCodeSize;
   for (const code of lzwData) {

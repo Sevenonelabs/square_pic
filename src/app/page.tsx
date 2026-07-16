@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Image from "next/image";
 import { ToolAsHeroLayout } from "@/components/layout/tool-as-hero-layout";
 import { ToolLinks } from "@/components/layout/tool-links";
 import { JsonLd } from "@/components/schema-scripts";
@@ -66,7 +67,6 @@ export default function Home() {
         operatingSystem: "Any",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         dateModified: "2026-07-13",
-        aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", ratingCount: "127", bestRating: "5" },
       }} />
       <ToolAsHeroLayout
         state={state}
@@ -80,9 +80,24 @@ export default function Home() {
       <ToolLinks />
 
       <section className="max-w-[1200px] mx-auto px-4 md:px-6 pb-12">
+        <div className="max-w-[900px] mx-auto mb-16">
+          <figure>
+            <Image
+              src="/images/blog/editor-showcase.svg"
+              alt="SquarePic editor interface showing the image preview with blur background fill on the left and controls panel with padding, style selection, blur intensity, zoom, and download button on the right"
+              width={800}
+              height={460}
+              className="w-full h-auto rounded-xl"
+            />
+            <figcaption className="text-[0.72rem] text-[#576675] mt-2 text-center">
+              SquarePic editor with Dynamic Blur mode — adjust padding, style, blur intensity, zoom, and corner radius in real time.
+            </figcaption>
+          </figure>
+        </div>
+
         <div className="max-w-[680px] mx-auto text-center mb-10">
           <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5] mb-3">
-            How SquarePic Works
+            Why Choose SquarePic
           </h2>
           <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
             Making a perfect square image for social media takes just three steps. No signup, no uploads,
@@ -184,12 +199,6 @@ export default function Home() {
         operatingSystem: "Any",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         dateModified: "2026-07-13",
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.9",
-          ratingCount: "127",
-          bestRating: "5",
-        },
       }} />
     </>
   );

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { useTheme, THEMES } from "@/lib/theme-store";
 
@@ -50,7 +51,7 @@ export function Navbar() {
     >
       <div className="flex items-center gap-3 max-md:gap-1.5">
         <Link href="/" className="flex items-center gap-1.5 no-underline">
-          <img src="/images/logo-256.png" alt="SquarePic" width="18" height="18" className="shrink-0 object-contain" />
+          <Image src="/images/logo-256.png" alt="SquarePic" width="18" height="18" className="shrink-0 object-contain" />
           <span className="text-[0.82rem] font-extrabold tracking-tight whitespace-nowrap text-[#e6edf5] max-lg:text-[0.7rem] max-md:text-[0.65rem]">SquarePic</span>
         </Link>
 

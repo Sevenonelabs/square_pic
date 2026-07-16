@@ -69,8 +69,6 @@ export default async function FormatToFormatPage({ params }: Props) {
   const toLabel = FORMAT_LABELS[pair.to] || pair.to.toUpperCase();
   const fromInfo = FORMAT_DESCS[pair.from];
   const toInfo = FORMAT_DESCS[pair.to];
-  const normalizedSlug = slug.replace("jpeg", "jpg").replace("jpeg", "jpg");
-
   const tips: string[] = [];
   if (pair.from === "png" && pair.to === "jpg") {
     tips.push("PNG supports transparency but JPEG does not - transparent areas will become white or black.");

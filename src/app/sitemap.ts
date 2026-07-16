@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import presets from "@/data/social-presets.json";
 
 const STATIC_PAGES = [
   { path: "", priority: 1.0, freq: "weekly" as const },

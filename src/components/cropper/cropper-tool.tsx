@@ -62,7 +62,8 @@ export function CropperTool() {
   const [expQuality, setExpQuality] = useState(90);
 
   const imgRef = useRef(image);
-  imgRef.current = image;
+
+  useEffect(() => { imgRef.current = image; }, [image]);
 
   useEffect(() => {
     if (!image || !canvasRef.current || !containerRef.current) return;

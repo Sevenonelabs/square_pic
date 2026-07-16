@@ -20,7 +20,7 @@ export default function SupportPage() {
       <section className="mb-6">
         <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">How to Use SquarePic</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          1. Click "Upload Your Image" or drag and drop a photo into the editor.
+          1. Click &ldquo;Upload Your Image&rdquo; or drag and drop a photo into the editor.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           2. Choose your editing mode: Dynamic Blur, Solid Background, or Smart Crop.
@@ -29,14 +29,14 @@ export default function SupportPage() {
           3. Adjust settings like blur intensity, padding, zoom, and edge radius.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          4. Click "Export Perfect Square" and download your image in PNG, JPEG, or WebP format.
+          4. Click &ldquo;Export Perfect Square&rdquo; and download your image in PNG, JPEG, or WebP format.
         </p>
       </section>
 
       <section className="mb-6">
         <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Common Issues</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          <strong className="text-[#e6edf5]">My image won't upload:</strong> Ensure your file is under 20 MB and is a supported image format (JPEG, PNG, WebP, GIF, BMP, or TIFF). If you are using Safari, make sure you allow image file access when prompted.
+          <strong className="text-[#e6edf5]">My image won&apos;t upload:</strong> Ensure your file is under 20 MB and is a supported image format (JPEG, PNG, WebP, GIF, BMP, or TIFF). If you are using Safari, make sure you allow image file access when prompted.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           <strong className="text-[#e6edf5]">The export looks blurry:</strong> Increase the quality slider in the export panel to 90% or higher. For text-heavy images or graphics with sharp edges, use PNG format instead of JPEG. WebP offers a good balance between quality and file size.
@@ -49,6 +49,13 @@ export default function SupportPage() {
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           <strong className="text-[#e6edf5]">The tool is not working:</strong> SquarePic requires a modern browser with HTML5 Canvas support. Try Chrome, Firefox, Safari, or Edge. Ensure JavaScript is enabled and no browser extensions are blocking script execution.
+        </p>
+      </section>
+
+      <section className="mb-6">
+        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Browser Compatibility</h2>
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
+          SquarePic works on any modern browser that supports HTML5 Canvas and JavaScript. This includes the latest versions of Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge on both desktop and mobile operating systems. Internet Explorer and very old browser versions are not supported. If you are experiencing issues, please ensure your browser is updated to the latest version for the best experience and performance.
         </p>
       </section>
 

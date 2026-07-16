@@ -4,7 +4,7 @@ import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
   title: "Blog - Image Editing Tips & Tutorials",
-  description: "Image editing tutorials, social media size guides, and tips from the SquarePic team.",
+  description: "Image editing tutorials, social media size guides, privacy tips, and web performance insights from the SquarePic team.",
   openGraph: { title: "Blog - Image Editing Tips & Tutorials | SquarePic" },
   alternates: { canonical: "https://squarepic.io/blog" },
 };

@@ -68,7 +68,7 @@ export default function VsTinypngPage() {
           <div className="flex flex-col gap-3">
             <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">Choose TinyPNG when...</h3>
-              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">You need quick, automatic PNG/JPEG compression and trust server-side processing. TinyPNG's algorithm is excellent for reducing file sizes with minimal visible quality loss.</p>
+              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">You need quick, automatic PNG/JPEG compression and trust server-side processing. TinyPNG&apos;s algorithm is excellent for reducing file sizes with minimal visible quality loss.</p>
             </div>
             <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">Choose SquarePic when...</h3>

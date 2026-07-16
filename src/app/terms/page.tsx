@@ -44,7 +44,7 @@ export default function TermsPage() {
           No Warranty
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          SquarePic is provided "as is" without warranty of any kind. While we strive to keep the tools available and functional, we do not guarantee uninterrupted service.
+          SquarePic is provided &ldquo;as is&rdquo; without warranty of any kind. While we strive to keep the tools available and functional, we do not guarantee uninterrupted service.
         </p>
       </section>
 
@@ -83,8 +83,14 @@ export default function TermsPage() {
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">7</span>
           Contact
         </h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          If you have any questions about these terms, please email us at <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>.
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
+          If you have any questions about these terms, please reach out through our <a href="/support" className="text-[var(--accent)] no-underline hover:underline">support page</a> or email us directly.
+        </p>
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
+          <strong className="text-[#e6edf5]">Email:</strong> <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>
+        </p>
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
+          <strong className="text-[#e6edf5]">Project:</strong> <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">github.com/Sevenonelabs/square_pic</a>
         </p>
       </section>
     </div>

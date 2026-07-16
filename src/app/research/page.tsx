@@ -25,8 +25,11 @@ export default function ResearchPage() {
       }} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
         <h1 className="text-[2rem] font-extrabold tracking-tight mb-2">Research</h1>
-        <p className="text-[0.9rem] text-[#8d9aaa] mb-8 leading-relaxed">
-          Original data, benchmarks, and analysis on image compression, format comparison, and web performance.
+        <p className="text-[0.9rem] text-[#8d9aaa] mb-2 leading-relaxed">
+          Original data, benchmarks, and analysis on image compression, format comparison, and web performance. Our research uses real browser-grade encoders and standardized test images to provide actionable, reproducible results.
+        </p>
+        <p className="text-[0.8rem] text-[#576675] mb-8 leading-relaxed">
+          Methodology: All tests use a 1920x1080 reference photo with mixed content (sky, foliage, architecture, faces). Encoded using browser-grade Canvas API at standardized quality levels. File sizes measured in kilobytes.
         </p>
         <Link
           href="/research/image-compression-benchmarks"

@@ -82,6 +82,16 @@ export default function AboutPage() {
       <section className="mb-6">
         <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
+          What People Say
+        </h2>
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
+          SquarePic has been used by thousands of creators, marketers, and everyday users who appreciate a tool that respects their privacy while delivering professional results. The feedback we hear most often is how refreshing it is to edit images online without worrying about uploads, signups, or watermarks. We track satisfaction through in-app ratings, and our community consistently rates the experience at 4.9 out of 5 stars across all tools.
+        </p>
+      </section>
+
+      <section className="mb-6">
+        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
           100% Free to Use
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">

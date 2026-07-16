@@ -17,7 +17,7 @@ export default function CompressorPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Compressor", url: `${SITE}/compressor` }]} />
-      <WebAppSchema name="SquarePic - Image Compressor" url={SITE + "/compressor"} description="Compress JPG, PNG, and WebP images online with quality slider or target size mode. Batch compress and download as ZIP." aggregateRating={{ ratingValue: "4.8", ratingCount: "89", bestRating: "5" }} />
+      <WebAppSchema name="SquarePic - Image Compressor" url={SITE + "/compressor"} description="Compress JPG, PNG, and WebP images online with quality slider or target size mode. Batch compress and download as ZIP." />
       <HowToSchema steps={[
         { name: "Upload your images", text: "Select one or more images to compress. Supports JPEG, PNG, and WebP formats with batch upload." },
         { name: "Choose compression mode", text: "Use the quality slider for instant compression, or enable target size mode to hit a specific file size." },

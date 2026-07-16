@@ -39,10 +39,10 @@ export default function GuidesPage() {
       <div className="max-w-[800px] w-full mx-auto px-4 py-8">
         <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-2">Guides & Tutorials</h1>
         <p className="text-center text-[0.9rem] text-[#8d9aaa] max-w-[500px] mx-auto mb-10 leading-relaxed">
-          Learn how to optimize images for every platform. Step-by-step tutorials, dimension guides, and best practices.
+          Learn how to optimize images for every platform. Step-by-step tutorials, dimension guides, and best practices for social media, e-commerce, and web use.
         </p>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 mb-10">
           {GUIDES.map((g) => (
             <Link
               key={g.href}
@@ -64,6 +64,10 @@ export default function GuidesPage() {
             </Link>
           ))}
         </div>
+
+        {GUIDES.length === 0 && (
+          <p className="text-center text-[0.85rem] text-[#576675]">No guides yet. Check back soon.</p>
+        )}
       </div>
     </>
   );

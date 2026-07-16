@@ -87,8 +87,8 @@ export function ToolAsHeroLayout({
 
   const activePresetLabel = (() => {
     if (!state.targetWidth || !state.targetHeight) return null;
-    for (const [pk, pv] of Object.entries(presets)) {
-      for (const [tk, tv] of Object.entries(pv.types)) {
+    for (const [, pv] of Object.entries(presets)) {
+      for (const [, tv] of Object.entries(pv.types)) {
         if (tv.w === state.targetWidth && tv.h === state.targetHeight) return `${pv.label} - ${tv.label}`;
       }
     }

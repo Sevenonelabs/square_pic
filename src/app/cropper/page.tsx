@@ -17,7 +17,7 @@ export default function CropperPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Photo Cropper", url: `${SITE}/cropper` }]} />
-      <WebAppSchema name="SquarePic - Photo Cropper" url={SITE + "/cropper"} description="Crop photos online with precision. 8 drag handles, aspect ratio lock, zoom and pan, export to JPEG, PNG, or WebP." aggregateRating={{ ratingValue: "4.7", ratingCount: "63", bestRating: "5" }} />
+      <WebAppSchema name="SquarePic - Photo Cropper" url={SITE + "/cropper"} description="Crop photos online with precision. 8 drag handles, aspect ratio lock, zoom and pan, export to JPEG, PNG, or WebP." />
       <HowToSchema steps={[
         { name: "Upload your image", text: "Select a photo from your device. Supports JPEG, PNG, WebP, GIF, BMP, and TIFF formats." },
         { name: "Adjust the crop area", text: "Drag the 8 resize handles to define your crop area. Use the zoom slider and pan for precise positioning." },

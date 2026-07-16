@@ -22,6 +22,8 @@ const SLUG_MAP: Record<string, string> = {
   discord: "discord",
 };
 
+type PresetType = { w: number; h: number; aspect: string; label: string };
+
 const TYPE_HEADERS: Record<string, string> = {
   profile: "Profile Picture",
   landscape: "Landscape Post",
@@ -144,7 +146,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const key = SLUG_MAP[platform];
   if (!key || !presets[key as keyof typeof presets]) return {};
   const p = presets[key as keyof typeof presets];
-  const dims = Object.values(p.types).map((t: any) => `${t.w}\u00D7${t.h}`);
+  const dims = Object.values(p.types).map((t: PresetType) => `${t.w}\u00D7${t.h}`);
   return {
     title: `${p.label} Image Sizes - Complete Dimension Guide`,
     description: `Complete guide to ${p.label} image sizes: ${dims.join(", ")} pixels. Free tool to resize photos to the exact ${p.label} dimensions you need.`,
@@ -163,7 +165,6 @@ export default async function PlatformPage({ params }: Props) {
 
   const siteUrl = process.env.SITE_URL || "https://squarepic.io";
   const pageUrl = `${siteUrl}/resize/${platform}`;
-  const pageTitle = `${p.label} Image Sizes - Complete Dimension Guide`;
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -174,7 +175,7 @@ export default async function PlatformPage({ params }: Props) {
         name: `What is the standard image size for ${p.label}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `${p.label} supports multiple image formats. The most common sizes are ${Object.values(p.types).slice(0, 3).map((t: any) => `${t.w}x${t.h} pixels`).join(", ")}. Use SquarePic to resize your photos to any of these exact dimensions.`,
+          text: `${p.label} supports multiple image formats. The most common sizes are ${Object.values(p.types).slice(0, 3).map((t: PresetType) => `${t.w}x${t.h} pixels`).join(", ")}. Use SquarePic to resize your photos to any of these exact dimensions.`,
         },
       },
       {
@@ -250,6 +251,19 @@ export default async function PlatformPage({ params }: Props) {
           logo: `${siteUrl}/squareframe_preview.png`,
         }),
       }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: `Resize images for ${p.label}`,
+          step: [
+            { "@type": "HowToStep", position: 1, name: "Upload your photo", text: `Select your image and upload it to SquarePic. Supports JPEG, PNG, WebP, and more.` },
+            { "@type": "HowToStep", position: 2, name: "Choose the right dimensions", text: `Select the ${p.label} preset that matches your needs or enter custom dimensions.` },
+            { "@type": "HowToStep", position: 3, name: "Adjust the style", text: "Pick Dynamic Blur, Solid Color Fill, or Smart Crop to fill any empty space without cropping." },
+            { "@type": "HowToStep", position: 4, name: "Download your resized image", text: `Export your image at the exact ${p.label} dimensions you need. Ready to upload.` },
+          ],
+        }),
+      }} />
       <div className="max-w-[920px] w-full mx-auto px-5 py-6">
       <div className="text-center mb-8 p-8 bg-gradient-to-br from-[rgba(6,182,212,0.04)] to-[rgba(139,92,246,0.04)] border border-[rgba(6,182,212,0.08)] rounded-lg">
         <h1 className="text-[1.5rem] font-extrabold tracking-tight mb-2 flex items-center justify-center gap-3">
@@ -260,7 +274,7 @@ export default async function PlatformPage({ params }: Props) {
         </h1>
         <p className="text-[0.85rem] text-[#8d9aaa] max-w-[600px] mx-auto leading-relaxed">{p.description}</p>
         <div className="flex justify-center gap-2 flex-wrap mt-5">
-          {types.map(([k, t]: any) => (
+          {types.map(([k, t]: [string, PresetType]) => (
             <span key={k} className="text-[0.6rem] font-bold uppercase tracking-[0.06em] px-2.5 py-1 rounded-sm bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.15)] text-[var(--accent)]">
               {t.w}x{t.h}
             </span>
@@ -276,7 +290,7 @@ export default async function PlatformPage({ params }: Props) {
       </div>
 
       <div className="flex flex-col gap-3 mb-8">
-        {types.map(([typeKey, type]: any) => {
+        {types.map(([typeKey, type]: [string, PresetType]) => {
           const header = TYPE_HEADERS[typeKey] || type.label;
           const tip = TIPS[`${key}-${typeKey}`];
           return (
@@ -308,7 +322,7 @@ export default async function PlatformPage({ params }: Props) {
         <div className="faq-item">
           <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">What is the standard image size for {p.label}?</h3>
           <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
-            {p.label} supports multiple image formats. The most common sizes are {Object.values(p.types).slice(0, 3).map((t: any) => `${t.w}x${t.h} pixels`).join(", ")}. Use SquarePic to resize your photos to any of these exact dimensions.
+            {p.label} supports multiple image formats. The most common sizes are {Object.values(p.types).slice(0, 3).map((t: PresetType) => `${t.w}x${t.h} pixels`).join(", ")}. Use SquarePic to resize your photos to any of these exact dimensions.
           </p>
         </div>
         <div className="faq-item">

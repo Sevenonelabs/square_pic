@@ -24,17 +24,17 @@ const syneMono = Syne_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Free Square Image Maker - Resize Photos Online | SquarePic",
+    default: "Free Square Image Maker for Instagram & Social Media | SquarePic",
     template: "%s | SquarePic",
   },
-  description: "Make any photo square for Instagram. Free online image resizer with blur backgrounds, solid fills, and smart crop. No uploads, no watermarks.",
+  description: "Make any photo square for Instagram, LinkedIn, and more. Free online image resizer with blur backgrounds, solid fills, smart crop, and social media presets. No uploads, no signup, no watermarks.",
   icons: { icon: "/images/favicon.svg" },
   metadataBase: new URL(process.env.SITE_URL || "https://squarepic.io"),
   openGraph: {
     type: "website",
     siteName: "SquarePic",
     locale: "en_US",
-    images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }],
+    images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic - Free online square image maker and photo editor" }],
   },
   twitter: {
     card: "summary_large_image",

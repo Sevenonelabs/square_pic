@@ -34,8 +34,6 @@ const FORMAT_CATEGORIES: { label: string; formats: { value: Format; label: strin
   },
 ];
 
-const ALL_FORMATS = FORMAT_CATEGORIES.flatMap((c) => c.formats);
-
 function getMime(fmt: Format): string {
   const map: Record<string, string> = { jpeg: "image/jpeg", png: "image/png", webp: "image/webp", bmp: "image/bmp", gif: "image/gif", ico: "image/x-icon", avif: "image/avif", tiff: "image/tiff" };
   return map[fmt];
@@ -227,6 +225,7 @@ export function ConverterTool() {
               transition={{ duration: 0.3, delay: 0.05 * i, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-3 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3 transition-all hover:bg-[rgba(255,255,255,0.04)] flex-wrap relative"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={item.src} className="w-12 h-12 rounded-md object-cover bg-black/30 border border-[rgba(255,255,255,0.06)] shrink-0" alt={item.name} />
               <div className="flex-1 min-w-[120px]">
                 <div className="text-[0.82rem] font-bold text-[#e6edf5] truncate max-w-[200px]">{item.name}</div>
