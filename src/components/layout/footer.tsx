@@ -11,7 +11,10 @@ export function Footer() {
     <footer className="border-t border-[rgba(255,255,255,0.06)] mt-auto px-6 py-8 max-md:px-4">
       <div className="max-w-[1100px] mx-auto grid grid-cols-[1fr_auto_1fr] items-center gap-6 max-md:grid-cols-1 max-md:text-center max-md:gap-5">
         <div className="flex flex-col gap-1 text-left max-md:items-center max-md:text-center">
-          <span className="text-sm font-extrabold text-[#e6edf5] tracking-tight">SquarePic</span>
+          <span className="flex items-center gap-2 text-lg font-extrabold text-[#e6edf5] tracking-tight">
+            <span className="w-[20px] h-[20px] rounded shrink-0" style={{ border: "2.5px solid var(--accent)" }} />
+            SquarePic
+          </span>
           <p className="text-[0.8rem] text-[#576675] m-0 leading-relaxed max-w-xs max-md:max-w-none">
             Free online square image maker and photo editor. Fast, private, and watermark-free.
           </p>
@@ -41,7 +44,6 @@ export function Footer() {
 
       <p className="text-center text-[0.8rem] text-[#576675] tracking-[0.02em] mt-6 pt-4 border-t border-[rgba(255,255,255,0.04)] max-md:text-[0.65rem]">
         &copy; 2026 SquarePic - Free online square image maker.
-        <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline ml-1">Open source</a>
         <span className="mx-2">&middot;</span>
         <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>
       </p>
