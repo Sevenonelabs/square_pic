@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
   title: "SquarePic vs The Competition - Comparison Guide",
@@ -36,6 +36,14 @@ export default function ComparePage() {
         { name: "Home", url: SITE },
         { name: "Comparisons", url: `${SITE}/compare` },
       ]} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "SquarePic vs The Competition",
+        description: "Compare SquarePic with iLoveIMG, TinyPNG, Canva, and other image editing tools.",
+        url: `${SITE}/compare`,
+        about: { "@type": "Thing", name: "Image Editor Comparisons" },
+      }} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
         <h1 className="text-[2rem] font-extrabold tracking-tight mb-2">SquarePic vs The Competition</h1>
         <p className="text-[0.9rem] text-[#8d9aaa] mb-8 leading-relaxed">

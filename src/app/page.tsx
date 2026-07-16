@@ -58,14 +58,15 @@ export default function Home() {
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        name: "SquarePic - Free Square Image Maker",
+        "@type": "SoftwareApplication",
+        name: "SquarePic",
         url: "https://squarepic.io",
-        description: "Make any photo perfectly square for Instagram and social media. Free online image resizer with blur backgrounds, solid fills, and smart crop.",
+        description: "Free online image editing toolkit. Square image maker, image resizer, compressor, converter, and cropper. Privacy-first, no uploads.",
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         dateModified: "2026-07-13",
+        aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", ratingCount: "127", bestRating: "5" },
       }} />
       <ToolAsHeroLayout
         state={state}

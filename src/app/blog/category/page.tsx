@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
   title: "Blog Categories",
@@ -25,6 +25,13 @@ export default function BlogCategoryPage() {
         { name: "Blog", url: `${SITE}/blog` },
         { name: "Categories", url: `${SITE}/blog/category` },
       ]} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Blog Categories",
+        description: "Browse SquarePic blog posts by category.",
+        url: `${SITE}/blog/category`,
+      }} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
         <h1 className="text-[2rem] font-extrabold tracking-tight mb-2">Blog Categories</h1>
         <p className="text-[0.9rem] text-[#8d9aaa] mb-8 leading-relaxed">Browse posts by topic.</p>

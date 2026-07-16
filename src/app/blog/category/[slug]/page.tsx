@@ -8,10 +8,10 @@ type Props = { params: Promise<{ slug: string }> };
 const SITE = "https://squarepic.io";
 
 const CATEGORIES: Record<string, { name: string; desc: string }> = {
-  "how-to": { name: "How-To", desc: "Step-by-step tutorials and guides." },
-  "privacy": { name: "Privacy", desc: "Privacy-first image editing and data protection." },
-  "social-media-sizes": { name: "Social Media Sizes", desc: "Image dimension guides for every platform." },
-  "image-formats": { name: "Image Formats", desc: "Format comparisons and conversion guides." },
+  "how-to": { name: "How-To", desc: "Step-by-step tutorials for resizing, cropping, compressing, and converting images with SquarePic." },
+  "privacy": { name: "Privacy", desc: "Privacy-first image editing, client-side processing, and data protection best practices for your photos." },
+  "social-media-sizes": { name: "Social Media Sizes", desc: "Complete image dimension guides for Instagram, Facebook, Twitter, LinkedIn, TikTok, and every major platform." },
+  "image-formats": { name: "Image Formats", desc: "JPEG vs PNG vs WebP vs AVIF — learn when to use each format and how to convert between them online free." },
 };
 
 const POSTS: Record<string, { href: string; title: string; desc: string; date: string; readTime: string }[]> = {

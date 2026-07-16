@@ -4,11 +4,12 @@
 ## About
 SquarePic is a free online image editor that lets you resize, crop, compress, and convert images. All processing happens locally in your browser — no uploads, no watermarks, no signup required.
 
-## Tools
+## Core Tools
 - Square Image Editor: https://squarepic.io/edit
 - Image Compressor: https://squarepic.io/compressor
 - Image Converter: https://squarepic.io/converter
 - Photo Cropper: https://squarepic.io/cropper
+- Image Size Calculator: https://squarepic.io/image-size-calculator
 
 ## Platform Size Guides
 - Instagram Image Sizes: https://squarepic.io/resize/instagram
@@ -25,10 +26,37 @@ SquarePic is a free online image editor that lets you resize, crop, compress, an
 - Telegram Image Sizes: https://squarepic.io/resize/telegram
 - Discord Image Sizes: https://squarepic.io/resize/discord
 
+## Format Converters
+- PNG to JPG: https://squarepic.io/converter/png-to-jpg
+- JPG to PNG: https://squarepic.io/converter/jpg-to-png
+- PNG to WebP: https://squarepic.io/converter/png-to-webp
+- JPG to WebP: https://squarepic.io/converter/jpg-to-webp
+- WebP to PNG: https://squarepic.io/converter/webp-to-png
+- WebP to JPG: https://squarepic.io/converter/webp-to-jpg
+- PNG to GIF: https://squarepic.io/converter/png-to-gif
+- JPG to GIF: https://squarepic.io/converter/jpg-to-gif
+- PNG to ICO: https://squarepic.io/converter/png-to-ico
+- JPG to ICO: https://squarepic.io/converter/jpg-to-ico
+- PNG to AVIF: https://squarepic.io/converter/png-to-avif
+- JPG to AVIF: https://squarepic.io/converter/jpg-to-avif
+
+## Content & Guides
+- About SquarePic: https://squarepic.io/about
+- Blog: https://squarepic.io/blog
+- How to Square an Image for Any Platform: https://squarepic.io/blog/how-to-square-image-for-any-platform
+- Privacy-First Image Editing: https://squarepic.io/blog/privacy-first-image-editing
+- Social Media Image Sizes 2026 Guide: https://squarepic.io/guides/social-media-image-sizes-2026
+- SquarePic vs iLoveIMG: https://squarepic.io/compare/squarepic-vs-iloveimg
+- SquarePic vs TinyPNG: https://squarepic.io/compare/squarepic-vs-tinypng
+- SquarePic vs Canva: https://squarepic.io/compare/squarepic-vs-canva
+- Image Compression Benchmarks: https://squarepic.io/research/image-compression-benchmarks
+- FAQ: https://squarepic.io/faq
+- Support: https://squarepic.io/support
+
 ## Features
 - All processing is client-side (HTML5 Canvas) — images never leave your device
 - Export formats: PNG, JPEG, WebP, BMP, GIF, ICO, AVIF, TIFF
 - Batch compress with slider or target-size mode
 - Batch convert between 8 image formats
 - Interactive crop with 8 drag handles and aspect ratio presets
-
+- Privacy-first — no uploads, no signup, no watermarks, open source

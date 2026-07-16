@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, JsonLd, PersonSchema } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
   title: "About - Free Online Square Image Editor",
@@ -14,6 +14,8 @@ export default function AboutPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "About", url: `${SITE}/about` }]} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "AboutPage", name: "About SquarePic", description: "Learn about SquarePic, the privacy-first online image editor. Make any photo square for Instagram and social media.", url: `${SITE}/about` }} />
+      <PersonSchema name="SevenOneLabs" jobTitle="Software Development Lab" url="https://github.com/Sevenonelabs/square_pic" sameAs={["https://github.com/Sevenonelabs"]} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-6">About SquarePic</h1>
 

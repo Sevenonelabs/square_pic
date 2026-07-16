@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
   title: "Research - Image Compression Benchmarks & Studies",
@@ -15,6 +15,14 @@ export default function ResearchPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Research", url: `${SITE}/research` }]} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "SquarePic Research",
+        description: "Original research on image compression performance across formats and quality levels.",
+        url: `${SITE}/research`,
+        about: { "@type": "Thing", name: "Image Compression Research" },
+      }} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
         <h1 className="text-[2rem] font-extrabold tracking-tight mb-2">Research</h1>
         <p className="text-[0.9rem] text-[#8d9aaa] mb-8 leading-relaxed">

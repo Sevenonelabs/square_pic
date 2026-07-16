@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
   title: "Guides - Image Editing Tutorials & Tips",
@@ -28,6 +28,14 @@ export default function GuidesPage() {
         { name: "Home", url: SITE },
         { name: "Guides", url: `${SITE}/guides` },
       ]} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "SquarePic Guides & Tutorials",
+        description: "Learn how to resize, crop, compress, and convert images for any platform.",
+        url: `${SITE}/guides`,
+        about: { "@type": "Thing", name: "Image Editing Guides" },
+      }} />
       <div className="max-w-[800px] w-full mx-auto px-4 py-8">
         <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-2">Guides & Tutorials</h1>
         <p className="text-center text-[0.9rem] text-[#8d9aaa] max-w-[500px] mx-auto mb-10 leading-relaxed">

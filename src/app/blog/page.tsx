@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
   title: "Blog - Image Editing Tips & Tutorials",
@@ -44,6 +44,14 @@ export default function BlogPage() {
         { name: "Home", url: SITE },
         { name: "Blog", url: `${SITE}/blog` },
       ]} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "SquarePic Blog",
+        description: "Image editing tutorials, social media size guides, and tips from the SquarePic team.",
+        url: `${SITE}/blog`,
+        about: { "@type": "Thing", name: "Image Editing" },
+      }} />
       <div className="max-w-[920px] w-full mx-auto px-4 py-8">
         <div className="flex items-end justify-between mb-8">
           <div>
