@@ -29,6 +29,18 @@ export function Navbar() {
   useEffect(() => { pickRandom(); }, [pickRandom]);
 
   useEffect(() => {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="5" y="5" width="22" height="22" rx="4" stroke="${encodeURIComponent(current.accent)}" stroke-width="3"/></svg>`;
+    const href = `data:image/svg+xml,${svg}`;
+    let link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null;
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+    link.href = href;
+  }, [current.accent]);
+
+  useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (toolsRef.current && !toolsRef.current.contains(e.target as Node)) {
         setToolsOpen(false);
