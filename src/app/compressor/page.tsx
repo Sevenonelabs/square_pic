@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CompressorTool } from "@/components/compressor/compressor-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
   title: "Free Image Compressor - JPG, PNG & WebP",
-  description: "Compress JPG, PNG, and WebP images online without losing quality. Reduce file sizes for faster website loading and easier sharing.",
-  openGraph: { title: "Free Image Compressor - JPG, PNG & WebP | SquarePic" },
+  description: "Compress JPG, PNG, and WebP images online without losing quality. Reduce file sizes for faster websites and easier sharing. No uploads, no signup.",
+  openGraph: {
+    title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
+    description: "Compress images online with quality slider or target-size mode. Batch compress and download as ZIP. Free, private, browser-based.",
+    url: "https://squarepic.io/compressor",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
+    description: "Reduce image file sizes with quality slider or target size. Batch mode. Free, no uploads.",
+  },
   alternates: { canonical: "https://squarepic.io/compressor" },
 };
 
@@ -90,6 +99,8 @@ export default function CompressorPage() {
               <li><strong className="text-[#e6edf5]">Email attachments:</strong> Most email servers reject files over 25 MB. Compression keeps your images within limits.</li>
               <li><strong className="text-[#e6edf5]">Social media uploads:</strong> Platforms like Instagram and LinkedIn have file size caps. Pre-compress to ensure smooth uploads.</li>
               <li><strong className="text-[#e6edf5]">Cloud storage:</strong> Reduce backup sizes and save on storage costs by compressing images before archiving.</li>
+              <li><strong className="text-[#e6edf5]">E-commerce product images:</strong> Compressed product photos load faster on shop pages, improving conversion rates and reducing bounce rates on mobile.</li>
+              <li><strong className="text-[#e6edf5]">CMS and blog uploads:</strong> Most content management systems have upload limits. Pre-compress to avoid hitting file size caps and keep your media library lean.</li>
             </ul>
           </div>
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
@@ -100,6 +111,29 @@ export default function CompressorPage() {
               <li>Use lossless compression (PNG) for screenshots and graphics with sharp text edges.</li>
               <li>For website hero images, compress to under 200 KB for fast loading on mobile connections.</li>
               <li>Batch compress before uploading to a content management system to save time.</li>
+              <li>Compress thumbnails aggressively (quality 40-50%) — they are small and fast loading matters most.</li>
+              <li>Re-compress previously optimized images only if you need even smaller files for a specific use case.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Common Compression Myths</h3>
+            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+              <li><strong className="text-[#e6edf5]">Myth: Compression always ruins quality.</strong> Modern compression algorithms preserve visual quality down to 70-80% quality. The difference is often invisible to the human eye while cutting file sizes by more than half.</li>
+              <li><strong className="text-[#e6edf5]">Myth: You should never compress PNG.</strong> PNG compression is lossless — file sizes shrink without any quality loss. Many PNG files have inefficient metadata and color profiles that can be stripped safely.</li>
+              <li><strong className="text-[#e6edf5]">Myth: WebP always beats JPEG.</strong> WebP offers better compression at equivalent quality, but JPEG still wins for compatibility and is better for photographs with subtle gradients at high quality settings.</li>
+              <li><strong className="text-[#e6edf5]">Myth: Compressing once is enough.</strong> Different platforms and use cases need different file sizes. An image for email should be smaller than one for print. Always compress for the specific medium.</li>
+            </ul>
+          </div>
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Compression & SEO</h3>
+            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+              <li>Page speed is a confirmed Google ranking factor — compressed images load faster and improve user experience signals.</li>
+              <li>Core Web Vitals track Largest Contentful Paint — hero images that are compressed load before the 2.5-second threshold.</li>
+              <li>Google Lighthouse flags images that can be compressed further — passing this audit improves your SEO score.</li>
+              <li>Smaller images reduce bandwidth costs for your hosting and improve time-to-interactive for mobile visitors on slow networks.</li>
             </ul>
           </div>
         </div>
@@ -113,7 +147,18 @@ export default function CompressorPage() {
             </Link>
           </p>
         </div>
+        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>
       </section>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "SquarePic - Image Compressor",
+        url: "https://squarepic.io/compressor",
+        description: "Free online image compressor with quality slider and target-size mode. Batch compress JPEG, PNG, and WebP. No uploads, no signup.",
+        applicationCategory: "MultimediaApplication",
+        operatingSystem: "Any",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      }} />
     </>
   );
 }

@@ -27,6 +27,12 @@ export const TOOLS = [
     desc: "Free-form & preset ratios",
     icon: "M6.13 1L6 16a2 2 0 0 0 2 2h15M1 6.13L16 6a2 2 0 0 1 2 2v15",
   },
+  {
+    href: "/upscaler",
+    label: "HD Image Upscaler",
+    desc: "2x, 3x, 4x magnification",
+    icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7",
+  },
 ];
 
 const RESOURCES = [

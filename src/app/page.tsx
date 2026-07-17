@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Link from "next/link";
 import { ToolAsHeroLayout } from "@/components/layout/tool-as-hero-layout";
 import { ToolLinks } from "@/components/layout/tool-links";
 import { JsonLd } from "@/components/schema-scripts";
@@ -105,7 +106,7 @@ export default function Home() {
 
         <div className="max-w-[900px] mx-auto mb-16">
           <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5] text-center mb-3">
-            Why Choose SquarePic
+            Features & Benefits
           </h2>
           <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed text-center max-w-[600px] mx-auto mb-8">
             Thousands of creators and marketers use SquarePic daily to prepare images for social media.
@@ -157,7 +158,7 @@ export default function Home() {
                   { feat: "Smart Crop", sp: "Yes", c: "Yes", i: "Yes", t: "No" },
                   { feat: "Export PNG/JPEG/WebP", sp: "Yes", c: "Yes", i: "Yes", t: "WebP only" },
                   { feat: "Social Presets", sp: "Yes (13+)", c: "Yes", i: "No", t: "No" },
-                  { feat: "Batch Processing", sp: "Coming", c: "Yes", i: "Yes", t: "Yes" },
+                  { feat: "Batch Processing", sp: "Yes (ZIP)", c: "Yes", i: "Yes", t: "Yes" },
                   { feat: "Open Source", sp: "Yes", c: "No", i: "No", t: "No" },
                 ].map((row) => (
                   <tr key={row.feat} className="border-b border-[rgba(255,255,255,0.03)]">
@@ -170,6 +171,11 @@ export default function Home() {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/compare" className="text-[0.78rem] text-[var(--accent)] no-underline hover:underline font-semibold transition-all">
+              View detailed comparisons →
+            </Link>
           </div>
         </div>
       </section>

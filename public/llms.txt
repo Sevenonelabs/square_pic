@@ -11,6 +11,7 @@ SquarePic lets you resize, crop, compress, and convert images locally in your br
 - Image Compressor (reduce file size with quality slider or target-size mode): https://squarepic.io/compressor
 - Image Converter (convert between 8 formats, batch mode): https://squarepic.io/converter
 - Photo Cropper (interactive crop with aspect ratio presets): https://squarepic.io/cropper
+- HD Image Upscaler (upscale images 2x, 3x, or 4x with bicubic interpolation and smart sharpening): https://squarepic.io/upscaler
 - Image Size Calculator (find social media dimensions by search or platform): https://squarepic.io/image-size-calculator
 
 ## Platform Size Guides (13 platforms)

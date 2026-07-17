@@ -7,6 +7,7 @@ import { useTheme, THEMES } from "@/lib/theme-store";
 
 const TOOLS = [
   { href: "/", label: "Square Image" },
+  { href: "/upscaler", label: "HD Image Upscaler" },
   { href: "/converter", label: "Converter" },
   { href: "/compressor", label: "Compressor" },
   { href: "/cropper", label: "Cropper" },

@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ConverterTool } from "@/components/converter/converter-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
   title: "Free Image Converter - JPG, PNG, WebP & More",
-  description: "Convert images between JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO formats online for free. Batch convert multiple images at once with no uploads required.",
-  openGraph: { title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic" },
+  description: "Convert images between JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO online for free. Batch convert multiple images at once. No uploads, no signup.",
+  openGraph: {
+    title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
+    description: "Convert images between 8 formats with batch mode. Supports JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO. Free, private, browser-based.",
+    url: "https://squarepic.io/converter",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
+    description: "Convert between JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, ICO. Batch mode. Free, no uploads.",
+  },
   alternates: { canonical: "https://squarepic.io/converter" },
 };
 
@@ -108,6 +117,8 @@ export default function ConverterPage() {
               <li><strong className="text-[#e6edf5]">Smallest file size?</strong> AVIF offers the best compression, followed by WebP.</li>
               <li><strong className="text-[#e6edf5]">Print quality?</strong> TIFF preserves the highest fidelity for professional printing workflows.</li>
               <li><strong className="text-[#e6edf5]">Animation needed?</strong> GIF works universally, but consider video formats for longer clips.</li>
+              <li><strong className="text-[#e6edf5]">Favicon required?</strong> ICO format is the standard for browser favicons. Convert your 1:1 square PNG to ICO at multiple resolutions.</li>
+              <li><strong className="text-[#e6edf5]">HDR content?</strong> AVIF supports HDR and wide color gamut (Rec. 2020), making it the best choice for modern displays.</li>
             </ul>
           </div>
         </div>
@@ -130,6 +141,29 @@ export default function ConverterPage() {
           </div>
         </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Conversion Tips for Different Workflows</h3>
+            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+              <li><strong className="text-[#e6edf5]">Web development:</strong> Convert all hero images to WebP with JPEG fallback via &lt;picture&gt; elements. This saves 25-35% bandwidth without changing visual quality.</li>
+              <li><strong className="text-[#e6edf5]">Social media:</strong> JPEG at 85% quality is the sweet spot for Instagram, Facebook, and Twitter. PNG is unnecessary for photos and creates files 3-5x larger.</li>
+              <li><strong className="text-[#e6edf5]">Email newsletters:</strong> Most email clients only support JPEG and PNG reliably. Convert WebP/AVIF images to JPEG before inserting them into email campaigns.</li>
+              <li><strong className="text-[#e6edf5]">Game development:</strong> PNG for sprites and UI elements (lossless, transparency), JPEG for textures and backgrounds, WebP for packaging if engine supports it.</li>
+              <li><strong className="text-[#e6edf5]">Archiving:</strong> Store original files in a lossless format (PNG or TIFF). Convert to lossy formats (JPEG, WebP) only for distribution to save space.</li>
+            </ul>
+          </div>
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Understanding Quality Settings</h3>
+            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+              <li><strong className="text-[#e6edf5]">100%:</strong> Near-lossless output. Suitable for archival or when maximum quality is critical. File sizes are largest.</li>
+              <li><strong className="text-[#e6edf5]">80-95%:</strong> High quality for professional use. Great for photography portfolios and product images where quality matters most.</li>
+              <li><strong className="text-[#e6edf5]">60-80%:</strong> The web sweet spot. Images look nearly identical to originals but file sizes are 50-80% smaller. Best for general web use.</li>
+              <li><strong className="text-[#e6edf5]">40-60%:</strong> Good for thumbnails, previews, and placeholder images. Visible artifacts in smooth gradients but acceptable for small display sizes.</li>
+              <li><strong className="text-[#e6edf5]">Below 40%:</strong> Heavy compression for extreme size reduction. Noticeable artifacts. Only use for previews, thumbnails, or bandwidth-critical applications.</li>
+            </ul>
+          </div>
+        </div>
+
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
           <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Privacy-First Image Conversion</h3>
           <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
@@ -139,7 +173,18 @@ export default function ConverterPage() {
             </Link>
           </p>
         </div>
+        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>
       </section>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "SquarePic - Image Converter",
+        url: "https://squarepic.io/converter",
+        description: "Free online image converter supporting JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO. Batch convert multiple images at once.",
+        applicationCategory: "MultimediaApplication",
+        operatingSystem: "Any",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      }} />
     </>
   );
 }

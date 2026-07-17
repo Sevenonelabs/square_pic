@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CropperTool } from "@/components/cropper/cropper-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
   title: "Free Online Photo Cropper - Perfect Crop",
-  description: "Crop photos online for free with precision controls. Aspect ratio presets, zoom, pan, and export to JPEG, PNG, or WebP.",
-  openGraph: { title: "Free Online Photo Cropper - Perfect Crop | SquarePic" },
+  description: "Crop photos online for free with precision controls. Aspect ratio presets, zoom, pan, and export to JPEG, PNG, or WebP. No uploads required.",
+  openGraph: {
+    title: "Free Online Photo Cropper - Perfect Crop | SquarePic",
+    description: "Crop photos for social media with 8 drag handles, aspect ratio lock, zoom, and pan. Free, private, browser-based.",
+    url: "https://squarepic.io/cropper",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Online Photo Cropper - Perfect Crop | SquarePic",
+    description: "Crop images with precision. 8 drag handles, aspect ratio lock, zoom & pan. Free, no uploads.",
+  },
   alternates: { canonical: "https://squarepic.io/cropper" },
 };
 
@@ -117,7 +126,18 @@ export default function CropperPage() {
             </Link>
           </p>
         </div>
+        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>
       </section>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "SquarePic - Photo Cropper",
+        url: "https://squarepic.io/cropper",
+        description: "Free online photo cropper with 8 drag handles, aspect ratio lock, zoom and pan. Export to JPEG, PNG, or WebP.",
+        applicationCategory: "MultimediaApplication",
+        operatingSystem: "Any",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      }} />
     </>
   );
 }
