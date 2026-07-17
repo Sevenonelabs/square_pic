@@ -2,7 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import { motion } from "motion/react";
-import { upscaleImage, createComparisonOriginal, type UpscaleResult } from "@/lib/upscaler-utils";
+import { upscaleImage, type UpscaleResult } from "@/lib/upscaler-utils";
 
 const SCALES = [2, 3, 4];
 type DisplayMode = "original" | "upscaled" | "compare";
@@ -20,7 +20,6 @@ export function UpscalerTool() {
   const [result, setResult] = useState<UpscaleResult | null>(null);
   const [resultDataUrl, setResultDataUrl] = useState("");
   const [displayMode, setDisplayMode] = useState<DisplayMode>("original");
-  const [compareOriginal, setCompareOriginal] = useState("");
   const [sliderPos, setSliderPos] = useState(50);
   const [dragging, setDragging] = useState(false);
   const [expFormat, setExpFormat] = useState<"png" | "jpeg" | "webp">("png");
@@ -60,7 +59,6 @@ export function UpscalerTool() {
     setFileSize(file.size);
     setResult(null);
     setResultDataUrl("");
-    setCompareOriginal("");
     setDisplayMode("original");
     setError("");
     const url = URL.createObjectURL(file);
@@ -81,7 +79,6 @@ export function UpscalerTool() {
       setResult(r);
       const dataUrl = r.canvas.toDataURL();
       setResultDataUrl(dataUrl);
-      setCompareOriginal(createComparisonOriginal(image, r.width, r.height));
       setDisplayMode("compare");
       setSliderPos(50);
     } catch {
@@ -111,7 +108,6 @@ export function UpscalerTool() {
     setImage(null);
     setResult(null);
     setResultDataUrl("");
-    setCompareOriginal("");
     setFileName("");
     setFileSize(0);
     setError("");
@@ -169,19 +165,19 @@ export function UpscalerTool() {
                     <span className="text-[0.8rem] text-[#8d9aaa] font-medium">Upscaling {scale}&times;...</span>
                   </div>
                 </div>
-              ) : displayMode === "compare" && compareOriginal && resultDataUrl ? (
+              ) : displayMode === "compare" && resultDataUrl ? (
                 <div
                   ref={sliderRef}
                   className="relative overflow-hidden cursor-ew-resize select-none"
-                  style={{ maxHeight: 500, userSelect: "none", WebkitUserSelect: "none" }}
+                  style={{ aspectRatio: `${image.naturalWidth} / ${image.naturalHeight}`, maxHeight: 500, userSelect: "none", WebkitUserSelect: "none" }}
                   onMouseDown={startDrag}
                   onTouchStart={startDrag}
                 >
                   <img
-                    src={compareOriginal}
-                    alt="Original (scaled)"
-                    className="w-full h-auto block pointer-events-none"
-                    style={{ maxHeight: 500, objectFit: "contain", userSelect: "none", WebkitUserSelect: "none" }}
+                    src={image.src}
+                    alt="Original"
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                    style={{ objectFit: "contain", imageRendering: "pixelated", userSelect: "none", WebkitUserSelect: "none" }}
                     draggable={false}
                   />
                   <div
@@ -191,8 +187,8 @@ export function UpscalerTool() {
                     <img
                       src={resultDataUrl}
                       alt="Upscaled"
-                      className="w-full h-auto block pointer-events-none"
-                      style={{ maxHeight: 500, objectFit: "contain", userSelect: "none", WebkitUserSelect: "none" }}
+                      className="w-full h-full pointer-events-none"
+                      style={{ objectFit: "contain", userSelect: "none", WebkitUserSelect: "none" }}
                       draggable={false}
                     />
                   </div>

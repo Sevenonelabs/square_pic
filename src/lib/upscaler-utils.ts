@@ -6,20 +6,7 @@ export interface UpscaleResult {
   originalHeight: number;
 }
 
-export function createComparisonOriginal(
-  image: HTMLImageElement,
-  targetWidth: number,
-  targetHeight: number,
-  pixelated = true
-): string {
-  const c = document.createElement("canvas");
-  c.width = targetWidth;
-  c.height = targetHeight;
-  const ctx = c.getContext("2d")!;
-  ctx.imageSmoothingEnabled = !pixelated;
-  ctx.drawImage(image, 0, 0, targetWidth, targetHeight);
-  return c.toDataURL();
-}
+
 
 function sharpenCanvas(canvas: HTMLCanvasElement, amount: number) {
   const ctx = canvas.getContext("2d")!;
