@@ -31,10 +31,6 @@ export const TOOLS = [
 
 const RESOURCES = [
   { href: "/guides", label: "Guides & Tutorials", desc: "Image editing guides and tips" },
-  { href: "/blog", label: "Blog", desc: "Tutorials, tips & insights" },
-  { href: "/compare", label: "Comparisons", desc: "SquarePic vs other tools" },
-  { href: "/research", label: "Research", desc: "Benchmarks & studies" },
-  { href: "/image-size-calculator", label: "Size Calculator", desc: "Find the perfect dimensions" },
 ];
 
 const container = {

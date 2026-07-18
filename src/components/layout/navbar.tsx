@@ -13,11 +13,7 @@ const TOOLS = [
   { href: "/cropper", label: "Cropper" },
 ];
 
-const MORE_LINKS = [
-  { href: "/compare", label: "Comparisons" },
-  { href: "/research", label: "Research" },
-  { href: "/image-size-calculator", label: "Size Calculator" },
-];
+const MORE_LINKS: { href: string; label: string }[] = [];
 
 export function Navbar() {
   const { current, apply, pickRandom } = useTheme();
@@ -108,9 +104,6 @@ export function Navbar() {
 
           <Link href="/guides" className="text-[0.7rem] font-semibold text-[#8d9aaa] px-2 py-1 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.03)] transition-all">
             Guides
-          </Link>
-          <Link href="/blog" className="text-[0.7rem] font-semibold text-[#8d9aaa] px-2 py-1 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.03)] transition-all">
-            Blog
           </Link>
 
           <div ref={moreRef} className="relative">
@@ -219,8 +212,7 @@ export function Navbar() {
               <Link key={tool.href} href={tool.href} onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">{tool.label}</Link>
             ))}
             <Link href="/guides" onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">Guides</Link>
-            <Link href="/blog" onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">Blog</Link>
-            <div className="h-px bg-[rgba(255,255,255,0.04)] my-1" />
+            {MORE_LINKS.length > 0 && <div className="h-px bg-[rgba(255,255,255,0.04)] my-1" />}
             {MORE_LINKS.map((link) => (
               <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#576675] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">{link.label}</Link>
             ))}
