@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
     description: "Upscale images 2x, 3x, or 4x with bicubic interpolation and smart sharpening. All processing happens locally in your browser — no uploads, no watermarks, no signup.",
-    url: "https://squarepic.io/upscaler",
+    url: "https://www.squarepic.io/upscaler",
     images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic HD Image Upscaler - enlarge photos 2x, 3x, or 4x" }],
   },
   twitter: {
@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
     description: "Upscale images 2x, 3x, or 4x with smart sharpening. Free, private, browser-based.",
   },
-  alternates: { canonical: "https://squarepic.io/upscaler" },
+  alternates: { canonical: "https://www.squarepic.io/upscaler" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function UpscalerPage() {
   return (
@@ -135,7 +135,7 @@ export default function UpscalerPage() {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         name: "SquarePic - HD Image Upscaler",
-        url: "https://squarepic.io/upscaler",
+        url: "https://www.squarepic.io/upscaler",
         description: "Free online HD image upscaler. Enlarge photos 2x, 3x, or 4x with bicubic interpolation and smart sharpening. All processing is private and local.",
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",

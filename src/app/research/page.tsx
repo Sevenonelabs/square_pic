@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: "Research - Image Compression Benchmarks & Studies",
   description: "Original research on image compression performance. Compare JPEG, PNG, WebP, and AVIF across quality levels, file sizes, and visual fidelity.",
   openGraph: { title: "Research - Image Compression Benchmarks | SquarePic" },
-  alternates: { canonical: "https://squarepic.io/research" },
+  alternates: { canonical: "https://www.squarepic.io/research" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function ResearchPage() {
   return (

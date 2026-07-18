@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: "SquarePic vs TinyPNG - Detailed Comparison (2026)",
   description: "Compare SquarePic vs TinyPNG: compression features, pricing, privacy, and format support. See which tool fits your workflow.",
   openGraph: { title: "SquarePic vs TinyPNG - Comparison | SquarePic" },
-  alternates: { canonical: "https://squarepic.io/compare/squarepic-vs-tinypng" },
+  alternates: { canonical: "https://www.squarepic.io/compare/squarepic-vs-tinypng" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function VsTinypngPage() {
   return (

@@ -1,8 +1,7 @@
-const SITE = process.env.SITE_URL || "https://squarepic.io";
+const SITE = process.env.SITE_URL || "https://www.squarepic.io";
 
 const IMAGE_ENTRIES = [
   { page: "", images: ["/squareframe_preview.png", "/images/logo-256.png"] },
-  { page: "/edit", images: ["/squareframe_preview.png"] },
   { page: "/compressor", images: ["/squareframe_preview.png"] },
   { page: "/converter", images: ["/squareframe_preview.png"] },
   { page: "/cropper", images: ["/squareframe_preview.png"] },

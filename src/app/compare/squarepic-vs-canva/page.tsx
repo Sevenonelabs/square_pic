@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: "SquarePic vs Canva - Detailed Comparison (2026)",
   description: "Compare SquarePic vs Canva: features, pricing, privacy, and ease of use. See why SquarePic is the faster choice for quick image resizing and editing.",
   openGraph: { title: "SquarePic vs Canva - Comparison | SquarePic" },
-  alternates: { canonical: "https://squarepic.io/compare/squarepic-vs-canva" },
+  alternates: { canonical: "https://www.squarepic.io/compare/squarepic-vs-canva" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function VsCanvaPage() {
   return (

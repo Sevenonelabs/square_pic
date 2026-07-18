@@ -40,8 +40,12 @@ const nextConfig: NextConfig = {
     { source: "/free-square-image-tool.html", destination: "/", permanent: true },
     { source: "/free-online-photo-resizer", destination: "/", permanent: true },
     { source: "/free-image-optimizer", destination: "/compressor", permanent: true },
-    { source: "/blog-categories/:slug", destination: "/blog/category/:slug", permanent: true },
-    { source: "/blog-categories", destination: "/blog/category", permanent: true },
+    { source: "/resize", destination: "/", permanent: true },
+    { source: "/edit", destination: "/", permanent: true },
+    { source: "/blog-categories/:slug", destination: "/blog", permanent: true },
+    { source: "/blog-categories", destination: "/blog", permanent: true },
+    { source: "/blog/category/:slug", destination: "/blog", permanent: true },
+    { source: "/blog/category", destination: "/blog", permanent: true },
   ],
 };
 

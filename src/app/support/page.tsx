@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   title: "Contact Support - Free Image Editor Help",
   description: "Need help with SquarePic? Contact support for assistance with resizing images, editing photos, and making square pictures online.",
   openGraph: { title: "Contact Support - Free Image Editor Help | SquarePic" },
-  alternates: { canonical: "https://squarepic.io/support" },
+  alternates: { canonical: "https://www.squarepic.io/support" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function SupportPage() {
   return (

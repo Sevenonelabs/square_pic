@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   description: "Make any photo square for Instagram, LinkedIn, and more. Free online image resizer with blur backgrounds, solid fills, smart crop, and social media presets. No uploads, no signup, no watermarks.",
   icons: { icon: "/images/favicon.svg" },
-  metadataBase: new URL(process.env.SITE_URL || "https://squarepic.io"),
+  metadataBase: new URL(process.env.SITE_URL || "https://www.squarepic.io"),
   openGraph: {
     type: "website",
     siteName: "SquarePic",

@@ -163,7 +163,7 @@ export default async function PlatformPage({ params }: Props) {
   const p = presets[key as keyof typeof presets];
   const types = Object.entries(p.types);
 
-  const siteUrl = process.env.SITE_URL || "https://squarepic.io";
+  const siteUrl = process.env.SITE_URL || "https://www.squarepic.io";
   const pageUrl = `${siteUrl}/resize/${platform}`;
 
   const faqSchema = {

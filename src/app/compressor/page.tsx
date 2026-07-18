@@ -10,17 +10,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
     description: "Compress images online with quality slider or target-size mode. Batch compress and download as ZIP. Free, private, browser-based.",
-    url: "https://squarepic.io/compressor",
+    url: "https://www.squarepic.io/compressor",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
     description: "Reduce image file sizes with quality slider or target size. Batch mode. Free, no uploads.",
   },
-  alternates: { canonical: "https://squarepic.io/compressor" },
+  alternates: { canonical: "https://www.squarepic.io/compressor" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function CompressorPage() {
   return (
@@ -153,7 +153,7 @@ export default function CompressorPage() {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         name: "SquarePic - Image Compressor",
-        url: "https://squarepic.io/compressor",
+        url: "https://www.squarepic.io/compressor",
         description: "Free online image compressor with quality slider and target-size mode. Batch compress JPEG, PNG, and WebP. No uploads, no signup.",
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",

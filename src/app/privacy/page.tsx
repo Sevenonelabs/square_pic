@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   title: "Privacy Policy - Free Online Image Editor",
   description: "Your privacy matters. Read the SquarePic privacy policy to understand how we handle your data and images. No uploads, no tracking.",
   openGraph: { title: "Privacy Policy - Free Online Image Editor | SquarePic" },
-  alternates: { canonical: "https://squarepic.io/privacy" },
+  alternates: { canonical: "https://www.squarepic.io/privacy" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function PrivacyPage() {
   return (

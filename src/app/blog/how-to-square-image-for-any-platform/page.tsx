@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   title: "How to Square an Image for Any Social Media Platform",
   description: "Step-by-step guide to making perfect square images for Instagram, LinkedIn, Facebook, and more. Learn three methods: blur background, solid fill, and smart crop.",
   openGraph: { title: "How to Square an Image for Any Social Media Platform | SquarePic", type: "article", publishedTime: "2026-07-13", modifiedTime: "2026-07-17", authors: "SevenOneLabs" },
-  alternates: { canonical: "https://squarepic.io/blog/how-to-square-image-for-any-platform" },
+  alternates: { canonical: "https://www.squarepic.io/blog/how-to-square-image-for-any-platform" },
   twitter: { card: "summary_large_image" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 const FAQS = [
   {

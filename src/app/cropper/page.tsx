@@ -10,17 +10,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free Online Photo Cropper - Perfect Crop | SquarePic",
     description: "Crop photos for social media with 8 drag handles, aspect ratio lock, zoom, and pan. Free, private, browser-based.",
-    url: "https://squarepic.io/cropper",
+    url: "https://www.squarepic.io/cropper",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Online Photo Cropper - Perfect Crop | SquarePic",
     description: "Crop images with precision. 8 drag handles, aspect ratio lock, zoom & pan. Free, no uploads.",
   },
-  alternates: { canonical: "https://squarepic.io/cropper" },
+  alternates: { canonical: "https://www.squarepic.io/cropper" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function CropperPage() {
   return (
@@ -132,7 +132,7 @@ export default function CropperPage() {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         name: "SquarePic - Photo Cropper",
-        url: "https://squarepic.io/cropper",
+        url: "https://www.squarepic.io/cropper",
         description: "Free online photo cropper with 8 drag handles, aspect ratio lock, zoom and pan. Export to JPEG, PNG, or WebP.",
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",

@@ -4,12 +4,6 @@ import { motion } from "motion/react";
 
 export const TOOLS = [
   {
-    href: "/resize",
-    label: "Square Pic - Social Media Resizer",
-    desc: "Make images square, add backgrounds",
-    icon: "M2 2h20v20H2zM16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01",
-  },
-  {
     href: "/converter",
     label: "Image Converter",
     desc: "JPG, PNG, WebP, AVIF",

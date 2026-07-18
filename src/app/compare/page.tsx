@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: "SquarePic vs The Competition - Comparison Guide",
   description: "Compare SquarePic with iLoveIMG, TinyPNG, Canva, and other image editing tools. See why privacy-first, client-side processing is better.",
   openGraph: { title: "SquarePic vs The Competition | SquarePic" },
-  alternates: { canonical: "https://squarepic.io/compare" },
+  alternates: { canonical: "https://www.squarepic.io/compare" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 const COMPARISONS = [
   {

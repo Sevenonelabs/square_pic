@@ -4,8 +4,8 @@ Allow: /
 Allow: /assets/
 Disallow: /api/
 
-Sitemap: https://squarepic.io/sitemap.xml
-Sitemap: https://squarepic.io/sitemap-images
+Sitemap: https://www.squarepic.io/sitemap.xml
+Sitemap: https://www.squarepic.io/sitemap-images
 
 # When using a custom domain, replace the URLs above with:
 # Sitemap: https://yourdomain.com/sitemap.xml

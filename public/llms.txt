@@ -1,5 +1,5 @@
 # SquarePic — Free Online Image Editor
-# https://squarepic.io
+# https://www.squarepic.io
 
 SquarePic is a free, privacy-first online image editor. All processing happens entirely in your browser via HTML5 Canvas — images are never uploaded to any server. No signup, no watermarks, no tracking. Open source on GitHub.
 
@@ -7,70 +7,70 @@ SquarePic is a free, privacy-first online image editor. All processing happens e
 SquarePic lets you resize, crop, compress, and convert images locally in your browser. Created by SevenOneLabs. Supports PNG, JPEG, WebP, GIF, BMP, TIFF, AVIF, and ICO formats.
 
 ## Core Tools
-- Square Image Editor (make any photo square with blur/solid/crop): https://squarepic.io/edit
-- Image Compressor (reduce file size with quality slider or target-size mode): https://squarepic.io/compressor
-- Image Converter (convert between 8 formats, batch mode): https://squarepic.io/converter
-- Photo Cropper (interactive crop with aspect ratio presets): https://squarepic.io/cropper
-- HD Image Upscaler (upscale images 2x, 3x, or 4x with bicubic interpolation and smart sharpening): https://squarepic.io/upscaler
-- Image Size Calculator (find social media dimensions by search or platform): https://squarepic.io/image-size-calculator
+- Square Image Editor (make any photo square with blur/solid/crop): https://www.squarepic.io/edit
+- Image Compressor (reduce file size with quality slider or target-size mode): https://www.squarepic.io/compressor
+- Image Converter (convert between 8 formats, batch mode): https://www.squarepic.io/converter
+- Photo Cropper (interactive crop with aspect ratio presets): https://www.squarepic.io/cropper
+- HD Image Upscaler (upscale images 2x, 3x, or 4x with bicubic interpolation and smart sharpening): https://www.squarepic.io/upscaler
+- Image Size Calculator (find social media dimensions by search or platform): https://www.squarepic.io/image-size-calculator
 
 ## Platform Size Guides (13 platforms)
-- Instagram image sizes: https://squarepic.io/resize/instagram
-- Facebook image sizes: https://squarepic.io/resize/facebook
-- X (Twitter) image sizes: https://squarepic.io/resize/x-twitter
-- LinkedIn image sizes: https://squarepic.io/resize/linkedin
-- TikTok image sizes: https://squarepic.io/resize/tiktok
-- YouTube image sizes: https://squarepic.io/resize/youtube
-- Pinterest image sizes: https://squarepic.io/resize/pinterest
-- Snapchat image sizes: https://squarepic.io/resize/snapchat
-- WhatsApp image sizes: https://squarepic.io/resize/whatsapp
-- Twitch image sizes: https://squarepic.io/resize/twitch
-- Reddit image sizes: https://squarepic.io/resize/reddit
-- Telegram image sizes: https://squarepic.io/resize/telegram
-- Discord image sizes: https://squarepic.io/resize/discord
+- Instagram image sizes: https://www.squarepic.io/resize/instagram
+- Facebook image sizes: https://www.squarepic.io/resize/facebook
+- X (Twitter) image sizes: https://www.squarepic.io/resize/x-twitter
+- LinkedIn image sizes: https://www.squarepic.io/resize/linkedin
+- TikTok image sizes: https://www.squarepic.io/resize/tiktok
+- YouTube image sizes: https://www.squarepic.io/resize/youtube
+- Pinterest image sizes: https://www.squarepic.io/resize/pinterest
+- Snapchat image sizes: https://www.squarepic.io/resize/snapchat
+- WhatsApp image sizes: https://www.squarepic.io/resize/whatsapp
+- Twitch image sizes: https://www.squarepic.io/resize/twitch
+- Reddit image sizes: https://www.squarepic.io/resize/reddit
+- Telegram image sizes: https://www.squarepic.io/resize/telegram
+- Discord image sizes: https://www.squarepic.io/resize/discord
 
 ## Format Converters (12+ conversion pairs)
-- PNG to JPG: https://squarepic.io/converter/png-to-jpg
-- JPG to PNG: https://squarepic.io/converter/jpg-to-png
-- PNG to WebP: https://squarepic.io/converter/png-to-webp
-- JPG to WebP: https://squarepic.io/converter/jpg-to-webp
-- WebP to PNG: https://squarepic.io/converter/webp-to-png
-- WebP to JPG: https://squarepic.io/converter/webp-to-jpg
-- PNG to GIF: https://squarepic.io/converter/png-to-gif
-- JPG to GIF: https://squarepic.io/converter/jpg-to-gif
-- PNG to ICO: https://squarepic.io/converter/png-to-ico
-- JPG to ICO: https://squarepic.io/converter/jpg-to-ico
-- PNG to AVIF: https://squarepic.io/converter/png-to-avif
-- JPG to AVIF: https://squarepic.io/converter/jpg-to-avif
-- WebP to AVIF: https://squarepic.io/converter/webp-to-avif
-- WebP to GIF: https://squarepic.io/converter/webp-to-gif
+- PNG to JPG: https://www.squarepic.io/converter/png-to-jpg
+- JPG to PNG: https://www.squarepic.io/converter/jpg-to-png
+- PNG to WebP: https://www.squarepic.io/converter/png-to-webp
+- JPG to WebP: https://www.squarepic.io/converter/jpg-to-webp
+- WebP to PNG: https://www.squarepic.io/converter/webp-to-png
+- WebP to JPG: https://www.squarepic.io/converter/webp-to-jpg
+- PNG to GIF: https://www.squarepic.io/converter/png-to-gif
+- JPG to GIF: https://www.squarepic.io/converter/jpg-to-gif
+- PNG to ICO: https://www.squarepic.io/converter/png-to-ico
+- JPG to ICO: https://www.squarepic.io/converter/jpg-to-ico
+- PNG to AVIF: https://www.squarepic.io/converter/png-to-avif
+- JPG to AVIF: https://www.squarepic.io/converter/jpg-to-avif
+- WebP to AVIF: https://www.squarepic.io/converter/webp-to-avif
+- WebP to GIF: https://www.squarepic.io/converter/webp-to-gif
 
 ## Content & Guides
 ### Blog Posts
-- How to Square an Image for Any Social Media Platform: https://squarepic.io/blog/how-to-square-image-for-any-platform
+- How to Square an Image for Any Social Media Platform: https://www.squarepic.io/blog/how-to-square-image-for-any-platform
   Three methods (Dynamic Blur, Solid Color Fill, Smart Crop) for creating square images without cropping. Includes dimension cheat sheet, common mistakes, and best practices.
-- Privacy-First Image Editing: Why Your Photos Should Stay on Your Device: https://squarepic.io/blog/privacy-first-image-editing
+- Privacy-First Image Editing: Why Your Photos Should Stay on Your Device: https://www.squarepic.io/blog/privacy-first-image-editing
   Explains client-side vs server-side image processing, privacy risks of upload-based tools, and how HTML5 Canvas enables private editing. References GDPR and CCPA.
 
 ### Guides
-- Social Media Image Sizes 2026: Complete Cheat Sheet: https://squarepic.io/guides/social-media-image-sizes-2026
+- Social Media Image Sizes 2026: Complete Cheat Sheet: https://www.squarepic.io/guides/social-media-image-sizes-2026
   Complete dimensions reference for all 13 platforms with aspect ratios and image types.
 
 ### Research
-- Image Compression Benchmarks 2026: JPEG vs PNG vs WebP vs AVIF: https://squarepic.io/research/image-compression-benchmarks
+- Image Compression Benchmarks 2026: JPEG vs PNG vs WebP vs AVIF: https://www.squarepic.io/research/image-compression-benchmarks
   Original benchmark data across 8 quality levels. Key finding: WebP at quality 80% offers the best balance of size and quality.
 
 ### Comparisons
-- SquarePic vs Canva: https://squarepic.io/compare/squarepic-vs-canva
-- SquarePic vs iLoveIMG: https://squarepic.io/compare/squarepic-vs-iloveimg
-- SquarePic vs TinyPNG: https://squarepic.io/compare/squarepic-vs-tinypng
+- SquarePic vs Canva: https://www.squarepic.io/compare/squarepic-vs-canva
+- SquarePic vs iLoveIMG: https://www.squarepic.io/compare/squarepic-vs-iloveimg
+- SquarePic vs TinyPNG: https://www.squarepic.io/compare/squarepic-vs-tinypng
 
 ### Information Pages
-- About SquarePic: https://squarepic.io/about
-- FAQ: https://squarepic.io/faq
-- Support: https://squarepic.io/support
-- Privacy Policy: https://squarepic.io/privacy
-- Terms of Service: https://squarepic.io/terms
+- About SquarePic: https://www.squarepic.io/about
+- FAQ: https://www.squarepic.io/faq
+- Support: https://www.squarepic.io/support
+- Privacy Policy: https://www.squarepic.io/privacy
+- Terms of Service: https://www.squarepic.io/terms
 
 ## Key Features
 - All processing is client-side via HTML5 Canvas — images never leave your device

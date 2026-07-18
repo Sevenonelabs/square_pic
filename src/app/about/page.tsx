@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   title: "About - Free Online Square Image Editor",
   description: "Learn about SquarePic, the privacy-first online image editor. Make any photo square for Instagram and social media. No uploads, no watermarks.",
   openGraph: { title: "About - Free Online Square Image Editor | SquarePic" },
-  alternates: { canonical: "https://squarepic.io/about" },
+  alternates: { canonical: "https://www.squarepic.io/about" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function AboutPage() {
   return (

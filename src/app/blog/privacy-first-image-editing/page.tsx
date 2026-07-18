@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   title: "Privacy-First Image Editing: Why Your Photos Should Stay on Your Device",
   description: "Most image editors upload your photos to their servers. Learn why client-side processing with HTML5 Canvas is the only way to guarantee your images remain private.",
   openGraph: { title: "Privacy-First Image Editing: Why Your Photos Should Stay on Your Device | SquarePic", type: "article", publishedTime: "2026-07-13", modifiedTime: "2026-07-17", authors: "SevenOneLabs" },
-  alternates: { canonical: "https://squarepic.io/blog/privacy-first-image-editing" },
+  alternates: { canonical: "https://www.squarepic.io/blog/privacy-first-image-editing" },
   twitter: { card: "summary_large_image" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 const FAQS = [
   {

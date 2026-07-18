@@ -10,17 +10,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
     description: "Convert images between 8 formats with batch mode. Supports JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO. Free, private, browser-based.",
-    url: "https://squarepic.io/converter",
+    url: "https://www.squarepic.io/converter",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
     description: "Convert between JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, ICO. Batch mode. Free, no uploads.",
   },
-  alternates: { canonical: "https://squarepic.io/converter" },
+  alternates: { canonical: "https://www.squarepic.io/converter" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function ConverterPage() {
   return (
@@ -179,7 +179,7 @@ export default function ConverterPage() {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         name: "SquarePic - Image Converter",
-        url: "https://squarepic.io/converter",
+        url: "https://www.squarepic.io/converter",
         description: "Free online image converter supporting JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO. Batch convert multiple images at once.",
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",

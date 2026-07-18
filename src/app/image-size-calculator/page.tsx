@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 const PLATFORMS = [
   { key: "instagram", label: "Instagram" },
@@ -76,7 +76,7 @@ export default function ImageSizeCalculatorPage() {
         { name: "Home", url: SITE },
         { name: "Image Size Calculator", url: `${SITE}/image-size-calculator` },
       ]} />
-      <WebAppSchema name="SquarePic - Image Size Calculator" url={`${SITE}/image-size-calculator`} description="Find the perfect image dimensions for any social media platform with our interactive size calculator." aggregateRating={{ ratingValue: "4.8", ratingCount: "45", bestRating: "5" }} />
+      <WebAppSchema name="SquarePic - Image Size Calculator" url={`${SITE}/image-size-calculator`} description="Find the perfect image dimensions for any social media platform with our interactive size calculator." />
       <div className="max-w-[800px] w-full mx-auto px-4 py-8">
       <h1 className="text-[1.8rem] font-extrabold tracking-tight mb-2">Image Size Calculator</h1>
       <p className="text-[0.9rem] text-[#8d9aaa] mb-6 leading-relaxed">

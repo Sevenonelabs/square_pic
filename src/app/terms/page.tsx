@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   title: "Terms of Service - Free Online Image Editor",
   description: "Review SquarePic's terms of service for using our free online image editor, square photo maker, and image resizer tools.",
   openGraph: { title: "Terms of Service - Free Online Image Editor | SquarePic" },
-  alternates: { canonical: "https://squarepic.io/terms" },
+  alternates: { canonical: "https://www.squarepic.io/terms" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 export default function TermsPage() {
   return (

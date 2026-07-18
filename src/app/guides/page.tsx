@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: "Guides - Image Editing Tutorials & Tips",
   description: "Learn how to resize, crop, compress, and convert images for any platform. Step-by-step guides for social media image optimization.",
   openGraph: { title: "Guides - Image Editing Tutorials & Tips | SquarePic" },
-  alternates: { canonical: "https://squarepic.io/guides" },
+  alternates: { canonical: "https://www.squarepic.io/guides" },
 };
 
-const SITE = "https://squarepic.io";
+const SITE = "https://www.squarepic.io";
 
 const GUIDES = [
   {
