@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { ToolAsHeroLayout } from "@/components/layout/tool-as-hero-layout";
+import { ToolLinks } from "@/components/layout/tool-links";
 import { JsonLd } from "@/components/schema-scripts";
 import type { EditorState } from "@/lib/editor-renderer";
 
@@ -74,6 +75,8 @@ export default function Home() {
         badge="100% Free · No Signup · Privacy-First"
         colorSwatches={COLOR_SWATCHES}
       />
+
+      <ToolLinks />
 
       <JsonLd data={{
         "@context": "https://schema.org",
