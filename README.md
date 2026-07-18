@@ -26,40 +26,38 @@
 
 ---
 
-**SquarePic** is a free, privacy-first online image editing toolkit. Resize, crop, compress, convert, and square images — all in your browser. No uploads, no watermarks, no signup.
+SquarePic is a free, privacy-first online image editing toolkit. Resize, crop, compress, convert, and square images — all in your browser. No uploads, no watermarks, no signup.
 
-> → [squarepic.io](https://www.squarepic.io) — try it now, no account needed.
+All processing is powered by the **HTML5 Canvas API**. Your images never leave your device.
 
-## ✨ Live Tools
+> [squarepic.io](https://www.squarepic.io) — try it now, no account needed.
 
-| Tool | Link | Description |
-|------|------|-------------|
-| **Square Image Editor** | [squarepic.io](https://www.squarepic.io) | Fit any photo into a perfect square with blur, solid fill, or smart crop |
-| **Image Converter** | [squarepic.io/converter](https://www.squarepic.io/converter) | Convert between JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, TIFF |
-| **Image Compressor** | [squarepic.io/compressor](https://www.squarepic.io/compressor) | Compress with quality slider or target-size mode; batch ZIP export |
-| **Photo Cropper** | [squarepic.io/cropper](https://www.squarepic.io/cropper) | Interactive crop with 8 drag handles and aspect ratio presets |
-| **Social Media Sizes Guide** | [squarepic.io/guides](https://www.squarepic.io/guides) | Complete dimension cheat sheet for all platforms |
+## Tools
 
-All processing is powered by the **HTML5 Canvas API** — your images **never leave your device**.
+| Tool | Description |
+|------|-------------|
+| **Square Image Editor** | Fit any photo into a perfect square with blur, solid fill, or smart crop |
+| **Image Converter** | Convert between JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, TIFF |
+| **Image Compressor** | Compress with quality slider or target-size mode; batch ZIP export |
+| **Photo Cropper** | Interactive crop with 8 drag handles and aspect ratio presets |
+| **HD Image Upscaler** | Enlarge images 2x-4x with bicubic interpolation and smart sharpening |
+| **Social Media Resizer** | Preset dimensions for 13 platforms (Instagram, LinkedIn, YouTube, TikTok, etc.) |
 
-## 🔒 Privacy First
+## Privacy
 
-- ✅ No uploads — everything runs locally in your browser
-- ✅ No accounts — zero signup required
-- ✅ No watermarks — your downloads are clean
-- ✅ No tracking — your images are never analyzed
-- ✅ Open source — inspect the code yourself
+- No uploads — everything runs locally in your browser
+- No accounts — zero signup required
+- No watermarks — your downloads are clean
+- Open source — inspect the code yourself
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [localhost:3000](http://localhost:3000) in your browser.
-
-### Commands
+Open [localhost:3000](http://localhost:3000).
 
 | Command | Purpose |
 |---------|---------|
@@ -67,7 +65,7 @@ Open [localhost:3000](http://localhost:3000) in your browser.
 | `npm run build` | Production build |
 | `npm run lint` | Run ESLint |
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Framework:** [Next.js 16](https://nextjs.org) (App Router)
 - **Language:** TypeScript
@@ -77,20 +75,15 @@ Open [localhost:3000](http://localhost:3000) in your browser.
 - **Icons:** [Phosphor Icons](https://phosphoricons.com)
 - **Fonts:** Inter, Syne Mono
 
-## 📚 Guides & Blog
+## Guides
 
 - [Social Media Image Sizes 2026](https://www.squarepic.io/guides/social-media-image-sizes-2026) — Complete cheat sheet for all platforms
-- [How to Square an Image](https://www.squarepic.io/blog/how-to-square-image-for-any-platform) — Step-by-step tutorial
-- [Privacy-First Image Editing](https://www.squarepic.io/blog/privacy-first-image-editing) — Why client-side processing matters
-- [SquarePic vs iLoveIMG](https://www.squarepic.io/compare/squarepic-vs-iloveimg) — Honest comparison
-- [SquarePic vs TinyPNG](https://www.squarepic.io/compare/squarepic-vs-tinypng) — Feature comparison
-- [SquarePic vs Canva](https://www.squarepic.io/compare/squarepic-vs-canva) — Detailed breakdown
+- [Instagram Feed Sizes 2026](https://www.squarepic.io/guides/instagram-feed-sizes-2026) — Feed, carousel, and profile dimensions
+- [Instagram Reels & Stories Guide](https://www.squarepic.io/guides/instagram-reels-stories-guide) — Dimensions, safe zones, and engagement strategies
+- [LinkedIn Image Sizes 2026](https://www.squarepic.io/guides/linkedin-image-sizes-2026) — Banner, profile, and post dimensions
+- [YouTube Banner & Thumbnail Sizes 2026](https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2026) — Channel art, thumbnails, and best practices
+- [TikTok Image Sizes 2026](https://www.squarepic.io/guides/tiktok-image-sizes-2026) — Profile, video, and ad dimensions
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome. Open an [issue](https://github.com/Sevenonelabs/square_pic/issues) or submit a PR.
-
-## 📄 License
+## License
 
 MIT — see [LICENSE](LICENSE).
-
