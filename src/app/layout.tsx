@@ -28,7 +28,14 @@ export const metadata: Metadata = {
     template: "%s | SquarePic",
   },
   description: "Make any photo square for Instagram, LinkedIn, and more. Free image resizer with blur, smart crop, and social media presets. No uploads, no signup.",
-  icons: { icon: "/images/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/images/favicon.svg", type: "image/svg+xml" },
+      { url: "/images/logo-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/images/logo-256.png", sizes: "256x256", type: "image/png" },
+    ],
+    apple: [{ url: "/images/logo-256.png", sizes: "256x256" }],
+  },
   metadataBase: new URL(process.env.SITE_URL || "https://www.squarepic.io"),
   openGraph: {
     type: "website",
