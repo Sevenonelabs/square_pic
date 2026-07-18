@@ -4,12 +4,15 @@ import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
   title: "Guides - Image Editing Tutorials & Tips",
-  description: "Learn how to resize, crop, compress, and convert images for any platform. Step-by-step guides for social media image optimization.",
+  description: "Step-by-step image editing guides, social media size cheat sheets, and how-to tutorials for resizing, cropping, converting, and optimizing images.",
   openGraph: { title: "Guides - Image Editing Tutorials & Tips | SquarePic" },
+  twitter: { card: "summary_large_image", title: "Guides - Image Editing Tutorials & Tips | SquarePic", description: "Step-by-step image editing guides, social media size cheat sheets, and how-to tutorials for resizing, cropping, converting, and optimizing images." },
   alternates: { canonical: "https://www.squarepic.io/guides" },
 };
 
 const SITE = "https://www.squarepic.io";
+
+const ALL_CATEGORIES = ["All", "Social Media", "Instagram", "LinkedIn", "YouTube", "TikTok"] as const;
 
 const GUIDES = [
   {
@@ -19,9 +22,60 @@ const GUIDES = [
     category: "Social Media",
     readTime: "15 min",
   },
+  {
+    href: "/guides/instagram-feed-sizes-2026",
+    title: "Instagram Image Sizes 2026: Feed, Carousel & Profile",
+    desc: "Complete guide to Instagram feed post dimensions, carousel specs, profile picture sizes, and ad formats. Includes engagement best practices and a quick reference table.",
+    category: "Instagram",
+    readTime: "10 min",
+  },
+  {
+    href: "/guides/instagram-reels-stories-guide",
+    title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips",
+    desc: "Everything you need to know about Reels and Stories dimensions, text safe zones, format recommendations, and proven strategies for higher engagement.",
+    category: "Instagram",
+    readTime: "9 min",
+  },
+  {
+    href: "/guides/linkedin-image-sizes-2026",
+    title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions",
+    desc: "Complete guide to LinkedIn image dimensions for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page image requirements.",
+    category: "LinkedIn",
+    readTime: "8 min",
+  },
+  {
+    href: "/guides/youtube-banner-thumbnail-sizes-2026",
+    title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video",
+    desc: "Complete guide to YouTube image dimensions for 2026. Channel art/banner sizes, video thumbnail specs, profile picture requirements, and design best practices.",
+    category: "YouTube",
+    readTime: "9 min",
+  },
+  {
+    href: "/guides/tiktok-image-sizes-2026",
+    title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions",
+    desc: "Complete guide to TikTok image dimensions for 2026. Profile picture size, video aspect ratios, story specs, ad formats, and best practices for maximum engagement.",
+    category: "TikTok",
+    readTime: "8 min",
+  },
 ];
 
-export default function GuidesPage() {
+function getCategoryLabel(slug: string): string {
+  const map: Record<string, string> = {
+    instagram: "Instagram", linkedin: "LinkedIn", youtube: "YouTube", tiktok: "TikTok",
+  };
+  return map[slug] || slug;
+}
+
+export default async function GuidesPage(props: { searchParams?: Promise<{ category?: string }> }) {
+  const searchParams = await (props.searchParams ?? Promise.resolve({} as { category?: string }));
+  const activeCategory = searchParams?.category
+    ? getCategoryLabel(searchParams.category)
+    : "All";
+
+  const filtered = activeCategory === "All"
+    ? GUIDES
+    : GUIDES.filter((g) => g.category === activeCategory);
+
   return (
     <>
       <BreadcrumbSchema items={[
@@ -32,18 +86,38 @@ export default function GuidesPage() {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         name: "SquarePic Guides & Tutorials",
-        description: "Learn how to resize, crop, compress, and convert images for any platform.",
+        description: "Learn how to resize, crop, compress, and convert images for every platform.",
         url: `${SITE}/guides`,
         about: { "@type": "Thing", name: "Image Editing Guides" },
       }} />
       <div className="max-w-[800px] w-full mx-auto px-4 py-8">
         <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-2">Guides & Tutorials</h1>
-        <p className="text-center text-[0.9rem] text-[#8d9aaa] max-w-[500px] mx-auto mb-10 leading-relaxed">
-          Learn how to optimize images for every platform. Step-by-step tutorials, dimension guides, and best practices for social media, e-commerce, and web use.
+        <p className="text-center text-[0.9rem] text-[#8d9aaa] max-w-[500px] mx-auto mb-8 leading-relaxed">
+          Step-by-step tutorials, dimension guides, and how-to articles for optimizing images on every platform.
         </p>
 
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {ALL_CATEGORIES.map((cat) => {
+            const isActive = activeCategory === cat;
+            const slug = cat === "All" ? "" : cat.toLowerCase();
+            return (
+              <Link
+                key={cat}
+                href={slug ? `/guides?category=${slug}` : "/guides"}
+                className={`text-[0.7rem] font-bold tracking-[0.08em] px-3 py-1.5 rounded-md no-underline transition-all duration-200 ${
+                  isActive
+                    ? "bg-[var(--accent)] text-black"
+                    : "text-[#8d9aaa] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] hover:text-[#e6edf5] hover:border-[rgba(255,255,255,0.12)]"
+                }`}
+              >
+                {cat}
+              </Link>
+            );
+          })}
+        </div>
+
         <div className="flex flex-col gap-4 mb-10">
-          {GUIDES.map((g) => (
+          {filtered.map((g) => (
             <Link
               key={g.href}
               href={g.href}
@@ -65,11 +139,20 @@ export default function GuidesPage() {
           ))}
         </div>
 
-        {GUIDES.length === 0 && (
-          <p className="text-center text-[0.85rem] text-[#576675]">No guides yet. Check back soon.</p>
+        {filtered.length === 0 && (
+          <p className="text-center text-[0.85rem] text-[#576675]">
+            No guides in this category yet.{" "}
+            <Link href="/guides" className="text-[var(--accent)] no-underline hover:underline">View all guides</Link>.
+          </p>
         )}
+
+        <div className="text-center">
+          <p className="text-[0.78rem] text-[#576675]">
+            Have a suggestion for a new guide?{" "}
+            <Link href="/support" className="text-[var(--accent)] no-underline hover:underline">Let us know</Link>.
+          </p>
+        </div>
       </div>
     </>
   );
 }
-

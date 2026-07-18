@@ -14,16 +14,12 @@ const STATIC_PAGES = [
   { path: "/terms", priority: 0.3, freq: "monthly" as const },
   { path: "/guides", priority: 0.7, freq: "weekly" as const },
   { path: "/guides/social-media-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
-  { path: "/blog", priority: 0.7, freq: "weekly" as const },
-  { path: "/blog/how-to-square-image-for-any-platform", priority: 0.6, freq: "monthly" as const },
-  { path: "/blog/privacy-first-image-editing", priority: 0.6, freq: "monthly" as const },
-  { path: "/compare", priority: 0.5, freq: "monthly" as const },
-  { path: "/compare/squarepic-vs-iloveimg", priority: 0.6, freq: "monthly" as const },
-  { path: "/compare/squarepic-vs-tinypng", priority: 0.6, freq: "monthly" as const },
-  { path: "/compare/squarepic-vs-canva", priority: 0.6, freq: "monthly" as const },
-  { path: "/research", priority: 0.5, freq: "monthly" as const },
-  { path: "/research/image-compression-benchmarks", priority: 0.7, freq: "monthly" as const },
-  { path: "/image-size-calculator", priority: 0.8, freq: "weekly" as const },
+  { path: "/guides/instagram-feed-sizes-2026", priority: 0.8, freq: "weekly" as const },
+  { path: "/guides/instagram-reels-stories-guide", priority: 0.8, freq: "weekly" as const },
+  { path: "/guides/linkedin-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
+  { path: "/guides/youtube-banner-thumbnail-sizes-2026", priority: 0.8, freq: "weekly" as const },
+  { path: "/guides/tiktok-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
+  { path: "/feed.xml", priority: 0.4, freq: "weekly" as const },
 ];
 
 const SLUG_MAP: Record<string, string> = {
@@ -55,6 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "png-to-jpg", "jpg-to-png", "png-to-webp", "jpg-to-webp",
     "webp-to-png", "webp-to-jpg", "png-to-gif", "jpg-to-gif",
     "png-to-ico", "jpg-to-ico", "png-to-avif", "jpg-to-avif",
+    "webp-to-gif", "webp-to-avif",
   ];
 
   const formatEntries = formatPairs.map((pair) => ({

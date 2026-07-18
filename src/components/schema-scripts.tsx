@@ -29,11 +29,15 @@ export function WebAppSchema({
   url,
   description,
   aggregateRating,
+  datePublished,
+  dateModified,
 }: {
   name: string;
   url: string;
   description: string;
   aggregateRating?: { ratingValue: string; ratingCount: string; bestRating: string };
+  datePublished?: string;
+  dateModified?: string;
 }) {
   return (
     <JsonLd
@@ -46,7 +50,8 @@ export function WebAppSchema({
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        dateModified: "2026-07-13",
+        ...(datePublished ? { datePublished } : {}),
+        ...(dateModified ? { dateModified } : { dateModified: "2026-07-13" }),
         ...(aggregateRating ? { aggregateRating: { "@type": "AggregateRating", ...aggregateRating } } : {}),
       }}
     />
@@ -80,6 +85,8 @@ export function ArticleSchema({
   datePublished,
   dateModified,
   authorName,
+  authorUrl,
+  type = "Article",
 }: {
   title: string;
   description: string;
@@ -88,12 +95,14 @@ export function ArticleSchema({
   datePublished: string;
   dateModified?: string;
   authorName: string;
+  authorUrl?: string;
+  type?: "Article" | "BlogPosting";
 }) {
   return (
     <JsonLd
       data={{
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": type,
         headline: title,
         description,
         url,
@@ -103,6 +112,13 @@ export function ArticleSchema({
         author: {
           "@type": "Person",
           name: authorName,
+          ...(authorUrl ? { url: authorUrl } : {}),
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "SquarePic",
+          url: "https://www.squarepic.io",
+          logo: { "@type": "ImageObject", url: "https://www.squarepic.io/images/logo-icon.svg" },
         },
       }}
     />
