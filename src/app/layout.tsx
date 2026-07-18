@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: "Free Square Image Maker for Instagram & Social Media | SquarePic",
     template: "%s | SquarePic",
   },
-  description: "Make any photo square for Instagram, LinkedIn, and more. Free online image resizer with blur backgrounds, solid fills, smart crop, and social media presets. No uploads, no signup, no watermarks.",
+  description: "Make any photo square for Instagram, LinkedIn, and more. Free image resizer with blur, smart crop, and social media presets. No uploads, no signup.",
   icons: { icon: "/images/favicon.svg" },
   metadataBase: new URL(process.env.SITE_URL || "https://www.squarepic.io"),
   openGraph: {
