@@ -43,7 +43,7 @@ function startHueAnimation(set: (s: Partial<ThemeState>) => void) {
   if (typeof window === "undefined") return;
   let hue = 0;
   const tick = () => {
-    hue = (hue + 0.25) % 360;
+    hue = (hue + 1 / 6) % 360;
     const accent = `hsl(${hue}, 100%, 55%)`;
     const glow = `hsla(${hue}, 100%, 55%, 0.35)`;
     applyToDocument(accent, glow);
