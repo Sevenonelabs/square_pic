@@ -74,7 +74,7 @@ export function EditorCanvas({ state, onStateChange }: Props) {
   }, [state.image, onStateChange]);
 
   return (
-    <div className="flex-1 flex items-center justify-center p-3 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-md border border-[rgba(255,255,255,0.10)] relative overflow-hidden aspect-square max-h-full min-w-0">
+    <div className="flex-1 flex items-center justify-center p-2.5 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-md border border-[rgba(255,255,255,0.10)] relative overflow-hidden max-h-full min-w-0">
       {loading && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[rgba(3,4,6,0.85)]">
           <div className="w-8 h-8 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />

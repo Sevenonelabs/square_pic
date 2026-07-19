@@ -158,17 +158,17 @@ export function ToolAsHeroLayout({
   };
 
   return (
-    <section className="max-w-[1400px] mx-auto px-4 md:px-6 w-full">
+    <section className="max-w-[1100px] mx-auto px-3 md:px-4 w-full">
       <motion.div
         initial={{ opacity: 0.99, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-4 md:p-5"
+        className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-[10px] md:p-4"
       >
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/20 to-transparent" />
 
-        <div className="flex flex-row gap-4 md:gap-5 w-full max-md:flex-col max-md:gap-4" style={{ maxWidth: 1360 }}>
-          <div className="flex-1 flex items-center justify-center p-4 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-lg border border-[rgba(255,255,255,0.10)] relative overflow-hidden min-h-[450px] max-md:min-h-[350px]">
+        <div className="flex flex-row gap-3 md:gap-4 w-full max-md:flex-col max-md:gap-3">
+          <div className="flex-1 flex items-center justify-center p-3 md:p-4 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-lg border border-[rgba(255,255,255,0.10)] relative overflow-hidden min-h-[380px] max-md:min-h-[280px]">
             {!hasImage ? (
               <div className="flex flex-col items-center justify-center gap-5 w-full h-full text-center relative">
                 {uploading && (
@@ -206,16 +206,16 @@ export function ToolAsHeroLayout({
             )}
           </div>
 
-          <aside className="flex flex-col gap-3 w-[310px] shrink-0 max-md:w-full max-md:max-h-[400px] max-md:overflow-y-auto">
+          <aside className="flex flex-col gap-2 w-[280px] shrink-0 max-md:w-full max-md:max-h-[300px] max-md:overflow-y-auto">
             {/* Padding */}
             <motion.div
               custom={0}
               initial="hidden"
               animate="visible"
               variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3.5"
+              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3"
             >
-              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Outer Border (Padding)</h3>
+              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-1.5">Outer Border (Padding)</h3>
               <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1.5">
                 <span>Padding</span>
                 <span>{state.paddingPercent}%</span>
@@ -232,9 +232,9 @@ export function ToolAsHeroLayout({
               initial="hidden"
               animate="visible"
               variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3.5"
+              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3"
             >
-              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Style</h3>
+              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-1.5">Style</h3>
               <div className="flex gap-1 bg-[rgba(0,0,0,0.25)] p-[3px] rounded-md border border-[rgba(255,255,255,0.06)]">
                 {STYLE_MODES.map((m) => (
                   <button
@@ -294,9 +294,9 @@ export function ToolAsHeroLayout({
               initial="hidden"
               animate="visible"
               variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3.5"
+              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3"
             >
-              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Adjustments</h3>
+              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Adjustments</h3>
               <div className="space-y-3">
                 <div>
                   <div className="flex items-center justify-between text-[0.68rem] text-[#8d9aaa] font-semibold mb-1.5">
@@ -323,9 +323,9 @@ export function ToolAsHeroLayout({
               initial="hidden"
               animate="visible"
               variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3.5"
+              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3"
             >
-              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Social Size</h3>
+              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-1.5">Social Size</h3>
               {activePresetLabel && (
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[0.65rem] text-[var(--accent)] font-semibold truncate mr-2">{activePresetLabel}</span>
@@ -381,9 +381,9 @@ export function ToolAsHeroLayout({
               initial="hidden"
               animate="visible"
               variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3.5"
+              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-3"
             >
-              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2">Export</h3>
+              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-1.5">Export</h3>
               <div className="flex gap-1 mb-2">
                 {FORMATS.map((fmt) => (
                   <button
