@@ -7,11 +7,6 @@ const STATIC_PAGES = [
   { path: "/cropper", priority: 0.9, freq: "weekly" as const },
   { path: "/upscaler", priority: 0.9, freq: "weekly" as const },
   // /resize now redirects to /
-  { path: "/about", priority: 0.5, freq: "monthly" as const },
-  { path: "/faq", priority: 0.5, freq: "monthly" as const },
-  { path: "/support", priority: 0.4, freq: "monthly" as const },
-  { path: "/privacy", priority: 0.3, freq: "monthly" as const },
-  { path: "/terms", priority: 0.3, freq: "monthly" as const },
   { path: "/guides", priority: 0.7, freq: "weekly" as const },
   { path: "/guides/social-media-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
   { path: "/guides/instagram-feed-sizes-2026", priority: 0.8, freq: "weekly" as const },
@@ -19,7 +14,12 @@ const STATIC_PAGES = [
   { path: "/guides/linkedin-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
   { path: "/guides/youtube-banner-thumbnail-sizes-2026", priority: 0.8, freq: "weekly" as const },
   { path: "/guides/tiktok-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
-  { path: "/feed.xml", priority: 0.4, freq: "weekly" as const },
+  { path: "/image-size-calculator", priority: 0.7, freq: "weekly" as const },
+  { path: "/about", priority: 0.5, freq: "monthly" as const },
+  { path: "/faq", priority: 0.5, freq: "monthly" as const },
+  { path: "/support", priority: 0.4, freq: "monthly" as const },
+  { path: "/privacy", priority: 0.3, freq: "monthly" as const },
+  { path: "/terms", priority: 0.3, freq: "monthly" as const },
 ];
 
 const SLUG_MAP: Record<string, string> = {

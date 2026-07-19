@@ -99,12 +99,16 @@ export function Navbar() {
             Guides
           </Link>
 
+          <Link href="/image-size-calculator" className="text-[0.7rem] font-semibold text-black bg-[var(--accent)] px-3 py-1 rounded-sm no-underline hover:brightness-110 transition-all">
+            Image Size Calc
+          </Link>
+
         </nav>
       </div>
 
       <div className="flex items-center h-11 gap-2 flex-1 justify-end max-lg:h-10 max-md:h-9">
         <div className="flex items-center gap-1.5 max-md:hidden">
-          {["100% Free", "No Watermarks", "Privacy-First"].map((label) => (
+          {["100% Free", "No Watermarks"].map((label) => (
             <span
               key={label}
               className="inline-flex items-center gap-1 text-[0.6rem] font-bold tracking-wider text-[#576675] bg-[rgba(255,255,255,0.03)] px-2.5 py-1 border border-[rgba(255,255,255,0.06)] rounded-sm whitespace-nowrap"
@@ -172,6 +176,7 @@ export function Navbar() {
               <Link key={tool.href} href={tool.href} onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">{tool.label}</Link>
             ))}
             <Link href="/guides" onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[#8d9aaa] px-3 py-2 rounded-sm no-underline hover:text-[#e6edf5] hover:bg-[rgba(255,255,255,0.04)] transition-all">Guides</Link>
+            <Link href="/image-size-calculator" onClick={() => setMobileOpen(false)} className="block text-[0.78rem] font-semibold text-[var(--accent)] px-3 py-2 rounded-sm no-underline hover:text-[var(--accent)] hover:bg-[rgba(255,255,255,0.04)] transition-all">Image Size Calculator</Link>
           </motion.div>
         )}
       </AnimatePresence>

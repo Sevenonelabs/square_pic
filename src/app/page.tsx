@@ -72,7 +72,7 @@ export default function Home() {
         onStateChange={update}
         headline={"Square Pic - Social Media Resizer"}
         highlightWord="Perfectly Square"
-        badge="100% Free · No Signup · Privacy-First"
+        badge=""
         colorSwatches={COLOR_SWATCHES}
       />
 

@@ -401,12 +401,12 @@ export default async function PlatformPage({ params }: Props) {
             See all {p.label} dimensions alongside every other platform in our 2026 social media image sizes cheat sheet.
           </p>
         </Link>
-        <Link href="/blog/how-to-square-image-for-any-platform" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
+        <Link href="/image-size-calculator" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
           <h3 className="text-[0.82rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">
-            How to Square Images for Social Media
+            Image Size Calculator
           </h3>
           <p className="text-[0.72rem] text-[#8d9aaa] leading-relaxed m-0">
-            Learn three methods to make any image perfectly square: blur background, solid fill, and smart crop.
+            Calculate image dimensions, aspect ratios, and file sizes for any platform or use case.
           </p>
         </Link>
       </div>

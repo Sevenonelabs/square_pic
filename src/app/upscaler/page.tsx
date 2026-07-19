@@ -124,9 +124,6 @@ export default function UpscalerPage() {
           <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
             All image upscaling happens locally in your browser using GPU-accelerated bicubic interpolation.
             Your images never leave your device.
-            <Link href="/blog/privacy-first-image-editing" className="text-[var(--accent)] no-underline hover:underline ml-1 font-semibold">
-              Learn more about our privacy-first approach →
-            </Link>
           </p>
         </div>
         <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>

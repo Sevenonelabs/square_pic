@@ -168,9 +168,6 @@ export default function ConverterPage() {
           <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Privacy-First Image Conversion</h3>
           <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
             Every image conversion happens locally in your browser using HTML5 Canvas. Your images are never uploaded to any server.
-            <Link href="/blog/privacy-first-image-editing" className="text-[var(--accent)] no-underline hover:underline ml-1 font-semibold">
-              Learn more about our privacy-first approach →
-            </Link>
           </p>
         </div>
         <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>

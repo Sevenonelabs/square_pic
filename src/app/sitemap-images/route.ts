@@ -6,9 +6,7 @@ const IMAGE_ENTRIES = [
   { page: "/converter", images: ["/squareframe_preview.png"] },
   { page: "/cropper", images: ["/squareframe_preview.png"] },
   { page: "/about", images: ["/images/logo-256.png"] },
-  { page: "/blog", images: ["/squareframe_preview.png"] },
   { page: "/guides/social-media-image-sizes-2026", images: ["/squareframe_preview.png"] },
-  { page: "/research/image-compression-benchmarks", images: ["/squareframe_preview.png"] },
 ];
 
 export async function GET() {

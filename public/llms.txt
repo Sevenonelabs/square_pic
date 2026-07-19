@@ -7,7 +7,7 @@ SquarePic is a free, privacy-first online image editor. All processing happens e
 SquarePic lets you resize, crop, compress, and convert images locally in your browser. Created by SevenOneLabs. Supports PNG, JPEG, WebP, GIF, BMP, TIFF, AVIF, and ICO formats.
 
 ## Core Tools
-- Square Image Editor (make any photo square with blur/solid/crop): https://www.squarepic.io/edit
+- Square Image Editor (make any photo square with blur/solid/crop): https://www.squarepic.io
 - Image Compressor (reduce file size with quality slider or target-size mode): https://www.squarepic.io/compressor
 - Image Converter (convert between 8 formats, batch mode): https://www.squarepic.io/converter
 - Photo Cropper (interactive crop with aspect ratio presets): https://www.squarepic.io/cropper
