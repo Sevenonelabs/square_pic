@@ -46,6 +46,24 @@ const GUIDES: Guide[] = [
     description: "Complete guide to TikTok image dimensions for 2026. Profile picture size, video aspect ratios, story specs, ad formats, and best practices for maximum engagement.",
     date: "2026-07-19",
   },
+  {
+    path: "/guides/facebook-image-sizes-2026",
+    title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions",
+    description: "Complete guide to Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.",
+    date: "2026-07-19",
+  },
+  {
+    path: "/guides/pinterest-image-sizes-2026",
+    title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide",
+    description: "Complete guide to Pinterest image dimensions for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices for maximum engagement.",
+    date: "2026-07-19",
+  },
+  {
+    path: "/guides/discord-image-sizes-2026",
+    title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide",
+    description: "Complete guide to Discord image dimensions for 2026. Server icons, banners, splash screens, emoji sizes, profile pictures, and best practices for your community.",
+    date: "2026-07-19",
+  },
 ];
 
 export function GET(): Response {

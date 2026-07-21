@@ -5,17 +5,17 @@ import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/component
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
-  title: "Free Online Photo Cropper - Crop Images Perfectly Online",
-  description: "Crop photos online for free with precision controls. Aspect ratio presets, zoom, pan, and export to JPEG, PNG, or WebP. No uploads required.",
+  title: "Crop Image Online Free - Crop Photos for Instagram, Facebook, LinkedIn",
+  description: "Crop image online free — crop photos for Instagram, Facebook, and LinkedIn with aspect ratio presets. Zoom, pan, and export to JPEG, PNG, or WebP. No uploads required.",
   openGraph: {
     title: "Free Online Photo Cropper - Perfect Crop | SquarePic",
-    description: "Crop photos for social media with 8 drag handles, aspect ratio lock, zoom, and pan. Free, private, browser-based.",
+    description: "Crop image online free — crop photos for Instagram, Facebook, and LinkedIn with aspect ratio presets. Zoom, pan, export to JPEG, PNG, or WebP. No uploads.",
     url: "https://www.squarepic.io/cropper",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Online Photo Cropper - Perfect Crop | SquarePic",
-    description: "Crop images with precision. 8 drag handles, aspect ratio lock, zoom & pan. Free, no uploads.",
+    description: "Crop image online free — crop photos for Instagram, Facebook, and LinkedIn. Aspect ratio presets, zoom, pan. Free, no uploads.",
   },
   alternates: { canonical: "https://www.squarepic.io/cropper" },
 };

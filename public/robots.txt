@@ -4,5 +4,17 @@ Allow: /
 Allow: /assets/
 Disallow: /api/
 
+# ── AI crawler rules ──────────────────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# ── Sitemaps ──────────────────────────────────────────
 Sitemap: https://www.squarepic.io/sitemap.xml
+Sitemap: https://www.squarepic.io/sitemap-images
 

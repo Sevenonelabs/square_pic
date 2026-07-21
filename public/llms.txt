@@ -46,24 +46,25 @@ SquarePic lets you resize, crop, compress, and convert images locally in your br
 - WebP to GIF: https://www.squarepic.io/converter/webp-to-gif
 
 ## Content & Guides
-### Blog Posts
-- How to Square an Image for Any Social Media Platform: https://www.squarepic.io/blog/how-to-square-image-for-any-platform
-  Three methods (Dynamic Blur, Solid Color Fill, Smart Crop) for creating square images without cropping. Includes dimension cheat sheet, common mistakes, and best practices.
-- Privacy-First Image Editing: Why Your Photos Should Stay on Your Device: https://www.squarepic.io/blog/privacy-first-image-editing
-  Explains client-side vs server-side image processing, privacy risks of upload-based tools, and how HTML5 Canvas enables private editing. References GDPR and CCPA.
-
 ### Guides
 - Social Media Image Sizes 2026: Complete Cheat Sheet: https://www.squarepic.io/guides/social-media-image-sizes-2026
   Complete dimensions reference for all 13 platforms with aspect ratios and image types.
-
-### Research
-- Image Compression Benchmarks 2026: JPEG vs PNG vs WebP vs AVIF: https://www.squarepic.io/research/image-compression-benchmarks
-  Original benchmark data across 8 quality levels. Key finding: WebP at quality 80% offers the best balance of size and quality.
-
-### Comparisons
-- SquarePic vs Canva: https://www.squarepic.io/compare/squarepic-vs-canva
-- SquarePic vs iLoveIMG: https://www.squarepic.io/compare/squarepic-vs-iloveimg
-- SquarePic vs TinyPNG: https://www.squarepic.io/compare/squarepic-vs-tinypng
+- Instagram Image Sizes 2026: Feed, Carousel & Profile: https://www.squarepic.io/guides/instagram-feed-sizes-2026
+  Complete guide to Instagram feed post dimensions, carousel specs, profile picture sizes, and ad formats.
+- Instagram Reels & Stories Guide 2026: https://www.squarepic.io/guides/instagram-reels-stories-guide
+  Complete guide to Instagram Reels and Stories dimensions with safe zones, format tips, and engagement strategies.
+- LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions: https://www.squarepic.io/guides/linkedin-image-sizes-2026
+  Complete guide to LinkedIn image dimensions for 2026.
+- Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions: https://www.squarepic.io/guides/facebook-image-sizes-2026
+  Complete guide to Facebook image dimensions for 2026.
+- Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide: https://www.squarepic.io/guides/pinterest-image-sizes-2026
+  Complete guide to Pinterest image dimensions for 2026.
+- Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide: https://www.squarepic.io/guides/discord-image-sizes-2026
+  Complete guide to Discord image dimensions for 2026.
+- YouTube Banner & Thumbnail Sizes 2026: https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2026
+  Complete guide to YouTube image dimensions for 2026.
+- TikTok Image Sizes 2026: https://www.squarepic.io/guides/tiktok-image-sizes-2026
+  Complete guide to TikTok image dimensions for 2026.
 
 ### Information Pages
 - About SquarePic: https://www.squarepic.io/about

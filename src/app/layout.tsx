@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: "Make Photo Square Online Free | Instagram Square Image Maker",
     template: "%s | SquarePic",
   },
-  description: "Make any photo square instantly with blur backgrounds, white borders, or smart crop. Free online square image maker for Instagram, WhatsApp, LinkedIn, Facebook, and more. No uploads or signup.",
+    description: "Make any photo square online free without cropping. Square image maker with blur backgrounds, white borders, or smart crop. Perfect square pics for Instagram, WhatsApp, LinkedIn, Facebook, and more. No uploads or signup.",
   icons: {
     icon: [
       { url: "/images/favicon.svg", type: "image/svg+xml" },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "SquarePic",
     locale: "en_US",
-    description: "Make any photo square instantly with blur backgrounds, white borders, or smart crop. Free online square image maker for Instagram, WhatsApp, LinkedIn, Facebook, and more. No uploads or signup.",
+  description: "Make any photo square online free without cropping. Square image maker with blur backgrounds, white borders, or smart crop. Perfect square pics for Instagram, WhatsApp, LinkedIn, Facebook, and more. No uploads or signup.",
     images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic - Free online square image maker and photo editor" }],
   },
   twitter: {

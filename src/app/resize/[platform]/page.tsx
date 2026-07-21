@@ -147,10 +147,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!key || !presets[key as keyof typeof presets]) return {};
   const p = presets[key as keyof typeof presets];
   const dims = Object.values(p.types).map((t: PresetType) => `${t.w}\u00D7${t.h}`);
+  const dimsStr = dims.join(", ");
+  const title = key === "instagram"
+    ? `Instagram Square Image Maker - Resize Photos for Instagram Free`
+    : `Resize Images for ${p.label} - ${p.label} Image Sizes & Dimensions`;
+  const desc = key === "instagram"
+    ? `Make square images for Instagram free. Instagram image sizes: ${dimsStr}. Resize photos for Instagram profile, feed posts, and stories without cropping. No uploads, no signup.`
+    : `${p.label} image sizes: ${dimsStr}. Free tool to resize photos for ${p.label} profile, posts, and covers without cropping. No uploads, no signup.`;
   return {
-    title: `${p.label} Image Sizes - Complete Dimension Guide`,
-    description: `Complete guide to ${p.label} image sizes: ${dims.join(", ")} pixels. Free tool to resize photos to the exact ${p.label} dimensions you need.`,
-    openGraph: { title: `${p.label} Image Sizes - Complete Dimension Guide | SquarePic`, description: `Complete guide to ${p.label} image sizes: ${dims.join(", ")} pixels. Free tool to resize photos to the exact ${p.label} dimensions you need.` },
+    title,
+    description: desc,
+    openGraph: { title: `${title} | SquarePic`, description: desc },
     alternates: { canonical: `/resize/${platform}` },
   };
 }

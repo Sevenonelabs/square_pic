@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BreadcrumbSchema, HowToSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -72,8 +72,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!pair) return {};
   const fromLabel = FORMAT_LABELS[pair.from] || pair.from.toUpperCase();
   const toLabel = FORMAT_LABELS[pair.to] || pair.to.toUpperCase();
-  const title = `Convert ${fromLabel} to ${toLabel} Online Free - Image Converter`;
-  const desc = `Free online ${fromLabel} to ${toLabel} converter. Convert your images instantly - no uploads, no signup, no watermarks. Batch convert and download as ZIP.`;
+  const title = `Convert ${fromLabel} to ${toLabel} Online Free - ${fromLabel} ${toLabel} Converter`;
+  const desc = `Free online ${fromLabel} to ${toLabel} converter. Convert your ${fromLabel} images to ${toLabel} format instantly in your browser. No uploads, no signup, no watermarks. Batch convert and download as ZIP.`;
   return { title, description: desc, openGraph: { title: `${title} | SquarePic`, description: desc }, alternates: { canonical: `${SITE}/converter/${slug}` } };
 }
 
@@ -146,6 +146,16 @@ export default async function FormatToFormatPage({ params }: Props) {
         { name: "Image Converter", url: `${SITE}/converter` },
         { name: `${fromLabel} to ${toLabel}`, url: `${SITE}/converter/${slug}` },
       ]} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        name: `Convert ${fromLabel} to ${toLabel} - Free Online Converter`,
+        url: `${SITE}/converter/${slug}`,
+        description: `Free online ${fromLabel} to ${toLabel} converter. Convert your ${fromLabel} images to ${toLabel} format instantly. No uploads, no signup.`,
+        applicationCategory: "MultimediaApplication",
+        operatingSystem: "Any",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      }} />
       <HowToSchema steps={[
         { name: "Upload your image", text: `Select a ${fromLabel} image from your device to convert to ${toLabel}.` },
         { name: "Choose output format", text: `Set the target format to ${toLabel} and adjust the quality slider.` },

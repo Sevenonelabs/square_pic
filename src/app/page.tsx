@@ -72,13 +72,13 @@ export default function Home() {
       <section className="max-w-[900px] mx-auto px-4 pb-16">
         <div className="max-w-[680px] mx-auto text-center mb-10">
           <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5] mb-3">
-            How to Make a Square Image Online
+            Make Photo Square Online - Free Square Image Maker
           </h2>
           <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
             Making a photo square is essential for social media profiles, thumbnails, and posts. Unlike
-            cropping which removes parts of your image, this free square image maker and photo resizer extends
+            cropping which removes parts of your image, this free square photo maker no signup extends
             your photo into a perfect square using smart blur backgrounds, solid colors, or automatic cropping —
-            keeping your full image visible. Use it as an image resizer for Instagram, a social media photo editor,
+            keeping your full image visible. Use it as a square pic maker, image resizer for Instagram, a social media photo editor,
             or a quick square pic tool for any platform.
           </p>
         </div>
@@ -110,7 +110,8 @@ export default function Home() {
             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Best Uses for Square Images</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Social media profiles:</strong> Every platform uses square profile photos. Make yours perfectly proportioned.</li>
-              <li><strong className="text-[#e6edf5]">Instagram feed:</strong> Square posts (1080x1080) are the most versatile format for Instagram.</li>
+              <li><strong className="text-[#e6edf5]">Instagram feed:</strong> Square posts (1080x1080) are the most versatile format for Instagram. Make a square photo for Instagram in seconds.</li>
+              <li><strong className="text-[#e6edf5]">Square photo for Instagram:</strong> The 1:1 square format displays perfectly on Instagram profiles and feeds without cropping or padding.</li>
               <li><strong className="text-[#e6edf5]">LinkedIn company pages:</strong> Square logo images maintain consistency across all devices.</li>
               <li><strong className="text-[#e6edf5]">Website thumbnails:</strong> Square thumbnails create clean grid layouts for blogs and portfolios.</li>
               <li><strong className="text-[#e6edf5]">E-commerce product images:</strong> Major platforms like Amazon and Shopify recommend square product photos. Use this photo resizer to batch-prepare consistent product images.</li>
@@ -128,7 +129,7 @@ export default function Home() {
                 <tr className="border-b border-[rgba(255,255,255,0.06)]">
                   <th className="text-left font-bold text-[#e6edf5] py-2 pr-3">Platform</th>
                   <th className="text-left font-bold text-[#e6edf5] py-2 px-3">Profile Picture</th>
-                  <th className="text-left font-bold text-[#e6edf5] py-2 px-3">Square Post</th>
+                  <th className="text-left font-bold text-[#e6edf5] py-2 px-3">Square Post (1:1)</th>
                   <th className="text-left font-bold text-[#e6edf5] py-2 pl-3">Best Format</th>
                 </tr>
               </thead>
@@ -179,7 +180,8 @@ export default function Home() {
               <li>Add padding to prevent important content from touching the edges.</li>
               <li>Preview your square image at actual size before posting to check readability.</li>
               <li>Use the same square format across all profile pictures for brand consistency.</li>
-              <li>This tool works as both a square image maker and a social media resizer — use the platform presets to resize for any network instantly.</li>
+              <li>              This tool works as both a square image maker and a social media resizer — use the platform presets to resize for any network instantly.</li>
+              <li>Need a 1:1 image converter? The square format (1:1 aspect ratio) is the most versatile for cross-platform posting. SquarePic converts any rectangle photo to a perfect 1:1 square without cropping.</li>
             </ul>
           </div>
         </div>
@@ -196,7 +198,7 @@ export default function Home() {
 
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
           <p className="text-[0.75rem] text-[#8d9aaa] text-center">
-            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Image Sizes</Link> · <Link href="/guides/instagram-reels-stories-guide" className="text-[var(--accent)] no-underline hover:underline">Reels & Stories Guide</Link>
+            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/resize/instagram" className="text-[var(--accent)] no-underline hover:underline">Instagram Square Image Maker</Link> · <Link href="/resize/whatsapp" className="text-[var(--accent)] no-underline hover:underline">WhatsApp Image Resizer</Link> · <Link href="/resize/linkedin" className="text-[var(--accent)] no-underline hover:underline">LinkedIn Photo Resizer</Link> · <Link href="/guides/instagram-reels-stories-guide" className="text-[var(--accent)] no-underline hover:underline">Reels & Stories Guide</Link>
           </p>
         </div>
       </section>

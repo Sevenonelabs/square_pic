@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
-  title: "Terms of Service - Free Online Image Editor",
+  title: "Terms of Service - SquarePic Free Online Image Editor",
   description: "Review SquarePic's terms of service for using our free online image editor, square photo maker, and image resizer tools.",
-  openGraph: { title: "Terms of Service - Free Online Image Editor | SquarePic" },
+  openGraph: { title: "Terms of Service - SquarePic Free Online Image Editor" },
   alternates: { canonical: "https://www.squarepic.io/terms" },
 };
 

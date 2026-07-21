@@ -5,17 +5,17 @@ import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/component
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
-  title: "Free Image Compressor Online - Reduce JPG, PNG & WebP Size",
-  description: "Compress JPG, PNG, and WebP images online without losing quality. Reduce file sizes for faster websites and easier sharing. No uploads, no signup.",
+  title: "Compress Image Online Free - Reduce JPG, PNG, WebP File Size",
+  description: "Compress image online free — reduce JPG, PNG, and WebP file sizes without losing quality. Batch compress and download as ZIP. No uploads, no signup.",
   openGraph: {
     title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
-    description: "Compress images online with quality slider or target-size mode. Batch compress and download as ZIP. Free, private, browser-based.",
+    description: "Compress image online free — reduce JPG, PNG, and WebP file sizes without losing quality. Batch compress and download as ZIP. No uploads, no signup.",
     url: "https://www.squarepic.io/compressor",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
-    description: "Reduce image file sizes with quality slider or target size. Batch mode. Free, no uploads.",
+    description: "Compress image online free — reduce JPG, PNG, and WebP file sizes without losing quality. Batch compress. Free, no uploads.",
   },
   alternates: { canonical: "https://www.squarepic.io/compressor" },
 };

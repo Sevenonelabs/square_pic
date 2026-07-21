@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { BreadcrumbSchema, FAQPageSchema } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
-  title: "FAQ - Frequently Asked Questions",
-  description: "Find answers to common questions about SquarePic. Learn how to make square images, resize photos, and edit pictures online for free.",
-  openGraph: { title: "FAQ - Frequently Asked Questions | SquarePic" },
+  title: "FAQ - How to Make a Square Image Online | SquarePic Help",
+  description: "Answers to common questions about making square images online, resizing photos for social media, and using SquarePic's free image editor. No uploads, no signup, no watermarks.",
+  openGraph: { title: "FAQ - How to Make a Square Image Online | SquarePic Help", description: "Answers to common questions about making square images online, resizing photos for social media, and using SquarePic. No uploads, no signup." },
   alternates: { canonical: "https://www.squarepic.io/faq" },
 };
 

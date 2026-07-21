@@ -5,18 +5,18 @@ import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/component
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
-  title: "Free Image Upscaler Online - Enlarge Photos 2x, 3x, 4x HD",
-  description: "Upscale images online free with bicubic interpolation and smart sharpening. Enlarge photos 2x, 3x, or 4x — all processing is private and local.",
+  title: "Upscale Image Online Free - Enlarge Photos 2x, 3x, 4x HD Quality",
+  description: "Upscale image online free — enlarge photos 2x, 3x, or 4x HD quality with bicubic interpolation and smart sharpening. All processing is private and local.",
   openGraph: {
     title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
-    description: "Upscale images 2x, 3x, or 4x with smart sharpening. All processing happens locally in your browser — no uploads, no watermarks, no signup.",
+    description: "Upscale image online free — enlarge photos 2x, 3x, or 4x HD quality with bicubic interpolation and smart sharpening. No uploads, no signup.",
     url: "https://www.squarepic.io/upscaler",
     images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic HD Image Upscaler - enlarge photos 2x, 3x, or 4x" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
-    description: "Upscale images 2x, 3x, or 4x with smart sharpening. Free, private, browser-based.",
+    description: "Upscale image online free — enlarge photos 2x, 3x, or 4x HD quality. Smart sharpening. Free, private, browser-based.",
   },
   alternates: { canonical: "https://www.squarepic.io/upscaler" },
 };

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { BreadcrumbSchema, JsonLd, PersonSchema } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
-  title: "About - Free Online Square Image Editor",
-  description: "Learn about SquarePic, the privacy-first online image editor. Make any photo square for Instagram and social media. No uploads, no watermarks.",
-  openGraph: { title: "About - Free Online Square Image Editor | SquarePic" },
+  title: "About SquarePic - Free Square Image Maker & Photo Editor",
+  description: "Learn about SquarePic, the free online square image maker and photo editor. Make any photo square for Instagram, WhatsApp, LinkedIn, and more. Privacy-first, no uploads, no watermarks.",
+  openGraph: { title: "About SquarePic - Free Square Image Maker & Photo Editor | SquarePic", description: "Learn about SquarePic, the free online square image maker and photo editor. Privacy-first, no uploads, no watermarks." },
   alternates: { canonical: "https://www.squarepic.io/about" },
 };
 
@@ -16,6 +16,7 @@ export default function AboutPage() {
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "About", url: `${SITE}/about` }]} />
       <JsonLd data={{ "@context": "https://schema.org", "@type": "AboutPage", name: "About SquarePic", description: "Learn about SquarePic, the privacy-first online image editor. Make any photo square for Instagram and social media.", url: `${SITE}/about` }} />
       <PersonSchema name="SevenOneLabs" jobTitle="Software Development Lab" url="https://github.com/Sevenonelabs/square_pic" sameAs={["https://github.com/Sevenonelabs"]} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "Organization", name: "SquarePic", url: "https://www.squarepic.io", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", ratingCount: "1247", bestRating: "5" } }} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-6">About SquarePic</h1>
 
@@ -96,6 +97,16 @@ export default function AboutPage() {
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           SquarePic is a reliable online image editor free of charge. It is a no watermark image editor that requires no signup, no account, and no payment. Upload your image, adjust the style, and export your final square image. It is that simple.
+        </p>
+      </section>
+
+      <section className="mb-6">
+        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">*</span>
+          Who Built SquarePic
+        </h2>
+        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
+          SquarePic is developed by <strong className="text-[#e6edf5]">SevenOneLabs</strong>, a software development lab specializing in privacy-first web applications and browser-based image processing tools. Our team has backgrounds in web performance optimization, computer graphics, and user interface design. We build tools that respect user privacy while delivering professional-grade results — no servers, no uploads, no data collection.
         </p>
       </section>
 

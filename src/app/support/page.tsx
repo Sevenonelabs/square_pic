@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
-  title: "Contact Support - Free Image Editor Help",
-  description: "Need help with SquarePic? Contact support for assistance with resizing images, editing photos, and making square pictures online.",
-  openGraph: { title: "Contact Support - Free Image Editor Help | SquarePic" },
+  title: "Help & Support - Square Image Maker Troubleshooting",
+  description: "Get help with SquarePic's free online square image maker. Troubleshooting guides, tips for resizing and editing photos, and contact support. No signup needed.",
+  openGraph: { title: "Help & Support - Square Image Maker Troubleshooting | SquarePic", description: "Get help with SquarePic's free online square image maker. Troubleshooting guides and support." },
   alternates: { canonical: "https://www.squarepic.io/support" },
 };
 

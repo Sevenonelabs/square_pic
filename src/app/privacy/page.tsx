@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - Free Online Image Editor",
+  title: "Privacy Policy - SquarePic Free Online Image Editor",
   description: "Your privacy matters. Read the SquarePic privacy policy to understand how we handle your data and images. No uploads, no tracking.",
-  openGraph: { title: "Privacy Policy - Free Online Image Editor | SquarePic" },
+  openGraph: { title: "Privacy Policy - SquarePic Free Online Image Editor" },
   alternates: { canonical: "https://www.squarepic.io/privacy" },
 };
 

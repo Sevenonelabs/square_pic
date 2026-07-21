@@ -5,17 +5,17 @@ import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/component
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
-  title: "Free Image Converter Online - JPG, PNG, WebP, AVIF & More",
-  description: "Convert images between JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO online for free. Batch convert multiple images at once. No uploads, no signup.",
+  title: "Convert Image to JPG, PNG, WebP Online Free - Image Format Converter",
+  description: "Convert image to JPG, PNG, WebP, AVIF, and more online free. Batch convert between 8 image formats instantly. No uploads, no signup.",
   openGraph: {
     title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
-    description: "Convert images between 8 formats — JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, ICO. Batch mode. Free, private, no uploads.",
+    description: "Convert image to JPG, PNG, WebP, AVIF, and more online free. Batch convert between 8 image formats instantly. No uploads, no signup.",
     url: "https://www.squarepic.io/converter",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
-    description: "Convert between JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, ICO. Batch mode. Free, no uploads.",
+    description: "Convert image to JPG, PNG, WebP, AVIF, and more online free. Batch convert. Free, no uploads.",
   },
   alternates: { canonical: "https://www.squarepic.io/converter" },
 };

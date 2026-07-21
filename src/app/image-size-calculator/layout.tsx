@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Image Size Calculator - Social Media Dimensions",
-  description: "Find the perfect image dimensions for any social media platform. Search by pixel size or browse Instagram, Facebook, Twitter, LinkedIn, and more.",
-  openGraph: { title: "Image Size Calculator - Social Media Dimensions | SquarePic", description: "Find perfect image dimensions for any social media platform. Search by pixel size or browse Instagram, Facebook, Twitter, LinkedIn, and more." },
+  title: "Image Size Calculator - Aspect Ratio & Dimensions for Social Media",
+  description: "Find the perfect image dimensions and aspect ratios for Instagram, Facebook, LinkedIn, YouTube, and more. Search by pixel size or browse platform presets.",
+  openGraph: { title: "Image Size Calculator - Aspect Ratio & Dimensions for Social Media | SquarePic", description: "Find perfect image dimensions and aspect ratios for Instagram, Facebook, LinkedIn, YouTube, and more." },
   alternates: { canonical: "https://www.squarepic.io/image-size-calculator" },
 };
 

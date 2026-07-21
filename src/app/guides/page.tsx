@@ -4,9 +4,9 @@ import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
   title: "Image Editing Guides & Tutorials - Social Media Size Cheat Sheets",
-  description: "Step-by-step image editing guides, social media size cheat sheets, and how-to tutorials for resizing, cropping, converting, and optimizing images.",
-  openGraph: { title: "Guides - Image Editing Tutorials & Tips | SquarePic" },
-  twitter: { card: "summary_large_image", title: "Guides - Image Editing Tutorials & Tips | SquarePic", description: "Step-by-step image editing guides, social media size cheat sheets, and how-to tutorials for resizing, cropping, converting, and optimizing images." },
+  description: "Step-by-step image editing guides, social media size cheat sheets for Instagram, Facebook, LinkedIn, and more. Learn how to resize, crop, convert, and optimize images for every platform.",
+  openGraph: { title: "Image Editing Guides & Tutorials | SquarePic" },
+  twitter: { card: "summary_large_image", title: "Image Editing Guides & Tutorials | SquarePic", description: "Social media image size guides and image editing tutorials for Instagram, Facebook, LinkedIn, YouTube, TikTok, and more." },
   alternates: { canonical: "https://www.squarepic.io/guides" },
 };
 
