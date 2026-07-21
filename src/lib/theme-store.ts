@@ -30,6 +30,8 @@ function applyToDocument(accent: string, glow: string) {
   document.documentElement.style.setProperty("--accent-glow", glow);
 }
 
+applyToDocument(THEMES.lime.accent, THEMES.lime.glow);
+
 let animFrameId: number | null = null;
 
 function stopAnimation() {

@@ -20,7 +20,7 @@ export function Navbar() {
   const toolsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="2" width="28" height="28" rx="4" fill="black" stroke="%2300ff88" stroke-width="4"/></svg>`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="2" width="28" height="28" rx="4" fill="black" stroke="${encodeURIComponent(current.accent)}" stroke-width="4"/></svg>`;
     const href = `data:image/svg+xml,${svg}`;
     let link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null;
     if (!link) {
