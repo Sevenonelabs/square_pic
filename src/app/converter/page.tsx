@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Convert images between JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO online for free. Batch convert multiple images at once. No uploads, no signup.",
   openGraph: {
     title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
-    description: "Convert images between 8 formats with batch mode. Supports JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO. Free, private, browser-based.",
+    description: "Convert images between 8 formats — JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, ICO. Batch mode. Free, private, no uploads.",
     url: "https://www.squarepic.io/converter",
   },
   twitter: {
@@ -171,6 +171,11 @@ export default function ConverterPage() {
           </p>
         </div>
         <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>
+        <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
+          <p className="text-[0.75rem] text-[#8d9aaa] text-center">
+            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Image Sizes</Link> · <Link href="/guides/facebook-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Facebook Image Sizes</Link>
+          </p>
+        </div>
       </section>
       <JsonLd data={{
         "@context": "https://schema.org",

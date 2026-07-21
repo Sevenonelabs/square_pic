@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 
 export const metadata: Metadata = {
-  title: "Guides - Image Editing Tutorials & Tips",
+  title: "Image Editing Guides & Tutorials - Social Media Size Cheat Sheets",
   description: "Step-by-step image editing guides, social media size cheat sheets, and how-to tutorials for resizing, cropping, converting, and optimizing images.",
   openGraph: { title: "Guides - Image Editing Tutorials & Tips | SquarePic" },
   twitter: { card: "summary_large_image", title: "Guides - Image Editing Tutorials & Tips | SquarePic", description: "Step-by-step image editing guides, social media size cheat sheets, and how-to tutorials for resizing, cropping, converting, and optimizing images." },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const SITE = "https://www.squarepic.io";
 
-const ALL_CATEGORIES = ["All", "Social Media", "Instagram", "LinkedIn", "YouTube", "TikTok"] as const;
+const ALL_CATEGORIES = ["All", "Social Media", "Instagram", "Facebook", "LinkedIn", "YouTube", "TikTok", "Pinterest", "Discord"] as const;
 
 const GUIDES = [
   {
@@ -57,11 +57,33 @@ const GUIDES = [
     category: "TikTok",
     readTime: "8 min",
   },
+  {
+    href: "/guides/facebook-image-sizes-2026",
+    title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions",
+    desc: "Complete guide to Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.",
+    category: "Facebook",
+    readTime: "9 min",
+  },
+  {
+    href: "/guides/pinterest-image-sizes-2026",
+    title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide",
+    desc: "Complete guide to Pinterest image dimensions for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices.",
+    category: "Pinterest",
+    readTime: "8 min",
+  },
+  {
+    href: "/guides/discord-image-sizes-2026",
+    title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide",
+    desc: "Complete guide to Discord image dimensions for 2026. Server icons, banners, splash screens, emoji sizes, and profile pictures.",
+    category: "Discord",
+    readTime: "8 min",
+  },
 ];
 
 function getCategoryLabel(slug: string): string {
   const map: Record<string, string> = {
     instagram: "Instagram", linkedin: "LinkedIn", youtube: "YouTube", tiktok: "TikTok",
+    facebook: "Facebook", pinterest: "Pinterest", discord: "Discord",
   };
   return map[slug] || slug;
 }

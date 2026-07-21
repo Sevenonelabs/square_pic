@@ -14,6 +14,9 @@ const STATIC_PAGES = [
   { path: "/guides/linkedin-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
   { path: "/guides/youtube-banner-thumbnail-sizes-2026", priority: 0.8, freq: "weekly" as const },
   { path: "/guides/tiktok-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
+  { path: "/guides/facebook-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
+  { path: "/guides/pinterest-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
+  { path: "/guides/discord-image-sizes-2026", priority: 0.8, freq: "weekly" as const },
   { path: "/image-size-calculator", priority: 0.7, freq: "weekly" as const },
   { path: "/about", priority: 0.5, freq: "monthly" as const },
   { path: "/faq", priority: 0.5, freq: "monthly" as const },
@@ -31,22 +34,22 @@ const SLUG_MAP: Record<string, string> = {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.SITE_URL || "https://www.squarepic.io";
-  const today = new Date().toISOString().split("T")[0];
+  const commitDate = "2026-07-19";
 
   const staticEntries = STATIC_PAGES.map((p) => ({
     url: `${siteUrl}${p.path}`,
-    lastModified: today,
+    lastModified: commitDate,
     changeFrequency: p.freq,
     priority: p.priority,
   }));
 
   const platformEntries = Object.entries(SLUG_MAP).map(([slug]) => ({
     url: `${siteUrl}/resize/${slug}`,
-    lastModified: today,
+    lastModified: commitDate,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
-
+ 
   const formatPairs = [
     "png-to-jpg", "jpg-to-png", "png-to-webp", "jpg-to-webp",
     "webp-to-png", "webp-to-jpg", "png-to-gif", "jpg-to-gif",
@@ -56,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const formatEntries = formatPairs.map((pair) => ({
     url: `${siteUrl}/converter/${pair}`,
-    lastModified: today,
+    lastModified: commitDate,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

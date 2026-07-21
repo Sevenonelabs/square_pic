@@ -6,10 +6,10 @@ import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
   title: "Free HD Image Upscaler - 2x, 3x, 4x",
-  description: "Upscale images online for free with bicubic interpolation and smart sharpening. Enlarge photos 2x, 3x, or 4x with no uploads — all processing is private and local.",
+  description: "Upscale images online free with bicubic interpolation and smart sharpening. Enlarge photos 2x, 3x, or 4x — all processing is private and local.",
   openGraph: {
     title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
-    description: "Upscale images 2x, 3x, or 4x with bicubic interpolation and smart sharpening. All processing happens locally in your browser — no uploads, no watermarks, no signup.",
+    description: "Upscale images 2x, 3x, or 4x with smart sharpening. All processing happens locally in your browser — no uploads, no watermarks, no signup.",
     url: "https://www.squarepic.io/upscaler",
     images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic HD Image Upscaler - enlarge photos 2x, 3x, or 4x" }],
   },
@@ -127,6 +127,11 @@ export default function UpscalerPage() {
           </p>
         </div>
         <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>
+        <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
+          <p className="text-[0.75rem] text-[#8d9aaa] text-center">
+            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Image Sizes</Link> · <Link href="/guides/pinterest-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Pinterest Image Sizes</Link>
+          </p>
+        </div>
       </section>
       <JsonLd data={{
         "@context": "https://schema.org",

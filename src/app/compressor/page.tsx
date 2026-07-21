@@ -145,6 +145,11 @@ export default function CompressorPage() {
           </p>
         </div>
         <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>
+        <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
+          <p className="text-[0.75rem] text-[#8d9aaa] text-center">
+            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Image Sizes</Link> · <Link href="/guides/linkedin-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">LinkedIn Image Sizes</Link>
+          </p>
+        </div>
       </section>
       <JsonLd data={{
         "@context": "https://schema.org",

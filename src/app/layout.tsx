@@ -41,6 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "SquarePic",
     locale: "en_US",
+    description: "Make any photo square for Instagram, LinkedIn, and more. Free image resizer with blur, smart crop, and social media presets. No uploads, no signup.",
     images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic - Free online square image maker and photo editor" }],
   },
   twitter: {

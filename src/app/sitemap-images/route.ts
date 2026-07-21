@@ -7,6 +7,14 @@ const IMAGE_ENTRIES = [
   { page: "/cropper", images: ["/squareframe_preview.png"] },
   { page: "/about", images: ["/images/logo-256.png"] },
   { page: "/guides/social-media-image-sizes-2026", images: ["/squareframe_preview.png"] },
+  { page: "/guides/instagram-feed-sizes-2026", images: ["/squareframe_preview.png"] },
+  { page: "/guides/facebook-image-sizes-2026", images: ["/squareframe_preview.png"] },
+  { page: "/guides/pinterest-image-sizes-2026", images: ["/squareframe_preview.png"] },
+  { page: "/guides/discord-image-sizes-2026", images: ["/squareframe_preview.png"] },
+  { page: "/guides/linkedin-image-sizes-2026", images: ["/squareframe_preview.png"] },
+  { page: "/guides/youtube-banner-thumbnail-sizes-2026", images: ["/squareframe_preview.png"] },
+  { page: "/guides/tiktok-image-sizes-2026", images: ["/squareframe_preview.png"] },
+  { page: "/guides/instagram-reels-stories-guide", images: ["/squareframe_preview.png"] },
 ];
 
 export async function GET() {

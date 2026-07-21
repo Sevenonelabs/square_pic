@@ -48,16 +48,6 @@ export default function Home() {
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "SquarePic",
-        alternateName: "Square Pic - Square Image Tool",
-        url: "https://www.squarepic.io",
-        description: "Free online square image maker and social media photo resizer. No uploads, no signup.",
-        logo: "https://www.squarepic.io/images/logo.png",
-        sameAs: ["https://github.com/Sevenonelabs/square_pic"],
-      }} />
-      <JsonLd data={{
-        "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         name: "SquarePic",
         url: "https://www.squarepic.io",
@@ -70,8 +60,8 @@ export default function Home() {
       <ToolAsHeroLayout
         state={state}
         onStateChange={update}
-        headline={"Square Pic - Social Media Resizer"}
-        highlightWord="Perfectly Square"
+        headline="Free Square Image Maker for Instagram & Social Media"
+        highlightWord="Square Image Maker"
         badge=""
         colorSwatches={COLOR_SWATCHES}
       />

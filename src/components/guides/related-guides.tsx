@@ -37,6 +37,21 @@ const ALL_GUIDES: Record<string, GuideLink> = {
     title: "TikTok Image Sizes 2026: Profile, Video & Story",
     desc: "Video dimensions, ad specs, and best practices.",
   },
+  "facebook-image-sizes-2026": {
+    href: "/guides/facebook-image-sizes-2026",
+    title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions",
+    desc: "Cover photos, profile pictures, feed posts, and ad sizes.",
+  },
+  "pinterest-image-sizes-2026": {
+    href: "/guides/pinterest-image-sizes-2026",
+    title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide",
+    desc: "Standard pins, video pins, board covers, and profile sizes.",
+  },
+  "discord-image-sizes-2026": {
+    href: "/guides/discord-image-sizes-2026",
+    title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide",
+    desc: "Server icons, banners, splash screens, and emoji sizes.",
+  },
 };
 
 const CATEGORY_MAP: Record<string, string[]> = {
@@ -46,6 +61,9 @@ const CATEGORY_MAP: Record<string, string[]> = {
   "linkedin-image-sizes-2026": ["youtube-banner-thumbnail-sizes-2026", "social-media-image-sizes-2026"],
   "youtube-banner-thumbnail-sizes-2026": ["tiktok-image-sizes-2026", "linkedin-image-sizes-2026"],
   "tiktok-image-sizes-2026": ["instagram-reels-stories-guide", "youtube-banner-thumbnail-sizes-2026"],
+  "facebook-image-sizes-2026": ["social-media-image-sizes-2026", "instagram-feed-sizes-2026"],
+  "pinterest-image-sizes-2026": ["social-media-image-sizes-2026", "instagram-feed-sizes-2026"],
+  "discord-image-sizes-2026": ["social-media-image-sizes-2026", "youtube-banner-thumbnail-sizes-2026"],
 };
 
 export function RelatedGuides({ current }: { current: string }) {

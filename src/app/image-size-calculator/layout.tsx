@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Image Size Calculator - Social Media Dimensions",
   description: "Find the perfect image dimensions for any social media platform. Search by pixel size or browse Instagram, Facebook, Twitter, LinkedIn, and more.",
-  openGraph: { title: "Image Size Calculator - Social Media Dimensions | SquarePic" },
+  openGraph: { title: "Image Size Calculator - Social Media Dimensions | SquarePic", description: "Find perfect image dimensions for any social media platform. Search by pixel size or browse Instagram, Facebook, Twitter, LinkedIn, and more." },
   alternates: { canonical: "https://www.squarepic.io/image-size-calculator" },
 };
 

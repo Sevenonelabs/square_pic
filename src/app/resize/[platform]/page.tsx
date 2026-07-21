@@ -150,7 +150,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${p.label} Image Sizes - Complete Dimension Guide`,
     description: `Complete guide to ${p.label} image sizes: ${dims.join(", ")} pixels. Free tool to resize photos to the exact ${p.label} dimensions you need.`,
-    openGraph: { title: `${p.label} Image Sizes - Complete Dimension Guide | SquarePic` },
+    openGraph: { title: `${p.label} Image Sizes - Complete Dimension Guide | SquarePic`, description: `Complete guide to ${p.label} image sizes: ${dims.join(", ")} pixels. Free tool to resize photos to the exact ${p.label} dimensions you need.` },
     alternates: { canonical: `/resize/${platform}` },
   };
 }
@@ -248,7 +248,7 @@ export default async function PlatformPage({ params }: Props) {
           name: "SquarePic",
           alternateName: "Square Pic Square Image tool",
           url: siteUrl,
-          logo: `${siteUrl}/squareframe_preview.png`,
+          logo: `${siteUrl}/images/logo-icon.svg`,
         }),
       }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{

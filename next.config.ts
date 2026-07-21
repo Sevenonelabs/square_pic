@@ -42,6 +42,7 @@ const nextConfig: NextConfig = {
     { source: "/free-image-optimizer", destination: "/compressor", permanent: true },
     { source: "/resize", destination: "/", permanent: true },
     { source: "/edit", destination: "/", permanent: true },
+    { source: "/", destination: "https://www.squarepic.io/", permanent: true, has: [{ type: "host", value: "squarepic.io" }] },
   ],
 };
 
