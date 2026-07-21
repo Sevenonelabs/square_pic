@@ -5,7 +5,7 @@ import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/component
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
-  title: "Free Image Converter - JPG, PNG, WebP & More",
+  title: "Free Image Converter Online - JPG, PNG, WebP, AVIF & More",
   description: "Convert images between JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO online for free. Batch convert multiple images at once. No uploads, no signup.",
   openGraph: {
     title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
@@ -82,6 +82,51 @@ export default function ConverterPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+
+        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-10">
+          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-3">How to Choose the Right Image Format</h3>
+          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed mb-3">
+            Selecting the correct image format depends on your specific needs. Here is a simple decision framework:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h4 className="text-[0.78rem] font-extrabold text-[#e6edf5] mb-2">Choose JPEG when:</h4>
+              <ul className="text-[0.75rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+                <li>You need the smallest file size for photographs</li>
+                <li>Universal compatibility is critical (email, social media, legacy systems)</li>
+                <li>Transparency is not required</li>
+                <li>Sending images via email or messaging apps</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-[0.78rem] font-extrabold text-[#e6edf5] mb-2">Choose PNG when:</h4>
+              <ul className="text-[0.75rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+                <li>You need transparency (logos, icons, overlays)</li>
+                <li>Maximum quality is required (screenshots, graphics with text)</li>
+                <li>Lossless compression is non-negotiable</li>
+                <li>Preparing images for further editing</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-[0.78rem] font-extrabold text-[#e6edf5] mb-2">Choose WebP when:</h4>
+              <ul className="text-[0.75rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+                <li>Website performance is the priority</li>
+                <li>You want JPEG quality at 25-35% smaller file sizes</li>
+                <li>You need both transparency and good compression</li>
+                <li>Your audience uses modern browsers (97%+ support)</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-[0.78rem] font-extrabold text-[#e6edf5] mb-2">Choose AVIF when:</h4>
+              <ul className="text-[0.75rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+                <li>Maximum compression is critical (50% smaller than JPEG)</li>
+                <li>You need HDR and wide color gamut support</li>
+                <li>Serving next-gen web experiences</li>
+                <li>You provide JPEG or WebP fallbacks for older browsers</li>
+              </ul>
+            </div>
           </div>
         </div>
 

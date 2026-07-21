@@ -5,7 +5,7 @@ import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/component
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
-  title: "Free Image Compressor - JPG, PNG & WebP",
+  title: "Free Image Compressor Online - Reduce JPG, PNG & WebP Size",
   description: "Compress JPG, PNG, and WebP images online without losing quality. Reduce file sizes for faster websites and easier sharing. No uploads, no signup.",
   openGraph: {
     title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
@@ -62,7 +62,7 @@ export default function CompressorPage() {
         </div>
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-10">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Supported Image Format Comparison</h3>
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Image Compression Format Comparison</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-[0.78rem] border-collapse">
               <thead>
@@ -138,10 +138,33 @@ export default function CompressorPage() {
           </div>
         </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Compression Targets by Use Case</h3>
+            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+              <li><strong className="text-[#e6edf5]">Website hero images:</strong> Target under 200 KB at quality 80%. Use WebP format for best quality-to-size ratio.</li>
+              <li><strong className="text-[#e6edf5]">Product photos:</strong> Compress to 100-300 KB each. Higher quality (85%) for zoomable images, lower for thumbnails.</li>
+              <li><strong className="text-[#e6edf5]">Email attachments:</strong> Keep images under 500 KB. Most email clients block images over 5-10 MB total.</li>
+              <li><strong className="text-[#e6edf5]">Social media uploads:</strong> Instagram and LinkedIn cap at 20 MB. Pre-compress to 1-5 MB for fast uploads without quality loss.</li>
+              <li><strong className="text-[#e6edf5]">Blog thumbnails:</strong> Compress aggressively to 30-50 KB at quality 60%. Small size matters more than perfection.</li>
+            </ul>
+          </div>
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Quality Settings Guide</h3>
+            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+              <li><strong className="text-[#e6edf5]">90-100%:</strong> Near-lossless. Use for archival, photography portfolios, and print-ready exports.</li>
+              <li><strong className="text-[#e6edf5]">75-90%:</strong> Excellent quality for web. Images look identical to originals but 50-70% smaller. Best for hero images and product photos.</li>
+              <li><strong className="text-[#e6edf5]">60-75%:</strong> Good quality for general web use. Visible only in side-by-side comparisons. Ideal for blog content and galleries.</li>
+              <li><strong className="text-[#e6edf5]">40-60%:</strong> Acceptable for thumbnails and previews. Some artifacts visible in gradients and skies.</li>
+              <li><strong className="text-[#e6edf5]">Below 40%:</strong> Heavy compression for extreme size reduction. Suitable for placeholder images, small thumbnails, and low-bandwidth scenarios.</li>
+            </ul>
+          </div>
+        </div>
+
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mt-6">
           <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Private & Secure Compression</h3>
           <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
-            All image compression happens locally in your browser. Your files are never uploaded to any server.
+            All image compression happens locally in your browser using the Canvas API. Your files are never uploaded to any server.
           </p>
         </div>
         <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>

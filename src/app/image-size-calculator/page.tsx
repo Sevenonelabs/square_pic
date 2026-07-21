@@ -18,6 +18,9 @@ const PLATFORMS = [
   { key: "snapchat", label: "Snapchat" },
   { key: "twitch", label: "Twitch" },
   { key: "reddit", label: "Reddit" },
+  { key: "whatsapp", label: "WhatsApp" },
+  { key: "telegram", label: "Telegram" },
+  { key: "discord", label: "Discord" },
 ];
 
 const ALL_TYPES: { platform: string; key: string; label: string; w: number; h: number }[] = [
@@ -51,6 +54,13 @@ const ALL_TYPES: { platform: string; key: string; label: string; w: number; h: n
   { platform: "twitch", key: "offlineBanner", label: "Offline Banner", w: 1920, h: 1080 },
   { platform: "reddit", key: "profile", label: "Profile Picture", w: 256, h: 256 },
   { platform: "reddit", key: "postImage", label: "Post Image", w: 1200, h: 675 },
+  { platform: "whatsapp", key: "profile", label: "Profile Picture", w: 500, h: 500 },
+  { platform: "whatsapp", key: "status", label: "Status Image", w: 1080, h: 1920 },
+  { platform: "whatsapp", key: "businessCover", label: "Business Cover", w: 800, h: 800 },
+  { platform: "telegram", key: "profile", label: "Profile Picture", w: 128, h: 128 },
+  { platform: "discord", key: "serverIcon", label: "Server Icon", w: 512, h: 512 },
+  { platform: "discord", key: "serverBanner", label: "Server Banner", w: 960, h: 540 },
+  { platform: "discord", key: "serverSplash", label: "Server Splash", w: 1920, h: 1080 },
 ];
 
 export default function ImageSizeCalculatorPage() {
@@ -169,6 +179,85 @@ export default function ImageSizeCalculatorPage() {
           </motion.div>
         )}
       </div>
+
+      <section className="mb-10">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mb-4">Why Image Dimensions Matter</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Consistent Brand Appearance</h3>
+            <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+              Each social media platform displays images at specific dimensions. Using non-standard sizes forces
+              platforms to crop, stretch, or letterbox your images, resulting in an inconsistent brand appearance.
+              A 1080x1080 square image displays perfectly across Instagram, Facebook, and LinkedIn feeds.
+            </p>
+          </div>
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Faster Page Load Times</h3>
+            <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+              Uploading images at the exact display size eliminates unnecessary data. A 4000x3000 photo
+              scaled down to 400x300 in the browser wastes bandwidth and slows page loads. Use the calculator
+              above to find the exact dimensions for each platform, then resize to match.
+            </p>
+          </div>
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Aspect Ratio Explained</h3>
+            <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+              Aspect ratio describes the proportional relationship between width and height (e.g., 1:1 for
+              square, 16:9 for widescreen). Two images with different pixel dimensions can share the same
+              aspect ratio. Use our calculator to find which platform presets match your image&apos;s aspect ratio.
+            </p>
+          </div>
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Avoid Upscaling Issues</h3>
+            <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+              Starting with an image that is smaller than the target dimensions means the platform must
+              upscale it, causing blurriness and pixelation. Always upload images at or above the platform&apos;s
+              recommended resolution. Our dimension calculator shows you the minimum size for each media type.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mb-4">How to Use the Image Size Calculator</h2>
+        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+          <ol className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-2">
+            <li><strong className="text-[#e6edf5]">Search by dimensions:</strong> Enter your image&apos;s width and height in pixels. The calculator instantly checks if these dimensions match any standard social media image size.</li>
+            <li><strong className="text-[#e6edf5]">Browse by platform:</strong> Select a platform from the buttons above to see all supported image sizes for that platform, from profile pictures to cover photos and post dimensions.</li>
+            <li><strong className="text-[#e6edf5]">Click through to resize:</strong> Once you find your target dimensions, click any result to open SquarePic&apos;s resizer with the exact preset applied.</li>
+            <li><strong className="text-[#e6edf5]">Common pairings:</strong> 1080x1080 (Instagram square), 1080x1920 (Instagram Stories), 1200x630 (Facebook link preview), 1280x720 (YouTube thumbnail) -- these are among the most frequently searched dimension pairs.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mb-4">Common Image Dimension Questions</h2>
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">What is the most common image size for social media?</h3>
+            <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+              1080 x 1080 pixels (1:1 square) is the most universally supported size. Instagram, Facebook, LinkedIn,
+              and X/Twitter all display square images natively. It is the safest choice for cross-platform posting.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">How do I calculate aspect ratio from width and height?</h3>
+            <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+              Divide both width and height by their greatest common divisor. For example, 1920x1080 simplifies to
+              16:9 (1920/120 = 16, 1080/120 = 9). Use this calculator to find which standard aspect ratio
+              matches your image dimensions.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">What resolution is best for print vs web?</h3>
+            <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+              For web, 72 DPI is standard and 1920px on the longest side is sufficient for most displays.
+              For print, 300 DPI is required. Use the dimensions above as a starting point and always verify
+              with your specific platform&apos;s requirements before uploading.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <div className="text-center py-4">
         <Link href="/" className="inline-flex items-center gap-3 bg-[var(--accent)] text-black px-8 py-3.5 rounded-md text-base font-extrabold no-underline transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 shadow-[0_4px_20px_var(--accent-glow)]">

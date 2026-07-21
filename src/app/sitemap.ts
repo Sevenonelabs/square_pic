@@ -34,18 +34,18 @@ const SLUG_MAP: Record<string, string> = {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.SITE_URL || "https://www.squarepic.io";
-  const commitDate = "2026-07-19";
+  const modifiedDate = new Date().toISOString().split("T")[0];
 
   const staticEntries = STATIC_PAGES.map((p) => ({
     url: `${siteUrl}${p.path}`,
-    lastModified: commitDate,
+    lastModified: modifiedDate,
     changeFrequency: p.freq,
     priority: p.priority,
   }));
 
   const platformEntries = Object.entries(SLUG_MAP).map(([slug]) => ({
     url: `${siteUrl}/resize/${slug}`,
-    lastModified: commitDate,
+    lastModified: modifiedDate,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const formatEntries = formatPairs.map((pair) => ({
     url: `${siteUrl}/converter/${pair}`,
-    lastModified: commitDate,
+    lastModified: modifiedDate,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

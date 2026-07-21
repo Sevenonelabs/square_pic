@@ -5,7 +5,7 @@ import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/component
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
-  title: "Free Online Photo Cropper - Perfect Crop",
+  title: "Free Online Photo Cropper - Crop Images Perfectly Online",
   description: "Crop photos online for free with precision controls. Aspect ratio presets, zoom, pan, and export to JPEG, PNG, or WebP. No uploads required.",
   openGraph: {
     title: "Free Online Photo Cropper - Perfect Crop | SquarePic",
@@ -117,6 +117,29 @@ export default function CropperPage() {
             </ul>
           </div>
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Cropping for Different Platforms</h3>
+            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+              <li><strong className="text-[#e6edf5]">Instagram feed:</strong> Crop to 1:1 (1080x1080) for square posts or 4:5 (1080x1350) for portrait posts that fill more screen space.</li>
+              <li><strong className="text-[#e6edf5]">Instagram Stories / Reels:</strong> Use 9:16 (1080x1920) full-screen vertical format. Keep text within the top and bottom safe zones.</li>
+              <li><strong className="text-[#e6edf5]">YouTube thumbnails:</strong> Crop to 16:9 (1280x720) with bold, centered subjects. Thumbnails drive click-through rates.</li>
+              <li><strong className="text-[#e6edf5]">LinkedIn banners:</strong> The cover photo is very short (1128x191). Crop tight and keep text in the safe center zone.</li>
+              <li><strong className="text-[#e6edf5]">Facebook link previews:</strong> Open Graph images display at 1200x630 (1.91:1). Crop your images to this ratio for clean link shares.</li>
+            </ul>
+          </div>
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Composition Techniques</h3>
+            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+              <li><strong className="text-[#e6edf5]">Rule of thirds:</strong> Position key elements along the grid lines (or at their intersections) for naturally balanced compositions.</li>
+              <li><strong className="text-[#e6edf5]">Leading lines:</strong> Use natural lines in your image (roads, fences, architecture) to draw the viewer&apos;s eye toward the subject.</li>
+              <li><strong className="text-[#e6edf5]">Symmetry and patterns:</strong> Centered compositions with symmetrical elements create visually striking images that work well in square formats.</li>
+              <li><strong className="text-[#e6edf5]">Negative space:</strong> Leaving empty space around your subject creates focus and gives text overlays room to breathe in social media graphics.</li>
+              <li><strong className="text-[#e6edf5]">Fill the frame:</strong> Get close to your subject. A tight crop often creates more impact than a wide shot with too much background.</li>
+            </ul>
+          </div>
+        </div>
+
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mt-6">
           <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Crop Photos Privately</h3>
           <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">

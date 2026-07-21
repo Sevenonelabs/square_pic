@@ -24,10 +24,10 @@ const syneMono = Syne_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Free Square Image Maker for Instagram & Social Media | SquarePic",
+    default: "Make Photo Square Online Free | Instagram Square Image Maker",
     template: "%s | SquarePic",
   },
-  description: "Make any photo square for Instagram, LinkedIn, and more. Free image resizer with blur, smart crop, and social media presets. No uploads, no signup.",
+  description: "Make any photo square instantly with blur backgrounds, white borders, or smart crop. Free online square image maker for Instagram, WhatsApp, LinkedIn, Facebook, and more. No uploads or signup.",
   icons: {
     icon: [
       { url: "/images/favicon.svg", type: "image/svg+xml" },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "SquarePic",
     locale: "en_US",
-    description: "Make any photo square for Instagram, LinkedIn, and more. Free image resizer with blur, smart crop, and social media presets. No uploads, no signup.",
+    description: "Make any photo square instantly with blur backgrounds, white borders, or smart crop. Free online square image maker for Instagram, WhatsApp, LinkedIn, Facebook, and more. No uploads or signup.",
     images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic - Free online square image maker and photo editor" }],
   },
   twitter: {

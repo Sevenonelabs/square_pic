@@ -5,7 +5,7 @@ import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/component
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
-  title: "Free HD Image Upscaler - 2x, 3x, 4x",
+  title: "Free Image Upscaler Online - Enlarge Photos 2x, 3x, 4x HD",
   description: "Upscale images online free with bicubic interpolation and smart sharpening. Enlarge photos 2x, 3x, or 4x — all processing is private and local.",
   openGraph: {
     title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
@@ -115,6 +115,26 @@ export default function UpscalerPage() {
               <li>Always keep the Smart Sharpen toggle on unless you prefer a softer look.</li>
               <li>Export to PNG for maximum quality, or WebP for smaller files with good quality.</li>
               <li>For best results, upscale images that are already sharp and well-exposed.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Understanding Upscaling Quality</h3>
+            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+              <li><strong className="text-[#e6edf5]">Bicubic interpolation</strong> produces smoother results than bilinear or nearest-neighbor by sampling 16 surrounding pixels. It preserves edge definition better than simpler algorithms.</li>
+              <li><strong className="text-[#e6edf5]">Smart Sharpen</strong> applies an unsharp mask after upscaling to enhance edge contrast. This recovers some of the perceived detail that naturally softens during enlargement.</li>
+              <li><strong className="text-[#e6edf5]">Upscaling is not magic</strong> — it cannot create detail that is not in the original image. The best results come from sharp, well-exposed source images. Severely compressed or blurry originals will not look sharp after upscaling.</li>
+              <li><strong className="text-[#e6edf5]">Source quality matters:</strong> A 500x500 image upscaled 4x to 2000x2000 will look significantly better if the original was saved at JPEG quality 95% versus 60%.</li>
+            </ul>
+          </div>
+          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">When Each Scale Factor Works Best</h3>
+            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+              <li><strong className="text-[#e6edf5]">2x upscaling:</strong> Best quality-to-size ratio. Use for most general-purpose enlargements — profile pictures, social media posts, and blog images. Results are crisp with minimal softening.</li>
+              <li><strong className="text-[#e6edf5]">3x upscaling:</strong> Good for moderate enlargement needs. Use when you need to convert small thumbnails to medium-sized display images or prepare images for half-page print layouts.</li>
+              <li><strong className="text-[#e6edf5]">4x upscaling:</strong> Maximum enlargement for extreme cases. Best for converting tiny images for large displays, full-page print, or when the source image is very small and no alternative exists.</li>
             </ul>
           </div>
         </div>
