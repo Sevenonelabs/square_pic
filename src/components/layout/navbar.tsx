@@ -20,7 +20,7 @@ export function Navbar() {
   const toolsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="3" stroke="${encodeURIComponent(current.accent)}" stroke-width="2.5"/><rect x="9" y="9" width="14" height="14" rx="2" stroke="${encodeURIComponent(current.accent)}" stroke-width="2"/></svg>`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="2" width="28" height="28" rx="4" fill="black" stroke="%2300ff88" stroke-width="4"/></svg>`;
     const href = `data:image/svg+xml,${svg}`;
     let link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null;
     if (!link) {
@@ -118,7 +118,7 @@ export function Navbar() {
               onClick={() => name === "neon" ? applyNeon(color.accent, color.glow) : apply(color.accent, color.glow)}
               className="w-[14px] h-[14px] rounded-sm cursor-pointer shrink-0 transition-all duration-300 hover:scale-130 focus-visible:scale-130 max-md:w-[12px] max-md:h-[12px]"
               style={name === "neon" ? {
-                background: "linear-gradient(90deg, #ff0040 33%, #00ff80 33% 66%, #0080ff 66%)",
+                background: "linear-gradient(90deg, #ff00aa 33%, #aa00ff 33% 66%, #00aaff 66%)",
                 border: current.accent.includes("hsl")
                   ? "2px solid rgba(255,255,255,0.85)"
                   : "2px solid transparent",

@@ -8,13 +8,13 @@ export interface ThemeColor {
 }
 
 export const THEMES: Record<string, ThemeColor> = {
+  neon: { accent: "#00e5ff", glow: "rgba(0,229,255,0.35)" },
   lime: { accent: "#84cc16", glow: "rgba(132,204,22,0.3)" },
   emerald: { accent: "#10b981", glow: "rgba(16,185,129,0.3)" },
   cyan: { accent: "#06b6d4", glow: "rgba(6,182,212,0.3)" },
   violet: { accent: "#8b5cf6", glow: "rgba(139,92,246,0.3)" },
   rose: { accent: "#f43f5e", glow: "rgba(244,63,94,0.3)" },
   amber: { accent: "#f59e0b", glow: "rgba(245,158,11,0.3)" },
-  neon: { accent: "#00e5ff", glow: "rgba(0,229,255,0.35)" },
 };
 
 const THEME_KEYS = Object.keys(THEMES);
@@ -59,15 +59,8 @@ interface ThemeState {
   pickRandom: () => void;
 }
 
-function initNeon(set: (s: Partial<ThemeState>) => void) {
-  if (typeof window !== "undefined") {
-    startHueAnimation(set);
-  }
-  return THEMES.neon;
-}
-
 export const useTheme = create<ThemeState>((set) => ({
-  current: initNeon(set),
+  current: THEMES.lime,
   apply: (accent, glow) => {
     stopAnimation();
     applyToDocument(accent, glow);
