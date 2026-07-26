@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide",
@@ -11,8 +12,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.squarepic.io/guides/discord-image-sizes-2026" },
   twitter: { card: "summary_large_image", title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide | SquarePic", description: "Complete guide to Discord image dimensions for 2026 with best practices." },
 };
-
-const SITE = "https://www.squarepic.io";
 
 const FAQ_QUESTIONS = [
   { question: "What is the best size for a Discord server icon?", answer: "512 x 512 pixels (1:1) is the recommended size for Discord server icons. Upload a square PNG or JPEG with your subject centered — Discord displays the icon in a circular crop, so anything near the corners will be hidden. Larger images look sharper after compression." },

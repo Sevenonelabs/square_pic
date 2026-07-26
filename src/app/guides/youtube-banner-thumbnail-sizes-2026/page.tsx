@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video",
@@ -11,8 +12,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2026" },
   twitter: { card: "summary_large_image", title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video | SquarePic", description: "Complete guide to YouTube image dimensions for 2026." },
 };
-
-const SITE = "https://www.squarepic.io";
 
 export default function YouTubeBannerThumbnailSizesPage() {
   return (

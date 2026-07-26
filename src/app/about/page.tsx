@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BreadcrumbSchema, JsonLd, PersonSchema } from "@/components/schema-scripts";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About SquarePic - Free Square Image Maker & Photo Editor",
@@ -7,8 +8,6 @@ export const metadata: Metadata = {
   openGraph: { title: "About SquarePic - Free Square Image Maker & Photo Editor | SquarePic", description: "Learn about SquarePic, the free online square image maker and photo editor. Privacy-first, no uploads, no watermarks." },
   alternates: { canonical: "https://www.squarepic.io/about" },
 };
-
-const SITE = "https://www.squarepic.io";
 
 export default function AboutPage() {
   return (

@@ -19,6 +19,19 @@ export function getOutputMimeType(originalType: string, fallback: "jpeg" | "webp
   return fallback === "webp" ? "image/webp" : "image/jpeg";
 }
 
+const imgCache = new Map<string, HTMLImageElement>();
+
+export function loadImage(src: string): Promise<HTMLImageElement> {
+  const cached = imgCache.get(src);
+  if (cached) return Promise.resolve(cached);
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => { imgCache.set(src, img); resolve(img); };
+    img.onerror = () => reject(new Error("Image failed to load"));
+    img.src = src;
+  });
+}
+
 function getCanvasBlob(canvas: HTMLCanvasElement, mimeType: string, quality: number): Promise<Blob> {
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
@@ -28,68 +41,79 @@ function getCanvasBlob(canvas: HTMLCanvasElement, mimeType: string, quality: num
   });
 }
 
+function binarySearchQuality(
+  canvas: HTMLCanvasElement,
+  mimeType: string,
+  targetSize: number,
+  iterations: number
+): Promise<Blob | null> {
+  return new Promise((resolve) => {
+    let low = 0.05;
+    let high = 1.0;
+    let best: Blob | null = null;
+    let pending = iterations;
+    let finished = false;
+
+    function tryQuality(quality: number) {
+      canvas.toBlob((blob) => {
+        if (finished) return;
+        if (!blob) { pending--; if (pending <= 0) resolve(best); return; }
+        if (blob.size <= targetSize) {
+          best = blob;
+          low = quality;
+          if (blob.size >= targetSize * 0.9) { finished = true; resolve(best); return; }
+        } else {
+          high = quality;
+        }
+        pending--;
+        if (pending <= 0) resolve(best);
+      }, mimeType, quality);
+    }
+
+    // Fire all iterations in parallel (canvas.toBlob is async but serializes on the GPU queue)
+    for (let i = 0; i < iterations; i++) {
+      const quality = (low + high) / 2;
+      tryQuality(quality);
+    }
+  });
+}
+
 async function compressToTargetSize(
   canvas: HTMLCanvasElement,
   mimeType: string,
   targetSizeInBytes: number,
-  maxIterations = 8
 ): Promise<Blob> {
-  let low = 0.01;
-  let high = 1.0;
-  let bestBlob: Blob | null = null;
+  // Phase 1: binary search on quality (6 iterations, fired in parallel)
+  let best = await binarySearchQuality(canvas, mimeType, targetSizeInBytes, 6);
 
-  for (let i = 0; i < maxIterations; i++) {
-    const quality = (low + high) / 2;
-    const blob = await getCanvasBlob(canvas, mimeType, quality);
-    if (blob.size <= targetSizeInBytes) {
-      bestBlob = blob;
-      low = quality;
-    } else {
-      high = quality;
+  if (best && best.size <= targetSizeInBytes && best.size >= targetSizeInBytes * 0.85) {
+    return best;
+  }
+
+  // Phase 2: try dimension scaling (3 steps, quality search in parallel each)
+  const origW = canvas.width;
+  const origH = canvas.height;
+  const scales = [0.8, 0.6, 0.4];
+
+  for (const scale of scales) {
+    const temp = document.createElement("canvas");
+    temp.width = Math.round(origW * scale);
+    temp.height = Math.round(origH * scale);
+    const tCtx = temp.getContext("2d")!;
+    if (mimeType === "image/jpeg") {
+      tCtx.fillStyle = "#FFFFFF";
+      tCtx.fillRect(0, 0, temp.width, temp.height);
+    }
+    tCtx.drawImage(canvas, 0, 0, temp.width, temp.height);
+
+    const scaled = await binarySearchQuality(temp, mimeType, targetSizeInBytes, 4);
+    if (scaled && scaled.size <= targetSizeInBytes) {
+      if (scaled.size >= targetSizeInBytes * 0.85) return scaled;
+      best = scaled;
     }
   }
 
-  if (!bestBlob || bestBlob.size > targetSizeInBytes) {
-    let scale = 0.95;
-    const origWidth = canvas.width;
-    const origHeight = canvas.height;
-
-    while (scale > 0.05) {
-      const tempCanvas = document.createElement("canvas");
-      tempCanvas.width = Math.round(origWidth * scale);
-      tempCanvas.height = Math.round(origHeight * scale);
-      const tempCtx = tempCanvas.getContext("2d");
-      if (tempCtx) {
-        if (mimeType === "image/jpeg") {
-          tempCtx.fillStyle = "#FFFFFF";
-          tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
-        }
-        tempCtx.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height);
-
-        let scaleLow = 0.05;
-        let scaleHigh = 0.95;
-        let scaleBestBlob: Blob | null = null;
-
-        for (let i = 0; i < 6; i++) {
-          const quality = (scaleLow + scaleHigh) / 2;
-          const blob = await getCanvasBlob(tempCanvas, mimeType, quality);
-          if (blob.size <= targetSizeInBytes) {
-            scaleBestBlob = blob;
-            scaleLow = quality;
-          } else {
-            scaleHigh = quality;
-          }
-        }
-
-        if (scaleBestBlob && scaleBestBlob.size <= targetSizeInBytes) {
-          return scaleBestBlob;
-        }
-      }
-      scale -= 0.1;
-    }
-  }
-
-  return bestBlob || (await getCanvasBlob(canvas, mimeType, 0.01));
+  return best || (await getCanvasBlob(canvas, mimeType, 0.05));
 }
 
 export interface FileItem {
@@ -112,20 +136,11 @@ export async function compressFile(
   targetSizeValue: number,
   targetSizeUnit: "KB" | "MB"
 ): Promise<{ blob: Blob; size: number }> {
-  if (!item.imgElement) {
-    await new Promise<void>((resolve) => {
-      const img = new Image();
-      img.onload = () => {
-        item.imgElement = img;
-        resolve();
-      };
-      img.src = item.src;
-    });
-  }
+  const img = item.imgElement ?? await loadImage(item.src);
 
   const canvas = document.createElement("canvas");
-  canvas.width = item.imgElement!.naturalWidth;
-  canvas.height = item.imgElement!.naturalHeight;
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
   const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("2D context failed");
 
@@ -140,7 +155,7 @@ export async function compressFile(
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
-  ctx.drawImage(item.imgElement!, 0, 0);
+  ctx.drawImage(img, 0, 0);
 
   let blob: Blob;
   if (mode === "slider") {

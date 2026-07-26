@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Instagram Image Sizes 2026: Feed, Carousel & Profile",
@@ -11,8 +12,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.squarepic.io/guides/instagram-feed-sizes-2026" },
   twitter: { card: "summary_large_image", title: "Instagram Image Sizes 2026: Feed, Carousel & Profile | SquarePic", description: "Complete guide to Instagram image dimensions for 2026 with best practices." },
 };
-
-const SITE = "https://www.squarepic.io";
 
 const FAQ_QUESTIONS = [
   { question: "What is the best size for Instagram feed posts?", answer: "1080 x 1350 pixels (4:5 portrait) is the best size for Instagram feed posts. It takes up 40% more vertical space than square, keeping users on your content longer and signaling higher quality to the algorithm." },

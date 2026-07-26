@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide",
@@ -11,8 +12,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.squarepic.io/guides/pinterest-image-sizes-2026" },
   twitter: { card: "summary_large_image", title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide | SquarePic", description: "Complete guide to Pinterest image dimensions for 2026 with best practices." },
 };
-
-const SITE = "https://www.squarepic.io";
 
 const FAQ_QUESTIONS = [
   { question: "What is the best pin size for Pinterest?", answer: "1000 x 1500 pixels (2:3 aspect ratio) is the best size for standard Pinterest pins. Tall vertical pins perform significantly better because they take up more screen space in the feed and get 60% more repins than square pins." },

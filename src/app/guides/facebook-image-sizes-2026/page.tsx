@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions",
@@ -11,8 +12,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.squarepic.io/guides/facebook-image-sizes-2026" },
   twitter: { card: "summary_large_image", title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions | SquarePic", description: "Complete guide to Facebook image dimensions for 2026 with best practices." },
 };
-
-const SITE = "https://www.squarepic.io";
 
 const FAQ_QUESTIONS = [
   { question: "What size should a Facebook cover photo be?", answer: "Facebook cover photos display at 851 x 315 pixels on desktop and 640 x 360 on mobile. Upload a file at least 851 x 315 for sharp rendering. The 2.7:1 aspect ratio means your cover spans nearly three times as wide as it is tall, so compose with horizontal space in mind." },

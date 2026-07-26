@@ -204,7 +204,8 @@ export function PersonSchema({
   );
 }
 
-export function OrgSchema() {
+export function OrgSchema({ siteUrl }: { siteUrl?: string }) {
+  const base = siteUrl || "https://www.squarepic.io";
   return (
     <JsonLd
       data={{
@@ -212,9 +213,9 @@ export function OrgSchema() {
         "@type": "Organization",
         name: "SquarePic",
         alternateName: "Square Pic - Free Square Image Tool",
-        url: "https://www.squarepic.io",
+        url: base,
         description: "Free online square image maker, image resizer, compressor, and converter. Privacy-first, no uploads, no signup.",
-        logo: "https://www.squarepic.io/images/logo-icon.svg",
+        logo: `${base}/images/logo-icon.svg`,
         sameAs: ["https://github.com/Sevenonelabs/square_pic"],
         contactPoint: {
           "@type": "ContactPoint",

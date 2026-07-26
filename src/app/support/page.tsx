@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Help & Support - Square Image Maker Troubleshooting",
@@ -7,8 +8,6 @@ export const metadata: Metadata = {
   openGraph: { title: "Help & Support - Square Image Maker Troubleshooting | SquarePic", description: "Get help with SquarePic's free online square image maker. Troubleshooting guides and support." },
   alternates: { canonical: "https://www.squarepic.io/support" },
 };
-
-const SITE = "https://www.squarepic.io";
 
 export default function SupportPage() {
   return (

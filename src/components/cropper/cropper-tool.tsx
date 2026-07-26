@@ -42,38 +42,69 @@ function isInsideCrop(x: number, y: number, crop: { x: number; y: number; w: num
   return x >= crop.x && x <= crop.x + crop.w && y >= crop.y && y <= crop.y + crop.h;
 }
 
+function getImageCanvasBounds(
+  cw: number, ch: number,
+  imgW: number, imgH: number,
+  px: number, py: number, zoom: number
+) {
+  const scale = Math.min(cw / imgW, ch / imgH);
+  const halfW = (imgW * scale * zoom) / 2;
+  const halfH = (imgH * scale * zoom) / 2;
+  return {
+    left: cw / 2 - halfW + px,
+    top: ch / 2 - halfH + py,
+    right: cw / 2 + halfW + px,
+    bottom: ch / 2 + halfH + py,
+    scale,
+  };
+}
+
+function clampCrop(
+  r: { x: number; y: number; w: number; h: number },
+  b: { left: number; top: number; right: number; bottom: number },
+  cw: number, ch: number
+) {
+  let { x, y, w, h } = r;
+  x = Math.max(x, b.left);
+  y = Math.max(y, b.top);
+  w = Math.min(w, b.right - x);
+  h = Math.min(h, b.bottom - y);
+  w = Math.max(20, Math.min(w, cw - x));
+  h = Math.max(20, Math.min(h, ch - y));
+  x = Math.max(0, Math.min(x, cw - w));
+  y = Math.max(0, Math.min(y, ch - h));
+  return { x, y, w, h };
+}
+
 export function CropperTool() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [crop, setCrop] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
+  const [ratio, setRatio] = useState<number | null>(null);
+  const [expFormat, setExpFormat] = useState<"jpeg" | "png" | "webp">("jpeg");
+  const [expQuality, setExpQuality] = useState(90);
+
   const [dragging, setDragging] = useState<{
     mode: "pan" | Handle | "move";
     startX: number; startY: number;
     startPan: typeof pan;
-    startCrop: typeof crop | null;
+    startCrop: typeof crop;
   } | null>(null);
 
-  const [crop, setCrop] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
-  const [ratio, setRatio] = useState<number | null>(null);
-
-  const [expFormat, setExpFormat] = useState<"jpeg" | "png" | "webp">("jpeg");
-  const [expQuality, setExpQuality] = useState(90);
-
   const imgRef = useRef(image);
+  const cropRef = useRef(crop);
+  const zoomRef = useRef(zoom);
+  const panRef = useRef(pan);
 
   useEffect(() => { imgRef.current = image; }, [image]);
-
-  useEffect(() => {
-    if (!image || !canvasRef.current || !containerRef.current) return;
-    const cw = canvasRef.current.width;
-    const ch = canvasRef.current.height;
-    const initSize = Math.min(cw, ch) * 0.8;
-    setCrop({ x: (cw - initSize) / 2, y: (ch - initSize) / 2, w: initSize, h: initSize });
-    setZoom(1);
-    setPan({ x: 0, y: 0 });
-  }, [image]);
+  useEffect(() => { cropRef.current = crop; }, [crop]);
+  useEffect(() => { zoomRef.current = zoom; }, [zoom]);
+  useEffect(() => { panRef.current = pan; }, [pan]);
 
   const render = useCallback(() => {
     const canvas = canvasRef.current;
@@ -83,99 +114,106 @@ export function CropperTool() {
     const img = imgRef.current;
     const cw = canvas.width;
     const ch = canvas.height;
+    const c = cropRef.current;
+    const z = zoomRef.current;
+    const p = panRef.current;
 
     ctx.clearRect(0, 0, cw, ch);
     ctx.fillStyle = "#111";
     ctx.fillRect(0, 0, cw, ch);
 
-    ctx.save();
-    ctx.translate(pan.x, pan.y);
-    ctx.scale(zoom, zoom);
-
     const imgW = img.naturalWidth;
     const imgH = img.naturalHeight;
     const scale = Math.min(cw / imgW, ch / imgH);
-    const dx = (cw / zoom - pan.x / zoom - imgW * scale) / 2;
-    const dy = (ch / zoom - pan.y / zoom - imgH * scale) / 2;
-    ctx.drawImage(img, dx, dy, imgW * scale, imgH * scale);
 
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.scale(z, z);
+    const dx = (cw / z - imgW * scale) / 2;
+    const dy = (ch / z - imgH * scale) / 2;
+    ctx.drawImage(img, dx, dy, imgW * scale, imgH * scale);
     ctx.restore();
 
-    if (!crop) return;
+    if (!c) return;
+
     ctx.save();
+    ctx.fillStyle = "rgba(0,0,0,0.45)";
+    ctx.fillRect(0, 0, cw, c.y);
+    ctx.fillRect(0, c.y + c.h, cw, ch - c.y - c.h);
+    ctx.fillRect(0, c.y, c.x, c.h);
+    ctx.fillRect(c.x + c.w, c.y, cw - c.x - c.w, c.h);
+
     ctx.strokeStyle = "rgba(255,255,255,0.7)";
     ctx.lineWidth = 2;
-    ctx.setLineDash([]);
-    ctx.strokeRect(crop.x, crop.y, crop.w, crop.h);
-
-    ctx.fillStyle = "rgba(0,0,0,0.45)";
-    ctx.fillRect(0, 0, cw, crop.y);
-    ctx.fillRect(0, crop.y + crop.h, cw, ch - crop.y - crop.h);
-    ctx.fillRect(0, crop.y, crop.x, crop.h);
-    ctx.fillRect(crop.x + crop.w, crop.y, cw - crop.x - crop.w, crop.h);
+    ctx.strokeRect(c.x, c.y, c.w, c.h);
 
     ctx.strokeStyle = "rgba(255,255,255,0.15)";
     ctx.lineWidth = 1;
     for (let i = 1; i < 3; i++) {
       ctx.beginPath();
-      ctx.moveTo(crop.x + (crop.w * i) / 3, crop.y);
-      ctx.lineTo(crop.x + (crop.w * i) / 3, crop.y + crop.h);
+      ctx.moveTo(c.x + (c.w * i) / 3, c.y);
+      ctx.lineTo(c.x + (c.w * i) / 3, c.y + c.h);
       ctx.stroke();
       ctx.beginPath();
-      ctx.moveTo(crop.x, crop.y + (crop.h * i) / 3);
-      ctx.lineTo(crop.x + crop.w, crop.y + (crop.h * i) / 3);
+      ctx.moveTo(c.x, c.y + (c.h * i) / 3);
+      ctx.lineTo(c.x + c.w, c.y + (c.h * i) / 3);
       ctx.stroke();
     }
 
     const hs = HANDLE_SIZE;
-    ctx.fillStyle = "#fff";
-    ctx.strokeStyle = "#000";
-    ctx.lineWidth = 1;
     for (const [, getPos] of HANDLE_COORDS) {
-      const pos = getPos(crop);
+      const pos = getPos(c);
+      ctx.fillStyle = "#fff";
       ctx.fillRect(pos.x - hs / 2, pos.y - hs / 2, hs, hs);
+      ctx.strokeStyle = "#000";
+      ctx.lineWidth = 1;
       ctx.strokeRect(pos.x - hs / 2, pos.y - hs / 2, hs, hs);
     }
     ctx.restore();
-  }, [crop, zoom, pan]);
+  }, []);
+
+  const renderRef = useRef(render);
+  useEffect(() => { renderRef.current = render; }, [render]);
 
   useEffect(() => {
-    if (!image || !canvasRef.current || !crop) return;
+    if (!image || !canvasRef.current) return;
     const cw = canvasRef.current.width;
     const ch = canvasRef.current.height;
-    const s = Math.min(cw / image.naturalWidth, ch / image.naturalHeight);
-    const imgLeft = (pan.x + cw - image.naturalWidth * s * zoom) / 2;
-    const imgTop = (pan.y + ch - image.naturalHeight * s * zoom) / 2;
-    const imgRight = (pan.x + cw + image.naturalWidth * s * zoom) / 2;
-    const imgBottom = (pan.y + ch + image.naturalHeight * s * zoom) / 2;
+    const initSize = Math.min(cw, ch) * 0.8;
+    const newCrop = { x: (cw - initSize) / 2, y: (ch - initSize) / 2, w: initSize, h: initSize };
+    cropRef.current = newCrop;
+    zoomRef.current = 1;
+    panRef.current = { x: 0, y: 0 };
+    setCrop(newCrop);
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+    renderRef.current();
+  }, [image]);
 
-    let nx = crop.x, ny = crop.y, nw = crop.w, nh = crop.h;
-    nx = Math.max(nx, imgLeft);
-    ny = Math.max(ny, imgTop);
-    nw = Math.min(nw, imgRight - nx);
-    nh = Math.min(nh, imgBottom - ny);
-    nw = Math.max(20, Math.min(nw, cw - nx));
-    nh = Math.max(20, Math.min(nh, ch - ny));
-    nx = Math.max(0, Math.min(nx, cw - nw));
-    ny = Math.max(0, Math.min(ny, ch - nh));
-
-    if (nx !== crop.x || ny !== crop.y || nw !== crop.w || nh !== crop.h) {
-      setCrop({ x: nx, y: ny, w: nw, h: nh });
+  const clampCropAfterViewChange = useCallback(() => {
+    if (!imgRef.current || !canvasRef.current || !cropRef.current) return;
+    const cw = canvasRef.current.width;
+    const ch = canvasRef.current.height;
+    const bounds = getImageCanvasBounds(
+      cw, ch,
+      imgRef.current.naturalWidth, imgRef.current.naturalHeight,
+      panRef.current.x, panRef.current.y, zoomRef.current
+    );
+    const clamped = clampCrop(cropRef.current, bounds, cw, ch);
+    if (clamped.x !== cropRef.current.x || clamped.y !== cropRef.current.y ||
+        clamped.w !== cropRef.current.w || clamped.h !== cropRef.current.h) {
+      cropRef.current = clamped;
+      setCrop(clamped);
     }
-  }, [zoom, pan, image, crop]);
-
-  useEffect(() => {
-    if (image) render();
-  }, [image, render]);
+  }, []);
 
   const getCanvasCoords = useCallback((e: React.PointerEvent): { x: number; y: number } | null => {
-    if (!canvasRef.current) return null;
-    const rect = canvasRef.current.getBoundingClientRect();
-    const scaleX = canvasRef.current.width / rect.width;
-    const scaleY = canvasRef.current.height / rect.height;
+    const canvas = canvasRef.current;
+    if (!canvas) return null;
+    const rect = canvas.getBoundingClientRect();
     return {
-      x: (e.clientX - rect.left) * scaleX,
-      y: (e.clientY - rect.top) * scaleY,
+      x: (e.clientX - rect.left) * (canvas.width / rect.width),
+      y: (e.clientY - rect.top) * (canvas.height / rect.height),
     };
   }, []);
 
@@ -187,123 +225,128 @@ export function CropperTool() {
         mode,
         startX: e.clientX,
         startY: e.clientY,
-        startPan: { ...pan },
-        startCrop: crop ? { ...crop } : null,
+        startPan: { ...panRef.current },
+        startCrop: cropRef.current ? { ...cropRef.current } : null,
       });
     },
-    [pan, crop]
+    []
   );
 
   const handleCanvasPointerDown = useCallback(
     (e: React.PointerEvent) => {
-      if (!crop || !canvasRef.current) {
+      const coords = getCanvasCoords(e);
+      if (!coords || !cropRef.current) {
         handlePointerDown(e, "pan");
         return;
       }
-      const coords = getCanvasCoords(e);
-      if (!coords) return;
-
-      const hitHandle = hitTestHandle(coords.x, coords.y, crop);
-      if (hitHandle) {
-        handlePointerDown(e, hitHandle);
-        return;
-      }
-
-      if (isInsideCrop(coords.x, coords.y, crop)) {
-        handlePointerDown(e, "move");
-        return;
-      }
-
+      const hit = hitTestHandle(coords.x, coords.y, cropRef.current);
+      if (hit) { handlePointerDown(e, hit); return; }
+      if (isInsideCrop(coords.x, coords.y, cropRef.current)) { handlePointerDown(e, "move"); return; }
       handlePointerDown(e, "pan");
     },
-    [crop, getCanvasCoords, handlePointerDown]
+    [getCanvasCoords, handlePointerDown]
   );
 
   const handlePointerMove = useCallback(
     (e: React.PointerEvent) => {
-      if (!dragging || !crop) return;
-      const dx = (e.clientX - dragging.startX) / (zoom || 1);
-      const dy = (e.clientY - dragging.startY) / (zoom || 1);
+      if (!dragging || !canvasRef.current) return;
+      const cw = canvasRef.current.width;
+      const ch = canvasRef.current.height;
+      const z = zoomRef.current;
+      const dx = (e.clientX - dragging.startX) / z;
+      const dy = (e.clientY - dragging.startY) / z;
 
       if (dragging.mode === "pan") {
-        setPan({
-          x: dragging.startPan.x + (e.clientX - dragging.startX),
-          y: dragging.startPan.y + (e.clientY - dragging.startY),
-        });
+        const nx = dragging.startPan.x + (e.clientX - dragging.startX);
+        const ny = dragging.startPan.y + (e.clientY - dragging.startY);
+        panRef.current = { x: nx, y: ny };
+        setPan(panRef.current);
+        clampCropAfterViewChange();
+        renderRef.current();
         return;
       }
 
-      const sc = dragging.startCrop || crop;
+      const sc = dragging.startCrop;
+      if (!sc) return;
       let nx = sc.x, ny = sc.y, nw = sc.w, nh = sc.h;
-      const cw = canvasRef.current?.width ?? 700;
-      const ch = canvasRef.current?.height ?? 700;
 
       if (dragging.mode === "move") {
         nx = sc.x + dx;
         ny = sc.y + dy;
       } else if (dragging.mode === "e") {
         nw = Math.max(20, sc.w + dx);
-        if (ratio) nh = nw / ratio;
+        if (ratio !== null) { nh = nw / ratio; }
       } else if (dragging.mode === "w") {
         nw = Math.max(20, sc.w - dx);
         nx = sc.x + sc.w - nw;
-        if (ratio) nh = nw / ratio;
+        if (ratio !== null) { nh = nw / ratio; }
       } else if (dragging.mode === "s") {
         nh = Math.max(20, sc.h + dy);
-        if (ratio) nw = nh * ratio;
+        if (ratio !== null) { nw = nh * ratio; }
       } else if (dragging.mode === "n") {
         nh = Math.max(20, sc.h - dy);
         ny = sc.y + sc.h - nh;
-        if (ratio) nw = nh * ratio;
+        if (ratio !== null) { nw = nh * ratio; }
       } else if (dragging.mode === "se") {
         nw = Math.max(20, sc.w + dx);
         nh = Math.max(20, sc.h + dy);
-        if (ratio) { const ar = Math.max(nw / ratio, nh); nw = ar * ratio; nh = ar; }
+        if (ratio !== null) {
+          const dominant = Math.max(nw / ratio, nh);
+          nw = dominant * ratio; nh = dominant;
+        }
       } else if (dragging.mode === "sw") {
         nw = Math.max(20, sc.w - dx);
         nx = sc.x + sc.w - nw;
         nh = Math.max(20, sc.h + dy);
-        if (ratio) { const ar = Math.max(nw / ratio, nh); nw = ar * ratio; nh = ar; nx = sc.x + sc.w - nw; }
+        if (ratio !== null) {
+          const dominant = Math.max(nw / ratio, nh);
+          nw = dominant * ratio; nh = dominant;
+          nx = sc.x + sc.w - nw;
+        }
       } else if (dragging.mode === "ne") {
         nw = Math.max(20, sc.w + dx);
         nh = Math.max(20, sc.h - dy);
         ny = sc.y + sc.h - nh;
-        if (ratio) { const ar = Math.max(nw / ratio, nh); nw = ar * ratio; nh = ar; ny = sc.y + sc.h - nh; }
+        if (ratio !== null) {
+          const dominant = Math.max(nw / ratio, nh);
+          nw = dominant * ratio; nh = dominant;
+          ny = sc.y + sc.h - nh;
+        }
       } else if (dragging.mode === "nw") {
         nw = Math.max(20, sc.w - dx);
         nx = sc.x + sc.w - nw;
         nh = Math.max(20, sc.h - dy);
         ny = sc.y + sc.h - nh;
-        if (ratio) { const ar = Math.max(nw / ratio, nh); nw = ar * ratio; nh = ar; nx = sc.x + sc.w - nw; ny = sc.y + sc.h - nh; }
+        if (ratio !== null) {
+          const dominant = Math.max(nw / ratio, nh);
+          nw = dominant * ratio; nh = dominant;
+          nx = sc.x + sc.w - nw;
+          ny = sc.y + sc.h - nh;
+        }
       }
 
-      nw = Math.max(20, Math.min(nw, cw - nx));
-      nh = Math.max(20, Math.min(nh, ch - ny));
-      nx = Math.max(0, Math.min(nx, cw - nw));
-      ny = Math.max(0, Math.min(ny, ch - nh));
-
-      const img2 = imgRef.current;
-      if (img2) {
-        const s = Math.min(cw / img2.naturalWidth, ch / img2.naturalHeight);
-        const imgLeft = (pan.x + cw - img2.naturalWidth * s * zoom) / 2;
-        const imgTop = (pan.y + ch - img2.naturalHeight * s * zoom) / 2;
-        const imgRight = (pan.x + cw + img2.naturalWidth * s * zoom) / 2;
-        const imgBottom = (pan.y + ch + img2.naturalHeight * s * zoom) / 2;
-
-        nx = Math.max(nx, imgLeft);
-        ny = Math.max(ny, imgTop);
-        nw = Math.min(nw, imgRight - nx);
-        nh = Math.min(nh, imgBottom - ny);
+      const image_ = imgRef.current;
+      if (image_) {
+        const bounds = getImageCanvasBounds(
+          cw, ch,
+          image_.naturalWidth, image_.naturalHeight,
+          panRef.current.x, panRef.current.y, z
+        );
+        const clamped = clampCrop({ x: nx, y: ny, w: nw, h: nh }, bounds, cw, ch);
+        cropRef.current = clamped;
+        setCrop(clamped);
+      } else {
+        nw = Math.max(20, Math.min(nw, cw - nx));
+        nh = Math.max(20, Math.min(nh, ch - ny));
+        nx = Math.max(0, Math.min(nx, cw - nw));
+        ny = Math.max(0, Math.min(ny, ch - nh));
+        const result = { x: nx, y: ny, w: nw, h: nh };
+        cropRef.current = result;
+        setCrop(result);
       }
-
-      nw = Math.max(20, Math.min(nw, cw - nx));
-      nh = Math.max(20, Math.min(nh, ch - ny));
-      nx = Math.max(0, Math.min(nx, cw - nw));
-      ny = Math.max(0, Math.min(ny, ch - nh));
-
-      setCrop({ x: nx, y: ny, w: nw, h: nh });
+      renderRef.current();
     },
-    [dragging, crop, zoom, ratio, pan]
+    [dragging, ratio, clampCropAfterViewChange]
   );
 
   const handlePointerUp = useCallback(() => {
@@ -315,39 +358,87 @@ export function CropperTool() {
     if (!el) return;
     const handler = (e: WheelEvent) => {
       e.preventDefault();
-      setZoom((z) => Math.max(0.1, Math.min(10, z - e.deltaY * 0.002)));
+      const nz = Math.max(0.1, Math.min(10, zoomRef.current - e.deltaY * 0.002));
+      zoomRef.current = nz;
+      setZoom(nz);
+      clampCropAfterViewChange();
+      renderRef.current();
     };
     el.addEventListener("wheel", handler, { passive: false });
     return () => el.removeEventListener("wheel", handler);
-  }, []);
+  }, [clampCropAfterViewChange]);
 
   const handleFile = useCallback((file: File) => {
     if (!file.type.startsWith("image/")) return;
     const url = URL.createObjectURL(file);
     const img = new Image();
-    img.onload = () => { setImage(img); };
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      setImage(img);
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+    };
     img.src = url;
   }, []);
 
+  const handleRatioChange = useCallback((newRatio: number | null) => {
+    setRatio(newRatio);
+    if (!cropRef.current || !canvasRef.current || !imgRef.current || newRatio === null) {
+      renderRef.current();
+      return;
+    }
+    const cw = canvasRef.current.width;
+    const ch = canvasRef.current.height;
+    const cur = cropRef.current;
+    const cx = cur.x + cur.w / 2;
+    const cy = cur.y + cur.h / 2;
+    const area = cur.w * cur.h;
+    let newW = Math.sqrt(area * newRatio);
+    let newH = newW / newRatio;
+    if (newW > cw) { newW = cw; newH = cw / newRatio; }
+    if (newH > ch) { newH = ch; newW = ch * newRatio; }
+    newW = Math.max(20, newW);
+    newH = Math.max(20, newH);
+    let newX = cx - newW / 2;
+    let newY = cy - newH / 2;
+    newX = Math.max(0, Math.min(newX, cw - newW));
+    newY = Math.max(0, Math.min(newY, ch - newH));
+    const bounds = getImageCanvasBounds(
+      cw, ch,
+      imgRef.current.naturalWidth, imgRef.current.naturalHeight,
+      panRef.current.x, panRef.current.y, zoomRef.current
+    );
+    const clamped = clampCrop({ x: newX, y: newY, w: newW, h: newH }, bounds, cw, ch);
+    cropRef.current = clamped;
+    setCrop(clamped);
+    renderRef.current();
+  }, []);
+
   const handleExport = useCallback(() => {
-    if (!image || !crop) return;
-    const canvas = document.createElement("canvas");
-    canvas.width = Math.round(crop.w);
-    canvas.height = Math.round(crop.h);
-    const ctx = canvas.getContext("2d")!;
-    if (expFormat === "jpeg") { ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, canvas.width, canvas.height); }
-    const scale = Math.min(
-      (canvasRef.current?.width || 1) / image.naturalWidth,
-      (canvasRef.current?.height || 1) / image.naturalHeight
-    );
-    const ox = ((canvasRef.current?.width || 1) / zoom - pan.x / zoom - image.naturalWidth * scale) / 2;
-    const oy = ((canvasRef.current?.height || 1) / zoom - pan.y / zoom - image.naturalHeight * scale) / 2;
-    ctx.drawImage(
-      image,
-      (crop.x - ox) / scale, (crop.y - oy) / scale, crop.w / scale, crop.h / scale,
-      0, 0, canvas.width, canvas.height
-    );
-    canvas.toBlob((blob) => {
+    if (!imgRef.current || !cropRef.current || !canvasRef.current) return;
+    const img = imgRef.current;
+    const c = cropRef.current;
+    const p = panRef.current;
+    const z = zoomRef.current;
+    const cw = canvasRef.current.width;
+    const ch = canvasRef.current.height;
+    const scale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
+
+    const out = document.createElement("canvas");
+    out.width = Math.round(c.w);
+    out.height = Math.round(c.h);
+    const ctx = out.getContext("2d")!;
+    if (expFormat === "jpeg") {
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(0, 0, out.width, out.height);
+    }
+    const sx = (c.x - p.x) / (z * scale);
+    const sy = (c.y - p.y) / (z * scale);
+    const sw = c.w / (z * scale);
+    const sh = c.h / (z * scale);
+    ctx.drawImage(img, sx, sy, sw, sh, 0, 0, out.width, out.height);
+    out.toBlob((blob) => {
       if (!blob) return;
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -356,9 +447,7 @@ export function CropperTool() {
       a.click();
       URL.revokeObjectURL(url);
     }, `image/${expFormat === "jpeg" ? "jpeg" : expFormat}`, expQuality / 100);
-  }, [image, crop, expFormat, expQuality, zoom, pan]);
-
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  }, [expFormat, expQuality]);
 
   return (
     <div className="max-w-[1200px] w-full mx-auto px-5 py-6">
@@ -418,13 +507,12 @@ export function CropperTool() {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="w-full lg:w-[280px] flex flex-col gap-3"
           >
-            {/* Aspect Ratio - first, most important */}
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
               <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Aspect Ratio</h3>
               <div className="flex flex-wrap gap-1">
                 {RATIOS.map((r) => (
-                  <button key={r.label} onClick={() => setRatio(r.value)}
-                    className={`text-[0.6rem] font-bold px-2 py-1 rounded-sm border transition-all ${
+                  <button key={r.label} onClick={() => handleRatioChange(r.value)}
+                    className={`text-[0.6rem] font-bold px-2 py-1 rounded-sm border transition-all cursor-pointer ${
                       ratio === r.value
                         ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
                         : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa] hover:text-[#e6edf5]"
@@ -434,22 +522,32 @@ export function CropperTool() {
               </div>
             </div>
 
-            {/* Zoom */}
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
               <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Zoom</h3>
               <div className="flex items-center gap-2 mb-1.5">
-                <button onClick={() => setZoom((z) => Math.max(0.1, z - 0.2))}
+                <button onClick={() => {
+                  const nz = Math.max(0.1, zoomRef.current - 0.2);
+                  zoomRef.current = nz; setZoom(nz);
+                  clampCropAfterViewChange(); renderRef.current();
+                }}
                   className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] w-7 h-7 rounded-md cursor-pointer hover:text-[#e6edf5] transition-all text-sm flex items-center justify-center">-</button>
                 <input type="range" min={10} max={500} value={Math.round(zoom * 100)}
-                  onChange={(e) => setZoom(Number(e.target.value) / 100)}
+                  onChange={(e) => {
+                    const nz = Number(e.target.value) / 100;
+                    zoomRef.current = nz; setZoom(nz);
+                    clampCropAfterViewChange(); renderRef.current();
+                  }}
                   className="flex-1" />
-                <button onClick={() => setZoom((z) => Math.min(10, z + 0.2))}
+                <button onClick={() => {
+                  const nz = Math.min(10, zoomRef.current + 0.2);
+                  zoomRef.current = nz; setZoom(nz);
+                  clampCropAfterViewChange(); renderRef.current();
+                }}
                   className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] w-7 h-7 rounded-md cursor-pointer hover:text-[#e6edf5] transition-all text-sm flex items-center justify-center">+</button>
               </div>
               <div className="text-center text-[0.72rem] text-[#8d9aaa] font-semibold">{Math.round(zoom * 100)}%</div>
             </div>
 
-            {/* Crop size info */}
             {crop && (
               <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3">
                 <div className="text-[0.65rem] text-[#8d9aaa]">Crop size: <strong className="text-[var(--accent)]">{Math.round(crop.w)} x {Math.round(crop.h)} px</strong></div>
@@ -457,13 +555,12 @@ export function CropperTool() {
               </div>
             )}
 
-            {/* Export */}
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
               <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Export</h3>
               <div className="flex gap-1 mb-2">
                 {(["jpeg", "png", "webp"] as const).map((f) => (
                   <button key={f} onClick={() => setExpFormat(f)}
-                    className={`flex-1 text-[0.6rem] font-bold px-1 py-1.5 rounded-sm border transition-all ${
+                    className={`flex-1 text-[0.6rem] font-bold px-1 py-1.5 rounded-sm border transition-all cursor-pointer ${
                       expFormat === f
                         ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
                         : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa] hover:border-[rgba(255,255,255,0.10)]"
@@ -488,7 +585,7 @@ export function CropperTool() {
               </button>
             </div>
 
-            <button onClick={() => { setImage(null); setCrop(null); }}
+            <button onClick={() => { setImage(null); setCrop(null); setRatio(null); }}
               className="w-full bg-transparent border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] py-2 rounded-lg text-xs font-semibold cursor-pointer hover:text-[#f43f5e] hover:border-[rgba(244,63,94,0.2)] transition-all">
               Upload New Image
             </button>

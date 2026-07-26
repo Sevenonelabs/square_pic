@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions",
@@ -11,8 +12,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.squarepic.io/guides/tiktok-image-sizes-2026" },
   twitter: { card: "summary_large_image", title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions | SquarePic", description: "Complete guide to TikTok image dimensions for 2026." },
 };
-
-const SITE = "https://www.squarepic.io";
 
 export default function TikTokImageSizesPage() {
   const FAQ_QUESTIONS = [

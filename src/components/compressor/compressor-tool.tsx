@@ -4,8 +4,10 @@ import { useState, useRef, useCallback } from "react";
 import { motion } from "motion/react";
 import JSZip from "jszip";
 import { formatBytes, truncateMiddle, compressFile, type FileItem } from "@/lib/compressor-utils";
+import { runConcurrent } from "@/lib/async-utils";
 
 const MAX_SIZE_MB = 30;
+const MAX_CONCURRENCY = 4;
 
 export function CompressorTool() {
   const [files, setFiles] = useState<FileItem[]>([]);
@@ -25,13 +27,9 @@ export function CompressorTool() {
       if (file.size > MAX_SIZE_MB * 1024 * 1024) continue;
       const id = Math.random().toString(36).substring(2, 11);
       const src = URL.createObjectURL(file);
-      const img = new Image();
-      const item: FileItem = { id, file, name: file.name, size: file.size, src, imgElement: null, status: "ready", compressedBlob: null, newSize: null };
-      img.onload = () => { item.imgElement = img; setFiles((prev) => [...prev]); };
-      img.src = src;
-      newItems.push(item);
+      newItems.push({ id, file, name: file.name, size: file.size, src, imgElement: null, status: "ready", compressedBlob: null, newSize: null });
     }
-    setFiles((prev) => [...prev, ...newItems]);
+    if (newItems.length > 0) setFiles((prev) => [...prev, ...newItems]);
   }, []);
 
   const removeFile = useCallback((id: string) => {
@@ -49,24 +47,24 @@ export function CompressorTool() {
 
   const runCompression = useCallback(async () => {
     setCompressing(true);
-    const updated = [...files];
-    for (let i = 0; i < updated.length; i++) {
-      const item = updated[i];
-      if (item.status === "done") continue;
-      item.status = "compressing";
-      setFiles([...updated]);
+    const pending = files.filter((f) => f.status !== "done");
+
+    await runConcurrent(pending, async (item) => {
       try {
+        updateItem(item.id, { status: "compressing" });
         const result = await compressFile(item, mode, sliderQuality, targetFormat, targetSizeValue, targetSizeUnit);
-        item.compressedBlob = result.blob;
-        item.newSize = result.size;
-        item.status = "done";
+        updateItem(item.id, { status: "done", compressedBlob: result.blob, newSize: result.size });
       } catch {
-        item.status = "error";
+        updateItem(item.id, { status: "error" });
       }
-      setFiles([...updated]);
-    }
+    }, MAX_CONCURRENCY);
+
     setCompressing(false);
   }, [files, mode, sliderQuality, targetFormat, targetSizeValue, targetSizeUnit]);
+
+  const updateItem = useCallback((id: string, update: Partial<FileItem>) => {
+    setFiles((prev) => prev.map((f) => (f.id === id ? { ...f, ...update } : f)));
+  }, []);
 
   const downloadZip = useCallback(async () => {
     const done = files.filter((f) => f.status === "done" && f.compressedBlob);
@@ -133,7 +131,6 @@ export function CompressorTool() {
           transition={{ duration: 0.3 }}
         >
           <div className="grid grid-cols-[280px_1fr] gap-4 mb-4 max-md:grid-cols-1">
-            {/* Settings panel */}
             <motion.div
               initial={{ opacity: 0, x: -12 }}
               animate={{ opacity: 1, x: 0 }}
@@ -226,7 +223,6 @@ export function CompressorTool() {
               </button>
             </motion.div>
 
-            {/* File grid */}
             <motion.div
               initial={{ opacity: 0, x: 12 }}
               animate={{ opacity: 1, x: 0 }}
@@ -297,7 +293,6 @@ export function CompressorTool() {
             </motion.div>
           </div>
 
-          {/* Bottom actions */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

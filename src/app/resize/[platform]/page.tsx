@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import presets from "@/data/social-presets.json";
 import { PLATFORM_ICONS } from "@/data/social-icons";
+import { BreadcrumbSchema, WebAppSchema, FAQPageSchema, HowToSchema, OrgSchema } from "@/components/schema-scripts";
 
 type Props = { params: Promise<{ platform: string }> };
 
@@ -173,104 +174,43 @@ export default async function PlatformPage({ params }: Props) {
   const siteUrl = process.env.SITE_URL || "https://www.squarepic.io";
   const pageUrl = `${siteUrl}/resize/${platform}`;
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: `What is the standard image size for ${p.label}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `${p.label} supports multiple image formats. The most common sizes are ${Object.values(p.types).slice(0, 3).map((t: PresetType) => `${t.w}x${t.h} pixels`).join(", ")}. Use SquarePic to resize your photos to any of these exact dimensions.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `How do I resize images for ${p.label} without cropping?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Use SquarePic's free image resizer. Upload your photo, select the ${p.label} preset that matches your needs, and choose Dynamic Blur or Solid Background mode to fill any empty space without cropping your original image.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `Is ${p.label} image resizing free?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. SquarePic is completely free with no signup required. All image processing happens locally in your browser using HTML5 Canvas.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: `What is the best image format for ${p.label}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `For ${p.label}, JPEG is best for photos with smooth gradients, PNG is ideal for graphics with text or sharp edges, and WebP offers excellent quality at smaller file sizes. SquarePic supports all three formats for export.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `Can I create a ${p.label} profile picture with SquarePic?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Yes. Upload your photo to SquarePic and use our free editor to make it perfectly square. Choose the ${p.label} preset size and export a high-quality profile picture in seconds.`,
-        },
-      },
-    ],
-  };
+  const faqQuestions = [
+    {
+      question: `What is the standard image size for ${p.label}?`,
+      answer: `${p.label} supports multiple image formats. The most common sizes are ${Object.values(p.types).slice(0, 3).map((t: PresetType) => `${t.w}x${t.h} pixels`).join(", ")}. Use SquarePic to resize your photos to any of these exact dimensions.`,
+    },
+    {
+      question: `How do I resize images for ${p.label} without cropping?`,
+      answer: `Use SquarePic's free image resizer. Upload your photo, select the ${p.label} preset that matches your needs, and choose Dynamic Blur or Solid Background mode to fill any empty space without cropping your original image.`,
+    },
+    {
+      question: `Is ${p.label} image resizing free?`,
+      answer: "Yes. SquarePic is completely free with no signup required. All image processing happens locally in your browser using HTML5 Canvas.",
+    },
+    {
+      question: `What is the best image format for ${p.label}?`,
+      answer: `For ${p.label}, JPEG is best for photos with smooth gradients, PNG is ideal for graphics with text or sharp edges, and WebP offers excellent quality at smaller file sizes. SquarePic supports all three formats for export.`,
+    },
+    {
+      question: `Can I create a ${p.label} profile picture with SquarePic?`,
+      answer: `Yes. Upload your photo to SquarePic and use our free editor to make it perfectly square. Choose the ${p.label} preset size and export a high-quality profile picture in seconds.`,
+    },
+  ];
+
+  const howToSteps = [
+    { name: "Upload your photo", text: "Select your image and upload it to SquarePic. Supports JPEG, PNG, WebP, and more." },
+    { name: "Choose the right dimensions", text: `Select the ${p.label} preset that matches your needs or enter custom dimensions.` },
+    { name: "Adjust the style", text: "Pick Dynamic Blur, Solid Color Fill, or Smart Crop to fill any empty space without cropping." },
+    { name: "Download your resized image", text: `Export your image at the exact ${p.label} dimensions you need. Ready to upload.` },
+  ];
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-            { "@type": "ListItem", position: 2, name: `${p.label} Image Sizes`, item: pageUrl },
-          ],
-        }),
-      }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          name: `SquarePic - ${p.label} Image Sizes`,
-          url: pageUrl,
-          description: `Complete guide to ${p.label} image sizes with exact pixel dimensions.`,
-          applicationCategory: "MultimediaApplication",
-          operatingSystem: "Any",
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-          dateModified: "2026-07-13",
-        }),
-      }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify(faqSchema),
-      }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "SquarePic",
-          alternateName: "Square Pic Square Image tool",
-          url: siteUrl,
-          logo: `${siteUrl}/images/logo-icon.svg`,
-        }),
-      }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "HowTo",
-          name: `Resize images for ${p.label}`,
-          step: [
-            { "@type": "HowToStep", position: 1, name: "Upload your photo", text: `Select your image and upload it to SquarePic. Supports JPEG, PNG, WebP, and more.` },
-            { "@type": "HowToStep", position: 2, name: "Choose the right dimensions", text: `Select the ${p.label} preset that matches your needs or enter custom dimensions.` },
-            { "@type": "HowToStep", position: 3, name: "Adjust the style", text: "Pick Dynamic Blur, Solid Color Fill, or Smart Crop to fill any empty space without cropping." },
-            { "@type": "HowToStep", position: 4, name: "Download your resized image", text: `Export your image at the exact ${p.label} dimensions you need. Ready to upload.` },
-          ],
-        }),
-      }} />
+      <BreadcrumbSchema items={[{ name: "Home", url: siteUrl }, { name: `${p.label} Image Sizes`, url: pageUrl }]} />
+      <WebAppSchema name={`SquarePic - ${p.label} Image Sizes`} url={pageUrl} description={`Complete guide to ${p.label} image sizes with exact pixel dimensions.`} dateModified="2026-07-13" />
+      <FAQPageSchema questions={faqQuestions} />
+      <OrgSchema siteUrl={siteUrl} />
+      <HowToSchema steps={howToSteps} />
       <div className="max-w-[920px] w-full mx-auto px-5 py-6">
       <div className="text-center mb-8 p-8 bg-gradient-to-br from-[rgba(6,182,212,0.04)] to-[rgba(139,92,246,0.04)] border border-[rgba(6,182,212,0.08)] rounded-lg">
         <h1 className="text-[1.5rem] font-extrabold tracking-tight mb-2 flex items-center justify-center gap-3">

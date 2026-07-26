@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ConverterTool } from "@/components/converter/converter-tool";
 import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
+import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
@@ -19,8 +20,6 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "https://www.squarepic.io/converter" },
 };
-
-const SITE = "https://www.squarepic.io";
 
 export default function ConverterPage() {
   return (

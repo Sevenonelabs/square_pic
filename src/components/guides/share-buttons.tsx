@@ -1,8 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-
-const SITE = "https://www.squarepic.io";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export function ShareButtons({ path, title }: { path: string; url?: string; title: string }) {
   const url = `${SITE}${path}`;

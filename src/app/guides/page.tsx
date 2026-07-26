@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Image Editing Guides & Tutorials - Social Media Size Cheat Sheets",
@@ -9,8 +10,6 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "Image Editing Guides & Tutorials | SquarePic", description: "Social media image size guides and image editing tutorials for Instagram, Facebook, LinkedIn, YouTube, TikTok, and more." },
   alternates: { canonical: "https://www.squarepic.io/guides" },
 };
-
-const SITE = "https://www.squarepic.io";
 
 const ALL_CATEGORIES = ["All", "Social Media", "Instagram", "Facebook", "LinkedIn", "YouTube", "TikTok", "Pinterest", "Discord"] as const;
 

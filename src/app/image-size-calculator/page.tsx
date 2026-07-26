@@ -4,8 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
-
-const SITE = "https://www.squarepic.io";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 const PLATFORMS = [
   { key: "instagram", label: "Instagram" },

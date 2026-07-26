@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BreadcrumbSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 type Props = { params: Promise<{ slug: string }> };
-
-const SITE = "https://www.squarepic.io";
 
 const FORMAT_LABELS: Record<string, string> = {
   png: "PNG", jpg: "JPEG", jpeg: "JPEG", webp: "WebP",

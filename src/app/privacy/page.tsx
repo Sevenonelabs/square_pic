@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy - SquarePic Free Online Image Editor",
@@ -7,8 +8,6 @@ export const metadata: Metadata = {
   openGraph: { title: "Privacy Policy - SquarePic Free Online Image Editor" },
   alternates: { canonical: "https://www.squarepic.io/privacy" },
 };
-
-const SITE = "https://www.squarepic.io";
 
 export default function PrivacyPage() {
   return (
@@ -85,9 +84,9 @@ export default function PrivacyPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
           {[
             { label: "HTTPS Everywhere", desc: "All connections are encrypted. No image data is transmitted." },
-            { label: "No Third-Party Scripts", desc: "We do not use third-party scripts that can access your images." },
+            { label: "Minimal Scripts", desc: "We use Google Analytics for anonymous usage statistics, but no script can access your images." },
             { label: "Open Source Code", desc: "Our entire codebase is public and auditable on GitHub." },
-            { label: "No User Tracking", desc: "We never track, fingerprint, or profile individual users." },
+            { label: "No Personal Tracking", desc: "We never fingerprint, profile, or collect personal data. Analytics are aggregate and anonymous." },
           ].map((item) => (
             <div key={item.label} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.8rem] font-extrabold text-[#e6edf5] mb-1">{item.label}</h3>

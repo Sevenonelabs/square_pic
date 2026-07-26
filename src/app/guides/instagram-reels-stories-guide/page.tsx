@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips",
@@ -11,8 +12,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.squarepic.io/guides/instagram-reels-stories-guide" },
   twitter: { card: "summary_large_image", title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips | SquarePic", description: "Complete guide to Instagram Reels and Stories dimensions for 2026." },
 };
-
-const SITE = "https://www.squarepic.io";
 
 const FAQ_QUESTIONS = [
   { question: "What is the best size for Instagram Reels?", answer: "1080 x 1920 pixels at 9:16 aspect ratio. This full-screen vertical format fills the mobile display and matches the native Reels player dimensions." },

@@ -5,6 +5,7 @@ import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
 import { TableOfContents } from "@/components/guides/table-of-contents";
 import presets from "@/data/social-presets.json";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Social Media Image Sizes 2026: Complete Cheat Sheet",
@@ -13,8 +14,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.squarepic.io/guides/social-media-image-sizes-2026" },
   twitter: { card: "summary_large_image", title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic", description: "The definitive guide to 2026 social media image sizes." },
 };
-
-const SITE = "https://www.squarepic.io";
 
 const SLUG_MAP: Record<string, string> = {
   instagram: "instagram",

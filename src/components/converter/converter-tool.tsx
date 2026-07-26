@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from "react";
 import { motion } from "motion/react";
 import { encodeGIF, encodeICO, encodeTIFF } from "@/lib/encoders";
 import { formatBytes } from "@/lib/compressor-utils";
+import { runConcurrent } from "@/lib/async-utils";
 
 type Format = "jpeg" | "png" | "webp" | "bmp" | "gif" | "ico" | "avif" | "tiff";
 
@@ -44,60 +45,76 @@ function getExt(fmt: Format): string {
   return map[fmt];
 }
 
-async function convertFile(item: FileItem): Promise<Blob> {
-  if (!item.imgElement) {
-    await new Promise<void>((resolve) => {
-      const img = new Image();
-      img.onload = () => { item.imgElement = img; resolve(); };
-      img.src = item.src;
-    });
-  }
+const imgCache = new Map<string, HTMLImageElement>();
 
-  const img = item.imgElement!;
+function loadImage(src: string): Promise<HTMLImageElement> {
+  const cached = imgCache.get(src);
+  if (cached) return Promise.resolve(cached);
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => { imgCache.set(src, img); resolve(img); };
+    img.onerror = () => reject(new Error("Image failed to load"));
+    img.src = src;
+  });
+}
+
+function convertCore(
+  img: HTMLImageElement,
+  format: Format,
+  quality: number
+): Promise<Blob> {
   const canvas = document.createElement("canvas");
   canvas.width = img.naturalWidth;
   canvas.height = img.naturalHeight;
   const ctx = canvas.getContext("2d")!;
 
-  if (item.targetFormat === "gif") {
+  if (format === "gif") {
     ctx.drawImage(img, 0, 0);
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const gifData = encodeGIF(imageData);
-    return new Blob([gifData as BlobPart], { type: "image/gif" });
+    return Promise.resolve(new Blob([gifData as BlobPart], { type: "image/gif" }));
   }
 
-  if (item.targetFormat === "ico") {
-    const s = 256;
+  if (format === "ico") {
+    const s = Math.min(256, Math.max(img.naturalWidth, img.naturalHeight));
     const temp = document.createElement("canvas");
     temp.width = s; temp.height = s;
     const tCtx = temp.getContext("2d")!;
     tCtx.drawImage(img, 0, 0, s, s);
-    const pngBlob = await new Promise<Blob>((resolve) => temp.toBlob((b) => resolve(b!), "image/png"));
-    return await encodeICO(pngBlob);
+    return new Promise<Blob>((resolve) =>
+      temp.toBlob((b) => resolve(b!), "image/png")
+    ).then(encodeICO);
   }
 
-  if (item.targetFormat === "tiff") {
+  if (format === "tiff") {
     ctx.drawImage(img, 0, 0);
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    return encodeTIFF(imageData);
+    return Promise.resolve(encodeTIFF(imageData));
   }
 
-  if (item.targetFormat === "jpeg") {
+  if (format === "jpeg") {
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
   ctx.drawImage(img, 0, 0);
 
-  const mime = getMime(item.targetFormat);
-  const quality = mime === "image/png" || mime === "image/bmp" ? undefined : item.quality;
+  const mime = getMime(format);
+  const q = mime === "image/png" || mime === "image/bmp" ? undefined : quality;
 
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
       if (blob) resolve(blob);
       else reject(new Error("Conversion failed"));
-    }, mime, quality);
+    }, mime, q);
   });
 }
+
+async function convertFile(item: FileItem): Promise<Blob> {
+  const img = item.imgElement ?? await loadImage(item.src);
+  return convertCore(img, item.targetFormat, item.quality);
+}
+
+const MAX_CONCURRENCY = 4;
 
 export function ConverterTool() {
   const [files, setFiles] = useState<FileItem[]>([]);
@@ -113,13 +130,9 @@ export function ConverterTool() {
       if (!file.type.startsWith("image/")) continue;
       const id = Math.random().toString(36).substring(2, 11);
       const src = URL.createObjectURL(file);
-      const item: FileItem = { id, file, name: file.name, size: file.size, src, imgElement: null, targetFormat: "webp", quality: 0.8, status: "ready", convertedBlob: null };
-      const img = new Image();
-      img.onload = () => { item.imgElement = img; setFiles((p) => [...p]); };
-      img.src = src;
-      newItems.push(item);
+      newItems.push({ id, file, name: file.name, size: file.size, src, imgElement: null, targetFormat: "webp", quality: 0.8, status: "ready", convertedBlob: null });
     }
-    setFiles((p) => [...p, ...newItems]);
+    if (newItems.length > 0) setFiles((p) => [...p, ...newItems]);
   }, []);
 
   const updateItem = useCallback((id: string, update: Partial<FileItem>) => {
@@ -136,16 +149,21 @@ export function ConverterTool() {
 
   const startConversion = useCallback(async () => {
     setConverting(true);
-    for (const item of files) {
-      if (item.status === "done") continue;
+    const pending = files.filter((f) => f.status !== "done");
+    const updated = new Map<string, boolean>();
+
+    await runConcurrent(pending, async (item) => {
       updateItem(item.id, { status: "converting" });
       try {
         const blob = await convertFile(item);
+        updated.set(item.id, true);
         updateItem(item.id, { status: "done", convertedBlob: blob });
       } catch {
+        updated.set(item.id, false);
         updateItem(item.id, { status: "error" });
       }
-    }
+    }, MAX_CONCURRENCY);
+
     setConverting(false);
   }, [files, updateItem]);
 

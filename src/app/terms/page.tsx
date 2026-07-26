@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service - SquarePic Free Online Image Editor",
@@ -7,8 +8,6 @@ export const metadata: Metadata = {
   openGraph: { title: "Terms of Service - SquarePic Free Online Image Editor" },
   alternates: { canonical: "https://www.squarepic.io/terms" },
 };
-
-const SITE = "https://www.squarepic.io";
 
 export default function TermsPage() {
   return (

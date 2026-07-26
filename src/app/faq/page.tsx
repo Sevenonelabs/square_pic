@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BreadcrumbSchema, FAQPageSchema } from "@/components/schema-scripts";
+import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "FAQ - How to Make a Square Image Online | SquarePic Help",
@@ -7,8 +8,6 @@ export const metadata: Metadata = {
   openGraph: { title: "FAQ - How to Make a Square Image Online | SquarePic Help", description: "Answers to common questions about making square images online, resizing photos for social media, and using SquarePic. No uploads, no signup." },
   alternates: { canonical: "https://www.squarepic.io/faq" },
 };
-
-const SITE = "https://www.squarepic.io";
 
 const FAQS = [
   {
