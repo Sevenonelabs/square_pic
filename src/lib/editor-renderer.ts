@@ -15,7 +15,9 @@ export interface EditorState {
 export function renderToCanvas(
   ctx: CanvasRenderingContext2D,
   canvas: HTMLCanvasElement,
-  state: EditorState
+  state: EditorState,
+  outputWidth?: number,
+  outputHeight?: number
 ) {
   const {
     image,
@@ -32,8 +34,10 @@ export function renderToCanvas(
   if (!image) return;
 
   const hasPreset = targetWidth > 0 && targetHeight > 0;
-  const canvasW = hasPreset ? targetWidth : Math.max(image.width, image.height);
-  const canvasH = hasPreset ? targetHeight : canvasW;
+  const nativeW = hasPreset ? targetWidth : Math.max(image.width, image.height);
+  const nativeH = hasPreset ? targetHeight : nativeW;
+  const canvasW = outputWidth ?? nativeW;
+  const canvasH = outputHeight ?? nativeH;
 
   if (canvas.width !== canvasW || canvas.height !== canvasH) {
     canvas.width = canvasW;

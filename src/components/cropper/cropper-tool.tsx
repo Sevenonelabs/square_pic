@@ -106,6 +106,31 @@ export function CropperTool() {
   useEffect(() => { zoomRef.current = zoom; }, [zoom]);
   useEffect(() => { panRef.current = pan; }, [pan]);
 
+  useEffect(() => {
+    const container = containerRef.current;
+    const canvas = canvasRef.current;
+    if (!container || !canvas) return;
+
+    const syncSize = () => {
+      const cw = container.clientWidth;
+      const ch = container.clientHeight;
+      if (cw <= 0 || ch <= 0) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const targetW = Math.round(cw * dpr);
+      const targetH = Math.round(ch * dpr);
+      if (canvas.width !== targetW || canvas.height !== targetH) {
+        canvas.width = targetW;
+        canvas.height = targetH;
+        if (imgRef.current) renderRef.current();
+      }
+    };
+
+    syncSize();
+    const ro = new ResizeObserver(syncSize);
+    ro.observe(container);
+    return () => ro.disconnect();
+  }, []);
+
   const render = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas || !imgRef.current) return;
@@ -118,6 +143,7 @@ export function CropperTool() {
     const z = zoomRef.current;
     const p = panRef.current;
 
+    ctx.imageSmoothingEnabled = true;
     ctx.clearRect(0, 0, cw, ch);
     ctx.fillStyle = "#111";
     ctx.fillRect(0, 0, cw, ch);
@@ -173,7 +199,6 @@ export function CropperTool() {
   }, []);
 
   const renderRef = useRef(render);
-  useEffect(() => { renderRef.current = render; }, [render]);
 
   useEffect(() => {
     if (!image || !canvasRef.current) return;
@@ -250,15 +275,19 @@ export function CropperTool() {
   const handlePointerMove = useCallback(
     (e: React.PointerEvent) => {
       if (!dragging || !canvasRef.current) return;
-      const cw = canvasRef.current.width;
-      const ch = canvasRef.current.height;
+      const canvas = canvasRef.current;
+      const rect = canvas.getBoundingClientRect();
+      const csx = canvas.width / rect.width;
+      const csy = canvas.height / rect.height;
+      const cw = canvas.width;
+      const ch = canvas.height;
       const z = zoomRef.current;
-      const dx = (e.clientX - dragging.startX) / z;
-      const dy = (e.clientY - dragging.startY) / z;
+      const dx = ((e.clientX - dragging.startX) * csx) / z;
+      const dy = ((e.clientY - dragging.startY) * csy) / z;
 
       if (dragging.mode === "pan") {
-        const nx = dragging.startPan.x + (e.clientX - dragging.startX);
-        const ny = dragging.startPan.y + (e.clientY - dragging.startY);
+        const nx = dragging.startPan.x + (e.clientX - dragging.startX) * csx;
+        const ny = dragging.startPan.y + (e.clientY - dragging.startY) * csy;
         panRef.current = { x: nx, y: ny };
         setPan(panRef.current);
         clampCropAfterViewChange();
@@ -490,7 +519,7 @@ export function CropperTool() {
           >
             <div
               ref={containerRef}
-              className="relative bg-[#0a0c12] border border-[rgba(255,255,255,0.10)] overflow-hidden aspect-square p-1"
+              className="relative bg-[#0a0c12] border border-[rgba(255,255,255,0.10)] overflow-hidden aspect-square p-1 will-change-transform"
               onPointerDown={handleCanvasPointerDown}
               onPointerMove={handlePointerMove}
               onPointerUp={handlePointerUp}
