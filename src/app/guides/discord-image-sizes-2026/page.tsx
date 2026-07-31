@@ -7,10 +7,10 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide",
-  description: "Complete guide to Discord image dimensions for 2026. Server icons, banners, splash screens, emoji sizes, profile pictures, and best practices for your community.",
-  openGraph: { title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide | SquarePic", description: "Complete guide to Discord image dimensions for 2026. Server icons, banners, splash screens, emoji sizes, profile pictures, and best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
+  description: "SquarePic guide: Complete Discord image size guide for 2026. Server icons, banners, splash screens, emoji sizes, profile pictures, and best practices for your community.",
+  openGraph: { title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide | SquarePic", description: "SquarePic guide: Complete Discord image dimensions for 2026. Server icons, banners, splash screens, emoji sizes, profile pictures, and best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
   alternates: { canonical: "https://www.squarepic.io/guides/discord-image-sizes-2026" },
-  twitter: { card: "summary_large_image", title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide | SquarePic", description: "Complete guide to Discord image dimensions for 2026 with best practices." },
+  twitter: { card: "summary_large_image", title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide | SquarePic", description: "SquarePic guide: Complete Discord image dimensions for 2026 with best practices." },
 };
 
 const FAQ_QUESTIONS = [

@@ -18,7 +18,6 @@ export function encodeGIF(
   }
 
   const colors: { r: number; g: number; b: number; count: number }[] = Array.from(hist.values());
-  const numColors = colors.length;
 
   // Weighted median-cut on histogram entries
   function medianCutWeighted(arr: typeof colors, depth: number): typeof colors {

@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fromLabel = FORMAT_LABELS[pair.from] || pair.from.toUpperCase();
   const toLabel = FORMAT_LABELS[pair.to] || pair.to.toUpperCase();
   const title = `Convert ${fromLabel} to ${toLabel} Online Free - ${fromLabel} ${toLabel} Converter`;
-  const desc = `Free online ${fromLabel} to ${toLabel} converter. Convert your ${fromLabel} images to ${toLabel} format instantly in your browser. No uploads, no signup, no watermarks. Batch convert and download as ZIP.`;
+  const desc = `SquarePic is a free online tool that converts ${fromLabel} images to ${toLabel} format instantly in your browser. No uploads, no signup. Batch convert and download as ZIP.`;
   return { title, description: desc, openGraph: { title: `${title} | SquarePic`, description: desc }, alternates: { canonical: `${SITE}/converter/${slug}` } };
 }
 

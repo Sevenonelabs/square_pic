@@ -4,8 +4,8 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Help & Support - Square Image Maker Troubleshooting",
-  description: "Get help with SquarePic's free online square image maker. Troubleshooting guides, tips for resizing and editing photos, and contact support. No signup needed.",
-  openGraph: { title: "Help & Support - Square Image Maker Troubleshooting | SquarePic", description: "Get help with SquarePic's free online square image maker. Troubleshooting guides and support." },
+  description: "SquarePic is a free online tool that crops and creates photos into square format for social media. Get help with the editor, troubleshooting guides, and photo editing tips. No signup needed.",
+  openGraph: { title: "Help & Support - Square Image Maker Troubleshooting | SquarePic", description: "SquarePic is a free online square image maker. Get troubleshooting help and tips for editing photos for social media." },
   alternates: { canonical: "https://www.squarepic.io/support" },
 };
 

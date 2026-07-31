@@ -7,10 +7,10 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions",
-  description: "Complete guide to LinkedIn image dimensions for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page image requirements.",
-  openGraph: { title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions | SquarePic", description: "Complete guide to LinkedIn image dimensions for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page image requirements.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
+  description: "SquarePic guide: Complete LinkedIn image size guide for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page requirements.",
+  openGraph: { title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete LinkedIn image dimensions for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page requirements.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
   alternates: { canonical: "https://www.squarepic.io/guides/linkedin-image-sizes-2026" },
-  twitter: { card: "summary_large_image", title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions | SquarePic", description: "Complete guide to LinkedIn image dimensions for 2026." },
+  twitter: { card: "summary_large_image", title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete LinkedIn image dimensions for 2026." },
 };
 
 export default function LinkedInImageSizesPage() {

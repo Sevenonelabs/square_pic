@@ -45,6 +45,10 @@ export function CompressorTool() {
     setFiles([]);
   }, [files]);
 
+  const updateItem = useCallback((id: string, update: Partial<FileItem>) => {
+    setFiles((prev) => prev.map((f) => (f.id === id ? { ...f, ...update } : f)));
+  }, []);
+
   const runCompression = useCallback(async () => {
     setCompressing(true);
     const pending = files.filter((f) => f.status !== "done");
@@ -60,11 +64,7 @@ export function CompressorTool() {
     }, MAX_CONCURRENCY);
 
     setCompressing(false);
-  }, [files, mode, sliderQuality, targetFormat, targetSizeValue, targetSizeUnit]);
-
-  const updateItem = useCallback((id: string, update: Partial<FileItem>) => {
-    setFiles((prev) => prev.map((f) => (f.id === id ? { ...f, ...update } : f)));
-  }, []);
+  }, [files, mode, sliderQuality, targetFormat, targetSizeValue, targetSizeUnit, updateItem]);
 
   const downloadZip = useCallback(async () => {
     const done = files.filter((f) => f.status === "done" && f.compressedBlob);

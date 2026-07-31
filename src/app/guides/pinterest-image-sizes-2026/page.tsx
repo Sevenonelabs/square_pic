@@ -7,10 +7,10 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide",
-  description: "Complete guide to Pinterest image dimensions for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices for maximum engagement.",
-  openGraph: { title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide | SquarePic", description: "Complete guide to Pinterest image dimensions for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
+  description: "SquarePic guide: Complete Pinterest image size guide for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices.",
+  openGraph: { title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide | SquarePic", description: "SquarePic guide: Complete Pinterest image dimensions for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
   alternates: { canonical: "https://www.squarepic.io/guides/pinterest-image-sizes-2026" },
-  twitter: { card: "summary_large_image", title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide | SquarePic", description: "Complete guide to Pinterest image dimensions for 2026 with best practices." },
+  twitter: { card: "summary_large_image", title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide | SquarePic", description: "SquarePic guide: Complete Pinterest image dimensions for 2026 with best practices." },
 };
 
 const FAQ_QUESTIONS = [

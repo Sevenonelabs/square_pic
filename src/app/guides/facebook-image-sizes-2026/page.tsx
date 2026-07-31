@@ -7,10 +7,10 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions",
-  description: "Complete guide to Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.",
-  openGraph: { title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions | SquarePic", description: "Complete guide to Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
+  description: "SquarePic guide: Complete Facebook image size guide for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.",
+  openGraph: { title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
   alternates: { canonical: "https://www.squarepic.io/guides/facebook-image-sizes-2026" },
-  twitter: { card: "summary_large_image", title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions | SquarePic", description: "Complete guide to Facebook image dimensions for 2026 with best practices." },
+  twitter: { card: "summary_large_image", title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete Facebook image dimensions for 2026 with best practices." },
 };
 
 const FAQ_QUESTIONS = [

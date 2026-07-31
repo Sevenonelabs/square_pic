@@ -5,9 +5,9 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Image Editing Guides & Tutorials - Social Media Size Cheat Sheets",
-  description: "Step-by-step image editing guides, social media size cheat sheets for Instagram, Facebook, LinkedIn, and more. Learn how to resize, crop, convert, and optimize images for every platform.",
+  description: "SquarePic is a free online tool that crops and creates photos into square format for social media. Browse step-by-step guides and size cheat sheets for Instagram, Facebook, LinkedIn, YouTube, and more.",
   openGraph: { title: "Image Editing Guides & Tutorials | SquarePic" },
-  twitter: { card: "summary_large_image", title: "Image Editing Guides & Tutorials | SquarePic", description: "Social media image size guides and image editing tutorials for Instagram, Facebook, LinkedIn, YouTube, TikTok, and more." },
+  twitter: { card: "summary_large_image", title: "Image Editing Guides & Tutorials | SquarePic", description: "SquarePic guides: social media image size cheat sheets and editing tutorials for Instagram, Facebook, LinkedIn, YouTube, TikTok, and more." },
   alternates: { canonical: "https://www.squarepic.io/guides" },
 };
 

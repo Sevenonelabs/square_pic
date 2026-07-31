@@ -153,8 +153,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `Instagram Square Image Maker - Resize Photos for Instagram Free`
     : `Resize Images for ${p.label} - ${p.label} Image Sizes & Dimensions`;
   const desc = key === "instagram"
-    ? `Make square images for Instagram free. Instagram image sizes: ${dimsStr}. Resize photos for Instagram profile, feed posts, and stories without cropping. No uploads, no signup.`
-    : `${p.label} image sizes: ${dimsStr}. Free tool to resize photos for ${p.label} profile, posts, and covers without cropping. No uploads, no signup.`;
+    ? `SquarePic is a free online tool that makes square images for Instagram. Instagram image sizes: ${dimsStr}. Resize photos for profile, feed, and stories without cropping. No uploads, no signup.`
+    : `SquarePic is a free online tool that resizes photos for ${p.label}. ${p.label} image sizes: ${dimsStr}. Resize for profile, posts, and covers without cropping. No uploads, no signup.`;
   return {
     title,
     description: desc,

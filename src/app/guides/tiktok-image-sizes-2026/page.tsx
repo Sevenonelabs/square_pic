@@ -7,10 +7,10 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions",
-  description: "Complete guide to TikTok image dimensions for 2026. Profile picture size, video aspect ratios, story specs, ad formats, and best practices for maximum engagement.",
-  openGraph: { title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions | SquarePic", description: "Complete guide to TikTok image dimensions for 2026. Profile pictures, video aspect ratios, story specs, ad formats, and best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
+  description: "SquarePic guide: Complete TikTok image size guide for 2026. Profile picture size, video aspect ratios, story specs, ad formats, and best practices.",
+  openGraph: { title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions | SquarePic", description: "SquarePic guide: Complete TikTok image dimensions for 2026. Profile pictures, video aspect ratios, story specs, ad formats, and best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
   alternates: { canonical: "https://www.squarepic.io/guides/tiktok-image-sizes-2026" },
-  twitter: { card: "summary_large_image", title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions | SquarePic", description: "Complete guide to TikTok image dimensions for 2026." },
+  twitter: { card: "summary_large_image", title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions | SquarePic", description: "SquarePic guide: Complete TikTok image dimensions for 2026." },
 };
 
 export default function TikTokImageSizesPage() {

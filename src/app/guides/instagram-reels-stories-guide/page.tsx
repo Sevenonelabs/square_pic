@@ -7,10 +7,10 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips",
-  description: "Complete guide to Instagram Reels and Stories dimensions for 2026. Sizes, text safe zones, format recommendations, and proven engagement strategies.",
-  openGraph: { title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips | SquarePic", description: "Complete guide to Instagram Reels and Stories dimensions for 2026 with safe zones, format tips, and engagement strategies.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
+  description: "SquarePic guide: Complete Instagram Reels and Stories dimensions for 2026. Sizes, text safe zones, format recommendations, and proven engagement strategies.",
+  openGraph: { title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips | SquarePic", description: "SquarePic guide: Complete Instagram Reels and Stories dimensions for 2026 with safe zones, format tips, and engagement strategies.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
   alternates: { canonical: "https://www.squarepic.io/guides/instagram-reels-stories-guide" },
-  twitter: { card: "summary_large_image", title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips | SquarePic", description: "Complete guide to Instagram Reels and Stories dimensions for 2026." },
+  twitter: { card: "summary_large_image", title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips | SquarePic", description: "SquarePic guide: Complete Instagram Reels and Stories dimensions for 2026." },
 };
 
 const FAQ_QUESTIONS = [

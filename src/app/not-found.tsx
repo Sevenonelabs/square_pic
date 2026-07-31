@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "404 - Page Not Found | SquarePic",
-  description: "The page you are looking for does not exist. Try SquarePic's free square image maker, image converter, or image compressor instead. No uploads, no signup.",
+  title: "404 - Page Not Found",
+  description: "The page you are looking for does not exist. SquarePic is a free online tool that makes square images, converts, compresses, and crops photos. No uploads, no signup.",
 };
 
 export default function NotFound() {

@@ -7,16 +7,16 @@ import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
   title: "Convert Image to JPG, PNG, WebP Online Free - Image Format Converter",
-  description: "Convert image to JPG, PNG, WebP, AVIF, and more online free. Batch convert between 8 image formats instantly. No uploads, no signup.",
+  description: "SquarePic is a free online tool that converts images to JPG, PNG, WebP, AVIF, and more. Batch convert between 8 formats instantly in your browser. No uploads, no signup.",
   openGraph: {
     title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
-    description: "Convert image to JPG, PNG, WebP, AVIF, and more online free. Batch convert between 8 image formats instantly. No uploads, no signup.",
+    description: "SquarePic is a free online tool that converts images to JPG, PNG, WebP, AVIF, and more. Batch convert between 8 formats instantly. No uploads, no signup.",
     url: "https://www.squarepic.io/converter",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
-    description: "Convert image to JPG, PNG, WebP, AVIF, and more online free. Batch convert. Free, no uploads.",
+    description: "SquarePic is a free online image converter. Convert between JPG, PNG, WebP, and more. Batch convert. Free, no uploads.",
   },
   alternates: { canonical: "https://www.squarepic.io/converter" },
 };

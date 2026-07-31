@@ -14,7 +14,7 @@ const TOOLS = [
 ];
 
 export function Navbar() {
-  const { current, apply, pickRandom } = useTheme();
+  const { current, apply } = useTheme();
   const [toolsOpen, setToolsOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const toolsRef = useRef<HTMLDivElement>(null);

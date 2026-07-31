@@ -7,10 +7,10 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video",
-  description: "Complete guide to YouTube image dimensions for 2026. Channel art/banner sizes, video thumbnail specs, profile picture requirements, and design best practices.",
-  openGraph: { title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video | SquarePic", description: "Complete guide to YouTube image dimensions for 2026. Channel art, thumbnails, profile pictures, and design best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
+  description: "SquarePic guide: Complete YouTube image size guide for 2026. Channel art/banner sizes, video thumbnail specs, profile picture requirements, and design best practices.",
+  openGraph: { title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video | SquarePic", description: "SquarePic guide: Complete YouTube image dimensions for 2026. Channel art, thumbnails, profile pictures, and design best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
   alternates: { canonical: "https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2026" },
-  twitter: { card: "summary_large_image", title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video | SquarePic", description: "Complete guide to YouTube image dimensions for 2026." },
+  twitter: { card: "summary_large_image", title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video | SquarePic", description: "SquarePic guide: Complete YouTube image dimensions for 2026." },
 };
 
 export default function YouTubeBannerThumbnailSizesPage() {

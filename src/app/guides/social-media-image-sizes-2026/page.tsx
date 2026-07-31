@@ -9,10 +9,10 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Social Media Image Sizes 2026: Complete Cheat Sheet",
-  description: "The definitive guide to 2026 social media image sizes. Updated dimensions for Instagram, Facebook, X/Twitter, LinkedIn, TikTok, YouTube, Pinterest, and more.",
-  openGraph: { title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic", description: "The definitive guide to 2026 social media image sizes. Updated dimensions for every major platform.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
+  description: "SquarePic guide: The definitive 2026 social media image size cheat sheet with updated dimensions for Instagram, Facebook, X/Twitter, LinkedIn, TikTok, YouTube, Pinterest, and more.",
+  openGraph: { title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic", description: "SquarePic guide to 2026 social media image sizes. Updated dimensions for every major platform.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
   alternates: { canonical: "https://www.squarepic.io/guides/social-media-image-sizes-2026" },
-  twitter: { card: "summary_large_image", title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic", description: "The definitive guide to 2026 social media image sizes." },
+  twitter: { card: "summary_large_image", title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic", description: "SquarePic guide to 2026 social media image sizes." },
 };
 
 const SLUG_MAP: Record<string, string> = {
@@ -62,22 +62,6 @@ const PLATFORM_ORDER = [
   "instagram", "facebook", "twitter", "linkedin", "tiktok", "youtube",
   "pinterest", "snapchat", "whatsapp", "twitch", "reddit", "telegram", "discord",
 ];
-
-const PLATFORM_SLUG: Record<string, string> = {
-  instagram: "instagram",
-  facebook: "facebook",
-  twitter: "x-twitter",
-  linkedin: "linkedin",
-  tiktok: "tiktok",
-  youtube: "youtube",
-  pinterest: "pinterest",
-  snapchat: "snapchat",
-  whatsapp: "whatsapp",
-  twitch: "twitch",
-  reddit: "reddit",
-  telegram: "telegram",
-  discord: "discord",
-};
 
 const FAQ_QUESTIONS = [
   { question: "What is the most common social media image size?", answer: "1080 x 1080 pixels (1:1 square) is the most universally supported size. Instagram, Facebook, LinkedIn, and X/Twitter all display square images natively without cropping or padding." },

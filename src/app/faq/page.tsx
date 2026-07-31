@@ -3,9 +3,9 @@ import { BreadcrumbSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "FAQ - How to Make a Square Image Online | SquarePic Help",
-  description: "Answers to common questions about making square images online, resizing photos for social media, and using SquarePic's free image editor. No uploads, no signup, no watermarks.",
-  openGraph: { title: "FAQ - How to Make a Square Image Online | SquarePic Help", description: "Answers to common questions about making square images online, resizing photos for social media, and using SquarePic. No uploads, no signup." },
+  title: "FAQ - How to Make a Square Image Online",
+  description: "SquarePic is a free online tool that crops and creates photos into square format for social media. Get answers about making square images, adding backgrounds, and resizing photos. No uploads, no signup.",
+  openGraph: { title: "FAQ - How to Make a Square Image Online | SquarePic", description: "SquarePic is a free online square image maker. Answers to common questions about making square images and resizing photos for social media. No uploads, no signup." },
   alternates: { canonical: "https://www.squarepic.io/faq" },
 };
 

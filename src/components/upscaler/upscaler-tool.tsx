@@ -173,6 +173,7 @@ export function UpscalerTool() {
                   onMouseDown={startDrag}
                   onTouchStart={startDrag}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={image.src}
                     alt="Original"
@@ -184,6 +185,7 @@ export function UpscalerTool() {
                     className="absolute inset-0 overflow-hidden"
                     style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
                   >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={resultDataUrl}
                       alt="Upscaled"
@@ -214,6 +216,7 @@ export function UpscalerTool() {
                 </div>
               ) : (
                 <div className="relative">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={displayMode === "upscaled" && resultDataUrl ? resultDataUrl : image.src}
                     alt={displayMode === "upscaled" ? "Upscaled" : "Original"}
