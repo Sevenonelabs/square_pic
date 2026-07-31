@@ -61,7 +61,7 @@ export default function Home() {
       <ToolAsHeroLayout
         state={state}
         onStateChange={update}
-        headline="Free Square Image Maker for Instagram & Social Media"
+        headline="Make a Photo Square Online — Free Square Image Maker"
         highlightWord="Square Image Maker"
         microcopy="Upload any photo and make it perfectly square for Instagram, LinkedIn, Facebook, and more. Three modes: Dynamic Blur, Solid Fill, or Smart Crop. Free, private, no signup."
         colorSwatches={COLOR_SWATCHES}
