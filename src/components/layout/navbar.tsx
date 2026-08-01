@@ -46,7 +46,7 @@ export function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-3 left-3 right-3 mx-auto h-11 bg-[rgba(5,5,7,0.82)] backdrop-blur-[28px] saturate-[1.6] border border-[rgba(255,255,255,0.06)] rounded-lg px-3 z-50 flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.4)] max-lg:h-10 max-md:top-1.5 max-md:h-9 max-md:left-2 max-md:right-2"
+      className="fixed top-[36px] left-3 right-3 mx-auto h-11 bg-[rgba(5,5,7,0.82)] backdrop-blur-[28px] saturate-[1.6] border border-[rgba(255,255,255,0.06)] rounded-lg px-3 z-50 flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.4)] max-lg:h-10 max-md:top-[30px] max-md:h-9 max-md:left-2 max-md:right-2"
     >
       <Link href="/" className="flex items-center gap-1.5 no-underline shrink-0">
         <div className="w-[18px] h-[18px] rounded-sm shrink-0 transition-colors duration-300" style={{ border: "2px solid " + current.accent }} />
