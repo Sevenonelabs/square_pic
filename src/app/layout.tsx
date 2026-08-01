@@ -63,6 +63,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <script async src="https://startupbar.co/widget/loader.js" data-startup-id="1a065196-b7e8-4bec-9e25-1af9492b9cc0"></script>
       </head>
       <body className="min-h-dvh flex flex-col pt-[60px] max-md:pt-[52px]">
         <Script id="gtm" strategy="afterInteractive" dangerouslySetInnerHTML={{
