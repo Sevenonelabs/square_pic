@@ -6,18 +6,18 @@ import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = {
-  title: "Upscale Image Online Free - Enlarge Photos 2x, 3x, 4x HD Quality",
+  title: "Upscale Image Online Free - Enlarge Images 2x, 3x, 4x HD Quality",
   description: "SquarePic is a free online tool that upscales images 2x, 3x, or 4x in HD quality with smart sharpening. All processing is private and local in your browser.",
   openGraph: {
     title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
     description: "SquarePic is a free online tool that upscales images 2x, 3x, or 4x in HD quality with smart sharpening. All processing is private and local.",
     url: "https://www.squarepic.io/upscaler",
-    images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic HD Image Upscaler - enlarge photos 2x, 3x, or 4x" }],
+    images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic HD Image Upscaler - enlarge images 2x, 3x, or 4x" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
-    description: "SquarePic is a free online HD image upscaler. Enlarge photos 2x, 3x, or 4x with smart sharpening. Private, browser-based.",
+    description: "SquarePic is a free online HD image upscaler. Enlarge images 2x, 3x, or 4x with smart sharpening. Private, browser-based.",
   },
   alternates: { canonical: "https://www.squarepic.io/upscaler" },
 };
@@ -157,7 +157,7 @@ export default function UpscalerPage() {
         "@type": "SoftwareApplication",
         name: "SquarePic - HD Image Upscaler",
         url: "https://www.squarepic.io/upscaler",
-        description: "Free online HD image upscaler. Enlarge photos 2x, 3x, or 4x with bicubic interpolation and smart sharpening. All processing is private and local.",
+        description: "Free online HD image upscaler. Enlarge images 2x, 3x, or 4x with bicubic interpolation and smart sharpening. All processing is private and local.",
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

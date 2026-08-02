@@ -16,7 +16,7 @@ export function Footer() {
             SquarePic
           </span>
           <p className="text-[0.8rem] text-[#576675] m-0 leading-relaxed max-w-xs max-md:max-w-none">
-            Free online square image maker and photo editor. Fast, private, and watermark-free.
+            Free online square image maker and image editor. Fast, private, and watermark-free.
           </p>
         </div>
 

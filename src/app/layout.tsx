@@ -24,10 +24,10 @@ const syneMono = Syne_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Make a Photo Square Online for Free | SquarePic",
+    default: "Make an Image Square Online for Free | SquarePic",
     template: "%s | SquarePic",
   },
-    description: "SquarePic is a free online tool that crops and creates photos into square format for social media like Facebook, Instagram, and WhatsApp profile pictures. Add backgrounds, blur, or fill — no uploads, no signup.",
+    description: "SquarePic is a free online tool that crops and creates images into square format for social media like Facebook, Instagram, and WhatsApp profile pictures. Add backgrounds, blur, or fill — no uploads, no signup.",
   icons: {
     icon: [
       { url: "/images/favicon.svg", type: "image/svg+xml" },
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "SquarePic",
     locale: "en_US",
-  description: "SquarePic is a free online tool that crops and creates photos into square format for social media like Facebook, Instagram, and WhatsApp profile pictures. Add backgrounds, blur, or fill — no uploads, no signup.",
-    images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic - Free online square image maker and photo editor" }],
+  description: "SquarePic is a free online tool that crops and creates images into square format for social media like Facebook, Instagram, and WhatsApp profile pictures. Add backgrounds, blur, or fill — no uploads, no signup.",
+    images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic - Free online square image maker and image editor" }],
   },
   twitter: {
     card: "summary_large_image",

@@ -37,8 +37,8 @@ export function DropZone({ onFile, compact }: Props) {
       <label htmlFor={UPLOAD_ID} className="flex flex-col items-center justify-center gap-3 cursor-pointer w-full h-full">
         {!compact && (
           <>
-            <h2 className="text-[1.1rem] font-bold text-[#e6edf5]">Free Online Image Resizer & Square Photo Maker</h2>
-            <p className="text-[0.8rem] text-[#8d9aaa] max-w-[90%] text-center leading-relaxed">SquarePic is your free photo cropper and online image resizer. Easily resize images for social media without losing quality.</p>
+            <h2 className="text-[1.1rem] font-bold text-[#e6edf5]">Free Online Image Resizer & Square Image Maker</h2>
+            <p className="text-[0.8rem] text-[#8d9aaa] max-w-[90%] text-center leading-relaxed">SquarePic is your free image cropper and online image resizer. Easily resize images for social media without losing quality.</p>
           </>
         )}
         <motion.span

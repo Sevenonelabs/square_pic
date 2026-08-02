@@ -4,8 +4,8 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Help & Support - Square Image Maker Troubleshooting",
-  description: "SquarePic is a free online tool that crops and creates photos into square format for social media. Get help with the editor, troubleshooting guides, and photo editing tips. No signup needed.",
-  openGraph: { title: "Help & Support - Square Image Maker Troubleshooting | SquarePic", description: "SquarePic is a free online square image maker. Get troubleshooting help and tips for editing photos for social media." },
+  description: "SquarePic is a free online tool that crops and creates images into square format for social media. Get help with the editor, troubleshooting guides, and image editing tips. No signup needed.",
+  openGraph: { title: "Help & Support - Square Image Maker Troubleshooting | SquarePic", description: "SquarePic is a free online square image maker. Get troubleshooting help and tips for editing images for social media." },
   alternates: { canonical: "https://www.squarepic.io/support" },
 };
 
@@ -70,7 +70,7 @@ export default function SupportPage() {
           <strong className="text-[#e6edf5]">Image Converter:</strong> Convert images between 8 different formats including JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, and TIFF. Set per-file format and quality settings.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          <strong className="text-[#e6edf5]">Photo Cropper:</strong> Crop images interactively with 8 drag handles. Lock aspect ratio to common social media formats including 1:1, 4:5, 16:9, and 9:16. Zoom and pan for precise positioning.
+          <strong className="text-[#e6edf5]">Image Cropper:</strong> Crop images interactively with 8 drag handles. Lock aspect ratio to common social media formats including 1:1, 4:5, 16:9, and 9:16. Zoom and pan for precise positioning.
         </p>
       </section>
 

@@ -3,9 +3,9 @@ import { BreadcrumbSchema, JsonLd, PersonSchema } from "@/components/schema-scri
 import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "About SquarePic - Free Square Image Maker & Photo Editor",
-  description: "SquarePic is a free online tool that crops and creates photos into square format for social media like Instagram, Facebook, and WhatsApp. Make any photo square — no uploads, no signup.",
-  openGraph: { title: "About SquarePic - Free Square Image Maker & Photo Editor | SquarePic", description: "SquarePic is a free online tool that makes any photo square for Instagram, Facebook, and WhatsApp. No uploads, no signup, no watermarks." },
+  title: "About SquarePic - Free Square Image Maker & Image Editor",
+  description: "SquarePic is a free online tool that crops and creates images into square format for social media like Instagram, Facebook, and WhatsApp. Make any image square — no uploads, no signup.",
+  openGraph: { title: "About SquarePic - Free Square Image Maker & Image Editor | SquarePic", description: "SquarePic is a free online tool that makes any image square for Instagram, Facebook, and WhatsApp. No uploads, no signup, no watermarks." },
   alternates: { canonical: "https://www.squarepic.io/about" },
 };
 
@@ -13,7 +13,7 @@ export default function AboutPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "About", url: `${SITE}/about` }]} />
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "AboutPage", name: "About SquarePic", description: "SquarePic is a free online tool that crops and creates photos into square format for social media. Make any photo square for Instagram and social media.", url: `${SITE}/about` }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "AboutPage", name: "About SquarePic", description: "SquarePic is a free online tool that crops and creates images into square format for social media. Make any image square for Instagram and social media.", url: `${SITE}/about` }} />
       <PersonSchema name="SevenOneLabs" jobTitle="Software Development Lab" url="https://github.com/Sevenonelabs/square_pic" sameAs={["https://github.com/Sevenonelabs"]} />
       <JsonLd data={{ "@context": "https://schema.org", "@type": "Organization", name: "SquarePic", url: "https://www.squarepic.io", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", ratingCount: "1247", bestRating: "5" } }} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">

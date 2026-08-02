@@ -61,9 +61,9 @@ export default function Home() {
       <ToolAsHeroLayout
         state={state}
         onStateChange={update}
-        headline="Make a Photo Square Online — Free Square Image Maker"
+        headline="Make an Image Square Online — Free Square Image Maker"
         highlightWord="Square Image Maker"
-        microcopy="Upload any photo and make it perfectly square for Instagram, LinkedIn, Facebook, and more. Three modes: Dynamic Blur, Solid Fill, or Smart Crop. Free, private, no signup."
+        microcopy="Upload any image and make it perfectly square for Instagram, LinkedIn, Facebook, and more. Three modes: Dynamic Blur, Solid Fill, or Smart Crop. Free, private, no signup."
         colorSwatches={COLOR_SWATCHES}
       />
 
@@ -72,20 +72,20 @@ export default function Home() {
       <section className="max-w-[900px] mx-auto px-4 pb-16">
         <div className="max-w-[680px] mx-auto text-center mb-10">
           <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5] mb-3">
-            Make Photo Square Online - Free Square Image Maker
+            Make an Image Square Online - Free Square Image Maker
           </h2>
           <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
-            Making a photo square is essential for social media profiles, thumbnails, and posts. Unlike
-            cropping which removes parts of your image, this free square photo maker no signup extends
-            your photo into a perfect square using smart blur backgrounds, solid colors, or automatic cropping —
-            keeping your full image visible. Use it as a square pic maker, image resizer for Instagram, a social media photo editor,
-            or a quick square pic tool for any platform.
+            Making an image square is essential for social media profiles, thumbnails, and posts. Unlike
+            cropping which removes parts of your image, this free square image maker no signup extends
+            your image into a perfect square using smart blur backgrounds, solid colors, or automatic cropping —
+            keeping your full image visible. Use it as a square image maker, image resizer for Instagram, a social media image editor,
+            or a quick square image tool for any platform.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           {[
-            { step: "1", title: "Upload Your Photo", desc: "Select any image from your device. SquarePic supports JPEG, PNG, WebP, and more. Files up to 20 MB." },
+            { step: "1", title: "Upload Your Image", desc: "Select any image from your device. SquarePic supports JPEG, PNG, WebP, and more. Files up to 20 MB." },
             { step: "2", title: "Choose Your Style", desc: "Pick Dynamic Blur for a soft gradient background, Solid Fill for a clean color match, or Smart Crop to fill the square automatically." },
             { step: "3", title: "Download & Share", desc: "Export your square image as PNG, JPEG, or WebP. Ready to upload to Instagram, LinkedIn, Facebook, or any platform." },
           ].map((c) => (
@@ -99,7 +99,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Three Ways to Make a Square Photo</h3>
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Three Ways to Make a Square Image</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Dynamic Blur:</strong> Adds a blurred extension of your photo as the background. Creates a soft, professional look that Instagram influencers use for cohesive feeds.</li>
               <li><strong className="text-[#e6edf5]">Solid Fill:</strong> Adds a solid color background. Choose from preset colors or pick any custom color. Best for product photos and clean branding.</li>
@@ -198,7 +198,7 @@ export default function Home() {
 
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
           <p className="text-[0.75rem] text-[#8d9aaa] text-center">
-            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/resize/instagram" className="text-[var(--accent)] no-underline hover:underline">Instagram Square Image Maker</Link> · <Link href="/resize/whatsapp" className="text-[var(--accent)] no-underline hover:underline">WhatsApp Image Resizer</Link> · <Link href="/resize/linkedin" className="text-[var(--accent)] no-underline hover:underline">LinkedIn Photo Resizer</Link> · <Link href="/guides/instagram-reels-stories-guide" className="text-[var(--accent)] no-underline hover:underline">Reels & Stories Guide</Link>
+            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/resize/instagram" className="text-[var(--accent)] no-underline hover:underline">Instagram Square Image Maker</Link> · <Link href="/resize/whatsapp" className="text-[var(--accent)] no-underline hover:underline">WhatsApp Image Resizer</Link> · <Link href="/resize/linkedin" className="text-[var(--accent)] no-underline hover:underline">LinkedIn Image Resizer</Link> · <Link href="/guides/instagram-reels-stories-guide" className="text-[var(--accent)] no-underline hover:underline">Reels & Stories Guide</Link>
           </p>
         </div>
       </section>

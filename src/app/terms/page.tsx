@@ -4,7 +4,7 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service - SquarePic Free Online Image Editor",
-  description: "SquarePic is a free online tool for making square images and editing photos for social media. Review the terms of service for using our image editor, resizer, and converter.",
+  description: "SquarePic is a free online tool for making square images and editing images for social media. Review the terms of service for using our image editor, resizer, and converter.",
   openGraph: { title: "Terms of Service - SquarePic Free Online Image Editor" },
   alternates: { canonical: "https://www.squarepic.io/terms" },
 };

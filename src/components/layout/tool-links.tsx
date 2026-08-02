@@ -17,7 +17,7 @@ export const TOOLS = [
   },
   {
     href: "/cropper",
-    label: "Photo Cropper",
+    label: "Image Cropper",
     desc: "Free-form & preset ratios",
     icon: "M6.13 1L6 16a2 2 0 0 0 2 2h15M1 6.13L16 6a2 2 0 0 1 2 2v15",
   },
@@ -52,7 +52,7 @@ export function ToolLinks({ current }: { current?: string }) {
     <section className="max-w-[1400px] mx-auto px-6 pt-5 pb-10 w-full max-md:px-3">
       <div className="text-center mb-8">
         <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5]">
-          More Free Photo Tools
+          More Free Image Tools
         </h2>
         <p className="text-[0.75rem] text-[#8d9aaa] font-medium mt-1 leading-relaxed">
           Crop, convert, compress & resize - all in your browser.
