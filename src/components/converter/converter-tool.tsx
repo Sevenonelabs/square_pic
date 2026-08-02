@@ -193,8 +193,8 @@ export function ConverterTool() {
   return (
     <div className="max-w-[960px] w-full mx-auto px-5 py-6">
       <motion.div
-        initial={{ opacity: 0.99, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0.99 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-6 mb-6"
       >
@@ -206,8 +206,8 @@ export function ConverterTool() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         onClick={() => inputRef.current?.click()}
         onDragOver={(e) => e.preventDefault()}

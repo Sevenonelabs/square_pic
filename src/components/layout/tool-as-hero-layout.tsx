@@ -217,7 +217,7 @@ export function ToolAsHeroLayout({
   return (
     <section className="max-w-[1100px] mx-auto px-3 md:px-4 w-full">
       <motion.div
-        initial={{ opacity: 0.99, y: 20 }}
+        initial={{ opacity: 0.99 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-[8px] md:p-3"
