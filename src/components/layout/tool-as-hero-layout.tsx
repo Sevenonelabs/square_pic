@@ -263,7 +263,7 @@ export function ToolAsHeroLayout({
             )}
           </div>
 
-          <aside className="flex flex-col gap-1.5 w-[240px] xl:w-[260px] shrink-0 max-md:w-full max-md:max-h-[260px] max-md:overflow-y-auto">
+          <aside className="tool-scrollbar flex flex-col gap-1.5 w-[240px] xl:w-[260px] shrink-0 max-md:w-full max-md:max-h-[260px] max-md:overflow-y-auto">
             {/* Padding */}
             <motion.div
               custom={0}
@@ -481,7 +481,7 @@ export function ToolAsHeroLayout({
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-[#0a0e16] border border-[rgba(255,255,255,0.08)] rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-[0_40px_80px_rgba(0,0,0,0.8)]"
+            className="tool-scrollbar bg-[#0a0e16] border border-[rgba(255,255,255,0.08)] rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-[0_40px_80px_rgba(0,0,0,0.8)]"
           >
             <div className="p-4">
               <div className="flex items-center justify-between mb-3">
