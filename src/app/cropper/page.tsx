@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CropperTool } from "@/components/cropper/cropper-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
@@ -11,14 +11,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free Online Image Cropper - Perfect Crop | SquarePic",
     description: "SquarePic is a free online tool that crops images for Instagram, Facebook, and LinkedIn. Aspect ratio presets, zoom, and pan, export to JPEG, PNG, or WebP. No uploads.",
-    url: "https://www.squarepic.io/cropper",
+    url: `${SITE}/cropper`,
+    images: [{ url: "/og/og-cropper.png", width: 1200, height: 630, alt: "SquarePic Image Cropper - crop images with aspect ratio lock" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Online Image Cropper - Perfect Crop | SquarePic",
     description: "SquarePic is a free online image cropper. Crop images for Instagram, Facebook, and LinkedIn with aspect ratio presets. Free, no uploads.",
   },
-  alternates: { canonical: "https://www.squarepic.io/cropper" },
+  alternates: { canonical: `${SITE}/cropper` },
 };
 
 export default function CropperPage() {
@@ -145,23 +146,13 @@ export default function CropperPage() {
             All image cropping happens locally in your browser. Your images never leave your device.
           </p>
         </div>
-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>
+        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: August 2026</p>
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
           <p className="text-[0.75rem] text-[#8d9aaa] text-center">
             Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Crop Guide</Link> · <Link href="/guides/facebook-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Facebook Image Sizes</Link>
           </p>
         </div>
       </section>
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: "SquarePic - Image Cropper",
-        url: "https://www.squarepic.io/cropper",
-        description: "Free online image cropper with 8 drag handles, aspect ratio lock, zoom and pan. Export to JPEG, PNG, or WebP.",
-        applicationCategory: "MultimediaApplication",
-        operatingSystem: "Any",
-        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      }} />
     </>
   );
 }

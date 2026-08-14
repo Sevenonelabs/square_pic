@@ -8,8 +8,8 @@ import { SITE_URL as SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips",
   description: "SquarePic guide: Complete Instagram Reels and Stories dimensions for 2026. Sizes, text safe zones, format recommendations, and proven engagement strategies.",
-  openGraph: { title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips | SquarePic", description: "SquarePic guide: Complete Instagram Reels and Stories dimensions for 2026 with safe zones, format tips, and engagement strategies.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
-  alternates: { canonical: "https://www.squarepic.io/guides/instagram-reels-stories-guide" },
+  openGraph: { title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips | SquarePic", description: "SquarePic guide: Complete Instagram Reels and Stories dimensions for 2026 with safe zones, format tips, and engagement strategies.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-instagram-reels-stories.png", width: 1200, height: 630 }] },
+  alternates: { canonical: `${SITE}/guides/instagram-reels-stories-guide` },
   twitter: { card: "summary_large_image", title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips | SquarePic", description: "SquarePic guide: Complete Instagram Reels and Stories dimensions for 2026." },
 };
 
@@ -35,11 +35,11 @@ export default function InstagramReelsStoriesPage() {
         title="Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips"
         description="Complete guide to Instagram Reels and Stories dimensions for 2026. Sizes, text safe zones, format recommendations, and proven engagement strategies."
         url={`${SITE}/guides/instagram-reels-stories-guide`}
-        imageUrl={`${SITE}/squareframe_preview.png`}
+        imageUrl={`${SITE}/og/og-instagram-reels-stories.png`}
         datePublished="2026-07-19"
         dateModified="2026-07-19"
         authorName="SevenOneLabs"
-        authorUrl="https://github.com/Sevenonelabs"
+        authorUrl={`${SITE}/author/sevenonelabs`}
       />
       <FAQPageSchema questions={FAQ_QUESTIONS} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
@@ -48,12 +48,12 @@ export default function InstagramReelsStoriesPage() {
             Instagram
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 9 min read · by <a href="https://github.com/Sevenonelabs" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</a></p>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 9 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/instagram-reels-stories-guide" title="Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips" />
         </div>
 
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-6">
-          Reels and Stories are Instagram&apos;s most engaging content formats, accounting for over 60% of all interactions on the platform. Unlike feed posts, these full-screen vertical formats have specific requirements for dimensions, safe zones, and text placement that directly determine whether users engage or scroll past. This guide covers everything you need to create perfectly formatted Reels and Stories in 2026.
+          Reels and Stories are among Instagram&apos;s most engaging formats, with far more reach than feed posts alone. Unlike feed posts, these full-screen vertical formats have specific requirements for dimensions, safe zones, and text placement that directly determine whether users engage or scroll past. This guide covers everything you need to create perfectly formatted Reels and Stories in 2026.
         </p>
 
         <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Instagram Reels and Stories at a Glance</h2>
@@ -198,16 +198,16 @@ export default function InstagramReelsStoriesPage() {
           <li><strong className="text-[#e6edf5]">Hook in the first 2 seconds.</strong> Instagram&apos;s algorithm tracks replay rate. If viewers rewatch the first few seconds, the Reel gets pushed to more accounts. Start with a visual hook — a quick transition, a surprising crop, or text overlay that creates curiosity.</li>
           <li><strong className="text-[#e6edf5]">Use trending audio.</strong> Reels using trending audio tracks get significantly higher distribution. Check the Reels audio browse page for trending tracks in your niche before publishing.</li>
           <li><strong className="text-[#e6edf5]">Keep it between 7-15 seconds.</strong> Despite the 90-second limit, the highest-performing Reels are short. Completion rate drops sharply after 15 seconds, and the algorithm prioritizes content with high completion rates.</li>
-          <li><strong className="text-[#e6edf5]">Add captions for mute viewing.</strong> Over 70% of Reels are watched on mute. Burn captions directly into the video within the safe zone (center 60% of frame) so they are always visible regardless of device settings.</li>
-          <li><strong className="text-[#e6edf5]">Post consistently.</strong> Accounts that post 3-5 Reels per week see 3x more profile visits than those posting less than once a week. Consistency signals reliability to the algorithm.</li>
+          <li><strong className="text-[#e6edf5]">Add captions for mute viewing.</strong> Many viewers watch Reels on mute. Burn captions directly into the video within the safe zone (center 60% of frame) so they are always visible regardless of device settings.</li>
+          <li><strong className="text-[#e6edf5]">Post consistently.</strong> Accounts that post Reels regularly tend to see more profile visits than those that post rarely. Consistency also signals reliability to the algorithm.</li>
         </ul>
 
         <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Best Practices for Stories</h2>
         <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
-          <li><strong className="text-[#e6edf5]">Use interactive stickers.</strong> Polls, questions, quizzes, and emoji sliders directly increase engagement metrics. Stories with interactive stickers get 2x more replies than those without.</li>
+          <li><strong className="text-[#e6edf5]">Use interactive stickers.</strong> Polls, questions, quizzes, and emoji sliders directly increase engagement metrics. Stories with interactive stickers tend to get more replies than those without.</li>
           <li><strong className="text-[#e6edf5]">Post 3-5 Stories per day.</strong> Accounts that post multiple Stories per day maintain higher profile visit rates. The first Story gets the most views, with a natural drop-off of 10-20% per subsequent slide.</li>
           <li><strong className="text-[#e6edf5]">Keep text minimal.</strong> Stories with two lines of text or less have higher completion rates. If you need more text, spread it across multiple Story slides.</li>
-          <li><strong className="text-[#e6edf5]">Use location stickers.</strong> Stories with location tags get 79% higher engagement than those without. Location stickers also help your Story appear in location-specific Story collections.</li>
+          <li><strong className="text-[#e6edf5]">Use location stickers.</strong> Stories with location tags tend to get more engagement than those without. Location stickers also help your Story appear in location-specific Story collections.</li>
           <li><strong className="text-[#e6edf5]">Add links responsibly.</strong> If you have the swipe-up link feature, place the link at the natural pause point of your Story, not at the beginning.</li>
         </ul>
 
@@ -260,7 +260,7 @@ export default function InstagramReelsStoriesPage() {
         <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
           <li><strong className="text-[#e6edf5]">Text in the safe zone margins.</strong> Placing captions or calls-to-action in the top 14% or bottom 20% makes them invisible behind Instagram&apos;s UI. Always design within the center 60% safe zone.</li>
           <li><strong className="text-[#e6edf5]">Horizontal or square video.</strong> Instagram pads non-9:16 Reels with background color, shrinking the effective viewing area and making content look amateurish.</li>
-          <li><strong className="text-[#e6edf5]">No captions.</strong> Over 70% of Reels are watched on mute. Without burned-in captions, you lose the majority of viewers within the first second.</li>
+          <li><strong className="text-[#e6edf5]">No captions.</strong> Many viewers watch Reels on mute. Without burned-in captions, you risk losing viewers within the first few seconds.</li>
           <li><strong className="text-[#e6edf5]">Overly long content.</strong> Reels over 15 seconds see completion rates drop by 50% or more. If your content needs more time, split it into a multi-part series.</li>
           <li><strong className="text-[#e6edf5]">Ignoring the first frame.</strong> The first frame of your Story or Reel determines whether users tap to view more. An uninteresting first frame means skipped content regardless of the quality that follows.</li>
         </ul>

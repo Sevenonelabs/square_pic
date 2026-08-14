@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import presets from "@/data/social-presets.json";
 import { PLATFORM_ICONS } from "@/data/social-icons";
-import { BreadcrumbSchema, WebAppSchema, FAQPageSchema, HowToSchema, OrgSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema, FAQPageSchema, HowToSchema } from "@/components/schema-scripts";
 
 type Props = { params: Promise<{ platform: string }> };
 
@@ -61,13 +61,13 @@ const TIPS: Record<string, string> = {
   "facebook-cover": "Displays differently on mobile (640x360) vs desktop (851x315). Keep text centered.",
   "facebook-profile": "Use a recognizable headshot or brand logo. The 320x320 crop is circular on profiles.",
   "facebook-landscape": "Shared link previews use 1200x630. Optimize your Open Graph images at this size.",
-  "youtube-thumbnail": "Use high contrast and bold text. Thumbnail click-through rate is the #1 ranking factor.",
+  "youtube-thumbnail": "Use high contrast and bold text. YouTube heavily weights thumbnail click-through when recommending videos.",
   "youtube-channelArt": "Safe area for text is the central 1546x423 region.",
   "youtube-profile": "Profile photos display at 800x800 but should look good at small sizes.",
   "pinterest-pinStandard": "Tall 2:3 pins perform best. Pinterest is a visual discovery engine.",
   "pinterest-profile": "Profile images appear in search results. Make them instantly recognizable.",
   "linkedin-cover": "The banner is very short at 191px. Keep your message concise and centered.",
-  "linkedin-profile": "Professional headshots perform best. LinkedIn reports profiles with photos get 14x more views.",
+  "linkedin-profile": "Professional headshots perform best. A clear, recognizable profile photo is strongly linked to more profile views on LinkedIn.",
   "linkedin-square": "Square posts get higher engagement on LinkedIn than landscape links.",
   "reddit-banner": "Extremely wide at 31:1 aspect ratio. Most of the width is cropped on mobile.",
   "twitch-panel": "Small informational boxes below the stream. Use consistent branding across all panels.",
@@ -88,44 +88,44 @@ const PLATFORM_BEST_PRACTICES: Record<string, { formats: string; tips: string; w
   instagram: {
     formats: "JPEG is the standard for Instagram uploads. PNG preserves quality for graphics with text. WebP is supported but not recommended for maximum compatibility.",
     tips: "Post consistently at 1080x1080 or 1080x1350 for feed posts. Use 1080x1920 for Stories and Reels. Avoid compressed artifacts by uploading the highest quality version within Instagram's 20 MB limit.",
-    whyMatters: "Instagram crops images in feed to square thumbnails by default. Using the correct dimensions ensures your full image appears without unexpected cropping. Portrait 4:5 posts take up 40% more vertical screen space than squares, increasing visibility.",
-    stats: "Posts with proper dimensions get 30% more engagement. Portrait images (4:5) outperform landscape by 20% on feed.",
+    whyMatters: "Instagram crops images in feed to square thumbnails by default. Using the correct dimensions ensures your full image appears without unexpected cropping. Portrait 4:5 posts take up more vertical screen space than squares, giving your content more visibility.",
+    stats: "Instagram applies its own compression to every upload and crops feed images to square thumbnails. Matching the recommended dimensions keeps your full image visible and avoids avoidable quality loss.",
   },
   facebook: {
     formats: "JPEG is preferred for photos. PNG works well for graphics with text and logos. Facebook recommends sRGB color space for accurate color reproduction.",
-    tips: "Upload images at 72 DPI at minimum. Avoid JPEG artifacts by saving at quality 85% or higher. Facebook compresses images to 100 KB or less, so start with a clean source file.",
+    tips: "Upload images at 72 DPI at minimum. Avoid JPEG artifacts by saving at quality 85% or higher. Facebook compresses images after upload, so start with a clean source file.",
     whyMatters: "Facebook's algorithm favors images that load quickly and display correctly on all devices. An incorrectly sized cover photo can appear stretched or cropped, damaging your brand's professional appearance.",
-    stats: "Posts with images get 2.3x more engagement. Properly sized cover images improve brand recall by 40%.",
+    stats: "Facebook applies its own compression to photos after upload. A clean, correctly sized source image prevents avoidable quality loss on feed posts and cover photos.",
   },
   twitter: {
     formats: "JPEG and PNG both work well. Twitter recommends JPEG for photos and PNG for graphics with text. GIFs are supported for animated content.",
     tips: "Twitter's card previews use 1200x600 for summary cards. Use 1600x900 for in-feed images. Profile photos display at 400x400 but the visible area is circular - keep your subject centered.",
     whyMatters: "X (Twitter) uses lazy image loading, so incorrect dimensions can cause layout shifts. The platform also generates multiple thumbnails, so starting with the right size ensures quality across all display contexts.",
-    stats: "Tweets with images receive 150% more retweets. The optimal image-to-text ratio on X is 1:1.",
+    stats: "X generates multiple previews from every upload and loads images lazily. Correct dimensions keep page layouts stable and image quality consistent across previews.",
   },
   linkedin: {
     formats: "JPEG is preferred for photos. PNG is best for infographics and text-heavy images. LinkedIn supports GIF only in sponsored content.",
     tips: "LinkedIn's feed is desktop-heavy during business hours and mobile-heavy in evenings. Use 1200x1200 for square posts and 1200x627 for link previews. Keep cover photo text within the safe zone.",
     whyMatters: "LinkedIn displays images at a fixed width of 552px on desktop. An image wider than 1200px is still displayed at 552px, making text unreadable. Proper sizing ensures your content is legible without clicking to expand.",
-    stats: "Posts with images get 98% more comments. LinkedIn members with profile photos receive 14x more profile views.",
+    stats: "LinkedIn scales feed images to a fixed width on desktop, which can make small text unreadable. Matching the recommended dimensions keeps your posts legible on every device.",
   },
   tiktok: {
     formats: "JPEG and PNG both work for profile and cover images. TikTok recommends JPEG for photos to keep file sizes small.",
     tips: "TikTok is full-screen vertical. Profile images are small (200x200) and circular. Cover images for videos should be 1080x1920 at minimum.",
     whyMatters: "TikTok's algorithm processes thumbnail images to determine visual quality. Blurry or incorrectly sized cover images reduce click-through rates on your content.",
-    stats: "TikTok has over 1 billion monthly active users. Vertical 9:16 content has 3x higher completion rate than landscape.",
+    stats: "TikTok shows profile images as small circles and evaluates cover images as it surfaces content. Sharp, correctly sized vertical 9:16 covers perform best.",
   },
   youtube: {
     formats: "JPEG, PNG, and GIF are all supported. YouTube recommends JPEG for thumbnails and PNG for channel art with text.",
     tips: "Thumbnails are the most important visual asset on YouTube. Use 1280x720 with bold, readable text. Channel art displays differently on TV (2560x423), desktop (1546x423), and mobile (1546x423).",
-    whyMatters: "YouTube's algorithm heavily weights thumbnail click-through rate when recommending videos. A properly sized, high-contrast thumbnail can increase views by 200-500%.",
-    stats: "90% of top-performing YouTube videos use custom thumbnails. Channels with optimized thumbnails see 2x more CTR.",
+    whyMatters: "YouTube's algorithm heavily weights thumbnail click-through rate when recommending videos. A properly sized, high-contrast thumbnail can dramatically increase views.",
+    stats: "YouTube relies on thumbnails when deciding which videos to recommend. A bold, correctly sized 1280x720 thumbnail is the most effective way to earn clicks.",
   },
   pinterest: {
     formats: "JPEG is the standard. PNG works for infographics with text. WebP is supported but JPEG is preferred for compatibility.",
-    tips: "Tall vertical pins (1000x1500, 2:3 aspect) perform best on Pinterest. Horizontal pins receive 2x less engagement. Use readable text overlays and bright, distinct colors.",
+    tips: "Tall vertical pins (1000x1500, 2:3 aspect) perform best on Pinterest. Horizontal pins receive less engagement. Use readable text overlays and bright, distinct colors.",
     whyMatters: "Pinterest is a visual discovery engine, not a social network. Your pin dimensions directly affect how much screen space it occupies in the feed, influencing click-through and save rates.",
-    stats: "Tall pins (2:3 ratio) get 60% more repins than square pins. Pinterest drives 33% of US referral traffic for retail.",
+    stats: "Pinterest is a visual discovery feed. Tall 2:3 pins occupy more screen space and are shared more often than square or horizontal pins.",
   },
 };
 
@@ -209,7 +209,6 @@ export default async function PlatformPage({ params }: Props) {
       <BreadcrumbSchema items={[{ name: "Home", url: siteUrl }, { name: `${p.label} Image Sizes`, url: pageUrl }]} />
       <WebAppSchema name={`SquarePic - ${p.label} Image Sizes`} url={pageUrl} description={`Complete guide to ${p.label} image sizes with exact pixel dimensions.`} dateModified="2026-07-13" />
       <FAQPageSchema questions={faqQuestions} />
-      <OrgSchema siteUrl={siteUrl} />
       <HowToSchema steps={howToSteps} />
       <div className="max-w-[920px] w-full mx-auto px-5 py-6">
       <div className="text-center mb-8 p-8 bg-gradient-to-br from-[rgba(6,182,212,0.04)] to-[rgba(139,92,246,0.04)] border border-[rgba(6,182,212,0.08)] rounded-lg">
@@ -313,7 +312,7 @@ export default async function PlatformPage({ params }: Props) {
           </p>
         </div>
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Platform Stats</h3>
+          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Quick Facts</h3>
           <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
             {(PLATFORM_BEST_PRACTICES[key] || DEFAULT_PRACTICES).stats}
           </p>

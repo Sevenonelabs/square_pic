@@ -8,8 +8,8 @@ import { SITE_URL as SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide",
   description: "SquarePic guide: Complete Discord image size guide for 2026. Server icons, banners, splash screens, emoji sizes, profile pictures, and best practices for your community.",
-  openGraph: { title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide | SquarePic", description: "SquarePic guide: Complete Discord image dimensions for 2026. Server icons, banners, splash screens, emoji sizes, profile pictures, and best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
-  alternates: { canonical: "https://www.squarepic.io/guides/discord-image-sizes-2026" },
+  openGraph: { title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide | SquarePic", description: "SquarePic guide: Complete Discord image dimensions for 2026. Server icons, banners, splash screens, emoji sizes, profile pictures, and best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-discord-image-sizes.png", width: 1200, height: 630 }] },
+  alternates: { canonical: `${SITE}/guides/discord-image-sizes-2026` },
   twitter: { card: "summary_large_image", title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide | SquarePic", description: "SquarePic guide: Complete Discord image dimensions for 2026 with best practices." },
 };
 
@@ -35,11 +35,11 @@ export default function DiscordImageSizesPage() {
         title="Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide"
         description="Complete guide to Discord image dimensions for 2026. Server icons, banners, splash screens, emoji sizes, profile pictures, and best practices for your community."
         url={`${SITE}/guides/discord-image-sizes-2026`}
-        imageUrl={`${SITE}/squareframe_preview.png`}
+        imageUrl={`${SITE}/og/og-discord-image-sizes.png`}
         datePublished="2026-07-19"
         dateModified="2026-07-19"
         authorName="SevenOneLabs"
-        authorUrl="https://github.com/Sevenonelabs"
+        authorUrl={`${SITE}/author/sevenonelabs`}
       />
       <FAQPageSchema questions={FAQ_QUESTIONS} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
@@ -48,7 +48,7 @@ export default function DiscordImageSizesPage() {
             Discord
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 8 min read · by <a href="https://github.com/Sevenonelabs" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</a></p>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 8 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/discord-image-sizes-2026" title="Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide" />
         </div>
 
@@ -282,7 +282,7 @@ export default function DiscordImageSizesPage() {
 
         <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Key Takeaways</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
-          Discord uses three main image categories: server assets (icon at 512 x 512, banner and splash at 960 x 540), user profile pictures (512 x 512, circular crop), and custom expressions (emojis up to 256 x 256, stickers up to 512 x 512). Always center subjects in square crops, use PNG for transparency, stay under Discord&apos;s file size limits, and design with dark mode in mind. For a full list of social media image specs, check the <Link href="/social-media-image-sizes" className="text-[var(--accent)] no-underline hover:underline">social media image sizes guide</Link>.
+          Discord uses three main image categories: server assets (icon at 512 x 512, banner and splash at 960 x 540), user profile pictures (512 x 512, circular crop), and custom expressions (emojis up to 256 x 256, stickers up to 512 x 512). Always center subjects in square crops, use PNG for transparency, stay under Discord&apos;s file size limits, and design with dark mode in mind. For a full list of social media image specs, check the <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">social media image sizes guide</Link>.
         </p>
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mb-6">

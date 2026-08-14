@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   title: "Help & Support - Square Image Maker Troubleshooting",
   description: "SquarePic is a free online tool that crops and creates images into square format for social media. Get help with the editor, troubleshooting guides, and image editing tips. No signup needed.",
   openGraph: { title: "Help & Support - Square Image Maker Troubleshooting | SquarePic", description: "SquarePic is a free online square image maker. Get troubleshooting help and tips for editing images for social media." },
-  alternates: { canonical: "https://www.squarepic.io/support" },
+  alternates: { canonical: `${SITE}/support` },
 };
 
 export default function SupportPage() {
@@ -77,7 +78,7 @@ export default function SupportPage() {
       <section className="mb-6">
         <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Contact Us</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          If you need further assistance, please visit our <a href="/faq" className="text-[var(--accent)] no-underline hover:underline">FAQ page</a> for common questions, or check our <a href="/privacy" className="text-[var(--accent)] no-underline hover:underline">Privacy Policy</a> and <a href="/terms" className="text-[var(--accent)] no-underline hover:underline">Terms of Service</a>.
+          If you need further assistance, please visit our <Link href="/faq" className="text-[var(--accent)] no-underline hover:underline">FAQ page</Link> for common questions, or check our <Link href="/privacy" className="text-[var(--accent)] no-underline hover:underline">Privacy Policy</Link> and <Link href="/terms" className="text-[var(--accent)] no-underline hover:underline">Terms of Service</Link>.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
           You can also email us directly at <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>.

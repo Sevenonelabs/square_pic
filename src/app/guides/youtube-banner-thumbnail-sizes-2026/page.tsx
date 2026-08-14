@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema, ArticleSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
@@ -8,8 +8,8 @@ import { SITE_URL as SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video",
   description: "SquarePic guide: Complete YouTube image size guide for 2026. Channel art/banner sizes, video thumbnail specs, profile picture requirements, and design best practices.",
-  openGraph: { title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video | SquarePic", description: "SquarePic guide: Complete YouTube image dimensions for 2026. Channel art, thumbnails, profile pictures, and design best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
-  alternates: { canonical: "https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2026" },
+  openGraph: { title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video | SquarePic", description: "SquarePic guide: Complete YouTube image dimensions for 2026. Channel art, thumbnails, profile pictures, and design best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-youtube-banner-thumbnail.png", width: 1200, height: 630 }] },
+  alternates: { canonical: `${SITE}/guides/youtube-banner-thumbnail-sizes-2026` },
   twitter: { card: "summary_large_image", title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video | SquarePic", description: "SquarePic guide: Complete YouTube image dimensions for 2026." },
 };
 
@@ -26,19 +26,45 @@ export default function YouTubeBannerThumbnailSizesPage() {
         title="YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video"
         description="Complete guide to YouTube image dimensions for 2026. Channel art/banner sizes, video thumbnail specs, profile picture requirements, and design best practices."
         url={`${SITE}/guides/youtube-banner-thumbnail-sizes-2026`}
-        imageUrl={`${SITE}/squareframe_preview.png`}
+        imageUrl={`${SITE}/og/og-youtube-banner-thumbnail.png`}
         datePublished="2026-07-19"
         dateModified="2026-07-19"
         authorName="SevenOneLabs"
-        authorUrl="https://github.com/Sevenonelabs"
+        authorUrl={`${SITE}/author/sevenonelabs`}
       />
+      <FAQPageSchema questions={[
+        {
+          question: "What size is YouTube channel art?",
+          answer: "The full channel art canvas is 2560 x 1440 pixels. The safe zone visible on all devices is the center 1546 x 423 pixels. Design at full resolution but keep critical content in the center safe zone.",
+        },
+        {
+          question: "What size should a YouTube thumbnail be?",
+          answer: "1280 x 720 pixels at 16:9 aspect ratio. Maximum file size is 2 MB. Use JPEG for photos, PNG for graphics with text. Keep text bold and readable at thumbnail size.",
+        },
+        {
+          question: "What is the best YouTube profile picture size?",
+          answer: "800 x 800 pixels at 1:1 aspect ratio. YouTube displays it as a circle, so center your subject. Minimum upload is 98 x 98, but always use the largest available resolution.",
+        },
+        {
+          question: "Can I use any image format for YouTube thumbnails?",
+          answer: "YouTube supports JPEG, PNG, BMP, GIF, and WebP for thumbnails. JPEG offers the best balance of quality and file size for photographic thumbnails. PNG preserves sharp text overlays.",
+        },
+        {
+          question: "How do I make a YouTube banner that fits all devices?",
+          answer: "Design at 2560 x 1440 pixels. Place all important content in the center 1546 x 423 safe zone. Use the outer 507 pixels on each side and the top/bottom areas for background visuals only.",
+        },
+        {
+          question: "Do YouTube Shorts use different image sizes?",
+          answer: "Shorts are 1080 x 1920 pixels at 9:16 aspect ratio. Unlike standard videos, you cannot upload a custom thumbnail for Shorts — YouTube auto-selects the cover frame from your video.",
+        },
+      ]} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
         <div className="mb-8">
           <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
             YouTube
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 9 min read · by <a href="https://github.com/Sevenonelabs" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</a></p>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 9 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/youtube-banner-thumbnail-sizes-2026" title="YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video" />
         </div>
 
@@ -165,7 +191,7 @@ export default function YouTubeBannerThumbnailSizesPage() {
         <h3 className="text-[1rem] font-extrabold text-[#e6edf5] mt-6 mb-2">Thumbnail Design Rules</h3>
         <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-1 mb-4">
           <li>Use <strong className="text-[#e6edf5]">bold, readable text</strong> — most thumbnails are viewed at under 200px wide. Sans-serif fonts at 36px+ work best.</li>
-          <li>Include a <strong className="text-[#e6edf5]">human face</strong> close to the camera. Thumbnails with faces get 2x more clicks than those without.</li>
+          <li>Include a <strong className="text-[#e6edf5]">human face</strong> close to the camera. Thumbnails with faces tend to get more clicks than those without.</li>
           <li>Use <strong className="text-[#e6edf5]">high contrast</strong> between text and background. Dark overlays behind light text ensure readability at small sizes.</li>
           <li>Keep the <strong className="text-[#e6edf5]">subject centered</strong>. YouTube crops thumbnails to 4:3 in the comment preview panel and 1:1 in some playlist views.</li>
           <li>Stick to a <strong className="text-[#e6edf5]">consistent color palette</strong> across your channel. Recognizable thumbnails build brand loyalty and improve subscriber recall.</li>

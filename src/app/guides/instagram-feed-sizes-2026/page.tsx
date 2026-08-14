@@ -8,13 +8,13 @@ import { SITE_URL as SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Instagram Image Sizes 2026: Feed, Carousel & Profile",
   description: "SquarePic guide: Complete Instagram image size guide for 2026. Feed posts, carousel, profile pictures, and ad sizes with best practices for maximum engagement.",
-  openGraph: { title: "Instagram Image Sizes 2026: Feed, Carousel & Profile | SquarePic", description: "SquarePic guide: Complete Instagram image sizes for 2026. Feed posts, carousel, profile pictures, and ad sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
-  alternates: { canonical: "https://www.squarepic.io/guides/instagram-feed-sizes-2026" },
+  openGraph: { title: "Instagram Image Sizes 2026: Feed, Carousel & Profile | SquarePic", description: "SquarePic guide: Complete Instagram image sizes for 2026. Feed posts, carousel, profile pictures, and ad sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-instagram-feed-sizes.png", width: 1200, height: 630 }] },
+  alternates: { canonical: `${SITE}/guides/instagram-feed-sizes-2026` },
   twitter: { card: "summary_large_image", title: "Instagram Image Sizes 2026: Feed, Carousel & Profile | SquarePic", description: "SquarePic guide: Complete Instagram image dimensions for 2026 with best practices." },
 };
 
 const FAQ_QUESTIONS = [
-  { question: "What is the best size for Instagram feed posts?", answer: "1080 x 1350 pixels (4:5 portrait) is the best size for Instagram feed posts. It takes up 40% more vertical space than square, keeping users on your content longer and signaling higher quality to the algorithm." },
+  { question: "What is the best size for Instagram feed posts?", answer: "1080 x 1350 pixels (4:5 portrait) is the best size for Instagram feed posts. It takes up more vertical space than square, keeping users on your content longer and often performing better in the feed." },
   { question: "What size should Instagram profile pictures be?", answer: "Upload a 320 x 320 pixel square image at minimum. Instagram displays it as a circle, so keep your subject centered within the frame. Larger files look sharper after compression." },
   { question: "Can I mix square and portrait images in a carousel?", answer: "No. All images in a carousel must use the same aspect ratio. Instagram crops everything to match the first image&apos;s ratio. Use 1080 x 1350 (4:5) for consistent visibility." },
   { question: "What is the maximum file size for Instagram photos?", answer: "20 MB for photos and 650 MB for videos. Compress larger files before uploading to avoid failed uploads and aggressive platform compression." },
@@ -35,11 +35,11 @@ export default function InstagramFeedSizesPage() {
         title="Instagram Image Sizes 2026: Feed, Carousel & Profile"
         description="Complete guide to Instagram image dimensions for 2026. Feed posts, carousel, profile pictures, and ads sizes with best practices for maximum engagement."
         url={`${SITE}/guides/instagram-feed-sizes-2026`}
-        imageUrl={`${SITE}/squareframe_preview.png`}
+        imageUrl={`${SITE}/og/og-instagram-feed-sizes.png`}
         datePublished="2026-07-19"
         dateModified="2026-07-19"
         authorName="SevenOneLabs"
-        authorUrl="https://github.com/Sevenonelabs"
+        authorUrl={`${SITE}/author/sevenonelabs`}
       />
       <FAQPageSchema questions={FAQ_QUESTIONS} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
@@ -48,7 +48,7 @@ export default function InstagramFeedSizesPage() {
             Instagram
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">Instagram Image Sizes 2026: Feed, Carousel & Profile</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 10 min read · by <a href="https://github.com/Sevenonelabs" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</a></p>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 10 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/instagram-feed-sizes-2026" title="Instagram Image Sizes 2026: Feed, Carousel & Profile" />
         </div>
 
@@ -120,7 +120,7 @@ export default function InstagramFeedSizesPage() {
 
         <h3 className="text-[1rem] font-extrabold text-[#e6edf5] mt-6 mb-2">Portrait (4:5) — 1080 x 1350</h3>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
-          Portrait is the highest-engagement format for Instagram feed. At 4:5, these images take up 40% more vertical screen space than square posts, making them harder to scroll past. According to Instagram&apos;s algorithm, longer view time signals higher content quality. Use portrait for fashion, food, travel, and lifestyle content where vertical composition adds drama. Most professional Instagrammers use portrait as their primary format.
+          Portrait is the highest-engagement format for Instagram feed. At 4:5, these images take up more vertical screen space than square posts, making them harder to scroll past. Longer view time signals stronger content quality to the feed. Use portrait for fashion, food, travel, and lifestyle content where vertical composition adds drama. Most professional Instagrammers use portrait as their primary format.
         </p>
 
         <h3 className="text-[1rem] font-extrabold text-[#e6edf5] mt-6 mb-2">Landscape (1.91:1) — 1080 x 566</h3>
@@ -217,7 +217,7 @@ export default function InstagramFeedSizesPage() {
         </p>
         <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
           <li><strong className="text-[#e6edf5]">Dwell time.</strong> Portrait (4:5) images take up more screen space, which naturally increases how long users spend looking at your post before scrolling. The algorithm treats longer dwell time as a positive engagement signal.</li>
-          <li><strong className="text-[#e6edf5]">Save rate.</strong> Carousel posts get 3x more saves on average than single images because users save them as reference content. Higher save rates improve your post&apos;s reach in the Explore tab.</li>
+          <li><strong className="text-[#e6edf5]">Save rate.</strong> Carousel posts tend to earn more saves than single images because users save them as reference content. Higher save rates can help your post reach the Explore tab.</li>
           <li><strong className="text-[#e6edf5]">Shareability.</strong> Square images are the most shared format on Instagram because they display consistently in DMs and external previews without cropping. Higher share counts signal content value to the algorithm.</li>
           <li><strong className="text-[#e6edf5]">Completion rate (video).</strong> For video content, 9:16 vertical format has the highest completion rate because it fills the mobile screen entirely, reducing the chance users scroll past.</li>
         </ul>

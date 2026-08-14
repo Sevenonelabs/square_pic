@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: "Make an Image Square Online for Free | SquarePic",
     template: "%s | SquarePic",
   },
-    description: "SquarePic is a free online tool that crops and creates images into square format for social media like Facebook, Instagram, and WhatsApp profile pictures. Add backgrounds, blur, or fill — no uploads, no signup.",
+    description: "SquarePic is a free square image maker and online image editor. Make any photo square for Instagram, Facebook, LinkedIn, and WhatsApp with blur backgrounds, solid colors, or smart crop. No uploads, no signup, no watermarks.",
   icons: {
     icon: [
       { url: "/images/favicon.svg", type: "image/svg+xml" },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "SquarePic",
     locale: "en_US",
   description: "SquarePic is a free online tool that crops and creates images into square format for social media like Facebook, Instagram, and WhatsApp profile pictures. Add backgrounds, blur, or fill — no uploads, no signup.",
-    images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic - Free online square image maker and image editor" }],
+    images: [{ url: "/og/og-home.png", width: 1200, height: 630, alt: "SquarePic - Free online square image maker and image editor" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -60,7 +60,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${syneMono.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <meta name="theme-color" content="#07080b" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>

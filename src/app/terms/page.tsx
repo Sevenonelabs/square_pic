@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   title: "Terms of Service - SquarePic Free Online Image Editor",
   description: "SquarePic is a free online tool for making square images and editing images for social media. Review the terms of service for using our image editor, resizer, and converter.",
   openGraph: { title: "Terms of Service - SquarePic Free Online Image Editor" },
-  alternates: { canonical: "https://www.squarepic.io/terms" },
+  alternates: { canonical: `${SITE}/terms` },
 };
 
 export default function TermsPage() {
@@ -83,7 +84,7 @@ export default function TermsPage() {
           Contact
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          If you have any questions about these terms, please reach out through our <a href="/support" className="text-[var(--accent)] no-underline hover:underline">support page</a> or email us directly.
+          If you have any questions about these terms, please reach out through our <Link href="/support" className="text-[var(--accent)] no-underline hover:underline">support page</Link> or email us directly.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           <strong className="text-[#e6edf5]">Email:</strong> <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>

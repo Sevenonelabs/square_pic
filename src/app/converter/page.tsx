@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ConverterTool } from "@/components/converter/converter-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
@@ -11,14 +11,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
     description: "SquarePic is a free online tool that converts images to JPG, PNG, WebP, AVIF, and more. Batch convert between 8 formats instantly. No uploads, no signup.",
-    url: "https://www.squarepic.io/converter",
+    url: `${SITE}/converter`,
+    images: [{ url: "/og/og-converter.png", width: 1200, height: 630, alt: "SquarePic Image Converter - convert between JPG, PNG, WebP, and more" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
     description: "SquarePic is a free online image converter. Convert between JPG, PNG, WebP, and more. Batch convert. Free, no uploads.",
   },
-  alternates: { canonical: "https://www.squarepic.io/converter" },
+  alternates: { canonical: `${SITE}/converter` },
 };
 
 export default function ConverterPage() {
@@ -185,6 +186,29 @@ export default function ConverterPage() {
           </div>
         </div>
 
+        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-4">
+          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Resize Images for Social Media</h3>
+          <p className="text-[0.75rem] text-[#8d9aaa] leading-relaxed mb-3">
+            After converting your image, resize it to the exact dimensions your platform needs with our platform-specific resizers.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { href: "/resize/instagram", label: "Instagram" },
+              { href: "/resize/facebook", label: "Facebook" },
+              { href: "/resize/linkedin", label: "LinkedIn" },
+              { href: "/resize/x-twitter", label: "X (Twitter)" },
+              { href: "/resize/tiktok", label: "TikTok" },
+              { href: "/resize/youtube", label: "YouTube" },
+              { href: "/resize/pinterest", label: "Pinterest" },
+              { href: "/resize/whatsapp", label: "WhatsApp" },
+            ].map((platform) => (
+              <Link key={platform.href} href={platform.href} className="text-[0.68rem] font-semibold text-[#8d9aaa] bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] px-2.5 py-1 rounded-sm no-underline hover:text-[var(--accent)] hover:border-[var(--accent)]/20 transition-all">
+                {platform.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Conversion Tips for Different Workflows</h3>
@@ -214,23 +238,13 @@ export default function ConverterPage() {
             Every image conversion happens locally in your browser using HTML5 Canvas. Your images are never uploaded to any server.
           </p>
         </div>
-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>
+        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: August 2026</p>
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
           <p className="text-[0.75rem] text-[#8d9aaa] text-center">
             Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Image Sizes</Link> · <Link href="/guides/facebook-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Facebook Image Sizes</Link>
           </p>
         </div>
       </section>
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: "SquarePic - Image Converter",
-        url: "https://www.squarepic.io/converter",
-        description: "Free online image converter supporting JPEG, PNG, WebP, GIF, BMP, AVIF, TIFF, and ICO. Batch convert multiple images at once.",
-        applicationCategory: "MultimediaApplication",
-        operatingSystem: "Any",
-        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      }} />
     </>
   );
 }

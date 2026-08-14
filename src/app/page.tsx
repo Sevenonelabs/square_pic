@@ -41,11 +41,6 @@ export default function Home() {
         "@type": "WebSite",
         name: "SquarePic",
         url: "https://www.squarepic.io",
-        potentialAction: {
-          "@type": "SearchAction",
-          target: "https://www.squarepic.io/?q={search_term_string}",
-          "query-input": "required name=search_term_string",
-        },
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
@@ -56,14 +51,14 @@ export default function Home() {
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        dateModified: "2026-07-13",
+        dateModified: "2026-08-14",
       }} />
       <ToolAsHeroLayout
         state={state}
         onStateChange={update}
         headline="Make an Image Square Online — Free Square Image Maker"
         highlightWord="Square Image Maker"
-        microcopy="Upload any image and make it perfectly square for Instagram, LinkedIn, Facebook, and more. Three modes: Dynamic Blur, Solid Fill, or Smart Crop. Free, private, no signup."
+        microcopy="Turn any photo into a perfect square for Instagram, LinkedIn, Facebook, and more — without cropping out what matters. Pick Dynamic Blur, Solid Fill, or Smart Crop. Free, no signup, and 100% private: your image never leaves your device."
         colorSwatches={COLOR_SWATCHES}
       />
 
@@ -72,14 +67,14 @@ export default function Home() {
       <section className="max-w-[900px] mx-auto px-4 pb-16">
         <div className="max-w-[680px] mx-auto text-center mb-10">
           <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5] mb-3">
-            Make an Image Square Online - Free Square Image Maker
+            Make Any Photo Square in Seconds
           </h2>
           <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
-            Making an image square is essential for social media profiles, thumbnails, and posts. Unlike
-            cropping which removes parts of your image, this free square image maker no signup extends
-            your image into a perfect square using smart blur backgrounds, solid colors, or automatic cropping —
-            keeping your full image visible. Use it as a square image maker, image resizer for Instagram, a social media image editor,
-            or a quick square image tool for any platform.
+            Making an image square is essential for social media profiles, feed posts, and thumbnails. Unlike
+            cropping, which cuts parts of your photo away, SquarePic makes an image square online by extending
+            it with a blurred background, a solid color, or an automatic smart crop — so your full image stays
+            visible. Use it as a free square image maker for Instagram, a photo resizer for any platform, or a
+            quick way to keep an entire feed looking consistent.
           </p>
         </div>
 
@@ -109,14 +104,12 @@ export default function Home() {
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Best Uses for Square Images</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-              <li><strong className="text-[#e6edf5]">Social media profiles:</strong> Every platform uses square profile photos. Make yours perfectly proportioned.</li>
-              <li><strong className="text-[#e6edf5]">Instagram feed:</strong> Square posts (1080x1080) are the most versatile format for Instagram. Make a square photo for Instagram in seconds.</li>
-              <li><strong className="text-[#e6edf5]">Square photo for Instagram:</strong> The 1:1 square format displays perfectly on Instagram profiles and feeds without cropping or padding.</li>
-              <li><strong className="text-[#e6edf5]">LinkedIn company pages:</strong> Square logo images maintain consistency across all devices.</li>
-              <li><strong className="text-[#e6edf5]">Website thumbnails:</strong> Square thumbnails create clean grid layouts for blogs and portfolios.</li>
-              <li><strong className="text-[#e6edf5]">E-commerce product images:</strong> Major platforms like Amazon and Shopify recommend square product photos. Use this photo resizer to batch-prepare consistent product images.</li>
-              <li><strong className="text-[#e6edf5]">Favicon preparation:</strong> Website favicons and app icons must be perfectly square.</li>
-              <li><strong className="text-[#e6edf5]">Photo resizing for social media:</strong> Resize any image to exact social media dimensions without cropping — works as a free image resizer for Facebook, LinkedIn, and more.</li>
+              <li><strong className="text-[#e6edf5]">Instagram feed & posts:</strong> Square 1080x1080 posts display cleanly in the feed, grid, and profile — no surprise cropping on any device.</li>
+              <li><strong className="text-[#e6edf5]">Profile pictures:</strong> Every social platform uses a square avatar. Make yours perfectly proportioned and centered.</li>
+              <li><strong className="text-[#e6edf5]">LinkedIn & Facebook posts:</strong> Square images render fully in feeds on desktop and mobile, keeping your brand consistent.</li>
+              <li><strong className="text-[#e6edf5]">E-commerce product photos:</strong> Amazon and Shopify both recommend square product images for clean, uniform listings.</li>
+              <li><strong className="text-[#e6edf5]">Website thumbnails & favicons:</strong> Square thumbnails create tidy grid layouts, and favicons and app icons must be perfectly square.</li>
+              <li><strong className="text-[#e6edf5]">Quote graphics & branded content:</strong> One square format keeps your entire feed or grid looking cohesive.</li>
             </ul>
           </div>
         </div>
@@ -180,8 +173,8 @@ export default function Home() {
               <li>Add padding to prevent important content from touching the edges.</li>
               <li>Preview your square image at actual size before posting to check readability.</li>
               <li>Use the same square format across all profile pictures for brand consistency.</li>
-              <li>              This tool works as both a square image maker and a social media resizer — use the platform presets to resize for any network instantly.</li>
-              <li>Need a 1:1 image converter? The square format (1:1 aspect ratio) is the most versatile for cross-platform posting. SquarePic converts any rectangle photo to a perfect 1:1 square without cropping.</li>
+              <li>Check how your square image reads at thumbnail size — most posts are first seen small in a feed.</li>
+              <li>SquarePic also resizes, crops, compresses, and converts images — use the platform presets to prep any photo in seconds.</li>
             </ul>
           </div>
         </div>
@@ -194,7 +187,58 @@ export default function Home() {
           </p>
         </div>
 
-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: July 2026</p>
+        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: August 2026</p>
+
+        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mt-8">
+          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Resize Images for Every Platform</h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { href: "/resize/instagram", label: "Instagram" },
+              { href: "/resize/facebook", label: "Facebook" },
+              { href: "/resize/x-twitter", label: "X (Twitter)" },
+              { href: "/resize/linkedin", label: "LinkedIn" },
+              { href: "/resize/tiktok", label: "TikTok" },
+              { href: "/resize/youtube", label: "YouTube" },
+              { href: "/resize/pinterest", label: "Pinterest" },
+              { href: "/resize/snapchat", label: "Snapchat" },
+              { href: "/resize/whatsapp", label: "WhatsApp" },
+              { href: "/resize/twitch", label: "Twitch" },
+              { href: "/resize/reddit", label: "Reddit" },
+              { href: "/resize/telegram", label: "Telegram" },
+              { href: "/resize/discord", label: "Discord" },
+            ].map((platform) => (
+              <Link
+                key={platform.href}
+                href={platform.href}
+                className="text-[0.68rem] font-semibold text-[#8d9aaa] bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] px-3 py-1.5 rounded-sm no-underline hover:text-[var(--accent)] hover:border-[var(--accent)]/20 transition-all"
+              >
+                {platform.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mt-4">
+          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Convert Between Image Formats</h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { href: "/converter/png-to-jpg", label: "PNG to JPG" },
+              { href: "/converter/jpg-to-png", label: "JPG to PNG" },
+              { href: "/converter/png-to-webp", label: "PNG to WebP" },
+              { href: "/converter/jpg-to-webp", label: "JPG to WebP" },
+              { href: "/converter/webp-to-png", label: "WebP to PNG" },
+              { href: "/converter/png-to-avif", label: "PNG to AVIF" },
+            ].map((format) => (
+              <Link
+                key={format.href}
+                href={format.href}
+                className="text-[0.68rem] font-semibold text-[#8d9aaa] bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] px-3 py-1.5 rounded-sm no-underline hover:text-[var(--accent)] hover:border-[var(--accent)]/20 transition-all"
+              >
+                {format.label}
+              </Link>
+            ))}
+          </div>
+        </div>
 
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
           <p className="text-[0.75rem] text-[#8d9aaa] text-center">
@@ -202,18 +246,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        name: "SquarePic - Free Square Image Maker",
-        url: "https://www.squarepic.io",
-        description: "Free online square image maker with blur backgrounds, solid fills, and smart crop. Privacy-first, no uploads, no signup.",
-        applicationCategory: "MultimediaApplication",
-        operatingSystem: "Any",
-        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        dateModified: "2026-07-13",
-      }} />
     </>
   );
 }

@@ -68,6 +68,7 @@ SquarePic lets you resize, crop, compress, and convert images locally in your br
 
 ### Information Pages
 - About SquarePic: https://www.squarepic.io/about
+- SevenOneLabs (author page): https://www.squarepic.io/author/sevenonelabs
 - FAQ: https://www.squarepic.io/faq
 - Support: https://www.squarepic.io/support
 - Privacy Policy: https://www.squarepic.io/privacy

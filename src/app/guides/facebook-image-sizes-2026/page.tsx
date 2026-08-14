@@ -8,8 +8,8 @@ import { SITE_URL as SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions",
   description: "SquarePic guide: Complete Facebook image size guide for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.",
-  openGraph: { title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
-  alternates: { canonical: "https://www.squarepic.io/guides/facebook-image-sizes-2026" },
+  openGraph: { title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-facebook-image-sizes.png", width: 1200, height: 630 }] },
+  alternates: { canonical: `${SITE}/guides/facebook-image-sizes-2026` },
   twitter: { card: "summary_large_image", title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete Facebook image dimensions for 2026 with best practices." },
 };
 
@@ -35,11 +35,11 @@ export default function FacebookImageSizesPage() {
         title="Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions"
         description="Complete guide to Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices."
         url={`${SITE}/guides/facebook-image-sizes-2026`}
-        imageUrl={`${SITE}/squareframe_preview.png`}
+        imageUrl={`${SITE}/og/og-facebook-image-sizes.png`}
         datePublished="2026-07-19"
         dateModified="2026-07-19"
         authorName="SevenOneLabs"
-        authorUrl="https://github.com/Sevenonelabs"
+        authorUrl={`${SITE}/author/sevenonelabs`}
       />
       <FAQPageSchema questions={FAQ_QUESTIONS} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
@@ -48,7 +48,7 @@ export default function FacebookImageSizesPage() {
             Facebook
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 10 min read · by <a href="https://github.com/Sevenonelabs" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</a></p>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 10 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/facebook-image-sizes-2026" title="Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions" />
         </div>
 
@@ -246,7 +246,7 @@ export default function FacebookImageSizesPage() {
           <li><strong className="text-[#e6edf5]">Text or logos near cover photo edges.</strong> Facebook&apos;s profile picture overlay covers the bottom-left portion of your cover photo on desktop, and mobile crops vary. Anything important outside the center-safe zone risks being hidden.</li>
           <li><strong className="text-[#e6edf5]">Using the wrong aspect ratio for link posts.</strong> Link previews always use 1.91:1 (1200 x 630). Other ratios are cropped, and vertical images lose significant context when forced into the wide format.</li>
           <li><strong className="text-[#e6edf5]">Overly compressed images.</strong> Saving at 60% or lower JPEG quality adds artifacts that Facebook&apos;s own compression amplifies. The result looks noticeably worse than a properly compressed starting image at 85%.</li>
-          <li><strong className="text-[#e6edf5]">Ignoring mobile-first design.</strong> Over 98% of Facebook users access the platform via mobile. An image that looks perfect on a 27-inch monitor may appear cramped or cropped on a phone screen.</li>
+          <li><strong className="text-[#e6edf5]">Ignoring mobile-first design.</strong> The vast majority of Facebook users access the platform via mobile. An image that looks perfect on a 27-inch monitor may appear cramped or cropped on a phone screen.</li>
           <li><strong className="text-[#e6edf5]">Small text in images.</strong> Text that is readable in the full-size image becomes microscopic after Facebook&apos;s feed scaling. Aim for text that is legible when the image is viewed at 25% of its original dimensions.</li>
         </ul>
 
@@ -256,7 +256,7 @@ export default function FacebookImageSizesPage() {
         </p>
         <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
           <li><strong className="text-[#e6edf5]">Desktop feed.</strong> The Facebook feed is roughly 680px wide on desktop. Landscape images fill this width. Portrait images are capped at a maximum height, so the top portion is most visible before users click to expand.</li>
-          <li><strong className="text-[#e6edf5]">Mobile feed.</strong> Mobile screens show a single column feed where portrait images take up the most vertical space and landscape images appear short. Over 98% of Facebook users are mobile, so design for the mobile crop first.</li>
+          <li><strong className="text-[#e6edf5]">Mobile feed.</strong> Mobile screens show a single column feed where portrait images take up the most vertical space and landscape images appear short. Most Facebook users are on mobile, so design for the mobile crop first.</li>
           <li><strong className="text-[#e6edf5]">Messenger previews.</strong> Images shared in Messenger appear as small thumbnails. Open them full-screen for the full view. Profile pictures in Messenger display as tiny 32 x 32 circles — another reason to keep compositions simple and central.</li>
           <li><strong className="text-[#e6edf5]">Group covers.</strong> Facebook group cover images display at roughly 1640 x 624 pixels on desktop and crop differently on mobile. Similar safe-zone rules apply — keep critical content in the center.</li>
         </ul>

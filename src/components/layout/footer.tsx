@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const NAV = [
   { href: "/about", label: "About" },
   { href: "/support", label: "Support" },
@@ -22,13 +24,13 @@ export function Footer() {
 
         <nav className="flex justify-center gap-6 max-md:gap-4">
           {NAV.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

@@ -10,8 +10,8 @@ import { SITE_URL as SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Social Media Image Sizes 2026: Complete Cheat Sheet",
   description: "SquarePic guide: The definitive 2026 social media image size cheat sheet with updated dimensions for Instagram, Facebook, X/Twitter, LinkedIn, TikTok, YouTube, Pinterest, and more.",
-  openGraph: { title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic", description: "SquarePic guide to 2026 social media image sizes. Updated dimensions for every major platform.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
-  alternates: { canonical: "https://www.squarepic.io/guides/social-media-image-sizes-2026" },
+  openGraph: { title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic", description: "SquarePic guide to 2026 social media image sizes. Updated dimensions for every major platform.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-social-media-image-sizes.png", width: 1200, height: 630 }] },
+  alternates: { canonical: `${SITE}/guides/social-media-image-sizes-2026` },
   twitter: { card: "summary_large_image", title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic", description: "SquarePic guide to 2026 social media image sizes." },
 };
 
@@ -85,18 +85,18 @@ export default function SocialMediaImageSizesPage() {
         title="Social Media Image Sizes 2026: Complete Cheat Sheet"
         description="The definitive guide to 2026 social media image sizes. Updated dimensions for Instagram, Facebook, X/Twitter, LinkedIn, TikTok, YouTube, Pinterest, and more."
         url={`${SITE}/guides/social-media-image-sizes-2026`}
-        imageUrl={`${SITE}/squareframe_preview.png`}
+        imageUrl={`${SITE}/og/og-social-media-image-sizes.png`}
         datePublished="2026-07-19"
         dateModified="2026-07-19"
         authorName="SevenOneLabs"
-        authorUrl="https://github.com/Sevenonelabs"
+        authorUrl={`${SITE}/author/sevenonelabs`}
       />
       <FAQPageSchema questions={FAQ_QUESTIONS} />
       <article className="max-w-[800px] w-full mx-auto px-4 py-8">
         <h1 className="text-[2rem] font-extrabold tracking-tight mb-1">
           Social Media Image Sizes 2026: Complete Cheat Sheet
         </h1>
-        <p className="text-[0.78rem] text-[#576675] mb-6">Published July 19, 2026 · Updated July 19, 2026 · 15 min read · by <a href="https://github.com/Sevenonelabs" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</a></p>
+        <p className="text-[0.78rem] text-[#576675] mb-6">Published July 19, 2026 · Updated July 19, 2026 · 15 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
         <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-8">
           Using the correct image dimensions is one of the easiest ways to make your social media profiles
           look professional. Every platform has specific requirements, and getting them wrong means your
@@ -190,7 +190,7 @@ export default function SocialMediaImageSizesPage() {
               { title: "Use the Right Format", desc: "JPEG for photos, PNG for graphics with text, WebP for modern web performance. Most platforms accept all three." },
               { title: "Stay Within File Size Limits", desc: "Most platforms cap uploads at 20-30 MB. Compress your images before uploading to avoid errors." },
               { title: "Check Safe Zones", desc: "Profile pictures and cover photos often have circular crops or safe zones. Keep key content centered." },
-              { title: "Optimize for Mobile First", desc: "Over 80% of social media browsing happens on mobile. Test your images on a phone screen before posting." },
+              { title: "Optimize for Mobile First", desc: "Most social media browsing happens on mobile. Test your images on a phone screen before posting." },
               { title: "Be Consistent", desc: "Use the same profile picture size and style across all platforms for brand recognition." },
               { title: "Maintain Image Quality", desc: "Upload the highest resolution version that meets platform limits. Platforms compress images, so start clean." },
             ].map((t) => (

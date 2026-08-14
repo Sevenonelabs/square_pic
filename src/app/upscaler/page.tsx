@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { UpscalerTool } from "@/components/upscaler/upscaler-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
@@ -11,15 +11,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
     description: "SquarePic is a free online tool that upscales images 2x, 3x, or 4x in HD quality with smart sharpening. All processing is private and local.",
-    url: "https://www.squarepic.io/upscaler",
-    images: [{ url: "/squareframe_preview.png", width: 1200, height: 630, alt: "SquarePic HD Image Upscaler - enlarge images 2x, 3x, or 4x" }],
+    url: `${SITE}/upscaler`,
+    images: [{ url: "/og/og-upscaler.png", width: 1200, height: 630, alt: "SquarePic HD Image Upscaler - enlarge images 2x, 3x, or 4x" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
     description: "SquarePic is a free online HD image upscaler. Enlarge images 2x, 3x, or 4x with smart sharpening. Private, browser-based.",
   },
-  alternates: { canonical: "https://www.squarepic.io/upscaler" },
+  alternates: { canonical: `${SITE}/upscaler` },
 };
 
 export default function UpscalerPage() {
@@ -145,23 +145,13 @@ export default function UpscalerPage() {
             Your images never leave your device.
           </p>
         </div>
-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>
+        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: August 2026</p>
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
           <p className="text-[0.75rem] text-[#8d9aaa] text-center">
             Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Image Sizes</Link> · <Link href="/guides/pinterest-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Pinterest Image Sizes</Link>
           </p>
         </div>
       </section>
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: "SquarePic - HD Image Upscaler",
-        url: "https://www.squarepic.io/upscaler",
-        description: "Free online HD image upscaler. Enlarge images 2x, 3x, or 4x with bicubic interpolation and smart sharpening. All processing is private and local.",
-        applicationCategory: "MultimediaApplication",
-        operatingSystem: "Any",
-        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      }} />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy - SquarePic Free Online Image Editor",
   description: "SquarePic is a free online image editor that processes images in your browser. Read the privacy policy to understand how we handle your data. No uploads, no tracking.",
   openGraph: { title: "Privacy Policy - SquarePic Free Online Image Editor" },
-  alternates: { canonical: "https://www.squarepic.io/privacy" },
+  alternates: { canonical: `${SITE}/privacy` },
 };
 
 export default function PrivacyPage() {
@@ -63,7 +64,7 @@ export default function PrivacyPage() {
           Contact
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          If you have questions about this privacy policy, please visit our <a href="/faq" className="text-[var(--accent)] no-underline hover:underline">FAQ page</a> or <a href="/support" className="text-[var(--accent)] no-underline hover:underline">contact support</a>. We are committed to protecting your privacy and being transparent about how SquarePic works.
+          If you have questions about this privacy policy, please visit our <Link href="/faq" className="text-[var(--accent)] no-underline hover:underline">FAQ page</Link> or <Link href="/support" className="text-[var(--accent)] no-underline hover:underline">contact support</Link>. We are committed to protecting your privacy and being transparent about how SquarePic works.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           <strong className="text-[#e6edf5]">Email:</strong> <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema, ArticleSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
@@ -8,8 +8,8 @@ import { SITE_URL as SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions",
   description: "SquarePic guide: Complete LinkedIn image size guide for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page requirements.",
-  openGraph: { title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete LinkedIn image dimensions for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page requirements.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
-  alternates: { canonical: "https://www.squarepic.io/guides/linkedin-image-sizes-2026" },
+  openGraph: { title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete LinkedIn image dimensions for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page requirements.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-linkedin-image-sizes.png", width: 1200, height: 630 }] },
+  alternates: { canonical: `${SITE}/guides/linkedin-image-sizes-2026` },
   twitter: { card: "summary_large_image", title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete LinkedIn image dimensions for 2026." },
 };
 
@@ -26,19 +26,45 @@ export default function LinkedInImageSizesPage() {
         title="LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions"
         description="Complete guide to LinkedIn image dimensions for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page image requirements."
         url={`${SITE}/guides/linkedin-image-sizes-2026`}
-        imageUrl={`${SITE}/squareframe_preview.png`}
+        imageUrl={`${SITE}/og/og-linkedin-image-sizes.png`}
         datePublished="2026-07-19"
         dateModified="2026-07-19"
         authorName="SevenOneLabs"
-        authorUrl="https://github.com/Sevenonelabs"
+        authorUrl={`${SITE}/author/sevenonelabs`}
       />
+      <FAQPageSchema questions={[
+        {
+          question: "What is the best LinkedIn profile picture size?",
+          answer: "400 x 400 pixels at 1:1 aspect ratio. LinkedIn displays it as a circle, so keep your face centered within the frame. PNG format for graphics, JPEG for photos.",
+        },
+        {
+          question: "What size is a LinkedIn banner?",
+          answer: "Personal profile banners display at 1584 x 396 pixels (4:1). Company page cover images are 1128 x 191 (5.9:1). Both have different safe zones for content placement.",
+        },
+        {
+          question: "What image size works best for LinkedIn posts?",
+          answer: "Landscape 1200 x 627 (1.91:1) is the most common and performs best. Square 1200 x 1200 takes up more feed space. Portrait 720 x 900 is narrower and less impactful.",
+        },
+        {
+          question: "What format should I use for LinkedIn images?",
+          answer: "JPEG for photographs and complex images. PNG for graphics with text, logos, or transparency. Keep profile and banner images under 8 MB, post images under 20 MB.",
+        },
+        {
+          question: "Does LinkedIn compress images?",
+          answer: "Yes. LinkedIn compresses all uploaded images. Starting with a properly sized image at high quality (90% JPEG) minimizes visible compression artifacts. Oversized or low-resolution images look worse after compression.",
+        },
+        {
+          question: "Does LinkedIn support dark mode images?",
+          answer: "LinkedIn does not serve different images for dark mode. Design your profile picture and banner to look good on both light and dark backgrounds. Avoid dark text on dark backgrounds.",
+        },
+      ]} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
         <div className="mb-8">
           <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
             LinkedIn
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 8 min read · by <a href="https://github.com/Sevenonelabs" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</a></p>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 8 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/linkedin-image-sizes-2026" title="LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions" />
         </div>
 
@@ -184,7 +210,7 @@ export default function LinkedInImageSizesPage() {
 
         <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">LinkedIn Carousel (Document) Posts</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
-          Carousel posts let you upload a PDF document that LinkedIn converts into a swipeable slide deck. Each slide displays at 1920 x 1080 pixels (16:9). Carousels consistently outperform single-image posts on LinkedIn — they generate 3x more clicks and 5x more direct messages because each swipe requires active engagement. The first slide is your thumbnail in the feed, so make it visually compelling with a clear title.
+          Carousel posts let you upload a PDF document that LinkedIn converts into a swipeable slide deck. Each slide displays at 1920 x 1080 pixels (16:9). Carousels tend to outperform single-image posts on LinkedIn because each swipe requires active engagement and keeps viewers on the post longer. The first slide is your thumbnail in the feed, so make it visually compelling with a clear title.
         </p>
         <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-1 mb-4">
           <li>Upload a PDF file up to 100 MB with up to 300 pages.</li>

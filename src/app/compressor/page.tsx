@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CompressorTool } from "@/components/compressor/compressor-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
@@ -11,14 +11,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
     description: "SquarePic is a free online tool that compresses JPG, PNG, and WebP images without losing quality. Batch compress and download as ZIP. No uploads, no signup.",
-    url: "https://www.squarepic.io/compressor",
+    url: `${SITE}/compressor`,
+    images: [{ url: "/og/og-compressor.png", width: 1200, height: 630, alt: "SquarePic Image Compressor - reduce JPG, PNG, and WebP file sizes" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
     description: "SquarePic is a free online image compressor. Reduce JPG, PNG, and WebP file sizes without losing quality. Batch compress. Free, no uploads.",
   },
-  alternates: { canonical: "https://www.squarepic.io/compressor" },
+  alternates: { canonical: `${SITE}/compressor` },
 };
 
 export default function CompressorPage() {
@@ -144,7 +145,7 @@ export default function CompressorPage() {
               <li><strong className="text-[#e6edf5]">Website hero images:</strong> Target under 200 KB at quality 80%. Use WebP format for best quality-to-size ratio.</li>
               <li><strong className="text-[#e6edf5]">Product photos:</strong> Compress to 100-300 KB each. Higher quality (85%) for zoomable images, lower for thumbnails.</li>
               <li><strong className="text-[#e6edf5]">Email attachments:</strong> Keep images under 500 KB. Most email clients block images over 5-10 MB total.</li>
-              <li><strong className="text-[#e6edf5]">Social media uploads:</strong> Instagram and LinkedIn cap at 20 MB. Pre-compress to 1-5 MB for fast uploads without quality loss.</li>
+              <li><strong className="text-[#e6edf5]">Social media uploads:</strong> Social platforms apply their own upload caps and compress images after upload. Pre-compress to 1-5 MB for fast uploads with the least quality loss.</li>
               <li><strong className="text-[#e6edf5]">Blog thumbnails:</strong> Compress aggressively to 30-50 KB at quality 60%. Small size matters more than perfection.</li>
             </ul>
           </div>
@@ -166,23 +167,13 @@ export default function CompressorPage() {
             All image compression happens locally in your browser using the Canvas API. Your files are never uploaded to any server.
           </p>
         </div>
-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: March 2026</p>
+        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: August 2026</p>
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
           <p className="text-[0.75rem] text-[#8d9aaa] text-center">
             Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Image Sizes</Link> · <Link href="/guides/linkedin-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">LinkedIn Image Sizes</Link>
           </p>
         </div>
       </section>
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: "SquarePic - Image Compressor",
-        url: "https://www.squarepic.io/compressor",
-        description: "Free online image compressor with quality slider and target-size mode. Batch compress JPEG, PNG, and WebP. No uploads, no signup.",
-        applicationCategory: "MultimediaApplication",
-        operatingSystem: "Any",
-        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      }} />
     </>
   );
 }

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "About SquarePic - Free Square Image Maker & Image Editor",
   description: "SquarePic is a free online tool that crops and creates images into square format for social media like Instagram, Facebook, and WhatsApp. Make any image square — no uploads, no signup.",
   openGraph: { title: "About SquarePic - Free Square Image Maker & Image Editor | SquarePic", description: "SquarePic is a free online tool that makes any image square for Instagram, Facebook, and WhatsApp. No uploads, no signup, no watermarks." },
-  alternates: { canonical: "https://www.squarepic.io/about" },
+  alternates: { canonical: `${SITE}/about` },
 };
 
 export default function AboutPage() {
@@ -14,8 +14,7 @@ export default function AboutPage() {
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "About", url: `${SITE}/about` }]} />
       <JsonLd data={{ "@context": "https://schema.org", "@type": "AboutPage", name: "About SquarePic", description: "SquarePic is a free online tool that crops and creates images into square format for social media. Make any image square for Instagram and social media.", url: `${SITE}/about` }} />
-      <PersonSchema name="SevenOneLabs" jobTitle="Software Development Lab" url="https://github.com/Sevenonelabs/square_pic" sameAs={["https://github.com/Sevenonelabs"]} />
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "Organization", name: "SquarePic", url: "https://www.squarepic.io", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", ratingCount: "1247", bestRating: "5" } }} />
+      <PersonSchema name="SevenOneLabs" jobTitle="Software Development Lab" url={`${SITE}/author/sevenonelabs`} sameAs={["https://github.com/Sevenonelabs"]} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-6">About SquarePic</h1>
 
@@ -41,7 +40,7 @@ export default function AboutPage() {
           SquarePic was created by <strong className="text-[#e6edf5]">SevenOneLabs</strong> to solve a simple problem: every online image editor either uploads your photos to unknown servers, requires a signup, or slaps a watermark on your download. We wanted a tool that respected your privacy, stayed out of your way, and delivered professional results in seconds.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          What started as a utility for our own social media workflows grew into a full toolkit used by thousands of creators daily. Every feature we build is guided by the same principles: keep it local, keep it free, and keep it fast.
+          What started as a utility for our own social media workflows grew into a full toolkit used by creators around the world. Every feature we build is guided by the same principles: keep it local, keep it free, and keep it fast.
         </p>
       </section>
 
@@ -85,7 +84,7 @@ export default function AboutPage() {
           What People Say
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          SquarePic has been used by thousands of creators, marketers, and everyday users who appreciate a tool that respects their privacy while delivering professional results. The feedback we hear most often is how refreshing it is to edit images online without worrying about uploads, signups, or watermarks. We track satisfaction through in-app ratings, and our community consistently rates the experience at 4.9 out of 5 stars across all tools.
+          SquarePic is used by creators, marketers, and everyday users who appreciate a tool that respects their privacy while delivering professional results. The feedback we hear most often is how refreshing it is to edit images online without worrying about uploads, signups, or watermarks.
         </p>
       </section>
 

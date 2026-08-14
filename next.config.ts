@@ -43,6 +43,11 @@ const nextConfig: NextConfig = {
     { source: "/free-image-optimizer", destination: "/compressor", permanent: true },
     { source: "/resize", destination: "/", permanent: true },
     { source: "/edit", destination: "/", permanent: true },
+    { source: "/converter/png-to-jpeg", destination: "/converter/png-to-jpg", permanent: true },
+    { source: "/converter/jpeg-to-png", destination: "/converter/jpg-to-png", permanent: true },
+    { source: "/converter/jpeg-to-webp", destination: "/converter/jpg-to-webp", permanent: true },
+    { source: "/converter/webp-to-jpeg", destination: "/converter/webp-to-jpg", permanent: true },
+    { source: "/converter/jpeg-to-gif", destination: "/converter/jpg-to-gif", permanent: true },
     { source: "/", destination: "https://www.squarepic.io/", permanent: true, has: [{ type: "host", value: "squarepic.io" }] },
   ],
 };

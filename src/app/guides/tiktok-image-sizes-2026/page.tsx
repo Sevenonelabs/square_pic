@@ -8,8 +8,8 @@ import { SITE_URL as SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions",
   description: "SquarePic guide: Complete TikTok image size guide for 2026. Profile picture size, video aspect ratios, story specs, ad formats, and best practices.",
-  openGraph: { title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions | SquarePic", description: "SquarePic guide: Complete TikTok image dimensions for 2026. Profile pictures, video aspect ratios, story specs, ad formats, and best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
-  alternates: { canonical: "https://www.squarepic.io/guides/tiktok-image-sizes-2026" },
+  openGraph: { title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions | SquarePic", description: "SquarePic guide: Complete TikTok image dimensions for 2026. Profile pictures, video aspect ratios, story specs, ad formats, and best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-tiktok-image-sizes.png", width: 1200, height: 630 }] },
+  alternates: { canonical: `${SITE}/guides/tiktok-image-sizes-2026` },
   twitter: { card: "summary_large_image", title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions | SquarePic", description: "SquarePic guide: Complete TikTok image dimensions for 2026." },
 };
 
@@ -34,11 +34,11 @@ export default function TikTokImageSizesPage() {
         title="TikTok Image Sizes 2026: Profile, Video & Story Dimensions"
         description="Complete guide to TikTok image dimensions for 2026. Profile picture size, video aspect ratios, story specs, ad formats, and best practices for maximum engagement."
         url={`${SITE}/guides/tiktok-image-sizes-2026`}
-        imageUrl={`${SITE}/squareframe_preview.png`}
+        imageUrl={`${SITE}/og/og-tiktok-image-sizes.png`}
         datePublished="2026-07-19"
         dateModified="2026-07-19"
         authorName="SevenOneLabs"
-        authorUrl="https://github.com/Sevenonelabs"
+        authorUrl={`${SITE}/author/sevenonelabs`}
       />
       <FAQPageSchema questions={FAQ_QUESTIONS} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
@@ -47,7 +47,7 @@ export default function TikTokImageSizesPage() {
             TikTok
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">TikTok Image Sizes 2026: Profile, Video & Story Dimensions</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 8 min read · by <a href="https://github.com/Sevenonelabs" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</a></p>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 8 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/tiktok-image-sizes-2026" title="TikTok Image Sizes 2026: Profile, Video & Story Dimensions" />
         </div>
 
@@ -193,7 +193,7 @@ export default function TikTokImageSizesPage() {
           <li><strong className="text-[#e6edf5]">Text safe zones matter.</strong> TikTok overlays the caption, like button, share button, and user handle on your content. Keep critical visual elements in the center 70% of the frame. Leave the bottom 10% clear for the caption area.</li>
           <li><strong className="text-[#e6edf5]">Bright, saturated colors perform best.</strong> TikTok&apos;s algorithm favors visually stimulating content. High-brightness, high-saturation images get more attention in the For You feed. Muted or dark content gets scrolled past faster.</li>
           <li><strong className="text-[#e6edf5]">Keep file sizes manageable.</strong> TikTok compresses large uploads aggressively. A 50 MB video uploaded at 1080p will look worse after TikTok&apos;s compression than a 10 MB video at the same resolution. Export at reasonable bitrates.</li>
-          <li><strong className="text-[#e6edf5]">Design for sound-off viewing.</strong> Over 70% of TikTok initial views happen with sound off. If your content relies on audio, add captions burned into the video within the center safe zone.</li>
+          <li><strong className="text-[#e6edf5]">Design for sound-off viewing.</strong> Many TikTok viewers watch with sound off. If your content relies on audio, add captions burned into the video within the center safe zone.</li>
         </ul>
 
         <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Common TikTok Image Mistakes</h2>

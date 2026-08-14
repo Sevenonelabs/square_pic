@@ -8,13 +8,13 @@ import { SITE_URL as SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide",
   description: "SquarePic guide: Complete Pinterest image size guide for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices.",
-  openGraph: { title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide | SquarePic", description: "SquarePic guide: Complete Pinterest image dimensions for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/squareframe_preview.png", width: 1200, height: 630 }] },
-  alternates: { canonical: "https://www.squarepic.io/guides/pinterest-image-sizes-2026" },
+  openGraph: { title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide | SquarePic", description: "SquarePic guide: Complete Pinterest image dimensions for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-pinterest-image-sizes.png", width: 1200, height: 630 }] },
+  alternates: { canonical: `${SITE}/guides/pinterest-image-sizes-2026` },
   twitter: { card: "summary_large_image", title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide | SquarePic", description: "SquarePic guide: Complete Pinterest image dimensions for 2026 with best practices." },
 };
 
 const FAQ_QUESTIONS = [
-  { question: "What is the best pin size for Pinterest?", answer: "1000 x 1500 pixels (2:3 aspect ratio) is the best size for standard Pinterest pins. Tall vertical pins perform significantly better because they take up more screen space in the feed and get 60% more repins than square pins." },
+  { question: "What is the best pin size for Pinterest?", answer: "1000 x 1500 pixels (2:3 aspect ratio) is the best size for standard Pinterest pins. Tall vertical pins perform better because they take up more screen space in the feed and tend to get more repins than square pins." },
   { question: "What size should a Pinterest board cover be?", answer: "Board covers display at 600 x 600 pixels (1:1 square). Pinterest auto-crops your pins to fill the cover space, so choose a pin with a strong central focal point that won&apos;t lose meaning when cropped to square." },
   { question: "Does Pinterest support video pins?", answer: "Yes. Video pins can be uploaded directly or saved from supported platforms. Use a 16:9 aspect ratio (1920 x 1080) for landscape video or 9:16 (1080 x 1920) for vertical video. Videos autoplay on mute in the feed, so add captions." },
   { question: "What is the maximum file size for Pinterest images?", answer: "Pinterest accepts images up to 20 MB. For video pins, the limit is 2 GB. Compress images to at least 70% quality to balance file size and visual sharpness." },
@@ -35,11 +35,11 @@ export default function PinterestImageSizesPage() {
         title="Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide"
         description="Complete guide to Pinterest image dimensions for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices for maximum engagement."
         url={`${SITE}/guides/pinterest-image-sizes-2026`}
-        imageUrl={`${SITE}/squareframe_preview.png`}
+        imageUrl={`${SITE}/og/og-pinterest-image-sizes.png`}
         datePublished="2026-07-19"
         dateModified="2026-07-19"
         authorName="SevenOneLabs"
-        authorUrl="https://github.com/Sevenonelabs"
+        authorUrl={`${SITE}/author/sevenonelabs`}
       />
       <FAQPageSchema questions={FAQ_QUESTIONS} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
@@ -48,7 +48,7 @@ export default function PinterestImageSizesPage() {
             Pinterest
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 10 min read · by <a href="https://github.com/Sevenonelabs" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</a></p>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 10 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/pinterest-image-sizes-2026" title="Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide" />
         </div>
 
@@ -108,7 +108,7 @@ export default function PinterestImageSizesPage() {
         </p>
         <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-1 mb-4">
           <li>Use <strong className="text-[#e6edf5]">1000 x 1500 (2:3)</strong> as your default pin size for all new content.</li>
-          <li>Tall pins (2:3 and wider) get repinned 60% more than square pins.</li>
+          <li>Tall pins (2:3 and wider) tend to get repinned more often than square pins.</li>
           <li>Keep the most important visual information in the top third of the pin — the bottom gets cropped in previews and related pin sections.</li>
           <li>Overlay readable text at 24px minimum size for a clean look at thumbnail scale.</li>
           <li>Avoid clutter — Pinterest&apos;s algorithm prioritizes clean, high-contrast images with a clear focal point.</li>
@@ -262,7 +262,7 @@ export default function PinterestImageSizesPage() {
 
         <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">How SquarePic Helps with Pinterest Images</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
-          SquarePic lets you resize, crop, and convert images to any Pinterest format directly in your browser. No uploads, no signup, no watermarks. Use the <Link href="/edit" className="text-[var(--accent)] no-underline hover:underline">image editor</Link> to set your target pin dimensions and download a perfectly sized image in seconds. All processing happens client-side; your images never leave your device.
+          SquarePic lets you resize, crop, and convert images to any Pinterest format directly in your browser. No uploads, no signup, no watermarks. Use the <Link href="/" className="text-[var(--accent)] no-underline hover:underline">image editor</Link> to set your target pin dimensions and download a perfectly sized image in seconds. All processing happens client-side; your images never leave your device.
         </p>
 
         <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Frequently Asked Questions</h2>
@@ -283,7 +283,7 @@ export default function PinterestImageSizesPage() {
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mb-6">
           <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed m-0">
             <strong className="text-[#e6edf5]">Need to resize images for Pinterest?</strong>{" "}
-            Use <Link href="/edit" className="text-[var(--accent)] no-underline hover:underline">SquarePic&apos;s free image editor</Link> — set your target pin dimensions and download perfectly sized images in seconds. No signup required.
+            Use <Link href="/" className="text-[var(--accent)] no-underline hover:underline">SquarePic&apos;s free image editor</Link> — set your target pin dimensions and download perfectly sized images in seconds. No signup required.
           </p>
         </div>
 
@@ -291,7 +291,7 @@ export default function PinterestImageSizesPage() {
 
         <div className="text-center py-6 border-t border-[rgba(255,255,255,0.06)]">
           <Link
-            href="/edit"
+            href="/resize/pinterest"
             className="inline-flex items-center gap-3 bg-[var(--accent)] text-black px-8 py-3.5 rounded-md text-base font-extrabold no-underline transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 shadow-[0_4px_20px var(--accent-glow)]"
           >
             Resize Images for Pinterest Free

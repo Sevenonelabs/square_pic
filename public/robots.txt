@@ -1,17 +1,25 @@
 # ── Allow all crawlers ────────────────────────────────
 User-agent: *
 Allow: /
-Allow: /assets/
 Disallow: /api/
 
 # ── AI crawler rules ──────────────────────────────────
 User-agent: GPTBot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
 User-agent: ClaudeBot
 Allow: /
 
 User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
 Allow: /
 
 # ── Sitemaps ──────────────────────────────────────────

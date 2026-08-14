@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "SquarePic is a free online tool that crops and creates images into square format for social media. Browse step-by-step guides and size cheat sheets for Instagram, Facebook, LinkedIn, YouTube, and more.",
   openGraph: { title: "Image Editing Guides & Tutorials | SquarePic" },
   twitter: { card: "summary_large_image", title: "Image Editing Guides & Tutorials | SquarePic", description: "SquarePic guides: social media image size cheat sheets and editing tutorials for Instagram, Facebook, LinkedIn, YouTube, TikTok, and more." },
-  alternates: { canonical: "https://www.squarepic.io/guides" },
+  alternates: { canonical: `${SITE}/guides` },
 };
 
 const ALL_CATEGORIES = ["All", "Social Media", "Instagram", "Facebook", "LinkedIn", "YouTube", "TikTok", "Pinterest", "Discord"] as const;
@@ -83,8 +83,13 @@ function getCategoryLabel(slug: string): string {
   const map: Record<string, string> = {
     instagram: "Instagram", linkedin: "LinkedIn", youtube: "YouTube", tiktok: "TikTok",
     facebook: "Facebook", pinterest: "Pinterest", discord: "Discord",
+    "social-media": "Social Media",
   };
   return map[slug] || slug;
+}
+
+function categorySlug(cat: string): string {
+  return cat === "Social Media" ? "social-media" : cat.toLowerCase();
 }
 
 export default async function GuidesPage(props: { searchParams?: Promise<{ category?: string }> }) {
@@ -120,11 +125,11 @@ export default async function GuidesPage(props: { searchParams?: Promise<{ categ
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           {ALL_CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat;
-            const slug = cat === "All" ? "" : cat.toLowerCase();
+            const slug = cat === "All" ? "" : categorySlug(cat);
             return (
               <Link
                 key={cat}
-                href={slug ? `/guides?category=${slug}` : "/guides"}
+                href={slug ? `/guides?category=${encodeURIComponent(slug)}` : "/guides"}
                 className={`text-[0.7rem] font-bold tracking-[0.08em] px-3 py-1.5 rounded-md no-underline transition-all duration-200 ${
                   isActive
                     ? "bg-[var(--accent)] text-black"

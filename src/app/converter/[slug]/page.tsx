@@ -41,18 +41,13 @@ const PAIR_USE_CASES: Record<string, { useCase: string; detail: string; audience
 
 const PAIRS: Record<string, { from: string; to: string }> = {
   "png-to-jpg": { from: "png", to: "jpg" },
-  "png-to-jpeg": { from: "png", to: "jpg" },
   "jpg-to-png": { from: "jpg", to: "png" },
-  "jpeg-to-png": { from: "jpg", to: "png" },
   "png-to-webp": { from: "png", to: "webp" },
   "jpg-to-webp": { from: "jpg", to: "webp" },
-  "jpeg-to-webp": { from: "jpg", to: "webp" },
   "webp-to-png": { from: "webp", to: "png" },
   "webp-to-jpg": { from: "webp", to: "jpg" },
-  "webp-to-jpeg": { from: "webp", to: "jpg" },
   "png-to-gif": { from: "png", to: "gif" },
   "jpg-to-gif": { from: "jpg", to: "gif" },
-  "jpeg-to-gif": { from: "jpg", to: "gif" },
   "png-to-ico": { from: "png", to: "ico" },
   "jpg-to-ico": { from: "jpg", to: "ico" },
   "webp-to-gif": { from: "webp", to: "gif" },
@@ -71,8 +66,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!pair) return {};
   const fromLabel = FORMAT_LABELS[pair.from] || pair.from.toUpperCase();
   const toLabel = FORMAT_LABELS[pair.to] || pair.to.toUpperCase();
-  const title = `Convert ${fromLabel} to ${toLabel} Online Free - ${fromLabel} ${toLabel} Converter`;
-  const desc = `SquarePic is a free online tool that converts ${fromLabel} images to ${toLabel} format instantly in your browser. No uploads, no signup. Batch convert and download as ZIP.`;
+  const title = `Convert ${fromLabel} to ${toLabel} Online Free`;
+  const desc = `SquarePic is a free online ${fromLabel} to ${toLabel} converter. Convert ${fromLabel} images to ${toLabel} instantly in your browser. No uploads, no signup. Batch convert and download as ZIP.`;
   return { title, description: desc, openGraph: { title: `${title} | SquarePic`, description: desc }, alternates: { canonical: `${SITE}/converter/${slug}` } };
 }
 
