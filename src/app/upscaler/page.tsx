@@ -1,38 +1,23 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { UpscalerTool } from "@/components/upscaler/upscaler-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
-export const metadata: Metadata = {
-  title: "Upscale Image Online Free - Enlarge Images 2x, 3x, 4x HD Quality",
-  description: "SquarePic is a free online tool that upscales images 2x, 3x, or 4x in HD quality with smart sharpening. All processing is private and local in your browser.",
-  openGraph: {
-    title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
-    description: "SquarePic is a free online tool that upscales images 2x, 3x, or 4x in HD quality with smart sharpening. All processing is private and local.",
-    url: `${SITE}/upscaler`,
-    images: [{ url: "/og/og-upscaler.png", width: 1200, height: 630, alt: "SquarePic HD Image Upscaler - enlarge images 2x, 3x, or 4x" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free HD Image Upscaler - 2x, 3x, 4x | SquarePic",
-    description: "SquarePic is a free online HD image upscaler. Enlarge images 2x, 3x, or 4x with smart sharpening. Private, browser-based.",
-  },
-  alternates: { canonical: `${SITE}/upscaler` },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "Free Image Upscaler: Enlarge Photos 2x, 3x or 4x",
+  "description": "Enlarge images 2x, 3x, or 4x with bicubic interpolation and adjustable sharpening. Process photos locally in your browser. No signup.",
+  "path": "/upscaler",
+  "image": "/og/og-upscaler.png"
+});
 
 export default function UpscalerPage() {
   return (
     <>
           <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "HD Image Upscaler", url: `${SITE}/upscaler` }]} />
             <WebAppSchema name="SquarePic - HD Image Upscaler" url={SITE + "/upscaler"} description="Upscale images 2x, 3x, or 4x with bicubic interpolation and smart sharpening. All processing happens locally in your browser." />
-      <HowToSchema steps={[
-        { name: "Upload your image", text: "Select a photo from your device. Supports JPEG, PNG, WebP, BMP, GIF, and TIFF formats up to 30 MB." },
-        { name: "Choose the scale factor", text: "Select 2x, 3x, or 4x magnification. The output dimensions are calculated automatically based on your selection." },
-        { name: "Enable Smart Sharpen", text: "Toggle Smart Sharpen to apply an unsharp mask after upscaling. This enhances edges and brings out finer details in the enlarged image." },
-        { name: "Export the upscaled image", text: "Download your enlarged image in PNG, JPEG, or WebP format at the new higher resolution." },
-      ]} />
       <UpscalerTool />
       <ToolLinks current="/upscaler" />
 

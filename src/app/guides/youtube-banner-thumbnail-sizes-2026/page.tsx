@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
@@ -5,13 +6,14 @@ import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video",
-  description: "SquarePic guide: Complete YouTube image size guide for 2026. Channel art/banner sizes, video thumbnail specs, profile picture requirements, and design best practices.",
-  openGraph: { title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video | SquarePic", description: "SquarePic guide: Complete YouTube image dimensions for 2026. Channel art, thumbnails, profile pictures, and design best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-youtube-banner-thumbnail.png", width: 1200, height: 630 }] },
-  alternates: { canonical: `${SITE}/guides/youtube-banner-thumbnail-sizes-2026` },
-  twitter: { card: "summary_large_image", title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video | SquarePic", description: "SquarePic guide: Complete YouTube image dimensions for 2026." },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "YouTube Banner & Thumbnail Sizes 2026",
+  "description": "Find YouTube banner, thumbnail, and profile picture dimensions. Includes channel art safe zones and tips for desktop, mobile, and TV.",
+  "path": "/guides/youtube-banner-thumbnail-sizes-2026",
+  "image": "/og/og-youtube-banner-thumbnail.png",
+  "article": true,
+  "publishedTime": "2026-07-19"
+});
 
 export default function YouTubeBannerThumbnailSizesPage() {
   return (

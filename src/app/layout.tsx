@@ -7,6 +7,8 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { OrgSchema } from "@/components/schema-scripts";
+import { SITE_URL } from "@/lib/constants";
+import { pageMetadata } from "@/lib/seo";
 
 const inter = Inter({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -23,11 +25,15 @@ const syneMono = Syne_Mono({
 });
 
 export const metadata: Metadata = {
+  ...pageMetadata({
+    title: "Make an Image Square Online for Free",
+    description: "Make photos square with blur, color backgrounds, or smart crop. Resize and export images in your browser. Free, with no signup or server uploads.",
+    path: "/",
+  }),
   title: {
     default: "Make an Image Square Online for Free | SquarePic",
     template: "%s | SquarePic",
   },
-    description: "SquarePic is a free square image maker and online image editor. Make any photo square for Instagram, Facebook, LinkedIn, and WhatsApp with blur backgrounds, solid colors, or smart crop. No uploads, no signup, no watermarks.",
   icons: {
     icon: [
       { url: "/images/favicon.svg", type: "image/svg+xml" },
@@ -36,22 +42,11 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/images/logo-256.png", sizes: "256x256" }],
   },
-  metadataBase: new URL(process.env.SITE_URL || "https://www.squarepic.io"),
-  openGraph: {
-    type: "website",
-    siteName: "SquarePic",
-    locale: "en_US",
-  description: "SquarePic is a free online tool that crops and creates images into square format for social media like Facebook, Instagram, and WhatsApp profile pictures. Add backgrounds, blur, or fill — no uploads, no signup.",
-    images: [{ url: "/og/og-home.png", width: 1200, height: 630, alt: "SquarePic - Free online square image maker and image editor" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-  },
+  metadataBase: new URL(SITE_URL),
   robots: {
     index: true,
     follow: true,
   },
-  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({

@@ -1,38 +1,23 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CompressorTool } from "@/components/compressor/compressor-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
-export const metadata: Metadata = {
-  title: "Compress Image Online Free - Reduce JPG, PNG, WebP File Size",
-  description: "SquarePic is a free online tool that compresses JPG, PNG, and WebP images without losing quality. Batch compress and download as ZIP. No uploads, no signup.",
-  openGraph: {
-    title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
-    description: "SquarePic is a free online tool that compresses JPG, PNG, and WebP images without losing quality. Batch compress and download as ZIP. No uploads, no signup.",
-    url: `${SITE}/compressor`,
-    images: [{ url: "/og/og-compressor.png", width: 1200, height: 630, alt: "SquarePic Image Compressor - reduce JPG, PNG, and WebP file sizes" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Image Compressor - JPG, PNG & WebP | SquarePic",
-    description: "SquarePic is a free online image compressor. Reduce JPG, PNG, and WebP file sizes without losing quality. Batch compress. Free, no uploads.",
-  },
-  alternates: { canonical: `${SITE}/compressor` },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "Free Image Compressor: JPG, PNG & WebP",
+  "description": "Compress JPG, PNG, and WebP images in your browser. Adjust quality or set a target file size, then download individual files or a ZIP.",
+  "path": "/compressor",
+  "image": "/og/og-compressor.png"
+});
 
 export default function CompressorPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Compressor", url: `${SITE}/compressor` }]} />
       <WebAppSchema name="SquarePic - Image Compressor" url={SITE + "/compressor"} description="Compress JPG, PNG, and WebP images online with quality slider or target size mode. Batch compress and download as ZIP." />
-      <HowToSchema steps={[
-        { name: "Upload your images", text: "Select one or more images to compress. Supports JPEG, PNG, and WebP formats with batch upload." },
-        { name: "Choose compression mode", text: "Use the quality slider for instant compression, or enable target size mode to hit a specific file size." },
-        { name: "Review and adjust", text: "Preview the compressed result and compare file sizes. Adjust the quality until you are satisfied." },
-        { name: "Download the results", text: "Download files individually or click Download All as ZIP to get all compressed images at once." },
-      ]} />
       <CompressorTool />
       <ToolLinks current="/compressor" />
 

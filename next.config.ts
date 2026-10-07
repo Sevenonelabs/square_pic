@@ -3,8 +3,8 @@ const CSP = [
   "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
-  "img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://*.googleusercontent.com",
-  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co",
+  "img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.google.com https://*.google.co.in https://*.g.doubleclick.net https://*.googleusercontent.com https://startupbar.co",
+  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.google.com https://*.google.co.in https://*.g.doubleclick.net https://startupbar.co",
   "frame-src https://startupbar.co",
   "frame-ancestors 'none'",
   "base-uri 'self'",
@@ -48,7 +48,7 @@ const nextConfig: NextConfig = {
     { source: "/converter/jpeg-to-webp", destination: "/converter/jpg-to-webp", permanent: true },
     { source: "/converter/webp-to-jpeg", destination: "/converter/webp-to-jpg", permanent: true },
     { source: "/converter/jpeg-to-gif", destination: "/converter/jpg-to-gif", permanent: true },
-    { source: "/", destination: "https://www.squarepic.io/", permanent: true, has: [{ type: "host", value: "squarepic.io" }] },
+    { source: "/:path*", destination: "https://www.squarepic.io/:path*", permanent: true, has: [{ type: "host", value: "squarepic.io" }] },
   ],
 };
 

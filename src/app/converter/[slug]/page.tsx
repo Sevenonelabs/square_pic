@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BreadcrumbSchema, HowToSchema, JsonLd } from "@/components/schema-scripts";
+import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -66,9 +67,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!pair) return {};
   const fromLabel = FORMAT_LABELS[pair.from] || pair.from.toUpperCase();
   const toLabel = FORMAT_LABELS[pair.to] || pair.to.toUpperCase();
-  const title = `Convert ${fromLabel} to ${toLabel} Online Free`;
-  const desc = `SquarePic is a free online ${fromLabel} to ${toLabel} converter. Convert ${fromLabel} images to ${toLabel} instantly in your browser. No uploads, no signup. Batch convert and download as ZIP.`;
-  return { title, description: desc, openGraph: { title: `${title} | SquarePic`, description: desc }, alternates: { canonical: `${SITE}/converter/${slug}` } };
+  const title = `${fromLabel} to ${toLabel} Converter Online Free`;
+  const desc = `Convert ${fromLabel} images to ${toLabel} in your browser. Batch convert, adjust output settings, and download a ZIP. Free, with no signup or server uploads.`;
+  return pageMetadata({ title, description: desc, path: `/converter/${slug}`, image: "/og/og-converter.png" });
 }
 
 export default async function FormatToFormatPage({ params }: Props) {
@@ -150,11 +151,6 @@ export default async function FormatToFormatPage({ params }: Props) {
         operatingSystem: "Any",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       }} />
-      <HowToSchema steps={[
-        { name: "Upload your image", text: `Select a ${fromLabel} image from your device to convert to ${toLabel}.` },
-        { name: "Choose output format", text: `Set the target format to ${toLabel} and adjust the quality slider.` },
-        { name: "Download the result", text: `Download your converted ${toLabel} image or continue editing.` },
-      ]} />
 
       <div className="max-w-[800px] w-full mx-auto px-4 py-8">
         <Link href="/converter" className="text-[0.7rem] font-semibold text-[#576675] no-underline hover:text-[var(--accent)] transition-colors inline-flex items-center gap-1 mb-4">

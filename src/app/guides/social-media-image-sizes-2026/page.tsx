@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
@@ -7,13 +8,14 @@ import { TableOfContents } from "@/components/guides/table-of-contents";
 import presets from "@/data/social-presets.json";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Social Media Image Sizes 2026: Complete Cheat Sheet",
-  description: "SquarePic guide: The definitive 2026 social media image size cheat sheet with updated dimensions for Instagram, Facebook, X/Twitter, LinkedIn, TikTok, YouTube, Pinterest, and more.",
-  openGraph: { title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic", description: "SquarePic guide to 2026 social media image sizes. Updated dimensions for every major platform.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-social-media-image-sizes.png", width: 1200, height: 630 }] },
-  alternates: { canonical: `${SITE}/guides/social-media-image-sizes-2026` },
-  twitter: { card: "summary_large_image", title: "Social Media Image Sizes 2026: Complete Cheat Sheet | SquarePic", description: "SquarePic guide to 2026 social media image sizes." },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "Social Media Image Sizes 2026: Cheat Sheet",
+  "description": "Compare image dimensions and aspect ratios across 13 social platforms. Find sizes for posts, profiles, banners, stories, and thumbnails.",
+  "path": "/guides/social-media-image-sizes-2026",
+  "image": "/og/og-social-media-image-sizes.png",
+  "article": true,
+  "publishedTime": "2026-07-19"
+});
 
 const SLUG_MAP: Record<string, string> = {
   instagram: "instagram",

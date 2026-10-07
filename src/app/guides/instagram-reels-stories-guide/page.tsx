@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
@@ -5,13 +6,14 @@ import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips",
-  description: "SquarePic guide: Complete Instagram Reels and Stories dimensions for 2026. Sizes, text safe zones, format recommendations, and proven engagement strategies.",
-  openGraph: { title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips | SquarePic", description: "SquarePic guide: Complete Instagram Reels and Stories dimensions for 2026 with safe zones, format tips, and engagement strategies.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-instagram-reels-stories.png", width: 1200, height: 630 }] },
-  alternates: { canonical: `${SITE}/guides/instagram-reels-stories-guide` },
-  twitter: { card: "summary_large_image", title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips | SquarePic", description: "SquarePic guide: Complete Instagram Reels and Stories dimensions for 2026." },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "Instagram Reels & Stories Sizes 2026",
+  "description": "Find Instagram Reels and Stories dimensions, aspect ratios, text safe zones, and export tips for vertical content.",
+  "path": "/guides/instagram-reels-stories-guide",
+  "image": "/og/og-instagram-reels-stories.png",
+  "article": true,
+  "publishedTime": "2026-07-19"
+});
 
 const FAQ_QUESTIONS = [
   { question: "What is the best size for Instagram Reels?", answer: "1080 x 1920 pixels at 9:16 aspect ratio. This full-screen vertical format fills the mobile display and matches the native Reels player dimensions." },

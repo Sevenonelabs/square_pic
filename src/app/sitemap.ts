@@ -1,28 +1,29 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/constants";
 
 const STATIC_PAGES = [
-  { path: "", priority: 1.0, freq: "weekly" as const, modified: "2026-08-14" },
-  { path: "/compressor", priority: 0.9, freq: "weekly" as const, modified: "2026-08-14" },
-  { path: "/converter", priority: 0.9, freq: "weekly" as const, modified: "2026-08-14" },
-  { path: "/cropper", priority: 0.9, freq: "weekly" as const, modified: "2026-08-14" },
-  { path: "/upscaler", priority: 0.9, freq: "weekly" as const, modified: "2026-08-14" },
-  { path: "/guides", priority: 0.7, freq: "weekly" as const, modified: "2026-07-19" },
-  { path: "/guides/social-media-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-07-19" },
-  { path: "/guides/instagram-feed-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-07-19" },
-  { path: "/guides/instagram-reels-stories-guide", priority: 0.8, freq: "weekly" as const, modified: "2026-07-19" },
-  { path: "/guides/linkedin-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-07-19" },
-  { path: "/guides/youtube-banner-thumbnail-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-07-19" },
-  { path: "/guides/tiktok-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-07-19" },
-  { path: "/guides/facebook-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-07-19" },
-  { path: "/guides/pinterest-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-07-19" },
-  { path: "/guides/discord-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-07-19" },
-  { path: "/image-size-calculator", priority: 0.7, freq: "weekly" as const, modified: "2026-07-13" },
-  { path: "/about", priority: 0.5, freq: "monthly" as const, modified: "2026-07-13" },
-  { path: "/author/sevenonelabs", priority: 0.4, freq: "monthly" as const, modified: "2026-07-19" },
-  { path: "/faq", priority: 0.5, freq: "monthly" as const, modified: "2026-07-13" },
-  { path: "/support", priority: 0.4, freq: "monthly" as const, modified: "2026-07-13" },
-  { path: "/privacy", priority: 0.3, freq: "monthly" as const, modified: "2026-07-13" },
-  { path: "/terms", priority: 0.3, freq: "monthly" as const, modified: "2026-07-13" },
+  { path: "", priority: 1.0, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/compressor", priority: 0.9, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/converter", priority: 0.9, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/cropper", priority: 0.9, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/upscaler", priority: 0.9, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/guides", priority: 0.7, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/guides/social-media-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/guides/instagram-feed-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/guides/instagram-reels-stories-guide", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/guides/linkedin-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/guides/youtube-banner-thumbnail-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/guides/tiktok-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/guides/facebook-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/guides/pinterest-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/guides/discord-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/image-size-calculator", priority: 0.7, freq: "weekly" as const, modified: "2026-10-07" },
+  { path: "/about", priority: 0.5, freq: "monthly" as const, modified: "2026-10-07" },
+  { path: "/author/sevenonelabs", priority: 0.4, freq: "monthly" as const, modified: "2026-10-07" },
+  { path: "/faq", priority: 0.5, freq: "monthly" as const, modified: "2026-10-07" },
+  { path: "/support", priority: 0.4, freq: "monthly" as const, modified: "2026-10-07" },
+  { path: "/privacy", priority: 0.3, freq: "monthly" as const, modified: "2026-10-07" },
+  { path: "/terms", priority: 0.3, freq: "monthly" as const, modified: "2026-10-07" },
 ];
 
 const FORMAT_PAIRS = [
@@ -40,10 +41,10 @@ const SLUG_MAP: Record<string, string> = {
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.SITE_URL || "https://www.squarepic.io";
+  const siteUrl = SITE_URL;
 
   const staticEntries = STATIC_PAGES.map((p) => ({
-    url: `${siteUrl}${p.path}`,
+    url: p.path ? new URL(p.path, siteUrl).href : new URL(siteUrl).origin,
     lastModified: p.modified,
     changeFrequency: p.freq,
     priority: p.priority,
@@ -51,14 +52,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const platformEntries = Object.entries(SLUG_MAP).map(([slug]) => ({
     url: `${siteUrl}/resize/${slug}`,
-    lastModified: "2026-07-13",
+    lastModified: "2026-10-07",
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
   const formatEntries = FORMAT_PAIRS.map((pair) => ({
     url: `${siteUrl}/converter/${pair}`,
-    lastModified: "2026-07-13",
+    lastModified: "2026-10-07",
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

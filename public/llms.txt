@@ -1,105 +1,52 @@
-# SquarePic — Free Online Image Editor
-# https://www.squarepic.io
+# SquarePic
 
-SquarePic is a free, privacy-first online image editor. All processing happens entirely in your browser via HTML5 Canvas — images are never uploaded to any server. No signup, no watermarks, no tracking. Open source on GitHub.
+> SquarePic provides free image editing tools and social media size guides. Photos are processed locally in the browser without server uploads or account registration.
 
-## About
-SquarePic lets you resize, crop, compress, and convert images locally in your browser. Created by SevenOneLabs. Supports PNG, JPEG, WebP, GIF, BMP, TIFF, AVIF, and ICO formats.
+This file helps AI tools find SquarePic pages. It does not control search indexing or replace robots.txt and XML sitemaps. SquarePic uses analytics; see the privacy policy for details.
 
-## Core Tools
-- Square Image Editor (make any photo square with blur/solid/crop): https://www.squarepic.io
-- Image Compressor (reduce file size with quality slider or target-size mode): https://www.squarepic.io/compressor
-- Image Converter (convert between 8 formats, batch mode): https://www.squarepic.io/converter
-- Photo Cropper (interactive crop with aspect ratio presets): https://www.squarepic.io/cropper
-- HD Image Upscaler (upscale images 2x, 3x, or 4x with bicubic interpolation and smart sharpening): https://www.squarepic.io/upscaler
-- Image Size Calculator (find social media dimensions by search or platform): https://www.squarepic.io/image-size-calculator
+## Image tools
 
-## Platform Size Guides (13 platforms)
-- Instagram image sizes: https://www.squarepic.io/resize/instagram
-- Facebook image sizes: https://www.squarepic.io/resize/facebook
-- X (Twitter) image sizes: https://www.squarepic.io/resize/x-twitter
-- LinkedIn image sizes: https://www.squarepic.io/resize/linkedin
-- TikTok image sizes: https://www.squarepic.io/resize/tiktok
-- YouTube image sizes: https://www.squarepic.io/resize/youtube
-- Pinterest image sizes: https://www.squarepic.io/resize/pinterest
-- Snapchat image sizes: https://www.squarepic.io/resize/snapchat
-- WhatsApp image sizes: https://www.squarepic.io/resize/whatsapp
-- Twitch image sizes: https://www.squarepic.io/resize/twitch
-- Reddit image sizes: https://www.squarepic.io/resize/reddit
-- Telegram image sizes: https://www.squarepic.io/resize/telegram
-- Discord image sizes: https://www.squarepic.io/resize/discord
+- [Square image editor](https://www.squarepic.io/): Add blur or color backgrounds, crop, and resize photos.
+- [Image compressor](https://www.squarepic.io/compressor): Compress JPG, PNG, and WebP files, individually or in batches.
+- [Image converter](https://www.squarepic.io/converter): Convert image formats and download results.
+- [Photo cropper](https://www.squarepic.io/cropper): Crop with aspect ratio presets, zoom, and pan.
+- [Image upscaler](https://www.squarepic.io/upscaler): Enlarge photos with bicubic interpolation and sharpening.
+- [Image size calculator](https://www.squarepic.io/image-size-calculator): Browse platform dimensions and aspect ratios.
 
-## Format Converters (12+ conversion pairs)
-- PNG to JPG: https://www.squarepic.io/converter/png-to-jpg
-- JPG to PNG: https://www.squarepic.io/converter/jpg-to-png
-- PNG to WebP: https://www.squarepic.io/converter/png-to-webp
-- JPG to WebP: https://www.squarepic.io/converter/jpg-to-webp
-- WebP to PNG: https://www.squarepic.io/converter/webp-to-png
-- WebP to JPG: https://www.squarepic.io/converter/webp-to-jpg
-- PNG to GIF: https://www.squarepic.io/converter/png-to-gif
-- JPG to GIF: https://www.squarepic.io/converter/jpg-to-gif
-- PNG to ICO: https://www.squarepic.io/converter/png-to-ico
-- JPG to ICO: https://www.squarepic.io/converter/jpg-to-ico
-- PNG to AVIF: https://www.squarepic.io/converter/png-to-avif
-- JPG to AVIF: https://www.squarepic.io/converter/jpg-to-avif
-- WebP to AVIF: https://www.squarepic.io/converter/webp-to-avif
-- WebP to GIF: https://www.squarepic.io/converter/webp-to-gif
+## Social media dimensions
 
-## Content & Guides
-### Guides
-- Social Media Image Sizes 2026: Complete Cheat Sheet: https://www.squarepic.io/guides/social-media-image-sizes-2026
-  Complete dimensions reference for all 13 platforms with aspect ratios and image types.
-- Instagram Image Sizes 2026: Feed, Carousel & Profile: https://www.squarepic.io/guides/instagram-feed-sizes-2026
-  Complete guide to Instagram feed post dimensions, carousel specs, profile picture sizes, and ad formats.
-- Instagram Reels & Stories Guide 2026: https://www.squarepic.io/guides/instagram-reels-stories-guide
-  Complete guide to Instagram Reels and Stories dimensions with safe zones, format tips, and engagement strategies.
-- LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions: https://www.squarepic.io/guides/linkedin-image-sizes-2026
-  Complete guide to LinkedIn image dimensions for 2026.
-- Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions: https://www.squarepic.io/guides/facebook-image-sizes-2026
-  Complete guide to Facebook image dimensions for 2026.
-- Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide: https://www.squarepic.io/guides/pinterest-image-sizes-2026
-  Complete guide to Pinterest image dimensions for 2026.
-- Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide: https://www.squarepic.io/guides/discord-image-sizes-2026
-  Complete guide to Discord image dimensions for 2026.
-- YouTube Banner & Thumbnail Sizes 2026: https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2026
-  Complete guide to YouTube image dimensions for 2026.
-- TikTok Image Sizes 2026: https://www.squarepic.io/guides/tiktok-image-sizes-2026
-  Complete guide to TikTok image dimensions for 2026.
+- [Instagram](https://www.squarepic.io/resize/instagram)
+- [Facebook](https://www.squarepic.io/resize/facebook)
+- [X and Twitter](https://www.squarepic.io/resize/x-twitter)
+- [LinkedIn](https://www.squarepic.io/resize/linkedin)
+- [TikTok](https://www.squarepic.io/resize/tiktok)
+- [YouTube](https://www.squarepic.io/resize/youtube)
+- [Pinterest](https://www.squarepic.io/resize/pinterest)
+- [Snapchat](https://www.squarepic.io/resize/snapchat)
+- [WhatsApp](https://www.squarepic.io/resize/whatsapp)
+- [Twitch](https://www.squarepic.io/resize/twitch)
+- [Reddit](https://www.squarepic.io/resize/reddit)
+- [Telegram](https://www.squarepic.io/resize/telegram)
+- [Discord](https://www.squarepic.io/resize/discord)
 
-### Information Pages
-- About SquarePic: https://www.squarepic.io/about
-- SevenOneLabs (author page): https://www.squarepic.io/author/sevenonelabs
-- FAQ: https://www.squarepic.io/faq
-- Support: https://www.squarepic.io/support
-- Privacy Policy: https://www.squarepic.io/privacy
-- Terms of Service: https://www.squarepic.io/terms
+## Guides
 
-## Key Features
-- All processing is client-side via HTML5 Canvas — images never leave your device
-- No signup, no accounts, no personal data collected
-- No watermarks or branding added to exported images
-- Open source on GitHub (https://github.com/Sevenonelabs/square_pic)
-- Export formats: PNG, JPEG, WebP, BMP, GIF, ICO, AVIF, TIFF
-- Import formats: PNG, JPEG, WebP, GIF, BMP, TIFF, AVIF, ICO (up to 20 MB)
-- Batch compress with quality slider or target-size mode
-- Batch convert between 8 image formats
-- Interactive crop with 8 drag handles, aspect ratio lock, zoom and pan
-- 13 social media platform presets with correct dimensions
-- Works on desktop, tablet, and mobile browsers
-- 100% free — no trials, no credit cards, no limits
+- [All guides](https://www.squarepic.io/guides)
+- [Social media image sizes 2026](https://www.squarepic.io/guides/social-media-image-sizes-2026)
+- [Instagram feed and profile sizes](https://www.squarepic.io/guides/instagram-feed-sizes-2026)
+- [Instagram Reels and Stories](https://www.squarepic.io/guides/instagram-reels-stories-guide)
+- [Facebook image sizes](https://www.squarepic.io/guides/facebook-image-sizes-2026)
+- [LinkedIn image sizes](https://www.squarepic.io/guides/linkedin-image-sizes-2026)
+- [YouTube banners and thumbnails](https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2026)
+- [TikTok image sizes](https://www.squarepic.io/guides/tiktok-image-sizes-2026)
+- [Pinterest image sizes](https://www.squarepic.io/guides/pinterest-image-sizes-2026)
+- [Discord image sizes](https://www.squarepic.io/guides/discord-image-sizes-2026)
 
-## Compression Research Data (2026)
-- WebP at quality 80%: 36 KB for a 1920x1080 photo (vs 52 KB JPEG, 412 KB PNG)
-- AVIF at quality 80%: 23 KB — 55-83% smaller than JPEG
-- AVIF at quality 70-80% recommended for maximum performance
-- WebP at quality 75-85% recommended for balance of quality and compatibility
-- PNG remains essential for transparency and lossless quality (logos, screenshots)
-- Data sourced from SquarePic internal testing with browser-grade encoders
+## Site information
 
-## Social Media Square Dimensions (quick reference)
-- Instagram: 1080x1080 (feed), 320x320 (profile)
-- Facebook: 1200x1200 (post), 180x180 (profile)
-- LinkedIn: 1200x1200 (post), 400x400 (profile)
-- X/Twitter: 1200x1200 (post), 400x400 (profile)
-- TikTok: 1080x1080 (post), 200x200 (profile)
-- YouTube: 1280x1280 (thumbnail safe zone), 800x800 (profile)
+- [About SquarePic](https://www.squarepic.io/about)
+- [SevenOneLabs](https://www.squarepic.io/author/sevenonelabs)
+- [Frequently asked questions](https://www.squarepic.io/faq)
+- [Help and support](https://www.squarepic.io/support)
+- [Privacy policy](https://www.squarepic.io/privacy)
+- [Terms of service](https://www.squarepic.io/terms)

@@ -1,38 +1,23 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ConverterTool } from "@/components/converter/converter-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
-export const metadata: Metadata = {
-  title: "Convert Image to JPG, PNG, WebP Online Free - Image Format Converter",
-  description: "SquarePic is a free online tool that converts images to JPG, PNG, WebP, AVIF, and more. Batch convert between 8 formats instantly in your browser. No uploads, no signup.",
-  openGraph: {
-    title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
-    description: "SquarePic is a free online tool that converts images to JPG, PNG, WebP, AVIF, and more. Batch convert between 8 formats instantly. No uploads, no signup.",
-    url: `${SITE}/converter`,
-    images: [{ url: "/og/og-converter.png", width: 1200, height: 630, alt: "SquarePic Image Converter - convert between JPG, PNG, WebP, and more" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Image Converter - JPG, PNG, WebP & More | SquarePic",
-    description: "SquarePic is a free online image converter. Convert between JPG, PNG, WebP, and more. Batch convert. Free, no uploads.",
-  },
-  alternates: { canonical: `${SITE}/converter` },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "Free Image Converter: JPG, PNG, WebP & More",
+  "description": "Convert images between JPG, PNG, WebP, AVIF, GIF, ICO, BMP, and TIFF in your browser. Batch convert and download a ZIP. No signup.",
+  "path": "/converter",
+  "image": "/og/og-converter.png"
+});
 
 export default function ConverterPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Converter", url: `${SITE}/converter` }]} />
       <WebAppSchema name="SquarePic - Image Converter" url={SITE + "/converter"} description="Convert images between JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, and TIFF formats online for free." />
-      <HowToSchema steps={[
-        { name: "Upload your images", text: "Select one or more images to convert. Supports JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, and TIFF formats." },
-        { name: "Choose the output format", text: "Pick your target format from the dropdown. Each file can have its own format and quality settings." },
-        { name: "Adjust quality settings", text: "Set the output quality for each file. Higher quality means larger file size." },
-        { name: "Download converted files", text: "Download each converted image individually or use Download All as ZIP for batch export." },
-      ]} />
       <ConverterTool />
       <ToolLinks current="/converter" />
 

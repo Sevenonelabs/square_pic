@@ -1,14 +1,14 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy - SquarePic Free Online Image Editor",
-  description: "SquarePic is a free online image editor that processes images in your browser. Read the privacy policy to understand how we handle your data. No uploads, no tracking.",
-  openGraph: { title: "Privacy Policy - SquarePic Free Online Image Editor" },
-  alternates: { canonical: `${SITE}/privacy` },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "Privacy Policy",
+  "description": "Read how SquarePic processes images in your browser and uses analytics. Learn about data handling, cookies, and your privacy choices.",
+  "path": "/privacy"
+});
 
 export default function PrivacyPage() {
   return (

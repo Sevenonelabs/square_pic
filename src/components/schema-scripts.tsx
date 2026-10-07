@@ -58,25 +58,6 @@ export function WebAppSchema({
   );
 }
 
-export function HowToSchema({ steps }: { steps: { name: string; text: string; url?: string }[] }) {
-  return (
-    <JsonLd
-      data={{
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        name: `How to ${steps[0]?.name?.toLowerCase() || "use SquarePic"}`,
-        step: steps.map((s, i) => ({
-          "@type": "HowToStep",
-          position: i + 1,
-          name: s.name,
-          text: s.text,
-          ...(s.url ? { url: s.url } : {}),
-        })),
-      }}
-    />
-  );
-}
-
 export function ArticleSchema({
   title,
   description,

@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import presets from "@/data/social-presets.json";
 import { PLATFORM_ICONS } from "@/data/social-icons";
-import { BreadcrumbSchema, WebAppSchema, FAQPageSchema, HowToSchema } from "@/components/schema-scripts";
+import { pageMetadata } from "@/lib/seo";
+import { SITE_URL } from "@/lib/constants";
+import { BreadcrumbSchema, WebAppSchema, FAQPageSchema } from "@/components/schema-scripts";
 
 type Props = { params: Promise<{ platform: string }> };
 
@@ -147,20 +149,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const key = SLUG_MAP[platform];
   if (!key || !presets[key as keyof typeof presets]) return {};
   const p = presets[key as keyof typeof presets];
-  const dims = Object.values(p.types).map((t: PresetType) => `${t.w}\u00D7${t.h}`);
-  const dimsStr = dims.join(", ");
+  const label = key === "twitter" ? "X (Twitter)" : p.label;
   const title = key === "instagram"
-    ? `Instagram Square Image Maker - Resize Images for Instagram Free`
-    : `Resize Images for ${p.label} - ${p.label} Image Sizes & Dimensions`;
+    ? "Instagram Image Sizes & Square Photo Maker"
+    : `${label} Image Sizes & Free Resizer`;
   const desc = key === "instagram"
-    ? `SquarePic is a free online tool that makes square images for Instagram. Instagram image sizes: ${dimsStr}. Resize images for profile, feed, and stories without cropping. No uploads, no signup.`
-    : `SquarePic is a free online tool that resizes images for ${p.label}. ${p.label} image sizes: ${dimsStr}. Resize for profile, posts, and covers without cropping. No uploads, no signup.`;
-  return {
+    ? "Find Instagram image sizes for profiles, feed posts, and stories. Make photos square with blur or color backgrounds. Free browser processing."
+    : `Find ${label} image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.`;
+  return pageMetadata({
     title,
     description: desc,
-    openGraph: { title: `${title} | SquarePic`, description: desc },
-    alternates: { canonical: `/resize/${platform}` },
-  };
+    path: `/resize/${platform}`,
+    image: "/og/og-social-media-image-sizes.png",
+  });
 }
 
 export default async function PlatformPage({ params }: Props) {
@@ -171,7 +172,7 @@ export default async function PlatformPage({ params }: Props) {
   const p = presets[key as keyof typeof presets];
   const types = Object.entries(p.types);
 
-  const siteUrl = process.env.SITE_URL || "https://www.squarepic.io";
+  const siteUrl = SITE_URL;
   const pageUrl = `${siteUrl}/resize/${platform}`;
 
   const faqQuestions = [
@@ -197,19 +198,11 @@ export default async function PlatformPage({ params }: Props) {
     },
   ];
 
-  const howToSteps = [
-    { name: "Upload your photo", text: "Select your image and upload it to SquarePic. Supports JPEG, PNG, WebP, and more." },
-    { name: "Choose the right dimensions", text: `Select the ${p.label} preset that matches your needs or enter custom dimensions.` },
-    { name: "Adjust the style", text: "Pick Dynamic Blur, Solid Color Fill, or Smart Crop to fill any empty space without cropping." },
-    { name: "Download your resized image", text: `Export your image at the exact ${p.label} dimensions you need. Ready to upload.` },
-  ];
-
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: siteUrl }, { name: `${p.label} Image Sizes`, url: pageUrl }]} />
       <WebAppSchema name={`SquarePic - ${p.label} Image Sizes`} url={pageUrl} description={`Complete guide to ${p.label} image sizes with exact pixel dimensions.`} dateModified="2026-07-13" />
       <FAQPageSchema questions={faqQuestions} />
-      <HowToSchema steps={howToSteps} />
       <div className="max-w-[920px] w-full mx-auto px-5 py-6">
       <div className="text-center mb-8 p-8 bg-gradient-to-br from-[rgba(6,182,212,0.04)] to-[rgba(139,92,246,0.04)] border border-[rgba(6,182,212,0.08)] rounded-lg">
         <h1 className="text-[1.5rem] font-extrabold tracking-tight mb-2 flex items-center justify-center gap-3">

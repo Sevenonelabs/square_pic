@@ -1,13 +1,13 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { BreadcrumbSchema, JsonLd, PersonSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "About SquarePic - Free Square Image Maker & Image Editor",
-  description: "SquarePic is a free online tool that crops and creates images into square format for social media like Instagram, Facebook, and WhatsApp. Make any image square — no uploads, no signup.",
-  openGraph: { title: "About SquarePic - Free Square Image Maker & Image Editor | SquarePic", description: "SquarePic is a free online tool that makes any image square for Instagram, Facebook, and WhatsApp. No uploads, no signup, no watermarks." },
-  alternates: { canonical: `${SITE}/about` },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "About SquarePic",
+  "description": "Meet SquarePic, the free image editor from SevenOneLabs. Resize, crop, compress, and convert photos locally in your browser.",
+  "path": "/about"
+});
 
 export default function AboutPage() {
   return (

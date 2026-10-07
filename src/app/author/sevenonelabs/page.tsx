@@ -1,18 +1,14 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema, JsonLd, PersonSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "SevenOneLabs - The Team Behind SquarePic | SquarePic",
-  description: "Meet SevenOneLabs, the software development lab that builds SquarePic. Privacy-first web applications and browser-based image processing tools. Explore our image editing guides.",
-  openGraph: {
-    title: "SevenOneLabs - The Team Behind SquarePic | SquarePic",
-    description: "Meet SevenOneLabs, the software development lab behind SquarePic, the free privacy-first online image editor.",
-    url: `${SITE}/author/sevenonelabs`,
-  },
-  alternates: { canonical: `${SITE}/author/sevenonelabs` },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "SevenOneLabs: The Team Behind SquarePic",
+  "description": "Meet SevenOneLabs, the team behind SquarePic. Read about the developers and browse their image editing and social media size guides.",
+  "path": "/author/sevenonelabs"
+});
 
 const AUTHORED_GUIDES = [
   { href: "/guides/social-media-image-sizes-2026", title: "Social Media Image Sizes 2026: Complete Cheat Sheet", desc: "Image dimensions for every major social media platform." },

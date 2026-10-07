@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
@@ -5,13 +6,14 @@ import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Instagram Image Sizes 2026: Feed, Carousel & Profile",
-  description: "SquarePic guide: Complete Instagram image size guide for 2026. Feed posts, carousel, profile pictures, and ad sizes with best practices for maximum engagement.",
-  openGraph: { title: "Instagram Image Sizes 2026: Feed, Carousel & Profile | SquarePic", description: "SquarePic guide: Complete Instagram image sizes for 2026. Feed posts, carousel, profile pictures, and ad sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-instagram-feed-sizes.png", width: 1200, height: 630 }] },
-  alternates: { canonical: `${SITE}/guides/instagram-feed-sizes-2026` },
-  twitter: { card: "summary_large_image", title: "Instagram Image Sizes 2026: Feed, Carousel & Profile | SquarePic", description: "SquarePic guide: Complete Instagram image dimensions for 2026 with best practices." },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "Instagram Image Sizes 2026: Feed & Profiles",
+  "description": "Check Instagram dimensions for feed posts, carousels, profile pictures, and ads. Compare square, portrait, and landscape formats.",
+  "path": "/guides/instagram-feed-sizes-2026",
+  "image": "/og/og-instagram-feed-sizes.png",
+  "article": true,
+  "publishedTime": "2026-07-19"
+});
 
 const FAQ_QUESTIONS = [
   { question: "What is the best size for Instagram feed posts?", answer: "1080 x 1350 pixels (4:5 portrait) is the best size for Instagram feed posts. It takes up more vertical space than square, keeping users on your content longer and often performing better in the feed." },

@@ -1,38 +1,23 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CropperTool } from "@/components/cropper/cropper-tool";
-import { BreadcrumbSchema, WebAppSchema, HowToSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
-export const metadata: Metadata = {
-  title: "Crop Image Online Free - Crop Images for Instagram, Facebook, LinkedIn",
-  description: "SquarePic is a free online tool that crops images for Instagram, Facebook, and LinkedIn. Use aspect ratio presets, zoom, and pan, then export to JPEG, PNG, or WebP. No uploads.",
-  openGraph: {
-    title: "Free Online Image Cropper - Perfect Crop | SquarePic",
-    description: "SquarePic is a free online tool that crops images for Instagram, Facebook, and LinkedIn. Aspect ratio presets, zoom, and pan, export to JPEG, PNG, or WebP. No uploads.",
-    url: `${SITE}/cropper`,
-    images: [{ url: "/og/og-cropper.png", width: 1200, height: 630, alt: "SquarePic Image Cropper - crop images with aspect ratio lock" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Online Image Cropper - Perfect Crop | SquarePic",
-    description: "SquarePic is a free online image cropper. Crop images for Instagram, Facebook, and LinkedIn with aspect ratio presets. Free, no uploads.",
-  },
-  alternates: { canonical: `${SITE}/cropper` },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "Free Online Image Cropper",
+  "description": "Crop photos with aspect ratio presets, zoom, and pan. Export as JPG, PNG, or WebP. Your images stay in your browser. No signup.",
+  "path": "/cropper",
+  "image": "/og/og-cropper.png"
+});
 
 export default function CropperPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Cropper", url: `${SITE}/cropper` }]} />
       <WebAppSchema name="SquarePic - Image Cropper" url={SITE + "/cropper"} description="Crop images online with precision. 8 drag handles, aspect ratio lock, zoom and pan, export to JPEG, PNG, or WebP." />
-      <HowToSchema steps={[
-        { name: "Upload your image", text: "Select a photo from your device. Supports JPEG, PNG, WebP, GIF, BMP, and TIFF formats." },
-        { name: "Adjust the crop area", text: "Drag the 8 resize handles to define your crop area. Use the zoom slider and pan for precise positioning." },
-        { name: "Lock the aspect ratio", text: "Choose from common social media ratios (1:1, 4:5, 16:9, 9:16) or keep it freeform for custom crops." },
-        { name: "Export the cropped image", text: "Click Export and download your cropped image in JPEG, PNG, or WebP format at the resolution you selected." },
-      ]} />
       <CropperTool />
       <ToolLinks current="/cropper" />
 

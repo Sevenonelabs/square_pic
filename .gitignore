@@ -42,3 +42,7 @@ next-env.d.ts
 
 # generated test pages
 page-test.html
+
+# Local SEO validation results
+seo-server.log
+seo-validation.json

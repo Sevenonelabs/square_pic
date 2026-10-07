@@ -1,12 +1,12 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
-import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Image Size Calculator - Aspect Ratio & Dimensions for Social Media",
-  description: "SquarePic is a free online image size calculator. Find the perfect dimensions and aspect ratios for Instagram, Facebook, LinkedIn, YouTube, and more. Search by pixel size or browse platform presets.",
-  openGraph: { title: "Image Size Calculator - Aspect Ratio & Dimensions for Social Media | SquarePic", description: "SquarePic is a free online image size calculator. Find perfect dimensions and aspect ratios for Instagram, Facebook, LinkedIn, YouTube, and more." },
-  alternates: { canonical: `${SITE}/image-size-calculator` },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "Image Size Calculator & Aspect Ratios",
+  "description": "Find image dimensions and aspect ratios for social media. Search by pixel size or browse platform presets for posts, profiles, and banners.",
+  "path": "/image-size-calculator",
+  "image": "/og/og-social-media-image-sizes.png"
+});
 
 export default function ImageSizeCalculatorLayout({ children }: { children: React.ReactNode }) {
   return children;

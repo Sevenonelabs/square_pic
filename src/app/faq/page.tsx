@@ -1,13 +1,13 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { BreadcrumbSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "FAQ - How to Make a Square Image Online",
-  description: "SquarePic is a free online tool that crops and creates images into square format for social media. Get answers about making square images, adding backgrounds, and resizing images. No uploads, no signup.",
-  openGraph: { title: "FAQ - How to Make a Square Image Online | SquarePic", description: "SquarePic is a free online square image maker. Answers to common questions about making square images and resizing images for social media. No uploads, no signup." },
-  alternates: { canonical: `${SITE}/faq` },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "SquarePic FAQ: Image Editing Help",
+  "description": "Get answers about making photos square, resizing, cropping, compression, supported formats, and browser processing with SquarePic.",
+  "path": "/faq"
+});
 
 const FAQS = [
   {

@@ -1,14 +1,14 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Help & Support - Square Image Maker Troubleshooting",
-  description: "SquarePic is a free online tool that crops and creates images into square format for social media. Get help with the editor, troubleshooting guides, and image editing tips. No signup needed.",
-  openGraph: { title: "Help & Support - Square Image Maker Troubleshooting | SquarePic", description: "SquarePic is a free online square image maker. Get troubleshooting help and tips for editing images for social media." },
-  alternates: { canonical: `${SITE}/support` },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "SquarePic Help & Support",
+  "description": "Get help with SquarePic image tools, supported formats, downloads, and browser issues. Find troubleshooting tips or contact support.",
+  "path": "/support"
+});
 
 export default function SupportPage() {
   return (

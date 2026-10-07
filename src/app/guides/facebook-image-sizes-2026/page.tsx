@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
@@ -5,13 +6,14 @@ import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions",
-  description: "SquarePic guide: Complete Facebook image size guide for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.",
-  openGraph: { title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-facebook-image-sizes.png", width: 1200, height: 630 }] },
-  alternates: { canonical: `${SITE}/guides/facebook-image-sizes-2026` },
-  twitter: { card: "summary_large_image", title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete Facebook image dimensions for 2026 with best practices." },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "Facebook Image Sizes 2026: Covers & Posts",
+  "description": "Find Facebook dimensions for cover photos, profile pictures, feed posts, event images, and ads. Includes mobile crop and export tips.",
+  "path": "/guides/facebook-image-sizes-2026",
+  "image": "/og/og-facebook-image-sizes.png",
+  "article": true,
+  "publishedTime": "2026-07-19"
+});
 
 const FAQ_QUESTIONS = [
   { question: "What size should a Facebook cover photo be?", answer: "Facebook cover photos display at 851 x 315 pixels on desktop and 640 x 360 on mobile. Upload a file at least 851 x 315 for sharp rendering. The 2.7:1 aspect ratio means your cover spans nearly three times as wide as it is tall, so compose with horizontal space in mind." },

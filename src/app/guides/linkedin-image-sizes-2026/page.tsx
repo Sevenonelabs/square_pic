@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
@@ -5,13 +6,14 @@ import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions",
-  description: "SquarePic guide: Complete LinkedIn image size guide for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page requirements.",
-  openGraph: { title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete LinkedIn image dimensions for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page requirements.", type: "article", publishedTime: "2026-07-19", images: [{ url: "/og/og-linkedin-image-sizes.png", width: 1200, height: 630 }] },
-  alternates: { canonical: `${SITE}/guides/linkedin-image-sizes-2026` },
-  twitter: { card: "summary_large_image", title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions | SquarePic", description: "SquarePic guide: Complete LinkedIn image dimensions for 2026." },
-};
+export const metadata: Metadata = pageMetadata({
+  "title": "LinkedIn Image Sizes 2026: Banners & Posts",
+  "description": "Find LinkedIn dimensions for profile pictures, banners, posts, carousels, and company pages. Includes safe zone and export tips.",
+  "path": "/guides/linkedin-image-sizes-2026",
+  "image": "/og/og-linkedin-image-sizes.png",
+  "article": true,
+  "publishedTime": "2026-07-19"
+});
 
 export default function LinkedInImageSizesPage() {
   return (
