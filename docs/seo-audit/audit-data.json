@@ -1,0 +1,42 @@
+{
+  "summary": {
+    "health_score": 70,
+    "business_type": "browser-based image tools / SaaS-like utility site",
+    "scope": "https://www.squarepic.io plus checked-out Vite repository",
+    "top_findings": [
+      "Live Vercel/Next deployment does not match the checked-out Vite/Hostinger repository.",
+      "Declared live image sitemap is malformed XML due to unescaped ampersands.",
+      "Repository meta CSP conflicts with inline GTM/GA snippets and .htaccess CSP.",
+      "33 of 49 live titles and 39 of 49 live descriptions exceed the audit length guidance.",
+      "31 live pages emit deprecated HowTo JSON-LD and 35 lack social preview images."
+    ],
+    "quick_wins": [
+      "Escape ampersands in sitemap-images.",
+      "Align CSP policies and verify analytics loading.",
+      "Rewrite the worst title and description outliers.",
+      "Add reusable social preview images to missing templates.",
+      "Remove HowTo JSON-LD from affected live templates."
+    ]
+  },
+  "categories": [
+    {"name": "Technical SEO", "score": 72},
+    {"name": "Content Quality", "score": 78},
+    {"name": "On-Page SEO", "score": 57},
+    {"name": "Schema / Structured Data", "score": 65},
+    {"name": "Performance", "score": 70, "note": "Provisional; PSI was rate-limited."},
+    {"name": "AI Search Readiness", "score": 82},
+    {"name": "Images", "score": 70}
+  ],
+  "action_plan": {
+    "phases": [
+      {"name": "Phase 1: Deployment reconciliation", "timeframe": "Immediate", "items": ["Choose the authoritative deployment and canonical host."]},
+      {"name": "Phase 2: Crawl and security fixes", "timeframe": "Week 1", "items": ["Repair image sitemap XML.", "Align CSP and deploy .htaccess intentionally.", "Capture CWV baseline."]},
+      {"name": "Phase 3: Search presentation", "timeframe": "Weeks 2-3", "items": ["Rewrite metadata outliers.", "Add social preview images.", "Remove deprecated HowTo markup."]},
+      {"name": "Phase 4: Monitoring", "timeframe": "Ongoing", "items": ["Monitor Search Console and rerun the audit after release."]}
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "squarepic-audit/",
+    "screenshots_dir": "not-captured"
+  }
+}
