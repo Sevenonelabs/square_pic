@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.vercel
+.env*
+*.pem
+__pycache__
+*.pyc
+squarepic.io-audit
+docs
+coverage
+*.tsbuildinfo

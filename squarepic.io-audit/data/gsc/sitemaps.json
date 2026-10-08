@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "data": [
+    {
+      "path": "https://www.squarepic.io/sitemap.xml",
+      "lastSubmitted": "2026-08-14T16:35:47.242Z",
+      "isPending": false,
+      "isSitemapsIndex": false,
+      "type": "sitemap",
+      "lastDownloaded": "2026-10-05T17:32:45.588Z",
+      "warnings": "0",
+      "errors": "0",
+      "contents": [
+        {
+          "type": "web",
+          "submitted": "49",
+          "indexed": "0"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "command": "sitemaps list",
+    "durationMs": 16588
+  }
+}

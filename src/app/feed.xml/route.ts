@@ -16,7 +16,7 @@ export function GET(): Response {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SquarePic Guides & Tutorials</title>
+    <title>SquarePic Guides &amp; Tutorials</title>
     <description>Step-by-step image editing guides, social media size cheat sheets, and how-to tutorials for resizing, cropping, converting, and optimizing images.</description>
     <link>${SITE_URL}/guides</link>
     <language>en</language>
@@ -24,7 +24,7 @@ export function GET(): Response {
     <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>${SITE_URL}/images/logo-icon.svg</url>
-      <title>SquarePic Guides & Tutorials</title>
+      <title>SquarePic Guides &amp; Tutorials</title>
       <link>${SITE_URL}/guides</link>
     </image>
 ${items}

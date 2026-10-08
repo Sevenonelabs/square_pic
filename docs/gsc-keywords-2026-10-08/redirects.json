@@ -1,0 +1,44 @@
+[
+  {
+    "from": "/free-image-compressor",
+    "to": "/compressor",
+    "redirect_status": 308,
+    "destination_status": 200
+  },
+  {
+    "from": "/free-image-converter",
+    "to": "/converter",
+    "redirect_status": 308,
+    "destination_status": 200
+  },
+  {
+    "from": "/free-photo-cropper",
+    "to": "/cropper",
+    "redirect_status": 308,
+    "destination_status": 200
+  },
+  {
+    "from": "/social-media-resizer",
+    "to": "/",
+    "redirect_status": 308,
+    "destination_status": 200
+  },
+  {
+    "from": "/instagram-post-resizer",
+    "to": "/resize/instagram?preset=square",
+    "redirect_status": 308,
+    "destination_status": 200
+  },
+  {
+    "from": "/instagram-profile-picture-resizer",
+    "to": "/resize/instagram?preset=profile",
+    "redirect_status": 308,
+    "destination_status": 200
+  },
+  {
+    "from": "/blog",
+    "to": "/guides",
+    "redirect_status": 308,
+    "destination_status": 200
+  }
+]

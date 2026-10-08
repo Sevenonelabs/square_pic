@@ -1,0 +1,1 @@
+{"ok":true,"data":{"rows":[{"clicks":462,"impressions":29360,"ctr":0.015735694822888283,"position":8.973467302452317}],"_pagination":{"pagesFetched":1,"totalRowsFetched":1},"responseAggregationType":"byProperty"},"meta":{"command":"analytics query","durationMs":18329}}

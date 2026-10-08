@@ -5,10 +5,9 @@ import { CompressorTool } from "@/components/compressor/compressor-tool";
 import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
-
 export const metadata: Metadata = pageMetadata({
   "title": "Free Image Compressor: JPG, PNG & WebP",
-  "description": "Compress JPG, PNG, and WebP images in your browser. Adjust quality or set a target file size, then download individual files or a ZIP.",
+  "description": "Compress JPG, PNG and WebP images online free. Set a target file size or adjust quality, then export JPEG or WebP. Batch ZIP downloads, with no server uploads.",
   "path": "/compressor",
   "image": "/og/og-compressor.png"
 });
@@ -21,7 +20,7 @@ export default function CompressorPage() {
       <CompressorTool />
       <ToolLinks current="/compressor" />
 
-      <section className="max-w-[900px] mx-auto px-4 pb-16">
+      <section className="w-full min-w-0 max-w-[900px] mx-auto px-4 pb-16">
         <div className="max-w-[680px] mx-auto text-center mb-10">
           <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5] mb-3">
             How to Compress Images Like a Pro
@@ -35,9 +34,9 @@ export default function CompressorPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           {[
             { title: "Quality vs File Size", desc: "Higher quality retains more detail but creates larger files. For web use, quality 70-85% is ideal - images look nearly identical to originals but are 50–80% smaller. For thumbnails, quality 40-60% works well." },
-            { title: "Target Size Mode", desc: "Need an image under 100 KB? Enable target size mode and set your goal. The compressor automatically adjusts the quality slider to hit your exact file size target, saving you manual trial and error." },
+            { title: "Target Size Mode", desc: "Need an image under 100 KB? Enable target size mode and set your goal. The compressor automatically adjusts the quality slider to produce a file at or below the target, reducing dimensions if needed. Impossible targets show an error." },
             { title: "Batch Compression", desc: "Compress multiple images at once to save time. Upload several files, set your quality or target size, and download them all as a ZIP archive. Each image is compressed individually for optimal results." },
-            { title: "Lossy vs Lossless", desc: "JPEG compression is lossy -- some data is discarded to reduce size. PNG compression is lossless -- quality stays identical. WebP supports both modes. Choose based on whether you need perfect quality or smaller files." },
+            { title: "Lossy vs Lossless", desc: "JPEG compression is lossy -- some data is discarded to reduce size. PNG inputs are transcoded to lossy JPEG or WebP here. Choose WebP to retain transparency." },
           ].map((c) => (
             <div key={c.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">{c.title}</h3>
@@ -61,8 +60,7 @@ export default function CompressorPage() {
               <tbody>
                 {[
                   { fmt: "JPEG", comp: "Lossy", best: "Photos, web images", saving: "50–80%" },
-                  { fmt: "PNG", comp: "Lossless", best: "Screenshots, logos, graphics with text", saving: "10-40%" },
-                  { fmt: "WebP", comp: "Lossy + Lossless", best: "Web performance, modern sites", saving: "25-35% vs JPEG" },
+                  { fmt: "WebP", comp: "Lossy", best: "Web performance, modern sites", saving: "25-35% vs JPEG" },
                 ].map((r) => (
                   <tr key={r.fmt} className="border-b border-[rgba(255,255,255,0.03)]">
                     <td className="font-semibold text-[#e6edf5] py-2.5 pr-4">{r.fmt}</td>
@@ -93,7 +91,7 @@ export default function CompressorPage() {
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li>Always keep the original file as a backup before compressing.</li>
               <li>Start at quality 80% and adjust down only if the file is still too large.</li>
-              <li>Use lossless compression (PNG) for screenshots and graphics with sharp text edges.</li>
+              <li>Keep the original PNG for lossless storage. This tool exports lossy JPEG or WebP.</li>
               <li>For website hero images, compress to under 200 KB for fast loading on mobile connections.</li>
               <li>Batch compress before uploading to a content management system to save time.</li>
               <li>Compress thumbnails aggressively (quality 40-50%) — they are small and fast loading matters most.</li>
@@ -107,7 +105,7 @@ export default function CompressorPage() {
             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Common Compression Myths</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Myth: Compression always ruins quality.</strong> Modern compression algorithms preserve visual quality down to 70-80% quality. The difference is often invisible to the human eye while cutting file sizes by more than half.</li>
-              <li><strong className="text-[#e6edf5]">Myth: You should never compress PNG.</strong> PNG compression is lossless — file sizes shrink without any quality loss. Many PNG files have inefficient metadata and color profiles that can be stripped safely.</li>
+              <li><strong className="text-[#e6edf5]">Myth: You should never compress PNG.</strong> PNG inputs are converted to JPEG or WebP. Use WebP for transparency; JPEG adds a white background.</li>
               <li><strong className="text-[#e6edf5]">Myth: WebP always beats JPEG.</strong> WebP offers better compression at equivalent quality, but JPEG still wins for compatibility and is better for photographs with subtle gradients at high quality settings.</li>
               <li><strong className="text-[#e6edf5]">Myth: Compressing once is enough.</strong> Different platforms and use cases need different file sizes. An image for email should be smaller than one for print. Always compress for the specific medium.</li>
             </ul>
@@ -137,7 +135,7 @@ export default function CompressorPage() {
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Quality Settings Guide</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-              <li><strong className="text-[#e6edf5]">90-100%:</strong> Near-lossless. Use for archival, photography portfolios, and print-ready exports.</li>
+              <li><strong className="text-[#e6edf5]">90-100%:</strong> Higher quality, with larger files. Keep the original for archival use.</li>
               <li><strong className="text-[#e6edf5]">75-90%:</strong> Excellent quality for web. Images look identical to originals but 50-70% smaller. Best for hero images and product photos.</li>
               <li><strong className="text-[#e6edf5]">60-75%:</strong> Good quality for general web use. Visible only in side-by-side comparisons. Ideal for blog content and galleries.</li>
               <li><strong className="text-[#e6edf5]">40-60%:</strong> Acceptable for thumbnails and previews. Some artifacts visible in gradients and skies.</li>

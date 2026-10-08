@@ -1,0 +1,11 @@
+{
+  "collected": "2026-10-08",
+  "source": "Common Crawl domain graph",
+  "release": "cc-main-2026-jan-feb-mar",
+  "domain": "squarepic.io",
+  "in_crawl": false,
+  "in_rankings": false,
+  "pagerank": null,
+  "referring_domains": null,
+  "interpretation": "Domain absent from this historical graph release. This does not establish zero backlinks or weak authority. Moz, Bing and DataForSEO backlink credentials were unavailable."
+}

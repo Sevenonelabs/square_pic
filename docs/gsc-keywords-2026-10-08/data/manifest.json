@@ -1,0 +1,72 @@
+{
+  "collected_local_date": "2026-10-08",
+  "report_timezone": "Asia/Calcutta",
+  "property": "sc-domain:squarepic.io",
+  "authentication": "gsc CLI, Application Default Credentials, read-only",
+  "search_type": "web",
+  "periods": {
+    "current": [
+      "2026-09-08",
+      "2026-10-05"
+    ],
+    "previous": [
+      "2026-08-11",
+      "2026-09-07"
+    ],
+    "90d": [
+      "2026-07-08",
+      "2026-10-05"
+    ]
+  },
+  "current_refresh_matches_today_baseline": true,
+  "row_cap": 25000,
+  "data_state": "API default finalized",
+  "provenance": "Current page/query data refreshed for this work. Supporting page/query, page and dimensionless totals copied from authenticated snapshot collected earlier on October 8.",
+  "results": [
+    {
+      "file": "page-90d.json",
+      "ok": true,
+      "rows": 52
+    },
+    {
+      "file": "page-current.json",
+      "ok": true,
+      "rows": 36
+    },
+    {
+      "file": "page-previous.json",
+      "ok": true,
+      "rows": 38
+    },
+    {
+      "file": "page-query-90d.json",
+      "ok": true,
+      "rows": 2412
+    },
+    {
+      "file": "page-query-current.json",
+      "ok": true,
+      "rows": 1238
+    },
+    {
+      "file": "page-query-previous.json",
+      "ok": true,
+      "rows": 1250
+    },
+    {
+      "file": "totals-90d.json",
+      "ok": true,
+      "rows": 1
+    },
+    {
+      "file": "totals-current.json",
+      "ok": true,
+      "rows": 1
+    },
+    {
+      "file": "totals-previous.json",
+      "ok": true,
+      "rows": 1
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "observed_date": "2026-10-08",
+  "verification_method": "Read-only inspection through the existing signed-in browser session",
+  "account_id": "395143582",
+  "property_id": "538062694",
+  "property_name": "SevenOneLabs",
+  "stream_name": "SquarePic",
+  "stream_id": "14893658704",
+  "measurement_id": "G-9TTBK0ZDM5",
+  "report_url": "https://analytics.google.com/analytics/web/#/a395143582p538062694/realtime/overview",
+  "received_event_names": ["tool_upload_accepted", "tool_processing_success", "tool_download"],
+  "processing_success_parameter_keys_observed": ["output_format"],
+  "live_test": "A licensed public product photograph was opened and downloaded successfully in the live square maker.",
+  "settings_changed": false,
+  "permissions_changed": false,
+  "limitations": "Realtime observations include controlled tests. No customer conversion rate or key-event configuration is claimed. The data-stream settings initially showed inactive collection while Realtime received events."
+}

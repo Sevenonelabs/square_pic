@@ -91,7 +91,8 @@ export function ArticleSchema({
         datePublished,
         ...(dateModified ? { dateModified } : { dateModified: datePublished }),
         author: {
-          "@type": "Person",
+          "@type": "Organization",
+          "@id": "https://www.squarepic.io/author/sevenonelabs#organization",
           name: authorName,
           ...(authorUrl ? { url: authorUrl } : {}),
         },
@@ -192,6 +193,7 @@ export function OrgSchema({ siteUrl }: { siteUrl?: string }) {
       data={{
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": `${base}/#organization`,
         name: "SquarePic",
         alternateName: "Square Pic - Free Square Image Tool",
         url: base,

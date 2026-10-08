@@ -1,0 +1,139 @@
+{
+  "ok": true,
+  "base": "http://localhost:3100",
+  "checks": [
+    "Calculator exact, ratio and browse links select presets and export the intended dimensions; bottom CTAs retain the loaded image.",
+    "Four guide links retain the placement through an actual image download.",
+    "A shared square dimension retains the selected LinkedIn platform label.",
+    "All eight supported converter pairs decode in the named format; six unsupported pairs disclose unavailability.",
+    "Upscaler example files have correct PNG dimensions and transparency; cropper and upscaler report unsupported inputs.",
+    "Thirteen priority pages have one H1, canonical metadata, parseable JSON-LD and no overflow at 320, 390 and 1366 pixels."
+  ],
+  "exports": [
+    {
+      "test": "calculator-exact",
+      "format": "PNG",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    {
+      "test": "calculator-ratio",
+      "format": "PNG",
+      "dimensions": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "test": "calculator-browse",
+      "format": "PNG",
+      "dimensions": [
+        320,
+        160
+      ]
+    },
+    {
+      "test": "instagram-reels-stories-guide",
+      "format": "PNG",
+      "dimensions": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "test": "discord-image-sizes-2026",
+      "format": "PNG",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "test": "linkedin-image-sizes-2026",
+      "format": "PNG",
+      "dimensions": [
+        1584,
+        396
+      ]
+    },
+    {
+      "test": "instagram-feed-sizes-2026",
+      "format": "PNG",
+      "dimensions": [
+        1080,
+        1350
+      ]
+    },
+    {
+      "test": "png-to-jpg",
+      "format": "JPEG",
+      "dimensions": [
+        600,
+        400
+      ]
+    },
+    {
+      "test": "jpg-to-png",
+      "format": "PNG",
+      "dimensions": [
+        600,
+        400
+      ]
+    },
+    {
+      "test": "png-to-webp",
+      "format": "WEBP",
+      "dimensions": [
+        600,
+        400
+      ]
+    },
+    {
+      "test": "jpg-to-webp",
+      "format": "WEBP",
+      "dimensions": [
+        600,
+        400
+      ]
+    },
+    {
+      "test": "webp-to-png",
+      "format": "PNG",
+      "dimensions": [
+        600,
+        400
+      ]
+    },
+    {
+      "test": "webp-to-jpg",
+      "format": "JPEG",
+      "dimensions": [
+        600,
+        400
+      ]
+    },
+    {
+      "test": "png-to-ico",
+      "format": "ICO",
+      "dimensions": [
+        256,
+        171
+      ]
+    },
+    {
+      "test": "jpg-to-ico",
+      "format": "ICO",
+      "dimensions": [
+        256,
+        171
+      ]
+    }
+  ],
+  "page_errors": [],
+  "limitations": [
+    "Local Chromium checks with analytics and referral traffic blocked.",
+    "No production deployment, platform recrawl or organic-outcome measurement in this run."
+  ]
+}

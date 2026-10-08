@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "deployment": "local source only; not deployed",
+  "build": "npm run build passed, including TypeScript",
+  "lint": "ESLint passed on 31 affected TypeScript files",
+  "rendered_pages": 50,
+  "permanent_redirects": 7,
+  "sitemaps": 2,
+  "preview_images": 14,
+  "llms_links": 35,
+  "changes": {
+    "title": 31,
+    "description": 44,
+    "h1": 37,
+    "pages_changed": 45
+  }
+}

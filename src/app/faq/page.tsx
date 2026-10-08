@@ -32,7 +32,7 @@ const FAQS = [
   },
   {
     q: "Can I create square Instagram photos here?",
-    a: "Yes. SquarePic is the perfect Instagram and Facebook square photo maker. It guarantees your images fit perfectly into the Instagram feed or profile grid without awkward cropping.",
+    a: "Yes. Select a square preset and use Blur or Solid to preserve the full photo at 100% zoom. Instagram can crop grid and profile previews differently, so check the preview before publishing.",
   },
   {
     q: "Do I need an account to use this?",
@@ -48,7 +48,7 @@ const FAQS = [
   },
   {
     q: "What image formats does SquarePic support?",
-    a: "SquarePic supports JPEG, PNG, WebP, GIF, BMP, TIFF, AVIF, and ICO formats. You can upload, edit, and export in any of these formats directly in your browser.",
+    a: "The converter exports JPEG, PNG, WebP and ICO. AVIF, BMP, GIF and TIFF output are currently unavailable. Other editors export PNG, JPEG and WebP. Input support depends on your browser's image decoder; animated inputs export one still frame.",
   },
   {
     q: "Can I resize images for specific social media platforms?",
@@ -68,7 +68,7 @@ const FAQS = [
   },
   {
     q: "What is the difference between Dynamic Blur, Solid Background, and Smart Crop?",
-    a: "Dynamic Blur fills empty space with a blurred copy of your image for a professional look. Solid Background lets you choose a custom color to fill the space. Smart Crop automatically detects the best crop area and squares your image by cropping instead of padding.",
+    a: "Blur fills empty space with a blurred copy of your photo. Solid uses your chosen background color. Crop fills the canvas with a centered crop, removing edges when the source has different proportions. It does not detect subjects. Blur and Solid preserve the full photo at 100% zoom.",
   },
   {
     q: "How does SquarePic compare to other image editors?",
@@ -101,7 +101,7 @@ export default function FAQPage() {
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "FAQ", url: `${SITE}/faq` }]} />
       <FAQPageSchema questions={FAQS.map((f) => ({ question: f.q, answer: f.a }))} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
-      <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-6">Frequently Asked Questions</h1>
+      <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-6">SquarePic FAQ: Image Editing Help</h1>
       {SECTIONS.map((section) => (
         <section key={section.title} className="mb-8">
           <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-3 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">

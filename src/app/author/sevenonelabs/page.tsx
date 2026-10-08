@@ -1,7 +1,7 @@
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema, JsonLd, PersonSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
@@ -11,15 +11,15 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const AUTHORED_GUIDES = [
-  { href: "/guides/social-media-image-sizes-2026", title: "Social Media Image Sizes 2026: Complete Cheat Sheet", desc: "Image dimensions for every major social media platform." },
-  { href: "/guides/instagram-feed-sizes-2026", title: "Instagram Image Sizes 2026: Feed, Carousel & Profile", desc: "Feed post dimensions, carousel specs, and profile picture sizes." },
-  { href: "/guides/instagram-reels-stories-guide", title: "Instagram Reels & Stories Guide 2026", desc: "Dimensions, safe zones, and engagement strategies for Reels and Stories." },
-  { href: "/guides/facebook-image-sizes-2026", title: "Facebook Image Sizes 2026", desc: "Cover photos, profile pictures, feed posts, and ad sizes." },
-  { href: "/guides/linkedin-image-sizes-2026", title: "LinkedIn Image Sizes 2026", desc: "Profile pictures, cover photos, and company page specs." },
-  { href: "/guides/youtube-banner-thumbnail-sizes-2026", title: "YouTube Banner & Thumbnail Sizes 2026", desc: "Channel art, video thumbnails, and profile pictures." },
-  { href: "/guides/tiktok-image-sizes-2026", title: "TikTok Image Sizes 2026", desc: "Video dimensions, ad specs, and best practices." },
-  { href: "/guides/pinterest-image-sizes-2026", title: "Pinterest Image Sizes 2026", desc: "Standard pins, video pins, board covers, and profile sizes." },
-  { href: "/guides/discord-image-sizes-2026", title: "Discord Image Sizes 2026", desc: "Server icons, banners, splash screens, and emoji sizes." },
+  { href: "/guides/social-media-image-sizes-2026", title: "Social Media Image Sizes 2026: Cheat Sheet", desc: "Compare social media image sizes for 2026 across 13 platforms. Find post, profile, banner and Story dimensions, aspect ratios and links to free image resizers." },
+  { href: "/guides/instagram-feed-sizes-2026", title: "Instagram Post Sizes 2026: Feed, Carousel & Profile", desc: "Compare Instagram feed, carousel and profile sizes with square, portrait and landscape canvases. See fit-versus-crop examples and check placement previews." },
+  { href: "/guides/instagram-reels-stories-guide", title: "Instagram Reels & Stories Dimensions and Safe Zones", desc: "Compare Instagram Reels and Stories dimensions, 9:16 format and safe-zone checks. Plan 1080x1920 artwork, review cover crops and keep text clear of controls." },
+  { href: "/guides/facebook-image-sizes-2026", title: "Facebook Image Sizes 2026: Covers, Posts & Profiles", desc: "Compare Facebook cover photo, post and profile picture dimensions. Find image aspect ratios, mobile crop guidance and export tips for different placements." },
+  { href: "/guides/linkedin-image-sizes-2026", title: "LinkedIn Image Sizes 2026: Posts, Banners & Profiles", desc: "Find LinkedIn post, profile and banner image sizes. Compare personal covers and company Pages, check aspect ratios and follow official image specifications." },
+  { href: "/guides/youtube-banner-thumbnail-sizes-2026", title: "YouTube Banner & Thumbnail Sizes: Channel Art", desc: "Compare YouTube channel art, banner and thumbnail sizes for 2026. Find image dimensions, aspect ratios, profile sizes and guidance for device previews." },
+  { href: "/guides/tiktok-image-sizes-2026", title: "TikTok Image Sizes: Posts, Profiles & Covers", desc: "Compare TikTok image dimensions for photo posts, profiles and video-cover artwork. Find aspect ratios, vertical canvases and export tips for each placement." },
+  { href: "/guides/pinterest-image-sizes-2026", title: "Pinterest Image Sizes 2026: Pins & Board Covers", desc: "Compare Pinterest pin dimensions, 2:3 aspect ratios, board covers and profile pictures. Find working image sizes and export tips for static Pinterest artwork." },
+  { href: "/guides/discord-image-sizes-2026", title: "Discord Server Banner Size & Invite Splash", desc: "Find Discord server banner size, invite splash dimensions and server icon presets. Check Boost access and troubleshoot an image missing from your invite link." },
 ];
 
 export default function AuthorPage() {
@@ -30,12 +30,6 @@ export default function AuthorPage() {
         { name: "Author", url: `${SITE}/author/sevenonelabs` },
         { name: "SevenOneLabs", url: `${SITE}/author/sevenonelabs` },
       ]} />
-      <PersonSchema
-        name="SevenOneLabs"
-        jobTitle="Software Development Lab"
-        url={`${SITE}/author/sevenonelabs`}
-        sameAs={["https://github.com/Sevenonelabs"]}
-      />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "ProfilePage",
@@ -44,8 +38,10 @@ export default function AuthorPage() {
         url: `${SITE}/author/sevenonelabs`,
         mainEntity: {
           "@type": "Organization",
+          "@id": `${SITE}/author/sevenonelabs#organization`,
           name: "SevenOneLabs",
-          url: "https://github.com/Sevenonelabs",
+          url: `${SITE}/author/sevenonelabs`,
+          sameAs: ["https://github.com/Sevenonelabs"],
         },
       }} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
@@ -61,8 +57,8 @@ export default function AuthorPage() {
 
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-6">
           SevenOneLabs is the team behind SquarePic. We specialize in web performance optimization, computer graphics,
-          and user interface design. Every tool we ship processes images entirely in the browser — no servers, no uploads,
-          no data collection. Our team writes the image editing guides on SquarePic to help creators, marketers, and
+          and user interface design. Every image tool processes photos in the browser without uploading them.
+          The site uses analytics and a referral widget; see the <Link href="/privacy" className="text-[var(--accent)] hover:underline">privacy policy</Link>. Our team writes the image editing guides on SquarePic to help creators, marketers, and
           developers prepare images correctly for every platform.
         </p>
 

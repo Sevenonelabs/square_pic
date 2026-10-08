@@ -7,8 +7,8 @@ import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
 export const metadata: Metadata = pageMetadata({
-  "title": "Free Online Image Cropper",
-  "description": "Crop photos with aspect ratio presets, zoom, and pan. Export as JPG, PNG, or WebP. Your images stay in your browser. No signup.",
+  "title": "Free Photo Cropper: Crop Images Online",
+  "description": "Crop photos online free with square, 4:5, 16:9 and 9:16 presets. Preview source-pixel dimensions and export PNG, JPG or WebP locally, with no signup.",
   "path": "/cropper",
   "image": "/og/og-cropper.png"
 });
@@ -17,28 +17,28 @@ export default function CropperPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Cropper", url: `${SITE}/cropper` }]} />
-      <WebAppSchema name="SquarePic - Image Cropper" url={SITE + "/cropper"} description="Crop images online with precision. 8 drag handles, aspect ratio lock, zoom and pan, export to JPEG, PNG, or WebP." />
+      <WebAppSchema name="SquarePic - Image Cropper" url={SITE + "/cropper"} description="Select a bounded source-image region, preview its pixel dimensions and export JPEG, PNG or WebP without enlargement." dateModified="2026-10-08" />
       <CropperTool />
       <ToolLinks current="/cropper" />
 
-      <section className="max-w-[900px] mx-auto px-4 pb-16">
+      <section className="w-full min-w-0 max-w-[900px] mx-auto px-4 pb-16">
         <div className="max-w-[680px] mx-auto text-center mb-10">
           <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5] mb-3">
             How to Crop Images for Social Media
           </h2>
           <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
-            Cropping is one of the most fundamental image editing skills. The right crop can transform a
-            mediocre composition into a striking image. Whether you are preparing images for Instagram,
-            LinkedIn, or YouTube, choosing the correct aspect ratio is essential.
+            Select the part of your photo you want to keep, then check Export size before downloading.
+            The result contains the selected source pixels. Changing the preview zoom does not enlarge the export.
+            To reach a specific canvas size, use a platform resizer after cropping.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           {[
             { title: "Precision Crop Controls", desc: "Our image cropper gives you eight drag handles for pixel-perfect control. Resize the crop area freely or lock the aspect ratio to maintain consistent dimensions across multiple images." },
-            { title: "Aspect Ratio Lock", desc: "Keep your crop proportional with built-in presets for Instagram (1:1), portrait (4:5), widescreen (16:9), and story (9:16). The lock button toggles freeform mode for custom dimensions." },
+            { title: "Aspect Ratio Presets", desc: "Choose square 1:1, portrait 4:5, widescreen 16:9 or vertical 9:16. Choose Free when you want to change width and height independently." },
             { title: "Zoom and Pan", desc: "Zoom in for detailed adjustments and pan around the image to position the crop area exactly where you want it. Fine-tune your composition without losing resolution." },
-            { title: "Export at Full Resolution", desc: "The cropped image exports at the exact pixel dimensions you defined -- no downscaling. Download as JPEG, PNG, or WebP for maximum flexibility." },
+            { title: "Export Source Pixels", desc: "Export size shows the selected region in source pixels, rounded and kept inside the original image. A square crop from a 600 × 400 source cannot be larger than 400 × 400 without resizing afterward." },
           ].map((c) => (
             <div key={c.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">{c.title}</h3>
@@ -46,6 +46,12 @@ export default function CropperPage() {
             </div>
           ))}
         </div>
+
+        <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-8">
+          Start with a browser-decodable PNG, JPEG or WebP. PNG and WebP retain transparent pixels;
+          JPEG fills them with white. Animated inputs produce one still frame and source metadata is not copied.
+          A decode or export failure appears in the tool. Try a smaller image or save the source as PNG or JPEG.
+        </p>
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-10">
           <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Aspect Ratio Quick Reference</h3>
@@ -107,9 +113,9 @@ export default function CropperPage() {
             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Cropping for Different Platforms</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Instagram feed:</strong> Crop to 1:1 (1080x1080) for square posts or 4:5 (1080x1350) for portrait posts that fill more screen space.</li>
-              <li><strong className="text-[#e6edf5]">Instagram Stories / Reels:</strong> Use 9:16 (1080x1920) full-screen vertical format. Keep text within the top and bottom safe zones.</li>
+              <li><strong className="text-[#e6edf5]">Instagram Stories / Reels:</strong> A 9:16 crop prepares vertical still artwork. Use the <Link href="/resize/instagram?preset=stories#resizer" className="text-[var(--accent)] hover:underline">1080 × 1920 editor</Link> for exact canvas dimensions, then check text against the current placement preview.</li>
               <li><strong className="text-[#e6edf5]">YouTube thumbnails:</strong> Crop to 16:9 (1280x720) with bold, centered subjects. Thumbnails drive click-through rates.</li>
-              <li><strong className="text-[#e6edf5]">LinkedIn banners:</strong> The cover photo is very short (1128x191). Crop tight and keep text in the safe center zone.</li>
+              <li><strong className="text-[#e6edf5]">LinkedIn covers:</strong> Personal and company covers use different shapes. Choose the <Link href="/resize/linkedin?preset=cover#resizer" className="text-[var(--accent)] hover:underline">1512 × 256 company Page cover</Link> or <Link href="/resize/linkedin?preset=personalCover#resizer" className="text-[var(--accent)] hover:underline">1584 × 396 personal cover</Link>, then inspect the upload preview.</li>
               <li><strong className="text-[#e6edf5]">Facebook link previews:</strong> Open Graph images display at 1200x630 (1.91:1). Crop your images to this ratio for clean link shares.</li>
             </ul>
           </div>
@@ -131,10 +137,10 @@ export default function CropperPage() {
             All image cropping happens locally in your browser. Your images never leave your device.
           </p>
         </div>
-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: August 2026</p>
+        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: October 8, 2026</p>
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
           <p className="text-[0.75rem] text-[#8d9aaa] text-center">
-            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Crop Guide</Link> · <Link href="/guides/facebook-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Facebook Image Sizes</Link>
+            Learn more: <Link href="/image-size-calculator" className="text-[var(--accent)] no-underline hover:underline">Calculate aspect ratio</Link> · <Link href="/guides/make-image-square-without-cropping" className="text-[var(--accent)] no-underline hover:underline">Fit a photo without cropping</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram framing guide</Link> · <Link href="/guides/linkedin-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">LinkedIn cover references</Link>
           </p>
         </div>
       </section>

@@ -1,0 +1,603 @@
+{
+  "collected": "2026-10-07",
+  "property": "sc-domain:squarepic.io",
+  "searchType": "web",
+  "current": {
+    "start": "2026-09-07",
+    "end": "2026-10-04"
+  },
+  "previous": {
+    "start": "2026-08-10",
+    "end": "2026-09-06"
+  },
+  "support": {
+    "start": "2026-07-07",
+    "end": "2026-10-04"
+  },
+  "queryMapping": [
+    {
+      "query": "discord server banner size",
+      "owner": "/guides/discord-image-sizes-2026",
+      "current": {
+        "clicks": 0,
+        "impressions": 26,
+        "ctr": 0.0,
+        "position": 6.8076923076923075
+      },
+      "previous": null,
+      "support90d": {
+        "clicks": 0,
+        "impressions": 26,
+        "ctr": 0.0,
+        "position": 6.8076923076923075
+      }
+    },
+    {
+      "query": "discord server splash image not showing on invite link",
+      "owner": "/guides/discord-image-sizes-2026",
+      "current": {
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0.0,
+        "position": 2.6923076923076925
+      },
+      "previous": null,
+      "support90d": {
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0.0,
+        "position": 2.6923076923076925
+      }
+    },
+    {
+      "query": "discord server icon size",
+      "owner": "/guides/discord-image-sizes-2026",
+      "current": {
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0.0,
+        "position": 12.818181818181818
+      },
+      "previous": null,
+      "support90d": {
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0.0,
+        "position": 12.818181818181818
+      }
+    },
+    {
+      "query": "discord banner size",
+      "owner": "/guides/discord-image-sizes-2026",
+      "current": {
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0.0,
+        "position": 67.0
+      },
+      "previous": null,
+      "support90d": {
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0.0,
+        "position": 67.0
+      }
+    }
+  ],
+  "pages": [
+    {
+      "path": "/guides/discord-image-sizes-2026",
+      "current": {
+        "clicks": 1,
+        "impressions": 279,
+        "ctr": 0.0035842293906810036,
+        "position": 14.612903225806452
+      },
+      "previous": null
+    },
+    {
+      "path": "/resize/discord",
+      "current": null,
+      "previous": null
+    }
+  ],
+  "screen": {
+    "minimumImpressions": 25,
+    "maximumCtr": 0.02,
+    "positionRange": [
+      3,
+      20
+    ]
+  },
+  "screenedOpportunities": [
+    {
+      "page": "/",
+      "query": "square image",
+      "clicks": 10,
+      "impressions": 2377,
+      "ctr": 0.004206983592763988,
+      "position": 9.11905763567522
+    },
+    {
+      "page": "/",
+      "query": "make image square",
+      "clicks": 2,
+      "impressions": 1003,
+      "ctr": 0.0019940179461615153,
+      "position": 7.666001994017946
+    },
+    {
+      "page": "/",
+      "query": "square photo",
+      "clicks": 2,
+      "impressions": 850,
+      "ctr": 0.002352941176470588,
+      "position": 9.059999999999999
+    },
+    {
+      "page": "/",
+      "query": "square image online",
+      "clicks": 7,
+      "impressions": 524,
+      "ctr": 0.013358778625954198,
+      "position": 7.740458015267175
+    },
+    {
+      "page": "/",
+      "query": "square pic online",
+      "clicks": 8,
+      "impressions": 460,
+      "ctr": 0.017391304347826087,
+      "position": 5.6326086956521735
+    },
+    {
+      "page": "/",
+      "query": "image square",
+      "clicks": 1,
+      "impressions": 428,
+      "ctr": 0.002336448598130841,
+      "position": 9.093457943925232
+    },
+    {
+      "page": "/",
+      "query": "square size",
+      "clicks": 2,
+      "impressions": 351,
+      "ctr": 0.005698005698005698,
+      "position": 8.113960113960115
+    },
+    {
+      "page": "/",
+      "query": "photo square",
+      "clicks": 2,
+      "impressions": 337,
+      "ctr": 0.005934718100890208,
+      "position": 8.652818991097924
+    },
+    {
+      "page": "/",
+      "query": "square image maker",
+      "clicks": 5,
+      "impressions": 317,
+      "ctr": 0.015772870662460567,
+      "position": 7.356466876971608
+    },
+    {
+      "page": "/",
+      "query": "square picture",
+      "clicks": 0,
+      "impressions": 311,
+      "ctr": 0.0,
+      "position": 8.360128617363344
+    },
+    {
+      "page": "/",
+      "query": "make photo square",
+      "clicks": 0,
+      "impressions": 300,
+      "ctr": 0.0,
+      "position": 7.546666666666667
+    },
+    {
+      "page": "/",
+      "query": "image square maker",
+      "clicks": 2,
+      "impressions": 288,
+      "ctr": 0.006944444444444444,
+      "position": 7.020833333333333
+    },
+    {
+      "page": "/",
+      "query": "square photo maker",
+      "clicks": 2,
+      "impressions": 244,
+      "ctr": 0.00819672131147541,
+      "position": 7.758196721311475
+    },
+    {
+      "page": "/",
+      "query": "make square image",
+      "clicks": 0,
+      "impressions": 197,
+      "ctr": 0.0,
+      "position": 7.934010152284264
+    },
+    {
+      "page": "/",
+      "query": "square image size",
+      "clicks": 0,
+      "impressions": 178,
+      "ctr": 0.0,
+      "position": 8.848314606741573
+    },
+    {
+      "page": "/",
+      "query": "pic to square",
+      "clicks": 0,
+      "impressions": 169,
+      "ctr": 0.0,
+      "position": 7.9171597633136095
+    },
+    {
+      "page": "/image-size-calculator",
+      "query": "image size calculator",
+      "clicks": 2,
+      "impressions": 144,
+      "ctr": 0.013888888888888888,
+      "position": 9.145833333333334
+    },
+    {
+      "page": "/about",
+      "query": "squarepic",
+      "clicks": 0,
+      "impressions": 142,
+      "ctr": 0.0,
+      "position": 6.563380281690141
+    },
+    {
+      "page": "/",
+      "query": "square photo online",
+      "clicks": 1,
+      "impressions": 141,
+      "ctr": 0.0070921985815602835,
+      "position": 7.829787234042553
+    },
+    {
+      "page": "/",
+      "query": "photo square maker",
+      "clicks": 0,
+      "impressions": 136,
+      "ctr": 0.0,
+      "position": 7.617647058823529
+    },
+    {
+      "page": "/",
+      "query": "make picture square",
+      "clicks": 1,
+      "impressions": 133,
+      "ctr": 0.007518796992481203,
+      "position": 7.157894736842105
+    },
+    {
+      "page": "/",
+      "query": "insta square pic",
+      "clicks": 1,
+      "impressions": 121,
+      "ctr": 0.008264462809917356,
+      "position": 8.396694214876034
+    },
+    {
+      "page": "/",
+      "query": "make image square online",
+      "clicks": 1,
+      "impressions": 117,
+      "ctr": 0.008547008547008548,
+      "position": 7.9401709401709395
+    },
+    {
+      "page": "/",
+      "query": "square maker",
+      "clicks": 0,
+      "impressions": 104,
+      "ctr": 0.0,
+      "position": 7.788461538461538
+    },
+    {
+      "page": "/",
+      "query": "square quick online",
+      "clicks": 0,
+      "impressions": 94,
+      "ctr": 0.0,
+      "position": 6.914893617021277
+    },
+    {
+      "page": "/",
+      "query": "image to square",
+      "clicks": 0,
+      "impressions": 91,
+      "ctr": 0.0,
+      "position": 8.857142857142858
+    },
+    {
+      "page": "/",
+      "query": "make an image square",
+      "clicks": 0,
+      "impressions": 89,
+      "ctr": 0.0,
+      "position": 8.07865168539326
+    },
+    {
+      "page": "/",
+      "query": "square an image",
+      "clicks": 0,
+      "impressions": 78,
+      "ctr": 0.0,
+      "position": 10.192307692307692
+    },
+    {
+      "page": "/",
+      "query": "image squarer",
+      "clicks": 0,
+      "impressions": 74,
+      "ctr": 0.0,
+      "position": 8.675675675675675
+    },
+    {
+      "page": "/",
+      "query": "make it square",
+      "clicks": 0,
+      "impressions": 72,
+      "ctr": 0.0,
+      "position": 7.111111111111111
+    },
+    {
+      "page": "/",
+      "query": "picture square",
+      "clicks": 0,
+      "impressions": 69,
+      "ctr": 0.0,
+      "position": 9.26086956521739
+    },
+    {
+      "page": "/",
+      "query": "make square",
+      "clicks": 0,
+      "impressions": 65,
+      "ctr": 0.0,
+      "position": 7.123076923076923
+    },
+    {
+      "page": "/",
+      "query": "square in pic",
+      "clicks": 1,
+      "impressions": 64,
+      "ctr": 0.015625,
+      "position": 8.375
+    },
+    {
+      "page": "/",
+      "query": "turn image into square",
+      "clicks": 1,
+      "impressions": 61,
+      "ctr": 0.01639344262295082,
+      "position": 8.524590163934427
+    },
+    {
+      "page": "/",
+      "query": "square pics",
+      "clicks": 0,
+      "impressions": 60,
+      "ctr": 0.0,
+      "position": 7.9
+    },
+    {
+      "page": "/",
+      "query": "online square pic",
+      "clicks": 1,
+      "impressions": 59,
+      "ctr": 0.01694915254237288,
+      "position": 5.1525423728813555
+    },
+    {
+      "page": "/",
+      "query": "square insta pic",
+      "clicks": 0,
+      "impressions": 59,
+      "ctr": 0.0,
+      "position": 9.372881355932204
+    },
+    {
+      "page": "/",
+      "query": "square image generator",
+      "clicks": 1,
+      "impressions": 54,
+      "ctr": 0.018518518518518517,
+      "position": 7.685185185185185
+    },
+    {
+      "page": "/",
+      "query": "make photo square online",
+      "clicks": 0,
+      "impressions": 46,
+      "ctr": 0.0,
+      "position": 7.956521739130435
+    },
+    {
+      "page": "/",
+      "query": "make photo square for instagram online",
+      "clicks": 0,
+      "impressions": 45,
+      "ctr": 0.0,
+      "position": 6.5777777777777775
+    },
+    {
+      "page": "/",
+      "query": "square picture maker",
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0.0,
+      "position": 6.930232558139535
+    },
+    {
+      "page": "/",
+      "query": "square images",
+      "clicks": 0,
+      "impressions": 42,
+      "ctr": 0.0,
+      "position": 10.5
+    },
+    {
+      "page": "/upscaler",
+      "query": "png upscaler",
+      "clicks": 0,
+      "impressions": 42,
+      "ctr": 0.0,
+      "position": 3.738095238095238
+    },
+    {
+      "page": "/",
+      "query": "make a photo square",
+      "clicks": 0,
+      "impressions": 41,
+      "ctr": 0.0,
+      "position": 9.048780487804878
+    },
+    {
+      "page": "/",
+      "query": "photo square online",
+      "clicks": 0,
+      "impressions": 41,
+      "ctr": 0.0,
+      "position": 7.902439024390244
+    },
+    {
+      "page": "/",
+      "query": "square photo editor",
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0.0,
+      "position": 8.947368421052632
+    },
+    {
+      "page": "/",
+      "query": "square pick",
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0.0,
+      "position": 5.405405405405405
+    },
+    {
+      "page": "/",
+      "query": "square image resizer",
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0.0,
+      "position": 9.567567567567568
+    },
+    {
+      "page": "/",
+      "query": "square quick",
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0.0,
+      "position": 10.864864864864865
+    },
+    {
+      "page": "/",
+      "query": "make image a square",
+      "clicks": 0,
+      "impressions": 36,
+      "ctr": 0.0,
+      "position": 8.5
+    },
+    {
+      "page": "/",
+      "query": "sqaure image",
+      "clicks": 0,
+      "impressions": 36,
+      "ctr": 0.0,
+      "position": 9.5
+    },
+    {
+      "page": "/",
+      "query": "make a picture square",
+      "clicks": 0,
+      "impressions": 35,
+      "ctr": 0.0,
+      "position": 8.057142857142857
+    },
+    {
+      "page": "/",
+      "query": "sqaure pic",
+      "clicks": 0,
+      "impressions": 35,
+      "ctr": 0.0,
+      "position": 5.0285714285714285
+    },
+    {
+      "page": "/",
+      "query": "square picture online",
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0.0,
+      "position": 6.7272727272727275
+    },
+    {
+      "page": "/",
+      "query": "make images square",
+      "clicks": 0,
+      "impressions": 32,
+      "ctr": 0.0,
+      "position": 8.625000000000002
+    },
+    {
+      "page": "/",
+      "query": "make image sqaure",
+      "clicks": 0,
+      "impressions": 32,
+      "ctr": 0.0,
+      "position": 8.28125
+    },
+    {
+      "page": "/",
+      "query": "make it square photo",
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0.0,
+      "position": 7.833333333333333
+    },
+    {
+      "page": "/",
+      "query": "make my image square",
+      "clicks": 0,
+      "impressions": 29,
+      "ctr": 0.0,
+      "position": 8.517241379310345
+    },
+    {
+      "page": "/guides/discord-image-sizes-2026",
+      "query": "discord server banner size",
+      "clicks": 0,
+      "impressions": 26,
+      "ctr": 0.0,
+      "position": 6.8076923076923075
+    },
+    {
+      "page": "/",
+      "query": "how to make an image square",
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0.0,
+      "position": 8.040000000000001
+    },
+    {
+      "page": "/",
+      "query": "square thumbnail",
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0.0,
+      "position": 10.88
+    }
+  ],
+  "deployment": "pending"
+}

@@ -46,3 +46,25 @@ page-test.html
 # Local SEO validation results
 seo-server.log
 seo-validation.json
+
+# Local Python caches and audit captures
+__pycache__/
+*.pyc
+/docs/gsc-keywords-2026-10-08/source-before/
+/docs/gsc-keywords-2026-10-08/local-server.log
+/docs/gsc-keywords-2026-10-08/apply-copy.py
+/squarepic.io-audit/raw/
+/squarepic.io-audit/screenshots/
+/squarepic.io-audit/keyword-intent/before/
+/squarepic.io-audit/release/*/
+/squarepic.io-audit/release/*.png
+/squarepic.io-audit/data/*.png
+/squarepic.io-audit/data/*.jpg
+/squarepic.io-audit/data/*.jpeg
+/squarepic.io-audit/data/*.webp
+/squarepic.io-audit/data/*.bin
+/squarepic.io-audit/data/*.avif
+/squarepic.io-audit/data/*.bmp
+/squarepic.io-audit/data/*.gif
+/squarepic.io-audit/data/*.ico
+/squarepic.io-audit/data/*.tiff

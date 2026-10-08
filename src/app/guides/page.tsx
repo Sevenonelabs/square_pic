@@ -5,77 +5,84 @@ import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
-  "title": "Social Media Image Size Guides",
-  "description": "Find social media image dimensions and editing tips for Instagram, Facebook, LinkedIn, YouTube, TikTok, and more.",
+  "title": "Social Media Image Size Guides & Photo Tutorials",
+  "description": "Browse social media image sizes and photo editing tutorials. Compare post, profile and banner dimensions, or learn to make a photo square without cropping.",
   "path": "/guides",
   "image": "/og/og-social-media-image-sizes.png"
 });
 
-const ALL_CATEGORIES = ["All", "Social Media", "Instagram", "Facebook", "LinkedIn", "YouTube", "TikTok", "Pinterest", "Discord"] as const;
+const ALL_CATEGORIES = ["All", "Photo Editing", "Social Media", "Instagram", "Facebook", "LinkedIn", "YouTube", "TikTok", "Pinterest", "Discord"] as const;
 
 const GUIDES = [
   {
+    href: "/guides/make-image-square-without-cropping",
+    title: "How to Make an Image Square Without Cropping",
+    desc: "Learn how to make an image square without cropping. Follow photo examples, compare blur and solid padding, calculate borders and choose PNG, JPG or WebP export.",
+    category: "Photo Editing",
+    readTime: "6 min",
+  },
+  {
     href: "/guides/social-media-image-sizes-2026",
-    title: "Social Media Image Sizes 2026: Complete Cheat Sheet",
-    desc: "The definitive guide to image dimensions for every major social media platform. Updated for 2026 with the latest recommended sizes.",
+    title: "Social Media Image Sizes 2026: Cheat Sheet",
+    desc: "Compare social media image sizes for 2026 across 13 platforms. Find post, profile, banner and Story dimensions, aspect ratios and links to free image resizers.",
     category: "Social Media",
     readTime: "15 min",
   },
   {
     href: "/guides/instagram-feed-sizes-2026",
-    title: "Instagram Image Sizes 2026: Feed, Carousel & Profile",
-    desc: "Complete guide to Instagram feed post dimensions, carousel specs, profile picture sizes, and ad formats. Includes engagement best practices and a quick reference table.",
+    title: "Instagram Post Sizes 2026: Feed, Carousel & Profile",
+    desc: "Compare Instagram feed, carousel and profile sizes with square, portrait and landscape canvases. See fit-versus-crop examples and check placement previews.",
     category: "Instagram",
     readTime: "10 min",
   },
   {
     href: "/guides/instagram-reels-stories-guide",
-    title: "Instagram Reels & Stories Guide 2026: Dimensions, Format & Tips",
-    desc: "Everything you need to know about Reels and Stories dimensions, text safe zones, format recommendations, and proven strategies for higher engagement.",
+    title: "Instagram Reels & Stories Dimensions and Safe Zones",
+    desc: "Compare Instagram Reels and Stories dimensions, 9:16 format and safe-zone checks. Plan 1080x1920 artwork, review cover crops and keep text clear of controls.",
     category: "Instagram",
-    readTime: "9 min",
+    readTime: "6 min",
   },
   {
     href: "/guides/linkedin-image-sizes-2026",
-    title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions",
-    desc: "Complete guide to LinkedIn image dimensions for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page image requirements.",
+    title: "LinkedIn Image Sizes 2026: Posts, Banners & Profiles",
+    desc: "Find LinkedIn post, profile and banner image sizes. Compare personal covers and company Pages, check aspect ratios and follow official image specifications.",
     category: "LinkedIn",
     readTime: "8 min",
   },
   {
     href: "/guides/youtube-banner-thumbnail-sizes-2026",
-    title: "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video",
-    desc: "Complete guide to YouTube image dimensions for 2026. Channel art/banner sizes, video thumbnail specs, profile picture requirements, and design best practices.",
+    title: "YouTube Banner & Thumbnail Sizes: Channel Art",
+    desc: "Compare YouTube channel art, banner and thumbnail sizes for 2026. Find image dimensions, aspect ratios, profile sizes and guidance for device previews.",
     category: "YouTube",
     readTime: "9 min",
   },
   {
     href: "/guides/tiktok-image-sizes-2026",
-    title: "TikTok Image Sizes 2026: Profile, Video & Story Dimensions",
-    desc: "Complete guide to TikTok image dimensions for 2026. Profile picture size, video aspect ratios, story specs, ad formats, and best practices for maximum engagement.",
+    title: "TikTok Image Sizes: Posts, Profiles & Covers",
+    desc: "Compare TikTok image dimensions for photo posts, profiles and video-cover artwork. Find aspect ratios, vertical canvases and export tips for each placement.",
     category: "TikTok",
     readTime: "8 min",
   },
   {
     href: "/guides/facebook-image-sizes-2026",
-    title: "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions",
-    desc: "Complete guide to Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices.",
+    title: "Facebook Image Sizes 2026: Covers, Posts & Profiles",
+    desc: "Compare Facebook cover photo, post and profile picture dimensions. Find image aspect ratios, mobile crop guidance and export tips for different placements.",
     category: "Facebook",
     readTime: "9 min",
   },
   {
     href: "/guides/pinterest-image-sizes-2026",
-    title: "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide",
-    desc: "Complete guide to Pinterest image dimensions for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices.",
+    title: "Pinterest Image Sizes 2026: Pins & Board Covers",
+    desc: "Compare Pinterest pin dimensions, 2:3 aspect ratios, board covers and profile pictures. Find working image sizes and export tips for static Pinterest artwork.",
     category: "Pinterest",
     readTime: "8 min",
   },
   {
     href: "/guides/discord-image-sizes-2026",
-    title: "Discord Image Sizes 2026: Server Icon, Banner & Emoji Guide",
-    desc: "Complete guide to Discord image dimensions for 2026. Server icons, banners, splash screens, emoji sizes, and profile pictures.",
+    title: "Discord Server Banner Size & Invite Splash",
+    desc: "Find Discord server banner size, invite splash dimensions and server icon presets. Check Boost access and troubleshoot an image missing from your invite link.",
     category: "Discord",
-    readTime: "8 min",
+    readTime: "6 min",
   },
 ];
 
@@ -83,13 +90,13 @@ function getCategoryLabel(slug: string): string {
   const map: Record<string, string> = {
     instagram: "Instagram", linkedin: "LinkedIn", youtube: "YouTube", tiktok: "TikTok",
     facebook: "Facebook", pinterest: "Pinterest", discord: "Discord",
-    "social-media": "Social Media",
+    "social-media": "Social Media", "photo-editing": "Photo Editing",
   };
   return map[slug] || slug;
 }
 
 function categorySlug(cat: string): string {
-  return cat === "Social Media" ? "social-media" : cat.toLowerCase();
+  return cat.toLowerCase().replaceAll(" ", "-");
 }
 
 export default async function GuidesPage(props: { searchParams?: Promise<{ category?: string }> }) {
@@ -117,7 +124,7 @@ export default async function GuidesPage(props: { searchParams?: Promise<{ categ
         about: { "@type": "Thing", name: "Image Editing Guides" },
       }} />
       <div className="max-w-[800px] w-full mx-auto px-4 py-8">
-        <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-2">Guides & Tutorials</h1>
+        <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-2">Social Media Image Size Guides & Photo Tutorials</h1>
         <p className="text-center text-[0.9rem] text-[#8d9aaa] max-w-[500px] mx-auto mb-8 leading-relaxed">
           Step-by-step tutorials, dimension guides, and how-to articles for optimizing images on every platform.
         </p>

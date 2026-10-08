@@ -1,0 +1,15 @@
+{
+  "platform": "Instagram",
+  "preset": "Stories/Reels",
+  "expected": [
+    1080,
+    1920
+  ],
+  "actual": [
+    1080,
+    1920
+  ],
+  "format": "PNG",
+  "filename": "squarepic-photo.png",
+  "gif-browser-editor": "SquarePic\nHome\nTools\nGuides\n100% Free\nNo Watermarks\nImage Size Calc\nNew Image\nOUTER BORDER (PADDING)\nPadding\n10%\nSTYLE\nBlur\nSolid\nCrop\nBLUR INTENSITY\nBlur\n20px\nADJUSTMENTS\nZoom\n100%\nEdge Radius\n0px\nSOCIAL SIZE\nInstagram\nFacebook\nX (Twitter)\nLinkedIn\nTikTok\nYouTube\nPinterest\nSnapchat\nWhatsApp\nTwitch\nReddit\nTelegram\nDiscord\nEXPORT\nPNG\nJPEG\nWebP\nDownload & Share\nMore Free Image Tools\n\nCrop, convert, compress & resize - all in your browser.\n\nImage Converter\n\nJPG, PNG, WebP, AVIF\n\nImage Compressor\n\nReduce file size, batch\n\nImage Cropper\n\nFree-form & preset ratios\n\nHD Image Upscaler\n\n2x, 3x, 4x magn"
+}

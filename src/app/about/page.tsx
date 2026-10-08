@@ -1,6 +1,7 @@
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
-import { BreadcrumbSchema, JsonLd, PersonSchema } from "@/components/schema-scripts";
+import Link from "next/link";
+import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
@@ -14,7 +15,7 @@ export default function AboutPage() {
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "About", url: `${SITE}/about` }]} />
       <JsonLd data={{ "@context": "https://schema.org", "@type": "AboutPage", name: "About SquarePic", description: "SquarePic is a free online tool that crops and creates images into square format for social media. Make any image square for Instagram and social media.", url: `${SITE}/about` }} />
-      <PersonSchema name="SevenOneLabs" jobTitle="Software Development Lab" url={`${SITE}/author/sevenonelabs`} sameAs={["https://github.com/Sevenonelabs"]} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "Organization", "@id": `${SITE}/author/sevenonelabs#organization`, name: "SevenOneLabs", url: `${SITE}/author/sevenonelabs`, sameAs: ["https://github.com/Sevenonelabs"] }} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-6">About SquarePic</h1>
 
@@ -104,7 +105,7 @@ export default function AboutPage() {
           Who Built SquarePic
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          SquarePic is developed by <strong className="text-[#e6edf5]">SevenOneLabs</strong>, a software development lab specializing in privacy-first web applications and browser-based image processing tools. Our team has backgrounds in web performance optimization, computer graphics, and user interface design. We build tools that respect user privacy while delivering professional-grade results — no servers, no uploads, no data collection.
+          SquarePic is developed by <strong className="text-[#e6edf5]">SevenOneLabs</strong>, a software development lab building browser-based image tools. Images are processed locally and are not uploaded. Website analytics and the referral widget make network requests, as described in the <Link href="/privacy" className="text-[var(--accent)] hover:underline">privacy policy</Link>.
         </p>
       </section>
 

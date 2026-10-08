@@ -16,12 +16,12 @@ export default function PrivacyPage() {
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Privacy Policy", url: `${SITE}/privacy` }]} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-2">Privacy Policy</h1>
-      <p className="text-center text-[0.72rem] text-[#576675] mb-6">Last updated: June 2026</p>
+      <p className="text-center text-[0.72rem] text-[#576675] mb-6">Last updated: October 8, 2026</p>
 
       <section className="mb-6">
         <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
           <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">1</span>
-          No Data Collection
+          Local image processing
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           SquarePic does not collect, store, or transmit your images. All image processing happens entirely within your web browser using the HTML5 Canvas API. Your photos never leave your device.
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
           Local Storage
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          We use localStorage to remember your accent color preference (theme). This data stays on your device and is never sent to our servers. No cookies are used for tracking purposes.
+          We use localStorage to remember your accent color preference (theme). This data stays on your device and is never sent to our servers. Analytics services may use cookies and their own browser storage. These are separate from local image processing.
         </p>
       </section>
 
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
           Analytics
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          We use Google Analytics (GA4) and Google Tag Manager to collect anonymous usage statistics. This helps us understand which tools are most popular and improve the site. No personal information or image data is collected.
+          We use Google Analytics 4, Vercel Analytics and Vercel Speed Insights to measure page visits, device and browser information, performance, and tool events such as successful processing or a download. Google Analytics may use cookies and identifiers. Tool events send the tool name and output format, never your image content or file name. The StartupBar referral widget also contacts startupbar.co with page and session information.
         </p>
       </section>
 
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
             { label: "HTTPS Everywhere", desc: "All connections are encrypted. No image data is transmitted." },
             { label: "Minimal Scripts", desc: "We use Google Analytics for anonymous usage statistics, but no script can access your images." },
             { label: "Open Source Code", desc: "Our entire codebase is public and auditable on GitHub." },
-            { label: "No Personal Tracking", desc: "We never fingerprint, profile, or collect personal data. Analytics are aggregate and anonymous." },
+            { label: "Image data stays local", desc: "Tool events contain fixed tool and format labels. Image content and file names are not sent with these events." },
           ].map((item) => (
             <div key={item.label} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
               <h3 className="text-[0.8rem] font-extrabold text-[#e6edf5] mb-1">{item.label}</h3>

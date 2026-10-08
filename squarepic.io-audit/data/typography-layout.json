@@ -1,0 +1,390 @@
+[
+  {
+    "innerWidth": 382,
+    "clientWidth": 375,
+    "scrollWidth": 382,
+    "visualViewport": {
+      "width": 375,
+      "scale": 1
+    },
+    "h1": [
+      {
+        "text": "Make an Image Square Online \u2014 Free Square Image Maker",
+        "font": "900 17.6px / 18.48px Inter, \"Inter Fallback\"",
+        "fontSize": "17.6px",
+        "letterSpacing": "-2px",
+        "lineHeight": "18.48px",
+        "fontWeight": "900",
+        "rect": {
+          "x": 30,
+          "w": 315,
+          "h": 36.9375
+        }
+      }
+    ],
+    "overflow": [
+      {
+        "tag": "SECTION",
+        "text": "Make Any Photo Square in Seconds\n\nMaking an image square is essential ",
+        "class": "max-w-[900px] mx-auto px-4 pb-16",
+        "right": 381.578125
+      }
+    ],
+    "path": "/",
+    "mobile": true
+  },
+  {
+    "innerWidth": 523,
+    "clientWidth": 375,
+    "scrollWidth": 523,
+    "visualViewport": {
+      "width": 375,
+      "scale": 1
+    },
+    "h1": [
+      {
+        "text": "Free Image Converter",
+        "font": "800 26.4px / 39.6px Inter, \"Inter Fallback\"",
+        "fontSize": "26.4px",
+        "letterSpacing": "-0.66px",
+        "lineHeight": "39.6px",
+        "fontWeight": "800",
+        "rect": {
+          "x": 45,
+          "w": 285,
+          "h": 39.609375
+        }
+      }
+    ],
+    "overflow": [
+      {
+        "tag": "H3",
+        "text": "Understanding Quality Settings",
+        "class": "text-[0.85rem] font-extrabold text-[#e6edf5] mb-2",
+        "right": 486.484375
+      },
+      {
+        "tag": "UL",
+        "text": "100%: Near-lossless output. Suitable for archival or when maximum qual",
+        "class": "text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1",
+        "right": 486.484375
+      },
+      {
+        "tag": "LI",
+        "text": "100%: Near-lossless output. Suitable for archival or when maximum qual",
+        "class": "",
+        "right": 486.484375
+      },
+      {
+        "tag": "LI",
+        "text": "80-95%: High quality for professional use. Great for photography portf",
+        "class": "",
+        "right": 486.484375
+      },
+      {
+        "tag": "LI",
+        "text": "60-80%: The web sweet spot. Images look nearly identical to originals ",
+        "class": "",
+        "right": 486.484375
+      },
+      {
+        "tag": "LI",
+        "text": "40-60%: Good for thumbnails, previews, and placeholder images. Visible",
+        "class": "",
+        "right": 486.484375
+      },
+      {
+        "tag": "LI",
+        "text": "Below 40%: Heavy compression for extreme size reduction. Noticeable ar",
+        "class": "",
+        "right": 486.484375
+      },
+      {
+        "tag": "DIV",
+        "text": "Privacy-First Image Conversion\n\nEvery image conversion happens locally",
+        "class": "bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5",
+        "right": 507.484375
+      },
+      {
+        "tag": "H3",
+        "text": "Privacy-First Image Conversion",
+        "class": "text-[0.85rem] font-extrabold text-[#e6edf5] mb-2",
+        "right": 486.484375
+      },
+      {
+        "tag": "P",
+        "text": "Every image conversion happens locally in your browser using HTML5 Can",
+        "class": "text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0",
+        "right": 486.484375
+      },
+      {
+        "tag": "P",
+        "text": "Last updated: August 2026",
+        "class": "text-[0.7rem] text-[#576675] text-center mt-8",
+        "right": 507.484375
+      },
+      {
+        "tag": "DIV",
+        "text": "Learn more: Social Media Image Sizes 2026 \u00b7 Instagram Image Sizes \u00b7 Fa",
+        "class": "mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]",
+        "right": 507.484375
+      },
+      {
+        "tag": "P",
+        "text": "Learn more: Social Media Image Sizes 2026 \u00b7 Instagram Image Sizes \u00b7 Fa",
+        "class": "text-[0.75rem] text-[#8d9aaa] text-center",
+        "right": 507.484375
+      },
+      {
+        "tag": "A",
+        "text": "Instagram Image Sizes",
+        "class": "text-[var(--accent)] no-underline hover:underline",
+        "right": 422.703125
+      },
+      {
+        "tag": "A",
+        "text": "Facebook Image Sizes",
+        "class": "text-[var(--accent)] no-underline hover:underline",
+        "right": 488.640625
+      }
+    ],
+    "path": "/converter",
+    "mobile": true
+  },
+  {
+    "innerWidth": 1920,
+    "clientWidth": 1920,
+    "scrollWidth": 1920,
+    "visualViewport": {
+      "width": 1920,
+      "scale": 1
+    },
+    "h1": [
+      {
+        "text": "Make an Image Square Online \u2014 Free Square Image Maker",
+        "font": "900 28.16px / 29.568px Inter, \"Inter Fallback\"",
+        "fontSize": "28.16px",
+        "letterSpacing": "-2px",
+        "lineHeight": "29.568px",
+        "fontWeight": "900",
+        "rect": {
+          "x": 524,
+          "w": 600,
+          "h": 59.125
+        }
+      }
+    ],
+    "overflow": [
+      {
+        "tag": "SPAN",
+        "text": "",
+        "class": "w-[20px] h-[20px] rounded shrink-0",
+        "right": 430
+      },
+      {
+        "tag": "P",
+        "text": "Free online square image maker and image editor. Fast, private, and wa",
+        "class": "text-[0.8rem] text-[#576675] m-0 leading-relaxed max-w-xs max-md:max-w-none",
+        "right": 730
+      },
+      {
+        "tag": "NAV",
+        "text": "ABOUT\nSUPPORT\nFAQ\nPRIVACY\nTERMS",
+        "class": "flex justify-center gap-6 max-md:gap-4",
+        "right": 1135.75
+      },
+      {
+        "tag": "A",
+        "text": "ABOUT",
+        "class": "text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]",
+        "right": 834.109375
+      },
+      {
+        "tag": "A",
+        "text": "SUPPORT",
+        "class": "text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]",
+        "right": 925.125
+      },
+      {
+        "tag": "A",
+        "text": "FAQ",
+        "class": "text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]",
+        "right": 976.796875
+      },
+      {
+        "tag": "A",
+        "text": "PRIVACY",
+        "class": "text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]",
+        "right": 1062.65625
+      },
+      {
+        "tag": "A",
+        "text": "TERMS",
+        "class": "text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]",
+        "right": 1135.75
+      },
+      {
+        "tag": "DIV",
+        "text": "Secure Local Processing",
+        "class": "flex justify-end max-md:justify-center",
+        "right": 1510
+      },
+      {
+        "tag": "DIV",
+        "text": "Secure Local Processing",
+        "class": "inline-flex items-center gap-1.5 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] px-3 py-1.5 rounded-md text-[0.75rem] font-semibold text-[var(--accent)]",
+        "right": 1510
+      },
+      {
+        "tag": "svg",
+        "text": null,
+        "class": {},
+        "right": 1348.078125
+      },
+      {
+        "tag": "path",
+        "text": null,
+        "class": {},
+        "right": 1345.7447509765625
+      },
+      {
+        "tag": "P",
+        "text": "\u00a9 2026 SquarePic - Free online square image maker.\u00b7support@squarepic.i",
+        "class": "text-center text-[0.8rem] text-[#576675] tracking-[0.02em] mt-6 pt-4 border-t border-[rgba(255,255,255,0.04)] max-md:text-[0.65rem]",
+        "right": 1896
+      },
+      {
+        "tag": "SPAN",
+        "text": "\u00b7",
+        "class": "mx-2",
+        "right": 1059.71875
+      },
+      {
+        "tag": "A",
+        "text": "support@squarepic.io",
+        "class": "text-[var(--accent)] no-underline hover:underline",
+        "right": 1206.21875
+      }
+    ],
+    "path": "/",
+    "mobile": false
+  },
+  {
+    "innerWidth": 1920,
+    "clientWidth": 1920,
+    "scrollWidth": 1920,
+    "visualViewport": {
+      "width": 1920,
+      "scale": 1
+    },
+    "h1": [
+      {
+        "text": "Free Image Converter",
+        "font": "800 26.4px / 39.6px Inter, \"Inter Fallback\"",
+        "fontSize": "26.4px",
+        "letterSpacing": "-0.66px",
+        "lineHeight": "39.6px",
+        "fontWeight": "800",
+        "rect": {
+          "x": 525,
+          "w": 870,
+          "h": 39.609375
+        }
+      }
+    ],
+    "overflow": [
+      {
+        "tag": "SPAN",
+        "text": "",
+        "class": "w-[20px] h-[20px] rounded shrink-0",
+        "right": 430
+      },
+      {
+        "tag": "P",
+        "text": "Free online square image maker and image editor. Fast, private, and wa",
+        "class": "text-[0.8rem] text-[#576675] m-0 leading-relaxed max-w-xs max-md:max-w-none",
+        "right": 730
+      },
+      {
+        "tag": "NAV",
+        "text": "ABOUT\nSUPPORT\nFAQ\nPRIVACY\nTERMS",
+        "class": "flex justify-center gap-6 max-md:gap-4",
+        "right": 1135.75
+      },
+      {
+        "tag": "A",
+        "text": "ABOUT",
+        "class": "text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]",
+        "right": 834.109375
+      },
+      {
+        "tag": "A",
+        "text": "SUPPORT",
+        "class": "text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]",
+        "right": 925.125
+      },
+      {
+        "tag": "A",
+        "text": "FAQ",
+        "class": "text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]",
+        "right": 976.796875
+      },
+      {
+        "tag": "A",
+        "text": "PRIVACY",
+        "class": "text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]",
+        "right": 1062.65625
+      },
+      {
+        "tag": "A",
+        "text": "TERMS",
+        "class": "text-[0.82rem] font-semibold uppercase tracking-[0.05em] text-[#8d9aaa] no-underline transition-colors hover:text-[var(--accent)] max-md:text-[0.65rem]",
+        "right": 1135.75
+      },
+      {
+        "tag": "DIV",
+        "text": "Secure Local Processing",
+        "class": "flex justify-end max-md:justify-center",
+        "right": 1510
+      },
+      {
+        "tag": "DIV",
+        "text": "Secure Local Processing",
+        "class": "inline-flex items-center gap-1.5 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] px-3 py-1.5 rounded-md text-[0.75rem] font-semibold text-[var(--accent)]",
+        "right": 1510
+      },
+      {
+        "tag": "svg",
+        "text": null,
+        "class": {},
+        "right": 1348.078125
+      },
+      {
+        "tag": "path",
+        "text": null,
+        "class": {},
+        "right": 1345.7447509765625
+      },
+      {
+        "tag": "P",
+        "text": "\u00a9 2026 SquarePic - Free online square image maker.\u00b7support@squarepic.i",
+        "class": "text-center text-[0.8rem] text-[#576675] tracking-[0.02em] mt-6 pt-4 border-t border-[rgba(255,255,255,0.04)] max-md:text-[0.65rem]",
+        "right": 1896
+      },
+      {
+        "tag": "SPAN",
+        "text": "\u00b7",
+        "class": "mx-2",
+        "right": 1059.71875
+      },
+      {
+        "tag": "A",
+        "text": "support@squarepic.io",
+        "class": "text-[var(--accent)] no-underline hover:underline",
+        "right": 1206.21875
+      }
+    ],
+    "path": "/converter",
+    "mobile": false
+  }
+]

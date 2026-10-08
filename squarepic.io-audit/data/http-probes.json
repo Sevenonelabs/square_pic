@@ -1,0 +1,254 @@
+[
+  {
+    "url": "http://squarepic.io/",
+    "status": 200,
+    "final_url": "https://www.squarepic.io/",
+    "redirects": [
+      {
+        "status": 308,
+        "from": "http://squarepic.io/",
+        "to": "https://squarepic.io/"
+      },
+      {
+        "status": 308,
+        "from": "https://squarepic.io/",
+        "to": "https://www.squarepic.io/"
+      }
+    ],
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "1955397",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "63063",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://*.googleusercontent.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; frame-src https://startupbar.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Thu, 08 Oct 2026 05:20:42 GMT",
+      "Etag": "\"1d84a0c9ffe23326d4ce4019892a39eb\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Matched-Path": "/",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::tks7n-1791436842393-4032495847e2",
+      "X-Xss-Protection": "1; mode=block",
+      "Connection": "close"
+    }
+  },
+  {
+    "url": "http://www.squarepic.io/",
+    "status": 200,
+    "final_url": "https://www.squarepic.io/",
+    "redirects": [
+      {
+        "status": 308,
+        "from": "http://www.squarepic.io/",
+        "to": "https://www.squarepic.io/"
+      }
+    ],
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "1955399",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "63063",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://*.googleusercontent.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; frame-src https://startupbar.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Thu, 08 Oct 2026 05:20:43 GMT",
+      "Etag": "\"1d84a0c9ffe23326d4ce4019892a39eb\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Matched-Path": "/",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::dqbw5-1791436843724-633903dca4f9",
+      "X-Xss-Protection": "1; mode=block",
+      "Connection": "close"
+    }
+  },
+  {
+    "url": "https://squarepic.io/",
+    "status": 200,
+    "final_url": "https://www.squarepic.io/",
+    "redirects": [
+      {
+        "status": 308,
+        "from": "https://squarepic.io/",
+        "to": "https://www.squarepic.io/"
+      }
+    ],
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "1955400",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "63063",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://*.googleusercontent.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; frame-src https://startupbar.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Thu, 08 Oct 2026 05:20:45 GMT",
+      "Etag": "\"1d84a0c9ffe23326d4ce4019892a39eb\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Matched-Path": "/",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::8h7hr-1791436845042-726770128b34",
+      "X-Xss-Protection": "1; mode=block",
+      "Connection": "close"
+    }
+  },
+  {
+    "url": "https://www.squarepic.io/resize",
+    "status": 200,
+    "final_url": "https://www.squarepic.io/",
+    "redirects": [
+      {
+        "status": 308,
+        "from": "https://www.squarepic.io/resize",
+        "to": "https://www.squarepic.io/"
+      }
+    ],
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "1955401",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "63063",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://*.googleusercontent.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; frame-src https://startupbar.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Thu, 08 Oct 2026 05:20:46 GMT",
+      "Etag": "\"1d84a0c9ffe23326d4ce4019892a39eb\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Matched-Path": "/",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::xrrk6-1791436846341-a0f0cc9d96e7",
+      "X-Xss-Protection": "1; mode=block",
+      "Connection": "close"
+    }
+  },
+  {
+    "url": "https://www.squarepic.io/converter/",
+    "status": 200,
+    "final_url": "https://www.squarepic.io/converter",
+    "redirects": [
+      {
+        "status": 308,
+        "from": "https://www.squarepic.io/converter/",
+        "to": "https://www.squarepic.io/converter"
+      }
+    ],
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "1942323",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "89206",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://*.googleusercontent.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; frame-src https://startupbar.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Thu, 08 Oct 2026 05:20:47 GMT",
+      "Etag": "\"e6be9b9c88ff0caff662f3d61a60101a\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Matched-Path": "/converter",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::n24k6-1791436847627-ae24a038714f",
+      "X-Xss-Protection": "1; mode=block",
+      "Connection": "close"
+    }
+  },
+  {
+    "url": "https://www.squarepic.io/llms.txt",
+    "status": 200,
+    "final_url": "https://www.squarepic.io/llms.txt",
+    "redirects": [],
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "119708",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline; filename=\"llms.txt\"",
+      "Content-Length": "6529",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://*.googleusercontent.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; frame-src https://startupbar.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Content-Type": "text/plain; charset=utf-8",
+      "Date": "Thu, 08 Oct 2026 05:20:48 GMT",
+      "Etag": "\"1664e496a10deb6fcb1fb775ee7d39dc\"",
+      "Last-Modified": "Tue, 06 Oct 2026 20:05:40 GMT",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Matched-Path": "/llms.txt",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::k4f4l-1791436848796-3b2558552e19",
+      "X-Xss-Protection": "1; mode=block",
+      "Connection": "close"
+    },
+    "raw_path": "raw/llms.txt"
+  },
+  {
+    "url": "https://www.squarepic.io/sitemap-images",
+    "status": 200,
+    "final_url": "https://www.squarepic.io/sitemap-images",
+    "redirects": [],
+    "headers": {
+      "Age": "99",
+      "Cache-Control": "public, max-age=86400, immutable",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://*.googleusercontent.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://startupbar.co; frame-src https://startupbar.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Content-Type": "application/xml",
+      "Date": "Thu, 08 Oct 2026 05:19:10 GMT",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Matched-Path": "/sitemap-images",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::iad1::jfw6k-1791436849947-130710ce391b",
+      "X-Xss-Protection": "1; mode=block",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "raw_path": "raw/sitemap-images.html"
+  }
+]

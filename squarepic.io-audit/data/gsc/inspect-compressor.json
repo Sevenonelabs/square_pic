@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "data": {
+    "url": "https://www.squarepic.io/compressor",
+    "verdict": "PASS",
+    "indexed": true,
+    "indexStatus": {
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-27T15:34:47Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/compressor",
+      "userCanonical": "https://www.squarepic.io/compressor",
+      "sitemap": [
+        "https://www.squarepic.io/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://www.squarepic.io/blog-categories/social-media-sizes",
+        "https://www.squarepic.io/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    "mobileUsability": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    },
+    "richResults": {
+      "verdict": "PASS",
+      "detectedItems": [
+        {
+          "richResultType": "Breadcrumbs",
+          "items": [
+            {
+              "name": "Unnamed item"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "command": "inspect",
+    "durationMs": 23101
+  }
+}

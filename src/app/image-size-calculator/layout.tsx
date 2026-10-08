@@ -2,8 +2,8 @@ import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = pageMetadata({
-  "title": "Image Size Calculator & Aspect Ratios",
-  "description": "Find image dimensions and aspect ratios for social media. Search by pixel size or browse platform presets for posts, profiles, and banners.",
+  "title": "Image Size Calculator: Pixels & Aspect Ratios",
+  "description": "Use this calculator to find pixel dimensions, aspect ratios and megapixels. Calculate proportional resize dimensions and matching social media presets.",
   "path": "/image-size-calculator",
   "image": "/og/og-social-media-image-sizes.png"
 });

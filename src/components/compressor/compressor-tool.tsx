@@ -1,7 +1,10 @@
 "use client";
+import { isImageFile } from "@/lib/image-input";
+import { downloadBlob, downloadImage } from "@/lib/image-export";
 
 import { useState, useRef, useCallback } from "react";
 import { motion } from "motion/react";
+import { trackToolEvent } from "@/lib/analytics";
 import JSZip from "jszip";
 import { formatBytes, truncateMiddle, compressFile, type FileItem } from "@/lib/compressor-utils";
 import { runConcurrent } from "@/lib/async-utils";
@@ -17,14 +20,20 @@ export function CompressorTool() {
   const [targetSizeValue, setTargetSizeValue] = useState(100);
   const [targetSizeUnit, setTargetSizeUnit] = useState<"KB" | "MB">("KB");
   const [compressing, setCompressing] = useState(false);
+  const revision = useRef(0);
+  const invalidateResults = useCallback(() => {
+    revision.current++;
+    setFiles((prev) => prev.map((f) => ({ ...f, status: "ready", compressedBlob: null, newSize: null, width: undefined, height: undefined, error: undefined })));
+  }, []);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const addFiles = useCallback((fileList: FileList) => {
     const newItems: FileItem[] = [];
     for (let i = 0; i < fileList.length; i++) {
       const file = fileList[i];
-      if (!file.type.startsWith("image/")) continue;
+      if (!isImageFile(file)) continue;
       if (file.size > MAX_SIZE_MB * 1024 * 1024) continue;
+      trackToolEvent("upload_accepted", "compressor");
       const id = Math.random().toString(36).substring(2, 11);
       const src = URL.createObjectURL(file);
       newItems.push({ id, file, name: file.name, size: file.size, src, imgElement: null, status: "ready", compressedBlob: null, newSize: null });
@@ -51,15 +60,21 @@ export function CompressorTool() {
 
   const runCompression = useCallback(async () => {
     setCompressing(true);
+    const jobRevision = revision.current;
     const pending = files.filter((f) => f.status !== "done");
 
     await runConcurrent(pending, async (item) => {
       try {
+        if (revision.current !== jobRevision) return;
         updateItem(item.id, { status: "compressing" });
         const result = await compressFile(item, mode, sliderQuality, targetFormat, targetSizeValue, targetSizeUnit);
-        updateItem(item.id, { status: "done", compressedBlob: result.blob, newSize: result.size });
-      } catch {
-        updateItem(item.id, { status: "error" });
+        if (revision.current !== jobRevision) return;
+        trackToolEvent("processing_success", "compressor", targetFormat);
+        updateItem(item.id, { status: "done", compressedBlob: result.blob, newSize: result.size, width: result.width, height: result.height });
+      } catch (error) {
+        if (revision.current !== jobRevision) return;
+        trackToolEvent("processing_error", "compressor", targetFormat);
+        updateItem(item.id, { status: "error", error: error instanceof Error ? error.message : "Compression failed." });
       }
     }, MAX_CONCURRENCY);
 
@@ -76,12 +91,8 @@ export function CompressorTool() {
       zip.file(`${cleanName}_compressed.${ext}`, item.compressedBlob!);
     });
     const content = await zip.generateAsync({ type: "blob" });
-    const url = URL.createObjectURL(content);
-    const a = document.createElement("a");
-    a.download = "compressed_images.zip";
-    a.href = url;
-    a.click();
-    URL.revokeObjectURL(url);
+    downloadBlob(content, "compressed_images.zip");
+    done.forEach((item) => trackToolEvent("download", "compressor", item.compressedBlob!.type.split("/")[1]));
   }, [files]);
 
   const anyDone = files.some((f) => f.status === "done");
@@ -95,9 +106,9 @@ export function CompressorTool() {
         className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-6 mb-6"
       >
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/20 to-transparent" />
-        <h1 className="text-[1.65rem] font-extrabold tracking-tight mb-1">Free Image Compressor</h1>
+        <h1 className="text-[1.65rem] font-extrabold tracking-tight mb-1">Free Image Compressor for JPG, PNG & WebP</h1>
         <p className="text-[0.95rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">
-          Compress JPG, PNG, and WebP images online without losing quality. Reduce file sizes for faster website loading and easier sharing.
+          Reduce JPG, PNG or WebP inputs to lossy JPEG or WebP. JPEG fills transparent pixels with white; WebP preserves alpha. Target size may reduce dimensions. PNG input is transcoded, not compressed losslessly.
         </p>
       </motion.div>
 
@@ -108,7 +119,7 @@ export function CompressorTool() {
         onClick={() => inputRef.current?.click()}
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => { e.preventDefault(); addFiles(e.dataTransfer.files); }}
-        className={`border-2 border-dashed rounded-xl p-16 text-center cursor-pointer transition-all mb-4 min-h-[280px] flex flex-col items-center justify-center ${
+        className={`border-2 border-dashed rounded-xl p-6 sm:p-16 text-center cursor-pointer transition-all mb-4 min-h-[280px] flex flex-col items-center justify-center ${
           files.length > 0
             ? "border-[rgba(255,255,255,0.06)] bg-[rgba(0,0,0,0.15)]"
             : "border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.015)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/5"
@@ -141,7 +152,7 @@ export function CompressorTool() {
 
               <div className="flex gap-1 bg-[rgba(0,0,0,0.25)] p-[3px] rounded-md border border-[rgba(255,255,255,0.06)] mb-3">
                 {(["slider", "size"] as const).map((m) => (
-                  <button key={m} onClick={() => setMode(m)}
+                  <button key={m} onClick={() => { invalidateResults(); setMode(m); }}
                     className={`flex-1 bg-transparent border-none text-[0.68rem] font-semibold px-2 py-1.5 rounded-sm cursor-pointer transition-all ${
                       mode === m ? "bg-[rgba(255,255,255,0.08)] text-white" : "text-[#8d9aaa] hover:text-[#e6edf5]"
                     }`}
@@ -158,16 +169,16 @@ export function CompressorTool() {
                     <span>{sliderQuality}%</span>
                   </div>
                   <input type="range" min={5} max={95} value={sliderQuality}
-                    onChange={(e) => setSliderQuality(Number(e.target.value))} />
+                    aria-label="Compression quality" onChange={(e) => { invalidateResults(); setSliderQuality(Number(e.target.value)); }} />
                 </div>
               ) : (
                 <div className="space-y-2 mb-3">
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     <input type="number" min={1} value={targetSizeValue}
-                      onChange={(e) => setTargetSizeValue(Number(e.target.value))}
-                      className="flex-1 bg-[rgba(0,0,0,0.25)] border border-[rgba(255,255,255,0.06)] rounded-md px-2 py-1.5 text-[0.8rem] text-[#e6edf5] outline-none focus:border-[var(--accent)]" />
+                      aria-label="Target size" onChange={(e) => { invalidateResults(); setTargetSizeValue(Number(e.target.value)); }}
+                      className="min-w-0 flex-1 bg-[rgba(0,0,0,0.25)] border border-[rgba(255,255,255,0.06)] rounded-md px-2 py-1.5 text-[0.8rem] text-[#e6edf5] outline-none focus:border-[var(--accent)]" />
                     <select value={targetSizeUnit}
-                      onChange={(e) => setTargetSizeUnit(e.target.value as "KB" | "MB")}
+                      aria-label="Target size unit" onChange={(e) => { invalidateResults(); setTargetSizeUnit(e.target.value as "KB" | "MB"); }}
                       className="bg-[rgba(0,0,0,0.25)] border border-[rgba(255,255,255,0.06)] rounded-md px-2 py-1.5 text-[0.8rem] text-[#e6edf5] outline-none"
                     >
                       <option value="KB">KB</option>
@@ -176,7 +187,7 @@ export function CompressorTool() {
                   </div>
                   <div className="flex gap-1 flex-wrap">
                     {[50, 100, 200, 500].map((v) => (
-                      <button key={v} onClick={() => { setTargetSizeValue(v); setTargetSizeUnit("KB"); }}
+                      <button key={v} onClick={() => { invalidateResults(); setTargetSizeValue(v); setTargetSizeUnit("KB"); }}
                         className={`text-[0.6rem] font-bold px-2 py-1 rounded-sm border transition-all ${
                           targetSizeValue === v && targetSizeUnit === "KB"
                             ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
@@ -185,7 +196,7 @@ export function CompressorTool() {
                       >{v}KB</button>
                     ))}
                     {[1, 2].map((v) => (
-                      <button key={`${v}MB`} onClick={() => { setTargetSizeValue(v); setTargetSizeUnit("MB"); }}
+                      <button key={`${v}MB`} onClick={() => { invalidateResults(); setTargetSizeValue(v); setTargetSizeUnit("MB"); }}
                         className={`text-[0.6rem] font-bold px-2 py-1 rounded-sm border transition-all ${
                           targetSizeValue === v && targetSizeUnit === "MB"
                             ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
@@ -201,7 +212,7 @@ export function CompressorTool() {
                 <span className="text-[0.6rem] font-semibold text-[#576675] block mb-1.5 uppercase tracking-[0.08em]">Output Format</span>
                 <div className="flex gap-1">
                   {(["jpeg", "webp"] as const).map((fmt) => (
-                    <button key={fmt} onClick={() => setTargetFormat(fmt)}
+                    <button key={fmt} onClick={() => { invalidateResults(); setTargetFormat(fmt); }}
                       className={`flex-1 text-[0.65rem] font-bold px-2 py-1.5 rounded-sm border transition-all ${
                         targetFormat === fmt
                           ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
@@ -227,7 +238,7 @@ export function CompressorTool() {
               initial={{ opacity: 0, x: 12 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-              className="grid grid-cols-[repeat(auto-fill,minmax(170px,1fr))] gap-3 content-start"
+              className="grid grid-cols-[repeat(auto-fill,minmax(min(170px,100%),1fr))] gap-3 content-start"
             >
               {files.map((item, i) => (
                 <motion.div
@@ -262,17 +273,15 @@ export function CompressorTool() {
                       <span className="text-[#10b981] font-extrabold ml-1">-{Math.round(((item.size - item.newSize) / item.size) * 100)}%</span>
                     )}
                   </div>
+                  {item.width && <p className="text-xs text-[#8d9aaa]" role="status">Output: {item.width} x {item.height} px. {item.compressedBlob?.type === "image/webp" ? "Transparency preserved." : "White background."}</p>}
+                  {item.error && <p role="alert" className="text-xs text-[#f43f5e]">{item.error}</p>}
                   <button
                     onClick={() => {
                       if (!item.compressedBlob) return;
                       const ext = item.compressedBlob.type === "image/webp" ? "webp" : "jpg";
                       const name = item.name.substring(0, item.name.lastIndexOf(".")) || item.name;
-                      const url = URL.createObjectURL(item.compressedBlob);
-                      const a = document.createElement("a");
-                      a.download = `${name}_compressed.${ext}`;
-                      a.href = url;
-                      a.click();
-                      URL.revokeObjectURL(url);
+                      downloadImage(item.compressedBlob, `${name}_compressed`);
+                      trackToolEvent("download", "compressor", ext);
                     }}
                     disabled={item.status !== "done"}
                     className="w-full bg-[var(--accent)] text-black border-none py-1.5 rounded-md text-[0.68rem] font-extrabold cursor-pointer transition-all hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100"
@@ -297,10 +306,10 @@ export function CompressorTool() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className="flex items-center justify-between gap-3 mb-3"
+            className="flex flex-wrap items-center justify-between gap-3 mb-3"
           >
             <span className="text-[0.72rem] text-[#8d9aaa] font-semibold">{files.length} file{files.length !== 1 ? "s" : ""}</span>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <button onClick={() => inputRef.current?.click()}
                 className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] px-3 py-1.5 rounded-md text-[0.72rem] font-semibold cursor-pointer hover:text-[#e6edf5]">
                 + Select Images

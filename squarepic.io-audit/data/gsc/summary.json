@@ -1,0 +1,2860 @@
+{
+  "collected": "2026-10-08",
+  "property": "sc-domain:squarepic.io",
+  "periods": {
+    "current": [
+      "2026-09-08",
+      "2026-10-05"
+    ],
+    "previous": [
+      "2026-08-11",
+      "2026-09-07"
+    ],
+    "90d": [
+      "2026-07-08",
+      "2026-10-05"
+    ]
+  },
+  "totals": {
+    "current": {
+      "clicks": 461,
+      "impressions": 28926,
+      "ctr": 0.015937219110834542,
+      "position": 8.96753785521676
+    },
+    "previous": {
+      "clicks": 309,
+      "impressions": 21843,
+      "ctr": 0.014146408460376321,
+      "position": 24.00416609440095
+    },
+    "90d": {
+      "clicks": 895,
+      "impressions": 60670,
+      "ctr": 0.014751936706774353,
+      "position": 15.58641832866326
+    }
+  },
+  "pages": [
+    {
+      "path": "/",
+      "family": "Square maker",
+      "clicks": 382,
+      "impressions": 21085,
+      "ctr": 0.018117144889732036,
+      "position": 7.50538297367797,
+      "previous_clicks": 296,
+      "previous_impressions": 15463,
+      "support_90d_impressions": 45044
+    },
+    {
+      "path": "/upscaler",
+      "family": "Other tools",
+      "clicks": 28,
+      "impressions": 1105,
+      "ctr": 0.025339366515837104,
+      "position": 23.091402714932126,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "support_90d_impressions": 1105
+    },
+    {
+      "path": "/guides/instagram-reels-stories-guide",
+      "family": "Guides",
+      "clicks": 12,
+      "impressions": 1964,
+      "ctr": 0.006109979633401222,
+      "position": 8.343177189409369,
+      "previous_clicks": 6,
+      "previous_impressions": 1382,
+      "support_90d_impressions": 3454
+    },
+    {
+      "path": "/image-size-calculator",
+      "family": "Other tools",
+      "clicks": 12,
+      "impressions": 2378,
+      "ctr": 0.005046257359125316,
+      "position": 14.473086627417999,
+      "previous_clicks": 4,
+      "previous_impressions": 3007,
+      "support_90d_impressions": 5605
+    },
+    {
+      "path": "/resize/linkedin",
+      "family": "Platform resizers",
+      "clicks": 6,
+      "impressions": 454,
+      "ctr": 0.013215859030837005,
+      "position": 10.23568281938326,
+      "previous_clicks": 0,
+      "previous_impressions": 39,
+      "support_90d_impressions": 611
+    },
+    {
+      "path": "/resize/instagram",
+      "family": "Platform resizers",
+      "clicks": 5,
+      "impressions": 465,
+      "ctr": 0.010752688172043012,
+      "position": 9.245161290322581,
+      "previous_clicks": 0,
+      "previous_impressions": 145,
+      "support_90d_impressions": 647
+    },
+    {
+      "path": "/resize/twitch",
+      "family": "Platform resizers",
+      "clicks": 4,
+      "impressions": 202,
+      "ctr": 0.019801980198019802,
+      "position": 7.2772277227722775,
+      "previous_clicks": 1,
+      "previous_impressions": 78,
+      "support_90d_impressions": 296
+    },
+    {
+      "path": "/blog/how-to-square-image-for-any-platform",
+      "family": "Legacy blog",
+      "clicks": 2,
+      "impressions": 103,
+      "ctr": 0.019417475728155338,
+      "position": 7.165048543689321,
+      "previous_clicks": 1,
+      "previous_impressions": 81,
+      "support_90d_impressions": 290
+    },
+    {
+      "path": "/privacy",
+      "family": "Information/other",
+      "clicks": 2,
+      "impressions": 13,
+      "ctr": 0.15384615384615385,
+      "position": 6.384615384615385,
+      "previous_clicks": 0,
+      "previous_impressions": 3,
+      "support_90d_impressions": 26
+    },
+    {
+      "path": "/compressor",
+      "family": "Other tools",
+      "clicks": 1,
+      "impressions": 49,
+      "ctr": 0.02040816326530612,
+      "position": 16.79591836734694,
+      "previous_clicks": 0,
+      "previous_impressions": 102,
+      "support_90d_impressions": 231
+    },
+    {
+      "path": "/converter/jpg-to-ico",
+      "family": "Converters",
+      "clicks": 1,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 7.25,
+      "previous_clicks": 0,
+      "previous_impressions": 4,
+      "support_90d_impressions": 21
+    },
+    {
+      "path": "/converter/png-to-avif",
+      "family": "Converters",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1.0,
+      "position": 1.0,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "support_90d_impressions": 2
+    },
+    {
+      "path": "/faq",
+      "family": "Information/other",
+      "clicks": 1,
+      "impressions": 23,
+      "ctr": 0.043478260869565216,
+      "position": 6.043478260869565,
+      "previous_clicks": 0,
+      "previous_impressions": 28,
+      "support_90d_impressions": 80
+    },
+    {
+      "path": "/guides",
+      "family": "Guides",
+      "clicks": 1,
+      "impressions": 22,
+      "ctr": 0.045454545454545456,
+      "position": 33.31818181818182,
+      "previous_clicks": 0,
+      "previous_impressions": 109,
+      "support_90d_impressions": 159
+    },
+    {
+      "path": "/guides/discord-image-sizes-2026",
+      "family": "Guides",
+      "clicks": 1,
+      "impressions": 283,
+      "ctr": 0.0035335689045936395,
+      "position": 14.731448763250883,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "support_90d_impressions": 283
+    },
+    {
+      "path": "/guides/tiktok-image-sizes-2026",
+      "family": "Guides",
+      "clicks": 1,
+      "impressions": 25,
+      "ctr": 0.04,
+      "position": 8.04,
+      "previous_clicks": 0,
+      "previous_impressions": 69,
+      "support_90d_impressions": 149
+    },
+    {
+      "path": "/research",
+      "family": "Information/other",
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.3333333333333333,
+      "position": 5.666666666666667,
+      "previous_clicks": 0,
+      "previous_impressions": 1,
+      "support_90d_impressions": 19
+    },
+    {
+      "path": "/resize/x-twitter",
+      "family": "Platform resizers",
+      "clicks": 1,
+      "impressions": 160,
+      "ctr": 0.00625,
+      "position": 8.88125,
+      "previous_clicks": 0,
+      "previous_impressions": 20,
+      "support_90d_impressions": 230
+    },
+    {
+      "path": "/free-image-optimizer",
+      "family": "Information/other",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 17.666666666666668,
+      "previous_clicks": 0,
+      "previous_impressions": 43,
+      "support_90d_impressions": 64
+    },
+    {
+      "path": "/free-instagram-photo-resizer",
+      "family": "Information/other",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0.0,
+      "position": 8.333333333333334,
+      "previous_clicks": 1,
+      "previous_impressions": 40,
+      "support_90d_impressions": 94
+    },
+    {
+      "path": "/guides/social-media-image-sizes-2026",
+      "family": "Guides",
+      "clicks": 0,
+      "impressions": 717,
+      "ctr": 0.0,
+      "position": 7.470013947001394,
+      "previous_clicks": 0,
+      "previous_impressions": 204,
+      "support_90d_impressions": 940
+    },
+    {
+      "path": "/instagram-post-resizer",
+      "family": "Information/other",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 7.0,
+      "previous_clicks": 0,
+      "previous_impressions": 13,
+      "support_90d_impressions": 50
+    },
+    {
+      "path": "/about",
+      "family": "Information/other",
+      "clicks": 0,
+      "impressions": 171,
+      "ctr": 0.0,
+      "position": 6.385964912280702,
+      "previous_clicks": 1,
+      "previous_impressions": 139,
+      "support_90d_impressions": 390
+    },
+    {
+      "path": "/blog",
+      "family": "Legacy blog",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 7.0,
+      "previous_clicks": 0,
+      "previous_impressions": 6,
+      "support_90d_impressions": 25
+    },
+    {
+      "path": "/converter",
+      "family": "Converters",
+      "clicks": 0,
+      "impressions": 50,
+      "ctr": 0.0,
+      "position": 34.74,
+      "previous_clicks": 0,
+      "previous_impressions": 392,
+      "support_90d_impressions": 486
+    },
+    {
+      "path": "/converter/jpg-to-gif",
+      "family": "Converters",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 10.666666666666666,
+      "previous_clicks": 0,
+      "previous_impressions": 17,
+      "support_90d_impressions": 56
+    },
+    {
+      "path": "/converter/jpg-to-webp",
+      "family": "Converters",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0.0,
+      "position": 12.789473684210526,
+      "previous_clicks": 0,
+      "previous_impressions": 2,
+      "support_90d_impressions": 30
+    },
+    {
+      "path": "/converter/png-to-webp",
+      "family": "Converters",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 2.0,
+      "previous_clicks": 0,
+      "previous_impressions": 1,
+      "support_90d_impressions": 3
+    },
+    {
+      "path": "/guides/instagram-feed-sizes-2026",
+      "family": "Guides",
+      "clicks": 0,
+      "impressions": 36,
+      "ctr": 0.0,
+      "position": 7.5,
+      "previous_clicks": 0,
+      "previous_impressions": 40,
+      "support_90d_impressions": 139
+    },
+    {
+      "path": "/guides/linkedin-image-sizes-2026",
+      "family": "Guides",
+      "clicks": 0,
+      "impressions": 34,
+      "ctr": 0.0,
+      "position": 17.823529411764707,
+      "previous_clicks": 0,
+      "previous_impressions": 92,
+      "support_90d_impressions": 267
+    },
+    {
+      "path": "/guides/youtube-banner-thumbnail-sizes-2026",
+      "family": "Guides",
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0.0,
+      "position": 9.72972972972973,
+      "previous_clicks": 0,
+      "previous_impressions": 32,
+      "support_90d_impressions": 97
+    },
+    {
+      "path": "/support",
+      "family": "Information/other",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 6.666666666666667,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "support_90d_impressions": 3
+    },
+    {
+      "path": "/terms",
+      "family": "Information/other",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0.0,
+      "position": 8.75,
+      "previous_clicks": 0,
+      "previous_impressions": 2,
+      "support_90d_impressions": 20
+    }
+  ],
+  "families": {
+    "Square maker": {
+      "clicks": 382,
+      "impressions": 21085
+    },
+    "Other tools": {
+      "clicks": 41,
+      "impressions": 3532
+    },
+    "Guides": {
+      "clicks": 15,
+      "impressions": 3118
+    },
+    "Platform resizers": {
+      "clicks": 16,
+      "impressions": 1281
+    },
+    "Legacy blog": {
+      "clicks": 2,
+      "impressions": 104
+    },
+    "Information/other": {
+      "clicks": 4,
+      "impressions": 233
+    },
+    "Converters": {
+      "clicks": 2,
+      "impressions": 78
+    }
+  },
+  "query_opportunities": [
+    {
+      "path": "/",
+      "query": "square image",
+      "clicks": 10,
+      "impressions": 2309,
+      "ctr": 0.0043308791684712,
+      "position": 9.11736682546557,
+      "previous_impressions": 2622,
+      "support_90d_impressions": 5855
+    },
+    {
+      "path": "/",
+      "query": "square pic",
+      "clicks": 76,
+      "impressions": 2215,
+      "ctr": 0.03431151241534989,
+      "position": 5.04334085778781,
+      "previous_impressions": 1983,
+      "support_90d_impressions": 6190
+    },
+    {
+      "path": "/",
+      "query": "make image square",
+      "clicks": 3,
+      "impressions": 1003,
+      "ctr": 0.0029910269192422734,
+      "position": 7.724825523429711,
+      "previous_impressions": 665,
+      "support_90d_impressions": 1700
+    },
+    {
+      "path": "/",
+      "query": "square photo",
+      "clicks": 2,
+      "impressions": 822,
+      "ctr": 0.0024330900243309003,
+      "position": 9.094890510948906,
+      "previous_impressions": 527,
+      "support_90d_impressions": 1653
+    },
+    {
+      "path": "/",
+      "query": "square image online",
+      "clicks": 7,
+      "impressions": 512,
+      "ctr": 0.013671875,
+      "position": 7.78515625,
+      "previous_impressions": 281,
+      "support_90d_impressions": 1043
+    },
+    {
+      "path": "/",
+      "query": "square pic online",
+      "clicks": 7,
+      "impressions": 459,
+      "ctr": 0.015250544662309368,
+      "position": 5.65359477124183,
+      "previous_impressions": 366,
+      "support_90d_impressions": 1126
+    },
+    {
+      "path": "/",
+      "query": "image square",
+      "clicks": 1,
+      "impressions": 439,
+      "ctr": 0.002277904328018223,
+      "position": 9.104783599088838,
+      "previous_impressions": 214,
+      "support_90d_impressions": 696
+    },
+    {
+      "path": "/",
+      "query": "square size",
+      "clicks": 0,
+      "impressions": 340,
+      "ctr": 0.0,
+      "position": 8.105882352941176,
+      "previous_impressions": 142,
+      "support_90d_impressions": 513
+    },
+    {
+      "path": "/",
+      "query": "photo square",
+      "clicks": 2,
+      "impressions": 337,
+      "ctr": 0.005934718100890208,
+      "position": 8.703264094955488,
+      "previous_impressions": 214,
+      "support_90d_impressions": 654
+    },
+    {
+      "path": "/",
+      "query": "square image maker",
+      "clicks": 4,
+      "impressions": 313,
+      "ctr": 0.012779552715654952,
+      "position": 7.4281150159744405,
+      "previous_impressions": 247,
+      "support_90d_impressions": 630
+    },
+    {
+      "path": "/",
+      "query": "square picture",
+      "clicks": 0,
+      "impressions": 305,
+      "ctr": 0.0,
+      "position": 8.318032786885245,
+      "previous_impressions": 141,
+      "support_90d_impressions": 511
+    },
+    {
+      "path": "/",
+      "query": "make photo square",
+      "clicks": 0,
+      "impressions": 292,
+      "ctr": 0.0,
+      "position": 7.554794520547945,
+      "previous_impressions": 100,
+      "support_90d_impressions": 443
+    },
+    {
+      "path": "/",
+      "query": "image square maker",
+      "clicks": 2,
+      "impressions": 282,
+      "ctr": 0.0070921985815602835,
+      "position": 7.0212765957446805,
+      "previous_impressions": 110,
+      "support_90d_impressions": 442
+    },
+    {
+      "path": "/",
+      "query": "square photo maker",
+      "clicks": 2,
+      "impressions": 239,
+      "ctr": 0.008368200836820083,
+      "position": 7.7656903765690375,
+      "previous_impressions": 136,
+      "support_90d_impressions": 455
+    },
+    {
+      "path": "/",
+      "query": "make square image",
+      "clicks": 0,
+      "impressions": 184,
+      "ctr": 0.0,
+      "position": 7.956521739130435,
+      "previous_impressions": 91,
+      "support_90d_impressions": 295
+    },
+    {
+      "path": "/",
+      "query": "square image size",
+      "clicks": 0,
+      "impressions": 176,
+      "ctr": 0.0,
+      "position": 8.806818181818182,
+      "previous_impressions": 159,
+      "support_90d_impressions": 446
+    },
+    {
+      "path": "/",
+      "query": "pic to square",
+      "clicks": 0,
+      "impressions": 155,
+      "ctr": 0.0,
+      "position": 7.883870967741935,
+      "previous_impressions": 32,
+      "support_90d_impressions": 237
+    },
+    {
+      "path": "/about",
+      "query": "squarepic",
+      "clicks": 0,
+      "impressions": 145,
+      "ctr": 0.0,
+      "position": 6.6,
+      "previous_impressions": 110,
+      "support_90d_impressions": 293
+    },
+    {
+      "path": "/",
+      "query": "square photo online",
+      "clicks": 1,
+      "impressions": 141,
+      "ctr": 0.0070921985815602835,
+      "position": 7.8936170212765955,
+      "previous_impressions": 89,
+      "support_90d_impressions": 302
+    },
+    {
+      "path": "/image-size-calculator",
+      "query": "image size calculator",
+      "clicks": 2,
+      "impressions": 138,
+      "ctr": 0.014492753623188406,
+      "position": 9.094202898550725,
+      "previous_impressions": 37,
+      "support_90d_impressions": 178
+    },
+    {
+      "path": "/",
+      "query": "make picture square",
+      "clicks": 1,
+      "impressions": 134,
+      "ctr": 0.007462686567164179,
+      "position": 7.134328358208955,
+      "previous_impressions": 70,
+      "support_90d_impressions": 230
+    },
+    {
+      "path": "/",
+      "query": "photo square maker",
+      "clicks": 0,
+      "impressions": 134,
+      "ctr": 0.0,
+      "position": 7.582089552238806,
+      "previous_impressions": 78,
+      "support_90d_impressions": 280
+    },
+    {
+      "path": "/",
+      "query": "square pic maker",
+      "clicks": 4,
+      "impressions": 124,
+      "ctr": 0.03225806451612903,
+      "position": 5.814516129032258,
+      "previous_impressions": 52,
+      "support_90d_impressions": 228
+    },
+    {
+      "path": "/",
+      "query": "insta square pic",
+      "clicks": 1,
+      "impressions": 123,
+      "ctr": 0.008130081300813009,
+      "position": 8.34959349593496,
+      "previous_impressions": 26,
+      "support_90d_impressions": 166
+    },
+    {
+      "path": "/",
+      "query": "make image square online",
+      "clicks": 1,
+      "impressions": 114,
+      "ctr": 0.008771929824561403,
+      "position": 7.93859649122807,
+      "previous_impressions": 69,
+      "support_90d_impressions": 198
+    },
+    {
+      "path": "/",
+      "query": "square maker",
+      "clicks": 0,
+      "impressions": 104,
+      "ctr": 0.0,
+      "position": 7.778846153846154,
+      "previous_impressions": 34,
+      "support_90d_impressions": 148
+    },
+    {
+      "path": "/",
+      "query": "square quick online",
+      "clicks": 0,
+      "impressions": 95,
+      "ctr": 0.0,
+      "position": 6.894736842105263,
+      "previous_impressions": 51,
+      "support_90d_impressions": 161
+    },
+    {
+      "path": "/",
+      "query": "image to square",
+      "clicks": 0,
+      "impressions": 87,
+      "ctr": 0.0,
+      "position": 8.850574712643677,
+      "previous_impressions": 96,
+      "support_90d_impressions": 187
+    },
+    {
+      "path": "/",
+      "query": "make an image square",
+      "clicks": 0,
+      "impressions": 87,
+      "ctr": 0.0,
+      "position": 8.114942528735632,
+      "previous_impressions": 85,
+      "support_90d_impressions": 185
+    },
+    {
+      "path": "/",
+      "query": "pic square",
+      "clicks": 1,
+      "impressions": 75,
+      "ctr": 0.013333333333333334,
+      "position": 5.12,
+      "previous_impressions": 50,
+      "support_90d_impressions": 166
+    },
+    {
+      "path": "/",
+      "query": "square an image",
+      "clicks": 0,
+      "impressions": 75,
+      "ctr": 0.0,
+      "position": 10.173333333333334,
+      "previous_impressions": 60,
+      "support_90d_impressions": 142
+    },
+    {
+      "path": "/",
+      "query": "image squarer",
+      "clicks": 0,
+      "impressions": 72,
+      "ctr": 0.0,
+      "position": 8.73611111111111,
+      "previous_impressions": 30,
+      "support_90d_impressions": 106
+    },
+    {
+      "path": "/",
+      "query": "picture square",
+      "clicks": 0,
+      "impressions": 72,
+      "ctr": 0.0,
+      "position": 9.305555555555555,
+      "previous_impressions": 53,
+      "support_90d_impressions": 137
+    },
+    {
+      "path": "/",
+      "query": "make it square",
+      "clicks": 0,
+      "impressions": 68,
+      "ctr": 0.0,
+      "position": 7.176470588235294,
+      "previous_impressions": 31,
+      "support_90d_impressions": 113
+    },
+    {
+      "path": "/",
+      "query": "square in pic",
+      "clicks": 1,
+      "impressions": 65,
+      "ctr": 0.015384615384615385,
+      "position": 8.138461538461538,
+      "previous_impressions": 53,
+      "support_90d_impressions": 148
+    },
+    {
+      "path": "/",
+      "query": "make square",
+      "clicks": 0,
+      "impressions": 65,
+      "ctr": 0.0,
+      "position": 7.123076923076923,
+      "previous_impressions": 46,
+      "support_90d_impressions": 122
+    },
+    {
+      "path": "/",
+      "query": "turn image into square",
+      "clicks": 1,
+      "impressions": 62,
+      "ctr": 0.016129032258064516,
+      "position": 8.43548387096774,
+      "previous_impressions": 9,
+      "support_90d_impressions": 71
+    },
+    {
+      "path": "/",
+      "query": "square pics",
+      "clicks": 0,
+      "impressions": 59,
+      "ctr": 0.0,
+      "position": 7.8474576271186445,
+      "previous_impressions": 55,
+      "support_90d_impressions": 131
+    },
+    {
+      "path": "/",
+      "query": "square insta pic",
+      "clicks": 0,
+      "impressions": 58,
+      "ctr": 0.0,
+      "position": 9.362068965517242,
+      "previous_impressions": 22,
+      "support_90d_impressions": 97
+    },
+    {
+      "path": "/",
+      "query": "squre pic",
+      "clicks": 1,
+      "impressions": 56,
+      "ctr": 0.017857142857142856,
+      "position": 4.910714285714286,
+      "previous_impressions": 43,
+      "support_90d_impressions": 165
+    },
+    {
+      "path": "/",
+      "query": "online square pic",
+      "clicks": 1,
+      "impressions": 54,
+      "ctr": 0.018518518518518517,
+      "position": 5.185185185185185,
+      "previous_impressions": 44,
+      "support_90d_impressions": 121
+    },
+    {
+      "path": "/",
+      "query": "square image generator",
+      "clicks": 1,
+      "impressions": 54,
+      "ctr": 0.018518518518518517,
+      "position": 7.722222222222222,
+      "previous_impressions": 41,
+      "support_90d_impressions": 99
+    },
+    {
+      "path": "/upscaler",
+      "query": "image upscaler -ai",
+      "clicks": 2,
+      "impressions": 50,
+      "ctr": 0.04,
+      "position": 5.6,
+      "previous_impressions": 0,
+      "support_90d_impressions": 50
+    },
+    {
+      "path": "/",
+      "query": "make photo square for instagram online",
+      "clicks": 0,
+      "impressions": 47,
+      "ctr": 0.0,
+      "position": 6.468085106382978,
+      "previous_impressions": 30,
+      "support_90d_impressions": 94
+    },
+    {
+      "path": "/",
+      "query": "make photo square online",
+      "clicks": 0,
+      "impressions": 47,
+      "ctr": 0.0,
+      "position": 8.042553191489363,
+      "previous_impressions": 18,
+      "support_90d_impressions": 83
+    },
+    {
+      "path": "/",
+      "query": "square picture maker",
+      "clicks": 0,
+      "impressions": 47,
+      "ctr": 0.0,
+      "position": 6.957446808510638,
+      "previous_impressions": 30,
+      "support_90d_impressions": 94
+    },
+    {
+      "path": "/",
+      "query": "make pic square",
+      "clicks": 2,
+      "impressions": 42,
+      "ctr": 0.047619047619047616,
+      "position": 6.4523809523809526,
+      "previous_impressions": 20,
+      "support_90d_impressions": 74
+    },
+    {
+      "path": "/",
+      "query": "photo square maker online",
+      "clicks": 1,
+      "impressions": 42,
+      "ctr": 0.023809523809523808,
+      "position": 7.119047619047619,
+      "previous_impressions": 28,
+      "support_90d_impressions": 97
+    },
+    {
+      "path": "/upscaler",
+      "query": "png upscaler",
+      "clicks": 0,
+      "impressions": 42,
+      "ctr": 0.0,
+      "position": 3.738095238095238,
+      "previous_impressions": 0,
+      "support_90d_impressions": 42
+    },
+    {
+      "path": "/",
+      "query": "make a photo square",
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0.0,
+      "position": 9.025641025641026,
+      "previous_impressions": 37,
+      "support_90d_impressions": 84
+    },
+    {
+      "path": "/",
+      "query": "photo square online",
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0.0,
+      "position": 7.9743589743589745,
+      "previous_impressions": 22,
+      "support_90d_impressions": 91
+    },
+    {
+      "path": "/",
+      "query": "square images",
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0.0,
+      "position": 10.153846153846153,
+      "previous_impressions": 77,
+      "support_90d_impressions": 147
+    },
+    {
+      "path": "/",
+      "query": "convert photo to square without cropping",
+      "clicks": 1,
+      "impressions": 38,
+      "ctr": 0.02631578947368421,
+      "position": 6.7105263157894735,
+      "previous_impressions": 12,
+      "support_90d_impressions": 50
+    },
+    {
+      "path": "/",
+      "query": "square pick",
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0.0,
+      "position": 5.526315789473684,
+      "previous_impressions": 18,
+      "support_90d_impressions": 87
+    },
+    {
+      "path": "/",
+      "query": "make image a square",
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0.0,
+      "position": 8.552631578947368,
+      "previous_impressions": 25,
+      "support_90d_impressions": 67
+    },
+    {
+      "path": "/",
+      "query": "make a picture square",
+      "clicks": 0,
+      "impressions": 36,
+      "ctr": 0.0,
+      "position": 8.0,
+      "previous_impressions": 43,
+      "support_90d_impressions": 81
+    },
+    {
+      "path": "/",
+      "query": "sqaure pic",
+      "clicks": 0,
+      "impressions": 35,
+      "ctr": 0.0,
+      "position": 5.171428571428572,
+      "previous_impressions": 13,
+      "support_90d_impressions": 65
+    },
+    {
+      "path": "/",
+      "query": "square image resizer",
+      "clicks": 0,
+      "impressions": 35,
+      "ctr": 0.0,
+      "position": 9.942857142857143,
+      "previous_impressions": 16,
+      "support_90d_impressions": 78
+    },
+    {
+      "path": "/",
+      "query": "make images square",
+      "clicks": 0,
+      "impressions": 34,
+      "ctr": 0.0,
+      "position": 8.382352941176471,
+      "previous_impressions": 25,
+      "support_90d_impressions": 62
+    },
+    {
+      "path": "/",
+      "query": "square photo editor",
+      "clicks": 0,
+      "impressions": 34,
+      "ctr": 0.0,
+      "position": 8.705882352941178,
+      "previous_impressions": 23,
+      "support_90d_impressions": 63
+    },
+    {
+      "path": "/",
+      "query": "square picture online",
+      "clicks": 0,
+      "impressions": 34,
+      "ctr": 0.0,
+      "position": 6.794117647058823,
+      "previous_impressions": 16,
+      "support_90d_impressions": 66
+    },
+    {
+      "path": "/upscaler",
+      "query": "upscale image -ai",
+      "clicks": 4,
+      "impressions": 33,
+      "ctr": 0.12121212121212122,
+      "position": 7.0,
+      "previous_impressions": 0,
+      "support_90d_impressions": 33
+    },
+    {
+      "path": "/",
+      "query": "square photo size",
+      "clicks": 1,
+      "impressions": 33,
+      "ctr": 0.030303030303030304,
+      "position": 8.363636363636363,
+      "previous_impressions": 33,
+      "support_90d_impressions": 93
+    },
+    {
+      "path": "/",
+      "query": "sqaure image",
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0.0,
+      "position": 9.757575757575758,
+      "previous_impressions": 18,
+      "support_90d_impressions": 61
+    },
+    {
+      "path": "/",
+      "query": "make image sqaure",
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0.0,
+      "position": 8.333333333333332,
+      "previous_impressions": 11,
+      "support_90d_impressions": 41
+    },
+    {
+      "path": "/",
+      "query": "make it square photo",
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0.0,
+      "position": 7.833333333333333,
+      "previous_impressions": 7,
+      "support_90d_impressions": 41
+    },
+    {
+      "path": "/",
+      "query": "square quick",
+      "clicks": 0,
+      "impressions": 29,
+      "ctr": 0.0,
+      "position": 10.275862068965518,
+      "previous_impressions": 21,
+      "support_90d_impressions": 51
+    },
+    {
+      "path": "/",
+      "query": "make my image square",
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0.0,
+      "position": 8.571428571428571,
+      "previous_impressions": 37,
+      "support_90d_impressions": 67
+    },
+    {
+      "path": "/",
+      "query": "square image editor",
+      "clicks": 1,
+      "impressions": 27,
+      "ctr": 0.037037037037037035,
+      "position": 7.7407407407407405,
+      "previous_impressions": 3,
+      "support_90d_impressions": 31
+    },
+    {
+      "path": "/guides/discord-image-sizes-2026",
+      "query": "discord server banner size",
+      "clicks": 0,
+      "impressions": 26,
+      "ctr": 0.0,
+      "position": 6.8076923076923075,
+      "previous_impressions": 0,
+      "support_90d_impressions": 26
+    },
+    {
+      "path": "/resize/linkedin",
+      "query": "1200x627 aspect ratio",
+      "clicks": 0,
+      "impressions": 26,
+      "ctr": 0.0,
+      "position": 9.384615384615385,
+      "previous_impressions": 0,
+      "support_90d_impressions": 26
+    },
+    {
+      "path": "/",
+      "query": "square pic editor",
+      "clicks": 1,
+      "impressions": 25,
+      "ctr": 0.04,
+      "position": 5.28,
+      "previous_impressions": 2,
+      "support_90d_impressions": 43
+    },
+    {
+      "path": "/",
+      "query": "how to make an image square",
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0.0,
+      "position": 7.76,
+      "previous_impressions": 12,
+      "support_90d_impressions": 37
+    },
+    {
+      "path": "/",
+      "query": "square thumbnail",
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0.0,
+      "position": 10.88,
+      "previous_impressions": 8,
+      "support_90d_impressions": 34
+    },
+    {
+      "path": "/",
+      "query": "make this image square",
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0.0,
+      "position": 8.458333333333332,
+      "previous_impressions": 11,
+      "support_90d_impressions": 36
+    },
+    {
+      "path": "/",
+      "query": "square picture size",
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0.0,
+      "position": 7.375,
+      "previous_impressions": 10,
+      "support_90d_impressions": 45
+    },
+    {
+      "path": "/",
+      "query": "photosquare",
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0.0,
+      "position": 8.130434782608695,
+      "previous_impressions": 18,
+      "support_90d_impressions": 45
+    },
+    {
+      "path": "/",
+      "query": "square maker photo",
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0.0,
+      "position": 7.454545454545454,
+      "previous_impressions": 9,
+      "support_90d_impressions": 46
+    },
+    {
+      "path": "/",
+      "query": "picture square maker",
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0.0,
+      "position": 7.863636363636363,
+      "previous_impressions": 18,
+      "support_90d_impressions": 50
+    },
+    {
+      "path": "/",
+      "query": "squire pic",
+      "clicks": 2,
+      "impressions": 21,
+      "ctr": 0.09523809523809523,
+      "position": 6.238095238095238,
+      "previous_impressions": 4,
+      "support_90d_impressions": 27
+    },
+    {
+      "path": "/",
+      "query": "picture of square",
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0.0,
+      "position": 4.190476190476191,
+      "previous_impressions": 8,
+      "support_90d_impressions": 30
+    },
+    {
+      "path": "/",
+      "query": "square a photo",
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0.0,
+      "position": 9.333333333333334,
+      "previous_impressions": 13,
+      "support_90d_impressions": 38
+    },
+    {
+      "path": "/",
+      "query": "square profile picture",
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0.0,
+      "position": 10.19047619047619,
+      "previous_impressions": 11,
+      "support_90d_impressions": 35
+    },
+    {
+      "path": "/",
+      "query": "squareimage",
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0.0,
+      "position": 11.095238095238095,
+      "previous_impressions": 1,
+      "support_90d_impressions": 26
+    },
+    {
+      "path": "/",
+      "query": "make picture a square",
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0.0,
+      "position": 8.65,
+      "previous_impressions": 6,
+      "support_90d_impressions": 27
+    },
+    {
+      "path": "/",
+      "query": "square photo for instagram",
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0.0,
+      "position": 7.999999999999998,
+      "previous_impressions": 19,
+      "support_90d_impressions": 46
+    },
+    {
+      "path": "/",
+      "query": "make png square",
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0.0,
+      "position": 9.5,
+      "previous_impressions": 11,
+      "support_90d_impressions": 34
+    },
+    {
+      "path": "/",
+      "query": "square image official website",
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0.0,
+      "position": 6.4,
+      "previous_impressions": 2,
+      "support_90d_impressions": 22
+    }
+  ],
+  "top_queries_by_page": {
+    "/": [
+      {
+        "query": "square image",
+        "clicks": 10,
+        "impressions": 2309,
+        "ctr": 0.0043308791684712,
+        "position": 9.11736682546557,
+        "support_90d_impressions": 5855
+      },
+      {
+        "query": "square pic",
+        "clicks": 76,
+        "impressions": 2215,
+        "ctr": 0.03431151241534989,
+        "position": 5.04334085778781,
+        "support_90d_impressions": 6190
+      },
+      {
+        "query": "make image square",
+        "clicks": 3,
+        "impressions": 1003,
+        "ctr": 0.0029910269192422734,
+        "position": 7.724825523429711,
+        "support_90d_impressions": 1700
+      },
+      {
+        "query": "square photo",
+        "clicks": 2,
+        "impressions": 822,
+        "ctr": 0.0024330900243309003,
+        "position": 9.094890510948906,
+        "support_90d_impressions": 1653
+      },
+      {
+        "query": "square image online",
+        "clicks": 7,
+        "impressions": 512,
+        "ctr": 0.013671875,
+        "position": 7.78515625,
+        "support_90d_impressions": 1043
+      },
+      {
+        "query": "square pic online",
+        "clicks": 7,
+        "impressions": 459,
+        "ctr": 0.015250544662309368,
+        "position": 5.65359477124183,
+        "support_90d_impressions": 1126
+      },
+      {
+        "query": "image square",
+        "clicks": 1,
+        "impressions": 439,
+        "ctr": 0.002277904328018223,
+        "position": 9.104783599088838,
+        "support_90d_impressions": 696
+      },
+      {
+        "query": "square size",
+        "clicks": 0,
+        "impressions": 340,
+        "ctr": 0.0,
+        "position": 8.105882352941176,
+        "support_90d_impressions": 513
+      },
+      {
+        "query": "photo square",
+        "clicks": 2,
+        "impressions": 337,
+        "ctr": 0.005934718100890208,
+        "position": 8.703264094955488,
+        "support_90d_impressions": 654
+      },
+      {
+        "query": "square image maker",
+        "clicks": 4,
+        "impressions": 313,
+        "ctr": 0.012779552715654952,
+        "position": 7.4281150159744405,
+        "support_90d_impressions": 630
+      },
+      {
+        "query": "square picture",
+        "clicks": 0,
+        "impressions": 305,
+        "ctr": 0.0,
+        "position": 8.318032786885245,
+        "support_90d_impressions": 511
+      },
+      {
+        "query": "make photo square",
+        "clicks": 0,
+        "impressions": 292,
+        "ctr": 0.0,
+        "position": 7.554794520547945,
+        "support_90d_impressions": 443
+      }
+    ],
+    "/upscaler": [
+      {
+        "query": "upscale image online",
+        "clicks": 0,
+        "impressions": 51,
+        "ctr": 0.0,
+        "position": 54.98039215686274,
+        "support_90d_impressions": 51
+      },
+      {
+        "query": "image upscaler -ai",
+        "clicks": 2,
+        "impressions": 50,
+        "ctr": 0.04,
+        "position": 5.6,
+        "support_90d_impressions": 50
+      },
+      {
+        "query": "png upscaler",
+        "clicks": 0,
+        "impressions": 42,
+        "ctr": 0.0,
+        "position": 3.738095238095238,
+        "support_90d_impressions": 42
+      },
+      {
+        "query": "upscale image -ai",
+        "clicks": 4,
+        "impressions": 33,
+        "ctr": 0.12121212121212122,
+        "position": 7.0,
+        "support_90d_impressions": 33
+      },
+      {
+        "query": "image upscaler online",
+        "clicks": 0,
+        "impressions": 28,
+        "ctr": 0.0,
+        "position": 27.178571428571427,
+        "support_90d_impressions": 28
+      },
+      {
+        "query": "where to enlarge photos",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0.0,
+        "position": 21.823529411764707,
+        "support_90d_impressions": 17
+      },
+      {
+        "query": "upscale image free",
+        "clicks": 1,
+        "impressions": 15,
+        "ctr": 0.06666666666666667,
+        "position": 11.466666666666667,
+        "support_90d_impressions": 15
+      },
+      {
+        "query": "online image upscaler",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0.0,
+        "position": 43.666666666666664,
+        "support_90d_impressions": 15
+      },
+      {
+        "query": "pixel art upscaler",
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0.0,
+        "position": 7.0,
+        "support_90d_impressions": 14
+      },
+      {
+        "query": "pixel upscaler",
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0.0,
+        "position": 46.857142857142854,
+        "support_90d_impressions": 14
+      },
+      {
+        "query": "upscale image free online",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0.0,
+        "position": 28.692307692307693,
+        "support_90d_impressions": 13
+      },
+      {
+        "query": "where can i enlarge a photo",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0.0,
+        "position": 22.307692307692307,
+        "support_90d_impressions": 13
+      }
+    ],
+    "/guides/instagram-reels-stories-guide": [
+      {
+        "query": "instagram stories dimensions safe zone",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0.0,
+        "position": 34.0,
+        "support_90d_impressions": 50
+      },
+      {
+        "query": "instagram reel format",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0.0,
+        "position": 41.1764705882353,
+        "support_90d_impressions": 29
+      },
+      {
+        "query": "instagram stories dimensions 2026",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0.0,
+        "position": 35.35294117647059,
+        "support_90d_impressions": 44
+      },
+      {
+        "query": "are reels and stories the same size",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0.0,
+        "position": 4.6,
+        "support_90d_impressions": 16
+      },
+      {
+        "query": "reel guidelines",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0.0,
+        "position": 8.916666666666668,
+        "support_90d_impressions": 12
+      },
+      {
+        "query": "is instagram story and reels same size",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0.0,
+        "position": 3.4545454545454546,
+        "support_90d_impressions": 18
+      },
+      {
+        "query": "instagram reels format",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0.0,
+        "position": 43.3,
+        "support_90d_impressions": 30
+      },
+      {
+        "query": "are instagram reels and stories the same size",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0.0,
+        "position": 7.75,
+        "support_90d_impressions": 8
+      },
+      {
+        "query": "are instagram stories and reels the same size",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0.0,
+        "position": 4.625,
+        "support_90d_impressions": 10
+      },
+      {
+        "query": "instagram reel dimensions 2026",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 10.8,
+        "support_90d_impressions": 5
+      },
+      {
+        "query": "instagram reels ui 2026",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0.0,
+        "position": 6.5,
+        "support_90d_impressions": 4
+      },
+      {
+        "query": "reel text placement guide",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0.0,
+        "position": 7.0,
+        "support_90d_impressions": 8
+      }
+    ],
+    "/image-size-calculator": [
+      {
+        "query": "image size calculator",
+        "clicks": 2,
+        "impressions": 138,
+        "ctr": 0.014492753623188406,
+        "position": 9.094202898550725,
+        "support_90d_impressions": 178
+      },
+      {
+        "query": "image dimension calculator",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0.0,
+        "position": 9.352941176470589,
+        "support_90d_impressions": 33
+      },
+      {
+        "query": "photo size",
+        "clicks": 0,
+        "impressions": 16,
+        "ctr": 0.0,
+        "position": 43.625,
+        "support_90d_impressions": 22
+      },
+      {
+        "query": "picture size calculator",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0.0,
+        "position": 18.2,
+        "support_90d_impressions": 30
+      },
+      {
+        "query": "photo size ratio calculator",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0.0,
+        "position": 49.25,
+        "support_90d_impressions": 34
+      },
+      {
+        "query": "resize image calculator",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0.0,
+        "position": 71.83333333333333,
+        "support_90d_impressions": 33
+      },
+      {
+        "query": "image scale calculator",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0.0,
+        "position": 11.454545454545455,
+        "support_90d_impressions": 13
+      },
+      {
+        "query": "photo ratio calculator",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0.0,
+        "position": 68.0,
+        "support_90d_impressions": 27
+      },
+      {
+        "query": "image aspect ratio calculator",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0.0,
+        "position": 53.6,
+        "support_90d_impressions": 44
+      },
+      {
+        "query": "image calculator",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0.0,
+        "position": 14.4,
+        "support_90d_impressions": 13
+      },
+      {
+        "query": "image resizer calculator",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0.0,
+        "position": 71.2,
+        "support_90d_impressions": 34
+      },
+      {
+        "query": "square pixel size",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0.0,
+        "position": 12.1,
+        "support_90d_impressions": 13
+      }
+    ],
+    "/resize/linkedin": [
+      {
+        "query": "1200x627 aspect ratio",
+        "clicks": 0,
+        "impressions": 26,
+        "ctr": 0.0,
+        "position": 9.384615384615385,
+        "support_90d_impressions": 26
+      },
+      {
+        "query": "1200 x 627 pixels",
+        "clicks": 0,
+        "impressions": 18,
+        "ctr": 0.0,
+        "position": 9.722222222222221,
+        "support_90d_impressions": 19
+      },
+      {
+        "query": "resize image for linkedin",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0.0,
+        "position": 9.823529411764707,
+        "support_90d_impressions": 20
+      },
+      {
+        "query": "linkedin 1200x628",
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0.0,
+        "position": 34.92857142857143,
+        "support_90d_impressions": 31
+      },
+      {
+        "query": "linkedin image resizer",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0.0,
+        "position": 10.5,
+        "support_90d_impressions": 14
+      },
+      {
+        "query": "1200x627",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0.0,
+        "position": 15.5,
+        "support_90d_impressions": 7
+      },
+      {
+        "query": "1200x627 ratio",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0.0,
+        "position": 8.833333333333332,
+        "support_90d_impressions": 6
+      },
+      {
+        "query": "linkedin square image size",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0.0,
+        "position": 15.0,
+        "support_90d_impressions": 9
+      },
+      {
+        "query": "linkedin resize image",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 9.0,
+        "support_90d_impressions": 5
+      },
+      {
+        "query": "resize images for linkedin",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0.0,
+        "position": 8.25,
+        "support_90d_impressions": 4
+      },
+      {
+        "query": "resize photo for linkedin",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0.0,
+        "position": 27.5,
+        "support_90d_impressions": 5
+      },
+      {
+        "query": "linkedin dp size in pixels",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0.0,
+        "position": 8.0,
+        "support_90d_impressions": 3
+      }
+    ],
+    "/resize/instagram": [
+      {
+        "query": "square image instagram",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0.0,
+        "position": 11.5,
+        "support_90d_impressions": 6
+      },
+      {
+        "query": "instagram post size maker",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 9.4,
+        "support_90d_impressions": 5
+      },
+      {
+        "query": "instagram square size",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 68.0,
+        "support_90d_impressions": 6
+      },
+      {
+        "query": "+instagram landscape aspect ratio 1.91:1 1080x566",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0.0,
+        "position": 9.0,
+        "support_90d_impressions": 6
+      },
+      {
+        "query": "instagram photo size maker",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0.0,
+        "position": 10.75,
+        "support_90d_impressions": 4
+      },
+      {
+        "query": "%instagram landscape aspect ratio 1.91:1 1080x566",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0.0,
+        "position": 8.333333333333332,
+        "support_90d_impressions": 4
+      },
+      {
+        "query": "instagram size maker",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0.0,
+        "position": 8.666666666666668,
+        "support_90d_impressions": 3
+      },
+      {
+        "query": "square size for instagram",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0.0,
+        "position": 7.333333333333333,
+        "support_90d_impressions": 3
+      },
+      {
+        "query": "1080x566",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 11.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "instagram profile size maker",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 9.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "square for instagram",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 44.5,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "1080 \u00d7 566 px",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 11.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/resize/twitch": [
+      {
+        "query": "resize image for twitch panel",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 6.6,
+        "support_90d_impressions": 5
+      },
+      {
+        "query": "any bigger?",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 2.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/blog/how-to-square-image-for-any-platform": [],
+    "/privacy": [],
+    "/compressor": [
+      {
+        "query": "compressor io",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0.0,
+        "position": 58.333333333333336,
+        "support_90d_impressions": 38
+      },
+      {
+        "query": "compress io",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 56.5,
+        "support_90d_impressions": 5
+      },
+      {
+        "query": "compress image io",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 8.0,
+        "support_90d_impressions": 3
+      },
+      {
+        "query": "compression io",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 65.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/converter/jpg-to-ico": [],
+    "/converter/png-to-avif": [],
+    "/faq": [
+      {
+        "query": "squarepic",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 7.333333333333333,
+        "support_90d_impressions": 11
+      },
+      {
+        "query": "squarepic online",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 7.5,
+        "support_90d_impressions": 6
+      },
+      {
+        "query": "create square image",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 37.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "didn't work",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 2.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "where is the download",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 3.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/guides": [
+      {
+        "query": "squarepic",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 6.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "image guidelines",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 83.0,
+        "support_90d_impressions": 4
+      },
+      {
+        "query": "cheat sheet for social media images",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 58.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "square image size",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 79.0,
+        "support_90d_impressions": 8
+      },
+      {
+        "query": "square social media post size",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 91.0,
+        "support_90d_impressions": 3
+      }
+    ],
+    "/guides/discord-image-sizes-2026": [
+      {
+        "query": "discord server banner size",
+        "clicks": 0,
+        "impressions": 26,
+        "ctr": 0.0,
+        "position": 6.8076923076923075,
+        "support_90d_impressions": 26
+      },
+      {
+        "query": "discord server splash image not showing on invite link",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0.0,
+        "position": 2.6923076923076925,
+        "support_90d_impressions": 13
+      },
+      {
+        "query": "discord server icon size",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0.0,
+        "position": 12.818181818181818,
+        "support_90d_impressions": 11
+      },
+      {
+        "query": "discord banner size",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0.0,
+        "position": 67.0,
+        "support_90d_impressions": 8
+      },
+      {
+        "query": "discord avatar size",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0.0,
+        "position": 80.66666666666667,
+        "support_90d_impressions": 3
+      },
+      {
+        "query": "banner discord size",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 75.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "discord banners size",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 44.5,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "discord image size",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 40.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "discord avatar image size",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 10.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "discord avatar resize",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 7.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "discord background size",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 73.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "discord banner aspect ratio",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 67.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/guides/tiktok-image-sizes-2026": [],
+    "/research": [],
+    "/resize/x-twitter": [
+      {
+        "query": "size twitter",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 21.6,
+        "support_90d_impressions": 5
+      },
+      {
+        "query": "twitter horizontal image size",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0.0,
+        "position": 9.0,
+        "support_90d_impressions": 3
+      },
+      {
+        "query": "twitter landscape image size",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0.0,
+        "position": 9.333333333333334,
+        "support_90d_impressions": 3
+      },
+      {
+        "query": "px twitter",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 4.5,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "twitter landscape post size",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 10.5,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "x photo size",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 15.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "twitter pic size",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 9.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "x image ratio",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 6.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "x image size",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 11.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/free-image-optimizer": [],
+    "/free-instagram-photo-resizer": [],
+    "/guides/social-media-image-sizes-2026": [
+      {
+        "query": "social media sizes 2026",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0.0,
+        "position": 79.66666666666667,
+        "support_90d_impressions": 11
+      },
+      {
+        "query": "size for buzzfeed showdown images",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0.0,
+        "position": 23.333333333333332,
+        "support_90d_impressions": 4
+      },
+      {
+        "query": "what is 1080x1350",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 9.5,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "banner screen cheat sheet",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 6.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "social media cheat sheet 2026",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 21.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "social media dimensions 2026",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 79.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "social media image sizes 2026",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 128.0,
+        "support_90d_impressions": 3
+      },
+      {
+        "query": "square social media post size",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 40.0,
+        "support_90d_impressions": 3
+      },
+      {
+        "query": "telegram",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 8.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "twitter image size 2026",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 11.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/instagram-post-resizer": [],
+    "/about": [
+      {
+        "query": "squarepic",
+        "clicks": 0,
+        "impressions": 145,
+        "ctr": 0.0,
+        "position": 6.6,
+        "support_90d_impressions": 293
+      },
+      {
+        "query": "square instapic pc",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 21.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "squarepic online",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 4.0,
+        "support_90d_impressions": 5
+      },
+      {
+        "query": "squarepix",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 10.0,
+        "support_90d_impressions": 4
+      }
+    ],
+    "/blog": [],
+    "/converter": [
+      {
+        "query": "negatives to jpeg",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 83.2,
+        "support_90d_impressions": 7
+      },
+      {
+        "query": "website to jpeg",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0.0,
+        "position": 42.75,
+        "support_90d_impressions": 15
+      },
+      {
+        "query": "progressive jpeg converter",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0.0,
+        "position": 76.66666666666667,
+        "support_90d_impressions": 7
+      },
+      {
+        "query": "picture into jpg",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 91.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "clip to jpg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 68.0,
+        "support_90d_impressions": 4
+      },
+      {
+        "query": "convert image to jpg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 79.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "file to image converter",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 61.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "png to progressive jpeg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 76.0,
+        "support_90d_impressions": 4
+      },
+      {
+        "query": "webpage to image converter",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 75.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/converter/jpg-to-gif": [],
+    "/converter/jpg-to-webp": [
+      {
+        "query": "jpeg to webp",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0.0,
+        "position": 16.285714285714285,
+        "support_90d_impressions": 12
+      },
+      {
+        "query": "jpeg into webp",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 10.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "jpeg webp",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 13.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "to webp.io",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 61.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/converter/png-to-webp": [],
+    "/guides/instagram-feed-sizes-2026": [],
+    "/guides/linkedin-image-sizes-2026": [
+      {
+        "query": "linkedin image share size",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 67.5,
+        "support_90d_impressions": 8
+      },
+      {
+        "query": "linkedin image size 2016",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 86.0,
+        "support_90d_impressions": 9
+      },
+      {
+        "query": "linkedin life tab images size",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 20.0,
+        "support_90d_impressions": 1
+      },
+      {
+        "query": "linkedin profile photo size 2026 recommended",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 79.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/guides/youtube-banner-thumbnail-sizes-2026": [
+      {
+        "query": "youtube channel art recommended size 2026",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0.0,
+        "position": 24.0,
+        "support_90d_impressions": 2
+      },
+      {
+        "query": "thumbnail vs banner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 11.0,
+        "support_90d_impressions": 1
+      }
+    ],
+    "/support": [],
+    "/terms": []
+  },
+  "device": [
+    {
+      "keys": [
+        "MOBILE"
+      ],
+      "clicks": 319,
+      "impressions": 13496,
+      "ctr": 0.0236366330764671,
+      "position": 7.3735180794309425
+    },
+    {
+      "keys": [
+        "DESKTOP"
+      ],
+      "clicks": 140,
+      "impressions": 15224,
+      "ctr": 0.009196006305832895,
+      "position": 10.400354703100367
+    },
+    {
+      "keys": [
+        "TABLET"
+      ],
+      "clicks": 2,
+      "impressions": 206,
+      "ctr": 0.009708737864077669,
+      "position": 7.509708737864078
+    }
+  ],
+  "countries": [
+    {
+      "keys": [
+        "ind"
+      ],
+      "clicks": 122,
+      "impressions": 6156,
+      "ctr": 0.0198180636777128,
+      "position": 7.448667966211826
+    },
+    {
+      "keys": [
+        "usa"
+      ],
+      "clicks": 53,
+      "impressions": 6676,
+      "ctr": 0.007938885560215698,
+      "position": 10.47079089275015
+    },
+    {
+      "keys": [
+        "egy"
+      ],
+      "clicks": 29,
+      "impressions": 329,
+      "ctr": 0.08814589665653495,
+      "position": 6.793313069908814
+    },
+    {
+      "keys": [
+        "gbr"
+      ],
+      "clicks": 25,
+      "impressions": 1746,
+      "ctr": 0.0143184421534937,
+      "position": 11.731386025200457
+    },
+    {
+      "keys": [
+        "pak"
+      ],
+      "clicks": 22,
+      "impressions": 930,
+      "ctr": 0.023655913978494623,
+      "position": 7.364516129032258
+    },
+    {
+      "keys": [
+        "phl"
+      ],
+      "clicks": 16,
+      "impressions": 612,
+      "ctr": 0.026143790849673203,
+      "position": 7.915032679738562
+    },
+    {
+      "keys": [
+        "aus"
+      ],
+      "clicks": 14,
+      "impressions": 785,
+      "ctr": 0.017834394904458598,
+      "position": 11.276433121019108
+    },
+    {
+      "keys": [
+        "ita"
+      ],
+      "clicks": 10,
+      "impressions": 375,
+      "ctr": 0.02666666666666667,
+      "position": 10.328
+    },
+    {
+      "keys": [
+        "idn"
+      ],
+      "clicks": 9,
+      "impressions": 1230,
+      "ctr": 0.007317073170731708,
+      "position": 9.324390243902439
+    },
+    {
+      "keys": [
+        "nld"
+      ],
+      "clicks": 9,
+      "impressions": 471,
+      "ctr": 0.01910828025477707,
+      "position": 8.26751592356688
+    },
+    {
+      "keys": [
+        "can"
+      ],
+      "clicks": 8,
+      "impressions": 817,
+      "ctr": 0.009791921664626682,
+      "position": 8.755201958384333
+    },
+    {
+      "keys": [
+        "esp"
+      ],
+      "clicks": 8,
+      "impressions": 333,
+      "ctr": 0.024024024024024024,
+      "position": 7.7207207207207205
+    },
+    {
+      "keys": [
+        "grc"
+      ],
+      "clicks": 8,
+      "impressions": 117,
+      "ctr": 0.06837606837606838,
+      "position": 7.230769230769231
+    },
+    {
+      "keys": [
+        "mex"
+      ],
+      "clicks": 7,
+      "impressions": 233,
+      "ctr": 0.030042918454935622,
+      "position": 7.141630901287554
+    },
+    {
+      "keys": [
+        "are"
+      ],
+      "clicks": 6,
+      "impressions": 313,
+      "ctr": 0.019169329073482427,
+      "position": 7.460063897763578
+    }
+  ],
+  "dates_returned": 28,
+  "inspections": [
+    {
+      "url": "https://www.squarepic.io/image-size-calculator",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-21T12:05:05Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/image-size-calculator",
+      "userCanonical": "https://www.squarepic.io/image-size-calculator",
+      "sitemap": [
+        "https://www.squarepic.io/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+        "https://www.squarepic.io/converter"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://www.squarepic.io/compressor",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-27T15:34:47Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/compressor",
+      "userCanonical": "https://www.squarepic.io/compressor",
+      "sitemap": [
+        "https://www.squarepic.io/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://www.squarepic.io/blog-categories/social-media-sizes",
+        "https://www.squarepic.io/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://www.squarepic.io/converter/png-to-avif",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-09T08:17:55Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/converter/png-to-avif",
+      "userCanonical": "https://www.squarepic.io/converter/png-to-avif",
+      "sitemap": [
+        "https://www.squarepic.io/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://www.squarepic.io/converter/png-to-webp",
+        "https://www.squarepic.io/converter"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://www.squarepic.io/cropper",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://www.squarepic.io/sitemap.xml"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.squarepic.io/guides/discord-image-sizes-2026",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-26T22:26:22Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/guides/discord-image-sizes-2026",
+      "userCanonical": "https://www.squarepic.io/guides/discord-image-sizes-2026",
+      "sitemap": [
+        "https://www.squarepic.io/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://www.squarepic.io/guides?category=discord"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://www.squarepic.io/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-07T16:18:28Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/",
+      "userCanonical": "https://www.squarepic.io/",
+      "referringUrls": [
+        "https://squarepic.io/",
+        "https://www.reddit.com/r/ProductivityApps/comments/1tmn5iv/squarepic_free_online_image_resizer_social_media/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://www.squarepic.io/resize/instagram",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-19T05:55:05Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/resize/instagram",
+      "userCanonical": "https://www.squarepic.io/resize/instagram",
+      "referringUrls": [
+        "https://www.squarepic.io/guides/instagram-reels-stories-guide"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://www.squarepic.io/resize/linkedin",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-21T19:27:26Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/resize/linkedin",
+      "userCanonical": "https://www.squarepic.io/resize/linkedin",
+      "referringUrls": [
+        "https://www.squarepic.io/guides/social-media-image-sizes-2026"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-26T01:07:17Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+      "userCanonical": "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+      "sitemap": [
+        "https://www.squarepic.io/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://www.squarepic.io/",
+        "https://www.squarepic.io/guides/tiktok-image-sizes-2026"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    {
+      "url": "https://www.squarepic.io/guides/make-image-square-without-cropping",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.squarepic.io/upscaler",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-10-05T14:14:02Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/upscaler",
+      "userCanonical": "https://www.squarepic.io/upscaler",
+      "sitemap": [
+        "https://www.squarepic.io/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://www.squarepic.io/"
+      ],
+      "crawledAs": "MOBILE"
+    }
+  ],
+  "method_notes": [
+    "Totals use a separate dimensionless byProperty request.",
+    "Page/query groups combine host variants by URL path; raw variants retained.",
+    "Page totals and property totals have different aggregation rules.",
+    "Query rows omit anonymized terms and API may return only top rows.",
+    "Opportunity filters are a review screen, not a predicted traffic uplift.",
+    "Stored URL inspections are not a fresh live indexing test.",
+    "No post-release performance gain is claimed."
+  ]
+}

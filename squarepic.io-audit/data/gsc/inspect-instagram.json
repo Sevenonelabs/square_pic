@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "data": {
+    "url": "https://www.squarepic.io/resize/instagram",
+    "verdict": "PASS",
+    "indexed": true,
+    "indexStatus": {
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-19T05:55:05Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/resize/instagram",
+      "userCanonical": "https://www.squarepic.io/resize/instagram",
+      "referringUrls": [
+        "https://www.squarepic.io/guides/instagram-reels-stories-guide"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    "mobileUsability": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    },
+    "richResults": {
+      "verdict": "PASS",
+      "detectedItems": [
+        {
+          "richResultType": "Breadcrumbs",
+          "items": [
+            {
+              "name": "Unnamed item"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "command": "inspect",
+    "durationMs": 23114
+  }
+}

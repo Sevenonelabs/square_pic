@@ -1,236 +1,43 @@
-import { pageMetadata } from "@/lib/seo";
-import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import { ConverterTool } from "@/components/converter/converter-tool";
 import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 import { ToolLinks } from "@/components/layout/tool-links";
 
-export const metadata: Metadata = pageMetadata({
-  "title": "Free Image Converter: JPG, PNG, WebP & More",
-  "description": "Convert images between JPG, PNG, WebP, AVIF, GIF, ICO, BMP, and TIFF in your browser. Batch convert and download a ZIP. No signup.",
-  "path": "/converter",
-  "image": "/og/og-converter.png"
+export const metadata = pageMetadata({
+  title: "Free Image Converter: JPG, PNG, WebP & ICO",
+  description: "Convert images online free to JPG, PNG, WebP or ICO. Adjust quality and download files in your browser. No signup or uploads. GIF and AVIF export unavailable.",
+  path: "/converter", image: "/og/og-converter.png",
 });
 
 export default function ConverterPage() {
-  return (
-    <>
-      <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Converter", url: `${SITE}/converter` }]} />
-      <WebAppSchema name="SquarePic - Image Converter" url={SITE + "/converter"} description="Convert images between JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, and TIFF formats online for free." />
-      <ConverterTool />
-      <ToolLinks current="/converter" />
-
-      <section className="max-w-[900px] mx-auto px-4 pb-16">
-        <div className="max-w-[680px] mx-auto text-center mb-10">
-          <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5] mb-3">
-            How to Convert Images Between Formats
-          </h2>
-          <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
-            Different platforms and use cases require different image formats. Whether you need a transparent PNG
-            for a logo, a compressed JPEG for a website, or a modern WebP for better performance, knowing when
-            to use each format makes a big difference.
-          </p>
-        </div>
-
-        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-10">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Image Format Comparison</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-[0.78rem] border-collapse">
-              <thead>
-                <tr className="border-b border-[rgba(255,255,255,0.06)]">
-                  <th className="text-left font-bold text-[#e6edf5] py-2 pr-3">Format</th>
-                  <th className="text-left font-bold text-[#e6edf5] py-2 px-3">Transparency</th>
-                  <th className="text-left font-bold text-[#e6edf5] py-2 px-3">Compression</th>
-                  <th className="text-left font-bold text-[#e6edf5] py-2 px-3">Best Use Case</th>
-                  <th className="text-left font-bold text-[#e6edf5] py-2 pl-3">Browser Support</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { fmt: "JPEG", trans: "No", comp: "Lossy", use: "Photography, web images, social media", browser: "Universal" },
-                  { fmt: "PNG", trans: "Yes", comp: "Lossless", use: "Logos, screenshots, graphics with text", browser: "Universal" },
-                  { fmt: "WebP", trans: "Yes", comp: "Both", use: "Modern web, performance-critical sites", browser: "97%" },
-                  { fmt: "GIF", trans: "Yes", comp: "Lossless", use: "Simple animations, memes", browser: "Universal" },
-                  { fmt: "BMP", trans: "No", comp: "None", use: "Legacy software, raw bitmap data", browser: "Universal" },
-                  { fmt: "AVIF", trans: "Yes", comp: "Lossy + Lossless", use: "Next-gen web, highest compression", browser: "93%" },
-                  { fmt: "TIFF", trans: "Yes", comp: "Both", use: "Print, publishing, professional photography", browser: "Limited" },
-                  { fmt: "ICO", trans: "Yes", comp: "Lossless", use: "Favicons, Windows icons", browser: "Universal" },
-                ].map((r) => (
-                  <tr key={r.fmt} className="border-b border-[rgba(255,255,255,0.03)]">
-                    <td className="font-semibold text-[#e6edf5] py-2.5 pr-3">{r.fmt}</td>
-                    <td className="text-[#8d9aaa] py-2.5 px-3">{r.trans}</td>
-                    <td className="text-[#8d9aaa] py-2.5 px-3">{r.comp}</td>
-                    <td className="text-[#8d9aaa] py-2.5 px-3">{r.use}</td>
-                    <td className="text-[#8d9aaa] py-2.5 pl-3">{r.browser}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-10">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-3">How to Choose the Right Image Format</h3>
-          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed mb-3">
-            Selecting the correct image format depends on your specific needs. Here is a simple decision framework:
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <h4 className="text-[0.78rem] font-extrabold text-[#e6edf5] mb-2">Choose JPEG when:</h4>
-              <ul className="text-[0.75rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-                <li>You need the smallest file size for photographs</li>
-                <li>Universal compatibility is critical (email, social media, legacy systems)</li>
-                <li>Transparency is not required</li>
-                <li>Sending images via email or messaging apps</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-[0.78rem] font-extrabold text-[#e6edf5] mb-2">Choose PNG when:</h4>
-              <ul className="text-[0.75rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-                <li>You need transparency (logos, icons, overlays)</li>
-                <li>Maximum quality is required (screenshots, graphics with text)</li>
-                <li>Lossless compression is non-negotiable</li>
-                <li>Preparing images for further editing</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-[0.78rem] font-extrabold text-[#e6edf5] mb-2">Choose WebP when:</h4>
-              <ul className="text-[0.75rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-                <li>Website performance is the priority</li>
-                <li>You want JPEG quality at 25-35% smaller file sizes</li>
-                <li>You need both transparency and good compression</li>
-                <li>Your audience uses modern browsers (97%+ support)</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-[0.78rem] font-extrabold text-[#e6edf5] mb-2">Choose AVIF when:</h4>
-              <ul className="text-[0.75rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-                <li>Maximum compression is critical (50% smaller than JPEG)</li>
-                <li>You need HDR and wide color gamut support</li>
-                <li>Serving next-gen web experiences</li>
-                <li>You provide JPEG or WebP fallbacks for older browsers</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-          {[
-            { title: "When to Convert to JPEG", desc: "JPEG remains the gold standard for photographs and complex images on the web. Use JPEG when you need broad compatibility and small file sizes and do not require transparency. Most social media platforms recommend JPEG for photo uploads." },
-            { title: "When to Convert to PNG", desc: "PNG is the go-to format for images that need transparency -- logos, icons, screenshots, and graphics with sharp text. PNG compression is lossless, so the image quality is preserved exactly. The trade-off is larger file sizes compared to JPEG." },
-            { title: "When to Convert to WebP", desc: "WebP is Google's modern format that delivers JPEG-quality images at 25-35% smaller file sizes. It supports both lossy and lossless compression plus transparency. Use WebP for website hero images, thumbnails, and anywhere page speed matters." },
-            { title: "When to Convert to AVIF", desc: "AVIF offers even better compression than WebP -- typically 50% smaller than JPEG at the same quality. It supports HDR and wide color gamut. Use AVIF for next-generation web performance, but always provide JPEG or WebP fallbacks for older browsers." },
-          ].map((c) => (
-            <div key={c.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-              <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">{c.title}</h3>
-              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">{c.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Batch Conversion Tips</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-              <li>Convert multiple images at once by uploading them all and setting the same output format.</li>
-              <li>Each file keeps its own quality slider -- adjust per image for fine-grained control.</li>
-              <li>Download all converted images as a single ZIP to save time.</li>
-              <li>Use the same output quality for batch jobs when all images are similar (e.g., same product photo set).</li>
-            </ul>
-          </div>
-          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Format Selection Guide</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-              <li><strong className="text-[#e6edf5]">Need transparency?</strong> Use PNG or WebP. JPEG does not support transparency.</li>
-              <li><strong className="text-[#e6edf5]">Maximum compatibility?</strong> JPEG for photos, PNG for graphics. Both work everywhere.</li>
-              <li><strong className="text-[#e6edf5]">Smallest file size?</strong> AVIF offers the best compression, followed by WebP.</li>
-              <li><strong className="text-[#e6edf5]">Print quality?</strong> TIFF preserves the highest fidelity for professional printing workflows.</li>
-              <li><strong className="text-[#e6edf5]">Animation needed?</strong> GIF works universally, but consider video formats for longer clips.</li>
-              <li><strong className="text-[#e6edf5]">Favicon required?</strong> ICO format is the standard for browser favicons. Convert your 1:1 square PNG to ICO at multiple resolutions.</li>
-              <li><strong className="text-[#e6edf5]">HDR content?</strong> AVIF supports HDR and wide color gamut (Rec. 2020), making it the best choice for modern displays.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-4">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Format-to-Format Conversions</h3>
-          <div className="flex flex-wrap gap-2">
-            {[
-              "png-to-jpg", "jpg-to-png", "png-to-webp", "jpg-to-webp",
-              "webp-to-png", "webp-to-jpg", "png-to-gif", "jpg-to-gif",
-              "png-to-ico", "jpg-to-ico", "png-to-avif", "jpg-to-avif",
-            ].map((k) => {
-              const parts = k.split("-to-");
-              return (
-                <Link key={k} href={`/converter/${k}`} className="text-[0.68rem] font-semibold text-[#8d9aaa] bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] px-2.5 py-1 rounded-sm no-underline hover:text-[var(--accent)] hover:border-[var(--accent)]/20 transition-all">
-                  {parts[0].toUpperCase()} → {parts[1].toUpperCase()}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-4">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Resize Images for Social Media</h3>
-          <p className="text-[0.75rem] text-[#8d9aaa] leading-relaxed mb-3">
-            After converting your image, resize it to the exact dimensions your platform needs with our platform-specific resizers.
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { href: "/resize/instagram", label: "Instagram" },
-              { href: "/resize/facebook", label: "Facebook" },
-              { href: "/resize/linkedin", label: "LinkedIn" },
-              { href: "/resize/x-twitter", label: "X (Twitter)" },
-              { href: "/resize/tiktok", label: "TikTok" },
-              { href: "/resize/youtube", label: "YouTube" },
-              { href: "/resize/pinterest", label: "Pinterest" },
-              { href: "/resize/whatsapp", label: "WhatsApp" },
-            ].map((platform) => (
-              <Link key={platform.href} href={platform.href} className="text-[0.68rem] font-semibold text-[#8d9aaa] bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] px-2.5 py-1 rounded-sm no-underline hover:text-[var(--accent)] hover:border-[var(--accent)]/20 transition-all">
-                {platform.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Conversion Tips for Different Workflows</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-              <li><strong className="text-[#e6edf5]">Web development:</strong> Convert all hero images to WebP with JPEG fallback via &lt;picture&gt; elements. This saves 25-35% bandwidth without changing visual quality.</li>
-              <li><strong className="text-[#e6edf5]">Social media:</strong> JPEG at 85% quality is the sweet spot for Instagram, Facebook, and Twitter. PNG is unnecessary for photos and creates files 3-5x larger.</li>
-              <li><strong className="text-[#e6edf5]">Email newsletters:</strong> Most email clients only support JPEG and PNG reliably. Convert WebP/AVIF images to JPEG before inserting them into email campaigns.</li>
-              <li><strong className="text-[#e6edf5]">Game development:</strong> PNG for sprites and UI elements (lossless, transparency), JPEG for textures and backgrounds, WebP for packaging if engine supports it.</li>
-              <li><strong className="text-[#e6edf5]">Archiving:</strong> Store original files in a lossless format (PNG or TIFF). Convert to lossy formats (JPEG, WebP) only for distribution to save space.</li>
-            </ul>
-          </div>
-          <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Understanding Quality Settings</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
-              <li><strong className="text-[#e6edf5]">100%:</strong> Near-lossless output. Suitable for archival or when maximum quality is critical. File sizes are largest.</li>
-              <li><strong className="text-[#e6edf5]">80-95%:</strong> High quality for professional use. Great for photography portfolios and product images where quality matters most.</li>
-              <li><strong className="text-[#e6edf5]">60-80%:</strong> The web sweet spot. Images look nearly identical to originals but file sizes are 50-80% smaller. Best for general web use.</li>
-              <li><strong className="text-[#e6edf5]">40-60%:</strong> Good for thumbnails, previews, and placeholder images. Visible artifacts in smooth gradients but acceptable for small display sizes.</li>
-              <li><strong className="text-[#e6edf5]">Below 40%:</strong> Heavy compression for extreme size reduction. Noticeable artifacts. Only use for previews, thumbnails, or bandwidth-critical applications.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Privacy-First Image Conversion</h3>
-          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
-            Every image conversion happens locally in your browser using HTML5 Canvas. Your images are never uploaded to any server.
-          </p>
-        </div>
-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: August 2026</p>
-        <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
-          <p className="text-[0.75rem] text-[#8d9aaa] text-center">
-            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Image Sizes</Link> · <Link href="/guides/facebook-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Facebook Image Sizes</Link>
-          </p>
-        </div>
-      </section>
-    </>
-  );
+  return <>
+    <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Converter", url: `${SITE}/converter` }]} />
+    <WebAppSchema name="SquarePic image converter" url={`${SITE}/converter`} description="Convert browser-decodable still images to JPEG, PNG, WebP or one PNG-backed ICO." dateModified="2026-10-08" />
+    <ConverterTool />
+    <ToolLinks current="/converter" />
+    <section className="w-full min-w-0 max-w-[900px] mx-auto px-4 pb-16 text-[#8d9aaa] leading-relaxed">
+      <h2 className="text-xl font-bold text-[#e6edf5] mb-4">Choose an output format</h2>
+      <div className="overflow-x-auto mb-6"><table className="w-full text-sm text-left">
+        <thead><tr><th className="p-2">Output</th><th className="p-2">Dimensions and transparency</th><th className="p-2">Compression</th></tr></thead>
+        <tbody>
+          <tr><th className="p-2">JPEG</th><td className="p-2">Source dimensions, white behind transparent pixels</td><td className="p-2">Lossy, adjustable quality</td></tr>
+          <tr><th className="p-2">PNG</th><td className="p-2">Source dimensions and alpha</td><td className="p-2">Lossless encoding of decoded pixels</td></tr>
+          <tr><th className="p-2">WebP</th><td className="p-2">Source dimensions and alpha</td><td className="p-2">Lossy, adjustable quality</td></tr>
+          <tr><th className="p-2">ICO</th><td className="p-2">One icon, longest edge at most 256 px, alpha retained</td><td className="p-2">PNG-backed, aspect ratio preserved</td></tr>
+        </tbody>
+      </table></div>
+      <p className="mb-4">AVIF, BMP, GIF and TIFF output are temporarily unavailable. Their previous encoders could produce invalid or mislabeled files. No substitute format is downloaded under those extensions.</p>
+      <h2 className="text-xl font-bold text-[#e6edf5] mb-3">Convert and check your result</h2>
+      <ol className="list-decimal pl-5 space-y-2 mb-5">
+        <li>Select an image your browser can decode. Unsupported or corrupt inputs produce an error.</li>
+        <li>Choose the output for each file. JPEG and WebP quality changes can alter visible detail; even 100% is not a lossless mode.</li>
+        <li>Click Convert All, then download each result or use Download All for separate files.</li>
+      </ol>
+      <p className="mb-5">Conversion keeps one still frame of an animated input and does not preserve animation or source metadata. Converting JPEG to PNG does not restore lost detail or remove a background. Images stay on your device; the site also uses analytics as described in our <Link href="/privacy" className="text-[var(--accent)] underline">privacy policy</Link>.</p>
+      <h2 className="text-xl font-bold text-[#e6edf5] mb-3">Start with a selected conversion</h2>
+      <div className="flex flex-wrap gap-3">{["png-to-jpg", "jpg-to-png", "png-to-webp", "jpg-to-webp", "webp-to-png", "webp-to-jpg", "png-to-ico", "jpg-to-ico"].map((slug) => <Link key={slug} href={`/converter/${slug}`} className="text-[var(--accent)] underline">{slug.replace("-to-", " to ").toUpperCase()}</Link>)}</div>
+    </section>
+  </>;
 }
-

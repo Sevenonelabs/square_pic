@@ -7,8 +7,8 @@ import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
-  "title": "Pinterest Image Sizes 2026: Pins & Covers",
-  "description": "Find Pinterest dimensions for standard pins, video pins, board covers, and profile pictures. Includes aspect ratios and export tips.",
+  "title": "Pinterest Image Sizes 2026: Pins & Board Covers",
+  "description": "Compare Pinterest pin dimensions, 2:3 aspect ratios, board covers and profile pictures. Find working image sizes and export tips for static Pinterest artwork.",
   "path": "/guides/pinterest-image-sizes-2026",
   "image": "/og/og-pinterest-image-sizes.png",
   "article": true,
@@ -34,12 +34,12 @@ export default function PinterestImageSizesPage() {
       ]} />
       <ArticleSchema
         type="BlogPosting"
-        title="Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide"
-        description="Complete guide to Pinterest image dimensions for 2026. Standard pins, video pins, board covers, and profile picture sizes with best practices for maximum engagement."
+        title="Pinterest Image Sizes 2026: Pins & Board Covers"
+        description="Compare Pinterest pin dimensions, 2:3 aspect ratios, board covers and profile pictures. Find working image sizes and export tips for static Pinterest artwork."
         url={`${SITE}/guides/pinterest-image-sizes-2026`}
         imageUrl={`${SITE}/og/og-pinterest-image-sizes.png`}
         datePublished="2026-07-19"
-        dateModified="2026-07-19"
+        dateModified="2026-10-08"
         authorName="SevenOneLabs"
         authorUrl={`${SITE}/author/sevenonelabs`}
       />
@@ -49,9 +49,9 @@ export default function PinterestImageSizesPage() {
           <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
             Pinterest
           </span>
-          <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 10 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
-          <ShareButtons path="/guides/pinterest-image-sizes-2026" title="Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide" />
+          <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">Pinterest Image Sizes 2026: Pins & Board Covers</h1>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated October 8, 2026 · 10 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
+          <ShareButtons path="/guides/pinterest-image-sizes-2026" title="Pinterest Image Sizes 2026: Pins & Board Covers" />
         </div>
 
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-6">

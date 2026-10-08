@@ -1,0 +1,95 @@
+{
+  "target": "https://squarepic.io",
+  "robots_url": "https://squarepic.io/robots.txt",
+  "declared": [
+    {
+      "url": "https://www.squarepic.io/sitemap.xml",
+      "query_redacted": false
+    },
+    {
+      "url": "https://www.squarepic.io/sitemap-images",
+      "query_redacted": false
+    }
+  ],
+  "found": [
+    {
+      "url": "https://www.squarepic.io/sitemap.xml",
+      "query_redacted": false,
+      "source": "robots.txt",
+      "status_code": 200,
+      "kind": "urlset",
+      "valid": true,
+      "error": null,
+      "cross_host": true
+    },
+    {
+      "url": "https://www.squarepic.io/sitemap.xml",
+      "query_redacted": false,
+      "source": "common_path",
+      "status_code": 200,
+      "kind": "urlset",
+      "valid": true,
+      "error": null
+    }
+  ],
+  "checked": [
+    {
+      "url": "https://www.squarepic.io/sitemap.xml",
+      "query_redacted": false,
+      "source": "robots.txt",
+      "status_code": 200,
+      "kind": "urlset",
+      "valid": true,
+      "error": null,
+      "cross_host": true
+    },
+    {
+      "url": "https://www.squarepic.io/sitemap-images",
+      "query_redacted": false,
+      "source": "robots.txt",
+      "status_code": 200,
+      "kind": null,
+      "valid": false,
+      "error": "invalid XML",
+      "cross_host": true
+    },
+    {
+      "url": "https://www.squarepic.io/sitemap.xml",
+      "query_redacted": false,
+      "source": "common_path",
+      "status_code": 200,
+      "kind": "urlset",
+      "valid": true,
+      "error": null
+    },
+    {
+      "url": "https://squarepic.io/sitemap_index.xml",
+      "query_redacted": false,
+      "source": "common_path",
+      "status_code": 404,
+      "kind": null,
+      "valid": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://squarepic.io/sitemap-index.xml",
+      "query_redacted": false,
+      "source": "common_path",
+      "status_code": 404,
+      "kind": null,
+      "valid": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://squarepic.io/wp-sitemap.xml",
+      "query_redacted": false,
+      "source": "common_path",
+      "status_code": 404,
+      "kind": null,
+      "valid": false,
+      "error": "HTTP 404"
+    }
+  ],
+  "warnings": [],
+  "error": null
+}

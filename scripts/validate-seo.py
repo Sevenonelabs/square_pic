@@ -22,9 +22,14 @@ class Head(HTMLParser):
         super().__init__()
         self.meta, self.canonicals, self.title = {}, [], ""
         self.in_title = False
+        self.in_head = False
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == "head":
+            self.in_head = True
+        if not self.in_head:
+            return
         if tag == "title":
             self.in_title = True
         if tag == "meta":
@@ -35,6 +40,8 @@ class Head(HTMLParser):
             self.canonicals.append(attrs.get("href", ""))
 
     def handle_endtag(self, tag):
+        if tag == "head":
+            self.in_head = False
         if tag == "title":
             self.in_title = False
 

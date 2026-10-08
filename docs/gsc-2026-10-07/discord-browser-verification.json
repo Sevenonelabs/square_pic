@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "base": "http://127.0.0.1:4174",
+  "checks": [
+    "Guide and preset page return 200 with descriptive titles, self-canonicals, matching visible FAQ answers, working anchors, and no page overflow at 320/390 px.",
+    "Discord guide is discoverable from the guide category, cheat sheet, preset page, and both RSS feeds; cheat sheet splash dimensions match the editor preset.",
+    "A real editor upload exports a 960 \u00d7 540 server banner and 1920 \u00d7 1080 splash PNG; both files were checked from their PNG headers.",
+    "No SquarePic page errors occurred; confirmed StartupBar iframe errors are recorded separately."
+  ],
+  "exports": [
+    {
+      "preset": "Server Banner",
+      "format": "PNG",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "preset": "Server Splash",
+      "format": "PNG",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "pageErrors": [],
+  "externalWidgetErrors": [
+    "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ui (https://startupbar.co/assets/index-Ci2T26ln.js:9:31202)\n    at Rc (https://startupbar.co/assets/index-Ci2T26ln.js:9:81881)\n    at Uu (https://startupbar.co/assets/index-Ci2T26ln.js:9:115880)\n    at Hu (https://startupbar.co/assets/index-Ci2T26ln.js:9:115853)\n    at Vu (https://startupbar.co/assets/index-Ci2T26ln.js:9:115712)\n    at Du (https://startupbar.co/assets/index-Ci2T26ln.js:9:111268)\n    at yd (https://startupbar.co/assets/index-Ci2T26ln.js:9:123216)\n    at MessagePort.D (https://startupbar.co/assets/index-Ci2T26ln.js:2:2718)",
+    "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ui (https://startupbar.co/assets/index-Ci2T26ln.js:9:31202)\n    at Rc (https://startupbar.co/assets/index-Ci2T26ln.js:9:81881)\n    at Uu (https://startupbar.co/assets/index-Ci2T26ln.js:9:115880)\n    at Hu (https://startupbar.co/assets/index-Ci2T26ln.js:9:115853)\n    at Vu (https://startupbar.co/assets/index-Ci2T26ln.js:9:115712)\n    at Du (https://startupbar.co/assets/index-Ci2T26ln.js:9:111268)\n    at yd (https://startupbar.co/assets/index-Ci2T26ln.js:9:123216)\n    at MessagePort.D (https://startupbar.co/assets/index-Ci2T26ln.js:2:2718)"
+  ]
+}

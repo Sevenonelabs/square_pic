@@ -7,8 +7,8 @@ import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
-  "title": "YouTube Banner & Thumbnail Sizes 2026",
-  "description": "Find YouTube banner, thumbnail, and profile picture dimensions. Includes channel art safe zones and tips for desktop, mobile, and TV.",
+  "title": "YouTube Banner & Thumbnail Sizes: Channel Art",
+  "description": "Compare YouTube channel art, banner and thumbnail sizes for 2026. Find image dimensions, aspect ratios, profile sizes and guidance for device previews.",
   "path": "/guides/youtube-banner-thumbnail-sizes-2026",
   "image": "/og/og-youtube-banner-thumbnail.png",
   "article": true,
@@ -25,12 +25,12 @@ export default function YouTubeBannerThumbnailSizesPage() {
       ]} />
       <ArticleSchema
         type="BlogPosting"
-        title="YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video"
-        description="Complete guide to YouTube image dimensions for 2026. Channel art/banner sizes, video thumbnail specs, profile picture requirements, and design best practices."
+        title="YouTube Banner & Thumbnail Sizes: Channel Art"
+        description="Compare YouTube channel art, banner and thumbnail sizes for 2026. Find image dimensions, aspect ratios, profile sizes and guidance for device previews."
         url={`${SITE}/guides/youtube-banner-thumbnail-sizes-2026`}
         imageUrl={`${SITE}/og/og-youtube-banner-thumbnail.png`}
         datePublished="2026-07-19"
-        dateModified="2026-07-19"
+        dateModified="2026-10-08"
         authorName="SevenOneLabs"
         authorUrl={`${SITE}/author/sevenonelabs`}
       />
@@ -65,9 +65,9 @@ export default function YouTubeBannerThumbnailSizesPage() {
           <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
             YouTube
           </span>
-          <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 9 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
-          <ShareButtons path="/guides/youtube-banner-thumbnail-sizes-2026" title="YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video" />
+          <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">YouTube Banner & Thumbnail Sizes: Channel Art</h1>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated October 8, 2026 · 9 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
+          <ShareButtons path="/guides/youtube-banner-thumbnail-sizes-2026" title="YouTube Banner & Thumbnail Sizes: Channel Art" />
         </div>
 
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-6">

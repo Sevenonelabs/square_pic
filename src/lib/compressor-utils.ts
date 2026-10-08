@@ -1,10 +1,9 @@
+import { canvasBlob } from "./image-export";
+
 export function formatBytes(bytes: number, decimals = 2) {
-  if (bytes === 0) return "0 Bytes";
-  const k = 1024;
-  const dm = Math.max(decimals, 0);
-  const sizes = ["Bytes", "KB", "MB", "GB"];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+  if (bytes <= 0) return "0 Bytes";
+  const i = Math.min(3, Math.floor(Math.log(bytes) / Math.log(1024)));
+  return `${parseFloat((bytes / 1024 ** i).toFixed(Math.max(0, decimals)))} ${["Bytes", "KB", "MB", "GB"][i]}`;
 }
 
 export function truncateMiddle(str: string, maxLength = 16) {
@@ -13,157 +12,79 @@ export function truncateMiddle(str: string, maxLength = 16) {
   return str.substring(0, mid) + "..." + str.substring(str.length - mid);
 }
 
-export function getOutputMimeType(originalType: string, fallback: "jpeg" | "webp"): string {
-  if (originalType === "image/jpeg" || originalType === "image/jpg") return "image/jpeg";
-  if (originalType === "image/webp") return "image/webp";
-  return fallback === "webp" ? "image/webp" : "image/jpeg";
-}
-
-const imgCache = new Map<string, HTMLImageElement>();
-
 export function loadImage(src: string): Promise<HTMLImageElement> {
-  const cached = imgCache.get(src);
-  if (cached) return Promise.resolve(cached);
   return new Promise((resolve, reject) => {
     const img = new Image();
-    img.onload = () => { imgCache.set(src, img); resolve(img); };
-    img.onerror = () => reject(new Error("Image failed to load"));
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("This image could not be decoded. Try PNG, JPEG or WebP."));
     img.src = src;
   });
 }
 
-function getCanvasBlob(canvas: HTMLCanvasElement, mimeType: string, quality: number): Promise<Blob> {
-  return new Promise((resolve, reject) => {
-    canvas.toBlob((blob) => {
-      if (blob) resolve(blob);
-      else reject(new Error("Canvas toBlob failed"));
-    }, mimeType, quality);
-  });
-}
-
-function binarySearchQuality(
-  canvas: HTMLCanvasElement,
-  mimeType: string,
-  targetSize: number,
-  iterations: number
-): Promise<Blob | null> {
-  return new Promise((resolve) => {
-    let low = 0.05;
-    let high = 1.0;
-    let best: Blob | null = null;
-    let pending = iterations;
-    let finished = false;
-
-    function tryQuality(quality: number) {
-      canvas.toBlob((blob) => {
-        if (finished) return;
-        if (!blob) { pending--; if (pending <= 0) resolve(best); return; }
-        if (blob.size <= targetSize) {
-          best = blob;
-          low = quality;
-          if (blob.size >= targetSize * 0.9) { finished = true; resolve(best); return; }
-        } else {
-          high = quality;
-        }
-        pending--;
-        if (pending <= 0) resolve(best);
-      }, mimeType, quality);
-    }
-
-    // Fire all iterations in parallel (canvas.toBlob is async but serializes on the GPU queue)
-    for (let i = 0; i < iterations; i++) {
-      const quality = (low + high) / 2;
-      tryQuality(quality);
-    }
-  });
-}
-
-async function compressToTargetSize(
-  canvas: HTMLCanvasElement,
-  mimeType: string,
-  targetSizeInBytes: number,
-): Promise<Blob> {
-  // Phase 1: binary search on quality (6 iterations, fired in parallel)
-  let best = await binarySearchQuality(canvas, mimeType, targetSizeInBytes, 6);
-
-  if (best && best.size <= targetSizeInBytes && best.size >= targetSizeInBytes * 0.85) {
-    return best;
+async function searchQuality(canvas: HTMLCanvasElement, mime: string, target: number): Promise<Blob | null> {
+  const highest = await canvasBlob(canvas, mime, 0.95);
+  if (highest.size <= target) return highest;
+  let best = await canvasBlob(canvas, mime, 0.05);
+  if (best.size > target) return null;
+  let low = 0.05, high = 0.95;
+  // Each midpoint depends on the previous encode result.
+  for (let i = 0; i < 8; i++) {
+    const quality = (low + high) / 2;
+    const blob = await canvasBlob(canvas, mime, quality);
+    if (blob.size <= target) { best = blob; low = quality; }
+    else high = quality;
   }
-
-  // Phase 2: try dimension scaling (3 steps, quality search in parallel each)
-  const origW = canvas.width;
-  const origH = canvas.height;
-  const scales = [0.8, 0.6, 0.4];
-
-  for (const scale of scales) {
-    const temp = document.createElement("canvas");
-    temp.width = Math.round(origW * scale);
-    temp.height = Math.round(origH * scale);
-    const tCtx = temp.getContext("2d")!;
-    if (mimeType === "image/jpeg") {
-      tCtx.fillStyle = "#FFFFFF";
-      tCtx.fillRect(0, 0, temp.width, temp.height);
-    }
-    tCtx.drawImage(canvas, 0, 0, temp.width, temp.height);
-
-    const scaled = await binarySearchQuality(temp, mimeType, targetSizeInBytes, 4);
-    if (scaled && scaled.size <= targetSizeInBytes) {
-      if (scaled.size >= targetSizeInBytes * 0.85) return scaled;
-      best = scaled;
-    }
-  }
-
-  return best || (await getCanvasBlob(canvas, mimeType, 0.05));
+  return best;
 }
 
 export interface FileItem {
-  id: string;
-  file: File;
-  name: string;
-  size: number;
-  src: string;
+  id: string; file: File; name: string; size: number; src: string;
   imgElement: HTMLImageElement | null;
   status: "ready" | "compressing" | "done" | "error";
-  compressedBlob: Blob | null;
-  newSize: number | null;
+  compressedBlob: Blob | null; newSize: number | null;
+  width?: number; height?: number; error?: string;
 }
 
 export async function compressFile(
-  item: FileItem,
-  mode: "slider" | "size",
-  sliderQuality: number,
-  targetFormat: "jpeg" | "webp",
-  targetSizeValue: number,
-  targetSizeUnit: "KB" | "MB"
-): Promise<{ blob: Blob; size: number }> {
+  item: FileItem, mode: "slider" | "size", sliderQuality: number,
+  targetFormat: "jpeg" | "webp", targetSizeValue: number, targetSizeUnit: "KB" | "MB"
+): Promise<{ blob: Blob; size: number; width: number; height: number }> {
   const img = item.imgElement ?? await loadImage(item.src);
-
+  const mime = `image/${targetFormat}`;
   const canvas = document.createElement("canvas");
   canvas.width = img.naturalWidth;
   canvas.height = img.naturalHeight;
   const ctx = canvas.getContext("2d");
-  if (!ctx) throw new Error("2D context failed");
-
-  const mime =
-    mode === "slider"
-      ? getOutputMimeType(item.file.type, targetFormat)
-      : targetFormat === "webp"
-        ? "image/webp"
-        : "image/jpeg";
-
-  if (mime === "image/jpeg") {
-    ctx.fillStyle = "#FFFFFF";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-  }
+  if (!ctx) throw new Error("Image is too large for this browser.");
+  if (targetFormat === "jpeg") { ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, canvas.width, canvas.height); }
   ctx.drawImage(img, 0, 0);
-
-  let blob: Blob;
   if (mode === "slider") {
-    blob = await getCanvasBlob(canvas, mime, sliderQuality / 100);
-  } else {
-    const sizeInBytes = targetSizeValue * (targetSizeUnit === "MB" ? 1024 * 1024 : 1024);
-    blob = await compressToTargetSize(canvas, mime, sizeInBytes);
+    const blob = await canvasBlob(canvas, mime, sliderQuality / 100);
+    return { blob, size: blob.size, width: canvas.width, height: canvas.height };
   }
-
-  return { blob, size: blob.size };
+  const target = targetSizeValue * (targetSizeUnit === "MB" ? 1048576 : 1024);
+  if (!Number.isFinite(target) || target <= 0) throw new Error("Enter a target size greater than zero.");
+  let blob = await searchQuality(canvas, mime, target);
+  if (blob) return { blob, size: blob.size, width: canvas.width, height: canvas.height };
+  const smallest = document.createElement("canvas");
+  smallest.width = 1;
+  smallest.height = 1;
+  const smallestCtx = smallest.getContext("2d");
+  if (!smallestCtx) throw new Error("Image resizing failed.");
+  smallestCtx.drawImage(canvas, 0, 0, 1, 1);
+  const smallestBlob = await searchQuality(smallest, mime, target);
+  if (!smallestBlob) throw new Error("This target is too small for a valid image. Choose a larger size.");
+  let width = canvas.width, height = canvas.height;
+  while (width > 1 || height > 1) {
+    width = Math.max(1, Math.floor(width * 0.8));
+    height = Math.max(1, Math.floor(height * 0.8));
+    const resized = document.createElement("canvas");
+    resized.width = width; resized.height = height;
+    const resizedCtx = resized.getContext("2d");
+    if (!resizedCtx) throw new Error("Image resizing failed.");
+    resizedCtx.drawImage(canvas, 0, 0, width, height);
+    blob = await searchQuality(resized, mime, target);
+    if (blob) return { blob, size: blob.size, width, height };
+  }
+  throw new Error("This target is too small for a valid image. Choose a larger size.");
 }

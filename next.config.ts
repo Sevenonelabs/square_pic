@@ -34,6 +34,14 @@ const nextConfig: NextConfig = {
     ];
   },
   redirects: async () => [
+    { source: "/free-image-compressor", destination: "/compressor", permanent: true },
+    { source: "/free-image-converter", destination: "/converter", permanent: true },
+    { source: "/free-photo-cropper", destination: "/cropper", permanent: true },
+    { source: "/social-media-resizer", destination: "/", permanent: true },
+    { source: "/instagram-post-resizer", destination: "/resize/instagram?preset=square", permanent: true },
+    { source: "/instagram-profile-picture-resizer", destination: "/resize/instagram?preset=profile", permanent: true },
+    { source: "/blog", destination: "/guides", permanent: true },
+    { source: "/blog/how-to-square-image-for-any-platform", destination: "/guides/make-image-square-without-cropping", permanent: true },
     { source: "/index", destination: "/", permanent: true },
     { source: "/index.html", destination: "/", permanent: true },
     { source: "/free-square-image-tool", destination: "/", permanent: true },

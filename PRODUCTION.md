@@ -48,15 +48,55 @@ URLs. Titles and captions were removed according to
 
 ## Search monitoring
 
-Use the verified `sc-domain:squarepic.io` property, or its verified www URL
-prefix property. Never use the local Google helper's default property,
-which belongs to another website. Reauthenticate Google OAuth before
-collecting data if token refresh fails.
+The `gsc` CLI is authenticated with read-only Search Console access and defaults
+to the verified `sc-domain:squarepic.io` property. Use that property explicitly
+when collecting reports. The separate Google helper's OAuth token still needs
+reauthentication; use `gsc` for this baseline.
+
+The October 7 baseline, saved API responses, implemented changes, and release
+checks are in [the GSC report](docs/gsc-2026-10-07/REPORT.md). The CLI uses Google
+Application Default Credentials; refresh them with `gsc auth login --readonly`
+if required. On this Windows machine, `.config/gcloud` is a junction to the
+standard AppData gcloud configuration directory for SDK compatibility.
+
+The [Discord continuation](docs/gsc-2026-10-07/DISCORD.md) records refreshed
+query ownership, verified banner/splash specifications, and the measurement
+baseline. The October 8 release and its production verification are recorded in
+[the action-plan execution report](squarepic.io-audit/EXECUTION-REPORT.md).
+
+Tool regressions require Python, Pillow, Playwright and Chromium. Set
+`CHROME_PATH` if the bundled browser path differs:
+
+```sh
+python scripts/verify-tools.py http://localhost:3100 local
+python scripts/verify-tools.py https://www.squarepic.io production
+python scripts/verify-release.py https://www.squarepic.io production-final
+python scripts/capture-layout.py https://www.squarepic.io production-final --repeat
+python scripts/verify-editor-viewport.py https://www.squarepic.io editor-production
+python scripts/verify-editor-actions.py https://www.squarepic.io editor-actions-production
+```
+
+The editor checks cover loaded square and vertical canvases, touch, rotation,
+sharing recovery and native dialog focus in Chromium, Firefox and WebKit.
+Set `BROWSER_ENGINE=firefox` or `BROWSER_ENGINE=webkit` to run the complete tool
+regression suite in another engine. WebKit on Windows is a lab check; an actual
+iPhone/Safari device pass remains separate.
+
+`.vercelignore` excludes audit traces, local documentation and environment files
+from deployment uploads. Configure production secrets through Vercel's environment
+settings. The release source manifest records uncommitted file hashes alongside
+the base commit because this release includes reviewed local changes.
 
 Compare finalized 28-day periods before and after release. Record clicks,
 impressions, CTR, and weighted average position for `/resize/`, converter
 pairs, tools, guides, and information pages. Keep a separate dimensionless
 query for site totals; query rows omit some anonymized traffic.
+
+The [October 8 page keyword report](docs/gsc-keywords-2026-10-08/REPORT.md)
+maps all 50 sitemap pages to reviewed titles, H1s, descriptions and slug decisions.
+It includes refreshed GSC evidence, before/after rendered copy and seven permanent
+redirects for legacy URLs that returned 404. These copy and redirect changes are
+verified locally and require a subsequent production release.
 
 Group queries by intent, including making an image square, platform sizes,
 format conversion, compression, cropping, and upscaling. Check a consistent

@@ -7,8 +7,8 @@ import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
-  "title": "TikTok Image Sizes 2026: Profiles & Videos",
-  "description": "Check TikTok dimensions for profile pictures, video covers, stories, and ads. Includes aspect ratios, safe zones, and export tips.",
+  "title": "TikTok Image Sizes: Posts, Profiles & Covers",
+  "description": "Compare TikTok image dimensions for photo posts, profiles and video-cover artwork. Find aspect ratios, vertical canvases and export tips for each placement.",
   "path": "/guides/tiktok-image-sizes-2026",
   "image": "/og/og-tiktok-image-sizes.png",
   "article": true,
@@ -33,12 +33,12 @@ export default function TikTokImageSizesPage() {
       ]} />
       <ArticleSchema
         type="BlogPosting"
-        title="TikTok Image Sizes 2026: Profile, Video & Story Dimensions"
-        description="Complete guide to TikTok image dimensions for 2026. Profile picture size, video aspect ratios, story specs, ad formats, and best practices for maximum engagement."
+        title="TikTok Image Sizes: Posts, Profiles & Covers"
+        description="Compare TikTok image dimensions for photo posts, profiles and video-cover artwork. Find aspect ratios, vertical canvases and export tips for each placement."
         url={`${SITE}/guides/tiktok-image-sizes-2026`}
         imageUrl={`${SITE}/og/og-tiktok-image-sizes.png`}
         datePublished="2026-07-19"
-        dateModified="2026-07-19"
+        dateModified="2026-10-08"
         authorName="SevenOneLabs"
         authorUrl={`${SITE}/author/sevenonelabs`}
       />
@@ -48,9 +48,9 @@ export default function TikTokImageSizesPage() {
           <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
             TikTok
           </span>
-          <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">TikTok Image Sizes 2026: Profile, Video & Story Dimensions</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 8 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
-          <ShareButtons path="/guides/tiktok-image-sizes-2026" title="TikTok Image Sizes 2026: Profile, Video & Story Dimensions" />
+          <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">TikTok Image Sizes: Posts, Profiles & Covers</h1>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated October 8, 2026 · 8 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
+          <ShareButtons path="/guides/tiktok-image-sizes-2026" title="TikTok Image Sizes: Posts, Profiles & Covers" />
         </div>
 
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-6">

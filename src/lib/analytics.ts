@@ -12,3 +12,10 @@ export function trackEvent(action: string, label?: string, value?: number) {
     });
   } catch { }
 }
+
+// Fixed tool/format labels only. Never include image names, URLs or pixel content.
+export function trackToolEvent(action: "upload_accepted" | "processing_success" | "processing_error" | "download", tool: "square" | "resizer" | "converter" | "compressor" | "cropper" | "upscaler" | "calculator", format?: string) {
+  if (typeof window === "undefined") return;
+  const win = window as GtagWindow;
+  try { win.gtag?.("event", `tool_${action}`, { tool_name: tool, ...(format ? { output_format: format } : {}) }); } catch { }
+}

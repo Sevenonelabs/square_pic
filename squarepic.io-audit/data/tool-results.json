@@ -1,0 +1,291 @@
+[
+  {
+    "test": "square-png",
+    "filename": "squarepic-photo.png",
+    "magic_hex": "89504e470d0a1a0a0000000d4948445200000258",
+    "format": "PNG",
+    "dimensions": [
+      600,
+      600
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      77,
+      255
+    ],
+    "bytes": 35750,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/png",
+        "size": 27105
+      },
+      {
+        "type": "image/png",
+        "size": 35750
+      }
+    ]
+  },
+  {
+    "test": "convert-avif",
+    "filename": "test-transparent.avif",
+    "magic_hex": "89504e470d0a1a0a0000000d4948445200000258",
+    "format": "PNG",
+    "dimensions": [
+      600,
+      400
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 8190,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/png",
+        "size": 8190
+      }
+    ]
+  },
+  {
+    "test": "convert-bmp",
+    "filename": "test-transparent.bmp",
+    "magic_hex": "89504e470d0a1a0a0000000d4948445200000258",
+    "format": "PNG",
+    "dimensions": [
+      600,
+      400
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 8190,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/png",
+        "size": 8190
+      }
+    ]
+  },
+  {
+    "test": "convert-webp",
+    "filename": "test-transparent.webp",
+    "magic_hex": "524946461809000057454250565038580a000000",
+    "format": "WEBP",
+    "dimensions": [
+      600,
+      400
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 2336,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/webp",
+        "size": 2336
+      }
+    ]
+  },
+  {
+    "test": "convert-jpeg",
+    "filename": "test-transparent.jpg",
+    "magic_hex": "ffd8ffe000104a46494600010100000100010000",
+    "format": "JPEG",
+    "dimensions": [
+      600,
+      400
+    ],
+    "mode": "RGB",
+    "alpha_extrema": null,
+    "bytes": 6568,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/jpeg",
+        "size": 6568
+      }
+    ]
+  },
+  {
+    "test": "convert-gif",
+    "filename": "test-transparent.gif",
+    "magic_hex": "47494638396158029001d50000ff0000ff0101ff",
+    "format": "GIF",
+    "dimensions": [
+      600,
+      400
+    ],
+    "mode": "P",
+    "alpha_extrema": null,
+    "bytes": 2176,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/gif",
+        "size": 2176
+      }
+    ]
+  },
+  {
+    "test": "convert-tiff",
+    "error": "cannot identify image file 'C:\\\\Users\\\\shiva\\\\Documents\\\\Google AG\\\\01_Seven_One_Labs\\\\01_SquarePic_Final\\\\squarepic-next\\\\squarepic.io-audit\\\\data\\\\convert-tiff-test-transparent.tiff'"
+  },
+  {
+    "test": "convert-ico",
+    "filename": "test-transparent.ico",
+    "magic_hex": "0000010001000000000001002000100d00001600",
+    "format": "ICO",
+    "dimensions": [
+      256,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 3366,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/x-icon",
+        "size": 3366
+      }
+    ]
+  },
+  {
+    "test": "compress-default-jpeg",
+    "filename": "test-transparent_compressed.jpg",
+    "magic_hex": "ffd8ffe000104a46494600010100000100010000",
+    "format": "JPEG",
+    "dimensions": [
+      600,
+      400
+    ],
+    "mode": "RGB",
+    "alpha_extrema": null,
+    "bytes": 5605,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/jpeg",
+        "size": 5605
+      }
+    ]
+  },
+  {
+    "test": "crop-default-desktop",
+    "filename": "cropped.png",
+    "magic_hex": "89504e470d0a1a0a0000000d4948445200000230",
+    "format": "PNG",
+    "dimensions": [
+      560,
+      560
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 11612,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/png",
+        "size": 11612
+      }
+    ]
+  },
+  {
+    "test": "crop-16-9-desktop",
+    "filename": "cropped.png",
+    "magic_hex": "89504e470d0a1a0a0000000d49484452000002bc",
+    "format": "PNG",
+    "dimensions": [
+      700,
+      394
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 7135,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/png",
+        "size": 11612
+      },
+      {
+        "type": "image/png",
+        "size": 7135
+      }
+    ]
+  },
+  {
+    "test": "upscale-2x-png",
+    "filename": "test-transparent_2x.png",
+    "magic_hex": "89504e470d0a1a0a0000000d49484452000004b0",
+    "format": "PNG",
+    "dimensions": [
+      1200,
+      800
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bytes": 29300,
+    "blobs": [
+      {
+        "type": "image/png",
+        "size": 2929
+      },
+      {
+        "type": "image/png",
+        "size": 29300
+      }
+    ]
+  }
+]

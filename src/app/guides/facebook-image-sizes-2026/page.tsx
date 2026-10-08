@@ -7,8 +7,8 @@ import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
-  "title": "Facebook Image Sizes 2026: Covers & Posts",
-  "description": "Find Facebook dimensions for cover photos, profile pictures, feed posts, event images, and ads. Includes mobile crop and export tips.",
+  "title": "Facebook Image Sizes: Covers, Posts & Profiles",
+  "description": "Compare Facebook cover photo, post and profile picture dimensions. Find image aspect ratios, mobile crop guidance and export tips for different placements.",
   "path": "/guides/facebook-image-sizes-2026",
   "image": "/og/og-facebook-image-sizes.png",
   "article": true,
@@ -34,12 +34,12 @@ export default function FacebookImageSizesPage() {
       ]} />
       <ArticleSchema
         type="BlogPosting"
-        title="Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions"
-        description="Complete guide to Facebook image dimensions for 2026. Cover photos, profile pictures, feed posts, event images, and ad sizes with best practices."
+        title="Facebook Image Sizes 2026: Covers, Posts & Profiles"
+        description="Compare Facebook cover photo, post and profile picture dimensions. Find image aspect ratios, mobile crop guidance and export tips for different placements."
         url={`${SITE}/guides/facebook-image-sizes-2026`}
         imageUrl={`${SITE}/og/og-facebook-image-sizes.png`}
         datePublished="2026-07-19"
-        dateModified="2026-07-19"
+        dateModified="2026-10-08"
         authorName="SevenOneLabs"
         authorUrl={`${SITE}/author/sevenonelabs`}
       />
@@ -49,9 +49,9 @@ export default function FacebookImageSizesPage() {
           <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
             Facebook
           </span>
-          <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated July 19, 2026 · 10 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
-          <ShareButtons path="/guides/facebook-image-sizes-2026" title="Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions" />
+          <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">Facebook Image Sizes 2026: Covers, Posts & Profiles</h1>
+          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated October 8, 2026 · 10 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
+          <ShareButtons path="/guides/facebook-image-sizes-2026" title="Facebook Image Sizes 2026: Covers, Posts & Profiles" />
         </div>
 
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-6">

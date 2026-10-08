@@ -1,6 +1,9 @@
 "use client";
+import { isImageFile } from "@/lib/image-input";
 
 import { useRef, useState, useCallback, useEffect } from "react";
+import { canvasBlob, downloadImage } from "@/lib/image-export";
+import { trackToolEvent } from "@/lib/analytics";
 import { motion } from "motion/react";
 
 const RATIOS: { label: string; value: number | null }[] = [
@@ -64,15 +67,21 @@ function clampCrop(
   b: { left: number; top: number; right: number; bottom: number },
   cw: number, ch: number
 ) {
-  let { x, y, w, h } = r;
-  x = Math.max(x, b.left);
-  y = Math.max(y, b.top);
-  w = Math.min(w, b.right - x);
-  h = Math.min(h, b.bottom - y);
-  w = Math.max(20, Math.min(w, cw - x));
-  h = Math.max(20, Math.min(h, ch - y));
-  x = Math.max(0, Math.min(x, cw - w));
-  y = Math.max(0, Math.min(y, ch - h));
+  const left = Math.max(0, b.left), top = Math.max(0, b.top);
+  const right = Math.min(cw, b.right), bottom = Math.min(ch, b.bottom);
+  const fit = Math.min(1, Math.max(1, right - left) / r.w, Math.max(1, bottom - top) / r.h);
+  const w = Math.max(1, r.w * fit), h = Math.max(1, r.h * fit);
+  const x = Math.max(left, Math.min(r.x, right - w));
+  const y = Math.max(top, Math.min(r.y, bottom - h));
+  return { x, y, w, h };
+}
+
+function sourceRegion(crop: { x: number; y: number; w: number; h: number }, bounds: ReturnType<typeof getImageCanvasBounds>, width: number, height: number, zoom: number) {
+  const scale = bounds.scale * zoom;
+  const x = Math.max(0, Math.min(width - 1, Math.round((crop.x - bounds.left) / scale)));
+  const y = Math.max(0, Math.min(height - 1, Math.round((crop.y - bounds.top) / scale)));
+  const w = Math.max(1, Math.min(width - x, Math.round(crop.w / scale)));
+  const h = Math.max(1, Math.min(height - y, Math.round(crop.h / scale)));
   return { x, y, w, h };
 }
 
@@ -82,6 +91,8 @@ export function CropperTool() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [image, setImage] = useState<HTMLImageElement | null>(null);
+  const [error, setError] = useState("");
+  const [outputSize, setOutputSize] = useState({ width: 0, height: 0 });
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [crop, setCrop] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
@@ -119,6 +130,18 @@ export function CropperTool() {
       const targetW = Math.round(cw * dpr);
       const targetH = Math.round(ch * dpr);
       if (canvas.width !== targetW || canvas.height !== targetH) {
+        const oldW = canvas.width, oldH = canvas.height;
+        if (imgRef.current && cropRef.current && oldW > 0 && oldH > 0) {
+          const oldBounds = getImageCanvasBounds(oldW, oldH, imgRef.current.naturalWidth, imgRef.current.naturalHeight, panRef.current.x, panRef.current.y, zoomRef.current);
+          const nextScale = Math.min(targetW / imgRef.current.naturalWidth, targetH / imgRef.current.naturalHeight);
+          const factor = nextScale / oldBounds.scale;
+          panRef.current = { x: panRef.current.x * factor, y: panRef.current.y * factor };
+          setPan(panRef.current);
+          const nextBounds = getImageCanvasBounds(targetW, targetH, imgRef.current.naturalWidth, imgRef.current.naturalHeight, panRef.current.x, panRef.current.y, zoomRef.current);
+          const c = cropRef.current;
+          cropRef.current = clampCrop({ x: nextBounds.left + (c.x - oldBounds.left) * factor, y: nextBounds.top + (c.y - oldBounds.top) * factor, w: c.w * factor, h: c.h * factor }, nextBounds, targetW, targetH);
+          setCrop(cropRef.current);
+        }
         canvas.width = targetW;
         canvas.height = targetH;
         if (imgRef.current) renderRef.current();
@@ -129,7 +152,7 @@ export function CropperTool() {
     const ro = new ResizeObserver(syncSize);
     ro.observe(container);
     return () => ro.disconnect();
-  }, []);
+  }, [image]);
 
   const render = useCallback(() => {
     const canvas = canvasRef.current;
@@ -152,13 +175,12 @@ export function CropperTool() {
     const imgH = img.naturalHeight;
     const scale = Math.min(cw / imgW, ch / imgH);
 
-    ctx.save();
-    ctx.translate(p.x, p.y);
-    ctx.scale(z, z);
-    const dx = (cw / z - imgW * scale) / 2;
-    const dy = (ch / z - imgH * scale) / 2;
-    ctx.drawImage(img, dx, dy, imgW * scale, imgH * scale);
-    ctx.restore();
+    const bounds = getImageCanvasBounds(cw, ch, imgW, imgH, p.x, p.y, z);
+    ctx.drawImage(img, bounds.left, bounds.top, imgW * scale * z, imgH * scale * z);
+    if (c) {
+      const region = sourceRegion(c, bounds, imgW, imgH, z);
+      setOutputSize((prev) => prev.width === region.w && prev.height === region.h ? prev : { width: region.w, height: region.h });
+    }
 
     if (!c) return;
 
@@ -204,8 +226,9 @@ export function CropperTool() {
     if (!image || !canvasRef.current) return;
     const cw = canvasRef.current.width;
     const ch = canvasRef.current.height;
-    const initSize = Math.min(cw, ch) * 0.8;
-    const newCrop = { x: (cw - initSize) / 2, y: (ch - initSize) / 2, w: initSize, h: initSize };
+    const bounds = getImageCanvasBounds(cw, ch, image.naturalWidth, image.naturalHeight, 0, 0, 1);
+    const initSize = Math.min(bounds.right - bounds.left, bounds.bottom - bounds.top) * 0.8;
+    const newCrop = clampCrop({ x: (cw - initSize) / 2, y: (ch - initSize) / 2, w: initSize, h: initSize }, bounds, cw, ch);
     cropRef.current = newCrop;
     zoomRef.current = 1;
     panRef.current = { x: 0, y: 0 };
@@ -219,11 +242,12 @@ export function CropperTool() {
     if (!imgRef.current || !canvasRef.current || !cropRef.current) return;
     const cw = canvasRef.current.width;
     const ch = canvasRef.current.height;
-    const bounds = getImageCanvasBounds(
-      cw, ch,
-      imgRef.current.naturalWidth, imgRef.current.naturalHeight,
-      panRef.current.x, panRef.current.y, zoomRef.current
-    );
+    const scale = Math.min(cw / imgRef.current.naturalWidth, ch / imgRef.current.naturalHeight) * zoomRef.current;
+    const maxPanX = Math.abs(cw - imgRef.current.naturalWidth * scale) / 2;
+    const maxPanY = Math.abs(ch - imgRef.current.naturalHeight * scale) / 2;
+    panRef.current = { x: Math.max(-maxPanX, Math.min(maxPanX, panRef.current.x)), y: Math.max(-maxPanY, Math.min(maxPanY, panRef.current.y)) };
+    setPan(panRef.current);
+    const bounds = getImageCanvasBounds(cw, ch, imgRef.current.naturalWidth, imgRef.current.naturalHeight, panRef.current.x, panRef.current.y, zoomRef.current);
     const clamped = clampCrop(cropRef.current, bounds, cw, ch);
     if (clamped.x !== cropRef.current.x || clamped.y !== cropRef.current.y ||
         clamped.w !== cropRef.current.w || clamped.h !== cropRef.current.h) {
@@ -282,8 +306,8 @@ export function CropperTool() {
       const cw = canvas.width;
       const ch = canvas.height;
       const z = zoomRef.current;
-      const dx = ((e.clientX - dragging.startX) * csx) / z;
-      const dy = ((e.clientY - dragging.startY) * csy) / z;
+      const dx = (e.clientX - dragging.startX) * csx;
+      const dy = (e.clientY - dragging.startY) * csy;
 
       if (dragging.mode === "pan") {
         const nx = dragging.startPan.x + (e.clientX - dragging.startX) * csx;
@@ -398,15 +422,24 @@ export function CropperTool() {
   }, [clampCropAfterViewChange]);
 
   const handleFile = useCallback((file: File) => {
-    if (!file.type.startsWith("image/")) return;
+    if (!file) return;
+    if (!isImageFile(file)) {
+      setError("Choose an image file, such as PNG, JPEG or WebP.");
+      trackToolEvent("processing_error", "cropper");
+      return;
+    }
+    setError("");
     const url = URL.createObjectURL(file);
     const img = new Image();
     img.onload = () => {
       URL.revokeObjectURL(url);
+      trackToolEvent("upload_accepted", "cropper");
       setImage(img);
     };
     img.onerror = () => {
       URL.revokeObjectURL(url);
+      setError("This image could not be decoded. Try PNG, JPEG or WebP.");
+      trackToolEvent("processing_error", "cropper");
     };
     img.src = url;
   }, []);
@@ -444,38 +477,27 @@ export function CropperTool() {
     renderRef.current();
   }, []);
 
-  const handleExport = useCallback(() => {
+  const handleExport = useCallback(async () => {
     if (!imgRef.current || !cropRef.current || !canvasRef.current) return;
-    const img = imgRef.current;
-    const c = cropRef.current;
-    const p = panRef.current;
-    const z = zoomRef.current;
-    const cw = canvasRef.current.width;
-    const ch = canvasRef.current.height;
-    const scale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
-
-    const out = document.createElement("canvas");
-    out.width = Math.round(c.w);
-    out.height = Math.round(c.h);
-    const ctx = out.getContext("2d")!;
-    if (expFormat === "jpeg") {
-      ctx.fillStyle = "#fff";
-      ctx.fillRect(0, 0, out.width, out.height);
+    setError("");
+    try {
+      const img = imgRef.current;
+      const bounds = getImageCanvasBounds(canvasRef.current.width, canvasRef.current.height, img.naturalWidth, img.naturalHeight, panRef.current.x, panRef.current.y, zoomRef.current);
+      const region = sourceRegion(cropRef.current, bounds, img.naturalWidth, img.naturalHeight, zoomRef.current);
+      const out = document.createElement("canvas");
+      out.width = region.w; out.height = region.h;
+      const ctx = out.getContext("2d");
+      if (!ctx) throw new Error("Could not create the cropped image.");
+      if (expFormat === "jpeg") { ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, out.width, out.height); }
+      ctx.drawImage(img, region.x, region.y, region.w, region.h, 0, 0, region.w, region.h);
+      const blob = await canvasBlob(out, `image/${expFormat}`, expQuality / 100);
+      trackToolEvent("processing_success", "cropper", expFormat);
+      downloadImage(blob, "cropped");
+      trackToolEvent("download", "cropper", expFormat);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Crop export failed.");
+      trackToolEvent("processing_error", "cropper", expFormat);
     }
-    const sx = (c.x - p.x) / (z * scale);
-    const sy = (c.y - p.y) / (z * scale);
-    const sw = c.w / (z * scale);
-    const sh = c.h / (z * scale);
-    ctx.drawImage(img, sx, sy, sw, sh, 0, 0, out.width, out.height);
-    out.toBlob((blob) => {
-      if (!blob) return;
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.download = `cropped.${expFormat === "jpeg" ? "jpg" : expFormat}`;
-      a.href = url;
-      a.click();
-      URL.revokeObjectURL(url);
-    }, `image/${expFormat === "jpeg" ? "jpeg" : expFormat}`, expQuality / 100);
   }, [expFormat, expQuality]);
 
   return (
@@ -487,10 +509,11 @@ export function CropperTool() {
         className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-6 mb-6"
       >
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/20 to-transparent" />
-        <h1 className="text-[1.65rem] font-extrabold tracking-tight mb-1">Free Image Cropper</h1>
-        <p className="text-[0.95rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">Crop images to any size with precision controls.</p>
+        <h1 className="text-[1.65rem] font-extrabold tracking-tight mb-1">Free Online Photo Cropper</h1>
+        <p className="text-[0.95rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">Select a region and export its original pixels. Cropping does not enlarge the image. PNG and WebP preserve transparency; JPEG adds white.</p>
       </motion.div>
 
+      {error && <p role="alert" className="text-sm text-[#f43f5e] mb-4">{error}</p>}
       {!image ? (
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -499,7 +522,7 @@ export function CropperTool() {
           onClick={() => fileInputRef.current?.click()}
           onDragOver={(e) => e.preventDefault()}
           onDrop={(e) => { e.preventDefault(); handleFile(e.dataTransfer.files[0]); }}
-          className="border-2 border-dashed border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.015)] rounded-xl p-20 text-center cursor-pointer transition-all hover:border-[var(--accent)] hover:bg-[var(--accent)]/5 min-h-[320px] flex flex-col items-center justify-center"
+          className="border-2 border-dashed border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.015)] rounded-xl p-6 sm:p-20 text-center cursor-pointer transition-all hover:border-[var(--accent)] hover:bg-[var(--accent)]/5 min-h-[320px] flex flex-col items-center justify-center"
         >
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)]">
             <svg aria-hidden="true" className="w-6 h-6 text-[var(--accent)] opacity-80" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
@@ -519,7 +542,7 @@ export function CropperTool() {
           >
             <div
               ref={containerRef}
-              className="relative bg-[#0a0c12] border border-[rgba(255,255,255,0.10)] overflow-hidden aspect-square p-1 will-change-transform"
+              className="relative bg-[#0a0c12] border border-[rgba(255,255,255,0.10)] overflow-hidden aspect-square will-change-transform"
               onPointerDown={handleCanvasPointerDown}
               onPointerMove={handlePointerMove}
               onPointerUp={handlePointerUp}
@@ -566,7 +589,7 @@ export function CropperTool() {
                     zoomRef.current = nz; setZoom(nz);
                     clampCropAfterViewChange(); renderRef.current();
                   }}
-                  className="flex-1" />
+                  className="min-w-0 flex-1" />
                 <button onClick={() => {
                   const nz = Math.min(10, zoomRef.current + 0.2);
                   zoomRef.current = nz; setZoom(nz);
@@ -579,8 +602,8 @@ export function CropperTool() {
 
             {crop && (
               <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3">
-                <div className="text-[0.65rem] text-[#8d9aaa]">Crop size: <strong className="text-[var(--accent)]">{Math.round(crop.w)} x {Math.round(crop.h)} px</strong></div>
-                <div className="text-[0.55rem] text-[#576675] mt-0.5">Pan: click & drag background. Resize: drag corners.</div>
+                <div className="text-[0.65rem] text-[#8d9aaa]">Export size: <strong className="text-[var(--accent)]">{outputSize.width} x {outputSize.height} px</strong></div>
+                <div className="text-[0.55rem] text-[#576675] mt-0.5">Original source pixels. Pan the background or drag crop handles. No resizing.</div>
               </div>
             )}
 

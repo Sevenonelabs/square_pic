@@ -10,12 +10,17 @@ import {
   useImperativeHandle,
   memo,
 } from "react";
+import { canvasBlob } from "@/lib/image-export";
+import { isImageFile } from "@/lib/image-input";
+import { trackToolEvent } from "@/lib/analytics";
 import { renderToCanvas, type EditorState } from "@/lib/editor-renderer";
 import { DropZone } from "./drop-zone";
 
 interface Props {
   state: EditorState;
   onStateChange: (update: Partial<EditorState>) => void;
+  onError: (message: string | null) => void;
+  toolName?: "square" | "resizer";
 }
 
 export interface EditorCanvasHandle {
@@ -38,7 +43,7 @@ function computeDisplaySize(
 }
 
 const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
-  function EditorCanvasInner({ state, onStateChange }, ref) {
+  function EditorCanvasInner({ state, onStateChange, onError, toolName = "square" }, ref) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const hasImage = state.image !== null;
@@ -55,8 +60,9 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
       const s = renderState.current;
       if (!ctx || !canvas || !s.image || !container) return;
 
-      const cw = container.clientWidth;
-      const ch = container.clientHeight;
+      const padding = getComputedStyle(container);
+      const cw = container.clientWidth - parseFloat(padding.paddingLeft) - parseFloat(padding.paddingRight);
+      const ch = container.clientHeight - parseFloat(padding.paddingTop) - parseFloat(padding.paddingBottom);
       if (cw <= 0 || ch <= 0) return;
 
       const { w: dispW, h: dispH } = computeDisplaySize(
@@ -67,13 +73,18 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
         ch,
       );
 
-      if (canvas.width !== dispW || canvas.height !== dispH) {
-        canvas.width = dispW;
-        canvas.height = dispH;
+      canvas.style.width = `${dispW}px`;
+      canvas.style.height = `${dispH}px`;
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      const bufferW = Math.round(dispW * pixelRatio);
+      const bufferH = Math.round(dispH * pixelRatio);
+      if (canvas.width !== bufferW || canvas.height !== bufferH) {
+        canvas.width = bufferW;
+        canvas.height = bufferH;
       }
 
       try {
-        renderToCanvas(ctx, canvas, s, dispW, dispH);
+        renderToCanvas(ctx, canvas, s, bufferW, bufferH);
       } catch (e) {
         console.error("Canvas render error:", e);
       }
@@ -145,7 +156,7 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
 
         renderToCanvas(ctx, offscreen, s, outW, outH);
 
-        return new Promise((resolve) => offscreen.toBlob((b) => resolve(b), mime));
+        return canvasBlob(offscreen, mime);
       },
       [getExportSize],
     );
@@ -154,12 +165,12 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
 
     const handleFile = useCallback(
       (file: File) => {
-        if (!file.type.startsWith("image/")) {
-          alert("Invalid file type. Please upload an image.");
+        if (!isImageFile(file)) {
+          onError("Choose an image file, such as PNG, JPEG or WebP.");
           return;
         }
         if (file.size > MAX_SIZE_MB * 1024 * 1024) {
-          alert(`File is too large. Please upload an image under ${MAX_SIZE_MB} MB.`);
+          onError(`Choose an image under ${MAX_SIZE_MB} MB and try again.`);
           return;
         }
         setLoading(true);
@@ -167,16 +178,18 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
         const img = new Image();
         img.onload = () => {
           setLoading(false);
+          trackToolEvent("upload_accepted", toolName);
           onStateChange({ image: img });
         };
         img.onerror = () => {
           setLoading(false);
           URL.revokeObjectURL(url);
-          alert("Could not load the image. The file may be corrupted.");
+          trackToolEvent("processing_error", toolName);
+          onError("This image could not be opened. Choose another image and try again.");
         };
         img.src = url;
       },
-      [onStateChange],
+      [onStateChange, onError, toolName],
     );
 
     const handleReset = useCallback(() => {
@@ -184,13 +197,14 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
       if (s.image) {
         URL.revokeObjectURL(s.image.src);
       }
+      onError(null);
       onStateChange({ image: null });
-    }, [onStateChange]);
+    }, [onStateChange, onError]);
 
     return (
       <div
         ref={containerRef}
-        className="flex-1 flex items-center justify-center p-2.5 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-md border border-[rgba(255,255,255,0.10)] relative overflow-hidden max-h-full min-w-0 will-change-transform"
+        className="editor-canvas-container w-full h-full min-h-0 flex-1 flex items-center justify-center p-2.5 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-md border border-[rgba(255,255,255,0.10)] relative overflow-hidden max-h-full min-w-0 will-change-transform"
       >
         {loading && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[rgba(3,4,6,0.85)]">

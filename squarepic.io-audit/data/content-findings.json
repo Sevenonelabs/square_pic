@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-08",
+  "scope": "Live squarepic.io; local edits treated as pending, not deployed",
+  "content_quality": {
+    "score": 53,
+    "score_type": "internal editorial heuristic",
+    "eeat": {
+      "experience": 11,
+      "expertise": 13,
+      "authoritativeness": 10,
+      "trustworthiness": 19
+    },
+    "citation_readiness": 45
+  },
+  "search_experience": {
+    "sample_page": "https://www.squarepic.io/resize/instagram",
+    "sxo_gap_score": 44,
+    "score_type": "internal editorial heuristic; separate from SEO health",
+    "serp_source": "representative web search, not controlled Google top 10"
+  },
+  "findings": [
+    {
+      "id": "C01",
+      "priority": "P1",
+      "category": "Content Quality",
+      "title": "AVIF/BMP output claims contradicted by actual PNG downloads",
+      "status": "live verified; Chromium sample",
+      "evidence": "data/tool-results.json",
+      "acceptance": "File signature, MIME, extension and independent decoder agree for every advertised format."
+    },
+    {
+      "id": "C02",
+      "priority": "P1",
+      "category": "Content Quality",
+      "title": "Compressor quality, target-size and PNG preservation promises exceed behavior",
+      "status": "live copy verified, source search defect identified",
+      "evidence": "data/crawl.json; src/lib/compressor-utils.ts; data/compressor-retest.json",
+      "acceptance": "Truthful lossy/format/dimension notices and explicit target-unmet outcome."
+    },
+    {
+      "id": "C03",
+      "priority": "P1",
+      "category": "Content Quality",
+      "title": "Upscaler bicubic/GPU/detail-recovery claims unsupported",
+      "status": "live copy; local accurate rewrite pending",
+      "evidence": "data/crawl.json; src/lib/upscaler-utils.ts",
+      "acceptance": "Accurate non-AI method in live metadata/copy/schema, original output examples."
+    },
+    {
+      "id": "C04",
+      "priority": "P1",
+      "category": "Content Quality",
+      "title": "Discord asset requirements contradicted by first-party docs",
+      "status": "live copy; local corrections pending",
+      "evidence": "data/crawl.json; findings/content.md primary-source links",
+      "acceptance": "Guide, calculator, editor and resizer agree with official requirements for each asset."
+    },
+    {
+      "id": "C05",
+      "priority": "P1",
+      "category": "Search Experience",
+      "title": "Live calculator matches presets instead of calculating arbitrary inputs",
+      "status": "live interaction verified; local implementation pending",
+      "evidence": "data/extra-results.json",
+      "acceptance": "1920x1080 yields16:9 and proportional960x540; arbitrary valid values work."
+    },
+    {
+      "id": "C06",
+      "priority": "P1",
+      "category": "Content Quality",
+      "title": "Privacy and no-data-collection claims conflict with analytics disclosure",
+      "status": "live text verified; analytics configuration needs verification",
+      "evidence": "data/crawl.json",
+      "acceptance": "Publish accurate image-processing vs analytics distinction after network/storage verification."
+    },
+    {
+      "id": "C07",
+      "priority": "P2",
+      "category": "Search Experience",
+      "title": "Platform and converter pair pages lack configured local workflows",
+      "status": "live verified",
+      "evidence": "data/render-instagram-content.json; data/crawl.json",
+      "acceptance": "Start matching configured workflow within one action, without reselecting output or preset."
+    },
+    {
+      "id": "C08",
+      "priority": "P2",
+      "category": "Content Quality",
+      "title": "Nine guides lack editorial primary-source specifications and original visual evidence",
+      "status": "live HTML verified",
+      "evidence": "data/crawl.json",
+      "acceptance": "Mutable rules have source and checked date; practical advice is labeled; add tested examples."
+    },
+    {
+      "id": "C09",
+      "priority": "P2",
+      "category": "Content Quality",
+      "title": "Homepage crop/no-crop and square-table descriptions contradict one another",
+      "status": "live text verified; local rewrite pending",
+      "evidence": "data/crawl.json; src/lib/editor-renderer.ts",
+      "acceptance": "Explain fit vs center crop accurately and distinguish square from rectangular placement dimensions."
+    },
+    {
+      "id": "C10",
+      "priority": "P2",
+      "category": "Content Quality",
+      "title": "Support labels, input limits and compatibility claims need synchronization",
+      "status": "live verified",
+      "evidence": "data/crawl.json",
+      "acceptance": "Document actual button labels, per-tool limits and tested input/output matrix."
+    },
+    {
+      "id": "C11",
+      "priority": "P2",
+      "category": "Content Quality",
+      "title": "Repeated generic advice obscures distinct platform/output jobs",
+      "status": "live verified; no claim of spam penalty",
+      "evidence": "data/crawl.json",
+      "acceptance": "Distinct tasks have actual constraints and output behavior; consolidation requires GSC overlap evidence."
+    },
+    {
+      "id": "C12",
+      "priority": "P2",
+      "category": "Content Quality",
+      "title": "Broad experience/social-proof claims lack verifiable examples",
+      "status": "live text verified; independent reputation unmeasured",
+      "evidence": "data/crawl.json",
+      "acceptance": "Factual maintainers, test methodology and real examples without fabricated credentials."
+    }
+  ]
+}

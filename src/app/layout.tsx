@@ -26,12 +26,12 @@ const syneMono = Syne_Mono({
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: "Make an Image Square Online for Free",
-    description: "Make photos square with blur, color backgrounds, or smart crop. Resize and export images in your browser. Free, with no signup or server uploads.",
+    title: "Square Image Maker: Make an Image Square",
+    description: "Make any image square online with blur or a solid background. Keep the full photo without cropping, or crop to fill. Free PNG, JPG and WebP downloads.",
     path: "/",
   }),
   title: {
-    default: "Make an Image Square Online for Free | SquarePic",
+    default: "Square Image Maker: Make an Image Square | SquarePic",
     template: "%s | SquarePic",
   },
   icons: {

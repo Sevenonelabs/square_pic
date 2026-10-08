@@ -10,7 +10,7 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
   "title": "Social Media Image Sizes 2026: Cheat Sheet",
-  "description": "Compare image dimensions and aspect ratios across 13 social platforms. Find sizes for posts, profiles, banners, stories, and thumbnails.",
+  "description": "Compare social media image sizes for 2026 across 13 platforms. Find post, profile, banner and Story dimensions, aspect ratios and links to free image resizers.",
   "path": "/guides/social-media-image-sizes-2026",
   "image": "/og/og-social-media-image-sizes.png",
   "article": true,
@@ -84,28 +84,26 @@ export default function SocialMediaImageSizesPage() {
       ]} />
       <ArticleSchema
         type="BlogPosting"
-        title="Social Media Image Sizes 2026: Complete Cheat Sheet"
-        description="The definitive guide to 2026 social media image sizes. Updated dimensions for Instagram, Facebook, X/Twitter, LinkedIn, TikTok, YouTube, Pinterest, and more."
+        title="Social Media Image Sizes 2026: Cheat Sheet"
+        description="Compare social media image sizes for 2026 across 13 platforms. Find post, profile, banner and Story dimensions, aspect ratios and links to free image resizers."
         url={`${SITE}/guides/social-media-image-sizes-2026`}
         imageUrl={`${SITE}/og/og-social-media-image-sizes.png`}
         datePublished="2026-07-19"
-        dateModified="2026-07-19"
+        dateModified="2026-10-08"
         authorName="SevenOneLabs"
         authorUrl={`${SITE}/author/sevenonelabs`}
       />
       <FAQPageSchema questions={FAQ_QUESTIONS} />
       <article className="max-w-[800px] w-full mx-auto px-4 py-8">
-        <h1 className="text-[2rem] font-extrabold tracking-tight mb-1">
-          Social Media Image Sizes 2026: Complete Cheat Sheet
-        </h1>
-        <p className="text-[0.78rem] text-[#576675] mb-6">Published July 19, 2026 · Updated July 19, 2026 · 15 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
+        <h1 className="text-[2rem] font-extrabold tracking-tight mb-1">Social Media Image Sizes 2026: Cheat Sheet</h1>
+        <p className="text-[0.78rem] text-[#576675] mb-6">Published July 19, 2026 · Discord section updated October 7, 2026 · 15 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
         <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-8">
           Using the correct image dimensions is one of the easiest ways to make your social media profiles
           look professional. Every platform has specific requirements, and getting them wrong means your
           images will appear stretched, cropped, or pixelated. This guide covers the exact image sizes for
           every major social media platform in 2026.
         </p>
-        <ShareButtons path="/guides/social-media-image-sizes-2026" title="Social Media Image Sizes 2026: Complete Cheat Sheet" />
+        <ShareButtons path="/guides/social-media-image-sizes-2026" title="Social Media Image Sizes 2026: Cheat Sheet" />
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mb-8">
           <h2 className="text-[1.1rem] font-extrabold text-[#e6edf5] mb-3">Quick Navigation</h2>
@@ -147,6 +145,9 @@ export default function SocialMediaImageSizesPage() {
                 </Link>
               </div>
               <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-4">{p.description}</p>
+              {key === "discord" && <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-4">
+                These are separate uploads. See the <Link href="/guides/discord-image-sizes-2026" className="text-[var(--accent)] hover:underline">Discord server banner and invite splash guide</Link> for Boost requirements and missing-image checks.
+              </p>}
 
               <div className="overflow-x-auto mb-3">
                 <table className="w-full text-[0.78rem] border-collapse">

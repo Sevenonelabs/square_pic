@@ -1,6 +1,9 @@
 "use client";
+import { isImageFile } from "@/lib/image-input";
 
 import { useRef, useState, useCallback, useEffect } from "react";
+import { canvasBlob, downloadImage } from "@/lib/image-export";
+import { trackToolEvent } from "@/lib/analytics";
 import { motion } from "motion/react";
 import { upscaleImage, type UpscaleResult } from "@/lib/upscaler-utils";
 
@@ -54,7 +57,17 @@ export function UpscalerTool() {
   }, [dragging, handleSliderMove]);
 
   const handleFile = useCallback((file: File) => {
-    if (!file.type.startsWith("image/")) return;
+    if (!file) return;
+    if (!isImageFile(file)) {
+      setError("Choose an image file, such as PNG, JPEG or WebP.");
+      trackToolEvent("processing_error", "upscaler");
+      return;
+    }
+    if (file.size > 30 * 1024 * 1024) {
+      setError("Choose an image no larger than 30 MB.");
+      trackToolEvent("processing_error", "upscaler");
+      return;
+    }
     setFileName(file.name);
     setFileSize(file.size);
     setResult(null);
@@ -64,9 +77,11 @@ export function UpscalerTool() {
     const url = URL.createObjectURL(file);
     const img = new Image();
     img.onload = () => {
+      trackToolEvent("upload_accepted", "upscaler");
       setImage(img);
       URL.revokeObjectURL(url);
     };
+    img.onerror = () => { URL.revokeObjectURL(url); setError("This image could not be decoded. Try PNG, JPEG or WebP."); trackToolEvent("processing_error", "upscaler"); };
     img.src = url;
   }, []);
 
@@ -76,33 +91,39 @@ export function UpscalerTool() {
     setError("");
     try {
       const r = await upscaleImage(image, scale, sharpen);
+      trackToolEvent("processing_success", "upscaler");
       setResult(r);
       const dataUrl = r.canvas.toDataURL();
       setResultDataUrl(dataUrl);
       setDisplayMode("compare");
       setSliderPos(50);
     } catch {
+      trackToolEvent("processing_error", "upscaler");
       setError("Upscaling failed. The image may be too large or your browser doesn't support the required Canvas operations.");
     }
     setProcessing(false);
   }, [image, scale, sharpen]);
 
-  const handleExport = useCallback(() => {
+  const handleExport = useCallback(async () => {
     if (!result) return;
-    const { canvas } = result;
-    const mime = `image/${expFormat === "jpeg" ? "jpeg" : expFormat}`;
-    const quality = expFormat === "png" ? undefined : expQuality / 100;
-    canvas.toBlob((blob) => {
-      if (!blob) return;
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
+    try {
+      let canvas = result.canvas;
+      if (expFormat === "jpeg") {
+        canvas = document.createElement("canvas");
+        canvas.width = result.width; canvas.height = result.height;
+        const ctx = canvas.getContext("2d")!;
+        ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(result.canvas, 0, 0);
+      }
+      const blob = await canvasBlob(canvas, `image/${expFormat}`, expQuality / 100);
       const base = fileName.substring(0, fileName.lastIndexOf(".")) || fileName;
-      a.download = `${base}_${scale}x.${expFormat === "jpeg" ? "jpg" : expFormat}`;
-      a.href = url;
-      a.click();
-      URL.revokeObjectURL(url);
-    }, mime, quality);
-  }, [result, expFormat, expQuality, fileName, scale]);
+      downloadImage(blob, `${base}_${result.width / result.originalWidth}x`);
+      trackToolEvent("download", "upscaler", expFormat);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Image export failed.");
+      trackToolEvent("processing_error", "upscaler", expFormat);
+    }
+  }, [result, expFormat, expQuality, fileName]);
 
   const reset = useCallback(() => {
     setImage(null);
@@ -123,10 +144,11 @@ export function UpscalerTool() {
         className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-6 mb-6"
       >
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/20 to-transparent" />
-        <h1 className="text-[1.65rem] font-extrabold tracking-tight mb-1">Free HD Image Upscaler</h1>
-        <p className="text-[0.95rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">Upscale images 2x, 3x, or 4x with high-quality bicubic interpolation and smart sharpening. All processing is done locally in your browser.</p>
+        <h1 className="text-[1.65rem] font-extrabold tracking-tight mb-1">Free Image Upscaler for PNG & JPG</h1>
+        <p className="text-[0.95rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">Enlarge PNG, JPG, or WebP images 2x, 3x, or 4x with browser smoothing and optional sharpening. No AI model, signup, or watermark. Your photo stays on your device.</p>
       </motion.div>
 
+      {error && <p role="alert" className="text-[0.8rem] text-[#f43f5e] border border-[#f43f5e]/20 rounded-lg p-3 mb-4">{error}</p>}
       {!image ? (
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -135,7 +157,7 @@ export function UpscalerTool() {
           onClick={() => fileInputRef.current?.click()}
           onDragOver={(e) => e.preventDefault()}
           onDrop={(e) => { e.preventDefault(); handleFile(e.dataTransfer.files[0]); }}
-          className="border-2 border-dashed border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.015)] rounded-xl p-20 text-center cursor-pointer transition-all hover:border-[var(--accent)] hover:bg-[var(--accent)]/5 min-h-[320px] flex flex-col items-center justify-center"
+          className="border-2 border-dashed border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.015)] rounded-xl p-6 sm:p-20 text-center cursor-pointer transition-all hover:border-[var(--accent)] hover:bg-[var(--accent)]/5 min-h-[320px] flex flex-col items-center justify-center"
         >
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)]">
             <svg aria-hidden="true" className="w-6 h-6 text-[var(--accent)] opacity-80" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
@@ -143,7 +165,7 @@ export function UpscalerTool() {
             </svg>
           </div>
           <h3 className="text-[1.3rem] font-bold mb-2">Drop an image or click to browse</h3>
-          <p className="text-[0.8rem] text-[#8d9aaa]">PNG, JPEG, WebP, BMP, GIF, TIFF — up to 30 MB</p>
+          <p className="text-[0.8rem] text-[#8d9aaa]">Browser-decodable images such as PNG, JPEG and WebP — up to 30 MB</p>
           <input ref={fileInputRef} type="file" hidden accept="image/*" onChange={(e) => e.target.files && handleFile(e.target.files[0])} />
         </motion.div>
       ) : (
@@ -250,7 +272,7 @@ export function UpscalerTool() {
               <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Scale Factor</h3>
               <div className="flex gap-1 mb-2">
                 {SCALES.map((s) => (
-                  <button key={s} onClick={() => setScale(s)}
+                  <button key={s} disabled={processing} onClick={() => { setScale(s); setResult(null); setResultDataUrl(""); setDisplayMode("original"); }}
                     className={`flex-1 text-[0.6rem] font-bold px-1 py-1.5 rounded-sm border transition-all ${
                       scale === s
                         ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
@@ -267,7 +289,7 @@ export function UpscalerTool() {
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675]">Smart Sharpen</h3>
-                <button onClick={() => setSharpen(!sharpen)}
+                <button aria-label="Smart Sharpen" aria-pressed={sharpen} disabled={processing} onClick={() => { setSharpen(!sharpen); setResult(null); setResultDataUrl(""); setDisplayMode("original"); }}
                   className={`relative w-9 h-5 rounded-full transition-all cursor-pointer ${
                     sharpen ? "bg-[var(--accent)]" : "bg-[rgba(255,255,255,0.10)]"
                   }`}>
@@ -280,12 +302,6 @@ export function UpscalerTool() {
                 Applies unsharp mask after upscaling for crisper details.
               </p>
             </div>
-
-            {error && (
-              <div className="bg-[rgba(244,63,94,0.08)] border border-[rgba(244,63,94,0.15)] rounded-lg p-3">
-                <p className="text-[0.68rem] text-[#f43f5e] leading-relaxed m-0">{error}</p>
-              </div>
-            )}
 
             <button onClick={handleUpscale} disabled={processing}
               className="w-full bg-[var(--accent)] text-black border-none py-2.5 rounded-lg font-extrabold text-sm cursor-pointer transition-all hover:brightness-110 active:brightness-125 shadow-[0_4px_20px_var(--accent-glow)] disabled:opacity-40 disabled:cursor-not-allowed"

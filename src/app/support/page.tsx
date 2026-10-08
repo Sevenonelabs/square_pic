@@ -68,7 +68,7 @@ export default function SupportPage() {
           <strong className="text-[#e6edf5]">Image Compressor:</strong> Reduce file sizes with either a quality slider or target size mode. The binary search algorithm finds the optimal compression level. Batch compress multiple files and download them individually or as a ZIP archive.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          <strong className="text-[#e6edf5]">Image Converter:</strong> Convert images between 8 different formats including JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, and TIFF. Set per-file format and quality settings.
+          <strong className="text-[#e6edf5]">Image Converter:</strong> Export JPEG, PNG, WebP or ICO with per-file format and quality settings. AVIF, BMP, GIF and TIFF output are currently unavailable. Animated inputs produce a still frame.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           <strong className="text-[#e6edf5]">Image Cropper:</strong> Crop images interactively with 8 drag handles. Lock aspect ratio to common social media formats including 1:1, 4:5, 16:9, and 9:16. Zoom and pan for precise positioning.

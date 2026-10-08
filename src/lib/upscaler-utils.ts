@@ -52,6 +52,7 @@ export async function upscaleImage(
   const nw = Math.round(ow * scale);
   const nh = Math.round(oh * scale);
 
+  if (![2, 3, 4].includes(scale) || nw * nh > 40000000 || nw > 16384 || nh > 16384) throw new Error("Output exceeds the browser size limit.");
   const canvas = document.createElement("canvas");
   canvas.width = nw;
   canvas.height = nh;

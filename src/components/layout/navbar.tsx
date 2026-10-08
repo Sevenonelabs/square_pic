@@ -101,7 +101,7 @@ export function Navbar() {
         {["100% Free", "No Watermarks"].map((label) => (
           <span
             key={label}
-            className="text-[0.6rem] font-bold tracking-wider text-[#576675] bg-[rgba(255,255,255,0.03)] px-2.5 py-1 border border-[rgba(255,255,255,0.06)] rounded-sm whitespace-nowrap max-md:hidden"
+            className="text-[0.6rem] font-bold tracking-wider text-[#576675] bg-[rgba(255,255,255,0.03)] px-2.5 py-1 border border-[rgba(255,255,255,0.06)] rounded-sm whitespace-nowrap max-lg:hidden"
           >
             {label}
           </span>

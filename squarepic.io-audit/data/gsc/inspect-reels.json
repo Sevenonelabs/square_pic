@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "data": {
+    "url": "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+    "verdict": "PASS",
+    "indexed": true,
+    "indexStatus": {
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-26T01:07:17Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+      "userCanonical": "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+      "sitemap": [
+        "https://www.squarepic.io/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://www.squarepic.io/",
+        "https://www.squarepic.io/guides/tiktok-image-sizes-2026"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    "mobileUsability": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    },
+    "richResults": {
+      "verdict": "PASS",
+      "detectedItems": [
+        {
+          "richResultType": "Breadcrumbs",
+          "items": [
+            {
+              "name": "Unnamed item"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "command": "inspect",
+    "durationMs": 22846
+  }
+}

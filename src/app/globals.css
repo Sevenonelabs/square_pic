@@ -29,7 +29,7 @@
 
 html {
   background: var(--bg-base);
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   overscroll-behavior: none;
 }
 
@@ -195,4 +195,51 @@ input[type="color"]::-webkit-color-swatch {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Flex/grid content and native controls must shrink on narrow screens. */
+main { min-width: 0; }
+input, select, textarea { min-width: 0; max-width: 100%; }
+section, article { max-width: 100%; overflow-wrap: break-word; }
+
+/* StartupBar adds body padding after loading. The app already reserves its
+   36px bar in the navbar offset and page padding. Keep that spacing stable. */
+body { padding-top: 96px !important; }
+html { scroll-padding-top: 96px !important; }
+@media (max-width: 767px) {
+  body { padding-top: 88px !important; }
+  html { scroll-padding-top: 88px !important; }
+}
+iframe[data-startupbar-frame][style*="position: static"] { position: fixed !important; top: 0 !important; left: 0 !important; }
+
+/* Preview pixels follow the available workspace; export pixels stay independent. */
+.image-editor-workspace { --editor-header: 96px; scroll-margin-top: 8px; }
+.image-editor-workspace[data-loaded="true"] .editor-shell {
+  height: calc(100dvh - var(--editor-header) - 24px - env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+}
+.image-editor-workspace[data-loaded="true"] .editor-stage { flex: 1; min-height: 0; }
+.image-editor-workspace[data-loaded="true"] .editor-preview { min-height: 0; }
+.image-editor-workspace[data-loaded="true"] .editor-controls { height: 100%; min-height: 0; }
+.image-editor-workspace[data-loaded="true"] .editor-settings { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.editor-dialog { margin: auto; }
+.editor-dialog::backdrop { background: rgb(0 0 0 / 75%); backdrop-filter: blur(4px); }
+.editor-settings:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+@media (max-width: 767px) {
+  .image-editor-workspace { --editor-header: 88px; }
+  .editor-settings { max-height: 220px; overflow-y: auto; overscroll-behavior: contain; }
+  .image-editor-workspace[data-loaded="true"] .editor-stage {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) minmax(0, clamp(180px, 38dvh, 300px));
+  }
+  .image-editor-workspace[data-loaded="true"] .editor-settings { max-height: none; }
+  .editor-export p { font-size: 11px; line-height: 1.35; }
+  .editor-controls button { min-height: 28px; }
+  .editor-controls input[type="range"] { min-height: 24px; }
+}
+/* Phone rotation needs side-by-side controls to leave room for the picture. */
+@media (max-width: 767px) and (max-height: 500px) {
+  .image-editor-workspace[data-loaded="true"] .editor-stage { display: flex; flex-direction: row; }
+  .image-editor-workspace[data-loaded="true"] .editor-controls { width: 200px; max-width: 48%; }
 }

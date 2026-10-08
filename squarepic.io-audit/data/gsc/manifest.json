@@ -1,0 +1,144 @@
+{
+  "collected_local_date": "2026-10-08",
+  "report_timezone": "Asia/Calcutta",
+  "property": "sc-domain:squarepic.io",
+  "search_type": "web",
+  "periods": {
+    "current": [
+      "2026-09-08",
+      "2026-10-05"
+    ],
+    "previous": [
+      "2026-08-11",
+      "2026-09-07"
+    ],
+    "90d": [
+      "2026-07-08",
+      "2026-10-05"
+    ]
+  },
+  "row_cap": 25000,
+  "data_state": "API default final; no request for preliminary data",
+  "results": [
+    {
+      "file": "totals-current",
+      "ok": true,
+      "rows": 1
+    },
+    {
+      "file": "page-current",
+      "ok": true,
+      "rows": 36
+    },
+    {
+      "file": "sitemaps",
+      "ok": true,
+      "rows": null
+    },
+    {
+      "file": "page-query-current",
+      "ok": true,
+      "rows": 1238
+    },
+    {
+      "file": "device-current",
+      "ok": true,
+      "rows": 3
+    },
+    {
+      "file": "date-current",
+      "ok": true,
+      "rows": 28
+    },
+    {
+      "file": "country-current",
+      "ok": true,
+      "rows": 181
+    },
+    {
+      "file": "page-previous",
+      "ok": true,
+      "rows": 38
+    },
+    {
+      "file": "totals-previous",
+      "ok": true,
+      "rows": 1
+    },
+    {
+      "file": "page-90d",
+      "ok": true,
+      "rows": 52
+    },
+    {
+      "file": "page-query-previous",
+      "ok": true,
+      "rows": 1250
+    },
+    {
+      "file": "totals-90d",
+      "ok": true,
+      "rows": 1
+    },
+    {
+      "file": "page-query-90d",
+      "ok": true,
+      "rows": 2412
+    },
+    {
+      "file": "inspect-home",
+      "ok": true,
+      "rows": 0
+    },
+    {
+      "file": "inspect-upscaler",
+      "ok": true,
+      "rows": 0
+    },
+    {
+      "file": "inspect-calculator",
+      "ok": true,
+      "rows": 0
+    },
+    {
+      "file": "inspect-converter",
+      "ok": true,
+      "rows": 0
+    },
+    {
+      "file": "inspect-compressor",
+      "ok": true,
+      "rows": 0
+    },
+    {
+      "file": "inspect-cropper",
+      "ok": true,
+      "rows": 0
+    },
+    {
+      "file": "inspect-linkedin",
+      "ok": true,
+      "rows": 0
+    },
+    {
+      "file": "inspect-instagram",
+      "ok": true,
+      "rows": 0
+    },
+    {
+      "file": "inspect-discord",
+      "ok": true,
+      "rows": 0
+    },
+    {
+      "file": "inspect-reels",
+      "ok": true,
+      "rows": 0
+    },
+    {
+      "file": "inspect-square-guide",
+      "ok": true,
+      "rows": 0
+    }
+  ]
+}

@@ -1,12 +1,15 @@
 "use client";
+import { isImageFile, matchesImageFormat } from "@/lib/image-input";
 
 import { useState, useRef, useCallback } from "react";
 import { motion } from "motion/react";
-import { encodeGIF, encodeICO, encodeTIFF } from "@/lib/encoders";
-import { formatBytes } from "@/lib/compressor-utils";
+import { encodeICO } from "@/lib/encoders";
+import { formatBytes, loadImage } from "@/lib/compressor-utils";
+import { canvasBlob, downloadImage, FORMAT_MIME, OUTPUT_FORMATS, verifyImageBlob, type OutputFormat } from "@/lib/image-export";
+import { trackToolEvent } from "@/lib/analytics";
 import { runConcurrent } from "@/lib/async-utils";
 
-type Format = "jpeg" | "png" | "webp" | "bmp" | "gif" | "ico" | "avif" | "tiff";
+type Format = OutputFormat;
 
 interface FileItem {
   id: string;
@@ -19,9 +22,10 @@ interface FileItem {
   quality: number;
   status: "ready" | "converting" | "done" | "error";
   convertedBlob: Blob | null;
+  error?: string;
 }
 
-const FORMAT_CATEGORIES: { label: string; formats: { value: Format; label: string }[] }[] = [
+const FORMAT_CATEGORIES: { label: string; formats: { value: string; label: string }[] }[] = [
   {
     label: "Image", formats: [
       { value: "jpeg", label: "JPEG" }, { value: "png", label: "PNG" }, { value: "webp", label: "WebP" },
@@ -35,78 +39,23 @@ const FORMAT_CATEGORIES: { label: string; formats: { value: Format; label: strin
   },
 ];
 
-function getMime(fmt: Format): string {
-  const map: Record<string, string> = { jpeg: "image/jpeg", png: "image/png", webp: "image/webp", bmp: "image/bmp", gif: "image/gif", ico: "image/x-icon", avif: "image/avif", tiff: "image/tiff" };
-  return map[fmt];
-}
-
-function getExt(fmt: Format): string {
-  const map: Record<string, string> = { jpeg: "jpg", png: "png", webp: "webp", bmp: "bmp", gif: "gif", ico: "ico", avif: "avif", tiff: "tiff" };
-  return map[fmt];
-}
-
-const imgCache = new Map<string, HTMLImageElement>();
-
-function loadImage(src: string): Promise<HTMLImageElement> {
-  const cached = imgCache.get(src);
-  if (cached) return Promise.resolve(cached);
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => { imgCache.set(src, img); resolve(img); };
-    img.onerror = () => reject(new Error("Image failed to load"));
-    img.src = src;
-  });
-}
-
-function convertCore(
-  img: HTMLImageElement,
-  format: Format,
-  quality: number
-): Promise<Blob> {
+async function convertCore(img: HTMLImageElement, format: Format, quality: number): Promise<Blob> {
   const canvas = document.createElement("canvas");
-  canvas.width = img.naturalWidth;
-  canvas.height = img.naturalHeight;
-  const ctx = canvas.getContext("2d")!;
-
-  if (format === "gif") {
-    ctx.drawImage(img, 0, 0);
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const gifData = encodeGIF(imageData);
-    return Promise.resolve(new Blob([gifData as BlobPart], { type: "image/gif" }));
-  }
-
   if (format === "ico") {
-    const s = Math.min(256, Math.max(img.naturalWidth, img.naturalHeight));
-    const temp = document.createElement("canvas");
-    temp.width = s; temp.height = s;
-    const tCtx = temp.getContext("2d")!;
-    tCtx.drawImage(img, 0, 0, s, s);
-    return new Promise<Blob>((resolve) =>
-      temp.toBlob((b) => resolve(b!), "image/png")
-    ).then(encodeICO);
+    const factor = Math.min(1, 256 / Math.max(img.naturalWidth, img.naturalHeight));
+    canvas.width = Math.max(1, Math.round(img.naturalWidth * factor));
+    canvas.height = Math.max(1, Math.round(img.naturalHeight * factor));
+  } else {
+    canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
   }
-
-  if (format === "tiff") {
-    ctx.drawImage(img, 0, 0);
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    return Promise.resolve(encodeTIFF(imageData));
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Image is too large for this browser.");
+  if (format === "jpeg") { ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  if (format === "ico") {
+    return verifyImageBlob(await encodeICO(await canvasBlob(canvas, "image/png"), canvas.width, canvas.height), FORMAT_MIME.ico);
   }
-
-  if (format === "jpeg") {
-    ctx.fillStyle = "#FFFFFF";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-  }
-  ctx.drawImage(img, 0, 0);
-
-  const mime = getMime(format);
-  const q = mime === "image/png" || mime === "image/bmp" ? undefined : quality;
-
-  return new Promise((resolve, reject) => {
-    canvas.toBlob((blob) => {
-      if (blob) resolve(blob);
-      else reject(new Error("Conversion failed"));
-    }, mime, q);
-  });
+  return canvasBlob(canvas, FORMAT_MIME[format], quality);
 }
 
 async function convertFile(item: FileItem): Promise<Blob> {
@@ -116,10 +65,11 @@ async function convertFile(item: FileItem): Promise<Blob> {
 
 const MAX_CONCURRENCY = 4;
 
-export function ConverterTool() {
+export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading = true }: { initialFormat?: Format; inputFormat?: string; showHeading?: boolean }) {
   const [files, setFiles] = useState<FileItem[]>([]);
   const [openFormatId, setOpenFormatId] = useState<string | null>(null);
   const [converting, setConverting] = useState(false);
+  const [notice, setNotice] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const formatRef = useRef<HTMLDivElement>(null);
 
@@ -127,16 +77,18 @@ export function ConverterTool() {
     const newItems: FileItem[] = [];
     for (let i = 0; i < fileList.length; i++) {
       const file = fileList[i];
-      if (!file.type.startsWith("image/")) continue;
+      if (!isImageFile(file)) continue;
+      if (inputFormat && !matchesImageFormat(file, inputFormat)) { setNotice(`Choose a ${inputFormat.toUpperCase()} image for this conversion.`); continue; }
+      trackToolEvent("upload_accepted", "converter");
       const id = Math.random().toString(36).substring(2, 11);
       const src = URL.createObjectURL(file);
-      newItems.push({ id, file, name: file.name, size: file.size, src, imgElement: null, targetFormat: "webp", quality: 0.8, status: "ready", convertedBlob: null });
+      newItems.push({ id, file, name: file.name, size: file.size, src, imgElement: null, targetFormat: initialFormat, quality: 0.8, status: "ready", convertedBlob: null });
     }
     if (newItems.length > 0) setFiles((p) => [...p, ...newItems]);
-  }, []);
+  }, [initialFormat, inputFormat]);
 
   const updateItem = useCallback((id: string, update: Partial<FileItem>) => {
-    setFiles((prev) => prev.map((f) => (f.id === id ? { ...f, ...update } : f)));
+    setFiles((prev) => prev.map((f) => (f.id === id ? { ...f, ...(update.targetFormat || update.quality !== undefined ? { status: "ready" as const, convertedBlob: null, error: undefined } : {}), ...update } : f)));
   }, []);
 
   const removeFile = useCallback((id: string) => {
@@ -150,17 +102,17 @@ export function ConverterTool() {
   const startConversion = useCallback(async () => {
     setConverting(true);
     const pending = files.filter((f) => f.status !== "done");
-    const updated = new Map<string, boolean>();
+
 
     await runConcurrent(pending, async (item) => {
       updateItem(item.id, { status: "converting" });
       try {
         const blob = await convertFile(item);
-        updated.set(item.id, true);
+        trackToolEvent("processing_success", "converter", item.targetFormat);
         updateItem(item.id, { status: "done", convertedBlob: blob });
-      } catch {
-        updated.set(item.id, false);
-        updateItem(item.id, { status: "error" });
+      } catch (error) {
+        trackToolEvent("processing_error", "converter", item.targetFormat);
+        updateItem(item.id, { status: "error", error: error instanceof Error ? error.message : "Conversion failed." });
       }
     }, MAX_CONCURRENCY);
 
@@ -174,14 +126,9 @@ export function ConverterTool() {
 
   const downloadFile = useCallback((item: FileItem) => {
     if (!item.convertedBlob) return;
-    const ext = getExt(item.targetFormat);
     const name = item.name.substring(0, item.name.lastIndexOf(".")) || item.name;
-    const url = URL.createObjectURL(item.convertedBlob);
-    const a = document.createElement("a");
-    a.download = `${name}.${ext}`;
-    a.href = url;
-    a.click();
-    URL.revokeObjectURL(url);
+    downloadImage(item.convertedBlob, name);
+    trackToolEvent("download", "converter", item.targetFormat);
   }, []);
 
   const downloadAll = useCallback(() => {
@@ -199,12 +146,13 @@ export function ConverterTool() {
         className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-6 mb-6"
       >
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/20 to-transparent" />
-        <h1 className="text-[1.65rem] font-extrabold tracking-tight mb-1">Free Image Converter</h1>
+        {showHeading && <h1 className="text-[1.65rem] font-extrabold tracking-tight mb-1">Free Image Converter for JPG, PNG, WebP & ICO</h1>}
         <p className="text-[0.95rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">
-          Convert images between formats including JPEG, PNG, WebP, BMP, GIF, ICO, AVIF, and TIFF.
+          Export JPEG, PNG, WebP or a single-size ICO. JPEG fills transparency with white. ICO fits within 256 pixels without stretching. Other exports keep source dimensions.
         </p>
       </motion.div>
 
+      <p className="text-sm text-[#8d9aaa] mb-4" role="status">AVIF, BMP, GIF and TIFF output are unavailable while their encoders are being repaired. Animated inputs export their first frame. {notice}</p>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -212,7 +160,7 @@ export function ConverterTool() {
         onClick={() => inputRef.current?.click()}
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => { e.preventDefault(); addFiles(e.dataTransfer.files); }}
-        className={`border-2 border-dashed rounded-xl p-16 text-center cursor-pointer transition-all mb-4 min-h-[280px] flex flex-col items-center justify-center ${
+        className={`border-2 border-dashed rounded-xl p-6 sm:p-16 text-center cursor-pointer transition-all mb-4 min-h-[280px] flex flex-col items-center justify-center ${
           files.length > 0
             ? "border-[rgba(255,255,255,0.06)] bg-[rgba(0,0,0,0.15)]"
             : "border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.015)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/5"
@@ -245,14 +193,15 @@ export function ConverterTool() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={item.src} className="w-12 h-12 rounded-md object-cover bg-black/30 border border-[rgba(255,255,255,0.06)] shrink-0" alt={item.name} />
-              <div className="flex-1 min-w-[120px]">
+              <div className="flex-1 min-w-0 basis-[120px]">
                 <div className="text-[0.82rem] font-bold text-[#e6edf5] truncate max-w-[200px]">{item.name}</div>
                 <div className="flex items-center gap-2 text-[0.68rem] text-[#8d9aaa]">{formatBytes(item.size)}</div>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center flex-wrap gap-2">
                 <div className="relative">
                   <button
+                    disabled={converting}
                     onClick={() => setOpenFormatId(openFormatId === item.id ? null : item.id)}
                     className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] text-[#e6edf5] font-bold rounded-md px-3 py-1.5 text-[0.68rem] cursor-pointer flex items-center gap-1.5 min-w-[72px] transition-all hover:bg-[rgba(255,255,255,0.09)]"
                   >
@@ -262,7 +211,8 @@ export function ConverterTool() {
 
                   {openFormatId === item.id && (
                     <>
-                      <div className="fixed inset-0 z-40" onClick={() => setOpenFormatId(null)} />
+                      <div className="fixed inset-0 z-40"
+                    onClick={() => setOpenFormatId(null)} />
                       <div ref={formatRef} className="absolute z-50 top-full mt-1.5 right-0 w-[220px] bg-[rgba(10,14,22,0.98)] border border-[rgba(255,255,255,0.12)] rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-[25px] p-2 overflow-hidden">
                         {FORMAT_CATEGORIES.map((cat) => (
                           <div key={cat.label}>
@@ -271,8 +221,10 @@ export function ConverterTool() {
                               {cat.formats.map((fmt) => (
                                 <button
                                   key={fmt.value}
-                                  onClick={() => { updateItem(item.id, { targetFormat: fmt.value }); setOpenFormatId(null); }}
-                                  className={`text-[0.65rem] font-bold px-2 py-1.5 rounded-md border cursor-pointer text-center transition-all ${
+                                  disabled={!OUTPUT_FORMATS.includes(fmt.value as Format)}
+                                  title={!OUTPUT_FORMATS.includes(fmt.value as Format) ? "Encoder unavailable" : undefined}
+                                  onClick={() => { updateItem(item.id, { targetFormat: fmt.value as Format }); setOpenFormatId(null); }}
+                                  className={`text-[0.65rem] font-bold px-2 py-1.5 rounded-md border cursor-pointer text-center transition-all disabled:opacity-30 disabled:cursor-not-allowed ${
                                     item.targetFormat === fmt.value
                                       ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
                                       : "bg-[rgba(255,255,255,0.04)] border-transparent text-[#e6edf5] hover:bg-[rgba(255,255,255,0.08)]"
@@ -287,11 +239,11 @@ export function ConverterTool() {
                   )}
                 </div>
 
-                {(item.targetFormat === "jpeg" || item.targetFormat === "webp" || item.targetFormat === "avif") && (
+                {(item.targetFormat === "jpeg" || item.targetFormat === "webp") && (
                   <div className="flex items-center gap-1.5 bg-[rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.06)] rounded-md px-2 py-1">
                     <span className="text-[0.55rem] text-[#576675] font-bold uppercase tracking-wide">Q</span>
                     <input
-                      type="range" min={10} max={100} value={Math.round(item.quality * 100)}
+                      aria-label="Output quality" disabled={converting} type="range" min={10} max={100} value={Math.round(item.quality * 100)}
                       onChange={(e) => updateItem(item.id, { quality: Number(e.target.value) / 100 })}
                       className="w-16 h-[2px] appearance-none bg-[rgba(255,255,255,0.08)] outline-none"
                     />
@@ -312,7 +264,7 @@ export function ConverterTool() {
                   </div>
                 )}
                 {item.status === "done" && <span className="text-[0.65rem] font-bold text-[#10b981]">Done</span>}
-                {item.status === "error" && <span className="text-[0.65rem] font-bold text-[#f43f5e]">Error</span>}
+                {item.status === "error" && <span className="text-[0.65rem] font-bold text-[#f43f5e]" role="alert">{item.error || "Conversion failed"}</span>}
                 {item.status === "done" && (
                   <button onClick={() => downloadFile(item)}
                     className="bg-[var(--accent)] text-black px-3 py-1 rounded-md text-[0.6rem] font-extrabold cursor-pointer transition-all hover:brightness-110 shadow-[0_2px_8px_var(--accent-glow)]"
@@ -324,9 +276,9 @@ export function ConverterTool() {
             </motion.div>
           ))}
 
-          <div className="flex items-center justify-between gap-3 pt-2">
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
             <span className="text-[0.72rem] text-[#8d9aaa] font-semibold">{files.length} file{files.length !== 1 ? "s" : ""}</span>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <button onClick={() => inputRef.current?.click()}
                 className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] px-3 py-1.5 rounded-md text-[0.72rem] font-semibold cursor-pointer hover:text-[#e6edf5]">
                 + Select Images

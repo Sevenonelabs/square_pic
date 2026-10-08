@@ -5,7 +5,9 @@ import { motion } from "motion/react";
 import { EditorCanvas, type EditorCanvasHandle } from "@/components/editor/canvas";
 import { DropZone } from "@/components/editor/drop-zone";
 import type { EditorState } from "@/lib/editor-renderer";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackToolEvent } from "@/lib/analytics";
+import { isImageFile } from "@/lib/image-input";
+import { downloadImage } from "@/lib/image-export";
 import SOCIAL_PRESETS from "@/data/social-presets.json";
 
 type ExportFormat = "png" | "jpeg" | "webp";
@@ -26,6 +28,8 @@ export interface ToolAsHeroLayoutProps {
   colorSwatches: string[];
   downloadFilename?: string;
   downloadEventName?: string;
+  initialPlatform?: string;
+  showHeading?: boolean;
 }
 
 const MAX_SIZE_MB = 20;
@@ -50,15 +54,28 @@ export function ToolAsHeroLayout({
   colorSwatches,
   downloadFilename = "squarepic-photo",
   downloadEventName = "editor-square-image",
+  initialPlatform,
+  showHeading = true,
 }: ToolAsHeroLayoutProps) {
+  const Heading = showHeading ? "h1" : "h2";
+  const toolName = initialPlatform ? "resizer" : "square";
+  const nativeWidth = state.targetWidth || Math.max(state.image?.width || 0, state.image?.height || 0);
+  const nativeHeight = state.targetHeight || nativeWidth;
+  const exportScale = Math.min(1, 4096 / Math.max(1, nativeWidth, nativeHeight));
+  const exportWidth = Math.round(nativeWidth * exportScale);
+  const exportHeight = Math.round(nativeHeight * exportScale);
   const hasImage = state.image !== null;
   const [uploading, setUploading] = useState(false);
-  const [socialPlatform, setSocialPlatform] = useState<string | null>(null);
+  const [socialPlatform, setSocialPlatform] = useState<string | null>(initialPlatform ?? null);
   const [exportFormat, setExportFormat] = useState<ExportFormat>("png");
   const [exportModal, setExportModal] = useState<{ open: boolean; blob: Blob | null; url: string }>({ open: false, blob: null, url: "" });
   const [modalLoading, setModalLoading] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const [error, setError] = useState<string | null>(null);
+  const workspaceRef = useRef<HTMLElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const exportButtonRef = useRef<HTMLButtonElement>(null);
   const editorRef = useRef<EditorCanvasHandle>(null);
 
   const presets = SOCIAL_PRESETS as Record<string, {
@@ -70,7 +87,8 @@ export function ToolAsHeroLayout({
 
   const activePresetLabel = (() => {
     if (!state.targetWidth || !state.targetHeight) return null;
-    for (const [, pv] of Object.entries(presets)) {
+    const candidates = socialPlatform ? [presets[socialPlatform]] : Object.values(presets);
+    for (const pv of candidates) {
       for (const [, tv] of Object.entries(pv.types)) {
         if (tv.w === state.targetWidth && tv.h === state.targetHeight) return `${pv.label} - ${tv.label}`;
       }
@@ -80,29 +98,32 @@ export function ToolAsHeroLayout({
 
   const handleFile = useCallback(
     (file: File) => {
-      if (!file.type.startsWith("image/")) {
-        alert("Invalid file type. Please upload an image.");
+      if (!isImageFile(file)) {
+        setError("Choose an image file, such as PNG, JPEG or WebP.");
         return;
       }
       if (file.size > MAX_SIZE_MB * 1024 * 1024) {
-        alert(`File is too large. Please upload an image under ${MAX_SIZE_MB} MB.`);
+        setError(`This image exceeds ${MAX_SIZE_MB} MB. Choose a smaller image and try again.`);
         return;
       }
+      setError(null);
       setUploading(true);
       const url = URL.createObjectURL(file);
       const img = new Image();
       img.onload = () => {
         setUploading(false);
+        trackToolEvent("upload_accepted", toolName);
         onStateChange({ image: img });
       };
       img.onerror = () => {
         setUploading(false);
         URL.revokeObjectURL(url);
-        alert("Could not load the image. The file may be corrupted.");
+        trackToolEvent("processing_error", toolName);
+        setError("This image could not be opened. Choose another image or save it as PNG or JPEG and try again.");
       };
       img.src = url;
     },
-    [onStateChange]
+    [onStateChange, toolName]
   );
 
   const getFullBlob = useCallback(async (): Promise<Blob | null> => {
@@ -113,58 +134,58 @@ export function ToolAsHeroLayout({
 
   const handleOpenExportModal = useCallback(async () => {
     if (!editorRef.current || !state.image) return;
+    setError(null);
     setModalLoading(true);
-    const fmt = FORMATS.find((f) => f.value === exportFormat)!;
-    const blob = await editorRef.current.exportToBlob(fmt.mime, 400);
-    if (!blob) { setModalLoading(false); return; }
-    const url = URL.createObjectURL(blob);
-    setExportModal({ open: true, blob, url });
-    setModalLoading(false);
-  }, [state.image, exportFormat]);
+    try {
+      const fmt = FORMATS.find((f) => f.value === exportFormat)!;
+      const blob = await editorRef.current.exportToBlob(fmt.mime);
+      if (!blob) throw new Error("Image preview failed");
+      const url = URL.createObjectURL(blob);
+      setExportModal({ open: true, blob, url });
+    } catch {
+      trackToolEvent("processing_error", toolName, exportFormat);
+      setError("Image preview failed. Try another export format, then select Download & Share again.");
+    } finally {
+      setModalLoading(false);
+    }
+  }, [state.image, exportFormat, toolName]);
 
   const handleDownload = useCallback(async () => {
     if (!state.image) return;
-    trackEvent("download", downloadEventName);
     try {
-      const fmt = FORMATS.find((f) => f.value === exportFormat)!;
-      const blob = await getFullBlob();
-      if (!blob) return;
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.download = `${downloadFilename}.${fmt.ext}`;
-      a.href = url;
-      a.click();
-      URL.revokeObjectURL(url);
+      const blob = exportModal.blob ?? await getFullBlob();
+      if (!blob) throw new Error("Image export failed");
+      trackToolEvent("processing_success", toolName, exportFormat);
+      downloadImage(blob, downloadFilename);
+      trackToolEvent("download", toolName, exportFormat);
     } catch {
-      setToast("Download failed — please try again");
+      trackToolEvent("processing_error", toolName, exportFormat);
+      setError("Download failed. Try another export format, then select Download & Share again.");
     }
     setExportModal({ open: false, blob: null, url: "" });
-  }, [state.image, downloadFilename, downloadEventName, exportFormat, getFullBlob]);
+  }, [state.image, downloadFilename, exportFormat, getFullBlob, toolName, exportModal.blob]);
 
   const handleShareNative = useCallback(async () => {
+    setError(null);
     try {
+      // The preview is prepared before the click, preserving native share's
+      // user activation on Safari and other browsers that require it.
+      const blob = exportModal.blob;
+      if (!blob) throw new Error("Image export failed");
       const fmt = FORMATS.find((f) => f.value === exportFormat)!;
-      const blob = await getFullBlob();
-      if (!blob) return;
       const file = new File([blob], `${downloadFilename}.${fmt.ext}`, { type: blob.type });
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        try {
-          await navigator.share({ title: "SquarePic", text: "Made with SquarePic", files: [file] });
-          trackEvent("share", `${downloadEventName}-native`);
-        } catch { /* user dismissed */ }
-      } else {
-        try {
-          await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
-          setToast("Image copied to clipboard — paste it anywhere");
-        } catch {
-          setToast("Your browser doesn't support sharing images directly. Try downloading instead.");
-        }
+      if (!navigator.share || !navigator.canShare?.({ files: [file] })) {
+        setError("Your browser cannot share image files. Use Download to save the image, then attach it in your app.");
+        return;
       }
-    } catch {
-      setToast("Something went wrong. Try downloading instead.");
+      await navigator.share({ title: "SquarePic", files: [file] });
+      trackEvent("share", `${downloadEventName}-native`);
+      setExportModal({ open: false, blob: null, url: "" });
+    } catch (e) {
+      if (e instanceof DOMException && e.name === "AbortError") return;
+      setError("Sharing failed. Use Download to save the image, then attach it in your app.");
     }
-    setExportModal({ open: false, blob: null, url: "" });
-  }, [exportFormat, downloadFilename, downloadEventName, getFullBlob]);
+  }, [exportModal.blob, exportFormat, downloadFilename, downloadEventName]);
 
   const handleCopyLink = useCallback(async () => {
     try {
@@ -172,21 +193,28 @@ export function ToolAsHeroLayout({
       setToast("Link copied to clipboard");
       trackEvent("share", `${downloadEventName}-link`);
     } catch {
-      setToast("Could not copy link");
+      setError("Could not copy the link. Copy the address from your browser instead.");
     }
   }, [downloadEventName]);
 
   const handleCopyImage = useCallback(async () => {
     try {
-      const blob = await getFullBlob();
-      if (!blob) return;
-      await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
+      if (!editorRef.current) return;
+      // Clipboard image support is PNG. Pass the pending blob directly so
+      // Safari retains the click's user activation while encoding finishes.
+      const png = exportFormat === "png" && exportModal.blob
+        ? exportModal.blob
+        : editorRef.current.exportToBlob("image/png").then((blob) => {
+          if (!blob) throw new Error("Image copy failed");
+          return blob;
+        });
+      await navigator.clipboard.write([new ClipboardItem({ "image/png": png })]);
       setToast("Image copied to clipboard — paste it anywhere");
       trackEvent("share", `${downloadEventName}-clipboard`);
     } catch {
-      setToast("Could not copy image to clipboard");
+      setError("Your browser could not copy this image. Use Download to save it instead.");
     }
-  }, [getFullBlob, downloadEventName]);
+  }, [exportFormat, downloadEventName, exportModal.blob]);
 
   useEffect(() => {
     if (!toast) return;
@@ -194,6 +222,25 @@ export function ToolAsHeroLayout({
     toastTimer.current = setTimeout(() => setToast(null), 2500);
     return () => clearTimeout(toastTimer.current);
   }, [toast]);
+
+  useEffect(() => {
+    if (!hasImage) return;
+    const frame = requestAnimationFrame(() => workspaceRef.current?.scrollIntoView({ block: "start", behavior: "instant" }));
+    return () => cancelAnimationFrame(frame);
+  }, [hasImage]);
+
+  useEffect(() => {
+    const url = exportModal.url;
+    return () => { if (url) URL.revokeObjectURL(url); };
+  }, [exportModal.url]);
+
+  useEffect(() => {
+    if (!exportModal.open) return;
+    const dialog = dialogRef.current;
+    dialog?.showModal();
+    const button = exportButtonRef.current;
+    return () => { dialog?.close(); button?.focus({ preventScroll: true }); };
+  }, [exportModal.open]);
 
   const renderHeadline = () => {
     const nl = (s: string) => s.split("\n").map((p, i) => i ? [<br key={i} />, p] : p);
@@ -215,17 +262,24 @@ export function ToolAsHeroLayout({
   };
 
   return (
-    <section className="max-w-[1100px] mx-auto px-3 md:px-4 w-full">
+    <section ref={workspaceRef} data-loaded={hasImage} className="image-editor-workspace max-w-[1100px] mx-auto px-3 md:px-4 w-full">
+      {hasImage && <Heading className="sr-only">{headline}</Heading>}
       <motion.div
         initial={{ opacity: 0.99 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-[8px] md:p-3"
+        className="editor-shell relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.015)] p-[8px] md:p-3"
       >
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/20 to-transparent" />
 
-        <div className="flex flex-row gap-2 md:gap-3 w-full max-md:flex-col max-md:gap-2">
-          <div className="flex-1 flex items-center justify-center p-2 md:p-3 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-lg border border-[rgba(255,255,255,0.10)] relative overflow-hidden min-h-[300px] max-md:min-h-[240px]">
+        {error && !exportModal.open && (
+          <div role="alert" className="editor-error mb-2 rounded-md border border-red-400/30 bg-red-400/10 p-2 text-sm text-red-200 flex items-start gap-2">
+            <span className="flex-1">{error}</span>
+            <button aria-label="Dismiss error" onClick={() => setError(null)} className="shrink-0 px-2">×</button>
+          </div>
+        )}
+        <div className="editor-stage flex flex-row gap-2 md:gap-3 w-full max-md:flex-col max-md:gap-2">
+          <div className="editor-preview flex-1 flex items-center justify-center p-2 md:p-3 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-lg border border-[rgba(255,255,255,0.10)] relative overflow-hidden min-w-0 min-h-[420px] max-md:min-h-[380px]">
             {!hasImage ? (
               <div className="flex flex-col items-center justify-center gap-5 w-full h-full text-center relative">
                 {uploading && (
@@ -240,9 +294,9 @@ export function ToolAsHeroLayout({
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="flex flex-col items-center gap-4"
                 >
-                  <h1 className="text-[clamp(1.1rem,2.2vw,1.76rem)] font-black tracking-[-2px] leading-[1.05] text-[#8d9aaa] max-w-[600px]">
+                  <Heading className="text-[clamp(1.1rem,2.2vw,1.76rem)] font-black tracking-[-0.025em] leading-[1.05] text-[#8d9aaa] max-w-[600px]">
                     {renderHeadline()}
-                  </h1>
+                  </Heading>
                   {microcopy && (
                     <p className="text-[0.85rem] text-[#8d9aaa] max-w-[480px] font-medium leading-relaxed">
                       {microcopy}
@@ -259,11 +313,12 @@ export function ToolAsHeroLayout({
                 )}
               </div>
             ) : (
-              <EditorCanvas ref={editorRef} state={state} onStateChange={onStateChange} />
+              <EditorCanvas ref={editorRef} state={state} onStateChange={onStateChange} toolName={toolName} onError={setError} />
             )}
           </div>
 
-          <aside className="tool-scrollbar flex flex-col gap-1.5 w-[240px] xl:w-[260px] shrink-0 max-md:w-full max-md:max-h-[260px] max-md:overflow-y-auto">
+          <aside className="editor-controls flex flex-col gap-1.5 w-[240px] xl:w-[260px] shrink-0 max-md:w-full">
+            <div className="editor-settings tool-scrollbar flex flex-col gap-1.5" role="region" aria-label="Image settings" tabIndex={0}>
             {/* Padding */}
             <motion.div
               custom={0}
@@ -278,7 +333,7 @@ export function ToolAsHeroLayout({
                 <span>{state.paddingPercent}%</span>
               </div>
               <input
-                type="range" min="0" max="40" value={state.paddingPercent}
+                aria-label="Padding" type="range" min="0" max="40" value={state.paddingPercent}
                 onChange={(e) => onStateChange({ paddingPercent: Number(e.target.value) })}
               />
             </motion.div>
@@ -296,6 +351,7 @@ export function ToolAsHeroLayout({
                 {STYLE_MODES.map((m) => (
                   <button
                     key={m}
+                    aria-pressed={state.mode === m}
                     onClick={() => onStateChange({ mode: m })}
                     className={`flex-1 bg-transparent border-none text-[0.62rem] font-semibold px-1.5 py-1 rounded-sm cursor-pointer transition-all ${
                       state.mode === m
@@ -315,7 +371,7 @@ export function ToolAsHeroLayout({
                     <span>Blur</span>
                     <span>{state.blurAmount}px</span>
                   </div>
-                  <input type="range" min="0" max="100" value={state.blurAmount}
+                  <input aria-label="Blur intensity" type="range" min="0" max="100" value={state.blurAmount}
                     onChange={(e) => onStateChange({ blurAmount: Number(e.target.value) })} />
                 </div>
               )}
@@ -327,6 +383,8 @@ export function ToolAsHeroLayout({
                     {colorSwatches.map((c) => (
                       <button
                         key={c}
+                        aria-label={`Background ${c}`}
+                        aria-pressed={state.backgroundColor === c}
                         onClick={() => onStateChange({ backgroundColor: c })}
                         className="w-full aspect-square rounded-sm cursor-pointer border-2 transition-all duration-200 hover:scale-110 hover:shadow-[0_0_12px_rgba(255,255,255,0.06)]"
                         style={{
@@ -339,7 +397,7 @@ export function ToolAsHeroLayout({
                       />
                     ))}
                   </div>
-                  <input type="color" value={state.backgroundColor}
+                  <input aria-label="Background color" type="color" value={state.backgroundColor}
                     onChange={(e) => onStateChange({ backgroundColor: e.target.value })} />
                 </div>
               )}
@@ -360,7 +418,7 @@ export function ToolAsHeroLayout({
                     <span>Zoom</span>
                     <span>{state.imageScale}%</span>
                   </div>
-                  <input type="range" min="50" max="200" value={state.imageScale}
+                  <input aria-label="Zoom" type="range" min="50" max="200" value={state.imageScale}
                     onChange={(e) => onStateChange({ imageScale: Number(e.target.value) })} />
                 </div>
                 <div>
@@ -368,7 +426,7 @@ export function ToolAsHeroLayout({
                     <span>Edge Radius</span>
                     <span>{state.cornerRadius}px</span>
                   </div>
-                  <input type="range" min="0" max="100" value={state.cornerRadius}
+                  <input aria-label="Edge radius" type="range" min="0" max="100" value={state.cornerRadius}
                     onChange={(e) => onStateChange({ cornerRadius: Number(e.target.value) })} />
                 </div>
               </div>
@@ -398,6 +456,7 @@ export function ToolAsHeroLayout({
                 {Object.entries(presets).map(([key, val]) => (
                   <button
                     key={key}
+                    aria-pressed={socialPlatform === key}
                     onClick={() => setSocialPlatform(socialPlatform === key ? null : key)}
                     className={`text-[0.55rem] font-bold px-1.5 py-0.5 rounded-sm border transition-all ${
                       socialPlatform === key
@@ -416,6 +475,7 @@ export function ToolAsHeroLayout({
                     return (
                       <button
                         key={tk}
+                        aria-pressed={isActive}
                         onClick={() => { onStateChange({ targetWidth: tv.w, targetHeight: tv.h }); }}
                         className={`flex items-center justify-between px-1.5 py-1 rounded-sm text-[0.6rem] font-semibold border transition-all ${
                           isActive
@@ -432,19 +492,17 @@ export function ToolAsHeroLayout({
               )}
             </motion.div>
 
-            {/* Export + Download */}
-            <motion.div
-              custom={4}
-              initial="hidden"
-              animate="visible"
-              variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-2.5"
+            </div>
+            {/* Export stays outside the scrolling settings. */}
+            <div className="editor-export shrink-0 bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-2.5"
             >
               <h3 className="text-[0.55rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-1">Export</h3>
+              {hasImage && <p className="text-xs text-[#8d9aaa] mb-2" role="status">Output: {exportWidth} x {exportHeight} px. {state.mode === "crop" ? "Crop trims the edges." : state.imageScale > 100 ? "Zoom above 100% may trim edges." : "Full image fits inside the background."} </p>}
               <div className="flex gap-1 mb-1.5">
                 {FORMATS.map((fmt) => (
                   <button
                     key={fmt.value}
+                    aria-pressed={exportFormat === fmt.value}
                     onClick={() => setExportFormat(fmt.value)}
                     className={`flex-1 text-[0.55rem] font-bold px-1 py-1 rounded-sm border transition-all ${
                       exportFormat === fmt.value
@@ -458,6 +516,7 @@ export function ToolAsHeroLayout({
               </div>
 
               <button
+                ref={exportButtonRef}
                 onClick={handleOpenExportModal}
                 disabled={!hasImage || modalLoading}
                 className="w-full bg-[var(--accent)] text-black border-none py-2 rounded-lg font-extrabold text-xs cursor-pointer transition-all duration-200 hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100 shadow-[0_4px_20px_var(--accent-glow)]"
@@ -469,24 +528,25 @@ export function ToolAsHeroLayout({
                   </span>
                 ) : "Download & Share"}
               </button>
-            </motion.div>
+            </div>
           </aside>
         </div>
       </motion.div>
 
       {exportModal.open && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-3 md:p-6"
-          onClick={() => { setExportModal({ open: false, blob: null, url: "" }); }}
-        >
+        <dialog ref={dialogRef} aria-labelledby="export-title"
+          className="editor-dialog fixed z-50 p-0 bg-transparent text-inherit border-none w-[calc(100%_-_24px)] max-w-lg max-h-[90dvh]"
+          onCancel={() => setExportModal({ open: false, blob: null, url: "" })}
+          onClick={(e) => { if (e.target === e.currentTarget) setExportModal({ open: false, blob: null, url: "" }); }}>
           <div
             onClick={(e) => e.stopPropagation()}
-            className="tool-scrollbar bg-[#0a0e16] border border-[rgba(255,255,255,0.08)] rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-[0_40px_80px_rgba(0,0,0,0.8)]"
+            className="tool-scrollbar bg-[#0a0e16] border border-[rgba(255,255,255,0.08)] rounded-xl max-w-lg w-full max-h-[90dvh] overflow-y-auto shadow-[0_40px_80px_rgba(0,0,0,0.8)]"
           >
             <div className="p-4">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-[0.75rem] font-extrabold uppercase tracking-[0.1em] text-[#e6edf5]">Export</h3>
+                <h3 id="export-title" className="text-[0.75rem] font-extrabold uppercase tracking-[0.1em] text-[#e6edf5]">Export</h3>
                 <button
+                  aria-label="Close export"
                   onClick={() => { setExportModal({ open: false, blob: null, url: "" }); }}
                   className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] w-7 h-7 rounded-md flex items-center justify-center cursor-pointer hover:text-[#e6edf5] transition-all"
                 >
@@ -494,7 +554,7 @@ export function ToolAsHeroLayout({
                 </button>
               </div>
 
-              <div className="aspect-square rounded-lg overflow-hidden bg-[#030406] border border-[rgba(255,255,255,0.06)] mb-3 flex items-center justify-center">
+              <div className="h-[min(35dvh,280px)] rounded-lg overflow-hidden bg-[#030406] border border-[rgba(255,255,255,0.06)] mb-3 flex items-center justify-center">
                 {exportModal.url ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={exportModal.url} alt="Preview" className="max-w-full max-h-full object-contain" />
@@ -505,9 +565,9 @@ export function ToolAsHeroLayout({
 
               <div className="flex items-center justify-between text-[0.65rem] text-[#8d9aaa] mb-3">
                 <span className="font-semibold">
-                  {state.targetWidth > 0 ? state.targetWidth : state.image?.width || 0}
+                  {exportWidth}
                   &times;
-                  {state.targetHeight > 0 ? state.targetHeight : state.image?.height || 0} px
+                  {exportHeight} px
                 </span>
                 <span className="font-semibold">{exportFormat.toUpperCase()}</span>
               </div>
@@ -520,24 +580,12 @@ export function ToolAsHeroLayout({
                   Download {exportFormat.toUpperCase()}
                 </button>
 
-                <div className="flex gap-1.5">
-                  {[
-                    { label: "Instagram", color: "#E4405F", icon: "M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 010 2.5 1.25 1.25 0 010-2.5M12 7a5 5 0 110 10 5 5 0 010-10m0 2a3 3 0 100 6 3 3 0 000-6z" },
-                    { label: "X", color: "#fff", icon: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" },
-                    { label: "WhatsApp", color: "#25D366", icon: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" },
-                    { label: "Telegram", color: "#0088cc", icon: "M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" },
-                  ].map((s) => (
-                    <button
-                      key={s.label}
-                      onClick={handleShareNative}
-                      title={`Share on ${s.label}`}
-                      className="flex-1 flex items-center justify-center gap-1.5 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] rounded-lg py-2 cursor-pointer transition-all hover:bg-[rgba(255,255,255,0.07)] active:brightness-125"
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill={s.color}><path d={s.icon} /></svg>
-                      <span className="text-[0.55rem] font-bold text-[#8d9aaa] hidden md:inline">{s.label}</span>
-                    </button>
-                  ))}
-                </div>
+                <button onClick={handleShareNative}
+                  className="w-full border border-white/10 rounded-lg py-2.5 text-sm font-semibold text-[#e6edf5] hover:bg-white/5">
+                  Share image
+                </button>
+                <p className="text-xs text-[#8d9aaa]">Choose an app in your device’s share menu. If sharing is unavailable, download and attach the image.</p>
+                {error && <p role="alert" className="rounded-md bg-red-400/10 p-2 text-sm text-red-200">{error}</p>}
 
                 <button
                   onClick={handleCopyImage}
@@ -562,11 +610,11 @@ export function ToolAsHeroLayout({
               </div>
             </div>
           </div>
-        </div>
+        </dialog>
       )}
 
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#1e2328] border border-[rgba(255,255,255,0.1)] text-[#e6edf5] text-[0.7rem] font-semibold px-4 py-2 rounded-lg shadow-[0_8px_24px_rgba(0,0,0,0.5)] animate-fade-up">
+        <div role="status" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#1e2328] border border-[rgba(255,255,255,0.1)] text-[#e6edf5] text-[0.7rem] font-semibold px-4 py-2 rounded-lg shadow-[0_8px_24px_rgba(0,0,0,0.5)] animate-fade-up">
           {toast}
         </div>
       )}
