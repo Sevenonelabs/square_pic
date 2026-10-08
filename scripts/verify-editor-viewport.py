@@ -101,7 +101,7 @@ with sync_playwright() as p:
             context.route('**/google-analytics.com/**',lambda route:route.abort())
             context.route('**/googletagmanager.com/**',lambda route:route.abort())
             page=context.new_page()
-            for kind,background in [('product','#080c26'),('portrait','#e8edf0')]:
+            for kind,background in [('product-sneaker','#f5f1ed'),('portrait','#e8edf0')]:
                 page.goto(BASE+'/',wait_until='networkidle')
                 page.locator('input[type=file]').first.set_input_files(str(Path(f'public/examples/{kind}-source.webp').resolve()))
                 page.get_by_label('Padding',exact=True).fill('0')

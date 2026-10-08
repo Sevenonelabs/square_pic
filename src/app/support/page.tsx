@@ -23,13 +23,13 @@ export default function SupportPage() {
           1. Click &ldquo;Upload Your Image&rdquo; or drag and drop a photo into the editor.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          2. Choose your editing mode: Dynamic Blur, Solid Background, or Smart Crop.
+          2. Choose Blur, Solid or Transparent to keep the whole image at 100% zoom. Crop uses a centered crop and trims edges.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          3. Adjust settings like blur intensity, padding, zoom, and edge radius.
+          3. Choose 1080 × 1080, 1200 × 1200 or a custom square edge from 1 to 4096 pixels. Adjust padding and check the preview. Higher zoom can trim edges.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          4. Click &ldquo;Export Perfect Square&rdquo; and download your image in PNG, JPEG, or WebP format.
+          4. Select &ldquo;Download &amp; Share&rdquo; to preview and save PNG, JPEG or WebP. Transparent mode selects PNG to preserve empty padding.
         </p>
       </section>
 
@@ -39,7 +39,7 @@ export default function SupportPage() {
           <strong className="text-[#e6edf5]">My image won&apos;t upload:</strong> Ensure your file is under 20 MB and is a supported image format (JPEG, PNG, WebP, GIF, BMP, or TIFF). If you are using Safari, make sure you allow image file access when prompted.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          <strong className="text-[#e6edf5]">The export looks blurry:</strong> Increase the quality slider in the export panel to 90% or higher. For text-heavy images or graphics with sharp edges, use PNG format instead of JPEG. WebP offers a good balance between quality and file size.
+          <strong className="text-[#e6edf5]">The export looks blurry:</strong> Start with the original image and avoid enlarging it beyond its source dimensions. Use PNG for text or graphics with sharp edges. A lossless export does not restore missing detail.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           <strong className="text-[#e6edf5]">The compressor made my image larger:</strong> Some image formats like PNG are already well-compressed. Try using JPEG or WebP format for photos. The target size mode works best when you set a realistic size target based on the original file dimensions.
@@ -62,7 +62,7 @@ export default function SupportPage() {
       <section className="mb-6">
         <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Tools Overview</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          <strong className="text-[#e6edf5]">Square Image Editor:</strong> Upload any photo and convert it to a perfect square. Choose from Dynamic Blur, Solid Background, or Smart Crop modes. Adjust padding, zoom, and edge radius for fine control over the final result.
+          <strong className="text-[#e6edf5]">Square Image Editor:</strong> Fit a photo with Blur, Solid or Transparent padding, or choose a centered Crop. Set an exact square size up to 4096 pixels per side. Check actual output dimensions before downloading.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           <strong className="text-[#e6edf5]">Image Compressor:</strong> Reduce file sizes with either a quality slider or target size mode. The binary search algorithm finds the optimal compression level. Batch compress multiple files and download them individually or as a ZIP archive.

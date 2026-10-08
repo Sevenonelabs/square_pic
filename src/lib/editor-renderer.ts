@@ -2,7 +2,7 @@
 
 export interface EditorState {
   image: HTMLImageElement | null;
-  mode: "blur" | "solid" | "crop";
+  mode: "blur" | "solid" | "transparent" | "crop";
   blurAmount: number;
   paddingPercent: number;
   imageScale: number;
@@ -10,6 +10,15 @@ export interface EditorState {
   backgroundColor: string;
   targetWidth: number;
   targetHeight: number;
+}
+
+export const MAX_EXPORT_EDGE = 4096;
+
+export function getExportDimensions(state: EditorState, maxSize = MAX_EXPORT_EDGE) {
+  const width = state.targetWidth || Math.max(state.image?.width || 0, state.image?.height || 0);
+  const height = state.targetHeight || width;
+  const scale = Math.min(1, maxSize / Math.max(1, width, height));
+  return { width: Math.round(width * scale), height: Math.round(height * scale), limited: scale < 1 };
 }
 
 export function renderToCanvas(

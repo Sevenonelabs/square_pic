@@ -13,7 +13,7 @@ import {
 import { canvasBlob } from "@/lib/image-export";
 import { isImageFile } from "@/lib/image-input";
 import { trackToolEvent } from "@/lib/analytics";
-import { renderToCanvas, type EditorState } from "@/lib/editor-renderer";
+import { getExportDimensions, renderToCanvas, type EditorState } from "@/lib/editor-renderer";
 import { DropZone } from "./drop-zone";
 
 interface Props {
@@ -126,27 +126,13 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
       return () => ro.disconnect();
     }, [scheduleRender]);
 
-    const getExportSize = useCallback((s: EditorState, maxSize?: number) => {
-      const img = s.image!;
-      let w = s.targetWidth > 0 ? s.targetWidth : Math.max(img.width, img.height);
-      let h = s.targetHeight > 0 ? s.targetHeight : w;
-      const longest = Math.max(w, h);
-      const cap = maxSize ?? 4096;
-      if (longest > cap) {
-        const scale = cap / longest;
-        w = Math.round(w * scale);
-        h = Math.round(h * scale);
-      }
-      return { w, h };
-    }, []);
-
     const exportToBlob = useCallback(
       async (mime: string, maxSize?: number): Promise<Blob | null> => {
         const s = renderState.current;
         const img = s.image;
         if (!img) return null;
 
-        const { w: outW, h: outH } = getExportSize(s, maxSize);
+        const { width: outW, height: outH } = getExportDimensions(s, maxSize);
 
         const offscreen = document.createElement("canvas");
         offscreen.width = outW;
@@ -158,7 +144,7 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
 
         return canvasBlob(offscreen, mime);
       },
-      [getExportSize],
+      [],
     );
 
     useImperativeHandle(ref, () => ({ exportToBlob }), [exportToBlob]);
@@ -215,7 +201,7 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
         <canvas
           ref={canvasRef}
           style={{ display: hasImage ? "block" : "none" }}
-          className="max-w-full max-h-full object-contain shadow-[0_16px_48px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.05)]"
+          className={`max-w-full max-h-full object-contain shadow-[0_16px_48px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.05)] ${state.mode === "transparent" ? "transparency-grid" : ""}`}
         />
         {!hasImage && !loading && <DropZone onFile={handleFile} />}
         {hasImage && (

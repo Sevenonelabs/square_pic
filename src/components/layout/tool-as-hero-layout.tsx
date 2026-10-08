@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { EditorCanvas, type EditorCanvasHandle } from "@/components/editor/canvas";
 import { DropZone } from "@/components/editor/drop-zone";
-import type { EditorState } from "@/lib/editor-renderer";
+import { getExportDimensions, MAX_EXPORT_EDGE, type EditorState } from "@/lib/editor-renderer";
 import { trackEvent, trackToolEvent } from "@/lib/analytics";
 import { isImageFile } from "@/lib/image-input";
 import { downloadImage } from "@/lib/image-export";
@@ -33,7 +33,8 @@ export interface ToolAsHeroLayoutProps {
 }
 
 const MAX_SIZE_MB = 20;
-const STYLE_MODES = ["blur", "solid", "crop"] as const;
+const STYLE_MODES = ["blur", "solid", "transparent", "crop"] as const;
+const STYLE_LABELS = { blur: "Blur", solid: "Solid", transparent: "Transparent", crop: "Crop" };
 
 const panelVariants = {
   hidden: { opacity: 0, y: 12 },
@@ -59,15 +60,14 @@ export function ToolAsHeroLayout({
 }: ToolAsHeroLayoutProps) {
   const Heading = showHeading ? "h1" : "h2";
   const toolName = initialPlatform ? "resizer" : "square";
-  const nativeWidth = state.targetWidth || Math.max(state.image?.width || 0, state.image?.height || 0);
-  const nativeHeight = state.targetHeight || nativeWidth;
-  const exportScale = Math.min(1, 4096 / Math.max(1, nativeWidth, nativeHeight));
-  const exportWidth = Math.round(nativeWidth * exportScale);
-  const exportHeight = Math.round(nativeHeight * exportScale);
+  const { width: exportWidth, height: exportHeight, limited: exportLimited } = getExportDimensions(state);
   const hasImage = state.image !== null;
   const [uploading, setUploading] = useState(false);
   const [socialPlatform, setSocialPlatform] = useState<string | null>(initialPlatform ?? null);
-  const [exportFormat, setExportFormat] = useState<ExportFormat>("png");
+  const [selectedExportFormat, setExportFormat] = useState<ExportFormat>("png");
+  const exportFormat = state.mode === "transparent" ? "png" : selectedExportFormat;
+  const [squareEdge, setSquareEdge] = useState("");
+  const validSquareEdge = /^\d+$/.test(squareEdge) && Number(squareEdge) >= 1 && Number(squareEdge) <= MAX_EXPORT_EDGE;
   const [exportModal, setExportModal] = useState<{ open: boolean; blob: Blob | null; url: string }>({ open: false, blob: null, url: "" });
   const [modalLoading, setModalLoading] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
@@ -112,7 +112,7 @@ export function ToolAsHeroLayout({
       const img = new Image();
       img.onload = () => {
         setUploading(false);
-        trackToolEvent("upload_accepted", toolName);
+        trackToolEvent("upload_accepted", toolName, undefined, { mode: state.mode, source: "upload" });
         onStateChange({ image: img });
       };
       img.onerror = () => {
@@ -123,8 +123,21 @@ export function ToolAsHeroLayout({
       };
       img.src = url;
     },
-    [onStateChange, toolName]
+    [onStateChange, toolName, state.mode]
   );
+
+  const handleTrySample = () => {
+    setError(null);
+    setUploading(true);
+    const img = new Image();
+    img.onload = () => {
+      setUploading(false);
+      trackToolEvent("upload_accepted", toolName, undefined, { mode: state.mode, source: "sample" });
+      onStateChange({ image: img });
+    };
+    img.onerror = () => { setUploading(false); setError("The sample could not be opened. Upload your own image to try the editor."); };
+    img.src = "/examples/portrait-source.webp";
+  };
 
   const getFullBlob = useCallback(async (): Promise<Blob | null> => {
     if (!editorRef.current) return null;
@@ -140,6 +153,7 @@ export function ToolAsHeroLayout({
       const fmt = FORMATS.find((f) => f.value === exportFormat)!;
       const blob = await editorRef.current.exportToBlob(fmt.mime);
       if (!blob) throw new Error("Image preview failed");
+      trackToolEvent("processing_success", toolName, exportFormat, { mode: state.mode });
       const url = URL.createObjectURL(blob);
       setExportModal({ open: true, blob, url });
     } catch {
@@ -148,22 +162,21 @@ export function ToolAsHeroLayout({
     } finally {
       setModalLoading(false);
     }
-  }, [state.image, exportFormat, toolName]);
+  }, [state.image, state.mode, exportFormat, toolName]);
 
   const handleDownload = useCallback(async () => {
     if (!state.image) return;
     try {
       const blob = exportModal.blob ?? await getFullBlob();
       if (!blob) throw new Error("Image export failed");
-      trackToolEvent("processing_success", toolName, exportFormat);
       downloadImage(blob, downloadFilename);
-      trackToolEvent("download", toolName, exportFormat);
+      trackToolEvent("download", toolName, exportFormat, { mode: state.mode });
     } catch {
       trackToolEvent("processing_error", toolName, exportFormat);
       setError("Download failed. Try another export format, then select Download & Share again.");
     }
     setExportModal({ open: false, blob: null, url: "" });
-  }, [state.image, downloadFilename, exportFormat, getFullBlob, toolName, exportModal.blob]);
+  }, [state.image, state.mode, downloadFilename, exportFormat, getFullBlob, toolName, exportModal.blob]);
 
   const handleShareNative = useCallback(async () => {
     setError(null);
@@ -281,7 +294,7 @@ export function ToolAsHeroLayout({
         <div className="editor-stage flex flex-row gap-2 md:gap-3 w-full max-md:flex-col max-md:gap-2">
           <div className="editor-preview flex-1 flex items-center justify-center p-2 md:p-3 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_0%,transparent_75%),#030406] rounded-lg border border-[rgba(255,255,255,0.10)] relative overflow-hidden min-w-0 min-h-[420px] max-md:min-h-[380px]">
             {!hasImage ? (
-              <div className="flex flex-col items-center justify-center gap-5 w-full h-full text-center relative">
+              <div className="flex flex-col items-center justify-center gap-5 max-md:gap-2 w-full h-full text-center relative">
                 {uploading && (
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[rgba(3,4,6,0.85)]">
                     <div className="w-8 h-8 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
@@ -292,13 +305,13 @@ export function ToolAsHeroLayout({
                   initial={{ opacity: 0.99, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex flex-col items-center gap-4"
+                  className="flex flex-col items-center gap-4 max-md:gap-2"
                 >
                   <Heading className="text-[clamp(1.1rem,2.2vw,1.76rem)] font-black tracking-[-0.025em] leading-[1.05] text-[#8d9aaa] max-w-[600px]">
                     {renderHeadline()}
                   </Heading>
                   {microcopy && (
-                    <p className="text-[0.85rem] text-[#8d9aaa] max-w-[480px] font-medium leading-relaxed">
+                    <p className="text-[0.85rem] max-md:text-xs text-[#8d9aaa] max-w-[480px] font-medium leading-relaxed">
                       {microcopy}
                     </p>
                   )}
@@ -306,6 +319,8 @@ export function ToolAsHeroLayout({
                 <div className="w-full max-w-[520px]">
                   <DropZone onFile={handleFile} compact />
                 </div>
+                <button onClick={handleTrySample} disabled={uploading} className="min-h-11 px-3 text-sm text-[var(--accent)] underline underline-offset-4 disabled:opacity-50">Try sample image</button>
+                <p className="text-xs text-[#8d9aaa] max-w-[420px]">Your image stays in your browser. Website analytics and the referral widget make network requests. <a href="/privacy" className="underline">Privacy details</a>.</p>
                 {badge && (
                   <span className="inline-flex items-center gap-1.5 text-[0.6rem] font-bold tracking-[0.08em] uppercase text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-3 py-1 rounded-sm">
                     {badge}
@@ -319,25 +334,6 @@ export function ToolAsHeroLayout({
 
           <aside className="editor-controls flex flex-col gap-1.5 w-[240px] xl:w-[260px] shrink-0 max-md:w-full">
             <div className="editor-settings tool-scrollbar flex flex-col gap-1.5" role="region" aria-label="Image settings" tabIndex={0}>
-            {/* Padding */}
-            <motion.div
-              custom={0}
-              initial="hidden"
-              animate="visible"
-              variants={panelVariants}
-              className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-2.5"
-            >
-              <h3 className="text-[0.55rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-1">Outer Border (Padding)</h3>
-              <div className="flex items-center justify-between text-[0.62rem] text-[#8d9aaa] font-semibold mb-1">
-                <span>Padding</span>
-                <span>{state.paddingPercent}%</span>
-              </div>
-              <input
-                aria-label="Padding" type="range" min="0" max="40" value={state.paddingPercent}
-                onChange={(e) => onStateChange({ paddingPercent: Number(e.target.value) })}
-              />
-            </motion.div>
-
             {/* Style + conditional sub-panel */}
             <motion.div
               custom={1}
@@ -347,7 +343,7 @@ export function ToolAsHeroLayout({
               className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-2.5"
             >
               <h3 className="text-[0.55rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-1">Style</h3>
-              <div className="flex gap-1 bg-[rgba(0,0,0,0.25)] p-[3px] rounded-md border border-[rgba(255,255,255,0.06)]">
+              <div className="grid grid-cols-2 max-md:grid-cols-4 max-[359px]:grid-cols-2 gap-1 bg-[rgba(0,0,0,0.25)] p-[3px] rounded-md border border-[rgba(255,255,255,0.06)]">
                 {STYLE_MODES.map((m) => (
                   <button
                     key={m}
@@ -359,10 +355,13 @@ export function ToolAsHeroLayout({
                         : "text-[#8d9aaa] hover:text-[#e6edf5]"
                     }`}
                   >
-                    {m === "blur" ? "Blur" : m === "solid" ? "Solid" : "Crop"}
+                    {STYLE_LABELS[m]}
                   </button>
                 ))}
               </div>
+              <p className="text-xs text-[#8d9aaa] mt-2 leading-relaxed">
+                {state.mode === "crop" ? "Centered crop fills the frame and trims edges. Check subjects near the edges." : state.mode === "transparent" ? "Keep the whole image with transparent padding at 100% zoom. PNG export preserves transparency." : `${STYLE_LABELS[state.mode]} keeps the whole image at 100% zoom. Higher zoom can trim edges.`}
+              </p>
 
               {state.mode === "blur" && (
                 <div className="mt-2 pt-2 border-t border-[rgba(255,255,255,0.06)]">
@@ -402,6 +401,43 @@ export function ToolAsHeroLayout({
                 </div>
               )}
             </motion.div>
+
+            {!initialPlatform && (
+              <div className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-2.5">
+                <h3 className="text-[0.55rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-1">Square size</h3>
+                <div className="flex flex-wrap gap-1 mb-2">
+                  {[0, 1080, 1200].map((edge) => (
+                    <button key={edge} aria-pressed={state.targetWidth === edge && state.targetHeight === edge}
+                      onClick={() => { onStateChange({ targetWidth: edge, targetHeight: edge }); setSquareEdge(""); setSocialPlatform(null); }}
+                      className="min-h-11 px-2 text-xs font-semibold rounded-sm border border-white/10 text-[#8d9aaa] aria-pressed:text-[var(--accent)] aria-pressed:border-[var(--accent)]/30">
+                      {edge ? `${edge} × ${edge}` : "Original size"}
+                    </button>
+                  ))}
+                </div>
+                <form onSubmit={(e) => { e.preventDefault(); if (validSquareEdge) { const edge = Number(squareEdge); onStateChange({ targetWidth: edge, targetHeight: edge }); setSocialPlatform(null); } }}>
+                  <label htmlFor="square-edge" className="text-xs text-[#8d9aaa]">Custom square edge in pixels</label>
+                  <div className="flex gap-1 mt-1">
+                    <input id="square-edge" type="number" min="1" max={MAX_EXPORT_EDGE} step="1" inputMode="numeric"
+                      value={squareEdge} placeholder={state.targetWidth === state.targetHeight && state.targetWidth > 0 ? String(state.targetWidth) : "800"}
+                      onChange={(e) => setSquareEdge(e.target.value)} aria-describedby="square-edge-help" aria-invalid={squareEdge !== "" && !validSquareEdge}
+                      className="min-w-0 w-full min-h-11 bg-black/20 border border-white/10 rounded-sm px-2 text-sm text-[#e6edf5]" />
+                    <button type="submit" disabled={!validSquareEdge} className="min-h-11 px-3 text-xs font-bold text-[var(--accent)] border border-white/10 rounded-sm disabled:opacity-40">Apply</button>
+                  </div>
+                  <p id="square-edge-help" className={`text-xs mt-1 ${squareEdge && !validSquareEdge ? "text-red-200" : "text-[#8d9aaa]"}`}>
+                    {squareEdge && !validSquareEdge ? "Enter a whole number from 1 to 4096. Your output size has not changed." : "1–4096 px per side. Apply to set equal width and height."}
+                  </p>
+                </form>
+              </div>
+            )}
+
+            <div className="bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-2.5">
+              <h3 className="text-[0.55rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-1">Outer Border (Padding)</h3>
+              <div className="flex items-center justify-between text-[0.62rem] text-[#8d9aaa] font-semibold mb-1">
+                <span>Padding</span><span>{state.paddingPercent}%</span>
+              </div>
+              <input aria-label="Padding" type="range" min="0" max="40" value={state.paddingPercent}
+                onChange={(e) => onStateChange({ paddingPercent: Number(e.target.value) })} />
+            </div>
 
             {/* Adjustments */}
             <motion.div
@@ -493,18 +529,21 @@ export function ToolAsHeroLayout({
             </motion.div>
 
             </div>
+            <p className="text-[0.65rem] text-[#8d9aaa]">Scroll settings for {initialPlatform ? "styles and platform sizes" : "padding and platform sizes"}.</p>
             {/* Export stays outside the scrolling settings. */}
             <div className="editor-export shrink-0 bg-[rgba(255,255,255,0.005)] border border-[rgba(255,255,255,0.03)] rounded-lg p-2.5"
             >
               <h3 className="text-[0.55rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-1">Export</h3>
               {hasImage && <p className="text-xs text-[#8d9aaa] mb-2" role="status">Output: {exportWidth} x {exportHeight} px. {state.mode === "crop" ? "Crop trims the edges." : state.imageScale > 100 ? "Zoom above 100% may trim edges." : "Full image fits inside the background."} </p>}
+              {hasImage && exportLimited && <p className="text-xs text-amber-200 mb-2">Output reduced to the 4096 px limit per side.</p>}
               <div className="flex gap-1 mb-1.5">
                 {FORMATS.map((fmt) => (
                   <button
                     key={fmt.value}
                     aria-pressed={exportFormat === fmt.value}
+                    disabled={state.mode === "transparent" && fmt.value !== "png"}
                     onClick={() => setExportFormat(fmt.value)}
-                    className={`flex-1 text-[0.55rem] font-bold px-1 py-1 rounded-sm border transition-all ${
+                    className={`flex-1 text-[0.55rem] font-bold px-1 py-1 rounded-sm border transition-all disabled:opacity-40 disabled:cursor-not-allowed ${
                       exportFormat === fmt.value
                         ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
                         : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa] hover:border-[rgba(255,255,255,0.10)]"
@@ -557,7 +596,7 @@ export function ToolAsHeroLayout({
               <div className="h-[min(35dvh,280px)] rounded-lg overflow-hidden bg-[#030406] border border-[rgba(255,255,255,0.06)] mb-3 flex items-center justify-center">
                 {exportModal.url ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={exportModal.url} alt="Preview" className="max-w-full max-h-full object-contain" />
+                  <img src={exportModal.url} alt="Preview" className={`max-w-full max-h-full object-contain ${state.mode === "transparent" ? "transparency-grid" : ""}`} />
                 ) : (
                   <div className="flex items-center justify-center w-8 h-8"><svg className="animate-spin h-5 w-5 text-[var(--accent)]" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg></div>
                 )}

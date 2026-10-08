@@ -59,9 +59,14 @@ export default function Home() {
         onStateChange={update}
         headline="Make an Image Square Without Cropping"
         highlightWord="Without Cropping"
-        microcopy="Fit a portrait or landscape photo into a square with a blurred or solid background. Keep the whole photo at 100% zoom, or choose Crop to trim the edges and fill the frame. Export PNG, JPEG or WebP in your browser without an account."
+        microcopy="Fit your photo into a square with a blurred, solid or transparent background. Keep the whole image at 100% zoom, or choose a centered Crop to fill the frame. Choose 1080, 1200 or a custom square size. No account needed."
         colorSwatches={COLOR_SWATCHES}
       />
+
+      <section aria-labelledby="fit-crop-comparison" className="w-full min-w-0 max-w-[900px] mx-auto px-4 mt-6">
+        <h2 id="fit-crop-comparison" className="text-lg font-extrabold text-[#e6edf5]">Keep the whole photo or crop the edges</h2>
+        <SquareOutputExample compact kind="portrait" />
+      </section>
 
       <ToolLinks />
 
@@ -73,7 +78,7 @@ export default function Home() {
           <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
             A square image has equal width and height, such as 1080 × 1080 pixels, with a 1:1 aspect ratio.
             To turn a portrait or landscape photo into a square without cutting off the subject,
-            select Blur or Solid and keep Zoom at 100%. These modes fit the photo inside a square canvas.
+            select Blur, Solid or Transparent and keep Zoom at 100%. These modes fit the photo inside a square canvas.
             Crop fills the square by trimming the edges. Use the preview to choose which result suits your photo.
           </p>
         </div>
@@ -81,7 +86,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           {[
             { step: "1", title: "Upload Your Image", desc: "Select any image from your device. SquarePic supports JPEG, PNG, WebP, and more. Files up to 20 MB." },
-            { step: "2", title: "Choose Your Style", desc: "Choose Blur or Solid to fit the whole photo with background. Crop fills the square with a centered crop. Check the preview for trimmed edges." },
+            { step: "2", title: "Choose Your Style", desc: "Blur, Solid and Transparent fit the whole image at 100% zoom. Crop fills the square with a centered crop. Choose a square size and check the preview." },
             { step: "3", title: "Download & Share", desc: "Export your square image as PNG, JPEG, or WebP. Ready to upload to Instagram, LinkedIn, Facebook, or any platform." },
           ].map((c) => (
             <div key={c.step} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 text-center">
@@ -94,10 +99,11 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Three Ways to Make a Square Image</h3>
+            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Ways to make a square image</h3>
             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Blur:</strong> Uses a blurred copy of your photo to fill the background around the fitted image.</li>
               <li><strong className="text-[#e6edf5]">Solid Fill:</strong> Adds a solid color background. Choose from preset colors or pick any custom color. Best for product photos and clean branding.</li>
+              <li><strong className="text-[#e6edf5]">Transparent:</strong> Adds transparent padding for logos and artwork. The checkerboard shows empty space and is not part of the exported PNG.</li>
               <li><strong className="text-[#e6edf5]">Crop:</strong> Fills the square with a centered crop. Check the preview because subjects near an edge can be cut off.</li>
             </ul>
           </div>
@@ -180,13 +186,14 @@ export default function Home() {
         </div>
 
         <div className="border-t border-white/10 mt-8 pt-6">
-          <SquareOutputExample />
+          <SquareOutputExample kind="product" />
           <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mb-4">Questions about making a photo square</h2>
           <div className="space-y-4 text-[0.85rem] text-[#8d9aaa] leading-relaxed">
-            <div><h3 className="font-bold text-[#e6edf5]">How do I make a picture square without cropping?</h3><p>Select Blur or Solid, leave Zoom at 100%, and export a square preset. Background fills the empty space around your photo. Increasing Zoom can move its edges outside the canvas.</p></div>
+            <div><h3 className="font-bold text-[#e6edf5]">How do I make a picture square without cropping?</h3><p>Select Blur, Solid or Transparent, leave Zoom at 100%, and choose a square size. Padding fills the empty space around your photo. Increasing Zoom can move its edges outside the canvas.</p></div>
             <div><h3 className="font-bold text-[#e6edf5]">Will a square photo look stretched?</h3><p>SquarePic preserves the original proportions. Padding adds space; cropping removes edges. Neither method needs to stretch the photo to make its width and height equal.</p></div>
             <div><h3 className="font-bold text-[#e6edf5]">Should I export PNG or JPEG?</h3><p>Use JPEG for photos when file size matters. Use PNG for text, logos, and lossless output. A lossless export does not recover detail missing from the source image.</p></div>
-            <div><h3 className="font-bold text-[#e6edf5]">What size will my square image be?</h3><p>Without a platform preset, the square uses the source&apos;s longest side. Exports are limited to 4096 pixels per side; larger canvases are reduced proportionally. The editor shows the actual export dimensions. Animated inputs become one still frame, and source metadata is not copied.</p></div>
+            <div><h3 className="font-bold text-[#e6edf5]">How do I make a square logo with a transparent background?</h3><p>Choose Transparent. SquarePic fits your logo inside the square and selects PNG to preserve transparent padding and any transparency in the source. It does not remove a background already present in the source image.</p></div>
+            <div><h3 className="font-bold text-[#e6edf5]">What size will my square image be?</h3><p>Choose 1080 × 1080, 1200 × 1200 or enter a custom square edge from 1 to 4096 pixels and select Apply. Original size uses the source&apos;s longest side, up to 4096 pixels. Larger canvases are reduced proportionally with a limit notice. The editor shows the actual export dimensions. Animated inputs become one still frame, and source metadata is not copied.</p></div>
           </div>
           <p className="text-[0.85rem] text-[#8d9aaa] mt-5">See the worked examples in our <Link href="/guides/make-image-square-without-cropping" className="text-[var(--accent)] hover:underline">guide to making an image square without cropping</Link>.</p>
         </div>

@@ -30,7 +30,7 @@ export function DropZone({ onFile, compact }: Props) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-      className="w-full max-w-[520px] mx-auto py-10 px-6 flex flex-col items-center justify-center gap-3 cursor-pointer bg-[rgba(255,255,255,0.04)] border-2 border-dashed border-[rgba(255,255,255,0.15)] rounded-xl transition-all duration-300 hover:border-[var(--accent)] hover:bg-[var(--accent)]/8 group"
+      className={`w-full max-w-[520px] mx-auto ${compact ? "py-4" : "py-10"} px-6 flex flex-col items-center justify-center gap-3 cursor-pointer bg-[rgba(255,255,255,0.04)] border-2 border-dashed border-[rgba(255,255,255,0.15)] rounded-xl transition-all duration-300 hover:border-[var(--accent)] hover:bg-[var(--accent)]/8 group`}
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}
     >
@@ -44,7 +44,7 @@ export function DropZone({ onFile, compact }: Props) {
         <motion.span
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="inline-flex items-center gap-2 bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/20 px-5 py-2 font-extrabold text-sm cursor-pointer transition-all duration-300 hover:bg-[var(--accent)]/20 shadow-none rounded-md"
+          className="inline-flex items-center min-h-11 gap-2 bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/20 px-5 py-2 font-extrabold text-sm cursor-pointer transition-all duration-300 hover:bg-[var(--accent)]/20 shadow-none rounded-md"
         >
           <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />

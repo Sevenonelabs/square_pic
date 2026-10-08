@@ -12,11 +12,11 @@ export const metadata: Metadata = pageMetadata({
 const FAQS = [
   {
     q: "How do I make a square image online?",
-    a: "It is simple. Upload your portrait or landscape photo to SquarePic. The editor will automatically convert the image to square format by adding smart blur or solid color backgrounds. Then, just download your final image.",
+    a: "Upload your photo, choose Blur, Solid or Transparent, and leave Zoom at 100% to keep the whole image. Choose 1080, 1200 or a custom square edge from 1 to 4096 pixels, then select Download & Share.",
   },
   {
     q: "How can I make a square photo without cropping?",
-    a: "Instead of cropping out important parts of your photo, SquarePic acts as an image background extension tool. It fills the remaining space in the 1:1 canvas with a blurred version of your image or a solid color, keeping your entire original photo visible.",
+    a: "Choose Blur, Solid or Transparent and leave Zoom at 100%. SquarePic fits your photo inside a 1:1 canvas with added padding. Higher zoom can trim edges, and Crop uses a centered crop.",
   },
   {
     q: "Is this square image maker free?",
@@ -67,12 +67,20 @@ const FAQS = [
     a: "Our image compressor supports batch processing -- you can upload multiple files, compress them all at once, and download them individually or as a ZIP archive. The square image editor processes one image at a time for precise control over each result.",
   },
   {
-    q: "What is the difference between Dynamic Blur, Solid Background, and Smart Crop?",
-    a: "Blur fills empty space with a blurred copy of your photo. Solid uses your chosen background color. Crop fills the canvas with a centered crop, removing edges when the source has different proportions. It does not detect subjects. Blur and Solid preserve the full photo at 100% zoom.",
+    q: "What is the difference between Blur, Solid, Transparent and Crop?",
+    a: "Blur fills empty space with a blurred copy of your photo. Solid uses your chosen background color. Transparent leaves padding empty and selects PNG export. Crop fills the canvas with a centered crop, removing edges when the source has different proportions. It does not detect subjects. The other modes preserve the full photo at 100% zoom.",
   },
   {
     q: "How does SquarePic compare to other image editors?",
     a: "SquarePic is completely free with no signup, no watermarks, and no uploads. All processing happens locally in your browser using HTML5 Canvas, making it one of the fastest and most private options available. Unlike many tools, we never store your images on any server.",
+  },
+  {
+    q: "How do I keep a square logo background transparent?",
+    a: "Choose Transparent. The checkerboard preview marks empty space, and PNG export preserves the padding and any transparency in your original logo. This setting does not remove an existing background from the source image.",
+  },
+  {
+    q: "Can I set an exact square image size?",
+    a: "Yes. Use the 1080 or 1200 square shortcut, or enter a whole number from 1 to 4096 in Custom square edge in pixels and select Apply. The editor shows actual output dimensions. Original size uses the source's longest side, capped at 4096 pixels with a limit notice.",
   },
 ];
 
@@ -91,7 +99,7 @@ const SECTIONS = [
   },
   {
     title: "Technical Details",
-    items: [11, 12, 13, 14, 15],
+    items: [11, 12, 13, 14, 15, 16, 17],
   },
 ];
 
