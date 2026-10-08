@@ -18,7 +18,7 @@ export default function SupportPage() {
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-8">Support</h1>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">How to Use SquarePic</h2>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">How to Use SquarePic</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           1. Click &ldquo;Upload Your Image&rdquo; or drag and drop a photo into the editor.
         </p>
@@ -34,7 +34,7 @@ export default function SupportPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Common Issues</h2>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Common Issues</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           <strong className="text-[#e6edf5]">My image won&apos;t upload:</strong> Ensure your file is under 20 MB and is a supported image format (JPEG, PNG, WebP, GIF, BMP, or TIFF). If you are using Safari, make sure you allow image file access when prompted.
         </p>
@@ -53,14 +53,14 @@ export default function SupportPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Browser Compatibility</h2>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Browser Compatibility</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
           SquarePic works on any modern browser that supports HTML5 Canvas and JavaScript. This includes the latest versions of Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge on both desktop and mobile operating systems. Internet Explorer and very old browser versions are not supported. If you are experiencing issues, please ensure your browser is updated to the latest version for the best experience and performance.
         </p>
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Tools Overview</h2>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Tools Overview</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           <strong className="text-[#e6edf5]">Square Image Editor:</strong> Fit a photo with Blur, Solid or Transparent padding, or choose a centered Crop. Set an exact square size up to 4096 pixels per side. Check actual output dimensions before downloading.
         </p>
@@ -76,7 +76,7 @@ export default function SupportPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Contact Us</h2>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Contact Us</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           If you need further assistance, please visit our <Link href="/faq" className="text-[var(--accent)] no-underline hover:underline">FAQ page</Link> for common questions, or check our <Link href="/privacy" className="text-[var(--accent)] no-underline hover:underline">Privacy Policy</Link> and <Link href="/terms" className="text-[var(--accent)] no-underline hover:underline">Terms of Service</Link>.
         </p>

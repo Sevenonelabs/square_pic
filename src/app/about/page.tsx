@@ -20,8 +20,8 @@ export default function AboutPage() {
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-6">About SquarePic</h1>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
           What Is SquarePic?
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -33,8 +33,8 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">*</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">*</span>
           Our Story
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -46,8 +46,8 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
           Privacy-First by Design
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -56,8 +56,8 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
           Core Features
         </h2>
         <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-6 mb-4 space-y-2">
@@ -70,8 +70,8 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
           Who Is It For?
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -80,8 +80,8 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
           What People Say
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -90,8 +90,8 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">?</span>
           100% Free to Use
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -100,8 +100,8 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">*</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">*</span>
           Who Built SquarePic
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -110,8 +110,8 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">*</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">*</span>
           Open Source
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">

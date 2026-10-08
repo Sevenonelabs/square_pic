@@ -38,7 +38,7 @@ export function DropZone({ onFile, compact }: Props) {
         {!compact && (
           <>
             <h2 className="text-[1.1rem] font-bold text-[#e6edf5]">Free Online Image Resizer & Square Image Maker</h2>
-            <p className="text-[0.8rem] text-[#8d9aaa] max-w-[90%] text-center leading-relaxed">SquarePic is your free image cropper and online image resizer. Easily resize images for social media without losing quality.</p>
+            <p className="text-[0.875rem] text-[#8d9aaa] max-w-[90%] text-center leading-relaxed">SquarePic is your free image cropper and online image resizer. Easily resize images for social media without losing quality.</p>
           </>
         )}
         <motion.span
@@ -51,7 +51,7 @@ export function DropZone({ onFile, compact }: Props) {
           </svg>
           Upload Your Image
         </motion.span>
-        <span className="text-[0.7rem] text-[#576675] font-semibold tracking-wide">or drag & drop</span>
+        <span className="text-[0.875rem] text-[#8d9aaa] font-semibold tracking-wide">or drag & drop</span>
       </label>
       <input
         ref={inputRef}

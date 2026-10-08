@@ -25,13 +25,13 @@ export function SquareOutputExample({ compact = false, kind }: { compact?: boole
               <Image src={`/examples/${example.asset}-${file}.webp`} alt={alt} width={width} height={height}
                 sizes={compact ? "(max-width: 767px) 45vw, 400px" : "(max-width: 639px) 100vw, 33vw"} className="w-full h-full object-contain" />
             </div>
-            <p className="text-[0.8rem] text-[#e6edf5] mt-2">{label}</p>
+            <p className="text-[0.875rem] text-[#e6edf5] mt-2">{label}</p>
           </div>
         ))}
         </div>
-        <p className="text-xs text-[#8d9aaa] mt-2">Photo by <a href={example.link} className="underline">{example.credit} on Unsplash</a>.</p>
+        <p className="text-sm text-[#8d9aaa] mt-2">Photo by <a href={example.link} className="underline">{example.credit} on Unsplash</a>.</p>
       </div>)}
-      <figcaption className="text-[0.8rem] text-[#8d9aaa] mt-3 leading-relaxed">
+      <figcaption className="text-[0.875rem] text-[#8d9aaa] mt-3 leading-relaxed">
         Actual SquarePic exports with Outer Border at 0% and Zoom at 100%. Solid fit keeps the entire photo and adds background. Crop fills the square by trimming the longer sides. {kind === "portrait" ? "Compare the hair and shirt near the edges. Centered crop does not follow an off-center subject." : kind === "product" ? "Compare the space around the sneaker. Fitting keeps the full scene; cropping enlarges the shoe and removes background from the sides." : "Compare the portrait's hair and shirt, and the space around the sneaker."}
       </figcaption>
     </figure>

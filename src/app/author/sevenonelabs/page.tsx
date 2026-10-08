@@ -46,7 +46,7 @@ export default function AuthorPage() {
       }} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
         <div className="mb-8">
-          <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
+          <span className="text-[0.875rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
             AUTHOR
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">SevenOneLabs</h1>
@@ -71,16 +71,16 @@ export default function AuthorPage() {
                 href={g.href}
                 className="group block bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5"
               >
-                <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">{g.title}</h3>
-                <p className="text-[0.75rem] text-[#8d9aaa] leading-relaxed m-0">{g.desc}</p>
+                <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">{g.title}</h3>
+                <p className="text-base text-[#8d9aaa] leading-relaxed m-0">{g.desc}</p>
               </Link>
             ))}
           </div>
         </section>
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Open Source</h3>
-          <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed m-0">
+          <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Open Source</h3>
+          <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             SquarePic is open source. View the code, report issues, or contribute on{" "}
             <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">GitHub</a>.{" "}
             Questions or feedback? Email{" "}

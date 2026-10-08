@@ -56,7 +56,7 @@ with sync_playwright() as p:
    found=[e for e in events if e[1]=="tool_"+action and e[2].get("tool_name")==tool]
    assert len(found)==count,(tool,action,len(found),count,events)
   for e in events:
-   assert set(e[2]).issubset({"tool_name","output_format"}),e
+   assert set(e[2]).issubset({"tool_name","output_format","device_layout","editor_mode","input_source"}),e
    assert "marked" not in json.dumps(e) and "noise.jpg" not in json.dumps(e),e
  for fmt,mime,dim in [("JPEG","JPEG",(600,400)),("PNG","PNG",(600,400)),("WebP","WEBP",(600,400)),("ICO","ICO",(256,171))]:
   nav("/converter")

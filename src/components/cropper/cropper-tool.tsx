@@ -1,5 +1,6 @@
 "use client";
 import { isImageFile } from "@/lib/image-input";
+import { useImageLoader } from "@/lib/use-image-loader";
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import { canvasBlob, downloadImage } from "@/lib/image-export";
@@ -86,6 +87,7 @@ function sourceRegion(crop: { x: number; y: number; w: number; h: number }, boun
 }
 
 export function CropperTool() {
+  const { loadImage, clearImage } = useImageLoader();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -419,7 +421,7 @@ export function CropperTool() {
     };
     el.addEventListener("wheel", handler, { passive: false });
     return () => el.removeEventListener("wheel", handler);
-  }, [clampCropAfterViewChange]);
+  }, [clampCropAfterViewChange, image]);
 
   const handleFile = useCallback((file: File) => {
     if (!file) return;
@@ -429,20 +431,14 @@ export function CropperTool() {
       return;
     }
     setError("");
-    const url = URL.createObjectURL(file);
-    const img = new Image();
-    img.onload = () => {
-      URL.revokeObjectURL(url);
+    loadImage(file, (img) => {
       trackToolEvent("upload_accepted", "cropper");
       setImage(img);
-    };
-    img.onerror = () => {
-      URL.revokeObjectURL(url);
+    }, () => {
       setError("This image could not be decoded. Try PNG, JPEG or WebP.");
       trackToolEvent("processing_error", "cropper");
-    };
-    img.src = url;
-  }, []);
+    });
+  }, [loadImage]);
 
   const handleRatioChange = useCallback((newRatio: number | null) => {
     setRatio(newRatio);
@@ -460,8 +456,6 @@ export function CropperTool() {
     let newH = newW / newRatio;
     if (newW > cw) { newW = cw; newH = cw / newRatio; }
     if (newH > ch) { newH = ch; newW = ch * newRatio; }
-    newW = Math.max(20, newW);
-    newH = Math.max(20, newH);
     let newX = cx - newW / 2;
     let newY = cy - newH / 2;
     newX = Math.max(0, Math.min(newX, cw - newW));
@@ -560,11 +554,11 @@ export function CropperTool() {
             className="w-full lg:w-[280px] flex flex-col gap-3"
           >
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Aspect Ratio</h3>
+              <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Aspect Ratio</h3>
               <div className="flex flex-wrap gap-1">
                 {RATIOS.map((r) => (
                   <button key={r.label} onClick={() => handleRatioChange(r.value)}
-                    className={`text-[0.6rem] font-bold px-2 py-1 rounded-sm border transition-all cursor-pointer ${
+                    className={`text-[0.875rem] font-bold px-2 py-1 rounded-sm border transition-all cursor-pointer ${
                       ratio === r.value
                         ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
                         : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa] hover:text-[#e6edf5]"
@@ -575,7 +569,7 @@ export function CropperTool() {
             </div>
 
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Zoom</h3>
+              <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Zoom</h3>
               <div className="flex items-center gap-2 mb-1.5">
                 <button onClick={() => {
                   const nz = Math.max(0.1, zoomRef.current - 0.2);
@@ -583,7 +577,7 @@ export function CropperTool() {
                   clampCropAfterViewChange(); renderRef.current();
                 }}
                   className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] w-7 h-7 rounded-md cursor-pointer hover:text-[#e6edf5] transition-all text-sm flex items-center justify-center">-</button>
-                <input type="range" min={10} max={500} value={Math.round(zoom * 100)}
+                <input type="range" aria-label="Crop zoom" min={10} max={1000} value={Math.round(zoom * 100)}
                   onChange={(e) => {
                     const nz = Number(e.target.value) / 100;
                     zoomRef.current = nz; setZoom(nz);
@@ -597,22 +591,22 @@ export function CropperTool() {
                 }}
                   className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] w-7 h-7 rounded-md cursor-pointer hover:text-[#e6edf5] transition-all text-sm flex items-center justify-center">+</button>
               </div>
-              <div className="text-center text-[0.72rem] text-[#8d9aaa] font-semibold">{Math.round(zoom * 100)}%</div>
+              <div className="text-center text-[0.875rem] text-[#8d9aaa] font-semibold">{Math.round(zoom * 100)}%</div>
             </div>
 
             {crop && (
               <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3">
-                <div className="text-[0.65rem] text-[#8d9aaa]">Export size: <strong className="text-[var(--accent)]">{outputSize.width} x {outputSize.height} px</strong></div>
-                <div className="text-[0.55rem] text-[#576675] mt-0.5">Original source pixels. Pan the background or drag crop handles. No resizing.</div>
+                <div className="text-[0.875rem] text-[#8d9aaa]">Export size: <strong className="text-[var(--accent)]">{outputSize.width} x {outputSize.height} px</strong></div>
+                <div className="text-[0.875rem] text-[#8d9aaa] mt-0.5">Original source pixels. Pan the background or drag crop handles. No resizing.</div>
               </div>
             )}
 
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Export</h3>
+              <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Export</h3>
               <div className="flex gap-1 mb-2">
                 {(["jpeg", "png", "webp"] as const).map((f) => (
                   <button key={f} onClick={() => setExpFormat(f)}
-                    className={`flex-1 text-[0.6rem] font-bold px-1 py-1.5 rounded-sm border transition-all cursor-pointer ${
+                    className={`flex-1 text-[0.875rem] font-bold px-1 py-1.5 rounded-sm border transition-all cursor-pointer ${
                       expFormat === f
                         ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
                         : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa] hover:border-[rgba(255,255,255,0.10)]"
@@ -622,7 +616,7 @@ export function CropperTool() {
               </div>
               {expFormat !== "png" && (
                 <>
-                  <div className="flex items-center justify-between text-[0.65rem] text-[#8d9aaa] mb-1.5">
+                  <div className="flex items-center justify-between text-[0.875rem] text-[#8d9aaa] mb-1.5">
                     <span>Quality</span>
                     <span>{expQuality}%</span>
                   </div>
@@ -637,8 +631,8 @@ export function CropperTool() {
               </button>
             </div>
 
-            <button onClick={() => { setImage(null); setCrop(null); setRatio(null); }}
-              className="w-full bg-transparent border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] py-2 rounded-lg text-xs font-semibold cursor-pointer hover:text-[#f43f5e] hover:border-[rgba(244,63,94,0.2)] transition-all">
+            <button onClick={() => { clearImage(); setImage(null); setCrop(null); setRatio(null); setError(""); setDragging(null); }}
+              className="w-full bg-transparent border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] py-2 rounded-lg text-sm font-semibold cursor-pointer hover:text-[#f43f5e] hover:border-[rgba(244,63,94,0.2)] transition-all">
               Upload New Image
             </button>
           </motion.div>

@@ -1,0 +1,765 @@
+{
+  "layouts": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "25.6px",
+      "overflow": [],
+      "route": "/",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/converter",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "24px",
+      "overflow": [],
+      "route": "/converter/png-to-jpg",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/compressor",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/cropper",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/upscaler",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "28.8px",
+      "overflow": [],
+      "route": "/image-size-calculator",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "24px",
+      "overflow": [],
+      "route": "/resize/instagram",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/discord-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/facebook-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/instagram-feed-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/instagram-reels-stories-guide",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/linkedin-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/make-image-square-without-cropping",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/pinterest-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/social-media-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/tiktok-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/youtube-banner-thumbnail-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "25.6px",
+      "overflow": [],
+      "route": "/",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/converter",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "24px",
+      "overflow": [],
+      "route": "/converter/png-to-jpg",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/compressor",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/cropper",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/upscaler",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "28.8px",
+      "overflow": [],
+      "route": "/image-size-calculator",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "24px",
+      "overflow": [],
+      "route": "/resize/instagram",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/discord-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/facebook-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/instagram-feed-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/instagram-reels-stories-guide",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/linkedin-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/make-image-square-without-cropping",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/pinterest-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/social-media-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/tiktok-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/youtube-banner-thumbnail-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "25.6px",
+      "overflow": [],
+      "route": "/",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/converter",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "24px",
+      "overflow": [],
+      "route": "/converter/png-to-jpg",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/compressor",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/cropper",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/upscaler",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "28.8px",
+      "overflow": [],
+      "route": "/image-size-calculator",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "24px",
+      "overflow": [],
+      "route": "/resize/instagram",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/discord-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/facebook-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/instagram-feed-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/instagram-reels-stories-guide",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/linkedin-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/make-image-square-without-cropping",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/pinterest-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/social-media-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/tiktok-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "h1": "32px",
+      "overflow": [],
+      "route": "/guides/youtube-banner-thumbnail-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "30.72px",
+      "overflow": [],
+      "route": "/",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/converter",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "24px",
+      "overflow": [],
+      "route": "/converter/png-to-jpg",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/compressor",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/cropper",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/upscaler",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "28.8px",
+      "overflow": [],
+      "route": "/image-size-calculator",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "24px",
+      "overflow": [],
+      "route": "/resize/instagram",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides/discord-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides/facebook-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides/instagram-feed-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides/instagram-reels-stories-guide",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides/linkedin-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides/make-image-square-without-cropping",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides/pinterest-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides/social-media-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides/tiktok-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1": "40.96px",
+      "overflow": [],
+      "route": "/guides/youtube-banner-thumbnail-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "40px",
+      "overflow": [],
+      "route": "/",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/converter",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "24px",
+      "overflow": [],
+      "route": "/converter/png-to-jpg",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/compressor",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/cropper",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "26.4px",
+      "overflow": [],
+      "route": "/upscaler",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "28.8px",
+      "overflow": [],
+      "route": "/image-size-calculator",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "24px",
+      "overflow": [],
+      "route": "/resize/instagram",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides/discord-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides/facebook-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides/instagram-feed-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides/instagram-reels-stories-guide",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides/linkedin-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides/make-image-square-without-cropping",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides/pinterest-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides/social-media-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides/tiktok-image-sizes-2026",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": "48px",
+      "overflow": [],
+      "route": "/guides/youtube-banner-thumbnail-sizes-2026",
+      "status": 200
+    }
+  ],
+  "pageErrors": []
+}

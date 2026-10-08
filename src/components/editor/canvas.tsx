@@ -12,6 +12,7 @@ import {
 } from "react";
 import { canvasBlob } from "@/lib/image-export";
 import { isImageFile } from "@/lib/image-input";
+import { useImageLoader } from "@/lib/use-image-loader";
 import { trackToolEvent } from "@/lib/analytics";
 import { getExportDimensions, renderToCanvas, type EditorState } from "@/lib/editor-renderer";
 import { DropZone } from "./drop-zone";
@@ -44,6 +45,7 @@ function computeDisplaySize(
 
 const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
   function EditorCanvasInner({ state, onStateChange, onError, toolName = "square" }, ref) {
+    const { loadImage, clearImage } = useImageLoader();
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const hasImage = state.image !== null;
@@ -141,6 +143,11 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
         if (!ctx) return null;
 
         renderToCanvas(ctx, offscreen, s, outW, outH);
+        if (mime === "image/jpeg") {
+          ctx.globalCompositeOperation = "destination-over";
+          ctx.fillStyle = "#fff";
+          ctx.fillRect(0, 0, outW, outH);
+        }
 
         return canvasBlob(offscreen, mime);
       },
@@ -160,32 +167,29 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
           return;
         }
         setLoading(true);
-        const url = URL.createObjectURL(file);
-        const img = new Image();
-        img.onload = () => {
+        onError(null);
+        loadImage(file, (img) => {
           setLoading(false);
           trackToolEvent("upload_accepted", toolName);
           onStateChange({ image: img });
-        };
-        img.onerror = () => {
+        }, () => {
           setLoading(false);
-          URL.revokeObjectURL(url);
           trackToolEvent("processing_error", toolName);
           onError("This image could not be opened. Choose another image and try again.");
-        };
-        img.src = url;
+        });
       },
-      [onStateChange, onError, toolName],
+      [onStateChange, onError, toolName, loadImage],
     );
 
     const handleReset = useCallback(() => {
+      clearImage();
       const s = renderState.current;
       if (s.image) {
         URL.revokeObjectURL(s.image.src);
       }
       onError(null);
       onStateChange({ image: null });
-    }, [onStateChange, onError]);
+    }, [onStateChange, onError, clearImage]);
 
     return (
       <div
@@ -195,7 +199,7 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
         {loading && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[rgba(3,4,6,0.85)]">
             <div className="w-8 h-8 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
-            <span className="text-[0.75rem] text-[#8d9aaa] font-semibold">Loading image...</span>
+            <span className="text-[0.875rem] text-[#8d9aaa] font-semibold">Loading image...</span>
           </div>
         )}
         <canvas
@@ -207,7 +211,7 @@ const EditorCanvasInner = forwardRef<EditorCanvasHandle, Props>(
         {hasImage && (
           <button
             onClick={handleReset}
-            className="absolute top-2 right-2 bg-[rgba(0,0,0,0.5)] border border-[rgba(255,255,255,0.1)] text-white text-xs font-semibold px-3 py-1.5 rounded-sm cursor-pointer transition-colors hover:bg-[rgba(0,0,0,0.7)]"
+            className="absolute top-2 right-2 bg-[rgba(0,0,0,0.5)] border border-[rgba(255,255,255,0.1)] text-white text-sm font-semibold px-3 py-1.5 rounded-sm cursor-pointer transition-colors hover:bg-[rgba(0,0,0,0.7)]"
           >
             New Image
           </button>

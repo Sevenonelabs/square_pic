@@ -42,7 +42,7 @@ export default function UpscalerPage() {
         <h2 className={heading}>What 2x, 3x, and 4x actually change</h2>
         <p>The multiplier applies to each dimension, not to the total pixel count. A 2x enlargement contains four times as many pixels; 4x contains sixteen times as many. More pixels increase memory use and may slow processing on a phone.</p>
         <div className="overflow-x-auto mt-4">
-          <table className="w-full text-[0.85rem] border-collapse">
+          <table className="w-full text-[0.875rem] border-collapse">
             <caption className="text-left mb-2">Calculated output sizes for a 600 × 400 source photo</caption>
             <thead><tr className="border-b border-white/10"><th scope="col" className="text-left py-2">Scale</th><th scope="col" className="text-left py-2">Output dimensions</th><th scope="col" className="text-left py-2">Pixel count</th></tr></thead>
             <tbody>{[
@@ -68,7 +68,7 @@ export default function UpscalerPage() {
         <div className="space-y-5">{questions.map((item) => <div key={item.question}><h3 className="font-bold text-[#e6edf5] mb-1">{item.question}</h3><p>{item.answer}</p></div>)}</div>
         <h2 className={heading}>Prepare an enlarged image for its destination</h2>
         <p>Review the output at its intended display size. For a banner or avatar, check the <Link href="/resize/linkedin" className={linkStyle}>LinkedIn dimensions</Link> or <Link href="/resize/instagram" className={linkStyle}>Instagram presets</Link> before exporting. If a larger image exceeds an upload limit, use the <Link href="/compressor" className={linkStyle}>image compressor</Link> after choosing the required dimensions.</p>
-        <p className="text-[0.75rem] mt-8">Last updated: October 8, 2026</p>
+        <p className="text-base mt-8">Last updated: October 8, 2026</p>
       </section>
     </>
   );

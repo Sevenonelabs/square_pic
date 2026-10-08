@@ -1,3 +1,4 @@
+import { PlatformIcon } from "@/components/platform-icon";
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -95,15 +96,25 @@ export default function SocialMediaImageSizesPage() {
       />
       <FAQPageSchema questions={FAQ_QUESTIONS} />
       <article className="max-w-[800px] w-full mx-auto px-4 py-8">
+        <Link href="/guides" className="inline-flex min-h-11 items-center mb-4 text-base font-semibold text-[var(--accent)] hover:underline">&larr; All guides</Link>
         <h1 className="text-[2rem] font-extrabold tracking-tight mb-1">Social Media Image Sizes 2026: Cheat Sheet</h1>
-        <p className="text-[0.78rem] text-[#576675] mb-6">Published July 19, 2026 · Discord section updated October 7, 2026 · 15 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
-        <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed mb-8">
+        <p className="text-[1rem] text-[#8d9aaa] mb-6">Published July 19, 2026 · Discord section updated October 7, 2026 · 15 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-8">
           Using the correct image dimensions is one of the easiest ways to make your social media profiles
           look professional. Every platform has specific requirements, and getting them wrong means your
           images will appear stretched, cropped, or pixelated. This guide covers the exact image sizes for
           every major social media platform in 2026.
         </p>
         <ShareButtons path="/guides/social-media-image-sizes-2026" title="Social Media Image Sizes 2026: Cheat Sheet" />
+
+        <TableOfContents items={[
+          { id: "best-practices", label: "Best Practices", level: 2 },
+          { id: "why-correct-sizes-matter", label: "Why Correct Sizes Matter", level: 2 },
+          { id: "common-mistakes", label: "Common Mistakes", level: 2 },
+          { id: "how-squarepic-helps", label: "How SquarePic Helps", level: 2 },
+          { id: "faq", label: "Frequently Asked Questions", level: 2 },
+          { id: "key-takeaways", label: "Key Takeaways", level: 2 },
+        ]} />
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mb-8">
           <h2 className="text-[1.1rem] font-extrabold text-[#e6edf5] mb-3">Quick Navigation</h2>
@@ -115,9 +126,9 @@ export default function SocialMediaImageSizesPage() {
                 <Link
                   key={key}
                   href={`#${key}`}
-                  className="text-[0.75rem] font-semibold text-[#8d9aaa] no-underline hover:text-[var(--accent)] transition-colors py-1 px-2 rounded-sm hover:bg-[rgba(255,255,255,0.03)]"
+                  className="text-[1rem] font-semibold text-[#8d9aaa] no-underline hover:text-[var(--accent)] transition-colors py-1 px-2 rounded-sm hover:bg-[rgba(255,255,255,0.03)]"
                 >
-                  {p.label}
+                  <PlatformIcon platform={key} />{" "}{p.label}
                 </Link>
               );
             })}
@@ -136,21 +147,21 @@ export default function SocialMediaImageSizesPage() {
           return (
             <section key={key} id={key} className="mb-10 scroll-mt-20">
               <div className="flex items-center gap-3 mb-3">
-                <h2 className="text-[1.3rem] font-extrabold text-[#e6edf5] m-0">{p.label}</h2>
+                <h2 className="text-[1.3rem] font-extrabold text-[#e6edf5] m-0"><PlatformIcon platform={key} />{" "}{p.label}</h2>
                 <Link
                   href={`/resize/${slug}`}
-                  className="text-[0.6rem] font-bold tracking-[0.08em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm no-underline hover:bg-[var(--accent)]/15 transition-colors"
+                  className="text-[1rem] font-bold tracking-[0.08em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm no-underline hover:bg-[var(--accent)]/15 transition-colors"
                 >
                   Full Guide →
                 </Link>
               </div>
-              <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-4">{p.description}</p>
-              {key === "discord" && <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-4">
+              <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-4">{p.description}</p>
+              {key === "discord" && <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-4">
                 These are separate uploads. See the <Link href="/guides/discord-image-sizes-2026" className="text-[var(--accent)] hover:underline">Discord server banner and invite splash guide</Link> for Boost requirements and missing-image checks.
               </p>}
 
               <div className="overflow-x-auto mb-3">
-                <table className="w-full text-[0.78rem] border-collapse">
+                <table className="w-full text-[1rem] border-collapse">
                   <thead>
                     <tr className="border-b border-[rgba(255,255,255,0.06)]">
                       <th className="text-left font-bold text-[#e6edf5] py-2 pr-3">Image Type</th>
@@ -169,7 +180,7 @@ export default function SocialMediaImageSizesPage() {
                   </tbody>
                 </table>
               </div>
-              <a href="#top" className="text-[0.55rem] font-semibold text-[#576675] no-underline hover:text-[var(--accent)] transition-colors inline-flex items-center gap-1">
+              <a href="#top" className="text-[1rem] font-semibold text-[#8d9aaa] no-underline hover:text-[var(--accent)] transition-colors inline-flex items-center gap-1">
                 <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15" /></svg>
                 Back to top
               </a>
@@ -177,14 +188,7 @@ export default function SocialMediaImageSizesPage() {
           );
         })}
 
-        <TableOfContents items={[
-          { id: "best-practices", label: "Best Practices", level: 2 },
-          { id: "why-correct-sizes-matter", label: "Why Correct Sizes Matter", level: 2 },
-          { id: "common-mistakes", label: "Common Mistakes", level: 2 },
-          { id: "how-squarepic-helps", label: "How SquarePic Helps", level: 2 },
-          { id: "faq", label: "Frequently Asked Questions", level: 2 },
-          { id: "key-takeaways", label: "Key Takeaways", level: 2 },
-        ]} />
+
 
         <section id="best-practices" className="mb-10">
           <h2 className="text-[1.3rem] font-extrabold text-[#e6edf5] mb-3">Best Practices for All Platforms</h2>
@@ -198,8 +202,8 @@ export default function SocialMediaImageSizesPage() {
               { title: "Maintain Image Quality", desc: "Upload the highest resolution version that meets platform limits. Platforms compress images, so start clean." },
             ].map((t) => (
               <div key={t.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
-                <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">{t.title}</h3>
-                <p className="text-[0.78rem] text-[#8d9aaa] leading-relaxed m-0">{t.desc}</p>
+                <h3 className="text-[1rem] font-extrabold text-[#e6edf5] mb-1">{t.title}</h3>
+                <p className="text-[1rem] text-[#8d9aaa] leading-relaxed m-0">{t.desc}</p>
               </div>
             ))}
           </div>
@@ -207,12 +211,12 @@ export default function SocialMediaImageSizesPage() {
 
         <section id="why-correct-sizes-matter" className="mb-10">
           <h2 className="text-[1.3rem] font-extrabold text-[#e6edf5] mb-3">Why Correct Image Sizes Matter</h2>
-          <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-3">
+          <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
             Social media platforms process your images through multiple display layers — feed, search results,
             shared links, and notifications. Each context uses a different crop or size. When you upload an
             image at the wrong dimensions, the platform has to guess how to display it, often leading to:
           </p>
-          <ul className="text-[0.85rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
+          <ul className="text-[1rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
             <li><strong className="text-[#e6edf5]">Unexpected cropping:</strong> Instagram crops profile pictures to circles and feed thumbnails to squares. If your subject is off-center, it gets cropped out.</li>
             <li><strong className="text-[#e6edf5]">Pixelation:</strong> Uploading a small image and letting the platform upscale it results in blurry, unprofessional-looking content.</li>
             <li><strong className="text-[#e6edf5]">Slow loading:</strong> Uploading an overly large image forces the platform to generate multiple thumbnails, slowing down your post visibility.</li>
@@ -222,7 +226,7 @@ export default function SocialMediaImageSizesPage() {
 
         <section id="common-mistakes" className="mb-10">
           <h2 className="text-[1.3rem] font-extrabold text-[#e6edf5] mb-3">Common Social Media Image Mistakes</h2>
-          <ul className="text-[0.85rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
+          <ul className="text-[1rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
             <li><strong className="text-[#e6edf5]">Using one size for all platforms.</strong> Each platform has unique dimension requirements. A square Instagram post looks different on LinkedIn or X/Twitter. Resize for each platform individually.</li>
             <li><strong className="text-[#e6edf5]">Ignoring aspect ratio differences.</strong> Profile pictures are often cropped to circles (Instagram, TikTok, X/Twitter) while cover photos use wide panoramic ratios. Designing for the wrong shape wastes effort.</li>
             <li><strong className="text-[#e6edf5]">Uploading low-resolution images.</strong> Platforms downscale large images but rarely upscale well. Starting below the recommended minimum resolution guarantees pixelation.</li>
@@ -233,7 +237,7 @@ export default function SocialMediaImageSizesPage() {
 
         <section id="how-squarepic-helps" className="mb-10">
           <h2 className="text-[1.3rem] font-extrabold text-[#e6edf5] mb-3">How SquarePic Helps</h2>
-          <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-3">
+          <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
             SquarePic makes it easy to resize your images to the exact dimensions each platform requires.
             Use the platform-specific resizer tools — <Link href="/resize/instagram" className="text-[var(--accent)] no-underline hover:underline">Instagram</Link>,{" "}
             <Link href="/resize/facebook" className="text-[var(--accent)] no-underline hover:underline">Facebook</Link>,{" "}
@@ -250,8 +254,8 @@ export default function SocialMediaImageSizesPage() {
           <div className="space-y-4">
             {FAQ_QUESTIONS.map((q, i) => (
               <div key={i}>
-                <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">{q.question}</h3>
-                <p className="text-[0.82rem] text-[#8d9aaa] leading-relaxed m-0">{q.answer}</p>
+                <h3 className="text-[1rem] font-extrabold text-[#e6edf5] mb-1">{q.question}</h3>
+                <p className="text-[1rem] text-[#8d9aaa] leading-relaxed m-0">{q.answer}</p>
               </div>
             ))}
           </div>
@@ -259,7 +263,7 @@ export default function SocialMediaImageSizesPage() {
 
         <section id="key-takeaways" className="mb-10">
           <h2 className="text-[1.3rem] font-extrabold text-[#e6edf5] mb-3">Key Takeaways</h2>
-          <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-3">
+          <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
             Every social media platform has distinct image dimension requirements. Square (1080 x 1080) is the most universally supported format. Always check the specific requirements for each platform and image type before exporting your final design. Compress images to stay under file size limits while maintaining visual quality. For detailed guides on each platform, explore the individual platform pages linked above.
           </p>
         </section>

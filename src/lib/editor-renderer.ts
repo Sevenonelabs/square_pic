@@ -18,7 +18,7 @@ export function getExportDimensions(state: EditorState, maxSize = MAX_EXPORT_EDG
   const width = state.targetWidth || Math.max(state.image?.width || 0, state.image?.height || 0);
   const height = state.targetHeight || width;
   const scale = Math.min(1, maxSize / Math.max(1, width, height));
-  return { width: Math.round(width * scale), height: Math.round(height * scale), limited: scale < 1 };
+  return { width: Math.max(1, Math.round(width * scale)), height: Math.max(1, Math.round(height * scale)), limited: scale < 1 };
 }
 
 export function renderToCanvas(

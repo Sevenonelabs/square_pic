@@ -112,7 +112,7 @@ export default function FAQPage() {
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-6">SquarePic FAQ: Image Editing Help</h1>
       {SECTIONS.map((section) => (
         <section key={section.title} className="mb-8">
-          <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-3 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">
+          <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-3 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">
             {section.title}
           </h2>
           <div className="space-y-5">

@@ -1,3 +1,4 @@
+import { PlatformIcon, PlatformTitle } from "@/components/platform-icon";
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -123,64 +124,78 @@ export default async function GuidesPage(props: { searchParams?: Promise<{ categ
         url: `${SITE}/guides`,
         about: { "@type": "Thing", name: "Image Editing Guides" },
       }} />
-      <div className="max-w-[800px] w-full mx-auto px-4 py-8">
-        <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-2">Social Media Image Size Guides & Photo Tutorials</h1>
-        <p className="text-center text-[0.9rem] text-[#8d9aaa] max-w-[500px] mx-auto mb-8 leading-relaxed">
+      <div className="max-w-[1120px] w-full mx-auto px-4 py-8">
+        <h1 className="text-center text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-tight mb-2">Social Media Image Size Guides & Photo Tutorials</h1>
+        <p className="text-center text-[1rem] text-[#8d9aaa] max-w-[680px] mx-auto mb-8 leading-relaxed">
           Step-by-step tutorials, dimension guides, and how-to articles for optimizing images on every platform.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+        <div className="grid sm:grid-cols-2 gap-4 mb-8">
+          <Link href="/guides/social-media-image-sizes-2026" className="border border-[var(--accent)]/25 bg-[var(--accent)]/5 p-5 rounded-lg hover:bg-[var(--accent)]/10">
+            <span className="text-sm font-semibold text-[var(--accent)]">Find your image size</span>
+            <h2 className="text-xl font-bold mt-1 mb-2">13 platforms, one cheat sheet</h2>
+            <p className="text-base text-[#abb8c7]">Compare post, profile and banner dimensions.</p>
+          </Link>
+          <Link href="/guides/make-image-square-without-cropping" className="border border-white/10 bg-white/[0.025] p-5 rounded-lg hover:bg-white/5">
+            <span className="text-sm font-semibold text-[var(--accent)]">Start with a photo</span>
+            <h2 className="text-xl font-bold mt-1 mb-2">Make a square without losing the edges</h2>
+            <p className="text-base text-[#abb8c7]">Follow visual examples and choose fit or crop.</p>
+          </Link>
+        </div>
+        <nav aria-label="Guide categories" className="flex flex-wrap justify-center gap-2 mb-8">
           {ALL_CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat;
             const slug = cat === "All" ? "" : categorySlug(cat);
             return (
               <Link
                 key={cat}
+                aria-current={isActive ? "page" : undefined}
                 href={slug ? `/guides?category=${encodeURIComponent(slug)}` : "/guides"}
-                className={`text-[0.7rem] font-bold tracking-[0.08em] px-3 py-1.5 rounded-md no-underline transition-all duration-200 ${
+                className={`inline-flex items-center gap-2 min-h-11 text-[1rem] font-semibold px-4 py-2 rounded-md no-underline transition-all duration-200 ${
                   isActive
                     ? "bg-[var(--accent)] text-black"
                     : "text-[#8d9aaa] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] hover:text-[#e6edf5] hover:border-[rgba(255,255,255,0.12)]"
                 }`}
               >
-                {cat}
+                <PlatformIcon platform={cat} />{cat}
               </Link>
             );
           })}
-        </div>
+        </nav>
 
-        <div className="flex flex-col gap-4 mb-10">
+        <p className="text-sm text-[#abb8c7] mb-4">{filtered.length} {filtered.length === 1 ? "guide" : "guides"}{activeCategory !== "All" ? ` for ${activeCategory}` : " to explore"}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
           {filtered.map((g) => (
             <Link
               key={g.href}
               href={g.href}
-              className="group block bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5"
+              className="group block bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5"
             >
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col gap-3">
                 <div className="min-w-0">
-                  <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
+                  <span className="text-[1rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
                     {g.category}
                   </span>
-                  <h2 className="text-[1.1rem] font-extrabold text-[#e6edf5] mt-2 mb-1.5 group-hover:text-[var(--accent)] transition-colors">
-                    {g.title}
+                  <h2 className="text-xl font-extrabold text-[#e6edf5] mt-2 mb-1.5 group-hover:text-[var(--accent)] transition-colors">
+                    <PlatformTitle title={g.title} />
                   </h2>
-                  <p className="text-[0.82rem] text-[#8d9aaa] leading-relaxed m-0">{g.desc}</p>
+                  <p className="text-[1rem] text-[#8d9aaa] leading-relaxed m-0">{g.desc}</p>
                 </div>
-                <span className="text-[0.65rem] text-[#576675] font-semibold shrink-0 pt-1">{g.readTime}</span>
+                <span className="text-sm text-[#abb8c7] font-semibold shrink-0 pt-1">{g.readTime}</span>
               </div>
             </Link>
           ))}
         </div>
 
         {filtered.length === 0 && (
-          <p className="text-center text-[0.85rem] text-[#576675]">
+          <p className="text-center text-[1rem] text-[#8d9aaa]">
             No guides in this category yet.{" "}
             <Link href="/guides" className="text-[var(--accent)] no-underline hover:underline">View all guides</Link>.
           </p>
         )}
 
         <div className="text-center">
-          <p className="text-[0.78rem] text-[#576675]">
+          <p className="text-[1rem] text-[#8d9aaa]">
             Have a suggestion for a new guide?{" "}
             <Link href="/support" className="text-[var(--accent)] no-underline hover:underline">Let us know</Link>.
           </p>

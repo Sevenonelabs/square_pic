@@ -9,8 +9,8 @@
   --color-border-faint: rgba(255, 255, 255, 0.06);
   --color-border-subtle: rgba(255, 255, 255, 0.10);
   --color-text-primary: #e6edf5;
-  --color-text-secondary: #8d9aaa;
-  --color-text-tertiary: #576675;
+  --color-text-secondary: #abb8c7;
+  --color-text-tertiary: #8d9aaa;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "Syne Mono", monospace;
   --radius-sm: 2px;
@@ -200,20 +200,22 @@ input[type="color"]::-webkit-color-swatch {
 /* Flex/grid content and native controls must shrink on narrow screens. */
 main { min-width: 0; }
 input, select, textarea { min-width: 0; max-width: 100%; }
-section, article { max-width: 100%; overflow-wrap: break-word; }
+@layer base {
+  section, article { max-width: 100%; overflow-wrap: break-word; }
+}
 
 /* StartupBar adds body padding after loading. The app already reserves its
    36px bar in the navbar offset and page padding. Keep that spacing stable. */
-body { padding-top: 96px !important; }
-html { scroll-padding-top: 96px !important; }
+body { padding-top: 116px !important; }
+html { scroll-padding-top: 116px !important; }
 @media (max-width: 767px) {
-  body { padding-top: 88px !important; }
-  html { scroll-padding-top: 88px !important; }
+  body { padding-top: 110px !important; }
+  html { scroll-padding-top: 110px !important; }
 }
 iframe[data-startupbar-frame][style*="position: static"] { position: fixed !important; top: 0 !important; left: 0 !important; }
 
 /* Preview pixels follow the available workspace; export pixels stay independent. */
-.image-editor-workspace { --editor-header: 96px; scroll-margin-top: 8px; }
+.image-editor-workspace { --editor-header: 116px; scroll-margin-top: 8px; }
 .image-editor-workspace .editor-shell {
   height: calc(100dvh - var(--editor-header) - 24px - env(safe-area-inset-bottom));
   display: flex;
@@ -233,7 +235,7 @@ iframe[data-startupbar-frame][style*="position: static"] { position: fixed !impo
 }
 .editor-settings { scrollbar-width: thin; scrollbar-color: #576675 #030406; }
 @media (max-width: 767px) {
-  .image-editor-workspace { --editor-header: 88px; }
+  .image-editor-workspace { --editor-header: 110px; }
   .editor-settings { max-height: 220px; overflow-y: auto; overscroll-behavior: contain; }
   .image-editor-workspace .editor-stage {
     display: grid;
@@ -243,7 +245,7 @@ iframe[data-startupbar-frame][style*="position: static"] { position: fixed !impo
     grid-template-rows: minmax(0, 1fr) minmax(0, clamp(220px, 28dvh, 260px));
   }
   .image-editor-workspace[data-loaded="true"] .editor-settings { max-height: none; }
-  .editor-export p { font-size: 11px; line-height: 1.35; }
+  .editor-export p { font-size: 0.875rem; line-height: 1.5; }
   .editor-controls button { min-height: 44px; }
   .editor-controls input[type="color"] { min-height: 44px; }
   .editor-controls input[type="range"] { min-height: 24px; }
@@ -259,4 +261,53 @@ iframe[data-startupbar-frame][style*="position: static"] { position: fixed !impo
 @media (max-width: 767px) and (max-height: 500px) {
   .image-editor-workspace[data-loaded="true"] .editor-stage { display: flex; flex-direction: row; }
   .image-editor-workspace[data-loaded="true"] .editor-controls { width: 200px; max-width: 48%; }
+}
+
+/* Readable controls and content, with space for fingers and keyboard focus. */
+body { line-height: 1.6; }
+.editor-controls button:not([aria-label$="theme"]) { min-height: 44px; }
+.editor-controls input[type="number"], .editor-controls select { min-height: 44px; font-size: 1rem; }
+.editor-controls input[type="range"] { min-height: 28px; }
+.editor-settings { padding: 12px; }
+.editor-settings > div { padding: 12px; }
+.editor-controls h3 { color: #abb8c7; letter-spacing: 0.04em; }
+.guide-pages article { max-width: 800px; font-size: 1.0625rem; line-height: 1.8; padding-top: 32px; padding-bottom: 64px; }
+.guide-pages article h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; color: #e6edf5; margin-bottom: 20px; text-wrap: balance; }
+.guide-pages article h2 { font-size: 1.5rem; line-height: 1.35; color: #e6edf5; margin-top: 36px; margin-bottom: 16px; }
+.guide-pages article h3 { font-size: 1.125rem; line-height: 1.5; }
+.guide-pages article p, .guide-pages article ul, .guide-pages article ol { font-size: 1.0625rem; color: #abb8c7; }
+.guide-pages article p { margin-bottom: 16px; }
+.guide-pages article table { font-size: 1rem; line-height: 1.6; min-width: 480px; }
+.guide-pages article th, .guide-pages article td { padding: 14px 16px; }
+.guide-pages article tbody tr:nth-child(odd) { background: rgba(255,255,255,0.025); }
+.guide-pages article [id] { scroll-margin-top: 128px; }
+.guide-pages article :is(h1, h2, h3) svg { color: var(--accent); }
+.guide-pages article .guide-outline { margin-top: 28px; }
+.guide-pages article .guide-outline h2 { font-size: 1.125rem; margin: 0 0 12px; }
+.guide-pages article .guide-outline ul { font-size: 1rem; }
+.guide-pages article .guide-outline a { display: flex; min-height: 44px; align-items: center; text-decoration: none; }
+@media (max-width: 767px) {
+  .guide-pages article { font-size: 1rem; line-height: 1.75; }
+  .guide-pages article p, .guide-pages article ul, .guide-pages article ol { font-size: 1rem; }
+  .guide-pages article h2 { font-size: 1.375rem; }
+  .guide-pages article th, .guide-pages article td { padding: 12px; }
+}
+
+/* Long upload instructions need their own document space on phones. */
+@media (max-width: 767px) {
+  .image-editor-workspace[data-loaded="false"] .editor-shell { height: auto; }
+  .image-editor-workspace[data-loaded="false"] .editor-stage { display: flex; }
+  .image-editor-workspace[data-loaded="false"] .editor-preview { min-height: 520px; padding: 24px 12px; }
+  .image-editor-workspace[data-loaded="false"] .editor-controls { height: auto; }
+  .image-editor-workspace[data-loaded="false"] .editor-settings { flex: auto; max-height: 320px; }
+}
+.editor-stage, .editor-controls, .editor-export { min-width: 0; }
+
+/* Keep export actions reachable when a phone rotates or a window is short. */
+@media (max-height: 599px) {
+  .image-editor-workspace[data-loaded="true"] .editor-shell { height: auto; }
+  .image-editor-workspace[data-loaded="true"] .editor-stage { display: flex; min-height: 340px; }
+  .image-editor-workspace[data-loaded="true"] .editor-preview { min-height: 320px; }
+  .image-editor-workspace[data-loaded="true"] .editor-controls { height: auto; }
+  .image-editor-workspace[data-loaded="true"] .editor-settings { flex: auto; max-height: 240px; }
 }

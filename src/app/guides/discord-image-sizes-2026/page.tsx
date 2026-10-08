@@ -1,3 +1,6 @@
+import { PlatformTitle } from "@/components/platform-icon";
+import { TableOfContents } from "@/components/guides/table-of-contents";
+import { PlatformIcon } from "@/components/platform-icon";
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -20,7 +23,7 @@ const SOURCES = {
 };
 const linkClass = "text-[var(--accent)] hover:underline";
 const headingClass = "text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3";
-const paragraphClass = "text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4";
+const paragraphClass = "text-[1rem] text-[#8d9aaa] leading-relaxed mb-4";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE, description: DESCRIPTION, path: PATH,
@@ -54,24 +57,26 @@ export default function DiscordImageSizesPage() {
       authorName="SevenOneLabs" authorUrl={`${SITE}/author/sevenonelabs`} />
     <FAQPageSchema questions={FAQ_QUESTIONS} />
     <article className="max-w-[680px] w-full mx-auto px-4 py-8">
+        <Link href="/guides" className="inline-flex min-h-11 items-center mb-4 text-base font-semibold text-[var(--accent)] hover:underline">&larr; All guides</Link>
       <div className="mb-8">
-        <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)]">Discord</span>
-        <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">{TITLE}</h1>
-        <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated October 8, 2026 · by <Link href="/author/sevenonelabs" className={linkClass}>SevenOneLabs</Link></p>
+        <span className="text-[1rem] font-bold tracking-[0.12em] text-[var(--accent)]">Discord</span>
+        <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2"><PlatformIcon platform="discord" />{" "}{TITLE}</h1>
+        <p className="text-[1rem] text-[#8d9aaa]">Published July 19, 2026 · Updated October 8, 2026 · by <Link href="/author/sevenonelabs" className={linkClass}>SevenOneLabs</Link></p>
         <ShareButtons path={PATH} title={TITLE} />
       </div>
       <p className={paragraphClass}>A Discord server banner uses a 16:9 image of at least <strong className="text-[#e6edf5]">960 × 540 pixels</strong>.
         The invite splash is a different upload at <strong className="text-[#e6edf5]">1920 × 1080</strong>.
         Choose the placement first: a picture above the channel list, a background behind an invite, and a personal profile banner use different settings.</p>
-      <nav aria-label="In this Discord guide" className="flex flex-wrap gap-x-4 gap-y-2 text-[0.85rem] mb-6">
+      <nav aria-label="In this Discord guide" className="flex flex-wrap gap-x-4 gap-y-2 text-[1rem] mb-6">
         <a href="#server-banner" className={linkClass}>Server banner size</a>
         <a href="#invite-splash" className={linkClass}>Invite splash size</a>
         <a href="#splash-not-showing" className={linkClass}>Splash not showing?</a>
         <a href="#resize-workflow" className={linkClass}>Resize an image</a>
       </nav>
-      <h2 className={headingClass}>Discord image sizes and placements</h2>
+        <TableOfContents items={[{"id": "discord-image-sizes-and-placements", "label": "Discord image sizes and placements", "level": 2}, {"id": "server-banner", "label": "Discord server banner size and Boost requirements", "level": 2}, {"id": "invite-splash", "label": "Server invite splash size and format", "level": 2}, {"id": "splash-not-showing", "label": "Why is my server splash not showing on an invite link?", "level": 2}, {"id": "profile-banners-icons-emoji-and-stickers", "label": "Profile banners, icons, emoji, and stickers", "level": 2}, {"id": "resize-workflow", "label": "How to resize a Discord banner or splash with SquarePic", "level": 2}, {"id": "frequently-asked-questions", "label": "Frequently asked questions", "level": 2}]} />
+      <h2 className={headingClass} id="discord-image-sizes-and-placements"><PlatformTitle title={"Discord image sizes and placements"} /></h2>
       <div className="overflow-x-auto mb-6">
-        <table className="w-full text-[0.85rem] border-collapse">
+        <table className="w-full text-[1rem] border-collapse">
           <caption className="text-left text-[#8d9aaa] mb-3">Specifications checked against Discord Help on October 7, 2026. Icon sizes are working presets.</caption>
           <thead><tr className="border-b border-white/10">
             {["Image", "Pixels", "Ratio", "Placement and access"].map(label => <th key={label} scope="col" className="text-left text-[#e6edf5] py-2 pr-3">{label}</th>)}
@@ -82,7 +87,7 @@ export default function DiscordImageSizesPage() {
           </tr>)}</tbody>
         </table>
       </div>
-      <h2 id="server-banner" className={headingClass}>Discord server banner size and Boost requirements</h2>
+      <h2 id="server-banner" className={headingClass}><PlatformTitle title={"Discord server banner size and Boost requirements"} /></h2>
       <p className={paragraphClass}>The channel-list banner normally unlocks at Boost Level 2; animated banners unlock at Level 3.
         Partner servers can have the banner perk without purchasing a Boost level.
         Discord accepts 1920 × 1080 artwork as well as 960 × 540 and resizes it.
@@ -98,7 +103,7 @@ export default function DiscordImageSizesPage() {
         The <a href={SOURCES.invites} className={linkClass}>official invite-background guide</a> explains the upload and private-window preview.</p>
       <h2 id="splash-not-showing" className={headingClass}>Why is my server splash not showing on an invite link?</h2>
       <p className={paragraphClass}>Start by identifying the preview you are looking at. An invite background, a channel-list banner, and a Server Profile header are separate placements. A missing image does not by itself prove the file is the wrong size.</p>
-      <ol className="text-[0.95rem] text-[#8d9aaa] leading-relaxed list-decimal pl-5 space-y-3 mb-4">
+      <ol className="text-[1rem] text-[#8d9aaa] leading-relaxed list-decimal pl-5 space-y-3 mb-4">
         <li>Check the saved upload in Server Settings. Discord&apos;s invite-background article places it under Overview → Server Invite Background. Uploading to Server Banner Background changes a different image.</li>
         <li>Confirm that the server still has the invite-background perk in its current Boost settings. A personal Nitro subscription does not replace the server&apos;s Boost level.</li>
         <li>Open the actual invite URL in a private browser window. Compare the background behind the invite pop-up with the preview in settings; do not judge it only from a link card in chat.</li>
@@ -107,7 +112,7 @@ export default function DiscordImageSizesPage() {
       </ol>
       <p className={paragraphClass}>These checks narrow down a placement, access, or file problem; they do not guarantee a fix for every client.
         If the saved image appears in settings but remains absent from the invite pop-up, compare browser and app previews and send the affected invite, client version, and screenshots to <a href="https://support.discord.com/hc/en-us/requests/new" className={linkClass}>Discord Support</a>.</p>
-      <h2 className={headingClass}>Profile banners, icons, emoji, and stickers</h2>
+      <h2 className={headingClass} id="profile-banners-icons-emoji-and-stickers">Profile banners, icons, emoji, and stickers</h2>
       <p className={paragraphClass}>Personal profile banners are separate from server artwork.
         Discord&apos;s <a href={SOURCES.userProfile} className={linkClass}>Custom Profiles article</a> now specifies at least 680 × 240 pixels, under 10 MB, as PNG, JPG, or animated GIF, with Nitro required.
         Older 600 × 240 advice does not match that current article. Review Discord&apos;s crop preview before saving.</p>
@@ -116,9 +121,9 @@ export default function DiscordImageSizesPage() {
       <p className={paragraphClass}>Discord recommends 128 × 128 emoji artwork and a file smaller than 256 KB in its <a href={SOURCES.emoji} className={linkClass}>emoji upload guidance</a>.
         Its <a href={SOURCES.stickers} className={linkClass}>sticker requirements</a> specify exactly 320 × 320, a maximum of 512 KB, and PNG for static or APNG for animated stickers.
         Do not use chat attachment limits as the limits for these assets.</p>
-      <h2 id="resize-workflow" className={headingClass}>How to resize a Discord banner or splash with SquarePic</h2>
+      <h2 id="resize-workflow" className={headingClass}><PlatformTitle title={"How to resize a Discord banner or splash with SquarePic"} /></h2>
       <p className={paragraphClass}>Review method: SevenOneLabs compares the linked Discord Help references with SquarePic&apos;s presets and decoded downloads. The guide separates server access from image dimensions; the upload preview remains a separate check.</p>
-      <ol className="text-[0.95rem] text-[#8d9aaa] leading-relaxed list-decimal pl-5 space-y-2 mb-4">
+      <ol className="text-[1rem] text-[#8d9aaa] leading-relaxed list-decimal pl-5 space-y-2 mb-4">
         <li>Open the <Link href="/resize/discord?preset=serverBanner#resizer" className={linkClass}>960 × 540 server-banner editor</Link> or the <Link href="/resize/discord?preset=serverSplash#resizer" className={linkClass}>1920 × 1080 invite-background editor</Link>.</li>
         <li>Select your source image. The chosen Discord preset is already selected; confirm its export dimensions.</li>
         <li>Choose Solid or Blur to fit the photo with background at 100% zoom. Choose Crop to fill the frame by trimming edges.</li>
@@ -127,7 +132,7 @@ export default function DiscordImageSizesPage() {
       <p className={paragraphClass}>SquarePic exports still images. It does not create animated GIF banners or APNG stickers.
         Use the <Link href="/compressor" className={linkClass}>image compressor</Link> if a static upload is too large, or the <Link href="/converter" className={linkClass}>format converter</Link> to prepare a JPG or PNG.
         Check the final file size after processing.</p>
-      <h2 className={headingClass}>Frequently asked questions</h2>
+      <h2 className={headingClass} id="frequently-asked-questions">Frequently asked questions</h2>
       {FAQ_QUESTIONS.map(({ question, answer }) => <section key={question} className="mb-5">
         <h3 className="text-[1rem] font-bold text-[#e6edf5] mb-2">{question}</h3>
         <p className={paragraphClass}>{answer}</p>

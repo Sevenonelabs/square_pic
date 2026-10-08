@@ -220,10 +220,10 @@ export default async function PlatformPage({ params }: Props) {
           </svg>
           {PLATFORM_SEO[key].h1}
         </h1>
-        <p className="text-[0.85rem] text-[#8d9aaa] max-w-[600px] mx-auto leading-relaxed">{PLATFORM_SEO[key].description}</p>
+        <p className="text-base text-[#8d9aaa] max-w-[600px] mx-auto leading-relaxed">{PLATFORM_SEO[key].description}</p>
         <div className="flex justify-center gap-2 flex-wrap mt-5">
           {types.map(([k, t]: [string, PresetType]) => (
-            <span key={k} className="text-[0.6rem] font-bold uppercase tracking-[0.06em] px-2.5 py-1 rounded-sm bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.15)] text-[var(--accent)]">
+            <span key={k} className="text-[0.875rem] font-bold uppercase tracking-[0.06em] px-2.5 py-1 rounded-sm bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.15)] text-[var(--accent)]">
               {t.w}x{t.h}
             </span>
           ))}
@@ -299,11 +299,11 @@ export default async function PlatformPage({ params }: Props) {
             >
               {tip && <div className="w-[3px] shrink-0 self-stretch bg-[var(--accent)] opacity-40 rounded-full" />}
               <div className="flex-1 min-w-0">
-                <h3 className="text-[0.82rem] font-bold text-[#e6edf5] mb-0.5">
+                <h3 className="text-[0.875rem] font-bold text-[#e6edf5] mb-0.5">
                   {header}: <span style={{ color: "var(--accent)" }}>{type.w} x {type.h} px</span>
                 </h3>
-                <p className="text-[0.72rem] text-[#8d9aaa] leading-relaxed">Aspect ratio: {type.aspect}</p>
-                {tip && <p className="text-[0.7rem] text-[#576675] mt-1.5 leading-relaxed">{tip}</p>}
+                <p className="text-base text-[#8d9aaa] leading-relaxed">Aspect ratio: {type.aspect}</p>
+                {tip && <p className="text-base text-[#8d9aaa] mt-1.5 leading-relaxed">{tip}</p>}
               </div>
             </div>
           );
@@ -359,26 +359,26 @@ export default async function PlatformPage({ params }: Props) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Recommended Formats</h3>
-          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+          <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Recommended Formats</h3>
+          <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             {(PLATFORM_BEST_PRACTICES[key] || DEFAULT_PRACTICES).formats}
           </p>
         </div>
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Quick Facts</h3>
-          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+          <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Quick Facts</h3>
+          <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             {(PLATFORM_BEST_PRACTICES[key] || DEFAULT_PRACTICES).stats}
           </p>
         </div>
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Upload Tips</h3>
-          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+          <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Upload Tips</h3>
+          <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             {(PLATFORM_BEST_PRACTICES[key] || DEFAULT_PRACTICES).tips}
           </p>
         </div>
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Why Dimensions Matter</h3>
-          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+          <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Why Dimensions Matter</h3>
+          <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             {(PLATFORM_BEST_PRACTICES[key] || DEFAULT_PRACTICES).whyMatters}
           </p>
         </div>
@@ -405,18 +405,18 @@ export default async function PlatformPage({ params }: Props) {
           Instagram feed, portrait and profile image sizes
         </Link>}
         <Link href="/guides/social-media-image-sizes-2026" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
-          <h3 className="text-[0.82rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">
+          <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">
             {p.label} Image Sizes - Complete Guide
           </h3>
-          <p className="text-[0.72rem] text-[#8d9aaa] leading-relaxed m-0">
+          <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             See all {p.label} dimensions alongside every other platform in our 2026 social media image sizes cheat sheet.
           </p>
         </Link>
         <Link href="/image-size-calculator" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
-          <h3 className="text-[0.82rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">
+          <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">
             Image Size Calculator
           </h3>
-          <p className="text-[0.72rem] text-[#8d9aaa] leading-relaxed m-0">
+          <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             Calculate aspect ratios, megapixels, and proportional resize dimensions from width and height.
           </p>
         </Link>

@@ -16,11 +16,11 @@ export default function PrivacyPage() {
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Privacy Policy", url: `${SITE}/privacy` }]} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-2">Privacy Policy</h1>
-      <p className="text-center text-[0.72rem] text-[#576675] mb-6">Last updated: October 8, 2026</p>
+      <p className="text-center text-base text-[#8d9aaa] mb-6">Last updated: October 8, 2026</p>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">1</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">1</span>
           Local image processing
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -29,8 +29,8 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">2</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">2</span>
           Local Storage
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -39,8 +39,8 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">3</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">3</span>
           Analytics
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -49,8 +49,8 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">4</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">4</span>
           Data Retention
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
@@ -59,8 +59,8 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">5</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">5</span>
           Contact
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
@@ -78,8 +78,8 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-[0.75rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
-          <span className="bg-[var(--accent)] text-black text-[0.55rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">✓</span>
+        <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
+          <span className="bg-[var(--accent)] text-black text-[0.875rem] font-extrabold w-4 h-4 inline-flex items-center justify-center rounded-sm shrink-0">✓</span>
           Privacy Guarantees
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
@@ -90,8 +90,8 @@ export default function PrivacyPage() {
             { label: "Image data stays local", desc: "Tool events contain fixed tool and format labels. Image content and file names are not sent with these events." },
           ].map((item) => (
             <div key={item.label} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4">
-              <h3 className="text-[0.8rem] font-extrabold text-[#e6edf5] mb-1">{item.label}</h3>
-              <p className="text-[0.75rem] text-[#8d9aaa] leading-relaxed m-0">{item.desc}</p>
+              <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-1">{item.label}</h3>
+              <p className="text-base text-[#8d9aaa] leading-relaxed m-0">{item.desc}</p>
             </div>
           ))}
         </div>

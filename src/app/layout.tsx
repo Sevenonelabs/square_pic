@@ -60,7 +60,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
-      <body className="min-h-dvh flex flex-col pt-[96px] max-md:pt-[88px]">
+      <body className="min-h-dvh flex flex-col pt-[116px] max-md:pt-[110px]">
         <Script src="https://startupbar.co/widget/loader.js" data-startup-id="1a065196-b7e8-4bec-9e25-1af9492b9cc0" strategy="lazyOnload" />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-9TTBK0ZDM5" strategy="afterInteractive" />
         <Script id="ga-config" strategy="afterInteractive" dangerouslySetInnerHTML={{

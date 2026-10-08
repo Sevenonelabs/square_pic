@@ -1,3 +1,4 @@
+import { PlatformTitle } from "@/components/platform-icon";
 import Link from "next/link";
 
 interface GuideLink {
@@ -87,8 +88,8 @@ export function RelatedGuides({ current }: { current: string }) {
               href={g.href}
               className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5"
             >
-              <h3 className="text-[0.82rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">{g.title}</h3>
-              <p className="text-[0.72rem] text-[#8d9aaa] leading-relaxed m-0">{g.desc}</p>
+              <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors"><PlatformTitle title={g.title} /></h3>
+              <p className="text-[0.875rem] text-[#8d9aaa] leading-relaxed m-0">{g.desc}</p>
             </Link>
           );
         })}

@@ -1,5 +1,6 @@
 "use client";
 import { isImageFile, matchesImageFormat } from "@/lib/image-input";
+import { useObjectUrls } from "@/lib/use-object-urls";
 
 import { useState, useRef, useCallback } from "react";
 import { motion } from "motion/react";
@@ -66,6 +67,9 @@ async function convertFile(item: FileItem): Promise<Blob> {
 const MAX_CONCURRENCY = 4;
 
 export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading = true }: { initialFormat?: Format; inputFormat?: string; showHeading?: boolean }) {
+  const { create: createUrl, revoke: revokeUrl, clear: clearUrls, has: hasUrl } = useObjectUrls();
+  const versions = useRef(new Map<string, number>());
+  const running = useRef(false);
   const [files, setFiles] = useState<FileItem[]>([]);
   const [openFormatId, setOpenFormatId] = useState<string | null>(null);
   const [converting, setConverting] = useState(false);
@@ -74,55 +78,72 @@ export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading
   const formatRef = useRef<HTMLDivElement>(null);
 
   const addFiles = useCallback((fileList: FileList) => {
+    setNotice("");
     const newItems: FileItem[] = [];
     for (let i = 0; i < fileList.length; i++) {
       const file = fileList[i];
-      if (!isImageFile(file)) continue;
+      if (!isImageFile(file)) { setNotice("Choose image files, such as PNG, JPEG or WebP."); continue; }
+      if (file.size > 30 * 1024 * 1024) { setNotice("Choose images no larger than 30 MB per file."); continue; }
       if (inputFormat && !matchesImageFormat(file, inputFormat)) { setNotice(`Choose a ${inputFormat.toUpperCase()} image for this conversion.`); continue; }
       trackToolEvent("upload_accepted", "converter");
       const id = Math.random().toString(36).substring(2, 11);
-      const src = URL.createObjectURL(file);
+      const src = createUrl(file);
+      versions.current.set(id, 0);
       newItems.push({ id, file, name: file.name, size: file.size, src, imgElement: null, targetFormat: initialFormat, quality: 0.8, status: "ready", convertedBlob: null });
     }
     if (newItems.length > 0) setFiles((p) => [...p, ...newItems]);
-  }, [initialFormat, inputFormat]);
+  }, [initialFormat, inputFormat, createUrl]);
 
   const updateItem = useCallback((id: string, update: Partial<FileItem>) => {
+    if (update.targetFormat || update.quality !== undefined) versions.current.set(id, (versions.current.get(id) ?? 0) + 1);
     setFiles((prev) => prev.map((f) => (f.id === id ? { ...f, ...(update.targetFormat || update.quality !== undefined ? { status: "ready" as const, convertedBlob: null, error: undefined } : {}), ...update } : f)));
   }, []);
 
   const removeFile = useCallback((id: string) => {
+    versions.current.delete(id);
     setFiles((prev) => {
       const item = prev.find((f) => f.id === id);
-      if (item) URL.revokeObjectURL(item.src);
+      if (item) revokeUrl(item.src);
       return prev.filter((f) => f.id !== id);
     });
-  }, []);
+    setOpenFormatId((open) => open === id ? null : open);
+  }, [revokeUrl]);
 
   const startConversion = useCallback(async () => {
+    if (running.current) return;
+    running.current = true;
     setConverting(true);
-    const pending = files.filter((f) => f.status !== "done");
+    setOpenFormatId(null);
+    const pending = files.filter((f) => f.status !== "done").map((item) => ({ item, version: versions.current.get(item.id) }));
 
-
-    await runConcurrent(pending, async (item) => {
-      updateItem(item.id, { status: "converting" });
-      try {
-        const blob = await convertFile(item);
-        trackToolEvent("processing_success", "converter", item.targetFormat);
-        updateItem(item.id, { status: "done", convertedBlob: blob });
-      } catch (error) {
-        trackToolEvent("processing_error", "converter", item.targetFormat);
-        updateItem(item.id, { status: "error", error: error instanceof Error ? error.message : "Conversion failed." });
-      }
-    }, MAX_CONCURRENCY);
-
-    setConverting(false);
-  }, [files, updateItem]);
+    try {
+      await runConcurrent(pending, async ({ item, version }) => {
+        const isCurrent = () => hasUrl(item.src) && versions.current.get(item.id) === version;
+        if (!isCurrent()) return;
+        updateItem(item.id, { status: "converting", error: undefined });
+        try {
+          const blob = await convertFile(item);
+          if (!isCurrent()) return;
+          trackToolEvent("processing_success", "converter", item.targetFormat);
+          updateItem(item.id, { status: "done", convertedBlob: blob });
+        } catch (error) {
+          if (!isCurrent()) return;
+          trackToolEvent("processing_error", "converter", item.targetFormat);
+          updateItem(item.id, { status: "error", error: error instanceof Error ? error.message : "Conversion failed." });
+        }
+      }, MAX_CONCURRENCY);
+    } finally {
+      running.current = false;
+      setConverting(false);
+    }
+  }, [files, updateItem, hasUrl]);
 
   const clearAll = useCallback(() => {
-    files.forEach((f) => URL.revokeObjectURL(f.src));
+    clearUrls();
+    versions.current.clear();
+    setOpenFormatId(null);
     setFiles([]);
-  }, [files]);
+  }, [clearUrls]);
 
   const downloadFile = useCallback((item: FileItem) => {
     if (!item.convertedBlob) return;
@@ -173,7 +194,7 @@ export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading
         </div>
         <h3 className="text-[1.3rem] font-bold mb-2">Drop images here or click to browse</h3>
         <p className="text-[0.9rem] text-[#8d9aaa] mb-0">Supports all common image formats</p>
-        <input ref={inputRef} type="file" hidden multiple accept="image/*" onChange={(e) => e.target.files && addFiles(e.target.files)} />
+        <input ref={inputRef} type="file" hidden multiple accept="image/*" onChange={(e) => { if (e.target.files) addFiles(e.target.files); e.target.value = ""; }} />
       </motion.div>
 
       {files.length > 0 && (
@@ -194,8 +215,8 @@ export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={item.src} className="w-12 h-12 rounded-md object-cover bg-black/30 border border-[rgba(255,255,255,0.06)] shrink-0" alt={item.name} />
               <div className="flex-1 min-w-0 basis-[120px]">
-                <div className="text-[0.82rem] font-bold text-[#e6edf5] truncate max-w-[200px]">{item.name}</div>
-                <div className="flex items-center gap-2 text-[0.68rem] text-[#8d9aaa]">{formatBytes(item.size)}</div>
+                <div className="text-[0.875rem] font-bold text-[#e6edf5] truncate max-w-[200px]">{item.name}</div>
+                <div className="flex items-center gap-2 text-[0.875rem] text-[#8d9aaa]">{formatBytes(item.size)}</div>
               </div>
 
               <div className="flex items-center flex-wrap gap-2">
@@ -203,7 +224,7 @@ export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading
                   <button
                     disabled={converting}
                     onClick={() => setOpenFormatId(openFormatId === item.id ? null : item.id)}
-                    className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] text-[#e6edf5] font-bold rounded-md px-3 py-1.5 text-[0.68rem] cursor-pointer flex items-center gap-1.5 min-w-[72px] transition-all hover:bg-[rgba(255,255,255,0.09)]"
+                    className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] text-[#e6edf5] font-bold rounded-md px-3 py-1.5 text-[0.875rem] cursor-pointer flex items-center gap-1.5 min-w-[72px] transition-all hover:bg-[rgba(255,255,255,0.09)]"
                   >
                     {item.targetFormat.toUpperCase()}
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="6 9 12 15 18 9" /></svg>
@@ -216,7 +237,7 @@ export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading
                       <div ref={formatRef} className="absolute z-50 top-full mt-1.5 right-0 w-[220px] bg-[rgba(10,14,22,0.98)] border border-[rgba(255,255,255,0.12)] rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-[25px] p-2 overflow-hidden">
                         {FORMAT_CATEGORIES.map((cat) => (
                           <div key={cat.label}>
-                            <div className="text-[0.55rem] font-bold text-[#576675] uppercase tracking-[0.1em] px-2 py-1.5">{cat.label}</div>
+                            <div className="text-[0.875rem] font-bold text-[#8d9aaa] uppercase tracking-[0.1em] px-2 py-1.5">{cat.label}</div>
                             <div className="grid grid-cols-2 gap-1 mb-1">
                               {cat.formats.map((fmt) => (
                                 <button
@@ -224,7 +245,7 @@ export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading
                                   disabled={!OUTPUT_FORMATS.includes(fmt.value as Format)}
                                   title={!OUTPUT_FORMATS.includes(fmt.value as Format) ? "Encoder unavailable" : undefined}
                                   onClick={() => { updateItem(item.id, { targetFormat: fmt.value as Format }); setOpenFormatId(null); }}
-                                  className={`text-[0.65rem] font-bold px-2 py-1.5 rounded-md border cursor-pointer text-center transition-all disabled:opacity-30 disabled:cursor-not-allowed ${
+                                  className={`text-[0.875rem] font-bold px-2 py-1.5 rounded-md border cursor-pointer text-center transition-all disabled:opacity-30 disabled:cursor-not-allowed ${
                                     item.targetFormat === fmt.value
                                       ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
                                       : "bg-[rgba(255,255,255,0.04)] border-transparent text-[#e6edf5] hover:bg-[rgba(255,255,255,0.08)]"
@@ -241,13 +262,13 @@ export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading
 
                 {(item.targetFormat === "jpeg" || item.targetFormat === "webp") && (
                   <div className="flex items-center gap-1.5 bg-[rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.06)] rounded-md px-2 py-1">
-                    <span className="text-[0.55rem] text-[#576675] font-bold uppercase tracking-wide">Q</span>
+                    <span className="text-[0.875rem] text-[#8d9aaa] font-bold uppercase tracking-wide">Q</span>
                     <input
                       aria-label="Output quality" disabled={converting} type="range" min={10} max={100} value={Math.round(item.quality * 100)}
                       onChange={(e) => updateItem(item.id, { quality: Number(e.target.value) / 100 })}
                       className="w-16 h-[2px] appearance-none bg-[rgba(255,255,255,0.08)] outline-none"
                     />
-                    <span className="text-[0.6rem] text-[#8d9aaa] font-semibold w-7 text-right">{Math.round(item.quality * 100)}%</span>
+                    <span className="text-[0.875rem] text-[#8d9aaa] font-semibold w-7 text-right">{Math.round(item.quality * 100)}%</span>
                   </div>
                 )}
 
@@ -258,16 +279,16 @@ export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading
 
               <div className="flex items-center gap-2 shrink-0">
                 {item.status === "converting" && (
-                  <div className="flex items-center gap-1.5 text-[0.65rem] font-bold text-[var(--accent)]">
+                  <div className="flex items-center gap-1.5 text-[0.875rem] font-bold text-[var(--accent)]">
                     <div className="w-3.5 h-3.5 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
                     Converting...
                   </div>
                 )}
-                {item.status === "done" && <span className="text-[0.65rem] font-bold text-[#10b981]">Done</span>}
-                {item.status === "error" && <span className="text-[0.65rem] font-bold text-[#f43f5e]" role="alert">{item.error || "Conversion failed"}</span>}
+                {item.status === "done" && <span className="text-[0.875rem] font-bold text-[#10b981]">Done</span>}
+                {item.status === "error" && <span className="text-[0.875rem] font-bold text-[#f43f5e]" role="alert">{item.error || "Conversion failed"}</span>}
                 {item.status === "done" && (
                   <button onClick={() => downloadFile(item)}
-                    className="bg-[var(--accent)] text-black px-3 py-1 rounded-md text-[0.6rem] font-extrabold cursor-pointer transition-all hover:brightness-110 shadow-[0_2px_8px_var(--accent-glow)]"
+                    className="bg-[var(--accent)] text-black px-3 py-1 rounded-md text-[0.875rem] font-extrabold cursor-pointer transition-all hover:brightness-110 shadow-[0_2px_8px_var(--accent-glow)]"
                   >
                     Download
                   </button>
@@ -277,24 +298,24 @@ export function ConverterTool({ initialFormat = "webp", inputFormat, showHeading
           ))}
 
           <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-            <span className="text-[0.72rem] text-[#8d9aaa] font-semibold">{files.length} file{files.length !== 1 ? "s" : ""}</span>
+            <span className="text-[0.875rem] text-[#8d9aaa] font-semibold">{files.length} file{files.length !== 1 ? "s" : ""}</span>
             <div className="flex flex-wrap gap-2">
               <button onClick={() => inputRef.current?.click()}
-                className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] px-3 py-1.5 rounded-md text-[0.72rem] font-semibold cursor-pointer hover:text-[#e6edf5]">
+                className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] px-3 py-1.5 rounded-md text-[0.875rem] font-semibold cursor-pointer hover:text-[#e6edf5]">
                 + Select Images
               </button>
               {anyDone && (
                 <button onClick={downloadAll}
-                  className="bg-[var(--accent)] text-black px-4 py-1.5 rounded-md text-[0.72rem] font-extrabold cursor-pointer hover:brightness-110 active:brightness-125 shadow-[0_4px_12px_var(--accent-glow)]">
+                  className="bg-[var(--accent)] text-black px-4 py-1.5 rounded-md text-[0.875rem] font-extrabold cursor-pointer hover:brightness-110 active:brightness-125 shadow-[0_4px_12px_var(--accent-glow)]">
                   Download All
                 </button>
               )}
               <button onClick={clearAll}
-                className="bg-transparent border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] px-3 py-1.5 rounded-md text-[0.72rem] font-semibold cursor-pointer hover:text-[#f43f5e]">
+                className="bg-transparent border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] px-3 py-1.5 rounded-md text-[0.875rem] font-semibold cursor-pointer hover:text-[#f43f5e]">
                 Clear All
               </button>
               <button onClick={startConversion} disabled={converting}
-                className="bg-[var(--accent)] text-black px-4 py-1.5 rounded-md text-[0.72rem] font-extrabold cursor-pointer transition-all hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100 shadow-[0_4px_12px_var(--accent-glow)]">
+                className="bg-[var(--accent)] text-black px-4 py-1.5 rounded-md text-[0.875rem] font-extrabold cursor-pointer transition-all hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100 shadow-[0_4px_12px_var(--accent-glow)]">
                 {converting ? "Converting..." : "Convert All"}
               </button>
             </div>

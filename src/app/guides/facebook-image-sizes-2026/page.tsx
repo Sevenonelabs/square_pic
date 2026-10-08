@@ -1,3 +1,6 @@
+import { PlatformTitle } from "@/components/platform-icon";
+import { TableOfContents } from "@/components/guides/table-of-contents";
+import { PlatformIcon } from "@/components/platform-icon";
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -45,22 +48,90 @@ export default function FacebookImageSizesPage() {
       />
       <FAQPageSchema questions={FAQ_QUESTIONS} />
       <article className="max-w-[680px] w-full mx-auto px-4 py-8">
+        <Link href="/guides" className="inline-flex min-h-11 items-center mb-4 text-base font-semibold text-[var(--accent)] hover:underline">&larr; All guides</Link>
         <div className="mb-8">
-          <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
+          <span className="text-[1rem] font-bold tracking-[0.12em] text-[var(--accent)] bg-[var(--accent)]/8 border border-[var(--accent)]/15 px-2 py-0.5 rounded-sm">
             Facebook
           </span>
-          <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">Facebook Image Sizes 2026: Covers, Posts & Profiles</h1>
-          <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated October 8, 2026 · 10 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
+          <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2"><PlatformIcon platform="facebook" />{" "}Facebook Image Sizes 2026: Covers, Posts & Profiles</h1>
+          <p className="text-[1rem] text-[#8d9aaa]">Published July 19, 2026 · Updated October 8, 2026 · 10 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/facebook-image-sizes-2026" title="Facebook Image Sizes 2026: Covers, Posts & Profiles" />
         </div>
 
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-6">
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-6">
           Facebook serves billions of images every day across feed posts, profiles, events, groups, and ads. Using the correct image dimensions ensures your content displays as intended — no awkward cropping, low-resolution blow-ups, or cut-off text. This guide covers every Facebook image format with exact pixel dimensions, aspect ratios, and best practices updated for 2026.
         </p>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Facebook Image Sizes at a Glance</h2>
+        <TableOfContents items={[
+  {
+    "id": "facebook-image-sizes-at-a-glance",
+    "label": "Facebook Image Sizes at a Glance",
+    "level": 2
+  },
+  {
+    "id": "facebook-cover-photo-dimensions",
+    "label": "Facebook Cover Photo Dimensions",
+    "level": 2
+  },
+  {
+    "id": "profile-picture",
+    "label": "Profile Picture",
+    "level": 2
+  },
+  {
+    "id": "feed-post-dimensions",
+    "label": "Feed Post Dimensions",
+    "level": 2
+  },
+  {
+    "id": "facebook-event-cover-images",
+    "label": "Facebook Event Cover Images",
+    "level": 2
+  },
+  {
+    "id": "facebook-ad-specs",
+    "label": "Facebook Ad Specs",
+    "level": 2
+  },
+  {
+    "id": "image-quality-best-practices",
+    "label": "Image Quality Best Practices",
+    "level": 2
+  },
+  {
+    "id": "common-facebook-image-mistakes",
+    "label": "Common Facebook Image Mistakes",
+    "level": 2
+  },
+  {
+    "id": "how-facebook-displays-images-across-devices",
+    "label": "How Facebook Displays Images Across Devices",
+    "level": 2
+  },
+  {
+    "id": "quick-reference-card",
+    "label": "Quick Reference Card",
+    "level": 2
+  },
+  {
+    "id": "how-squarepic-helps-with-facebook-images",
+    "label": "How SquarePic Helps with Facebook Images",
+    "level": 2
+  },
+  {
+    "id": "frequently-asked-questions",
+    "label": "Frequently Asked Questions",
+    "level": 2
+  },
+  {
+    "id": "key-takeaways",
+    "label": "Key Takeaways",
+    "level": 2
+  }
+]} />
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="facebook-image-sizes-at-a-glance"><PlatformTitle title={"Facebook Image Sizes at a Glance"} /></h2>
         <div className="overflow-x-auto mb-6">
-          <table className="w-full text-[0.85rem] border-collapse">
+          <table className="w-full text-[1rem] border-collapse">
             <thead>
               <tr className="border-b border-[rgba(255,255,255,0.06)]">
                 <th className="text-left font-bold text-[#e6edf5] py-2 pr-3">Image Type</th>
@@ -122,11 +193,11 @@ export default function FacebookImageSizesPage() {
           </table>
         </div>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Facebook Cover Photo Dimensions</h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="facebook-cover-photo-dimensions"><PlatformTitle title={"Facebook Cover Photo Dimensions"} /></h2>
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Your cover photo is the most prominent visual on your Facebook profile. It spans 851 x 315 pixels on desktop and 640 x 360 pixels on mobile. Facebook uses responsive cropping, so the visible area shifts depending on the viewer&apos;s device. Design your cover with the central area as the focal point — the left edge is partially hidden by your profile picture on desktop, and the right edge may crop on smaller screens.
         </p>
-        <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-1 mb-4">
+        <ul className="text-[1rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-1 mb-4">
           <li>Upload at least <strong className="text-[#e6edf5]">851 x 315 pixels</strong> — larger files at the same aspect ratio look sharper after compression.</li>
           <li>Keep important text and logos within the <strong className="text-[#e6edf5]">center-safe zone (roughly 60% of the width)</strong> to avoid desktop profile picture overlay and mobile cropping.</li>
           <li>Avoid wide text or critical details near the extreme left and right edges — they may be cropped on mobile or obscured by the profile picture on desktop.</li>
@@ -134,11 +205,11 @@ export default function FacebookImageSizesPage() {
           <li>Update your cover photo regularly — Facebook&apos;s algorithm favors profiles with recent activity, and fresh covers signal an active presence.</li>
         </ul>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Profile Picture</h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="profile-picture">Profile Picture</h2>
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Your Facebook profile picture appears as a circle at 170 x 170 pixels on desktop profiles and as small as 32 x 32 in comments and notifications. Facebook recommends uploading a 320 x 320 pixel square image. The circular crop means anything near the corners will be invisible — keep your subject centered within the inner 60% of the frame for maximum visibility at all display sizes.
         </p>
-        <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-1 mb-4">
+        <ul className="text-[1rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-1 mb-4">
           <li>Upload at <strong className="text-[#e6edf5]">320 x 320 pixels minimum</strong> — higher resolution survives Facebook&apos;s compression pipeline better.</li>
           <li>Keep the main subject in the <strong className="text-[#e6edf5]">central circle area</strong> — faces, logos, and key details near the edges will be cropped.</li>
           <li>Avoid text in profile pictures — it becomes illegible at thumbnail sizes in comments and notifications.</li>
@@ -146,36 +217,36 @@ export default function FacebookImageSizesPage() {
           <li>PNG format preserves sharp edges for logos and text-based branding; high-quality JPEG is fine for photos.</li>
         </ul>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Feed Post Dimensions</h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="feed-post-dimensions">Feed Post Dimensions</h2>
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Facebook supports multiple aspect ratios for feed posts, and your choice affects how much space your content occupies in the news feed. Posts with larger visual presence tend to hold attention longer, which signals relevance to Facebook&apos;s ranking algorithm:
         </p>
 
         <h3 className="text-[1rem] font-extrabold text-[#e6edf5] mt-6 mb-2">Shared Link (1.91:1) — 1200 x 630</h3>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Link posts use a 1.91:1 aspect ratio with a recommended resolution of 1200 x 630 pixels. This is the most common Facebook post format — every time you share a URL, Facebook pulls the Open Graph image and displays it in this size. The wide format works well for text-heavy previews because the image and link description share horizontal space. Always ensure your website has proper OG tags so Facebook displays the right image and description.
         </p>
 
         <h3 className="text-[1rem] font-extrabold text-[#e6edf5] mt-6 mb-2">Square (1:1) — 1080 x 1080</h3>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Square images are the most versatile format for Facebook. They display consistently across desktop and mobile without cropping, and they integrate seamlessly when cross-posting from Instagram. Square works well for product shots, inspirational quotes, and any image where the composition is naturally centered. Note that cross-posted Instagram square images display correctly on Facebook without manual adjustment.
         </p>
 
         <h3 className="text-[1rem] font-extrabold text-[#e6edf5] mt-6 mb-2">Portrait (4:5) — 1080 x 1350</h3>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Portrait images at 4:5 take up more vertical space in the mobile feed, making them harder to scroll past. This format has gained popularity as Facebook&apos;s mobile audience has grown. Use portrait for fashion, food, before-and-after shots, and any content where vertical composition adds visual impact. Facebook crops portrait images to a maximum display height on desktop, so the top portion of your image is most visible.
         </p>
 
         <h3 className="text-[1rem] font-extrabold text-[#e6edf5] mt-6 mb-2">Landscape (1.91:1) — 1080 x 566</h3>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Landscape images fill the full width of the Facebook feed on both desktop and mobile. Use this format for wide-angle photography, group shots, and scenes where the horizontal composition is essential. The trade-off is that landscape images occupy less vertical space than square or portrait, potentially reducing dwell time on your post.
         </p>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Facebook Event Cover Images</h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="facebook-event-cover-images"><PlatformTitle title={"Facebook Event Cover Images"} /></h2>
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Facebook event covers display at 1920 x 1080 pixels (16:9) across desktop and mobile. This is the recommended size for both the event page header and event invitations shared in the feed. The wide cinematic ratio gives you plenty of horizontal space for event branding, dates, and visual storytelling. Keep key information like the event title and date centered — the top and bottom edges may be cropped differently depending on the viewer&apos;s device.
         </p>
-        <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-1 mb-4">
+        <ul className="text-[1rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-1 mb-4">
           <li>Upload at <strong className="text-[#e6edf5]">1920 x 1080 pixels</strong> for the sharpest display across all devices.</li>
           <li>Place important details like dates and titles in the <strong className="text-[#e6edf5]">center-safe area</strong> — avoid the extreme top and bottom 15%.</li>
           <li>Use high-contrast text overlays for readability — event images compete with busy interface elements.</li>
@@ -183,12 +254,12 @@ export default function FacebookImageSizesPage() {
           <li>Test how your image looks on mobile before publishing — the crop differs from desktop significantly.</li>
         </ul>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Facebook Ad Specs</h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="facebook-ad-specs"><PlatformTitle title={"Facebook Ad Specs"} /></h2>
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Facebook ads follow the same general dimension rules as organic content but have stricter resolution requirements and additional best practices. Using the recommended sizes ensures your ads pass Facebook&apos;s review system and display without unexpected cropping:
         </p>
         <div className="overflow-x-auto mb-6">
-          <table className="w-full text-[0.85rem] border-collapse">
+          <table className="w-full text-[1rem] border-collapse">
             <thead>
               <tr className="border-b border-[rgba(255,255,255,0.06)]">
                 <th className="text-left font-bold text-[#e6edf5] py-2 pr-3">Ad Format</th>
@@ -231,11 +302,11 @@ export default function FacebookImageSizesPage() {
           </table>
         </div>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Image Quality Best Practices</h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="image-quality-best-practices">Image Quality Best Practices</h2>
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Facebook automatically compresses and converts every uploaded image, but you can maintain quality by following these guidelines:
         </p>
-        <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
+        <ul className="text-[1rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
           <li><strong className="text-[#e6edf5]">Keep file sizes under 8 MB.</strong> Facebook&apos;s compression is less aggressive on files that are already reasonably sized. Oversized files trigger more aggressive recompression that introduces visible artifacts.</li>
           <li><strong className="text-[#e6edf5]">Export at 80-90% JPEG quality.</strong> 100% quality images are unnecessarily large — Facebook recompresses them anyway. 85% quality gives excellent results after passing through Facebook&apos;s compression pipeline.</li>
           <li><strong className="text-[#e6edf5]">Use sRGB color profile.</strong> Facebook strips embedded color profiles and displays in sRGB. Images designed in Adobe RGB or Display P3 will appear washed out after upload. Always proof in sRGB.</li>
@@ -243,8 +314,8 @@ export default function FacebookImageSizesPage() {
           <li><strong className="text-[#e6edf5]">Text in images should be large enough.</strong> Facebook scales images down in the feed. Small text that is readable in the original file becomes illegible after scaling and compression.</li>
         </ul>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Common Facebook Image Mistakes</h2>
-        <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="common-facebook-image-mistakes"><PlatformTitle title={"Common Facebook Image Mistakes"} /></h2>
+        <ul className="text-[1rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
           <li><strong className="text-[#e6edf5]">Text or logos near cover photo edges.</strong> Facebook&apos;s profile picture overlay covers the bottom-left portion of your cover photo on desktop, and mobile crops vary. Anything important outside the center-safe zone risks being hidden.</li>
           <li><strong className="text-[#e6edf5]">Using the wrong aspect ratio for link posts.</strong> Link previews always use 1.91:1 (1200 x 630). Other ratios are cropped, and vertical images lose significant context when forced into the wide format.</li>
           <li><strong className="text-[#e6edf5]">Overly compressed images.</strong> Saving at 60% or lower JPEG quality adds artifacts that Facebook&apos;s own compression amplifies. The result looks noticeably worse than a properly compressed starting image at 85%.</li>
@@ -252,20 +323,20 @@ export default function FacebookImageSizesPage() {
           <li><strong className="text-[#e6edf5]">Small text in images.</strong> Text that is readable in the full-size image becomes microscopic after Facebook&apos;s feed scaling. Aim for text that is legible when the image is viewed at 25% of its original dimensions.</li>
         </ul>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">How Facebook Displays Images Across Devices</h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="how-facebook-displays-images-across-devices"><PlatformTitle title={"How Facebook Displays Images Across Devices"} /></h2>
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Facebook is accessed across an extremely wide range of devices, from 4-inch phones to 32-inch monitors. Understanding how your images render on different screens helps you design for the best possible presentation:
         </p>
-        <ul className="text-[0.95rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
+        <ul className="text-[1rem] text-[#8d9aaa] leading-relaxed pl-5 space-y-2 mb-4">
           <li><strong className="text-[#e6edf5]">Desktop feed.</strong> The Facebook feed is roughly 680px wide on desktop. Landscape images fill this width. Portrait images are capped at a maximum height, so the top portion is most visible before users click to expand.</li>
           <li><strong className="text-[#e6edf5]">Mobile feed.</strong> Mobile screens show a single column feed where portrait images take up the most vertical space and landscape images appear short. Most Facebook users are on mobile, so design for the mobile crop first.</li>
           <li><strong className="text-[#e6edf5]">Messenger previews.</strong> Images shared in Messenger appear as small thumbnails. Open them full-screen for the full view. Profile pictures in Messenger display as tiny 32 x 32 circles — another reason to keep compositions simple and central.</li>
           <li><strong className="text-[#e6edf5]">Group covers.</strong> Facebook group cover images display at roughly 1640 x 624 pixels on desktop and crop differently on mobile. Similar safe-zone rules apply — keep critical content in the center.</li>
         </ul>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Quick Reference Card</h2>
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="quick-reference-card">Quick Reference Card</h2>
         <div className="overflow-x-auto mb-6">
-          <table className="w-full text-[0.85rem] border-collapse">
+          <table className="w-full text-[1rem] border-collapse">
             <thead>
               <tr className="border-b border-[rgba(255,255,255,0.06)]">
                 <th className="text-left font-bold text-[#e6edf5] py-2 pr-3">Use Case</th>
@@ -323,28 +394,28 @@ export default function FacebookImageSizesPage() {
           </table>
         </div>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">How SquarePic Helps with Facebook Images</h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="how-squarepic-helps-with-facebook-images"><PlatformTitle title={"How SquarePic Helps with Facebook Images"} /></h2>
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           SquarePic lets you resize, crop, and convert images to any Facebook format directly in your browser. No uploads, no signup, no watermarks. Use the <Link href="/resize/facebook" className="text-[var(--accent)] no-underline hover:underline">Facebook image resizer</Link> to select your target format — cover photo, profile picture, or feed post — and download a perfectly sized image in seconds. All processing happens client-side; your images never leave your device.
         </p>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Frequently Asked Questions</h2>
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="frequently-asked-questions">Frequently Asked Questions</h2>
         <div className="space-y-4 mb-6">
           {FAQ_QUESTIONS.map((q, i) => (
             <div key={i}>
-              <h3 className="text-[0.95rem] font-extrabold text-[#e6edf5] mb-1">{q.question}</h3>
-              <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed m-0">{q.answer}</p>
+              <h3 className="text-[1rem] font-extrabold text-[#e6edf5] mb-1">{q.question}</h3>
+              <p className="text-[1rem] text-[#8d9aaa] leading-relaxed m-0">{q.answer}</p>
             </div>
           ))}
         </div>
 
-        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3">Key Takeaways</h2>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-3">
+        <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3" id="key-takeaways">Key Takeaways</h2>
+        <p className="text-[1rem] text-[#8d9aaa] leading-relaxed mb-3">
           Facebook uses distinct image sizes for different placements: cover photos at 851 x 315, profile pictures at 320 x 320, shared link posts at 1200 x 630, and standard feed images at 1080 x 1080. Design with mobile-first safe zones in mind, export at 80-90% JPEG quality in sRGB, and keep text large enough to survive Facebook&apos;s scaling and compression. For a complete reference across all social media platforms, see the <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">social media image sizes cheat sheet</Link>.
         </p>
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mb-6">
-          <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed m-0">
+          <p className="text-[1rem] text-[#8d9aaa] leading-relaxed m-0">
             <strong className="text-[#e6edf5]">Need to resize images for Facebook?</strong>{" "}
             Use <Link href="/resize/facebook" className="text-[var(--accent)] no-underline hover:underline">SquarePic&apos;s Facebook image resizer</Link> — select your target format and download perfectly sized images in seconds. No signup required.
           </p>

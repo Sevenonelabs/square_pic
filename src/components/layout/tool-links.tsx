@@ -1,6 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
+import Link from "next/link";
+import { RESIZE_LINKS, CONVERT_LINKS } from "@/data/tool-navigation";
+import { PlatformIcon } from "@/components/platform-icon";
 
 export const TOOLS = [
   {
@@ -49,14 +52,32 @@ const item = {
 
 export function ToolLinks({ current }: { current?: string }) {
   return (
-    <section className="max-w-[1400px] mx-auto px-6 pt-5 pb-10 w-full max-md:px-3">
+    <section id="more-image-tools" className="max-w-[1200px] mx-auto px-4 pt-10 pb-10 w-full max-md:px-3" aria-labelledby="more-tools-title">
       <div className="text-center mb-8">
-        <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-black tracking-[-1px] text-[#e6edf5]">
+        <h2 id="more-tools-title" className="text-[clamp(1.5rem,3vw,2rem)] font-black tracking-tight text-[#e6edf5]">
           More Free Image Tools
         </h2>
-        <p className="text-[0.75rem] text-[#8d9aaa] font-medium mt-1 leading-relaxed">
+        <p className="text-[0.875rem] text-[#8d9aaa] font-medium mt-1 leading-relaxed">
           Crop, convert, compress & resize - all in your browser.
         </p>
+      </div>
+      <div className="grid gap-4 mb-6">
+        <div id="resize-images" className="border border-white/10 bg-white/[0.025] p-5 md:p-6 rounded-lg">
+          <h3 className="text-xl font-extrabold mb-2">Resize Images for Every Platform</h3>
+          <p className="text-base text-[#abb8c7] mb-5">Choose a platform, then a size for your post, profile or banner.</p>
+          <div className="flex flex-wrap gap-2">
+            {RESIZE_LINKS.map((platform) => <Link key={platform.href} href={platform.href} className="inline-flex min-h-12 items-center gap-2.5 rounded-md border border-white/10 bg-white/[0.025] px-4 py-2 text-base font-semibold text-[#c4cfdb] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/5">
+              <PlatformIcon platform={platform.key} />{platform.label}
+            </Link>)}
+          </div>
+        </div>
+        <div id="convert-images" className="border border-white/10 bg-white/[0.025] p-5 md:p-6 rounded-lg">
+          <h3 className="text-xl font-extrabold mb-2">Convert Between Image Formats</h3>
+          <p className="text-base text-[#abb8c7] mb-5">Switch formats for photos, transparent artwork or website icons.</p>
+          <div className="flex flex-wrap gap-2">
+            {CONVERT_LINKS.map((format) => <Link key={format.href} href={format.href} className="inline-flex min-h-12 items-center rounded-md border border-white/10 bg-white/[0.025] px-4 py-2 text-base font-semibold text-[#c4cfdb] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/5">{format.label}</Link>)}
+          </div>
+        </div>
       </div>
       <motion.div
         variants={container}
@@ -88,12 +109,12 @@ export function ToolLinks({ current }: { current?: string }) {
                 </svg>
               </div>
               <div className="min-w-0">
-                <h3 className={`text-[0.85rem] font-extrabold m-0 truncate transition-colors ${
+                <h3 className={`text-base font-extrabold m-0 transition-colors ${
                   isCurrent ? "text-[var(--accent)]" : "text-[#e6edf5] group-hover:text-[var(--accent)]"
                 }`}>
                   {tool.label}
                 </h3>
-                <p className="text-[0.68rem] text-[#8d9aaa] m-0 truncate leading-relaxed">
+                <p className="text-sm text-[#abb8c7] m-0 leading-relaxed">
                   {tool.desc}
                 </p>
               </div>

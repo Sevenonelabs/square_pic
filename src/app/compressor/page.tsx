@@ -39,16 +39,16 @@ export default function CompressorPage() {
             { title: "Lossy vs Lossless", desc: "JPEG compression is lossy -- some data is discarded to reduce size. PNG inputs are transcoded to lossy JPEG or WebP here. Choose WebP to retain transparency." },
           ].map((c) => (
             <div key={c.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-              <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">{c.title}</h3>
-              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">{c.desc}</p>
+              <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">{c.title}</h3>
+              <p className="text-base text-[#8d9aaa] leading-relaxed m-0">{c.desc}</p>
             </div>
           ))}
         </div>
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-10">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Image Compression Format Comparison</h3>
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-4">Image Compression Format Comparison</h3>
           <div className="overflow-x-auto">
-            <table className="w-full text-[0.78rem] border-collapse">
+            <table className="w-full text-[0.875rem] border-collapse">
               <thead>
                 <tr className="border-b border-[rgba(255,255,255,0.06)]">
                   <th className="text-left font-bold text-[#e6edf5] py-2 pr-4">Format</th>
@@ -76,8 +76,8 @@ export default function CompressorPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">When to Compress Images</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">When to Compress Images</h3>
+            <ul className="text-base text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Website performance:</strong> Compress hero images and product photos to improve Core Web Vitals and page load times.</li>
               <li><strong className="text-[#e6edf5]">Email attachments:</strong> Most email servers reject files over 25 MB. Compression keeps your images within limits.</li>
               <li><strong className="text-[#e6edf5]">Social media uploads:</strong> Platforms like Instagram and LinkedIn have file size caps. Pre-compress to ensure smooth uploads.</li>
@@ -87,8 +87,8 @@ export default function CompressorPage() {
             </ul>
           </div>
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Compression Best Practices</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Compression Best Practices</h3>
+            <ul className="text-base text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li>Always keep the original file as a backup before compressing.</li>
               <li>Start at quality 80% and adjust down only if the file is still too large.</li>
               <li>Keep the original PNG for lossless storage. This tool exports lossy JPEG or WebP.</li>
@@ -102,8 +102,8 @@ export default function CompressorPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Common Compression Myths</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Common Compression Myths</h3>
+            <ul className="text-base text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Myth: Compression always ruins quality.</strong> Modern compression algorithms preserve visual quality down to 70-80% quality. The difference is often invisible to the human eye while cutting file sizes by more than half.</li>
               <li><strong className="text-[#e6edf5]">Myth: You should never compress PNG.</strong> PNG inputs are converted to JPEG or WebP. Use WebP for transparency; JPEG adds a white background.</li>
               <li><strong className="text-[#e6edf5]">Myth: WebP always beats JPEG.</strong> WebP offers better compression at equivalent quality, but JPEG still wins for compatibility and is better for photographs with subtle gradients at high quality settings.</li>
@@ -111,8 +111,8 @@ export default function CompressorPage() {
             </ul>
           </div>
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Compression & SEO</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Compression & SEO</h3>
+            <ul className="text-base text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li>Page speed is a confirmed Google ranking factor — compressed images load faster and improve user experience signals.</li>
               <li>Core Web Vitals track Largest Contentful Paint — hero images that are compressed load before the 2.5-second threshold.</li>
               <li>Google Lighthouse flags images that can be compressed further — passing this audit improves your SEO score.</li>
@@ -123,8 +123,8 @@ export default function CompressorPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Compression Targets by Use Case</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Compression Targets by Use Case</h3>
+            <ul className="text-base text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Website hero images:</strong> Target under 200 KB at quality 80%. Use WebP format for best quality-to-size ratio.</li>
               <li><strong className="text-[#e6edf5]">Product photos:</strong> Compress to 100-300 KB each. Higher quality (85%) for zoomable images, lower for thumbnails.</li>
               <li><strong className="text-[#e6edf5]">Email attachments:</strong> Keep images under 500 KB. Most email clients block images over 5-10 MB total.</li>
@@ -133,8 +133,8 @@ export default function CompressorPage() {
             </ul>
           </div>
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Quality Settings Guide</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Quality Settings Guide</h3>
+            <ul className="text-base text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">90-100%:</strong> Higher quality, with larger files. Keep the original for archival use.</li>
               <li><strong className="text-[#e6edf5]">75-90%:</strong> Excellent quality for web. Images look identical to originals but 50-70% smaller. Best for hero images and product photos.</li>
               <li><strong className="text-[#e6edf5]">60-75%:</strong> Good quality for general web use. Visible only in side-by-side comparisons. Ideal for blog content and galleries.</li>
@@ -145,14 +145,14 @@ export default function CompressorPage() {
         </div>
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mt-6">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Private & Secure Compression</h3>
-          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+          <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Private & Secure Compression</h3>
+          <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             All image compression happens locally in your browser using the Canvas API. Your files are never uploaded to any server.
           </p>
         </div>
-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: August 2026</p>
+        <p className="text-base text-[#8d9aaa] text-center mt-8">Last updated: August 2026</p>
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
-          <p className="text-[0.75rem] text-[#8d9aaa] text-center">
+          <p className="text-base text-[#8d9aaa] text-center">
             Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Image Sizes</Link> · <Link href="/guides/linkedin-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">LinkedIn Image Sizes</Link>
           </p>
         </div>

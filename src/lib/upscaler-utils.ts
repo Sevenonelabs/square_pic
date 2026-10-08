@@ -52,11 +52,13 @@ export async function upscaleImage(
   const nw = Math.round(ow * scale);
   const nh = Math.round(oh * scale);
 
+  if (ow < 1 || oh < 1) throw new Error("This image has no decoded pixels.");
   if (![2, 3, 4].includes(scale) || nw * nh > 40000000 || nw > 16384 || nh > 16384) throw new Error("Output exceeds the browser size limit.");
   const canvas = document.createElement("canvas");
   canvas.width = nw;
   canvas.height = nh;
-  const ctx = canvas.getContext("2d")!;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Could not create the upscaled image. Try a smaller image.");
 
   ctx.imageSmoothingEnabled = true;
   ctx.imageSmoothingQuality = "high";

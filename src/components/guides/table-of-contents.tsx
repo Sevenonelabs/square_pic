@@ -20,7 +20,7 @@ export function TableOfContents({ items }: { items: TocItem[] }) {
           }
         }
       },
-      { rootMargin: "-80px 0px -60% 0px" }
+      { rootMargin: "-128px 0px -60% 0px" }
     );
 
     for (const { id } of items) {
@@ -32,14 +32,16 @@ export function TableOfContents({ items }: { items: TocItem[] }) {
   }, [items]);
 
   return (
-    <nav className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 mb-8" aria-label="Table of contents">
-      <h2 className="text-[0.75rem] font-extrabold text-[#576675] tracking-wider uppercase mb-2">On this page</h2>
-      <ul className="list-none p-0 m-0 space-y-1">
+    <details className="guide-outline bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mb-8">
+      <summary className="min-h-11 cursor-pointer text-lg font-bold text-[#e6edf5]">On this page</summary>
+      <nav aria-label="Table of contents">
+      <ul className="list-none p-0 m-0 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 mt-3">
         {items.map((item) => (
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              className={`block text-[0.78rem] no-underline transition-colors py-0.5 ${
+              aria-current={activeId === item.id ? "location" : undefined}
+              className={`block text-base no-underline transition-colors py-2 ${
                 item.level === 2
                   ? "pl-0 font-semibold"
                   : "pl-3 font-normal"
@@ -54,6 +56,7 @@ export function TableOfContents({ items }: { items: TocItem[] }) {
           </li>
         ))}
       </ul>
-    </nav>
+      </nav>
+    </details>
   );
 }

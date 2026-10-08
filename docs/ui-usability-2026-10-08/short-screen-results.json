@@ -1,0 +1,127 @@
+[
+  {
+    "width": 320,
+    "height": 900,
+    "shell": {
+      "x": 12,
+      "y": 110,
+      "width": 296,
+      "height": 766,
+      "top": 110,
+      "right": 308,
+      "bottom": 876,
+      "left": 12
+    },
+    "export": {
+      "x": 21,
+      "y": 674.609375,
+      "width": 278,
+      "height": 192.390625,
+      "top": 674.609375,
+      "right": 299,
+      "bottom": 867,
+      "left": 21
+    },
+    "scroll": 320
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "shell": {
+      "x": 12,
+      "y": 110,
+      "width": 366,
+      "height": 710,
+      "top": 110,
+      "right": 378,
+      "bottom": 820,
+      "left": 12
+    },
+    "export": {
+      "x": 21,
+      "y": 618.609375,
+      "width": 348,
+      "height": 192.390625,
+      "top": 618.609375,
+      "right": 369,
+      "bottom": 811,
+      "left": 21
+    },
+    "scroll": 390
+  },
+  {
+    "width": 667,
+    "height": 375,
+    "shell": {
+      "x": 12,
+      "y": 110,
+      "width": 643,
+      "height": 528.171875,
+      "top": 110,
+      "right": 655,
+      "bottom": 638.171875,
+      "left": 12
+    },
+    "export": {
+      "x": 446,
+      "y": 415.78125,
+      "width": 200,
+      "height": 213.390625,
+      "top": 415.78125,
+      "right": 646,
+      "bottom": 629.171875,
+      "left": 446
+    },
+    "scroll": 667
+  },
+  {
+    "width": 1280,
+    "height": 500,
+    "shell": {
+      "x": 56,
+      "y": 116,
+      "width": 1168,
+      "height": 491,
+      "top": 116,
+      "right": 1224,
+      "bottom": 607,
+      "left": 56
+    },
+    "export": {
+      "x": 871,
+      "y": 403.390625,
+      "width": 340,
+      "height": 190.390625,
+      "top": 403.390625,
+      "right": 1211,
+      "bottom": 593.78125,
+      "left": 871
+    },
+    "scroll": 1280
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "shell": {
+      "x": 136,
+      "y": 116,
+      "width": 1168,
+      "height": 760,
+      "top": 116,
+      "right": 1304,
+      "bottom": 876,
+      "left": 136
+    },
+    "export": {
+      "x": 951,
+      "y": 672.609375,
+      "width": 340,
+      "height": 190.390625,
+      "top": 672.609375,
+      "right": 1291,
+      "bottom": 863,
+      "left": 951
+    },
+    "scroll": 1440
+  }
+]

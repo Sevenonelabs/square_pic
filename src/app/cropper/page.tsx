@@ -41,22 +41,22 @@ export default function CropperPage() {
             { title: "Export Source Pixels", desc: "Export size shows the selected region in source pixels, rounded and kept inside the original image. A square crop from a 600 × 400 source cannot be larger than 400 × 400 without resizing afterward." },
           ].map((c) => (
             <div key={c.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-              <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">{c.title}</h3>
-              <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">{c.desc}</p>
+              <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">{c.title}</h3>
+              <p className="text-base text-[#8d9aaa] leading-relaxed m-0">{c.desc}</p>
             </div>
           ))}
         </div>
 
-        <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-8">
+        <p className="text-base text-[#8d9aaa] leading-relaxed mb-8">
           Start with a browser-decodable PNG, JPEG or WebP. PNG and WebP retain transparent pixels;
           JPEG fills them with white. Animated inputs produce one still frame and source metadata is not copied.
           A decode or export failure appears in the tool. Try a smaller image or save the source as PNG or JPEG.
         </p>
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-10">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Aspect Ratio Quick Reference</h3>
+          <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-4">Aspect Ratio Quick Reference</h3>
           <div className="overflow-x-auto">
-            <table className="w-full text-[0.78rem] border-collapse">
+            <table className="w-full text-[0.875rem] border-collapse">
               <thead>
                 <tr className="border-b border-[rgba(255,255,255,0.06)]">
                   <th className="text-left font-bold text-[#e6edf5] py-2 pr-3">Ratio</th>
@@ -89,8 +89,8 @@ export default function CropperPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Cropping Best Practices</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Cropping Best Practices</h3>
+            <ul className="text-base text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li>Follow the rule of thirds -- position key subjects along the grid lines for balanced compositions.</li>
               <li>Avoid cropping too tightly around faces. Leave some breathing room for social media rounded corners.</li>
               <li>Use the same aspect ratio for a series of posts to create a cohesive feed aesthetic.</li>
@@ -99,8 +99,8 @@ export default function CropperPage() {
             </ul>
           </div>
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Common Cropping Mistakes</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Common Cropping Mistakes</h3>
+            <ul className="text-base text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Cropping at joints:</strong> Avoid cutting off limbs at the ankle, wrist, or knee -- it looks unnatural.</li>
               <li><strong className="text-[#e6edf5]">Too much headroom:</strong> Leaving too much space above the subject makes the image feel empty.</li>
               <li><strong className="text-[#e6edf5]">Ignoring orientation:</strong> A vertical crop for a horizontal layout wastes pixels and looks awkward.</li>
@@ -110,8 +110,8 @@ export default function CropperPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Cropping for Different Platforms</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Cropping for Different Platforms</h3>
+            <ul className="text-base text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Instagram feed:</strong> Crop to 1:1 (1080x1080) for square posts or 4:5 (1080x1350) for portrait posts that fill more screen space.</li>
               <li><strong className="text-[#e6edf5]">Instagram Stories / Reels:</strong> A 9:16 crop prepares vertical still artwork. Use the <Link href="/resize/instagram?preset=stories#resizer" className="text-[var(--accent)] hover:underline">1080 × 1920 editor</Link> for exact canvas dimensions, then check text against the current placement preview.</li>
               <li><strong className="text-[#e6edf5]">YouTube thumbnails:</strong> Crop to 16:9 (1280x720) with bold, centered subjects. Thumbnails drive click-through rates.</li>
@@ -120,8 +120,8 @@ export default function CropperPage() {
             </ul>
           </div>
           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
-            <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Composition Techniques</h3>
-            <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+            <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Composition Techniques</h3>
+            <ul className="text-base text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
               <li><strong className="text-[#e6edf5]">Rule of thirds:</strong> Position key elements along the grid lines (or at their intersections) for naturally balanced compositions.</li>
               <li><strong className="text-[#e6edf5]">Leading lines:</strong> Use natural lines in your image (roads, fences, architecture) to draw the viewer&apos;s eye toward the subject.</li>
               <li><strong className="text-[#e6edf5]">Symmetry and patterns:</strong> Centered compositions with symmetrical elements create visually striking images that work well in square formats.</li>
@@ -132,14 +132,14 @@ export default function CropperPage() {
         </div>
 
         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mt-6">
-          <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Crop Images Privately</h3>
-          <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+          <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Crop Images Privately</h3>
+          <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             All image cropping happens locally in your browser. Your images never leave your device.
           </p>
         </div>
-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: October 8, 2026</p>
+        <p className="text-base text-[#8d9aaa] text-center mt-8">Last updated: October 8, 2026</p>
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
-          <p className="text-[0.75rem] text-[#8d9aaa] text-center">
+          <p className="text-base text-[#8d9aaa] text-center">
             Learn more: <Link href="/image-size-calculator" className="text-[var(--accent)] no-underline hover:underline">Calculate aspect ratio</Link> · <Link href="/guides/make-image-square-without-cropping" className="text-[var(--accent)] no-underline hover:underline">Fit a photo without cropping</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram framing guide</Link> · <Link href="/guides/linkedin-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">LinkedIn cover references</Link>
           </p>
         </div>

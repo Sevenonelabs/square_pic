@@ -37,17 +37,30 @@ export function ResizeTool({ platform }: { platform: string }) {
     if (partial.targetWidth !== undefined) {
       const preset = Object.entries(config.types).find(([, t]) => t.w === partial.targetWidth && t.h === partial.targetHeight)?.[0];
       const url = new URL(window.location.href);
-      if (preset) url.searchParams.set("preset", preset);
-      else url.searchParams.delete("preset");
-      window.history.pushState(null, "", url);
+      if (preset) {
+        url.searchParams.set("preset", preset);
+        url.searchParams.delete("width");
+        url.searchParams.delete("height");
+      } else {
+        url.searchParams.delete("preset");
+        url.searchParams.set("width", String(partial.targetWidth));
+        url.searchParams.set("height", String(partial.targetHeight));
+      }
+      if (url.href !== window.location.href) window.history.pushState(null, "", url);
     }
   }, [config.types]);
 
   useEffect(() => {
     const sync = () => {
-      const key = new URLSearchParams(window.location.search).get("preset") || defaultPreset;
+      const params = new URLSearchParams(window.location.search);
+      const key = params.get("preset") || defaultPreset;
+      const width = Number(params.get("width"));
+      const height = Number(params.get("height"));
+      const custom = params.has("width") && params.has("height") &&
+        Number.isInteger(width) && Number.isInteger(height) &&
+        ((width === 0 && height === 0) || (width >= 1 && height >= 1 && width <= 4096 && height <= 4096));
       const preset = config.types[key] || first;
-      setState((prev) => ({ ...prev, targetWidth: preset.w, targetHeight: preset.h }));
+      setState((prev) => ({ ...prev, targetWidth: custom ? width : preset.w, targetHeight: custom ? height : preset.h }));
     };
     sync();
     window.addEventListener("popstate", sync);

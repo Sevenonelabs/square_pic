@@ -1,5 +1,6 @@
 "use client";
 import { isImageFile } from "@/lib/image-input";
+import { useImageLoader } from "@/lib/use-image-loader";
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import { canvasBlob, downloadImage } from "@/lib/image-export";
@@ -11,6 +12,7 @@ const SCALES = [2, 3, 4];
 type DisplayMode = "original" | "upscaled" | "compare";
 
 export function UpscalerTool() {
+  const { loadImage, clearImage } = useImageLoader();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const [image, setImage] = useState<HTMLImageElement | null>(null);
@@ -74,32 +76,32 @@ export function UpscalerTool() {
     setResultDataUrl("");
     setDisplayMode("original");
     setError("");
-    const url = URL.createObjectURL(file);
-    const img = new Image();
-    img.onload = () => {
+    setImage(null);
+    loadImage(file, (img) => {
       trackToolEvent("upload_accepted", "upscaler");
       setImage(img);
-      URL.revokeObjectURL(url);
-    };
-    img.onerror = () => { URL.revokeObjectURL(url); setError("This image could not be decoded. Try PNG, JPEG or WebP."); trackToolEvent("processing_error", "upscaler"); };
-    img.src = url;
-  }, []);
+    }, () => { setError("This image could not be decoded. Try PNG, JPEG or WebP."); trackToolEvent("processing_error", "upscaler"); });
+  }, [loadImage]);
 
   const handleUpscale = useCallback(async () => {
     if (!image) return;
     setProcessing(true);
     setError("");
+    setResult(null);
+    setResultDataUrl("");
+    setDisplayMode("original");
     try {
       const r = await upscaleImage(image, scale, sharpen);
+      const dataUrl = r.canvas.toDataURL();
+      if (dataUrl === "data:,") throw new Error("Image preview failed. Try a smaller image.");
       trackToolEvent("processing_success", "upscaler");
       setResult(r);
-      const dataUrl = r.canvas.toDataURL();
       setResultDataUrl(dataUrl);
       setDisplayMode("compare");
       setSliderPos(50);
-    } catch {
+    } catch (err) {
       trackToolEvent("processing_error", "upscaler");
-      setError("Upscaling failed. The image may be too large or your browser doesn't support the required Canvas operations.");
+      setError(err instanceof Error ? err.message : "Upscaling failed. Try a smaller image.");
     }
     setProcessing(false);
   }, [image, scale, sharpen]);
@@ -126,6 +128,7 @@ export function UpscalerTool() {
   }, [result, expFormat, expQuality, fileName]);
 
   const reset = useCallback(() => {
+    clearImage();
     setImage(null);
     setResult(null);
     setResultDataUrl("");
@@ -133,7 +136,7 @@ export function UpscalerTool() {
     setFileSize(0);
     setError("");
     setDisplayMode("original");
-  }, []);
+  }, [clearImage]);
 
   return (
     <div className="max-w-[1200px] w-full mx-auto px-5 py-6">
@@ -148,7 +151,7 @@ export function UpscalerTool() {
         <p className="text-[0.95rem] text-[#8d9aaa] max-w-[600px] leading-relaxed">Enlarge PNG, JPG, or WebP images 2x, 3x, or 4x with browser smoothing and optional sharpening. No AI model, signup, or watermark. Your photo stays on your device.</p>
       </motion.div>
 
-      {error && <p role="alert" className="text-[0.8rem] text-[#f43f5e] border border-[#f43f5e]/20 rounded-lg p-3 mb-4">{error}</p>}
+      {error && <p role="alert" className="text-[0.875rem] text-[#f43f5e] border border-[#f43f5e]/20 rounded-lg p-3 mb-4">{error}</p>}
       {!image ? (
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -165,7 +168,7 @@ export function UpscalerTool() {
             </svg>
           </div>
           <h3 className="text-[1.3rem] font-bold mb-2">Drop an image or click to browse</h3>
-          <p className="text-[0.8rem] text-[#8d9aaa]">Browser-decodable images such as PNG, JPEG and WebP — up to 30 MB</p>
+          <p className="text-[0.875rem] text-[#8d9aaa]">Browser-decodable images such as PNG, JPEG and WebP — up to 30 MB</p>
           <input ref={fileInputRef} type="file" hidden accept="image/*" onChange={(e) => e.target.files && handleFile(e.target.files[0])} />
         </motion.div>
       ) : (
@@ -184,7 +187,7 @@ export function UpscalerTool() {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                     </svg>
-                    <span className="text-[0.8rem] text-[#8d9aaa] font-medium">Upscaling {scale}&times;...</span>
+                    <span className="text-[0.875rem] text-[#8d9aaa] font-medium">Upscaling {scale}&times;...</span>
                   </div>
                 </div>
               ) : displayMode === "compare" && resultDataUrl ? (
@@ -229,10 +232,10 @@ export function UpscalerTool() {
                       <polyline points="15 6 21 12 15 18" />
                     </svg>
                   </div>
-                  <div className="absolute top-2 left-2 bg-black/40 backdrop-blur-sm text-white text-[0.55rem] font-bold px-2 py-1 rounded-sm border border-white/10 z-20 pointer-events-none">
+                  <div className="absolute top-2 left-2 bg-black/40 backdrop-blur-sm text-white text-[0.875rem] font-bold px-2 py-1 rounded-sm border border-white/10 z-20 pointer-events-none">
                     ORIGINAL
                   </div>
-                  <div className="absolute top-2 right-2 bg-[var(--accent)]/30 backdrop-blur-sm text-[var(--accent)] text-[0.55rem] font-bold px-2 py-1 rounded-sm border border-[var(--accent)]/20 z-20 pointer-events-none">
+                  <div className="absolute top-2 right-2 bg-[var(--accent)]/30 backdrop-blur-sm text-[var(--accent)] text-[0.875rem] font-bold px-2 py-1 rounded-sm border border-[var(--accent)]/20 z-20 pointer-events-none">
                     UPSCALED {scale}x
                   </div>
                 </div>
@@ -245,7 +248,7 @@ export function UpscalerTool() {
                     className="w-full h-auto"
                     style={{ maxHeight: 500, objectFit: "contain" }}
                   />
-                  <div className="absolute top-2 left-2 bg-black/40 backdrop-blur-sm text-white text-[0.55rem] font-bold px-2 py-1 rounded-sm border border-white/10">
+                  <div className="absolute top-2 left-2 bg-black/40 backdrop-blur-sm text-white text-[0.875rem] font-bold px-2 py-1 rounded-sm border border-white/10">
                     {displayMode === "upscaled" ? `UPSCALED ${scale}x` : "ORIGINAL"}
                   </div>
                 </div>
@@ -260,8 +263,8 @@ export function UpscalerTool() {
             className="w-full lg:w-[280px] flex flex-col gap-3"
           >
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Original</h3>
-              <div className="text-[0.72rem] text-[#8d9aaa] space-y-1">
+              <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Original</h3>
+              <div className="text-[0.875rem] text-[#8d9aaa] space-y-1">
                 <div className="truncate font-medium text-[#e6edf5]">{fileName}</div>
                 <div>{image.naturalWidth} &times; {image.naturalHeight} px</div>
                 <div>{(fileSize / 1024).toFixed(0)} KB</div>
@@ -269,11 +272,11 @@ export function UpscalerTool() {
             </div>
 
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-              <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Scale Factor</h3>
+              <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Scale Factor</h3>
               <div className="flex gap-1 mb-2">
                 {SCALES.map((s) => (
                   <button key={s} disabled={processing} onClick={() => { setScale(s); setResult(null); setResultDataUrl(""); setDisplayMode("original"); }}
-                    className={`flex-1 text-[0.6rem] font-bold px-1 py-1.5 rounded-sm border transition-all ${
+                    className={`flex-1 text-[0.875rem] font-bold px-1 py-1.5 rounded-sm border transition-all ${
                       scale === s
                         ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
                         : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa] hover:border-[rgba(255,255,255,0.10)]"
@@ -281,14 +284,14 @@ export function UpscalerTool() {
                   >{s}x</button>
                 ))}
               </div>
-              <div className="text-[0.65rem] text-[#576675]">
+              <div className="text-[0.875rem] text-[#8d9aaa]">
                 Output: <strong className="text-[#8d9aaa]">{Math.round(image.naturalWidth * scale)} &times; {Math.round(image.naturalHeight * scale)} px</strong>
               </div>
             </div>
 
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675]">Smart Sharpen</h3>
+                <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa]">Smart Sharpen</h3>
                 <button aria-label="Smart Sharpen" aria-pressed={sharpen} disabled={processing} onClick={() => { setSharpen(!sharpen); setResult(null); setResultDataUrl(""); setDisplayMode("original"); }}
                   className={`relative w-9 h-5 rounded-full transition-all cursor-pointer ${
                     sharpen ? "bg-[var(--accent)]" : "bg-[rgba(255,255,255,0.10)]"
@@ -298,7 +301,7 @@ export function UpscalerTool() {
                   }`} />
                 </button>
               </div>
-              <p className="text-[0.62rem] text-[#576675] mt-1.5 leading-relaxed">
+              <p className="text-[0.875rem] text-[#8d9aaa] mt-1.5 leading-relaxed">
                 Applies unsharp mask after upscaling for crisper details.
               </p>
             </div>
@@ -323,7 +326,7 @@ export function UpscalerTool() {
                   <div className="flex gap-1">
                     {(["original", "compare", "upscaled"] as const).map((m) => (
                       <button key={m} onClick={() => setDisplayMode(m)}
-                        className={`flex-1 text-[0.55rem] font-bold px-1 py-1.5 rounded-sm border transition-all ${
+                        className={`flex-1 text-[0.875rem] font-bold px-1 py-1.5 rounded-sm border transition-all ${
                           displayMode === m
                             ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
                             : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa] hover:border-[rgba(255,255,255,0.10)]"
@@ -334,7 +337,7 @@ export function UpscalerTool() {
                 </div>
 
                 <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-3">
-                  <div className="text-[0.65rem] text-[#8d9aaa] space-y-0.5">
+                  <div className="text-[0.875rem] text-[#8d9aaa] space-y-0.5">
                     <div className="flex justify-between">
                       <span>Original</span>
                       <strong className="text-[#e6edf5]">{result.originalWidth} &times; {result.originalHeight}</strong>
@@ -343,18 +346,18 @@ export function UpscalerTool() {
                       <span>Upscaled</span>
                       <strong className="text-[var(--accent)]">{result.width} &times; {result.height}</strong>
                     </div>
-                    <div className="text-[0.55rem] text-[#576675] text-center pt-1 border-t border-[rgba(255,255,255,0.04)] mt-1">
+                    <div className="text-[0.875rem] text-[#8d9aaa] text-center pt-1 border-t border-[rgba(255,255,255,0.04)] mt-1">
                       {(result.width * result.height / (result.originalWidth * result.originalHeight)).toFixed(0)}&times; more pixels
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-                  <h3 className="text-[0.6rem] tracking-[0.12em] uppercase font-bold text-[#576675] mb-2.5">Export</h3>
+                  <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Export</h3>
                   <div className="flex gap-1 mb-2">
                     {(["png", "jpeg", "webp"] as const).map((f) => (
                       <button key={f} onClick={() => setExpFormat(f)}
-                        className={`flex-1 text-[0.6rem] font-bold px-1 py-1.5 rounded-sm border transition-all ${
+                        className={`flex-1 text-[0.875rem] font-bold px-1 py-1.5 rounded-sm border transition-all ${
                           expFormat === f
                             ? "bg-[var(--accent)]/10 border-[var(--accent)]/20 text-[var(--accent)]"
                             : "bg-transparent border-[rgba(255,255,255,0.06)] text-[#8d9aaa] hover:border-[rgba(255,255,255,0.10)]"
@@ -364,7 +367,7 @@ export function UpscalerTool() {
                   </div>
                   {expFormat !== "png" && (
                     <div className="mb-2">
-                      <div className="flex items-center justify-between text-[0.65rem] text-[#8d9aaa] mb-1">
+                      <div className="flex items-center justify-between text-[0.875rem] text-[#8d9aaa] mb-1">
                         <span>Quality</span>
                         <span>{expQuality}%</span>
                       </div>
@@ -381,8 +384,8 @@ export function UpscalerTool() {
               </>
             )}
 
-            <button onClick={reset}
-              className="w-full bg-transparent border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] py-2 rounded-lg text-xs font-semibold cursor-pointer hover:text-[#f43f5e] hover:border-[rgba(244,63,94,0.2)] transition-all">
+            <button onClick={reset} disabled={processing}
+              className="w-full bg-transparent border border-[rgba(255,255,255,0.06)] text-[#8d9aaa] py-2 rounded-lg text-sm font-semibold cursor-pointer hover:text-[#f43f5e] hover:border-[rgba(244,63,94,0.2)] transition-all">
               Upload New Image
             </button>
           </motion.div>

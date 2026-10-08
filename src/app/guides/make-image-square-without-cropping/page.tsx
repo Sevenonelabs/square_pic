@@ -1,3 +1,5 @@
+import { PlatformTitle } from "@/components/platform-icon";
+import { TableOfContents } from "@/components/guides/table-of-contents";
 import { SquareOutputExample } from "@/components/guides/square-output-example";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
@@ -24,13 +26,14 @@ export default function SquarePhotoGuide() {
       <ArticleSchema title={TITLE} description="Learn how to make an image square without cropping. Follow photo examples, compare blur and solid padding, calculate borders and choose PNG, JPG or WebP export."
         url={`${SITE_URL}${PATH}`} imageUrl={`${SITE_URL}/og/og-home.png`} datePublished="2026-10-07" dateModified="2026-10-08"
         authorName="SevenOneLabs" authorUrl={`${SITE_URL}/author/sevenonelabs`} />
-      <article className="max-w-[680px] w-full mx-auto px-4 py-8 text-[0.95rem] text-[#8d9aaa] leading-relaxed">
+      <article className="max-w-[680px] w-full mx-auto px-4 py-8 text-[1rem] text-[#8d9aaa] leading-relaxed">
+        <Link href="/guides" className="inline-flex min-h-11 items-center mb-4 text-base font-semibold text-[var(--accent)] hover:underline">&larr; All guides</Link>
         <Link href="/guides" className={linkStyle}>All image guides</Link>
         <h1 className="text-[1.8rem] font-extrabold text-[#e6edf5] tracking-tight mt-4 mb-3">{TITLE}</h1>
-        <p className="text-[0.78rem] mb-6">Published October 7, 2026 · By <Link href="/author/sevenonelabs" className={linkStyle}>SevenOneLabs</Link></p>
-        <p className="text-[0.78rem] mb-4">Review method: export the same source in Solid and Crop modes, decode the downloads, and compare their dimensions and retained edges. The examples use 0% Outer Border and 100% Zoom. Reviewed October 8, 2026.</p>
+        <p className="text-[1rem] mb-6">Published October 7, 2026 · By <Link href="/author/sevenonelabs" className={linkStyle}>SevenOneLabs</Link></p>
+        <p className="text-[1rem] mb-4">Review method: export the same source in Solid and Crop modes, decode the downloads, and compare their dimensions and retained edges. The examples use 0% Outer Border and 100% Zoom. Reviewed October 8, 2026.</p>
         <p>To make an image square without cropping, place the entire photo inside a 1:1 canvas and fill the unused space with a solid color or blurred background. The photo keeps its proportions; only the surrounding canvas changes shape. Use <Link href="/" className={linkStyle}>SquarePic&apos;s square image maker</Link> to try both backgrounds.</p>
-        <nav aria-label="In this guide" className="my-6 p-5 border border-white/10 rounded-xl text-[0.85rem]">
+        <nav aria-label="In this guide" className="my-6 p-5 border border-white/10 rounded-xl text-[1rem]">
           <p className="font-bold text-[#e6edf5] mb-2">In this guide</p>
           <ul className="pl-5 list-disc space-y-1">
             <li><a href="#steps" className={linkStyle}>Make a square photo in SquarePic</a></li>
@@ -39,6 +42,33 @@ export default function SquarePhotoGuide() {
             <li><a href="#export" className={linkStyle}>Choose size and file format</a></li>
           </ul>
         </nav>
+        <TableOfContents items={[
+  {
+    "id": "steps",
+    "label": "How to make a photo square without cropping",
+    "level": 2
+  },
+  {
+    "id": "crop-or-fit",
+    "label": "Should you crop, add padding, or stretch?",
+    "level": 2
+  },
+  {
+    "id": "dimensions",
+    "label": "A worked example: 1200 × 800 to 1080 × 1080",
+    "level": 2
+  },
+  {
+    "id": "export",
+    "label": "Choose the output size and file format",
+    "level": 2
+  },
+  {
+    "id": "will-instagram-still-crop-the-result",
+    "label": "Will Instagram still crop the result?",
+    "level": 2
+  }
+]} />
         <h2 id="steps" className={headingStyle}>How to make a photo square without cropping</h2>
         <ol className="list-decimal pl-5 space-y-3">
           <li>Open the <Link href="/" className={linkStyle}>square photo editor</Link> and select your image. Image processing happens on your device.</li>
@@ -51,7 +81,7 @@ export default function SquarePhotoGuide() {
 
         <h2 id="crop-or-fit" className={headingStyle}>Should you crop, add padding, or stretch?</h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-[0.85rem] border-collapse">
+          <table className="w-full text-[1rem] border-collapse">
             <caption className="text-left mb-3">Three ways a rectangular picture can occupy a square</caption>
             <thead><tr className="border-b border-white/10"><th scope="col" className="text-left py-2 pr-3">Method</th><th scope="col" className="text-left py-2 pr-3">What changes</th><th scope="col" className="text-left py-2">Use it when</th></tr></thead>
             <tbody>
@@ -78,7 +108,7 @@ export default function SquarePhotoGuide() {
             <text x="115" y="242" textAnchor="middle" fill="#e6edf5" fontSize="13">Fit: keep both edges</text>
             <text x="365" y="242" textAnchor="middle" fill="#e6edf5" fontSize="13">Crop: remove both edges</text>
           </svg>
-          <figcaption className="text-[0.8rem] mt-2">Illustration of the two methods, with Outer Border at 0% and Zoom at 100%.</figcaption>
+          <figcaption className="text-[1rem] mt-2">Illustration of the two methods, with Outer Border at 0% and Zoom at 100%.</figcaption>
         </figure>
         <p>A centered crop of that source keeps an 800 × 800 region, removing 200 source pixels from each side before resizing. For a portrait photo, fitting adds background to the left and right instead. Use the <Link href="/image-size-calculator" className={linkStyle}>aspect ratio calculator</Link> to check your source dimensions.</p>
 
@@ -89,7 +119,7 @@ export default function SquarePhotoGuide() {
           <li>Choose PNG for logos, text, or lossless export. Select Transparent to preserve empty padding and transparency in your source image. The checkerboard marks empty space and does not appear in the download. PNG alone does not remove a solid background already in the source.</li>
           <li>Choose WebP for a smaller web image when your destination supports it. If an upload has a file-size limit, use the <Link href="/compressor" className={linkStyle}>image compressor</Link> after framing the photo.</li>
         </ul>
-        <h2 className={headingStyle}>Will Instagram still crop the result?</h2>
+        <h2 className={headingStyle} id="will-instagram-still-crop-the-result"><PlatformTitle title={"Will Instagram still crop the result?"} /></h2>
         <p>Your exported file remains square, but feed views, grid previews, and circular profile pictures can display it differently. Inspect the destination&apos;s preview before publishing. For vertical content, use the <Link href="/guides/instagram-reels-stories-guide" className={linkStyle}>Reels and Stories dimensions guide</Link>; a 9:16 Story needs a different canvas from a 1:1 post.</p>
         <p className="mt-6">This guide describes SquarePic&apos;s fit and centered-crop controls. The dimension examples are calculated from the stated source and output sizes, rather than platform display guarantees.</p>
         <Link href="/" className="inline-block mt-6 px-5 py-3 rounded-md bg-[var(--accent)] text-black font-bold">Make your photo square</Link>
