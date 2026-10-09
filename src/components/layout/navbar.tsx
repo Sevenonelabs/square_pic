@@ -28,6 +28,11 @@ export function Navbar() {
   const [open, setOpen] = useState<MenuName | "mobile" | null>(null);
   const headerRef = useRef<HTMLElement>(null);
   const triggerRefs = useRef<Partial<Record<MenuName | "mobile", HTMLButtonElement | null>>>({});
+  const hoverCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (hoverCloseTimer.current !== null) clearTimeout(hoverCloseTimer.current);
+  }, []);
 
   useEffect(() => {
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="2" width="28" height="28" rx="4" fill="black" stroke="${current.accent}" stroke-width="4"/></svg>`;
@@ -74,7 +79,19 @@ export function Navbar() {
     </Link>
     <nav aria-label="Main navigation" className="flex items-center max-lg:hidden">
       <Link href="/" onClick={close} className={navStyle} aria-current={pathname === "/" ? "page" : undefined}>Home</Link>
-      {(Object.keys(MENUS) as MenuName[]).map((name) => <div key={name}>
+      {(Object.keys(MENUS) as MenuName[]).map((name) => <div key={name}
+        onPointerEnter={(event) => {
+          if (event.pointerType !== "mouse") return;
+          if (hoverCloseTimer.current !== null) clearTimeout(hoverCloseTimer.current);
+          setOpen(name);
+        }}
+        onPointerLeave={(event) => {
+          if (event.pointerType !== "mouse") return;
+          if (hoverCloseTimer.current !== null) clearTimeout(hoverCloseTimer.current);
+          hoverCloseTimer.current = setTimeout(() => {
+            setOpen((currentOpen) => currentOpen === name ? null : currentOpen);
+          }, 150);
+        }}>
         <button type="button" ref={(element) => { triggerRefs.current[name] = element; }} className={navStyle}
           aria-expanded={open === name} aria-controls={`nav-${name.toLowerCase()}`} onClick={() => setOpen(open === name ? null : name)}>
           {name}<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={open === name ? "rotate-180" : ""}><path d="m6 9 6 6 6-6" /></svg>

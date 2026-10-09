@@ -20,6 +20,16 @@ const FORMATS: { value: ExportFormat; label: string; ext: string; mime: string }
   { value: "webp", label: "WebP", ext: "webp", mime: "image/webp" },
 ];
 
+function supportsFileSharing(file: File): boolean {
+  try {
+    return typeof navigator.share === "function"
+      && typeof navigator.canShare === "function"
+      && navigator.canShare({ files: [file] });
+  } catch {
+    return false;
+  }
+}
+
 export interface ToolAsHeroLayoutProps {
   state: EditorState;
   onStateChange: (update: Partial<EditorState>) => void;
@@ -72,6 +82,7 @@ export function ToolAsHeroLayout({
   const [squareEdge, setSquareEdge] = useState("");
   const validSquareEdge = /^\d+$/.test(squareEdge) && Number(squareEdge) >= 1 && Number(squareEdge) <= MAX_EXPORT_EDGE;
   const [exportModal, setExportModal] = useState<{ open: boolean; blob: Blob | null; url: string }>({ open: false, blob: null, url: "" });
+  const [canShareImage, setCanShareImage] = useState(false);
   const [modalLoading, setModalLoading] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -148,6 +159,8 @@ export function ToolAsHeroLayout({
       const fmt = FORMATS.find((f) => f.value === exportFormat)!;
       const blob = await editorRef.current.exportToBlob(fmt.mime);
       if (!blob) throw new Error("Image preview failed");
+      const file = new File([blob], `${downloadFilename}.${fmt.ext}`, { type: blob.type });
+      setCanShareImage(supportsFileSharing(file));
       trackToolEvent("processing_success", toolName, exportFormat, { mode: state.mode });
       const url = URL.createObjectURL(blob);
       setExportModal({ open: true, blob, url });
@@ -157,7 +170,7 @@ export function ToolAsHeroLayout({
     } finally {
       setModalLoading(false);
     }
-  }, [state.image, state.mode, exportFormat, toolName]);
+  }, [state.image, state.mode, exportFormat, toolName, downloadFilename]);
 
   const handleDownload = useCallback(async () => {
     if (!state.image) return;
@@ -182,8 +195,8 @@ export function ToolAsHeroLayout({
       if (!blob) throw new Error("Image export failed");
       const fmt = FORMATS.find((f) => f.value === exportFormat)!;
       const file = new File([blob], `${downloadFilename}.${fmt.ext}`, { type: blob.type });
-      if (!navigator.share || !navigator.canShare?.({ files: [file] })) {
-        setError("Your browser cannot share image files. Use Download to save the image, then attach it in your app.");
+      if (!supportsFileSharing(file)) {
+        setCanShareImage(false);
         return;
       }
       await navigator.share({ title: "SquarePic", files: [file] });
@@ -206,6 +219,7 @@ export function ToolAsHeroLayout({
   }, [downloadEventName]);
 
   const handleCopyImage = useCallback(async () => {
+    setError(null);
     try {
       if (!editorRef.current) return;
       // Clipboard image support is PNG. Pass the pending blob directly so
@@ -614,11 +628,13 @@ export function ToolAsHeroLayout({
                   Download {exportFormat.toUpperCase()}
                 </button>
 
-                <button onClick={handleShareNative}
+                {canShareImage && <button onClick={handleShareNative}
                   className="w-full border border-white/10 rounded-lg py-2.5 text-sm font-semibold text-[#e6edf5] hover:bg-white/5">
                   Share image
-                </button>
-                <p className="text-sm text-[#8d9aaa]">Choose an app in your device’s share menu. If sharing is unavailable, download and attach the image.</p>
+                </button>}
+                <p className="text-sm text-[#8d9aaa]">{canShareImage
+                  ? "Choose an app in your device's share menu. You can also download or copy the image."
+                  : "Download the image and attach it in your app, or use Copy Image to paste it."}</p>
                 {error && <p role="alert" className="rounded-md bg-red-400/10 p-2 text-sm text-red-200">{error}</p>}
 
                 <button
