@@ -1,3 +1,4 @@
+import { GuideEditions } from "@/components/guides/guide-editions";
 import { PlatformTitle } from "@/components/platform-icon";
 import { TableOfContents } from "@/components/guides/table-of-contents";
 import { PlatformIcon } from "@/components/platform-icon";
@@ -54,6 +55,7 @@ export default function PinterestImageSizesPage() {
             Pinterest
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2"><PlatformIcon platform="pinterest" />{" "}Pinterest Image Sizes 2026: Pins & Board Covers</h1>
+<GuideEditions slug="pinterest-image-sizes" year={2026} />
           <p className="text-[1rem] text-[#8d9aaa]">Published July 19, 2026 · Updated October 8, 2026 · 10 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/pinterest-image-sizes-2026" title="Pinterest Image Sizes 2026: Pins & Board Covers" />
         </div>

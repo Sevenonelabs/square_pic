@@ -1,0 +1,134 @@
+{
+  "updated": "2026-10-09",
+  "platforms": [
+    {
+      "id": "instagram", "name": "Instagram", "tool": "instagram", "guide": "instagram-feed-sizes",
+      "note": "These are working canvases. Instagram Help could not be read during this review, so its current upload limits are unconfirmed. Check the app preview, including carousel and profile-grid crops.",
+      "sources": [{"label": "Instagram Help: image resolution", "url": "https://help.instagram.com/1631821640426723", "status": "Access restricted"}],
+      "rows": [
+        {"placement": "Square feed", "size": "1080 x 1080", "ratio": "1:1", "basis": "Working canvas"},
+        {"placement": "Portrait feed", "size": "1080 x 1350", "ratio": "4:5", "basis": "Working canvas"},
+        {"placement": "Stories / Reels artwork", "size": "1080 x 1920", "ratio": "9:16", "basis": "Working canvas"}
+      ]
+    },
+    {
+      "id": "facebook", "name": "Facebook", "tool": "facebook", "guide": "facebook-image-sizes",
+      "note": "Facebook Help redirected to sign-in during this review. These are working exports, not verified platform requirements. Preview cover crops on desktop and mobile.",
+      "sources": [{"label": "Facebook Help: Page profile and cover photos", "url": "https://www.facebook.com/help/125379114252045", "status": "Sign-in required"}],
+      "rows": [
+        {"placement": "Square feed", "size": "1080 x 1080", "ratio": "1:1", "basis": "Working canvas"},
+        {"placement": "Page cover", "size": "851 x 315", "ratio": "851:315", "basis": "Working canvas"},
+        {"placement": "Stories artwork", "size": "1080 x 1920", "ratio": "9:16", "basis": "Working canvas"}
+      ]
+    },
+    {
+      "id": "twitter", "name": "X (Twitter)", "tool": "x-twitter",
+      "note": "X recommends these profile and header sizes. Keep the subject centered and leave space for the profile photo over the header.",
+      "sources": [{"label": "X Help: profile and header photos", "url": "https://help.x.com/en/managing-your-account/common-issues-when-uploading-profile-photo", "status": "Checked"}],
+      "rows": [
+        {"placement": "Profile photo", "size": "400 x 400", "ratio": "1:1", "basis": "Recommendation"},
+        {"placement": "Header", "size": "1500 x 500", "ratio": "3:1", "basis": "Recommendation"}
+      ]
+    },
+    {
+      "id": "linkedin", "name": "LinkedIn", "tool": "linkedin", "guide": "linkedin-image-sizes",
+      "note": "Personal covers and company Page covers are different uploads. LinkedIn's current Page specification is 1512 x 256; 1128 x 191 is not the current Page cover recommendation.",
+      "sources": [
+        {"label": "LinkedIn Help: Page image specifications", "url": "https://www.linkedin.com/help/linkedin/answer/a563309/", "status": "Checked"},
+        {"label": "LinkedIn Help: personal background photo", "url": "https://www.linkedin.com/help/linkedin/answer/a568217/", "status": "Checked"}
+      ],
+      "rows": [
+        {"placement": "Company Page logo", "size": "400 x 400", "ratio": "1:1", "basis": "Recommendation"},
+        {"placement": "Company Page cover", "size": "1512 x 256", "ratio": "189:32", "basis": "Recommendation"},
+        {"placement": "Personal cover", "size": "1584 x 396", "ratio": "4:1", "basis": "Recommendation"},
+        {"placement": "Post with custom link image", "size": "1200 x 627", "ratio": "400:209", "basis": "Recommendation"}
+      ]
+    },
+    {
+      "id": "tiktok", "name": "TikTok", "tool": "tiktok", "guide": "tiktok-image-sizes",
+      "note": "The documented image sizes below apply to Standard Carousel ads, not every organic photo post. Use the 9:16 working canvas for vertical artwork and preview controls in the app.",
+      "sources": [{"label": "TikTok for Business: Carousel ad specifications", "url": "https://ads.tiktok.com/resources/help/article/specifications-for-carousel-ads?lang=en", "status": "Checked"}],
+      "rows": [
+        {"placement": "Carousel ad, horizontal", "size": "1200 x 628", "ratio": "300:157", "basis": "Ad specification"},
+        {"placement": "Carousel ad, square", "size": "640 x 640", "ratio": "1:1", "basis": "Ad specification"},
+        {"placement": "Carousel ad, vertical", "size": "720 x 1280", "ratio": "9:16", "basis": "Ad specification"},
+        {"placement": "Organic vertical artwork", "size": "1080 x 1920", "ratio": "9:16", "basis": "Working canvas"}
+      ]
+    },
+    {
+      "id": "youtube", "name": "YouTube", "tool": "youtube", "guide": "youtube-banner-thumbnail-sizes",
+      "note": "YouTube now recommends 3840 x 2160 video thumbnails. Its older 1280 x 720 size is a working canvas. At the minimum 2048 x 1152 banner size, the text/logo safe area is 1235 x 338. A safe area is not a separate cover upload.",
+      "sources": [
+        {"label": "YouTube Help: custom thumbnails", "url": "https://support.google.com/youtube/answer/72431", "status": "Checked"},
+        {"label": "YouTube Help: channel branding", "url": "https://support.google.com/youtube/answer/10456525", "status": "Checked"}
+      ],
+      "rows": [
+        {"placement": "Video thumbnail", "size": "3840 x 2160", "ratio": "16:9", "basis": "Recommendation"},
+        {"placement": "Channel banner", "size": "2560 x 1440", "ratio": "16:9", "basis": "Recommendation"},
+        {"placement": "Channel banner upload", "size": "2048 x 1152", "ratio": "16:9", "basis": "Minimum"}
+      ]
+    },
+    {
+      "id": "pinterest", "name": "Pinterest", "tool": "pinterest", "guide": "pinterest-image-sizes",
+      "note": "Pinterest recommends 2:3 for standard image ads. Taller images can be cut off in feeds. This is a standard Pin canvas, not a board-cover requirement.",
+      "sources": [{"label": "Pinterest Business Help: ad specifications", "url": "https://help.pinterest.com/en/business/article/pinterest-product-specs", "status": "Checked"}],
+      "rows": [{"placement": "Standard image Pin / ad", "size": "1000 x 1500", "ratio": "2:3", "basis": "Recommendation"}]
+    },
+    {
+      "id": "snapchat", "name": "Snapchat", "tool": "snapchat",
+      "note": "Snap's current ad-format page lists 720 x 1280 for Single Image or Video Ads. 1080 x 1920 remains a working canvas for full-screen artwork, not a blanket minimum for every ad format.",
+      "sources": [{"label": "Snapchat for Business: ad formats and specs", "url": "https://forbusiness.snapchat.com/advertising/ad-formats", "status": "Checked"}],
+      "rows": [
+        {"placement": "Single Image or Video Ad", "size": "720 x 1280", "ratio": "9:16", "basis": "Ad specification"},
+        {"placement": "Full-screen artwork", "size": "1080 x 1920", "ratio": "9:16", "basis": "Working canvas"}
+      ]
+    },
+    {
+      "id": "whatsapp", "name": "WhatsApp", "tool": "whatsapp",
+      "note": "WhatsApp suggests a profile image at least 192 pixels in both dimensions. The 500-pixel export and Status canvas below are SquarePic working sizes; the uploader may crop or compress them.",
+      "sources": [{"label": "WhatsApp Help: sending media", "url": "https://faq.whatsapp.com/453914586839706/?cms_platform=iphone", "status": "Checked"}],
+      "rows": [
+        {"placement": "Profile photo", "size": "192 x 192 or larger", "ratio": "Square crop", "basis": "Suggested minimum"},
+        {"placement": "Profile working export", "size": "500 x 500", "ratio": "1:1", "basis": "Working canvas"},
+        {"placement": "Status artwork", "size": "1080 x 1920", "ratio": "9:16", "basis": "Working canvas"}
+      ]
+    },
+    {
+      "id": "twitch", "name": "Twitch", "tool": "twitch",
+      "note": "Twitch's channel-page setup guidance recommends 1200 x 480 for the profile banner. Panel height varies; 320 x 160 is only a working canvas. English Help did not render, so the banner was checked against Twitch's Italian help page.",
+      "sources": [{"label": "Twitch Help: channel page setup (Italian)", "url": "https://help.twitch.tv/s/article/channel-page-setup?language=it", "status": "Checked"}],
+      "rows": [
+        {"placement": "Profile banner", "size": "1200 x 480", "ratio": "5:2", "basis": "Recommendation"},
+        {"placement": "Panel artwork", "size": "320 x 160", "ratio": "2:1", "basis": "Working canvas"}
+      ]
+    },
+    {
+      "id": "reddit", "name": "Reddit", "tool": "reddit",
+      "note": "These are community banner minimums from Reddit Help. The old 4000 x 128 working preset is not the published minimum. Preview desktop and mobile separately.",
+      "sources": [{"label": "Reddit Help: community banner", "url": "https://support.reddithelp.com/hc/en-us/articles/15484339588884-Banner", "status": "Checked"}],
+      "rows": [
+        {"placement": "Community banner, desktop", "size": "1072 x 128", "ratio": "67:8", "basis": "Minimum"},
+        {"placement": "Community banner, mobile", "size": "1080 x 128", "ratio": "135:16", "basis": "Minimum"}
+      ]
+    },
+    {
+      "id": "telegram", "name": "Telegram", "tool": "telegram",
+      "note": "Telegram's API describes generated 160 x 160 and 640 x 640 profile-photo variants. Those are output sizes, not upload requirements. The 500 x 500 canvas is an editorial working size; no channel-cover requirement was confirmed.",
+      "sources": [{"label": "Telegram TDLib: profilePhoto", "url": "https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1profile_photo.html", "status": "Checked"}],
+      "rows": [{"placement": "Profile artwork", "size": "500 x 500", "ratio": "1:1", "basis": "Working canvas"}]
+    },
+    {
+      "id": "discord", "name": "Discord", "tool": "discord", "guide": "discord-image-sizes",
+      "note": "The server banner and invite background are separate uploads. The banner needs Level 2 for a static image; the invite background needs Level 1. Keep the banner's top 48 pixels simple and check the invite pop-up overlay.",
+      "sources": [
+        {"label": "Discord Support: server banners", "url": "https://support.discord.com/hc/en-us/articles/360028716472-Server-Banners", "status": "Checked"},
+        {"label": "Discord Support: server invite background", "url": "https://support.discord.com/hc/en-us/articles/4415841146391-Server-Invite-Background", "status": "Checked"}
+      ],
+      "rows": [
+        {"placement": "Server banner", "size": "960 x 540", "ratio": "16:9", "basis": "Minimum"},
+        {"placement": "Invite background / splash", "size": "1920 x 1080", "ratio": "16:9", "basis": "Requirement"},
+        {"placement": "Icon / avatar artwork", "size": "512 x 512", "ratio": "1:1", "basis": "Working canvas"}
+      ]
+    }
+  ]
+}

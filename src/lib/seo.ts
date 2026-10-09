@@ -8,6 +8,7 @@ type PageMetadata = {
   image?: string;
   article?: boolean;
   publishedTime?: string;
+  modifiedTime?: string;
 };
 
 // Next replaces nested metadata objects rather than merging their fields.
@@ -19,6 +20,7 @@ export function pageMetadata({
   image = "/og/og-home.png",
   article = false,
   publishedTime,
+  modifiedTime,
 }: PageMetadata): Metadata {
   const socialTitle = `${title} | SquarePic`;
   const url = path === "/" ? new URL(SITE_URL).origin : new URL(path, SITE_URL).href;
@@ -34,6 +36,7 @@ export function pageMetadata({
       locale: "en_US",
       type: article ? "article" : "website",
       ...(article && publishedTime ? { publishedTime } : {}),
+      ...(article && modifiedTime ? { modifiedTime } : {}),
       images: [{ url: image, width: 1200, height: 630, alt: socialTitle }],
     },
     twitter: {

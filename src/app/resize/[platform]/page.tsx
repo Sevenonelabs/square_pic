@@ -239,7 +239,7 @@ export default async function PlatformPage({ params }: Props) {
             Both are 16:9. Use the <a href="#resizer" className="text-[var(--accent)] hover:underline">Discord editor above</a> to choose the matching preset.</p>
           <p className="mt-3">Fit with Solid or Blur at 100% zoom to retain the full photo, or use Crop to fill the frame.
             Export invite artwork as JPG or PNG. The server&apos;s Boost access and upload placement determine where it appears.</p>
-          <p className="mt-3">Read the <Link href="/guides/discord-image-sizes-2026" className="text-[var(--accent)] hover:underline">Discord banner and missing-splash guide</Link> for current requirements and preview checks.</p>
+          <p className="mt-3">Read the <Link href="/guides/discord-image-sizes-2027" className="text-[var(--accent)] hover:underline">Discord banner and missing-splash guide</Link> for current requirements and preview checks.</p>
         </section>
       )}
 
@@ -251,7 +251,7 @@ export default async function PlatformPage({ params }: Props) {
               LinkedIn&apos;s <a href="https://www.linkedin.com/help/linkedin/answer/a563309/image-specifications-for-your-linkedin-pages-and-career-pages" className="text-[var(--accent)] hover:underline">Pages image specifications</a> list this size for updates with a custom image.
               A 1200 × 628 image is a similar shape but has one extra row of pixels; use 1200 × 627 when matching this preset.</p>
             <p className="mt-3">For a square post, choose 1200 × 1200. The 1512 × 256 cover preset here is for a company Page, not a personal profile banner.
-              See the <Link href="/guides/linkedin-image-sizes-2026" className="text-[var(--accent)] hover:underline">LinkedIn banner, profile, and post guide</Link> to distinguish the placements.</p>
+              See the <Link href="/guides/linkedin-image-sizes-2027" className="text-[var(--accent)] hover:underline">LinkedIn banner, profile, and post guide</Link> to distinguish the placements.</p>
           </> : <>
             <p>Choose the 1080 × 1080 square preset and use Blur or Solid to add background around a portrait or landscape photo.
               Keep Zoom at 100% so the full picture fits. Crop fills the frame by trimming the edges instead.</p>
@@ -392,24 +392,24 @@ export default async function PlatformPage({ params }: Props) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-        {key === "discord" && <Link href="/guides/discord-image-sizes-2026" className="block border border-white/10 rounded-xl p-4 text-[var(--accent)] hover:underline">
+        {key === "discord" && <Link href="/guides/discord-image-sizes-2027" className="block border border-white/10 rounded-xl p-4 text-[var(--accent)] hover:underline">
           Discord server banner dimensions and invite splash troubleshooting
         </Link>}
         {(key === "instagram" || key === "linkedin") && (
-          <Link href={key === "instagram" ? "/guides/instagram-reels-stories-guide" : "/guides/linkedin-image-sizes-2026"}
+          <Link href={key === "instagram" ? "/guides/instagram-reels-stories-guide" : "/guides/linkedin-image-sizes-2027"}
             className="block border border-white/10 rounded-xl p-4 text-[var(--accent)] hover:underline">
             {key === "instagram" ? "Reels vs Stories: dimensions and text placement" : "LinkedIn banners, profiles, and posts: detailed guide"}
           </Link>
         )}
-        {key === "instagram" && <Link href="/guides/instagram-feed-sizes-2026" className="block border border-white/10 rounded-xl p-4 text-[var(--accent)] hover:underline">
+        {key === "instagram" && <Link href="/guides/instagram-feed-sizes-2027" className="block border border-white/10 rounded-xl p-4 text-[var(--accent)] hover:underline">
           Instagram feed, portrait and profile image sizes
         </Link>}
-        <Link href="/guides/social-media-image-sizes-2026" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
+        <Link href="/guides/social-media-image-sizes-2027" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
           <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">
             {p.label} Image Sizes - Complete Guide
           </h3>
           <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
-            See all {p.label} dimensions alongside every other platform in our 2026 social media image sizes cheat sheet.
+            See all {p.label} dimensions alongside every other platform in our 2027 social media image sizes cheat sheet.
           </p>
         </Link>
         <Link href="/image-size-calculator" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">

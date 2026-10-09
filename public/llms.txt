@@ -31,6 +31,17 @@ This file helps AI tools find SquarePic pages. It does not control search indexi
 
 ## Guides
 
+2027 planning guides use documentation checked October 9, 2026. The 2026 editions remain available. Working canvases and confirmed platform recommendations are labeled separately.
+
+- [Social media image sizes 2027 and free PDF](https://www.squarepic.io/guides/social-media-image-sizes-2027)
+- [Instagram image sizes 2027](https://www.squarepic.io/guides/instagram-feed-sizes-2027)
+- [Facebook image sizes 2027](https://www.squarepic.io/guides/facebook-image-sizes-2027)
+- [LinkedIn image sizes 2027](https://www.squarepic.io/guides/linkedin-image-sizes-2027)
+- [YouTube image sizes 2027](https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2027)
+- [TikTok image sizes 2027](https://www.squarepic.io/guides/tiktok-image-sizes-2027)
+- [Pinterest image sizes 2027](https://www.squarepic.io/guides/pinterest-image-sizes-2027)
+- [Discord image sizes 2027](https://www.squarepic.io/guides/discord-image-sizes-2027)
+
 - [All guides](https://www.squarepic.io/guides)
 - [Social media image sizes 2026](https://www.squarepic.io/guides/social-media-image-sizes-2026)
 - [Instagram feed and profile sizes](https://www.squarepic.io/guides/instagram-feed-sizes-2026)

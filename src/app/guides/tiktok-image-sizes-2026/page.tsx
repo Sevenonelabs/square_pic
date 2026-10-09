@@ -1,3 +1,4 @@
+import { GuideEditions } from "@/components/guides/guide-editions";
 import { PlatformTitle } from "@/components/platform-icon";
 import { TableOfContents } from "@/components/guides/table-of-contents";
 import { PlatformIcon } from "@/components/platform-icon";
@@ -53,6 +54,7 @@ export default function TikTokImageSizesPage() {
             TikTok
           </span>
           <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2"><PlatformIcon platform="tiktok" />{" "}TikTok Image Sizes: Posts, Profiles & Covers</h1>
+<GuideEditions slug="tiktok-image-sizes" year={2026} />
           <p className="text-[1rem] text-[#8d9aaa]">Published July 19, 2026 · Updated October 8, 2026 · 8 min read · by <Link href="/author/sevenonelabs" className="text-[var(--accent)] no-underline hover:underline">SevenOneLabs</Link></p>
           <ShareButtons path="/guides/tiktok-image-sizes-2026" title="TikTok Image Sizes: Posts, Profiles & Covers" />
         </div>

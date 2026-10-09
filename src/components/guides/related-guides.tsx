@@ -1,5 +1,6 @@
 import { PlatformTitle } from "@/components/platform-icon";
 import Link from "next/link";
+import { edition2027ForPath } from "@/lib/guide-editions";
 
 interface GuideLink {
   href: string;
@@ -73,15 +74,21 @@ const CATEGORY_MAP: Record<string, string[]> = {
 };
 
 export function RelatedGuides({ current }: { current: string }) {
-  const related = CATEGORY_MAP[current] ?? [];
+  const is2027 = current.endsWith("-2027");
+  const related = CATEGORY_MAP[is2027 ? current.replace(/-2027$/, "-2026") : current] ?? [];
 
   return (
     <section className="border-t border-[rgba(255,255,255,0.06)] pt-8 mt-8">
       <h2 className="text-[1.1rem] font-extrabold text-[#e6edf5] mb-4">Related Guides</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {related.map((key) => {
-          const g = ALL_GUIDES[key];
-          if (!g) return null;
+          const original = ALL_GUIDES[key];
+          if (!original) return null;
+          const g = is2027 && original.href.endsWith("-2026") ? {
+            href: original.href.replace(/-2026$/, "-2027"),
+            title: edition2027ForPath(original.href).title,
+            desc: edition2027ForPath(original.href).description,
+          } : original;
           return (
             <Link
               key={key}

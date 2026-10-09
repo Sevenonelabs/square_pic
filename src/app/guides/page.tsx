@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
+import { edition2027ForPath } from "@/lib/guide-editions";
 
 export const metadata: Metadata = pageMetadata({
   "title": "Social Media Image Size Guides & Photo Tutorials",
@@ -114,15 +115,21 @@ function categorySlug(cat: string): string {
   return cat.toLowerCase().replaceAll(" ", "-");
 }
 
-export default async function GuidesPage(props: { searchParams?: Promise<{ category?: string }> }) {
-  const searchParams = await (props.searchParams ?? Promise.resolve({} as { category?: string }));
+export default async function GuidesPage(props: { searchParams?: Promise<{ category?: string; year?: string }> }) {
+  const searchParams = await (props.searchParams ?? Promise.resolve({} as { category?: string; year?: string }));
+  const year = searchParams.year === "2026" ? 2026 : 2027;
+  const editionGuides = GUIDES.map((guide) => {
+    if (year !== 2027 || !guide.href.endsWith("-2026")) return guide;
+    const edition = edition2027ForPath(guide.href);
+    return { ...guide, href: guide.href.replace(/-2026$/, "-2027"), title: edition.title, desc: edition.description, readTime: edition.readTime };
+  });
   const activeCategory = searchParams?.category
     ? getCategoryLabel(searchParams.category)
     : "All";
 
   const filtered = activeCategory === "All"
-    ? GUIDES
-    : GUIDES.filter((g) => g.category === activeCategory);
+    ? editionGuides
+    : editionGuides.filter((g) => g.category === activeCategory);
 
   return (
     <>
@@ -141,14 +148,18 @@ export default async function GuidesPage(props: { searchParams?: Promise<{ categ
       <div className="max-w-[1120px] w-full mx-auto px-4 py-8">
         <h1 className="text-center text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-tight mb-2">Social Media Image Size Guides & Photo Tutorials</h1>
         <p className="text-center text-[1rem] text-[#8d9aaa] max-w-[680px] mx-auto mb-8 leading-relaxed">
-          Step-by-step tutorials, dimension guides, and how-to articles for optimizing images on every platform.
+          Plan your 2027 social media images with dimension guides and a free PDF cheat sheet. The 2026 editions and photo tutorials are also available.
         </p>
 
+        <nav aria-label="Guide editions" className="flex justify-center gap-6 mb-6">
+          {([2027, 2026] as const).map((edition) => <Link key={edition} href={`/guides?year=${edition}${searchParams.category ? `&category=${encodeURIComponent(searchParams.category)}` : ""}`} aria-current={year === edition ? "page" : undefined} className={`inline-flex min-h-11 items-center font-bold hover:underline ${year === edition ? "text-[var(--accent)]" : "text-[#abb8c7]"}`}>{edition} guides</Link>)}
+        </nav>
+
         <div className="grid sm:grid-cols-2 gap-4 mb-8">
-          <Link href="/guides/social-media-image-sizes-2026" className="border border-[var(--accent)]/25 bg-[var(--accent)]/5 p-5 rounded-lg hover:bg-[var(--accent)]/10">
+          <Link href={`/guides/social-media-image-sizes-${year}`} className="border border-[var(--accent)]/25 bg-[var(--accent)]/5 p-5 rounded-lg hover:bg-[var(--accent)]/10">
             <span className="text-sm font-semibold text-[var(--accent)]">Find your image size</span>
-            <h2 className="text-xl font-bold mt-1 mb-2">13 platforms, one cheat sheet</h2>
-            <p className="text-base text-[#abb8c7]">Compare post, profile and banner dimensions.</p>
+            <h2 className="text-xl font-bold mt-1 mb-2">{year} image sizes and free PDF</h2>
+            <p className="text-base text-[#abb8c7]">13 platforms, source links and an update date.</p>
           </Link>
           <Link href="/guides/make-image-square-without-cropping" className="border border-white/10 bg-white/[0.025] p-5 rounded-lg hover:bg-white/5">
             <span className="text-sm font-semibold text-[var(--accent)]">Start with a photo</span>
@@ -164,7 +175,7 @@ export default async function GuidesPage(props: { searchParams?: Promise<{ categ
               <Link
                 key={cat}
                 aria-current={isActive ? "page" : undefined}
-                href={slug ? `/guides?category=${encodeURIComponent(slug)}` : "/guides"}
+                href={slug ? `/guides?year=${year}&category=${encodeURIComponent(slug)}` : `/guides?year=${year}`}
                 className={`inline-flex items-center gap-2 min-h-11 text-[1rem] font-semibold px-4 py-2 rounded-md no-underline transition-all duration-200 ${
                   isActive
                     ? "bg-[var(--accent)] text-black"

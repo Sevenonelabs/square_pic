@@ -1,3 +1,5 @@
+import { PlatformReference } from "@/components/guides/platform-reference";
+import reference from "@/data/social-image-reference.json";
 import { GuideEditions } from "@/components/guides/guide-editions";
 import { PlatformTitle } from "@/components/platform-icon";
 import { TableOfContents } from "@/components/guides/table-of-contents";
@@ -5,13 +7,13 @@ import { PlatformIcon } from "@/components/platform-icon";
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema, ArticleSchema, FAQPageSchema } from "@/components/schema-scripts";
+import { BreadcrumbSchema, ArticleSchema } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
 
-const PATH = "/guides/discord-image-sizes-2026";
-const TITLE = "Discord Server Banner Size & Invite Splash";
+const PATH = "/guides/discord-image-sizes-2027";
+const TITLE = "Discord Server Banner Size 2027 & Invite Splash";
 const DESCRIPTION = "Find Discord server banner size, invite splash dimensions and server icon presets. Check Boost access and troubleshoot an image missing from your invite link.";
 const SOURCES = {
   banners: "https://support.discord.com/hc/en-us/articles/360028716472-Server-Banners",
@@ -27,8 +29,8 @@ const headingClass = "text-[1.2rem] font-extrabold text-[#e6edf5] mt-8 mb-3";
 const paragraphClass = "text-[1rem] text-[#8d9aaa] leading-relaxed mb-4";
 
 export const metadata: Metadata = pageMetadata({
-  title: TITLE, description: DESCRIPTION, path: PATH,
-  image: "/og/og-discord-image-sizes.png", article: true, publishedTime: "2026-07-19",
+  title: "Discord Banner Size 2027: Server & Invite", description: DESCRIPTION, path: PATH,
+  image: "/og/og-discord-image-sizes-2027.png", article: true, publishedTime: "2026-10-09", modifiedTime: "2026-10-09",
 });
 
 const FAQ_QUESTIONS = [
@@ -54,16 +56,16 @@ export default function DiscordImageSizesPage() {
       { name: "Discord image sizes", url: `${SITE}${PATH}` },
     ]} />
     <ArticleSchema type="BlogPosting" title={TITLE} description={DESCRIPTION} url={`${SITE}${PATH}`}
-      imageUrl={`${SITE}/og/og-discord-image-sizes.png`} datePublished="2026-07-19" dateModified="2026-10-08"
+      imageUrl={`${SITE}/og/og-discord-image-sizes-2027.png`} datePublished="2026-10-09" dateModified="2026-10-09"
       authorName="SevenOneLabs" authorUrl={`${SITE}/author/sevenonelabs`} />
-    <FAQPageSchema questions={FAQ_QUESTIONS} />
     <article className="max-w-[680px] w-full mx-auto px-4 py-8">
         <Link href="/guides" className="inline-flex min-h-11 items-center mb-4 text-base font-semibold text-[var(--accent)] hover:underline">&larr; All guides</Link>
       <div className="mb-8">
         <span className="text-[1rem] font-bold tracking-[0.12em] text-[var(--accent)]">Discord</span>
         <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2"><PlatformIcon platform="discord" />{" "}{TITLE}</h1>
-<GuideEditions slug="discord-image-sizes" year={2026} />
-        <p className="text-[1rem] text-[#8d9aaa]">Published July 19, 2026 · Updated October 8, 2026 · by <Link href="/author/sevenonelabs" className={linkClass}>SevenOneLabs</Link></p>
+<GuideEditions slug="discord-image-sizes" year={2027} />
+<section aria-label="Source review for 2027 planning" className="my-6"><h2 className="text-xl font-bold mb-3">Source review for 2027 planning</h2><PlatformReference platform={reference.platforms.find((platform) => platform.id === "discord")!} /></section>
+        <p className="text-[1rem] text-[#8d9aaa]">Published October 9, 2026 · Updated October 9, 2026 · by <Link href="/author/sevenonelabs" className={linkClass}>SevenOneLabs</Link></p>
         <ShareButtons path={PATH} title={TITLE} />
       </div>
       <p className={paragraphClass}>A Discord server banner uses a 16:9 image of at least <strong className="text-[#e6edf5]">960 × 540 pixels</strong>.
@@ -79,7 +81,7 @@ export default function DiscordImageSizesPage() {
       <h2 className={headingClass} id="discord-image-sizes-and-placements"><PlatformTitle title={"Discord image sizes and placements"} /></h2>
       <div className="overflow-x-auto mb-6">
         <table className="w-full text-[1rem] border-collapse">
-          <caption className="text-left text-[#8d9aaa] mb-3">Specifications checked against Discord Help on October 7, 2026. Icon sizes are working presets.</caption>
+          <caption className="text-left text-[#8d9aaa] mb-3">Specifications checked against Discord Help on October 9, 2026. Icon sizes are working presets.</caption>
           <thead><tr className="border-b border-white/10">
             {["Image", "Pixels", "Ratio", "Placement and access"].map(label => <th key={label} scope="col" className="text-left text-[#e6edf5] py-2 pr-3">{label}</th>)}
           </tr></thead>
@@ -139,7 +141,7 @@ export default function DiscordImageSizesPage() {
         <h3 className="text-[1rem] font-bold text-[#e6edf5] mb-2">{question}</h3>
         <p className={paragraphClass}>{answer}</p>
       </section>)}
-      <RelatedGuides current="discord-image-sizes-2026" />
+      <RelatedGuides current="discord-image-sizes-2027" />
       <Link href="/resize/discord?preset=serverBanner#resizer" className="inline-flex bg-[var(--accent)] text-black px-6 py-3 rounded-md font-bold mt-6">Prepare a Discord server banner</Link>
     </article>
   </>;

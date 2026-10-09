@@ -1,3 +1,5 @@
+import { edition2027ForPath } from "@/lib/guide-editions";
+
 export interface Guide {
   path: string;
   title: string;
@@ -5,7 +7,7 @@ export interface Guide {
   date: string;
 }
 
-export const GUIDES: Guide[] = [
+const ORIGINAL_GUIDES: Guide[] = [
   {
     path: "/guides/square-image-size",
     title: "Square Image Size: Pixels, Ratios and Printing",
@@ -78,6 +80,14 @@ export const GUIDES: Guide[] = [
     description: "Find Discord server banner size, invite splash dimensions and server icon presets. Check Boost access and troubleshoot an image missing from your invite link.",
     date: "2026-10-07",
   },
+];
+
+export const GUIDES: Guide[] = [
+  ...ORIGINAL_GUIDES.filter((guide) => guide.path.endsWith("-2026")).map((guide) => {
+    const edition = edition2027ForPath(guide.path);
+    return { ...guide, path: guide.path.replace(/-2026$/, "-2027"), title: edition.title, description: edition.description, date: "2026-10-09" };
+  }),
+  ...ORIGINAL_GUIDES,
 ];
 
 export const CATEGORY_KEYWORDS: Record<string, string[]> = {

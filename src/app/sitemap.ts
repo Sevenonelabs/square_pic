@@ -11,15 +11,15 @@ const STATIC_PAGES = [
   { path: "/guides/square-image-size", priority: 0.8, freq: "monthly" as const, modified: "2026-10-09" },
   { path: "/guides/how-to-enlarge-a-photo", priority: 0.8, freq: "monthly" as const, modified: "2026-10-09" },
   { path: "/guides/make-image-square-without-cropping", priority: 0.8, freq: "monthly" as const, modified: "2026-10-08" },
-  { path: "/guides/social-media-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
-  { path: "/guides/instagram-feed-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
+  { path: "/guides/social-media-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-09" },
+  { path: "/guides/instagram-feed-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-09" },
   { path: "/guides/instagram-reels-stories-guide", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
-  { path: "/guides/linkedin-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
-  { path: "/guides/youtube-banner-thumbnail-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
-  { path: "/guides/tiktok-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
-  { path: "/guides/facebook-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
-  { path: "/guides/pinterest-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
-  { path: "/guides/discord-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
+  { path: "/guides/linkedin-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-09" },
+  { path: "/guides/youtube-banner-thumbnail-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-09" },
+  { path: "/guides/tiktok-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-09" },
+  { path: "/guides/facebook-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-09" },
+  { path: "/guides/pinterest-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-09" },
+  { path: "/guides/discord-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-09" },
   { path: "/image-size-calculator", priority: 0.7, freq: "weekly" as const, modified: "2026-10-09" },
   { path: "/about", priority: 0.5, freq: "monthly" as const, modified: "2026-10-07" },
   { path: "/author/sevenonelabs", priority: 0.4, freq: "monthly" as const, modified: "2026-10-07" },
@@ -67,5 +67,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...platformEntries, ...formatEntries];
+  const editions2027 = STATIC_PAGES.filter((page) => page.path.endsWith("-2026")).map((page) => ({
+    url: `${siteUrl}${page.path.replace(/-2026$/, "-2027")}`,
+    lastModified: "2026-10-09",
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticEntries, ...editions2027, ...platformEntries, ...formatEntries];
 }

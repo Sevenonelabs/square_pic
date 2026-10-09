@@ -1,4 +1,5 @@
 import { SITE_URL as SITE } from "@/lib/constants";
+import { edition2027ForPath } from "@/lib/guide-editions";
 
 function escapeXml(value: string) {
   return value.replace(/[<>&"']/g, (char) => ({
@@ -30,7 +31,7 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${IMAGE_ENTRIES.map(
+${[...IMAGE_ENTRIES, ...IMAGE_ENTRIES.filter((entry) => entry.page.endsWith("-2026")).map((entry) => ({ image: edition2027ForPath(entry.page).image, page: entry.page.replace(/-2026$/, "-2027") }))].map(
   (e) => `  <url>
     <loc>${escapeXml(e.page ? new URL(e.page, SITE).href : new URL(SITE).origin)}</loc>
     <image:image>

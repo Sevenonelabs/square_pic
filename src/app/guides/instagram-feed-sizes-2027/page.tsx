@@ -1,3 +1,5 @@
+import { PlatformReference } from "@/components/guides/platform-reference";
+import reference from "@/data/social-image-reference.json";
 import { GuideEditions } from "@/components/guides/guide-editions";
 import { TableOfContents } from "@/components/guides/table-of-contents";
 import { PlatformIcon } from "@/components/platform-icon";
@@ -7,18 +9,19 @@ import { ArticleSchema, BreadcrumbSchema } from "@/components/schema-scripts";
 import { FramingExample } from "@/components/guides/framing-example";
 import { RelatedGuides } from "@/components/guides/related-guides";
 import { SITE_URL as SITE } from "@/lib/constants";
-const PATH = "/guides/instagram-feed-sizes-2026";
-const TITLE = "Instagram Post Sizes 2026: Feed, Carousel & Profile";
-export const metadata = pageMetadata({ title: "Instagram Post Sizes: Feed, Carousel & Profile", description: "Compare Instagram feed, carousel and profile sizes with square, portrait and landscape canvases. See fit-versus-crop examples and check placement previews.", path: PATH, image: "/og/og-instagram-feed-sizes.png", article: true, publishedTime: "2026-07-19" });
+const PATH = "/guides/instagram-feed-sizes-2027";
+const TITLE = "Instagram Post Sizes 2027: Feed, Carousel & Profile";
+export const metadata = pageMetadata({ title: "Instagram Image Sizes 2027: Posts & Profiles", description: "Plan Instagram images for 2027 with square, portrait and Story working canvases. Check fit, crop and profile-grid previews before publishing.", path: PATH, image: "/og/og-instagram-feed-sizes-2027.png", article: true, publishedTime: "2026-10-09", modifiedTime: "2026-10-09" });
 export default function InstagramGuide() {
  return <>
   <BreadcrumbSchema items={[{name:"Home",url:SITE},{name:"Guides",url:`${SITE}/guides`},{name:"Instagram photo sizes",url:`${SITE}${PATH}`}]} />
-  <ArticleSchema title={TITLE} description="Compare Instagram feed, carousel and profile sizes with square, portrait and landscape canvases. See fit-versus-crop examples and check placement previews." url={`${SITE}${PATH}`} imageUrl={`${SITE}/og/og-instagram-feed-sizes.png`} datePublished="2026-07-19" dateModified="2026-10-08" authorName="SevenOneLabs" authorUrl={`${SITE}/author/sevenonelabs`} />
+  <ArticleSchema title={TITLE} description="2027 planning guide. Compare Instagram feed, carousel and profile sizes with square, portrait and landscape canvases. See fit-versus-crop examples and check placement previews." url={`${SITE}${PATH}`} imageUrl={`${SITE}/og/og-instagram-feed-sizes-2027.png`} datePublished="2026-10-09" dateModified="2026-10-09" authorName="SevenOneLabs" authorUrl={`${SITE}/author/sevenonelabs`} />
   <article className="max-w-[680px] w-full mx-auto px-4 py-8 text-[#8d9aaa] leading-relaxed [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-[#e6edf5] [&_h2]:mt-8 [&_h2]:mb-3 [&_a]:text-[var(--accent)] [&_a]:underline">
         <Link href="/guides" className="inline-flex min-h-11 items-center mb-4 text-base font-semibold text-[var(--accent)] hover:underline">&larr; All guides</Link>
    <h1 className="text-3xl font-extrabold tracking-tight text-[#e6edf5] mb-4"><PlatformIcon platform="instagram" />{" "}{TITLE}</h1>
-<GuideEditions slug="instagram-feed-sizes" year={2026} />
-   <p className="text-sm mb-5">Updated October 8, 2026. By <Link href="/author/sevenonelabs">SevenOneLabs</Link>. Review method: compare exported image dimensions with SquarePic presets and check fit/crop examples. Instagram&apos;s help reference may require access; these sizes are working canvases.</p>
+<GuideEditions slug="instagram-feed-sizes" year={2027} />
+<section aria-label="Source review for 2027 planning" className="my-6"><h2 className="text-xl font-bold mb-3">Source review for 2027 planning</h2><PlatformReference platform={reference.platforms.find((platform) => platform.id === "instagram")!} /></section>
+   <p className="text-sm mb-5">Updated October 9, 2026. By <Link href="/author/sevenonelabs">SevenOneLabs</Link>. Review method: compare exported image dimensions with SquarePic presets and check fit/crop examples. Instagram&apos;s help reference may require access; these sizes are working canvases.</p>
    <p>A square file and its profile-grid preview can show different parts of a photo. Prepare the canvas you need, then check Instagram&apos;s actual preview before posting. The sizes below are SquarePic working presets, not a claim that Instagram requires or accepts only these sizes.</p>
         <TableOfContents items={[
   {
@@ -52,7 +55,7 @@ export default function InstagramGuide() {
    <p>Prepare a consistent canvas for related carousel artwork and review every slide. Keep key text away from edges so you can adjust it when the visible preview changes. Use the <Link href="/guides/instagram-reels-stories-guide">Reels and Stories guide</Link> for vertical artwork and sample overlay checks.</p>
    <h2 id="export-once-from-the-original">Export once from the original</h2>
    <p>JPEG is useful for photographs; PNG retains sharp graphic edges and alpha. Instagram may process the upload again. Avoid repeated lossy exports and check that text remains readable after upload. Enlarging a small file adds pixels but cannot recover missing detail.</p>
-   <RelatedGuides current="instagram-feed-sizes-2026" />
+   <RelatedGuides current="instagram-feed-sizes-2027" />
   </article>
  </>;
 }

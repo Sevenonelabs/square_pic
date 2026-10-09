@@ -1,0 +1,5 @@
+# Preserve PDF bytes and cross-reference offsets on every checkout.
+*.pdf binary
+
+# Keep the plain-text discovery file consistent across platforms.
+public/llms.txt text eol=lf

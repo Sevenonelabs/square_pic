@@ -203,7 +203,7 @@ export default function Home() {
 
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
           <p className="text-base text-[#8d9aaa] text-center">
-            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/resize/instagram" className="text-[var(--accent)] no-underline hover:underline">Instagram Square Image Maker</Link> · <Link href="/resize/whatsapp" className="text-[var(--accent)] no-underline hover:underline">WhatsApp Image Resizer</Link> · <Link href="/resize/linkedin" className="text-[var(--accent)] no-underline hover:underline">LinkedIn Image Resizer</Link> · <Link href="/guides/instagram-reels-stories-guide" className="text-[var(--accent)] no-underline hover:underline">Reels & Stories Guide</Link>
+            Learn more: <Link href="/guides/social-media-image-sizes-2027" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2027</Link> · <Link href="/resize/instagram" className="text-[var(--accent)] no-underline hover:underline">Instagram Square Image Maker</Link> · <Link href="/resize/whatsapp" className="text-[var(--accent)] no-underline hover:underline">WhatsApp Image Resizer</Link> · <Link href="/resize/linkedin" className="text-[var(--accent)] no-underline hover:underline">LinkedIn Image Resizer</Link> · <Link href="/guides/instagram-reels-stories-guide" className="text-[var(--accent)] no-underline hover:underline">Reels & Stories Guide</Link>
           </p>
         </div>
       </section>
