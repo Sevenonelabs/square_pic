@@ -1,0 +1,614 @@
+{
+  "version": "1",
+  "created_at": "2026-10-09",
+  "seed_keyword": "social media image sizes",
+  "scope": "Fix the existing guide architecture and unavailable converter indexing. No new articles produced. Year editions are preserved.",
+  "method": "Provisional intent allocation of 40 variants to existing URLs. Six Web search URL samples check cluster boundaries; not a complete controlled Google top-10 clustering study. No market volume estimates. No PAA extraction claimed.",
+  "pillar": {
+    "title": "Social Media Image Sizes 2026: PDF Cheat Sheet",
+    "keyword": "social media image sizes",
+    "volume": null,
+    "template": "reference-guide",
+    "wordCount": 1580,
+    "url": "/guides/social-media-image-sizes-2026",
+    "status": "written"
+  },
+  "clusters": [
+    {
+      "name": "Instagram feed and vertical artwork",
+      "color": "#4E79A7",
+      "posts": [
+        {
+          "title": "Instagram Post Sizes: Feed, Carousel & Profile",
+          "keyword": "instagram image sizes",
+          "volume": null,
+          "template": "explainer",
+          "wordCount": 589,
+          "url": "/guides/instagram-feed-sizes-2026",
+          "status": "written"
+        },
+        {
+          "title": "Instagram Reels & Stories Sizes and Safe Zones",
+          "keyword": "instagram story size",
+          "volume": null,
+          "template": "explainer",
+          "wordCount": 1121,
+          "url": "/guides/instagram-reels-stories-guide",
+          "status": "written"
+        }
+      ]
+    },
+    {
+      "name": "Profiles, banners and channel artwork",
+      "color": "#F28E2B",
+      "posts": [
+        {
+          "title": "LinkedIn Image Sizes: Posts, Banners & Profiles",
+          "keyword": "linkedin image sizes",
+          "volume": null,
+          "template": "explainer",
+          "wordCount": 542,
+          "url": "/guides/linkedin-image-sizes-2026",
+          "status": "written"
+        },
+        {
+          "title": "YouTube Banner & Thumbnail Sizes 2026",
+          "keyword": "youtube banner size",
+          "volume": null,
+          "template": "explainer",
+          "wordCount": 675,
+          "url": "/guides/youtube-banner-thumbnail-sizes-2026",
+          "status": "written"
+        },
+        {
+          "title": "Discord Server Banner Size & Invite Splash",
+          "keyword": "discord banner size",
+          "volume": null,
+          "template": "explainer",
+          "wordCount": 1351,
+          "url": "/guides/discord-image-sizes-2026",
+          "status": "written"
+        }
+      ]
+    },
+    {
+      "name": "Feeds, Pins and carousel artwork",
+      "color": "#59A14F",
+      "posts": [
+        {
+          "title": "Facebook Image Sizes: Covers, Posts & Profiles",
+          "keyword": "facebook image sizes",
+          "volume": null,
+          "template": "explainer",
+          "wordCount": 2368,
+          "url": "/guides/facebook-image-sizes-2026",
+          "status": "written"
+        },
+        {
+          "title": "Pinterest Image Sizes 2026: Pins & Board Covers",
+          "keyword": "pinterest pin size",
+          "volume": null,
+          "template": "explainer",
+          "wordCount": 2035,
+          "url": "/guides/pinterest-image-sizes-2026",
+          "status": "written"
+        },
+        {
+          "title": "TikTok Image Sizes: Posts, Profiles & Covers",
+          "keyword": "tiktok image size",
+          "volume": null,
+          "template": "explainer",
+          "wordCount": 1508,
+          "url": "/guides/tiktok-image-sizes-2026",
+          "status": "written"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "from": "pillar",
+      "to": "cluster-1-post-2",
+      "type": "mandatory",
+      "anchor": "Discord Server Banner Size & Invite Splash",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "pillar",
+      "to": "cluster-2-post-0",
+      "type": "mandatory",
+      "anchor": "Facebook Image Sizes: Covers, Posts & Profiles",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "pillar",
+      "to": "cluster-0-post-0",
+      "type": "mandatory",
+      "anchor": "Instagram Post Sizes: Feed, Carousel & Profile",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "pillar",
+      "to": "cluster-0-post-1",
+      "type": "mandatory",
+      "anchor": "Instagram Reels & Stories Sizes and Safe Zones",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "pillar",
+      "to": "cluster-1-post-0",
+      "type": "mandatory",
+      "anchor": "LinkedIn Image Sizes: Posts, Banners & Profiles",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "pillar",
+      "to": "cluster-2-post-1",
+      "type": "mandatory",
+      "anchor": "Pinterest Image Sizes 2026: Pins & Board Covers",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "pillar",
+      "to": "cluster-2-post-2",
+      "type": "mandatory",
+      "anchor": "TikTok Image Sizes: Posts, Profiles & Covers",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "pillar",
+      "to": "cluster-1-post-1",
+      "type": "mandatory",
+      "anchor": "YouTube Banner & Thumbnail Sizes 2026",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-0-post-0",
+      "to": "cluster-2-post-0",
+      "type": "recommended",
+      "anchor": "Facebook Image Sizes: Covers, Posts & Profiles",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-0-post-0",
+      "to": "cluster-0-post-1",
+      "type": "recommended",
+      "anchor": "Instagram Reels & Stories Sizes and Safe Zones",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-0-post-0",
+      "to": "cluster-2-post-1",
+      "type": "recommended",
+      "anchor": "Pinterest Image Sizes 2026: Pins & Board Covers",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-0-post-0",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "Social Media Image Sizes 2026: PDF Cheat Sheet",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-0-post-1",
+      "to": "cluster-0-post-0",
+      "type": "recommended",
+      "anchor": "Instagram Post Sizes: Feed, Carousel & Profile",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-0-post-1",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "Social Media Image Sizes 2026: PDF Cheat Sheet",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-0-post-1",
+      "to": "cluster-2-post-2",
+      "type": "recommended",
+      "anchor": "TikTok Image Sizes: Posts, Profiles & Covers",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-0",
+      "to": "cluster-1-post-2",
+      "type": "recommended",
+      "anchor": "Discord Server Banner Size & Invite Splash",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-0",
+      "to": "cluster-2-post-0",
+      "type": "recommended",
+      "anchor": "Facebook Image Sizes: Covers, Posts & Profiles",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-0",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "Social Media Image Sizes 2026: PDF Cheat Sheet",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-0",
+      "to": "cluster-1-post-1",
+      "type": "recommended",
+      "anchor": "YouTube Banner & Thumbnail Sizes 2026",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-1",
+      "to": "cluster-1-post-2",
+      "type": "recommended",
+      "anchor": "Discord Server Banner Size & Invite Splash",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-1",
+      "to": "cluster-1-post-0",
+      "type": "recommended",
+      "anchor": "LinkedIn Image Sizes: Posts, Banners & Profiles",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-1",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "Social Media Image Sizes 2026: PDF Cheat Sheet",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-1",
+      "to": "cluster-2-post-2",
+      "type": "recommended",
+      "anchor": "TikTok Image Sizes: Posts, Profiles & Covers",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-2",
+      "to": "cluster-1-post-0",
+      "type": "recommended",
+      "anchor": "LinkedIn Image Sizes: Posts, Banners & Profiles",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-2",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "Social Media Image Sizes 2026: PDF Cheat Sheet",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-1-post-2",
+      "to": "cluster-1-post-1",
+      "type": "recommended",
+      "anchor": "YouTube Banner & Thumbnail Sizes 2026",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-0",
+      "to": "cluster-0-post-0",
+      "type": "recommended",
+      "anchor": "Instagram Post Sizes: Feed, Carousel & Profile",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-0",
+      "to": "cluster-1-post-0",
+      "type": "recommended",
+      "anchor": "LinkedIn Image Sizes: Posts, Banners & Profiles",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-0",
+      "to": "cluster-2-post-1",
+      "type": "recommended",
+      "anchor": "Pinterest Image Sizes 2026: Pins & Board Covers",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-0",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "Social Media Image Sizes 2026: PDF Cheat Sheet",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-1",
+      "to": "cluster-2-post-0",
+      "type": "recommended",
+      "anchor": "Facebook Image Sizes: Covers, Posts & Profiles",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-1",
+      "to": "cluster-0-post-0",
+      "type": "recommended",
+      "anchor": "Instagram Post Sizes: Feed, Carousel & Profile",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-1",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "Social Media Image Sizes 2026: PDF Cheat Sheet",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-1",
+      "to": "cluster-2-post-2",
+      "type": "recommended",
+      "anchor": "TikTok Image Sizes: Posts, Profiles & Covers",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-2",
+      "to": "cluster-0-post-1",
+      "type": "recommended",
+      "anchor": "Instagram Reels & Stories Sizes and Safe Zones",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-2",
+      "to": "cluster-2-post-1",
+      "type": "recommended",
+      "anchor": "Pinterest Image Sizes 2026: Pins & Board Covers",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-2",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "Social Media Image Sizes 2026: PDF Cheat Sheet",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    },
+    {
+      "from": "cluster-2-post-2",
+      "to": "cluster-1-post-1",
+      "type": "recommended",
+      "anchor": "YouTube Banner & Thumbnail Sizes 2026",
+      "anchor_note": "Suggested descriptive anchor; actual rendered anchors vary by context."
+    }
+  ],
+  "serp_matrix": {
+    "keywords": [
+      "square image maker",
+      "make image square without cropping",
+      "square image size",
+      "social media image sizes",
+      "instagram image sizes",
+      "instagram image resizer"
+    ],
+    "scores": [
+      [
+        10,
+        1,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        10,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        10,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        10,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        10
+      ]
+    ],
+    "interpretation": "Shared normalized URLs in returned Web search samples, not controlled ranking overlap."
+  },
+  "keyword_allocation": [
+    {
+      "url": "/guides/social-media-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "social media image sizes",
+        "social media image dimensions",
+        "image sizes for social media",
+        "social media image sizes cheat sheet",
+        "social media image sizes pdf"
+      ]
+    },
+    {
+      "url": "/guides/instagram-feed-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "instagram image sizes",
+        "instagram post size",
+        "instagram carousel size",
+        "instagram profile picture size"
+      ]
+    },
+    {
+      "url": "/guides/instagram-reels-stories-guide",
+      "intent": "informational",
+      "keywords": [
+        "instagram story size",
+        "instagram reels cover size",
+        "instagram reels safe zone"
+      ]
+    },
+    {
+      "url": "/guides/linkedin-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "linkedin image sizes",
+        "linkedin banner size",
+        "linkedin post size"
+      ]
+    },
+    {
+      "url": "/guides/youtube-banner-thumbnail-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "youtube banner size",
+        "youtube thumbnail size"
+      ]
+    },
+    {
+      "url": "/guides/facebook-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "facebook image sizes",
+        "facebook cover photo size"
+      ]
+    },
+    {
+      "url": "/guides/tiktok-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "tiktok image size",
+        "tiktok photo post size"
+      ]
+    },
+    {
+      "url": "/guides/pinterest-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "pinterest pin size",
+        "pinterest image sizes"
+      ]
+    },
+    {
+      "url": "/guides/discord-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "discord banner size",
+        "discord invite splash size"
+      ]
+    },
+    {
+      "url": "/",
+      "intent": "transactional",
+      "keywords": [
+        "square image maker",
+        "make image square",
+        "add white background to photo",
+        "make image square with blur"
+      ]
+    },
+    {
+      "url": "/guides/square-image-size",
+      "intent": "informational",
+      "keywords": [
+        "square image size",
+        "square photo size",
+        "square picture size",
+        "square size in pixels"
+      ]
+    },
+    {
+      "url": "/guides/make-image-square-without-cropping",
+      "intent": "informational",
+      "keywords": [
+        "how to make image square without cropping",
+        "pad image to square"
+      ]
+    },
+    {
+      "url": "/guides/how-to-enlarge-a-photo",
+      "intent": "informational",
+      "keywords": [
+        "how to enlarge a photo",
+        "enlarge photo for printing"
+      ]
+    },
+    {
+      "url": "/resize/instagram",
+      "intent": "transactional",
+      "keywords": [
+        "instagram image resizer",
+        "resize image for instagram",
+        "instagram photo resizer"
+      ]
+    }
+  ],
+  "edition_mirrors": {
+    "2026": "/guides/social-media-image-sizes-2026",
+    "2027": "/guides/social-media-image-sizes-2027",
+    "shared_evergreen_spoke": "/guides/instagram-reels-stories-guide"
+  },
+  "supporting_photo_guides": [
+    {
+      "title": "Square Image Size: Pixels, Ratios and Printing",
+      "keyword": "square image size",
+      "volume": null,
+      "template": "how-to",
+      "wordCount": 991,
+      "url": "/guides/square-image-size",
+      "status": "written"
+    },
+    {
+      "title": "How to Make an Image Square Without Cropping",
+      "keyword": "how to make image square without cropping",
+      "volume": null,
+      "template": "how-to",
+      "wordCount": 996,
+      "url": "/guides/make-image-square-without-cropping",
+      "status": "written"
+    },
+    {
+      "title": "How to Enlarge a Photo for Screens and Printing",
+      "keyword": "how to enlarge a photo",
+      "volume": null,
+      "template": "how-to",
+      "wordCount": 1184,
+      "url": "/guides/how-to-enlarge-a-photo",
+      "status": "written"
+    }
+  ],
+  "scorecard": {
+    "existing_social_guides_covered": 9,
+    "bidirectional_hub_links_per_edition": 16,
+    "article_orphans": 0,
+    "minimum_incoming_articles_all_guides": 4,
+    "primary_keyword_duplicates_in_allocation": 0,
+    "cannibalization": "Not established. Year overlap and multiple GSC landing URLs require performance analysis, not automatic merging.",
+    "content_quality_gaps": "Three older platform guides contain internally inconsistent or unsupported claims; see content-refresh-brief.md."
+  },
+  "meta": {
+    "totalPosts": 9,
+    "totalClusters": 3,
+    "totalLinks": 38,
+    "estimatedWords": 11769
+  },
+  "volume_note": "No market volume estimates. Existing GSC impressions remain separate from volume.",
+  "word_count_note": "Approximate rendered article word counts, including related links. No filler added to meet template word targets."
+}

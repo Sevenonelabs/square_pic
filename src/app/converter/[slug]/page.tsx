@@ -21,9 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const p = pair(slug);
   if (!p) return {};
-  return pageMetadata({ title: p.supported ? `${label(p.from)} to ${label(p.to)} Converter Online Free` : `${label(p.from)} to ${label(p.to)}: Export Unavailable`,
+  return { ...pageMetadata({ title: p.supported ? `${label(p.from)} to ${label(p.to)} Converter Online Free` : `${label(p.from)} to ${label(p.to)}: Export Unavailable`,
     description: p.supported ? `Convert ${label(p.from)} to ${label(p.to)} online free, with no signup or server uploads. ${p.to === "ico" ? "Create an icon within 256x256 pixels." : p.to === "jpg" ? "Keep dimensions; transparent areas turn white." : "Keep source dimensions and transparency."} Download in your browser.` : `${label(p.from)} to ${label(p.to)} export is currently unavailable. Use PNG, JPEG, WebP or ICO output instead. Supported conversions run locally in your browser, with no signup.`,
-    path: `/converter/${slug}`, image: "/og/og-converter.png" });
+    path: `/converter/${slug}`, image: "/og/og-converter.png" }),
+    ...(!p.supported ? { robots: { index: false, follow: true } } : {}),
+  };
 }
 export default async function FormatToFormatPage({ params }: Props) {
   const { slug } = await params;

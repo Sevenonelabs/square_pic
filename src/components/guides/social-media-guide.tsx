@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArticleSchema, BreadcrumbSchema } from "@/components/schema-scripts";
+import { ArticleSchema, BreadcrumbSchema, JsonLd } from "@/components/schema-scripts";
 import { ShareButtons } from "@/components/guides/share-buttons";
 import { GuideEditions } from "@/components/guides/guide-editions";
 import { PlatformReference } from "@/components/guides/platform-reference";
@@ -8,6 +8,7 @@ import reference from "@/data/social-image-reference.json";
 import { SITE_URL } from "@/lib/constants";
 import { pageMetadata } from "@/lib/seo";
 import { edition2027ForPath } from "@/lib/guide-editions";
+import { GUIDES } from "@/data/guides";
 
 const previewImage = (year: 2026 | 2027) => year === 2027 ? edition2027ForPath("/guides/social-media-image-sizes-2027").image : "/og/og-social-media-image-sizes.png";
 
@@ -25,9 +26,11 @@ export function SocialMediaGuide({ year }: { year: 2026 | 2027 }) {
   const title = `Social Media Image Sizes ${year}: Free PDF Cheat Sheet`;
   const path = `/guides/social-media-image-sizes-${year}`;
   const link = "text-[var(--accent)] underline";
+  const spokes = GUIDES.filter((guide) => guide.path !== path && (guide.path.endsWith(`-${year}`) || guide.path === "/guides/instagram-reels-stories-guide"));
   return <>
     <BreadcrumbSchema items={[{ name: "Home", url: SITE_URL }, { name: "Guides", url: `${SITE_URL}/guides` }, { name: `Social media image sizes ${year}`, url: `${SITE_URL}${path}` }]} />
     <ArticleSchema title={title} description={`Image dimensions for 13 platforms with official source links and a downloadable ${year} PDF.`} url={`${SITE_URL}${path}`} imageUrl={`${SITE_URL}${previewImage(year)}`} datePublished={year === 2026 ? "2026-07-19" : reference.updated} dateModified={reference.updated} authorName="SevenOneLabs" authorUrl={`${SITE_URL}/author/sevenonelabs`} />
+    <JsonLd data={{ "@context": "https://schema.org", "@type": "ItemList", name: `Social media image size guides ${year}`, itemListElement: spokes.map((guide, index) => ({ "@type": "ListItem", position: index + 1, name: guide.title, url: `${SITE_URL}${guide.path}` })) }} />
     <article id="top" className="max-w-[880px] w-full mx-auto px-4 py-8">
       <Link href="/guides" className={`${link} inline-flex min-h-11 items-center mb-4`}>&larr; All guides</Link>
       <h1 className="text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold tracking-tight mb-3">{title}</h1>
@@ -52,7 +55,13 @@ export function SocialMediaGuide({ year }: { year: 2026 | 2027 }) {
           <Link href={`/resize/${platform.tool}`} className={`${link} inline-flex min-h-11 items-center`}>Resize for {platform.name}</Link>
           {"guide" in platform && <Link href={`/guides/${platform.guide}-${year}`} className={`${link} inline-flex min-h-11 items-center`}>Full {platform.name} guide for {year}</Link>}
         </div>
+        {platform.id === "instagram" && <p className="text-base text-[#abb8c7] mt-3">For vertical artwork, follow the <Link href="/guides/instagram-reels-stories-guide" className={link}>Instagram Reels and Stories dimensions guide</Link> to check the 9:16 canvas and overlay previews.</p>}
       </section>)}
+      <section aria-labelledby="prepare-photo-heading" className="mb-8">
+        <h2 id="prepare-photo-heading" className="text-xl font-bold mb-3">Prepare your photo for the chosen size</h2>
+        <p className="text-base text-[#abb8c7] leading-relaxed">For a 1:1 placement, use the <Link href="/guides/square-image-size" className={link}>square image size guide</Link> to calculate the output edge and crop loss. Follow <Link href="/guides/make-image-square-without-cropping" className={link}>how to make a photo square without cropping</Link> when the whole subject needs to remain visible.</p>
+        <p className="text-base text-[#abb8c7] leading-relaxed mt-3">If the source is smaller than the intended export, read <Link href="/guides/how-to-enlarge-a-photo" className={link}>how to enlarge a photo</Link> before increasing its dimensions. Extra pixels do not restore missing detail. Use the <Link href="/image-size-calculator" className={link}>image size calculator</Link> to compare aspect ratios before choosing a preset.</p>
+      </section>
       <section className="border-t border-white/10 pt-6 mb-8">
         <h2 className="text-xl font-bold mb-3">Before you publish</h2>
         <ul className="list-disc pl-5 space-y-2 text-base text-[#abb8c7]">

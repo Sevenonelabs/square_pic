@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/constants";
+import { OUTPUT_FORMATS } from "@/lib/image-export";
 
 const STATIC_PAGES = [
   { path: "", priority: 1.0, freq: "weekly" as const, modified: "2026-10-08" },
@@ -60,7 +61,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const formatEntries = FORMAT_PAIRS.map((pair) => ({
+  const formatEntries = FORMAT_PAIRS.filter((pair) => {
+    const format = pair.split("-to-")[1];
+    return OUTPUT_FORMATS.some((supported) => supported === (format === "jpg" ? "jpeg" : format));
+  }).map((pair) => ({
     url: `${siteUrl}/converter/${pair}`,
     lastModified: "2026-10-08",
     changeFrequency: "monthly" as const,

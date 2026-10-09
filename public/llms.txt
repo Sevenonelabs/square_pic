@@ -43,6 +43,9 @@ This file helps AI tools find SquarePic pages. It does not control search indexi
 - [Discord image sizes 2027](https://www.squarepic.io/guides/discord-image-sizes-2027)
 
 - [All guides](https://www.squarepic.io/guides)
+- [Square image sizes and padding calculator](https://www.squarepic.io/guides/square-image-size)
+- [How to make an image square without cropping](https://www.squarepic.io/guides/make-image-square-without-cropping)
+- [How to enlarge a photo for screens and printing](https://www.squarepic.io/guides/how-to-enlarge-a-photo)
 - [Social media image sizes 2026](https://www.squarepic.io/guides/social-media-image-sizes-2026)
 - [Instagram feed and profile sizes](https://www.squarepic.io/guides/instagram-feed-sizes-2026)
 - [Instagram Reels and Stories](https://www.squarepic.io/guides/instagram-reels-stories-guide)

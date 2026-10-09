@@ -1,0 +1,191 @@
+{
+  "date": "2026-10-09",
+  "method": "Provisional intent allocation of 40 variants to existing URLs. Six Web search URL samples check cluster boundaries; not a complete controlled Google top-10 clustering study. No market volume estimates. No PAA extraction claimed.",
+  "groups": [
+    {
+      "url": "/guides/social-media-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "social media image sizes",
+        "social media image dimensions",
+        "image sizes for social media",
+        "social media image sizes cheat sheet",
+        "social media image sizes pdf"
+      ]
+    },
+    {
+      "url": "/guides/instagram-feed-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "instagram image sizes",
+        "instagram post size",
+        "instagram carousel size",
+        "instagram profile picture size"
+      ]
+    },
+    {
+      "url": "/guides/instagram-reels-stories-guide",
+      "intent": "informational",
+      "keywords": [
+        "instagram story size",
+        "instagram reels cover size",
+        "instagram reels safe zone"
+      ]
+    },
+    {
+      "url": "/guides/linkedin-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "linkedin image sizes",
+        "linkedin banner size",
+        "linkedin post size"
+      ]
+    },
+    {
+      "url": "/guides/youtube-banner-thumbnail-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "youtube banner size",
+        "youtube thumbnail size"
+      ]
+    },
+    {
+      "url": "/guides/facebook-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "facebook image sizes",
+        "facebook cover photo size"
+      ]
+    },
+    {
+      "url": "/guides/tiktok-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "tiktok image size",
+        "tiktok photo post size"
+      ]
+    },
+    {
+      "url": "/guides/pinterest-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "pinterest pin size",
+        "pinterest image sizes"
+      ]
+    },
+    {
+      "url": "/guides/discord-image-sizes-2026",
+      "intent": "informational",
+      "keywords": [
+        "discord banner size",
+        "discord invite splash size"
+      ]
+    },
+    {
+      "url": "/",
+      "intent": "transactional",
+      "keywords": [
+        "square image maker",
+        "make image square",
+        "add white background to photo",
+        "make image square with blur"
+      ]
+    },
+    {
+      "url": "/guides/square-image-size",
+      "intent": "informational",
+      "keywords": [
+        "square image size",
+        "square photo size",
+        "square picture size",
+        "square size in pixels"
+      ]
+    },
+    {
+      "url": "/guides/make-image-square-without-cropping",
+      "intent": "informational",
+      "keywords": [
+        "how to make image square without cropping",
+        "pad image to square"
+      ]
+    },
+    {
+      "url": "/guides/how-to-enlarge-a-photo",
+      "intent": "informational",
+      "keywords": [
+        "how to enlarge a photo",
+        "enlarge photo for printing"
+      ]
+    },
+    {
+      "url": "/resize/instagram",
+      "intent": "transactional",
+      "keywords": [
+        "instagram image resizer",
+        "resize image for instagram",
+        "instagram photo resizer"
+      ]
+    }
+  ],
+  "serp_matrix": {
+    "keywords": [
+      "square image maker",
+      "make image square without cropping",
+      "square image size",
+      "social media image sizes",
+      "instagram image sizes",
+      "instagram image resizer"
+    ],
+    "scores": [
+      [
+        10,
+        1,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        10,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        10,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        10,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        10
+      ]
+    ],
+    "interpretation": "Shared normalized URLs in returned Web search samples, not controlled ranking overlap."
+  }
+}

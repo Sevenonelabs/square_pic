@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RelatedGuides } from "@/components/guides/related-guides";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/schema-scripts";
 import { UpscaleOutputExample } from "@/components/guides/upscale-output-example";
 import { TableOfContents } from "@/components/guides/table-of-contents";
@@ -88,6 +89,7 @@ export default function EnlargePhotoGuide() {
         <p>Changing the resolution label alone does not add pixels. At the same pixel dimensions, a higher PPI sets a smaller physical print size. Use the pixel target and source resolution in the planner to decide whether enlargement is needed.</p>
         <p className="mt-6 text-sm">Calculation method: print targets use inches × PPI. Scale and source PPI assume the photo fills the print, with cropping when shapes differ. Output limits match SquarePic&apos;s upscaler. Reviewed October 9, 2026.</p>
         <Link href="/upscaler" className="inline-flex min-h-11 items-center mt-8 px-5 py-3 rounded-md bg-[var(--accent)] text-black font-bold">Try a 2x enlargement</Link>
+        <RelatedGuides current="how-to-enlarge-a-photo" />
       </article>
     </>
   );

@@ -2,6 +2,7 @@ import { PlatformTitle } from "@/components/platform-icon";
 import { TableOfContents } from "@/components/guides/table-of-contents";
 import { SquareOutputExample } from "@/components/guides/square-output-example";
 import Link from "next/link";
+import { RelatedGuides } from "@/components/guides/related-guides";
 import { pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/constants";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/schema-scripts";
@@ -114,7 +115,7 @@ export default function SquarePhotoGuide() {
 
         <h2 id="export" className={headingStyle}>Choose the output size and file format</h2>
         <p className="mb-3">Need to choose an exact edge length? The <Link href="/guides/square-image-size" className={linkStyle}>square image size guide</Link> compares pixel dimensions, crop limits and print sizes.</p>
-        <p>A larger export does not restore missing detail. Start with the original photo rather than a screenshot or a previously compressed copy. If enlargement is necessary, the <Link href="/upscaler" className={linkStyle}>non-AI image upscaler</Link> offers 2x, 3x, and 4x scaling with optional sharpening.</p>
+        <p>A larger export does not restore missing detail. Start with the original photo rather than a screenshot or a previously compressed copy. Read <Link href="/guides/how-to-enlarge-a-photo" className={linkStyle}>how to enlarge a photo for screens or printing</Link> to check the required pixels. If enlargement is necessary, the <Link href="/upscaler" className={linkStyle}>non-AI image upscaler</Link> offers 2x, 3x, and 4x scaling with optional sharpening.</p>
         <ul className="list-disc pl-5 mt-3 space-y-2">
           <li>Choose JPEG for photographs when a smaller file is useful. Repeated JPEG exports can add compression artifacts.</li>
           <li>Choose PNG for logos, text, or lossless export. Select Transparent to preserve empty padding and transparency in your source image. The checkerboard marks empty space and does not appear in the download. PNG alone does not remove a solid background already in the source.</li>
@@ -125,6 +126,7 @@ export default function SquarePhotoGuide() {
         <p className="mt-6">This guide describes SquarePic&apos;s fit and centered-crop controls. The dimension examples are calculated from the stated source and output sizes, rather than platform display guarantees.</p>
         <Link href="/" className="inline-block mt-6 px-5 py-3 rounded-md bg-[var(--accent)] text-black font-bold">Make your photo square</Link>
         <SquareOutputExample />
+        <RelatedGuides current="make-image-square-without-cropping" />
       </article>
     </>
   );

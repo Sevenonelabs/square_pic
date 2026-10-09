@@ -1,106 +1,52 @@
 import { PlatformTitle } from "@/components/platform-icon";
 import Link from "next/link";
-import { edition2027ForPath } from "@/lib/guide-editions";
+import { GUIDES } from "@/data/guides";
 
-interface GuideLink {
-  href: string;
-  title: string;
-  desc: string;
-}
-
-const ALL_GUIDES: Record<string, GuideLink> = {
-  "make-image-square-without-cropping": {
-    href: "/guides/make-image-square-without-cropping",
-    title: "How to Make an Image Square Without Cropping",
-    desc: "Learn how to make an image square without cropping. Follow photo examples, compare blur and solid padding, calculate borders and choose PNG, JPG or WebP export.",
-  },
-  "social-media-image-sizes-2026": {
-    href: "/guides/social-media-image-sizes-2026",
-    title: "Social Media Image Sizes 2026: Cheat Sheet",
-    desc: "Compare social media image sizes for 2026 across 13 platforms. Find post, profile, banner and Story dimensions, aspect ratios and links to free image resizers.",
-  },
-  "instagram-feed-sizes-2026": {
-    href: "/guides/instagram-feed-sizes-2026",
-    title: "Instagram Post Sizes 2026: Feed, Carousel & Profile",
-    desc: "Compare Instagram feed, carousel and profile sizes with square, portrait and landscape canvases. See fit-versus-crop examples and check placement previews.",
-  },
-  "instagram-reels-stories-guide": {
-    href: "/guides/instagram-reels-stories-guide",
-    title: "Instagram Reels & Stories Dimensions and Safe Zones",
-    desc: "Compare Instagram Reels and Stories dimensions, 9:16 format and safe-zone checks. Plan 1080x1920 artwork, review cover crops and keep text clear of controls.",
-  },
-  "linkedin-image-sizes-2026": {
-    href: "/guides/linkedin-image-sizes-2026",
-    title: "LinkedIn Image Sizes 2026: Posts, Banners & Profiles",
-    desc: "Find LinkedIn post, profile and banner image sizes. Compare personal covers and company Pages, check aspect ratios and follow official image specifications.",
-  },
-  "youtube-banner-thumbnail-sizes-2026": {
-    href: "/guides/youtube-banner-thumbnail-sizes-2026",
-    title: "YouTube Banner & Thumbnail Sizes: Channel Art",
-    desc: "Compare YouTube channel art, banner and thumbnail sizes for 2026. Find image dimensions, aspect ratios, profile sizes and guidance for device previews.",
-  },
-  "tiktok-image-sizes-2026": {
-    href: "/guides/tiktok-image-sizes-2026",
-    title: "TikTok Image Sizes: Posts, Profiles & Covers",
-    desc: "Compare TikTok image dimensions for photo posts, profiles and video-cover artwork. Find aspect ratios, vertical canvases and export tips for each placement.",
-  },
-  "facebook-image-sizes-2026": {
-    href: "/guides/facebook-image-sizes-2026",
-    title: "Facebook Image Sizes 2026: Covers, Posts & Profiles",
-    desc: "Compare Facebook cover photo, post and profile picture dimensions. Find image aspect ratios, mobile crop guidance and export tips for different placements.",
-  },
-  "pinterest-image-sizes-2026": {
-    href: "/guides/pinterest-image-sizes-2026",
-    title: "Pinterest Image Sizes 2026: Pins & Board Covers",
-    desc: "Compare Pinterest pin dimensions, 2:3 aspect ratios, board covers and profile pictures. Find working image sizes and export tips for static Pinterest artwork.",
-  },
-  "discord-image-sizes-2026": {
-    href: "/guides/discord-image-sizes-2026",
-    title: "Discord Server Banner Size & Invite Splash",
-    desc: "Find Discord server banner size, invite splash dimensions and server icon presets. Check Boost access and troubleshoot an image missing from your invite link.",
-  },
-};
-
-const CATEGORY_MAP: Record<string, string[]> = {
-  "social-media-image-sizes-2026": ["linkedin-image-sizes-2026", "instagram-feed-sizes-2026", "discord-image-sizes-2026"],
-  "instagram-feed-sizes-2026": ["instagram-reels-stories-guide", "make-image-square-without-cropping"],
+const RELATED: Record<string, string[]> = {
+  "square-image-size": ["make-image-square-without-cropping", "how-to-enlarge-a-photo"],
+  "how-to-enlarge-a-photo": ["square-image-size", "make-image-square-without-cropping"],
+  "make-image-square-without-cropping": ["square-image-size", "how-to-enlarge-a-photo"],
+  "instagram-feed-sizes-2026": ["instagram-reels-stories-guide", "facebook-image-sizes-2026", "pinterest-image-sizes-2026"],
   "instagram-reels-stories-guide": ["instagram-feed-sizes-2026", "tiktok-image-sizes-2026"],
-  "linkedin-image-sizes-2026": ["youtube-banner-thumbnail-sizes-2026", "social-media-image-sizes-2026"],
-  "youtube-banner-thumbnail-sizes-2026": ["tiktok-image-sizes-2026", "linkedin-image-sizes-2026"],
-  "tiktok-image-sizes-2026": ["instagram-reels-stories-guide", "youtube-banner-thumbnail-sizes-2026"],
-  "facebook-image-sizes-2026": ["social-media-image-sizes-2026", "instagram-feed-sizes-2026"],
-  "pinterest-image-sizes-2026": ["social-media-image-sizes-2026", "instagram-feed-sizes-2026"],
-  "discord-image-sizes-2026": ["social-media-image-sizes-2026", "youtube-banner-thumbnail-sizes-2026"],
+  "linkedin-image-sizes-2026": ["facebook-image-sizes-2026", "discord-image-sizes-2026", "youtube-banner-thumbnail-sizes-2026"],
+  "youtube-banner-thumbnail-sizes-2026": ["tiktok-image-sizes-2026", "linkedin-image-sizes-2026", "discord-image-sizes-2026"],
+  "tiktok-image-sizes-2026": ["instagram-reels-stories-guide", "youtube-banner-thumbnail-sizes-2026", "pinterest-image-sizes-2026"],
+  "facebook-image-sizes-2026": ["instagram-feed-sizes-2026", "linkedin-image-sizes-2026", "pinterest-image-sizes-2026"],
+  "pinterest-image-sizes-2026": ["instagram-feed-sizes-2026", "facebook-image-sizes-2026", "tiktok-image-sizes-2026"],
+  "discord-image-sizes-2026": ["youtube-banner-thumbnail-sizes-2026", "linkedin-image-sizes-2026"],
 };
 
 export function RelatedGuides({ current }: { current: string }) {
   const is2027 = current.endsWith("-2027");
-  const related = CATEGORY_MAP[is2027 ? current.replace(/-2027$/, "-2026") : current] ?? [];
+  const key = is2027 ? current.replace(/-2027$/, "-2026") : current;
+  const paths = RELATED[key];
+  if (!paths) return null;
+  const related = paths.flatMap((slug) => {
+    const path = `/guides/${is2027 ? slug.replace(/-2026$/, "-2027") : slug}`;
+    const guide = GUIDES.find((item) => item.path === path);
+    return guide ? [guide] : [];
+  });
+  const social = key.endsWith("-2026") || key === "instagram-reels-stories-guide";
+  const year = is2027 ? 2027 : 2026;
 
   return (
-    <section className="border-t border-[rgba(255,255,255,0.06)] pt-8 mt-8">
-      <h2 className="text-[1.1rem] font-extrabold text-[#e6edf5] mb-4">Related Guides</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {related.map((key) => {
-          const original = ALL_GUIDES[key];
-          if (!original) return null;
-          const g = is2027 && original.href.endsWith("-2026") ? {
-            href: original.href.replace(/-2026$/, "-2027"),
-            title: edition2027ForPath(original.href).title,
-            desc: edition2027ForPath(original.href).description,
-          } : original;
-          return (
-            <Link
-              key={key}
-              href={g.href}
-              className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5"
-            >
-              <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors"><PlatformTitle title={g.title} /></h3>
-              <p className="text-[0.875rem] text-[#8d9aaa] leading-relaxed m-0">{g.desc}</p>
+    <>
+      {social && <p className="mt-6 text-base text-[#8d9aaa] leading-relaxed">
+        Preparing artwork for more than one platform? Compare these dimensions with the{" "}
+        <Link href={`/guides/social-media-image-sizes-${year}`} className="text-[var(--accent)] underline">{year} social media image sizes and PDF cheat sheet</Link>.
+        {key === "instagram-reels-stories-guide" && <> For next year&apos;s artwork, use the{" "}<Link href="/guides/social-media-image-sizes-2027" className="text-[var(--accent)] underline">2027 planning reference</Link>.</>}
+      </p>}
+      <section aria-label="Related guides" className="border-t border-[rgba(255,255,255,0.06)] pt-8 mt-8">
+        <h2 className="text-[1.1rem] font-extrabold text-[#e6edf5] mb-4">Related guides</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {related.map((guide) => (
+            <Link key={guide.path} href={guide.path} className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
+              <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors"><PlatformTitle title={guide.title} /></h3>
+              <p className="text-[0.875rem] text-[#8d9aaa] leading-relaxed m-0">{guide.description}</p>
             </Link>
-          );
-        })}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

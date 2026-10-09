@@ -1,0 +1,452 @@
+{
+  "base": "http://localhost:4180",
+  "guides_checked": 20,
+  "guide_links": 107,
+  "minimum_incoming_articles": 4,
+  "hubs": [
+    {
+      "hub": "/guides/social-media-image-sizes-2026",
+      "spokes": 8,
+      "bidirectional_contextual_links": 16
+    },
+    {
+      "hub": "/guides/social-media-image-sizes-2027",
+      "spokes": 8,
+      "bidirectional_contextual_links": 16
+    }
+  ],
+  "excluded_converters": [
+    "/converter/png-to-gif",
+    "/converter/png-to-avif",
+    "/converter/jpg-to-gif",
+    "/converter/jpg-to-avif",
+    "/converter/webp-to-gif",
+    "/converter/webp-to-avif"
+  ],
+  "supported_converters_checked": 8,
+  "graph": {
+    "/guides/discord-image-sizes-2026": [
+      "/author/sevenonelabs",
+      "/compressor",
+      "/converter",
+      "/guides",
+      "/guides/discord-image-sizes-2026",
+      "/guides/discord-image-sizes-2027",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/make-image-square-without-cropping",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2026",
+      "/image-size-calculator",
+      "/resize/discord"
+    ],
+    "/guides/discord-image-sizes-2027": [
+      "/author/sevenonelabs",
+      "/compressor",
+      "/converter",
+      "/guides",
+      "/guides/discord-image-sizes-2026",
+      "/guides/discord-image-sizes-2027",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/make-image-square-without-cropping",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2027",
+      "/image-size-calculator",
+      "/resize/discord"
+    ],
+    "/guides/facebook-image-sizes-2026": [
+      "/author/sevenonelabs",
+      "/guides",
+      "/guides/facebook-image-sizes-2026",
+      "/guides/facebook-image-sizes-2027",
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/social-media-image-sizes-2026",
+      "/resize/facebook"
+    ],
+    "/guides/facebook-image-sizes-2027": [
+      "/author/sevenonelabs",
+      "/guides",
+      "/guides/facebook-image-sizes-2026",
+      "/guides/facebook-image-sizes-2027",
+      "/guides/instagram-feed-sizes-2027",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027",
+      "/resize/facebook"
+    ],
+    "/guides/how-to-enlarge-a-photo": [
+      "/author/sevenonelabs",
+      "/cropper",
+      "/examples/square-source.png",
+      "/examples/upscale-2x.png",
+      "/examples/upscale-4x.png",
+      "/guides",
+      "/guides/make-image-square-without-cropping",
+      "/guides/square-image-size",
+      "/image-size-calculator",
+      "/upscaler"
+    ],
+    "/guides/instagram-feed-sizes-2026": [
+      "/author/sevenonelabs",
+      "/cropper",
+      "/guides",
+      "/guides/facebook-image-sizes-2026",
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/instagram-feed-sizes-2027",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/social-media-image-sizes-2026",
+      "/resize/instagram"
+    ],
+    "/guides/instagram-feed-sizes-2027": [
+      "/author/sevenonelabs",
+      "/cropper",
+      "/guides",
+      "/guides/facebook-image-sizes-2027",
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/instagram-feed-sizes-2027",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027",
+      "/resize/instagram"
+    ],
+    "/guides/instagram-reels-stories-guide": [
+      "/author/sevenonelabs",
+      "/guides",
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/make-image-square-without-cropping",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/tiktok-image-sizes-2026",
+      "/image-size-calculator",
+      "/resize/instagram"
+    ],
+    "/guides/linkedin-image-sizes-2026": [
+      "/author/sevenonelabs",
+      "/compressor",
+      "/guides",
+      "/guides/discord-image-sizes-2026",
+      "/guides/facebook-image-sizes-2026",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2026",
+      "/resize/linkedin"
+    ],
+    "/guides/linkedin-image-sizes-2027": [
+      "/author/sevenonelabs",
+      "/compressor",
+      "/guides",
+      "/guides/discord-image-sizes-2027",
+      "/guides/facebook-image-sizes-2027",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2027",
+      "/resize/linkedin"
+    ],
+    "/guides/make-image-square-without-cropping": [
+      "/",
+      "/author/sevenonelabs",
+      "/compressor",
+      "/cropper",
+      "/guides",
+      "/guides/how-to-enlarge-a-photo",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/square-image-size",
+      "/image-size-calculator",
+      "/upscaler"
+    ],
+    "/guides/pinterest-image-sizes-2026": [
+      "/",
+      "/author/sevenonelabs",
+      "/guides",
+      "/guides/facebook-image-sizes-2026",
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/tiktok-image-sizes-2026",
+      "/resize/pinterest"
+    ],
+    "/guides/pinterest-image-sizes-2027": [
+      "/author/sevenonelabs",
+      "/guides",
+      "/guides/facebook-image-sizes-2027",
+      "/guides/instagram-feed-sizes-2027",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/tiktok-image-sizes-2027",
+      "/resize/pinterest"
+    ],
+    "/guides/social-media-image-sizes-2026": [
+      "/author/sevenonelabs",
+      "/downloads/squarepic-social-media-image-sizes-2026-cheat-sheet.pdf",
+      "/guides",
+      "/guides/discord-image-sizes-2026",
+      "/guides/facebook-image-sizes-2026",
+      "/guides/how-to-enlarge-a-photo",
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/make-image-square-without-cropping",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/square-image-size",
+      "/guides/tiktok-image-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2026",
+      "/image-size-calculator",
+      "/resize/discord",
+      "/resize/facebook",
+      "/resize/instagram",
+      "/resize/linkedin",
+      "/resize/pinterest",
+      "/resize/reddit",
+      "/resize/snapchat",
+      "/resize/telegram",
+      "/resize/tiktok",
+      "/resize/twitch",
+      "/resize/whatsapp",
+      "/resize/x-twitter",
+      "/resize/youtube"
+    ],
+    "/guides/social-media-image-sizes-2027": [
+      "/author/sevenonelabs",
+      "/downloads/squarepic-social-media-image-sizes-2027-cheat-sheet.pdf",
+      "/guides",
+      "/guides/discord-image-sizes-2027",
+      "/guides/facebook-image-sizes-2027",
+      "/guides/how-to-enlarge-a-photo",
+      "/guides/instagram-feed-sizes-2027",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/make-image-square-without-cropping",
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/square-image-size",
+      "/guides/tiktok-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2027",
+      "/image-size-calculator",
+      "/resize/discord",
+      "/resize/facebook",
+      "/resize/instagram",
+      "/resize/linkedin",
+      "/resize/pinterest",
+      "/resize/reddit",
+      "/resize/snapchat",
+      "/resize/telegram",
+      "/resize/tiktok",
+      "/resize/twitch",
+      "/resize/whatsapp",
+      "/resize/x-twitter",
+      "/resize/youtube"
+    ],
+    "/guides/square-image-size": [
+      "/",
+      "/author/sevenonelabs",
+      "/compressor",
+      "/guides",
+      "/guides/how-to-enlarge-a-photo",
+      "/guides/make-image-square-without-cropping",
+      "/guides/social-media-image-sizes-2026",
+      "/image-size-calculator"
+    ],
+    "/guides/tiktok-image-sizes-2026": [
+      "/author/sevenonelabs",
+      "/guides",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/tiktok-image-sizes-2026",
+      "/guides/tiktok-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2026",
+      "/resize/tiktok"
+    ],
+    "/guides/tiktok-image-sizes-2027": [
+      "/author/sevenonelabs",
+      "/guides",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/tiktok-image-sizes-2026",
+      "/guides/tiktok-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2027",
+      "/resize/tiktok"
+    ],
+    "/guides/youtube-banner-thumbnail-sizes-2026": [
+      "/author/sevenonelabs",
+      "/guides",
+      "/guides/discord-image-sizes-2026",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/tiktok-image-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2027",
+      "/resize/youtube"
+    ],
+    "/guides/youtube-banner-thumbnail-sizes-2027": [
+      "/author/sevenonelabs",
+      "/guides",
+      "/guides/discord-image-sizes-2027",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/tiktok-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2027",
+      "/resize/youtube"
+    ]
+  },
+  "incoming_articles": {
+    "/guides/discord-image-sizes-2026": [
+      "/guides/discord-image-sizes-2027",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2026"
+    ],
+    "/guides/discord-image-sizes-2027": [
+      "/guides/discord-image-sizes-2026",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2027"
+    ],
+    "/guides/facebook-image-sizes-2026": [
+      "/guides/facebook-image-sizes-2027",
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/social-media-image-sizes-2026"
+    ],
+    "/guides/facebook-image-sizes-2027": [
+      "/guides/facebook-image-sizes-2026",
+      "/guides/instagram-feed-sizes-2027",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027"
+    ],
+    "/guides/how-to-enlarge-a-photo": [
+      "/guides/make-image-square-without-cropping",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/square-image-size"
+    ],
+    "/guides/instagram-feed-sizes-2026": [
+      "/guides/facebook-image-sizes-2026",
+      "/guides/instagram-feed-sizes-2027",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/social-media-image-sizes-2026"
+    ],
+    "/guides/instagram-feed-sizes-2027": [
+      "/guides/facebook-image-sizes-2027",
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027"
+    ],
+    "/guides/instagram-reels-stories-guide": [
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/instagram-feed-sizes-2027",
+      "/guides/make-image-square-without-cropping",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/tiktok-image-sizes-2026",
+      "/guides/tiktok-image-sizes-2027"
+    ],
+    "/guides/linkedin-image-sizes-2026": [
+      "/guides/discord-image-sizes-2026",
+      "/guides/facebook-image-sizes-2026",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2026"
+    ],
+    "/guides/linkedin-image-sizes-2027": [
+      "/guides/discord-image-sizes-2027",
+      "/guides/facebook-image-sizes-2027",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2027"
+    ],
+    "/guides/make-image-square-without-cropping": [
+      "/guides/discord-image-sizes-2026",
+      "/guides/discord-image-sizes-2027",
+      "/guides/how-to-enlarge-a-photo",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/square-image-size"
+    ],
+    "/guides/pinterest-image-sizes-2026": [
+      "/guides/facebook-image-sizes-2026",
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/tiktok-image-sizes-2026"
+    ],
+    "/guides/pinterest-image-sizes-2027": [
+      "/guides/facebook-image-sizes-2027",
+      "/guides/instagram-feed-sizes-2027",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/tiktok-image-sizes-2027"
+    ],
+    "/guides/social-media-image-sizes-2026": [
+      "/guides/discord-image-sizes-2026",
+      "/guides/facebook-image-sizes-2026",
+      "/guides/instagram-feed-sizes-2026",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/square-image-size",
+      "/guides/tiktok-image-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2026"
+    ],
+    "/guides/social-media-image-sizes-2027": [
+      "/guides/discord-image-sizes-2027",
+      "/guides/facebook-image-sizes-2027",
+      "/guides/instagram-feed-sizes-2027",
+      "/guides/instagram-reels-stories-guide",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/tiktok-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2027"
+    ],
+    "/guides/square-image-size": [
+      "/guides/how-to-enlarge-a-photo",
+      "/guides/make-image-square-without-cropping",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/social-media-image-sizes-2027"
+    ],
+    "/guides/tiktok-image-sizes-2026": [
+      "/guides/instagram-reels-stories-guide",
+      "/guides/pinterest-image-sizes-2026",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/tiktok-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2026"
+    ],
+    "/guides/tiktok-image-sizes-2027": [
+      "/guides/pinterest-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/tiktok-image-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2027"
+    ],
+    "/guides/youtube-banner-thumbnail-sizes-2026": [
+      "/guides/discord-image-sizes-2026",
+      "/guides/linkedin-image-sizes-2026",
+      "/guides/social-media-image-sizes-2026",
+      "/guides/tiktok-image-sizes-2026",
+      "/guides/youtube-banner-thumbnail-sizes-2027"
+    ],
+    "/guides/youtube-banner-thumbnail-sizes-2027": [
+      "/guides/discord-image-sizes-2027",
+      "/guides/linkedin-image-sizes-2027",
+      "/guides/social-media-image-sizes-2027",
+      "/guides/tiktok-image-sizes-2027",
+      "/guides/youtube-banner-thumbnail-sizes-2026"
+    ]
+  }
+}

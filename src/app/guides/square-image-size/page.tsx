@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RelatedGuides } from "@/components/guides/related-guides";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/schema-scripts";
 import { TableOfContents } from "@/components/guides/table-of-contents";
 import { SquareSizePlanner } from "@/components/guides/image-planning-calculators";
@@ -93,6 +94,7 @@ export default function SquareImageSizeGuide() {
         <p>Use the dimensions requested by your destination. A 1200-pixel square has about 23% more pixels than a 1080-pixel square, but enlarging a small photo to reach it adds no captured detail. The planner above shows whether your chosen edge enlarges the photo or its cropped region.</p>
         <p className="mt-6 text-sm">Calculation method: the fit scale uses the longer source edge; the centered crop uses the shorter edge. These match SquarePic&apos;s framing behavior at the stated settings. Print sizes use pixels divided by PPI. Reviewed October 9, 2026.</p>
         <Link href="/" className="inline-flex min-h-11 items-center mt-8 px-5 py-3 rounded-md bg-[var(--accent)] text-black font-bold">Choose your square size</Link>
+        <RelatedGuides current="square-image-size" />
       </article>
     </>
   );
