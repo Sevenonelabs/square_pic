@@ -11,8 +11,8 @@
   --color-text-primary: #e6edf5;
   --color-text-secondary: #abb8c7;
   --color-text-tertiary: #8d9aaa;
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "Syne Mono", monospace;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --radius-sm: 2px;
   --radius-md: 2px;
   --radius-lg: 2px;

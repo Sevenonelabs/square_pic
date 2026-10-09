@@ -2,27 +2,12 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Inter, Syne_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { OrgSchema } from "@/components/schema-scripts";
 import { SITE_URL } from "@/lib/constants";
 import { pageMetadata } from "@/lib/seo";
-
-const inter = Inter({
-  weight: ["400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-sans",
-});
-
-const syneMono = Syne_Mono({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-mono",
-});
 
 export const metadata: Metadata = {
   ...pageMetadata({
@@ -53,7 +38,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${syneMono.variable}`}>
+    <html lang="en">
       <head>
         <meta name="theme-color" content="#07080b" />
         <link rel="manifest" href="/manifest.webmanifest" />
