@@ -67,6 +67,7 @@ export default function UpscalerPage() {
         <h2 className={heading}>Questions about enlarging photos</h2>
         <div className="space-y-5">{questions.map((item) => <div key={item.question}><h3 className="font-bold text-[#e6edf5] mb-1">{item.question}</h3><p>{item.answer}</p></div>)}</div>
         <h2 className={heading}>Prepare an enlarged image for its destination</h2>
+        <p className="mb-3">Planning a print? Read <Link href="/guides/how-to-enlarge-a-photo" className={linkStyle}>how to enlarge a photo for screens and printing</Link> to calculate the required pixels and check the result before ordering.</p>
         <p>Review the output at its intended display size. For a banner or avatar, check the <Link href="/resize/linkedin" className={linkStyle}>LinkedIn dimensions</Link> or <Link href="/resize/instagram" className={linkStyle}>Instagram presets</Link> before exporting. If a larger image exceeds an upload limit, use the <Link href="/compressor" className={linkStyle}>image compressor</Link> after choosing the required dimensions.</p>
         <p className="text-base mt-8">Last updated: October 8, 2026</p>
       </section>

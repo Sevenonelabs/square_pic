@@ -1,0 +1,25 @@
+{
+  "collected_date": "2026-10-09",
+  "collection_timezone": "Asia/Calcutta",
+  "property": "sc-domain:squarepic.io",
+  "search_type": "web",
+  "current_period": [
+    "2026-09-09",
+    "2026-10-06"
+  ],
+  "supporting_period": [
+    "2026-07-09",
+    "2026-10-06"
+  ],
+  "predicate": "clicks >= 0 and impressions > 0",
+  "query_rows": 1108,
+  "zero_click_query_rows": 1036,
+  "row_cap": 25000,
+  "property_totals": {
+    "clicks": 450,
+    "impressions": 28279,
+    "ctr": 0.015912868206089323,
+    "position": 8.99402383394038
+  },
+  "caveat": "Query data omits anonymized queries and returns top rows. Query-only metrics are used for opportunity counts; page/query rows only identify landing URLs. No volume or keyword difficulty estimates."
+}

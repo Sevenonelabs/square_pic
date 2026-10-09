@@ -1,0 +1,12 @@
+{
+  "/guides/square-image-size": {
+    "default_calculations_in_server_html": true,
+    "single_h1": true,
+    "anchors_valid": true
+  },
+  "/guides/how-to-enlarge-a-photo": {
+    "default_calculations_in_server_html": true,
+    "single_h1": true,
+    "anchors_valid": true
+  }
+}

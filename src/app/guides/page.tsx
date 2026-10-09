@@ -16,6 +16,20 @@ const ALL_CATEGORIES = ["All", "Photo Editing", "Social Media", "Instagram", "Fa
 
 const GUIDES = [
   {
+    href: "/guides/square-image-size",
+    title: "Square Image Size: Pixels, Ratios and Printing",
+    desc: "Calculate square padding, crop loss and enlargement for your photo. Compare pixel dimensions and print sizes.",
+    category: "Photo Editing",
+    readTime: "5 min",
+  },
+  {
+    href: "/guides/how-to-enlarge-a-photo",
+    title: "How to Enlarge a Photo for Screens and Printing",
+    desc: "Use the print planner to calculate required pixels, source PPI and a supported enlargement. Check quality before exporting.",
+    category: "Photo Editing",
+    readTime: "5 min",
+  },
+  {
     href: "/guides/make-image-square-without-cropping",
     title: "How to Make an Image Square Without Cropping",
     desc: "Learn how to make an image square without cropping. Follow photo examples, compare blur and solid padding, calculate borders and choose PNG, JPG or WebP export.",

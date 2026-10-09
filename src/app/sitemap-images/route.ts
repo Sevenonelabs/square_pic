@@ -7,6 +7,8 @@ function escapeXml(value: string) {
 }
 
 const IMAGE_ENTRIES = [
+  { page: "/guides/square-image-size", image: "/og/og-home.png" },
+  { page: "/guides/how-to-enlarge-a-photo", image: "/og/og-upscaler.png" },
   { page: "", image: "/og/og-home.png" },
   { page: "/compressor", image: "/og/og-compressor.png" },
   { page: "/converter", image: "/og/og-converter.png" },

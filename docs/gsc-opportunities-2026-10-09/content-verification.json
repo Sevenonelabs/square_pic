@@ -1,0 +1,23 @@
+{
+  "/guides/square-image-size": {
+    "h1_count": 1,
+    "article_schema": true,
+    "anchors_valid": true,
+    "internal_links": 19
+  },
+  "/guides/how-to-enlarge-a-photo": {
+    "h1_count": 1,
+    "article_schema": true,
+    "anchors_valid": true,
+    "internal_links": 21
+  },
+  "/feed.xml": {
+    "new_articles_present": true
+  },
+  "/guides/photo-editing/feed.xml": {
+    "new_articles_present": true
+  },
+  "photo-editing_index": {
+    "new_articles_present": true
+  }
+}

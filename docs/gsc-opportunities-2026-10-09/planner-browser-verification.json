@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "portrait padding and crop update",
+    "square exporter cap validation",
+    "print fill recommendation",
+    "adequate source avoids enlargement",
+    "full-source output cap guidance",
+    "empty PPI validation"
+  ],
+  "passed": true
+}

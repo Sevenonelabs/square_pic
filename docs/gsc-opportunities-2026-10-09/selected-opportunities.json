@@ -1,0 +1,275 @@
+[
+  {
+    "cluster": "square-size",
+    "queries": [
+      {
+        "query": "square size",
+        "clicks": 0,
+        "impressions": 313,
+        "position": 8.038338658146966,
+        "impressions_90d": 509,
+        "intent_confidence": "ambiguous",
+        "intent_note": "Could mean physical squares or other sizing tasks; inspect query intent before treating as photo demand.",
+        "existing_urls": [
+          "https://squarepic.io/",
+          "https://www.squarepic.io/"
+        ]
+      },
+      {
+        "query": "square image size",
+        "clicks": 0,
+        "impressions": 174,
+        "position": 8.75287356321839,
+        "impressions_90d": 465,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/",
+          "https://www.squarepic.io/image-size-calculator"
+        ]
+      },
+      {
+        "query": "square photo size",
+        "clicks": 1,
+        "impressions": 31,
+        "position": 8.516129032258064,
+        "impressions_90d": 96,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/"
+        ]
+      },
+      {
+        "query": "square picture size",
+        "clicks": 0,
+        "impressions": 22,
+        "position": 7.2272727272727275,
+        "impressions_90d": 45,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/",
+          "https://www.squarepic.io/image-size-calculator"
+        ]
+      },
+      {
+        "query": "square size photo",
+        "clicks": 0,
+        "impressions": 18,
+        "position": 9.222222222222221,
+        "impressions_90d": 85,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/"
+        ]
+      },
+      {
+        "query": "square pixel size",
+        "clicks": 0,
+        "impressions": 9,
+        "position": 10.333333333333334,
+        "impressions_90d": 13,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/image-size-calculator"
+        ]
+      },
+      {
+        "query": "square aspect ratio",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 23.4,
+        "impressions_90d": 15,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/image-size-calculator"
+        ]
+      },
+      {
+        "query": "square ratio size",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 10.25,
+        "impressions_90d": 6,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/image-size-calculator"
+        ]
+      },
+      {
+        "query": "square size in pixels",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 59.666666666666664,
+        "impressions_90d": 3,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/image-size-calculator"
+        ]
+      }
+    ],
+    "clicks": 1,
+    "impressions": 579,
+    "direct_match": {
+      "clicks": 1,
+      "impressions": 266
+    },
+    "ambiguous": {
+      "clicks": 0,
+      "impressions": 313
+    }
+  },
+  {
+    "cluster": "photo-enlargement",
+    "queries": [
+      {
+        "query": "where to enlarge photos",
+        "clicks": 0,
+        "impressions": 17,
+        "position": 21.823529411764707,
+        "impressions_90d": 17,
+        "intent_confidence": "ambiguous",
+        "intent_note": "Could mean a local physical print service.",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      },
+      {
+        "query": "where can i enlarge a photo",
+        "clicks": 0,
+        "impressions": 13,
+        "position": 22.307692307692307,
+        "impressions_90d": 13,
+        "intent_confidence": "ambiguous",
+        "intent_note": "Could mean a local physical print service.",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      },
+      {
+        "query": "enlarge image without losing quality",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 15.6,
+        "impressions_90d": 5,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      },
+      {
+        "query": "how to enlarge a photo",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 11.25,
+        "impressions_90d": 4,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      },
+      {
+        "query": "how to enlarge an image",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 3.75,
+        "impressions_90d": 4,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      },
+      {
+        "query": "how to enlarge image",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 4,
+        "impressions_90d": 4,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      },
+      {
+        "query": "upscale image for printing",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 8,
+        "impressions_90d": 4,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      },
+      {
+        "query": "how do i enlarge a photo",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 4.5,
+        "impressions_90d": 2,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      },
+      {
+        "query": "how do you enlarge a photo",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 5,
+        "impressions_90d": 1,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      },
+      {
+        "query": "how to enlarge an image without losing quality",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 28,
+        "impressions_90d": 1,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      },
+      {
+        "query": "how to enlarge image without losing quality",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 11,
+        "impressions_90d": 1,
+        "intent_confidence": "direct-match",
+        "intent_note": "",
+        "existing_urls": [
+          "https://www.squarepic.io/upscaler"
+        ]
+      }
+    ],
+    "clicks": 0,
+    "impressions": 56,
+    "direct_match": {
+      "clicks": 0,
+      "impressions": 26
+    },
+    "ambiguous": {
+      "clicks": 0,
+      "impressions": 30
+    }
+  }
+]

@@ -80,6 +80,7 @@ export default function Home() {
             To turn a portrait or landscape photo into a square without cutting off the subject,
             select Blur, Solid or Transparent and keep Zoom at 100%. These modes fit the photo inside a square canvas.
             Crop fills the square by trimming the edges. Use the preview to choose which result suits your photo.
+            {" "}<Link href="/guides/square-image-size#planner" className="text-[var(--accent)] hover:underline">Calculate square padding and crop loss</Link> before choosing an output size.
           </p>
         </div>
 

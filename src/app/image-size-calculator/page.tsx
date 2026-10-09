@@ -290,6 +290,7 @@ export default function ImageSizeCalculatorPage() {
         Changing a 3:2 photo to 1:1 requires a crop or added background, rather than a proportional resize.
         See <Link href="/guides/make-image-square-without-cropping" className="text-[var(--accent)] hover:underline">how to make an image square without cropping</Link>.
         If the source is too small, review the <Link href="/upscaler" className="text-[var(--accent)] hover:underline">image upscaler</Link> before enlarging it.
+        {" "}For a physical print, <Link href="/guides/how-to-enlarge-a-photo#planner" className="text-[var(--accent)] hover:underline">calculate print pixels and enlargement</Link> from your source dimensions and the printer&apos;s requested PPI.
       </p>
 
       <div className="text-center py-4">

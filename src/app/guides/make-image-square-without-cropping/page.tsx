@@ -113,6 +113,7 @@ export default function SquarePhotoGuide() {
         <p>A centered crop of that source keeps an 800 × 800 region, removing 200 source pixels from each side before resizing. For a portrait photo, fitting adds background to the left and right instead. Use the <Link href="/image-size-calculator" className={linkStyle}>aspect ratio calculator</Link> to check your source dimensions.</p>
 
         <h2 id="export" className={headingStyle}>Choose the output size and file format</h2>
+        <p className="mb-3">Need to choose an exact edge length? The <Link href="/guides/square-image-size" className={linkStyle}>square image size guide</Link> compares pixel dimensions, crop limits and print sizes.</p>
         <p>A larger export does not restore missing detail. Start with the original photo rather than a screenshot or a previously compressed copy. If enlargement is necessary, the <Link href="/upscaler" className={linkStyle}>non-AI image upscaler</Link> offers 2x, 3x, and 4x scaling with optional sharpening.</p>
         <ul className="list-disc pl-5 mt-3 space-y-2">
           <li>Choose JPEG for photographs when a smaller file is useful. Repeated JPEG exports can add compression artifacts.</li>

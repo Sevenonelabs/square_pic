@@ -1,0 +1,2458 @@
+[
+  {
+    "path": "/",
+    "title": "Square Image Maker: Make an Image Square | SquarePic",
+    "description": "Make any image square online with blur or a solid background. Keep the full photo without cropping, or crop to fill. Free PNG, JPG and WebP downloads.",
+    "h1": [
+      "Make an Image Square Without Cropping"
+    ],
+    "canonical": "https://www.squarepic.io",
+    "before": {
+      "path": "/",
+      "title": "Make an Image Square Without Cropping | SquarePic",
+      "description": "Make a square image with blur or solid backgrounds. Keep the full photo, or crop to fill. Free PNG, JPG, and WebP export with no signup or watermark.",
+      "h1": [
+        "Make an Image Square Without Cropping"
+      ],
+      "canonical": "https://www.squarepic.io"
+    },
+    "target_keyword": "square image; make image square",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "squarepic",
+        "clicks": 77,
+        "impressions": 203,
+        "position": 1.7586206896551724
+      },
+      {
+        "query": "square pic",
+        "clicks": 76,
+        "impressions": 2215,
+        "position": 5.04334085778781
+      },
+      {
+        "query": "square image",
+        "clicks": 10,
+        "impressions": 2309,
+        "position": 9.11736682546557
+      },
+      {
+        "query": "square image online",
+        "clicks": 7,
+        "impressions": 512,
+        "position": 7.78515625
+      },
+      {
+        "query": "square pic online",
+        "clicks": 7,
+        "impressions": 459,
+        "position": 5.65359477124183
+      },
+      {
+        "query": "make image square",
+        "clicks": 3,
+        "impressions": 1003,
+        "position": 7.724825523429711
+      },
+      {
+        "query": "square photo",
+        "clicks": 2,
+        "impressions": 822,
+        "position": 9.094890510948906
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "squarepic",
+        "clicks": 229,
+        "impressions": 611,
+        "position": 1.911620294599018
+      },
+      {
+        "query": "square pic",
+        "clicks": 153,
+        "impressions": 6190,
+        "position": 6.543941841680129
+      },
+      {
+        "query": "square image",
+        "clicks": 22,
+        "impressions": 5855,
+        "position": 8.401707941929976
+      },
+      {
+        "query": "square pic online",
+        "clicks": 17,
+        "impressions": 1126,
+        "position": 6.5550621669627
+      },
+      {
+        "query": "square image online",
+        "clicks": 8,
+        "impressions": 1043,
+        "position": 8.058485139022052
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/about",
+    "title": "About SquarePic | SquarePic",
+    "description": "Meet SquarePic, the free image editor from SevenOneLabs. Resize, crop, compress, and convert photos locally in your browser.",
+    "h1": [
+      "About SquarePic"
+    ],
+    "canonical": "https://www.squarepic.io/about",
+    "before": {
+      "path": "/about",
+      "title": "About SquarePic | SquarePic",
+      "description": "Meet SquarePic, the free image editor from SevenOneLabs. Resize, crop, compress, and convert photos locally in your browser.",
+      "h1": [
+        "About SquarePic"
+      ],
+      "canonical": "https://www.squarepic.io/about"
+    },
+    "target_keyword": "About SquarePic",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "squarepic",
+        "clicks": 0,
+        "impressions": 145,
+        "position": 6.6
+      },
+      {
+        "query": "square instapic pc",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 21.0
+      },
+      {
+        "query": "squarepic online",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 4.0
+      },
+      {
+        "query": "squarepix",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 10.0
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "squarepic",
+        "clicks": 1,
+        "impressions": 293,
+        "position": 7.167235494880546
+      },
+      {
+        "query": "squarepic online",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 5.4
+      },
+      {
+        "query": "squarepix",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 9.75
+      },
+      {
+        "query": "square instapic pc",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 24.5
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/author/sevenonelabs",
+    "title": "SevenOneLabs: The Team Behind SquarePic | SquarePic",
+    "description": "Meet SevenOneLabs, the team behind SquarePic. Read about the developers and browse their image editing and social media size guides.",
+    "h1": [
+      "SevenOneLabs"
+    ],
+    "canonical": "https://www.squarepic.io/author/sevenonelabs",
+    "before": {
+      "path": "/author/sevenonelabs",
+      "title": "SevenOneLabs: The Team Behind SquarePic | SquarePic",
+      "description": "Meet SevenOneLabs, the team behind SquarePic. Read about the developers and browse their image editing and social media size guides.",
+      "h1": [
+        "SevenOneLabs"
+      ],
+      "canonical": "https://www.squarepic.io/author/sevenonelabs"
+    },
+    "target_keyword": "SevenOneLabs",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/compressor",
+    "title": "Free Image Compressor: JPG, PNG & WebP | SquarePic",
+    "description": "Compress JPG, PNG and WebP images online free. Set a target file size or adjust quality, then export JPEG or WebP. Batch ZIP downloads, with no server uploads.",
+    "h1": [
+      "Free Image Compressor for JPG, PNG & WebP"
+    ],
+    "canonical": "https://www.squarepic.io/compressor",
+    "before": {
+      "path": "/compressor",
+      "title": "Free Image Compressor: JPG, PNG & WebP | SquarePic",
+      "description": "Compress JPG, PNG, and WebP images in your browser. Adjust quality or set a target file size, then download individual files or a ZIP.",
+      "h1": [
+        "Free Image Compressor"
+      ],
+      "canonical": "https://www.squarepic.io/compressor"
+    },
+    "target_keyword": "compress images; compressed photos",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "compressor io",
+        "clicks": 0,
+        "impressions": 6,
+        "position": 58.333333333333336
+      },
+      {
+        "query": "compress io",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 56.5
+      },
+      {
+        "query": "compress image io",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 8.0
+      },
+      {
+        "query": "compression io",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 65.0
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "compressor io",
+        "clicks": 0,
+        "impressions": 38,
+        "position": 60.8421052631579
+      },
+      {
+        "query": "compressed photos",
+        "clicks": 0,
+        "impressions": 15,
+        "position": 81.13333333333334
+      },
+      {
+        "query": "compress images",
+        "clicks": 0,
+        "impressions": 8,
+        "position": 76.75
+      },
+      {
+        "query": "compress photos",
+        "clicks": 0,
+        "impressions": 7,
+        "position": 77.42857142857143
+      },
+      {
+        "query": "compress io",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 53.2
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter",
+    "title": "Free Image Converter: JPG, PNG, WebP & ICO | SquarePic",
+    "description": "Convert images online free to JPG, PNG, WebP or ICO. Adjust quality and download files in your browser. No signup or uploads. GIF and AVIF export unavailable.",
+    "h1": [
+      "Free Image Converter for JPG, PNG, WebP & ICO"
+    ],
+    "canonical": "https://www.squarepic.io/converter",
+    "before": {
+      "path": "/converter",
+      "title": "Free Image Converter: JPG, PNG, WebP & ICO | SquarePic",
+      "description": "Convert images to JPEG, PNG, WebP or ICO locally in your browser. Choose quality per image and download verified files. Free, with no signup or uploads.",
+      "h1": [
+        "Free Image Converter"
+      ],
+      "canonical": "https://www.squarepic.io/converter"
+    },
+    "target_keyword": "image converter online",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "negatives to jpeg",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 83.2
+      },
+      {
+        "query": "website to jpeg",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 42.75
+      },
+      {
+        "query": "progressive jpeg converter",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 76.66666666666667
+      },
+      {
+        "query": "picture into jpg",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 91.0
+      },
+      {
+        "query": "clip to jpg",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 68.0
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "website to jpeg",
+        "clicks": 0,
+        "impressions": 15,
+        "position": 47.46666666666667
+      },
+      {
+        "query": "negatives to jpeg",
+        "clicks": 0,
+        "impressions": 7,
+        "position": 81.0
+      },
+      {
+        "query": "progressive jpeg converter",
+        "clicks": 0,
+        "impressions": 7,
+        "position": 76.57142857142857
+      },
+      {
+        "query": "clip to jpg",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 66.25
+      },
+      {
+        "query": "png to progressive jpeg",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 71.5
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/jpg-to-avif",
+    "title": "JPEG to AVIF: Export Unavailable | SquarePic",
+    "description": "JPEG to AVIF export is currently unavailable. Use PNG, JPEG, WebP or ICO output instead. Supported conversions run locally in your browser, with no signup.",
+    "h1": [
+      "JPEG to AVIF export is currently unavailable"
+    ],
+    "canonical": "https://www.squarepic.io/converter/jpg-to-avif",
+    "before": {
+      "path": "/converter/jpg-to-avif",
+      "title": "JPEG to AVIF: Output Currently Unavailable | SquarePic",
+      "description": "AVIF export is temporarily unavailable while its encoder is repaired. Check the supported PNG, JPEG, WebP and ICO alternatives in SquarePic.",
+      "h1": [
+        "JPEG to AVIF export is currently unavailable"
+      ],
+      "canonical": "https://www.squarepic.io/converter/jpg-to-avif"
+    },
+    "target_keyword": "jpeg to avif export unavailable",
+    "basis": "90-day evidence only",
+    "current_queries": [],
+    "supporting_queries": [
+      {
+        "query": "jpeg to avif",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 21.0
+      },
+      {
+        "query": "jpg to avif",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 73.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/jpg-to-gif",
+    "title": "JPEG to GIF: Export Unavailable | SquarePic",
+    "description": "JPEG to GIF export is currently unavailable. Use PNG, JPEG, WebP or ICO output instead. Supported conversions run locally in your browser, with no signup.",
+    "h1": [
+      "JPEG to GIF export is currently unavailable"
+    ],
+    "canonical": "https://www.squarepic.io/converter/jpg-to-gif",
+    "before": {
+      "path": "/converter/jpg-to-gif",
+      "title": "JPEG to GIF: Output Currently Unavailable | SquarePic",
+      "description": "GIF export is temporarily unavailable while its encoder is repaired. Check the supported PNG, JPEG, WebP and ICO alternatives in SquarePic.",
+      "h1": [
+        "JPEG to GIF export is currently unavailable"
+      ],
+      "canonical": "https://www.squarepic.io/converter/jpg-to-gif"
+    },
+    "target_keyword": "jpeg to gif export unavailable",
+    "basis": "90-day evidence only",
+    "current_queries": [],
+    "supporting_queries": [
+      {
+        "query": "jpg to gif",
+        "clicks": 0,
+        "impressions": 9,
+        "position": 78.33333333333333
+      },
+      {
+        "query": "jpeg to gif",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 50.25
+      },
+      {
+        "query": "jpg in gif",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 83.66666666666667
+      },
+      {
+        "query": "jpg jpeg gif",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 68.0
+      },
+      {
+        "query": "jpg to gif converter",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 78.5
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/jpg-to-ico",
+    "title": "JPEG to ICO Converter Online Free | SquarePic",
+    "description": "Convert JPEG to ICO online free, with no signup or server uploads. Create an icon within 256x256 pixels. Download in your browser.",
+    "h1": [
+      "JPEG to ICO Converter"
+    ],
+    "canonical": "https://www.squarepic.io/converter/jpg-to-ico",
+    "before": {
+      "path": "/converter/jpg-to-ico",
+      "title": "JPEG to ICO Converter Online Free | SquarePic",
+      "description": "Convert JPEG images to ICO on this page, with the output already selected. Download verified files locally in your browser. Free, with no signup.",
+      "h1": [
+        "JPEG to ICO converter"
+      ],
+      "canonical": "https://www.squarepic.io/converter/jpg-to-ico"
+    },
+    "target_keyword": "jpeg to ico converter",
+    "basis": "90-day evidence only",
+    "current_queries": [],
+    "supporting_queries": [
+      {
+        "query": "jpeg to ico",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 59.666666666666664
+      },
+      {
+        "query": "convert jpeg to icon",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 73.0
+      },
+      {
+        "query": "convert jpg to ico",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 79.0
+      },
+      {
+        "query": "jpeg to ico converter",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 66.0
+      },
+      {
+        "query": "jpeg to icon",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 55.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/jpg-to-png",
+    "title": "JPEG to PNG Converter Online Free | SquarePic",
+    "description": "Convert JPEG to PNG online free, with no signup or server uploads. Keep source dimensions and transparency. Download in your browser.",
+    "h1": [
+      "JPEG to PNG Converter"
+    ],
+    "canonical": "https://www.squarepic.io/converter/jpg-to-png",
+    "before": {
+      "path": "/converter/jpg-to-png",
+      "title": "JPEG to PNG Converter Online Free | SquarePic",
+      "description": "Convert JPEG images to PNG on this page, with the output already selected. Download verified files locally in your browser. Free, with no signup.",
+      "h1": [
+        "JPEG to PNG converter"
+      ],
+      "canonical": "https://www.squarepic.io/converter/jpg-to-png"
+    },
+    "target_keyword": "jpeg to png converter",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/jpg-to-webp",
+    "title": "JPEG to WebP Converter Online Free | SquarePic",
+    "description": "Convert JPEG to WebP online free, with no signup or server uploads. Keep source dimensions and transparency. Download in your browser.",
+    "h1": [
+      "JPEG to WebP Converter"
+    ],
+    "canonical": "https://www.squarepic.io/converter/jpg-to-webp",
+    "before": {
+      "path": "/converter/jpg-to-webp",
+      "title": "JPEG to WebP Converter Online Free | SquarePic",
+      "description": "Convert JPEG images to WebP on this page, with the output already selected. Download verified files locally in your browser. Free, with no signup.",
+      "h1": [
+        "JPEG to WebP converter"
+      ],
+      "canonical": "https://www.squarepic.io/converter/jpg-to-webp"
+    },
+    "target_keyword": "jpeg to webp converter",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "jpeg to webp",
+        "clicks": 0,
+        "impressions": 7,
+        "position": 16.285714285714285
+      },
+      {
+        "query": "jpeg into webp",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 10.0
+      },
+      {
+        "query": "jpeg webp",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 13.0
+      },
+      {
+        "query": "to webp.io",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 61.0
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "jpeg to webp",
+        "clicks": 0,
+        "impressions": 12,
+        "position": 37.25
+      },
+      {
+        "query": "jpeg into webp",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 10.0
+      },
+      {
+        "query": "jpeg webp",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 13.0
+      },
+      {
+        "query": "photo convert to webp",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 83.0
+      },
+      {
+        "query": "to webp.io",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 61.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/png-to-avif",
+    "title": "PNG to AVIF: Export Unavailable | SquarePic",
+    "description": "PNG to AVIF export is currently unavailable. Use PNG, JPEG, WebP or ICO output instead. Supported conversions run locally in your browser, with no signup.",
+    "h1": [
+      "PNG to AVIF export is currently unavailable"
+    ],
+    "canonical": "https://www.squarepic.io/converter/png-to-avif",
+    "before": {
+      "path": "/converter/png-to-avif",
+      "title": "PNG to AVIF: Output Currently Unavailable | SquarePic",
+      "description": "AVIF export is temporarily unavailable while its encoder is repaired. Check the supported PNG, JPEG, WebP and ICO alternatives in SquarePic.",
+      "h1": [
+        "PNG to AVIF export is currently unavailable"
+      ],
+      "canonical": "https://www.squarepic.io/converter/png-to-avif"
+    },
+    "target_keyword": "png to avif export unavailable",
+    "basis": "90-day evidence only",
+    "current_queries": [],
+    "supporting_queries": [
+      {
+        "query": "png to avif converter",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 60.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/png-to-gif",
+    "title": "PNG to GIF: Export Unavailable | SquarePic",
+    "description": "PNG to GIF export is currently unavailable. Use PNG, JPEG, WebP or ICO output instead. Supported conversions run locally in your browser, with no signup.",
+    "h1": [
+      "PNG to GIF export is currently unavailable"
+    ],
+    "canonical": "https://www.squarepic.io/converter/png-to-gif",
+    "before": {
+      "path": "/converter/png-to-gif",
+      "title": "PNG to GIF: Output Currently Unavailable | SquarePic",
+      "description": "GIF export is temporarily unavailable while its encoder is repaired. Check the supported PNG, JPEG, WebP and ICO alternatives in SquarePic.",
+      "h1": [
+        "PNG to GIF export is currently unavailable"
+      ],
+      "canonical": "https://www.squarepic.io/converter/png-to-gif"
+    },
+    "target_keyword": "png to gif export unavailable",
+    "basis": "90-day evidence only",
+    "current_queries": [],
+    "supporting_queries": [
+      {
+        "query": "png to gif",
+        "clicks": 0,
+        "impressions": 7,
+        "position": 75.85714285714286
+      },
+      {
+        "query": "png to jpeg ezgif",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 87.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/png-to-ico",
+    "title": "PNG to ICO Converter Online Free | SquarePic",
+    "description": "Convert PNG to ICO online free, with no signup or server uploads. Create an icon within 256x256 pixels. Download in your browser.",
+    "h1": [
+      "PNG to ICO Converter"
+    ],
+    "canonical": "https://www.squarepic.io/converter/png-to-ico",
+    "before": {
+      "path": "/converter/png-to-ico",
+      "title": "PNG to ICO Converter Online Free | SquarePic",
+      "description": "Convert PNG images to ICO on this page, with the output already selected. Download verified files locally in your browser. Free, with no signup.",
+      "h1": [
+        "PNG to ICO converter"
+      ],
+      "canonical": "https://www.squarepic.io/converter/png-to-ico"
+    },
+    "target_keyword": "png to ico converter",
+    "basis": "90-day evidence only",
+    "current_queries": [],
+    "supporting_queries": [
+      {
+        "query": "png to ico",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 72.66666666666667
+      },
+      {
+        "query": "convert png to ico",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 72.0
+      },
+      {
+        "query": "converter png to ico",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 64.0
+      },
+      {
+        "query": "ico converter png",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 76.0
+      },
+      {
+        "query": "online png to ico converter",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 99.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/png-to-jpg",
+    "title": "PNG to JPEG Converter Online Free | SquarePic",
+    "description": "Convert PNG to JPEG online free, with no signup or server uploads. Keep dimensions; transparent areas turn white. Download in your browser.",
+    "h1": [
+      "PNG to JPEG Converter"
+    ],
+    "canonical": "https://www.squarepic.io/converter/png-to-jpg",
+    "before": {
+      "path": "/converter/png-to-jpg",
+      "title": "PNG to JPEG Converter Online Free | SquarePic",
+      "description": "Convert PNG images to JPEG on this page, with the output already selected. Download verified files locally in your browser. Free, with no signup.",
+      "h1": [
+        "PNG to JPEG converter"
+      ],
+      "canonical": "https://www.squarepic.io/converter/png-to-jpg"
+    },
+    "target_keyword": "png to jpeg converter",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/png-to-webp",
+    "title": "PNG to WebP Converter Online Free | SquarePic",
+    "description": "Convert PNG to WebP online free, with no signup or server uploads. Keep source dimensions and transparency. Download in your browser.",
+    "h1": [
+      "PNG to WebP Converter"
+    ],
+    "canonical": "https://www.squarepic.io/converter/png-to-webp",
+    "before": {
+      "path": "/converter/png-to-webp",
+      "title": "PNG to WebP Converter Online Free | SquarePic",
+      "description": "Convert PNG images to WebP on this page, with the output already selected. Download verified files locally in your browser. Free, with no signup.",
+      "h1": [
+        "PNG to WebP converter"
+      ],
+      "canonical": "https://www.squarepic.io/converter/png-to-webp"
+    },
+    "target_keyword": "png to webp converter",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/webp-to-avif",
+    "title": "WebP to AVIF: Export Unavailable | SquarePic",
+    "description": "WebP to AVIF export is currently unavailable. Use PNG, JPEG, WebP or ICO output instead. Supported conversions run locally in your browser, with no signup.",
+    "h1": [
+      "WebP to AVIF export is currently unavailable"
+    ],
+    "canonical": "https://www.squarepic.io/converter/webp-to-avif",
+    "before": {
+      "path": "/converter/webp-to-avif",
+      "title": "WebP to AVIF: Output Currently Unavailable | SquarePic",
+      "description": "AVIF export is temporarily unavailable while its encoder is repaired. Check the supported PNG, JPEG, WebP and ICO alternatives in SquarePic.",
+      "h1": [
+        "WebP to AVIF export is currently unavailable"
+      ],
+      "canonical": "https://www.squarepic.io/converter/webp-to-avif"
+    },
+    "target_keyword": "webp to avif export unavailable",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/webp-to-gif",
+    "title": "WebP to GIF: Export Unavailable | SquarePic",
+    "description": "WebP to GIF export is currently unavailable. Use PNG, JPEG, WebP or ICO output instead. Supported conversions run locally in your browser, with no signup.",
+    "h1": [
+      "WebP to GIF export is currently unavailable"
+    ],
+    "canonical": "https://www.squarepic.io/converter/webp-to-gif",
+    "before": {
+      "path": "/converter/webp-to-gif",
+      "title": "WebP to GIF: Output Currently Unavailable | SquarePic",
+      "description": "GIF export is temporarily unavailable while its encoder is repaired. Check the supported PNG, JPEG, WebP and ICO alternatives in SquarePic.",
+      "h1": [
+        "WebP to GIF export is currently unavailable"
+      ],
+      "canonical": "https://www.squarepic.io/converter/webp-to-gif"
+    },
+    "target_keyword": "webp to gif export unavailable",
+    "basis": "90-day evidence only",
+    "current_queries": [],
+    "supporting_queries": [
+      {
+        "query": "webp to gif",
+        "clicks": 0,
+        "impressions": 59,
+        "position": 80.16949152542372
+      },
+      {
+        "query": "convert webp to gif",
+        "clicks": 0,
+        "impressions": 11,
+        "position": 86.0
+      },
+      {
+        "query": "webp to gif converter",
+        "clicks": 0,
+        "impressions": 9,
+        "position": 78.11111111111111
+      },
+      {
+        "query": "web to gif",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 77.75
+      },
+      {
+        "query": "converter webp to gif",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 71.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/webp-to-jpg",
+    "title": "WebP to JPEG Converter Online Free | SquarePic",
+    "description": "Convert WebP to JPEG online free, with no signup or server uploads. Keep dimensions; transparent areas turn white. Download in your browser.",
+    "h1": [
+      "WebP to JPEG Converter"
+    ],
+    "canonical": "https://www.squarepic.io/converter/webp-to-jpg",
+    "before": {
+      "path": "/converter/webp-to-jpg",
+      "title": "WebP to JPEG Converter Online Free | SquarePic",
+      "description": "Convert WebP images to JPEG on this page, with the output already selected. Download verified files locally in your browser. Free, with no signup.",
+      "h1": [
+        "WebP to JPEG converter"
+      ],
+      "canonical": "https://www.squarepic.io/converter/webp-to-jpg"
+    },
+    "target_keyword": "webp to jpeg converter",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/converter/webp-to-png",
+    "title": "WebP to PNG Converter Online Free | SquarePic",
+    "description": "Convert WebP to PNG online free, with no signup or server uploads. Keep source dimensions and transparency. Download in your browser.",
+    "h1": [
+      "WebP to PNG Converter"
+    ],
+    "canonical": "https://www.squarepic.io/converter/webp-to-png",
+    "before": {
+      "path": "/converter/webp-to-png",
+      "title": "WebP to PNG Converter Online Free | SquarePic",
+      "description": "Convert WebP images to PNG on this page, with the output already selected. Download verified files locally in your browser. Free, with no signup.",
+      "h1": [
+        "WebP to PNG converter"
+      ],
+      "canonical": "https://www.squarepic.io/converter/webp-to-png"
+    },
+    "target_keyword": "webp to png converter",
+    "basis": "90-day evidence only",
+    "current_queries": [],
+    "supporting_queries": [
+      {
+        "query": "webp to png",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 86.6
+      },
+      {
+        "query": "webpage to png",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 82.0
+      },
+      {
+        "query": "convert from webp to png",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 96.0
+      },
+      {
+        "query": "convert webp to png",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 81.0
+      },
+      {
+        "query": "free webp to png",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 77.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/cropper",
+    "title": "Free Photo Cropper: Crop Images Online | SquarePic",
+    "description": "Crop photos online free with square, 4:5, 16:9 and 9:16 presets. Preview source-pixel dimensions and export PNG, JPG or WebP locally, with no signup.",
+    "h1": [
+      "Free Online Photo Cropper"
+    ],
+    "canonical": "https://www.squarepic.io/cropper",
+    "before": {
+      "path": "/cropper",
+      "title": "Free Online Image Cropper | SquarePic",
+      "description": "Crop photos with aspect ratio presets, zoom, and pan. Export as JPG, PNG, or WebP. Your images stay in your browser. No signup.",
+      "h1": [
+        "Free Image Cropper"
+      ],
+      "canonical": "https://www.squarepic.io/cropper"
+    },
+    "target_keyword": "free photo cropper; photo cropper free",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/faq",
+    "title": "SquarePic FAQ: Image Editing Help | SquarePic",
+    "description": "Get answers about making photos square, resizing, cropping, compression, supported formats, and browser processing with SquarePic.",
+    "h1": [
+      "SquarePic FAQ: Image Editing Help"
+    ],
+    "canonical": "https://www.squarepic.io/faq",
+    "before": {
+      "path": "/faq",
+      "title": "SquarePic FAQ: Image Editing Help | SquarePic",
+      "description": "Get answers about making photos square, resizing, cropping, compression, supported formats, and browser processing with SquarePic.",
+      "h1": [
+        "Frequently Asked Questions"
+      ],
+      "canonical": "https://www.squarepic.io/faq"
+    },
+    "target_keyword": "SquarePic FAQ",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "squarepic",
+        "clicks": 1,
+        "impressions": 3,
+        "position": 7.333333333333333
+      },
+      {
+        "query": "squarepic online",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 7.5
+      },
+      {
+        "query": "create square image",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 37.0
+      },
+      {
+        "query": "didn't work",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 2.0
+      },
+      {
+        "query": "where is the download",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 3.0
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "squarepic",
+        "clicks": 1,
+        "impressions": 11,
+        "position": 8.545454545454547
+      },
+      {
+        "query": "squarepic online",
+        "clicks": 0,
+        "impressions": 6,
+        "position": 9.0
+      },
+      {
+        "query": "create square image",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 37.0
+      },
+      {
+        "query": "didn't work",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 2.0
+      },
+      {
+        "query": "square pic online",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 52.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides",
+    "title": "Social Media Image Size Guides & Photo Tutorials | SquarePic",
+    "description": "Browse social media image sizes and photo editing tutorials. Compare post, profile and banner dimensions, or learn to make a photo square without cropping.",
+    "h1": [
+      "Social Media Image Size Guides & Photo Tutorials"
+    ],
+    "canonical": "https://www.squarepic.io/guides",
+    "before": {
+      "path": "/guides",
+      "title": "Social Media Image Size Guides | SquarePic",
+      "description": "Find social media image dimensions and editing tips for Instagram, Facebook, LinkedIn, YouTube, TikTok, and more.",
+      "h1": [
+        "Guides & Tutorials"
+      ],
+      "canonical": "https://www.squarepic.io/guides"
+    },
+    "target_keyword": "social media image size guides; image guidelines",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "squarepic",
+        "clicks": 1,
+        "impressions": 2,
+        "position": 6.0
+      },
+      {
+        "query": "image guidelines",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 83.0
+      },
+      {
+        "query": "cheat sheet for social media images",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 58.0
+      },
+      {
+        "query": "square image size",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 79.0
+      },
+      {
+        "query": "square social media post size",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 91.0
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "squarepic",
+        "clicks": 1,
+        "impressions": 2,
+        "position": 6.0
+      },
+      {
+        "query": "square image size",
+        "clicks": 0,
+        "impressions": 8,
+        "position": 80.125
+      },
+      {
+        "query": "image guidelines",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 81.25
+      },
+      {
+        "query": "square image dimensions",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 86.0
+      },
+      {
+        "query": "square social media post size",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 89.66666666666667
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides/discord-image-sizes-2026",
+    "title": "Discord Server Banner Size & Invite Splash | SquarePic",
+    "description": "Find Discord server banner size, invite splash dimensions and server icon presets. Check Boost access and troubleshoot an image missing from your invite link.",
+    "h1": [
+      "Discord Server Banner Size & Invite Splash"
+    ],
+    "canonical": "https://www.squarepic.io/guides/discord-image-sizes-2026",
+    "before": {
+      "path": "/guides/discord-image-sizes-2026",
+      "title": "Discord Server Banner Size & Invite Splash | SquarePic",
+      "description": "Compare Discord server banners at 960 \u00d7 540 with invite backgrounds at 1920 \u00d7 1080. Check Boost levels and troubleshoot a splash missing from an invite.",
+      "h1": [
+        "Discord Server Banner Size & Invite Splash"
+      ],
+      "canonical": "https://www.squarepic.io/guides/discord-image-sizes-2026"
+    },
+    "target_keyword": "discord server banner size; discord server splash image not showing on invite link",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "discord server banner size",
+        "clicks": 0,
+        "impressions": 26,
+        "position": 6.8076923076923075
+      },
+      {
+        "query": "discord server splash image not showing on invite link",
+        "clicks": 0,
+        "impressions": 13,
+        "position": 2.6923076923076925
+      },
+      {
+        "query": "discord server icon size",
+        "clicks": 0,
+        "impressions": 11,
+        "position": 12.818181818181818
+      },
+      {
+        "query": "discord banner size",
+        "clicks": 0,
+        "impressions": 8,
+        "position": 67.0
+      },
+      {
+        "query": "discord avatar size",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 80.66666666666667
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "discord server banner size",
+        "clicks": 0,
+        "impressions": 26,
+        "position": 6.8076923076923075
+      },
+      {
+        "query": "discord server splash image not showing on invite link",
+        "clicks": 0,
+        "impressions": 13,
+        "position": 2.6923076923076925
+      },
+      {
+        "query": "discord server icon size",
+        "clicks": 0,
+        "impressions": 11,
+        "position": 12.818181818181818
+      },
+      {
+        "query": "discord banner size",
+        "clicks": 0,
+        "impressions": 8,
+        "position": 67.0
+      },
+      {
+        "query": "discord avatar size",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 80.66666666666667
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides/facebook-image-sizes-2026",
+    "title": "Facebook Image Sizes: Covers, Posts & Profiles | SquarePic",
+    "description": "Compare Facebook cover photo, post and profile picture dimensions. Find image aspect ratios, mobile crop guidance and export tips for different placements.",
+    "h1": [
+      "Facebook Image Sizes 2026: Covers, Posts & Profiles"
+    ],
+    "canonical": "https://www.squarepic.io/guides/facebook-image-sizes-2026",
+    "before": {
+      "path": "/guides/facebook-image-sizes-2026",
+      "title": "Facebook Image Sizes 2026: Covers & Posts | SquarePic",
+      "description": "Find Facebook dimensions for cover photos, profile pictures, feed posts, event images, and ads. Includes mobile crop and export tips.",
+      "h1": [
+        "Facebook Image Sizes 2026: Cover Photo, Profile & Post Dimensions"
+      ],
+      "canonical": "https://www.squarepic.io/guides/facebook-image-sizes-2026"
+    },
+    "target_keyword": "facebook image sizes",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides/instagram-feed-sizes-2026",
+    "title": "Instagram Post Sizes: Feed, Carousel & Profile | SquarePic",
+    "description": "Compare Instagram feed, carousel and profile sizes with square, portrait and landscape canvases. See fit-versus-crop examples and check placement previews.",
+    "h1": [
+      "Instagram Post Sizes 2026: Feed, Carousel & Profile"
+    ],
+    "canonical": "https://www.squarepic.io/guides/instagram-feed-sizes-2026",
+    "before": {
+      "path": "/guides/instagram-feed-sizes-2026",
+      "title": "Instagram Photo Sizes: Feed, Square & Profile | SquarePic",
+      "description": "Prepare square, portrait and landscape Instagram artwork with working presets. Compare fit and crop, retain the full photo and check the actual upload preview.",
+      "h1": [
+        "Instagram photo sizes and square framing"
+      ],
+      "canonical": "https://www.squarepic.io/guides/instagram-feed-sizes-2026"
+    },
+    "target_keyword": "instagram post size 2026; instagram feed size; instagram carousel size",
+    "basis": "90-day evidence only",
+    "current_queries": [],
+    "supporting_queries": [
+      {
+        "query": "instagram feed size",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 85.25
+      },
+      {
+        "query": "instagram post size 2026",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 65.75
+      },
+      {
+        "query": "instagram carousel size",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 86.66666666666667
+      },
+      {
+        "query": "format carrousel instagram 2026",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 88.5
+      },
+      {
+        "query": "ig feed size 2026",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 10.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides/instagram-reels-stories-guide",
+    "title": "Instagram Reels & Stories Sizes and Safe Zones | SquarePic",
+    "description": "Compare Instagram Reels and Stories dimensions, 9:16 format and safe-zone checks. Plan 1080x1920 artwork, review cover crops and keep text clear of controls.",
+    "h1": [
+      "Instagram Reels & Stories Dimensions and Safe Zones"
+    ],
+    "canonical": "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+    "before": {
+      "path": "/guides/instagram-reels-stories-guide",
+      "title": "Instagram Reels & Stories Size and Safe Zones | SquarePic",
+      "description": "Are Reels and Stories the same size? Compare 9:16 dimensions, cover previews, text placement, and a practical checklist for 1080 \u00d7 1920 artwork.",
+      "h1": [
+        "Instagram Reels & Stories: Size, Format and Safe Zones"
+      ],
+      "canonical": "https://www.squarepic.io/guides/instagram-reels-stories-guide"
+    },
+    "target_keyword": "instagram stories dimensions safe zone; instagram reels format",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "instagram stories dimensions safe zone",
+        "clicks": 0,
+        "impressions": 20,
+        "position": 34.0
+      },
+      {
+        "query": "instagram reel format",
+        "clicks": 0,
+        "impressions": 17,
+        "position": 41.1764705882353
+      },
+      {
+        "query": "instagram stories dimensions 2026",
+        "clicks": 0,
+        "impressions": 17,
+        "position": 35.35294117647059
+      },
+      {
+        "query": "are reels and stories the same size",
+        "clicks": 0,
+        "impressions": 15,
+        "position": 4.6
+      },
+      {
+        "query": "reel guidelines",
+        "clicks": 0,
+        "impressions": 12,
+        "position": 8.916666666666668
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "instagram stories dimensions safe zone",
+        "clicks": 0,
+        "impressions": 50,
+        "position": 35.12
+      },
+      {
+        "query": "instagram stories dimensions 2026",
+        "clicks": 0,
+        "impressions": 44,
+        "position": 38.79545454545455
+      },
+      {
+        "query": "instagram reels format",
+        "clicks": 0,
+        "impressions": 30,
+        "position": 47.166666666666664
+      },
+      {
+        "query": "instagram reel format",
+        "clicks": 0,
+        "impressions": 29,
+        "position": 45.93103448275862
+      },
+      {
+        "query": "is instagram story and reels same size",
+        "clicks": 0,
+        "impressions": 18,
+        "position": 4.777777777777778
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides/linkedin-image-sizes-2026",
+    "title": "LinkedIn Image Sizes: Posts, Banners & Profiles | SquarePic",
+    "description": "Find LinkedIn post, profile and banner image sizes. Compare personal covers and company Pages, check aspect ratios and follow official image specifications.",
+    "h1": [
+      "LinkedIn Image Sizes 2026: Posts, Banners & Profiles"
+    ],
+    "canonical": "https://www.squarepic.io/guides/linkedin-image-sizes-2026",
+    "before": {
+      "path": "/guides/linkedin-image-sizes-2026",
+      "title": "LinkedIn Image Sizes: Banners, Pages & Posts | SquarePic",
+      "description": "Compare LinkedIn personal and company Page cover sizes, JPEG/PNG limits and post-image presets. Dated official sources and a working image resizer.",
+      "h1": [
+        "LinkedIn image sizes: profile covers, Pages and posts"
+      ],
+      "canonical": "https://www.squarepic.io/guides/linkedin-image-sizes-2026"
+    },
+    "target_keyword": "linkedin image share size; linkedin post size",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "linkedin image share size",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 67.5
+      },
+      {
+        "query": "linkedin image size 2016",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 86.0
+      },
+      {
+        "query": "linkedin life tab images size",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 20.0
+      },
+      {
+        "query": "linkedin profile photo size 2026 recommended",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 79.0
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "linkedin image size 2016",
+        "clicks": 0,
+        "impressions": 9,
+        "position": 72.77777777777777
+      },
+      {
+        "query": "linkedin image share size",
+        "clicks": 0,
+        "impressions": 8,
+        "position": 62.5
+      },
+      {
+        "query": "linkedin post size",
+        "clicks": 0,
+        "impressions": 6,
+        "position": 85.5
+      },
+      {
+        "query": "linkedin banner size",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 66.25
+      },
+      {
+        "query": "linkedin post dimensions",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 80.5
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides/make-image-square-without-cropping",
+    "title": "How to Make an Image Square Without Cropping | SquarePic",
+    "description": "Learn how to make an image square without cropping. Follow photo examples, compare blur and solid padding, calculate borders and choose PNG, JPG or WebP export.",
+    "h1": [
+      "How to Make an Image Square Without Cropping"
+    ],
+    "canonical": "https://www.squarepic.io/guides/make-image-square-without-cropping",
+    "before": {
+      "path": "/guides/make-image-square-without-cropping",
+      "title": "Make a Photo Square Without Cropping | SquarePic",
+      "description": "Learn how to fit a full photo in a square with blur or padding. Compare crop and fit, calculate borders, and choose an export format.",
+      "h1": [
+        "Make an Image Square Without Cropping: A Photo Guide"
+      ],
+      "canonical": "https://www.squarepic.io/guides/make-image-square-without-cropping"
+    },
+    "target_keyword": "how to make an image square without cropping",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides/pinterest-image-sizes-2026",
+    "title": "Pinterest Image Sizes 2026: Pins & Board Covers | SquarePic",
+    "description": "Compare Pinterest pin dimensions, 2:3 aspect ratios, board covers and profile pictures. Find working image sizes and export tips for static Pinterest artwork.",
+    "h1": [
+      "Pinterest Image Sizes 2026: Pins & Board Covers"
+    ],
+    "canonical": "https://www.squarepic.io/guides/pinterest-image-sizes-2026",
+    "before": {
+      "path": "/guides/pinterest-image-sizes-2026",
+      "title": "Pinterest Image Sizes 2026: Pins & Covers | SquarePic",
+      "description": "Find Pinterest dimensions for standard pins, video pins, board covers, and profile pictures. Includes aspect ratios and export tips.",
+      "h1": [
+        "Pinterest Image Sizes 2026: Pin Dimensions & Board Cover Guide"
+      ],
+      "canonical": "https://www.squarepic.io/guides/pinterest-image-sizes-2026"
+    },
+    "target_keyword": "pinterest image sizes; pinterest pin dimensions",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides/social-media-image-sizes-2026",
+    "title": "Social Media Image Sizes 2026: Cheat Sheet | SquarePic",
+    "description": "Compare social media image sizes for 2026 across 13 platforms. Find post, profile, banner and Story dimensions, aspect ratios and links to free image resizers.",
+    "h1": [
+      "Social Media Image Sizes 2026: Cheat Sheet"
+    ],
+    "canonical": "https://www.squarepic.io/guides/social-media-image-sizes-2026",
+    "before": {
+      "path": "/guides/social-media-image-sizes-2026",
+      "title": "Social Media Image Sizes 2026: Cheat Sheet | SquarePic",
+      "description": "Compare image dimensions and aspect ratios across 13 social platforms. Find sizes for posts, profiles, banners, stories, and thumbnails.",
+      "h1": [
+        "Social Media Image Sizes 2026: Complete Cheat Sheet"
+      ],
+      "canonical": "https://www.squarepic.io/guides/social-media-image-sizes-2026"
+    },
+    "target_keyword": "social media sizes 2026; social media image sizes 2026",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "social media sizes 2026",
+        "clicks": 0,
+        "impressions": 6,
+        "position": 79.66666666666667
+      },
+      {
+        "query": "size for buzzfeed showdown images",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 23.333333333333332
+      },
+      {
+        "query": "what is 1080x1350",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 9.5
+      },
+      {
+        "query": "banner screen cheat sheet",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 6.0
+      },
+      {
+        "query": "social media cheat sheet 2026",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 21.0
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "social media sizes 2026",
+        "clicks": 0,
+        "impressions": 11,
+        "position": 78.45454545454545
+      },
+      {
+        "query": "size for buzzfeed showdown images",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 27.5
+      },
+      {
+        "query": "social media image sizes 2026",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 91.33333333333333
+      },
+      {
+        "query": "square social media post size",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 62.333333333333336
+      },
+      {
+        "query": "social media cheat sheet 2026",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 21.5
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides/tiktok-image-sizes-2026",
+    "title": "TikTok Image Sizes: Posts, Profiles & Covers | SquarePic",
+    "description": "Compare TikTok image dimensions for photo posts, profiles and video-cover artwork. Find aspect ratios, vertical canvases and export tips for each placement.",
+    "h1": [
+      "TikTok Image Sizes: Posts, Profiles & Covers"
+    ],
+    "canonical": "https://www.squarepic.io/guides/tiktok-image-sizes-2026",
+    "before": {
+      "path": "/guides/tiktok-image-sizes-2026",
+      "title": "TikTok Image Sizes 2026: Profiles & Videos | SquarePic",
+      "description": "Check TikTok dimensions for profile pictures, video covers, stories, and ads. Includes aspect ratios, safe zones, and export tips.",
+      "h1": [
+        "TikTok Image Sizes 2026: Profile, Video & Story Dimensions"
+      ],
+      "canonical": "https://www.squarepic.io/guides/tiktok-image-sizes-2026"
+    },
+    "target_keyword": "tiktok image dimensions; tiktok post dimensions",
+    "basis": "90-day evidence only",
+    "current_queries": [],
+    "supporting_queries": [
+      {
+        "query": "tiktok image dimensions",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 84.0
+      },
+      {
+        "query": "tiktok post dimensions",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 11.0
+      },
+      {
+        "query": "tiktok post size",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 11.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/guides/youtube-banner-thumbnail-sizes-2026",
+    "title": "YouTube Banner & Thumbnail Sizes: Channel Art | SquarePic",
+    "description": "Compare YouTube channel art, banner and thumbnail sizes for 2026. Find image dimensions, aspect ratios, profile sizes and guidance for device previews.",
+    "h1": [
+      "YouTube Banner & Thumbnail Sizes: Channel Art"
+    ],
+    "canonical": "https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2026",
+    "before": {
+      "path": "/guides/youtube-banner-thumbnail-sizes-2026",
+      "title": "YouTube Banner & Thumbnail Sizes 2026 | SquarePic",
+      "description": "Find YouTube banner, thumbnail, and profile picture dimensions. Includes channel art safe zones and tips for desktop, mobile, and TV.",
+      "h1": [
+        "YouTube Banner & Thumbnail Sizes 2026: Channel Art, Profile & Video"
+      ],
+      "canonical": "https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2026"
+    },
+    "target_keyword": "youtube channel art recommended size 2026; thumbnail vs banner",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "youtube channel art recommended size 2026",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 24.0
+      },
+      {
+        "query": "thumbnail vs banner",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 11.0
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "\"youtube auto\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 5.333333333333333
+      },
+      {
+        "query": "youtube channel art recommended size 2026",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 24.0
+      },
+      {
+        "query": "thumbnail vs banner",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 11.0
+      },
+      {
+        "query": "youtube banner size requirements 2026",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 68.0
+      },
+      {
+        "query": "youtube channel art dimensions 2026",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 29.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/image-size-calculator",
+    "title": "Image Size Calculator: Pixels & Aspect Ratios | SquarePic",
+    "description": "Use this calculator to find pixel dimensions, aspect ratios and megapixels. Calculate proportional resize dimensions and matching social media presets.",
+    "h1": [
+      "Image Size Calculator & Aspect Ratios"
+    ],
+    "canonical": "https://www.squarepic.io/image-size-calculator",
+    "before": {
+      "path": "/image-size-calculator",
+      "title": "Image Size & Aspect Ratio Calculator | SquarePic",
+      "description": "Calculate image aspect ratios, megapixels, and proportional resize dimensions from width and height. Find matching social media sizes.",
+      "h1": [
+        "Image Size & Aspect Ratio Calculator"
+      ],
+      "canonical": "https://www.squarepic.io/image-size-calculator"
+    },
+    "target_keyword": "image size calculator; image dimension calculator",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "image size calculator",
+        "clicks": 2,
+        "impressions": 138,
+        "position": 9.094202898550725
+      },
+      {
+        "query": "image dimension calculator",
+        "clicks": 0,
+        "impressions": 17,
+        "position": 9.352941176470589
+      },
+      {
+        "query": "photo size",
+        "clicks": 0,
+        "impressions": 16,
+        "position": 43.625
+      },
+      {
+        "query": "picture size calculator",
+        "clicks": 0,
+        "impressions": 15,
+        "position": 18.2
+      },
+      {
+        "query": "photo size ratio calculator",
+        "clicks": 0,
+        "impressions": 12,
+        "position": 49.25
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "image size calculator",
+        "clicks": 4,
+        "impressions": 178,
+        "position": 11.370786516853933
+      },
+      {
+        "query": "size of image calculator",
+        "clicks": 1,
+        "impressions": 1,
+        "position": 10.0
+      },
+      {
+        "query": "image aspect ratio calculator",
+        "clicks": 0,
+        "impressions": 44,
+        "position": 57.40909090909091
+      },
+      {
+        "query": "image resizer calculator",
+        "clicks": 0,
+        "impressions": 34,
+        "position": 69.1470588235294
+      },
+      {
+        "query": "photo size ratio calculator",
+        "clicks": 0,
+        "impressions": 34,
+        "position": 54.8235294117647
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/privacy",
+    "title": "Privacy Policy | SquarePic",
+    "description": "Read how SquarePic processes images in your browser and uses analytics. Learn about data handling, cookies, and your privacy choices.",
+    "h1": [
+      "Privacy Policy"
+    ],
+    "canonical": "https://www.squarepic.io/privacy",
+    "before": {
+      "path": "/privacy",
+      "title": "Privacy Policy | SquarePic",
+      "description": "Read how SquarePic processes images in your browser and uses analytics. Learn about data handling, cookies, and your privacy choices.",
+      "h1": [
+        "Privacy Policy"
+      ],
+      "canonical": "https://www.squarepic.io/privacy"
+    },
+    "target_keyword": "Privacy Policy",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/discord",
+    "title": "Discord Banner & Invite Splash Image Resizer | SquarePic",
+    "description": "Resize a Discord server banner to 960x540 or an invite splash to 1920x1080. Choose icon and profile presets too. Export still images free in your browser.",
+    "h1": [
+      "Discord Server Banner & Invite Splash Image Resizer"
+    ],
+    "canonical": "https://www.squarepic.io/resize/discord",
+    "before": {
+      "path": "/resize/discord",
+      "title": "Discord Banner & Invite Splash Image Resizer | SquarePic",
+      "description": "Prepare a 960 \u00d7 540 Discord server banner or 1920 \u00d7 1080 invite background. Compare presets, then resize a still image locally in the free editor.",
+      "h1": [
+        "Discord Image Resizer and Pixel Sizes"
+      ],
+      "canonical": "https://www.squarepic.io/resize/discord"
+    },
+    "target_keyword": "discord banner image resizer",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/facebook",
+    "title": "Facebook Image Resizer: Covers, Posts & Profiles | SquarePic",
+    "description": "Resize Facebook cover photos, posts and profile pictures with pixel-size presets. Fit the whole photo with blur or padding and export PNG, JPG or WebP.",
+    "h1": [
+      "Facebook Image Resizer for Covers, Posts & Profiles"
+    ],
+    "canonical": "https://www.squarepic.io/resize/facebook",
+    "before": {
+      "path": "/resize/facebook",
+      "title": "Facebook Image Sizes & Free Resizer | SquarePic",
+      "description": "Find Facebook image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.",
+      "h1": [
+        "Facebook Image Sizes: Complete Dimensions Guide"
+      ],
+      "canonical": "https://www.squarepic.io/resize/facebook"
+    },
+    "target_keyword": "facebook image resizer",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/instagram",
+    "title": "Instagram Post Resizer & Square Photo Maker | SquarePic",
+    "description": "Resize an Instagram post to 1080x1080 square, portrait, landscape or Story presets. Keep the full photo with blur or padding. Free, with no signup.",
+    "h1": [
+      "Instagram Post Resizer & Square Photo Maker"
+    ],
+    "canonical": "https://www.squarepic.io/resize/instagram",
+    "before": {
+      "path": "/resize/instagram",
+      "title": "Instagram Image Resizer & Square Photo Maker | SquarePic",
+      "description": "Resize Instagram photos to square, portrait, landscape, or Story presets. Fit the full picture with blur or padding. Free, with no signup.",
+      "h1": [
+        "Instagram Image Resizer and Pixel Sizes"
+      ],
+      "canonical": "https://www.squarepic.io/resize/instagram"
+    },
+    "target_keyword": "instagram post size maker; square image instagram",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "square image instagram",
+        "clicks": 0,
+        "impressions": 6,
+        "position": 11.5
+      },
+      {
+        "query": "instagram post size maker",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 9.4
+      },
+      {
+        "query": "instagram square size",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 68.0
+      },
+      {
+        "query": "+instagram landscape aspect ratio 1.91:1 1080x566",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 9.0
+      },
+      {
+        "query": "instagram photo size maker",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 10.75
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "+instagram landscape aspect ratio 1.91:1 1080x566",
+        "clicks": 0,
+        "impressions": 6,
+        "position": 9.166666666666666
+      },
+      {
+        "query": "instagram square size",
+        "clicks": 0,
+        "impressions": 6,
+        "position": 69.66666666666667
+      },
+      {
+        "query": "square image instagram",
+        "clicks": 0,
+        "impressions": 6,
+        "position": 11.5
+      },
+      {
+        "query": "instagram post size maker",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 9.4
+      },
+      {
+        "query": "%instagram landscape aspect ratio 1.91:1 1080x566",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 8.5
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/linkedin",
+    "title": "LinkedIn Image Resizer: 1200x627 Posts | SquarePic",
+    "description": "Resize images for LinkedIn posts, profiles and company covers. Use the 1200x627 post preset at about 1.91:1, or fit a full photo with blur or padding.",
+    "h1": [
+      "LinkedIn Image Resizer for 1200x627 Posts & Profiles"
+    ],
+    "canonical": "https://www.squarepic.io/resize/linkedin",
+    "before": {
+      "path": "/resize/linkedin",
+      "title": "LinkedIn Image Resizer & Pixel Sizes | SquarePic",
+      "description": "Resize LinkedIn images for 1200 \u00d7 627 landscape posts, square posts, and profiles. Check aspect ratios and fit photos without stretching.",
+      "h1": [
+        "LinkedIn Image Resizer and Pixel Sizes"
+      ],
+      "canonical": "https://www.squarepic.io/resize/linkedin"
+    },
+    "target_keyword": "resize image for linkedin; 1200x627 aspect ratio",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "ok is there any other way",
+        "clicks": 1,
+        "impressions": 1,
+        "position": 1.0
+      },
+      {
+        "query": "1200x627 aspect ratio",
+        "clicks": 0,
+        "impressions": 26,
+        "position": 9.384615384615385
+      },
+      {
+        "query": "1200 x 627 pixels",
+        "clicks": 0,
+        "impressions": 18,
+        "position": 9.722222222222221
+      },
+      {
+        "query": "resize image for linkedin",
+        "clicks": 0,
+        "impressions": 17,
+        "position": 9.823529411764707
+      },
+      {
+        "query": "linkedin 1200x628",
+        "clicks": 0,
+        "impressions": 14,
+        "position": 34.92857142857143
+      },
+      {
+        "query": "linkedin image resizer",
+        "clicks": 0,
+        "impressions": 12,
+        "position": 10.5
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "ok is there any other way",
+        "clicks": 1,
+        "impressions": 1,
+        "position": 1.0
+      },
+      {
+        "query": "linkedin 1200x628",
+        "clicks": 0,
+        "impressions": 31,
+        "position": 54.12903225806452
+      },
+      {
+        "query": "1200x627 aspect ratio",
+        "clicks": 0,
+        "impressions": 26,
+        "position": 9.384615384615385
+      },
+      {
+        "query": "resize image for linkedin",
+        "clicks": 0,
+        "impressions": 20,
+        "position": 12.7
+      },
+      {
+        "query": "1200 x 627 pixels",
+        "clicks": 0,
+        "impressions": 19,
+        "position": 13.210526315789474
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/pinterest",
+    "title": "Pinterest Image Resizer: Pins & Board Covers | SquarePic",
+    "description": "Resize Pinterest images for 2:3 pins, square pins, board covers and profile pictures. Fit the full photo with blur or padding and export locally for free.",
+    "h1": [
+      "Pinterest Pin & Board Cover Image Resizer"
+    ],
+    "canonical": "https://www.squarepic.io/resize/pinterest",
+    "before": {
+      "path": "/resize/pinterest",
+      "title": "Pinterest Image Sizes & Free Resizer | SquarePic",
+      "description": "Find Pinterest image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.",
+      "h1": [
+        "Pinterest Image Sizes: Complete Dimensions Guide"
+      ],
+      "canonical": "https://www.squarepic.io/resize/pinterest"
+    },
+    "target_keyword": "pinterest image resizer",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/reddit",
+    "title": "Reddit Image Resizer: Banners, Posts & Profiles | SquarePic",
+    "description": "Resize Reddit banner, post and profile images with pixel-size presets. Fit your photo with blur or padding, check the preview and download locally for free.",
+    "h1": [
+      "Reddit Image Resizer for Banners, Posts & Profiles"
+    ],
+    "canonical": "https://www.squarepic.io/resize/reddit",
+    "before": {
+      "path": "/resize/reddit",
+      "title": "Reddit Image Sizes & Free Resizer | SquarePic",
+      "description": "Find Reddit image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.",
+      "h1": [
+        "Reddit Image Sizes: Complete Dimensions Guide"
+      ],
+      "canonical": "https://www.squarepic.io/resize/reddit"
+    },
+    "target_keyword": "reddit image resizer",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/snapchat",
+    "title": "Snapchat Image Resizer: Stories & Profiles | SquarePic",
+    "description": "Resize Snapchat artwork with Story, profile, geofilter and ad presets. Fit a photo with blur or padding and download PNG, JPG or WebP free in your browser.",
+    "h1": [
+      "Snapchat Image Resizer for Stories & Profiles"
+    ],
+    "canonical": "https://www.squarepic.io/resize/snapchat",
+    "before": {
+      "path": "/resize/snapchat",
+      "title": "Snapchat Image Sizes & Free Resizer | SquarePic",
+      "description": "Find Snapchat image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.",
+      "h1": [
+        "Snapchat Image Sizes: Complete Dimensions Guide"
+      ],
+      "canonical": "https://www.squarepic.io/resize/snapchat"
+    },
+    "target_keyword": "snapchat image resizer",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/telegram",
+    "title": "Telegram Image Resizer: Profiles & Covers | SquarePic",
+    "description": "Resize Telegram profile pictures and channel covers with image presets. Fit your full photo with blur or padding and export PNG, JPG or WebP for free.",
+    "h1": [
+      "Telegram Profile & Channel Cover Image Resizer"
+    ],
+    "canonical": "https://www.squarepic.io/resize/telegram",
+    "before": {
+      "path": "/resize/telegram",
+      "title": "Telegram Image Sizes & Free Resizer | SquarePic",
+      "description": "Find Telegram image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.",
+      "h1": [
+        "Telegram Image Sizes: Complete Dimensions Guide"
+      ],
+      "canonical": "https://www.squarepic.io/resize/telegram"
+    },
+    "target_keyword": "telegram image resizer",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/tiktok",
+    "title": "TikTok Image Resizer: Profiles & Video Covers | SquarePic",
+    "description": "Resize TikTok profile pictures and 9:16 video-cover artwork with image presets. Fit with blur or padding and download a still image free, without signup.",
+    "h1": [
+      "TikTok Image Resizer for Profiles & Video Covers"
+    ],
+    "canonical": "https://www.squarepic.io/resize/tiktok",
+    "before": {
+      "path": "/resize/tiktok",
+      "title": "TikTok Image Sizes & Free Resizer | SquarePic",
+      "description": "Find TikTok image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.",
+      "h1": [
+        "TikTok Image Sizes: Complete Dimensions Guide"
+      ],
+      "canonical": "https://www.squarepic.io/resize/tiktok"
+    },
+    "target_keyword": "tiktok image resizer",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/twitch",
+    "title": "Twitch Panel & Banner Image Resizer | SquarePic",
+    "description": "Resize an image for a Twitch panel with a 320-pixel-wide preset. Create profile and offline banners too. Free PNG, JPG or WebP export in your browser.",
+    "h1": [
+      "Twitch Panel & Banner Image Resizer"
+    ],
+    "canonical": "https://www.squarepic.io/resize/twitch",
+    "before": {
+      "path": "/resize/twitch",
+      "title": "Twitch Image Sizes & Free Resizer | SquarePic",
+      "description": "Find Twitch image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.",
+      "h1": [
+        "Twitch Image Sizes: Complete Dimensions Guide"
+      ],
+      "canonical": "https://www.squarepic.io/resize/twitch"
+    },
+    "target_keyword": "resize image for twitch panel",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "resize image for twitch panel",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 6.6
+      },
+      {
+        "query": "any bigger?",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 2.0
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "resize image for twitch panel",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 6.6
+      },
+      {
+        "query": "any bigger?",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 2.0
+      },
+      {
+        "query": "twitch panel image resizer",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 41.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/whatsapp",
+    "title": "WhatsApp Image Resizer: Profiles & Status | SquarePic",
+    "description": "Resize a WhatsApp profile picture, Status image or business cover with pixel-size presets. Keep the full photo with blur or padding. Free local downloads.",
+    "h1": [
+      "WhatsApp Profile Picture & Status Image Resizer"
+    ],
+    "canonical": "https://www.squarepic.io/resize/whatsapp",
+    "before": {
+      "path": "/resize/whatsapp",
+      "title": "WhatsApp Image Sizes & Free Resizer | SquarePic",
+      "description": "Find WhatsApp image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.",
+      "h1": [
+        "WhatsApp Image Sizes: Complete Dimensions Guide"
+      ],
+      "canonical": "https://www.squarepic.io/resize/whatsapp"
+    },
+    "target_keyword": "whatsapp image resizer",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/x-twitter",
+    "title": "Twitter Image Resizer: Posts, Headers & Profiles | SquarePic",
+    "description": "Resize images for X / Twitter posts, headers and profile pictures. Choose landscape or square presets, fit with a background, and download for free.",
+    "h1": [
+      "X / Twitter Image Resizer for Posts, Headers & Profiles"
+    ],
+    "canonical": "https://www.squarepic.io/resize/x-twitter",
+    "before": {
+      "path": "/resize/x-twitter",
+      "title": "X (Twitter) Image Sizes & Free Resizer | SquarePic",
+      "description": "Find X (Twitter) image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.",
+      "h1": [
+        "X (Twitter) Image Sizes: Complete Dimensions Guide"
+      ],
+      "canonical": "https://www.squarepic.io/resize/x-twitter"
+    },
+    "target_keyword": "twitter landscape image size",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "px twitter",
+        "clicks": 1,
+        "impressions": 2,
+        "position": 4.5
+      },
+      {
+        "query": "size twitter",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 21.6
+      },
+      {
+        "query": "twitter horizontal image size",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 9.0
+      },
+      {
+        "query": "twitter landscape image size",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 9.333333333333334
+      },
+      {
+        "query": "twitter landscape post size",
+        "clicks": 0,
+        "impressions": 2,
+        "position": 10.5
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "px twitter",
+        "clicks": 1,
+        "impressions": 2,
+        "position": 4.5
+      },
+      {
+        "query": "size twitter",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 21.6
+      },
+      {
+        "query": "twitter profile picture size",
+        "clicks": 0,
+        "impressions": 5,
+        "position": 78.8
+      },
+      {
+        "query": "twitter image size dimensions",
+        "clicks": 0,
+        "impressions": 4,
+        "position": 50.0
+      },
+      {
+        "query": "twitter horizontal image size",
+        "clicks": 0,
+        "impressions": 3,
+        "position": 9.0
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/resize/youtube",
+    "title": "YouTube Image Resizer: Banners & Thumbnails | SquarePic",
+    "description": "Resize YouTube banner, thumbnail and profile images with channel-art and 16:9 presets. Preview your framing and export PNG, JPG or WebP free in your browser.",
+    "h1": [
+      "YouTube Banner & Thumbnail Image Resizer"
+    ],
+    "canonical": "https://www.squarepic.io/resize/youtube",
+    "before": {
+      "path": "/resize/youtube",
+      "title": "YouTube Image Sizes & Free Resizer | SquarePic",
+      "description": "Find YouTube image dimensions and aspect ratios. Resize photos with platform presets in your browser. Free, with no signup or server uploads.",
+      "h1": [
+        "YouTube Image Sizes: Complete Dimensions Guide"
+      ],
+      "canonical": "https://www.squarepic.io/resize/youtube"
+    },
+    "target_keyword": "youtube image resizer",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/support",
+    "title": "SquarePic Help & Support | SquarePic",
+    "description": "Get help with SquarePic image tools, supported formats, downloads, and browser issues. Find troubleshooting tips or contact support.",
+    "h1": [
+      "Support"
+    ],
+    "canonical": "https://www.squarepic.io/support",
+    "before": {
+      "path": "/support",
+      "title": "SquarePic Help & Support | SquarePic",
+      "description": "Get help with SquarePic image tools, supported formats, downloads, and browser issues. Find troubleshooting tips or contact support.",
+      "h1": [
+        "Support"
+      ],
+      "canonical": "https://www.squarepic.io/support"
+    },
+    "target_keyword": "Support",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/terms",
+    "title": "Terms of Service | SquarePic",
+    "description": "Review the terms for using SquarePic image tools, including acceptable use, intellectual property, service availability, and limitations.",
+    "h1": [
+      "Terms of Service"
+    ],
+    "canonical": "https://www.squarepic.io/terms",
+    "before": {
+      "path": "/terms",
+      "title": "Terms of Service | SquarePic",
+      "description": "Review the terms for using SquarePic image tools, including acceptable use, intellectual property, service availability, and limitations.",
+      "h1": [
+        "Terms of Service"
+      ],
+      "canonical": "https://www.squarepic.io/terms"
+    },
+    "target_keyword": "Terms of Service",
+    "basis": "Page intent; no reported query rows",
+    "current_queries": [],
+    "supporting_queries": [],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  },
+  {
+    "path": "/upscaler",
+    "title": "Image Upscaler: Enlarge PNG & JPG Without AI | SquarePic",
+    "description": "Upscale PNG, JPG and WebP images online free without AI. Enlarge 2x, 3x or 4x, preserve PNG transparency and try optional sharpening. No signup or watermark.",
+    "h1": [
+      "Free Image Upscaler for PNG & JPG"
+    ],
+    "canonical": "https://www.squarepic.io/upscaler",
+    "before": {
+      "path": "/upscaler",
+      "title": "Free Image Upscaler: Enlarge PNG & JPG | SquarePic",
+      "description": "Upscale PNG, JPG, and WebP images 2x, 3x, or 4x without AI. Use optional sharpening and download locally. Free, with no signup or watermark.",
+      "h1": [
+        "Free HD Image Upscaler"
+      ],
+      "canonical": "https://www.squarepic.io/upscaler"
+    },
+    "target_keyword": "image upscaler; png upscaler; upscale image -ai",
+    "basis": "Current GSC query evidence",
+    "current_queries": [
+      {
+        "query": "upscale image -ai",
+        "clicks": 4,
+        "impressions": 33,
+        "position": 7.0
+      },
+      {
+        "query": "image upscaler -ai",
+        "clicks": 2,
+        "impressions": 50,
+        "position": 5.6
+      },
+      {
+        "query": "upscale image free",
+        "clicks": 1,
+        "impressions": 15,
+        "position": 11.466666666666667
+      },
+      {
+        "query": "is there a website that does it",
+        "clicks": 1,
+        "impressions": 1,
+        "position": 1.0
+      },
+      {
+        "query": "upscale image online",
+        "clicks": 0,
+        "impressions": 51,
+        "position": 54.98039215686274
+      },
+      {
+        "query": "png upscaler",
+        "clicks": 0,
+        "impressions": 42,
+        "position": 3.738095238095238
+      },
+      {
+        "query": "image upscaler online",
+        "clicks": 0,
+        "impressions": 28,
+        "position": 27.178571428571427
+      }
+    ],
+    "supporting_queries": [
+      {
+        "query": "upscale image -ai",
+        "clicks": 4,
+        "impressions": 33,
+        "position": 7.0
+      },
+      {
+        "query": "image upscaler -ai",
+        "clicks": 2,
+        "impressions": 50,
+        "position": 5.6
+      },
+      {
+        "query": "upscale image free",
+        "clicks": 1,
+        "impressions": 15,
+        "position": 11.466666666666667
+      },
+      {
+        "query": "is there a website that does it",
+        "clicks": 1,
+        "impressions": 1,
+        "position": 1.0
+      },
+      {
+        "query": "upscale image online",
+        "clicks": 0,
+        "impressions": 51,
+        "position": 54.98039215686274
+      }
+    ],
+    "slug_decision": "Retain the descriptive existing canonical URL"
+  }
+]

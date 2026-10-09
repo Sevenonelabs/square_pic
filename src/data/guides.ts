@@ -7,6 +7,18 @@ export interface Guide {
 
 export const GUIDES: Guide[] = [
   {
+    path: "/guides/square-image-size",
+    title: "Square Image Size: Pixels, Ratios and Printing",
+    description: "Calculate square padding, crop loss and enlargement for your photo. Compare pixel dimensions and print sizes.",
+    date: "2026-10-09",
+  },
+  {
+    path: "/guides/how-to-enlarge-a-photo",
+    title: "How to Enlarge a Photo for Screens and Printing",
+    description: "Use the print planner to calculate required pixels, source PPI and a supported enlargement. Check quality before exporting.",
+    date: "2026-10-09",
+  },
+  {
     path: "/guides/make-image-square-without-cropping",
     title: "How to Make an Image Square Without Cropping",
     description: "Learn how to make an image square without cropping. Follow photo examples, compare blur and solid padding, calculate borders and choose PNG, JPG or WebP export.",
@@ -69,7 +81,7 @@ export const GUIDES: Guide[] = [
 ];
 
 export const CATEGORY_KEYWORDS: Record<string, string[]> = {
-  "photo-editing": ["make-image-square"],
+  "photo-editing": ["make-image-square", "square-image-size", "how-to-enlarge-a-photo"],
   instagram: ["instagram"],
   linkedin: ["linkedin"],
   youtube: ["youtube"],
