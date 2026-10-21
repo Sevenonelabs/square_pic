@@ -1,0 +1,82 @@
+{
+  "url": "https://www.makesquareimage.com/",
+  "status_code": 200,
+  "content": "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"preload\" href=\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"><link rel=\"stylesheet\" href=\"/_next/static/css/7b5971e3ac093468.css\" crossorigin=\"\" data-precedence=\"next\"><link rel=\"preload\" as=\"script\" fetchpriority=\"low\" href=\"/_next/static/chunks/webpack-d63a674b7398a8e2.js\" crossorigin=\"\"><script src=\"/_next/static/chunks/fd9d1056-a0a67b907ca59d16.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/938-e78b478408683352.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/main-app-01dcb8892b176af1.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/99-7f790e51c6b4f54d.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/page-2d65df54dac4e56b.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/layout-d6260562b96f7810.js\" async=\"\"></script><link rel=\"preload\" href=\"https://www.googletagmanager.com/gtag/js?id=G-CQQKVL0VN5\" as=\"script\"><link rel=\"icon\" href=\"/favicon.ico\"><link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"><link rel=\"manifest\" href=\"/site.webmanifest\"><meta name=\"theme-color\" content=\"#3b82f6\"><title>Make Image Square - Resize and Edit | Free Online Tool</title><meta name=\"description\" content=\"Make image square with white board backgrounds. Edit and transform your images into perfect squares and various aspect ratios. Batch process multiple images for Instagram, Twitter, wallpapers, and more.\"><meta name=\"author\" content=\"Make Square Image\"><meta name=\"keywords\" content=\"make image square, edit image, white board canvas, square image maker, batch image editor, Instagram square, Twitter image, canvas editor, aspect ratio, image processor, free online tool\"><meta name=\"creator\" content=\"Make Square Image\"><meta name=\"publisher\" content=\"Make Square Image\"><meta name=\"robots\" content=\"index, follow\">",
+  "raw_content": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/7b5971e3ac093468.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-d63a674b7398a8e2.js\" crossorigin=\"\"/><script src=\"/_next/static/chunks/fd9d1056-a0a67b907ca59d16.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/938-e78b478408683352.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/main-app-01dcb8892b176af1.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/99-7f790e51c6b4f54d.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/page-2d65df54dac4e56b.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/layout-d6260562b96f7810.js\" async=\"\"></script><link rel=\"preload\" href=\"https://www.googletagmanager.com/gtag/js?id=G-CQQKVL0VN5\" as=\"script\"/><link rel=\"icon\" href=\"/favicon.ico\"/><link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"/><link rel=\"manifest\" href=\"/site.webmanifest\"/><meta name=\"theme-color\" content=\"#3b82f6\"/><title>Make Image Square - Resize and Edit | Free Online Tool</title><meta name=\"description\" content=\"Make image square with white board backgrounds. Edit and transform your images into perfect squares and various aspect ratios. Batch process multiple images for Instagram, Twitter, wallpapers, and more.\"/><meta name=\"author\" content=\"Make Square Image\"/><meta name=\"keywords\" content=\"make image square, edit image, white board canvas, square image maker, batch image editor, Instagram square, Twitter image, canvas editor, aspect ratio, image processor, free online tool\"/><meta name=\"creator\" content=\"Make Square Image\"/><meta name=\"publisher\" content=\"Make Square Image\"/><meta name=\"robots\" content=\"",
+  "is_spa": false,
+  "extracted_text": "Make Image Square - Edit and Resize\nMake image square with white board backgrounds. Edit and transform your images into perfect squares and various aspect ratios. Perfect for Instagram, Twitter, wallpapers, and more.\n\u2713 Make square images\u2713 White board editor\u2713 Batch processing\u2713 High quality output\nUpload Images\nDrop your images here or click to browse\nSupport for JPEG, PNG, and WebP files (Max 10 files)",
+  "publication_date": "2025-01-01",
+  "accessibility_tree": null,
+  "accessibility_error": null,
+  "accessibility_partial": false,
+  "headers": {
+    "access-control-allow-origin": "*",
+    "age": "537508",
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "cache-control": "public, max-age=0, must-revalidate",
+    "cf-cache-status": "DYNAMIC",
+    "cf-ray": "a4767477fbcaa631-MRS",
+    "content-disposition": "inline",
+    "content-encoding": "zstd",
+    "content-type": "text/html; charset=utf-8",
+    "date": "Thu, 08 Oct 2026 16:17:18 GMT",
+    "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=L7aeUYvvhw17BYlXbCFQP21xEYKOGarJDjVpmMVkIBnONmuCYPa1U3Dfi9BqiIZvyMGXB5uYWJ9vVYaEU47l9jBlHi%2Bg7pFTNSVfGe4R8QgTH513kUVrS2k%2Bru6KiYPrITclwjKZS00xH5GZd6TcuS0UeeJlCg%3D%3D\"}]}",
+    "server": "cloudflare",
+    "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=7,cfOrigin;dur=87",
+    "strict-transport-security": "max-age=63072000",
+    "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url, accept-encoding",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-matched-path": "/",
+    "x-vercel-cache": "HIT",
+    "x-vercel-id": "cdg1::qwgcb-1791476238131-69c8dda8c6ee"
+  },
+  "redirect_chain": [],
+  "console_errors": [],
+  "render_diagnostics": [],
+  "render_engine": "playwright-chromium",
+  "render_ms": 3212.4304000026314,
+  "mode_used": "rendered",
+  "error": null,
+  "structured_data": {
+    "block_count": 1,
+    "processed_count": 1,
+    "total_bytes": 631,
+    "truncated": false,
+    "blocks": [
+      {
+        "index": 1,
+        "size_bytes": 631,
+        "valid": true,
+        "types": [
+          "Offer",
+          "WebApplication"
+        ],
+        "types_truncated": false
+      }
+    ]
+  },
+  "truncation": {
+    "limit": 2000,
+    "fields": {
+      "content": {
+        "original_chars": 28328,
+        "returned_chars": 2000,
+        "truncated": true
+      },
+      "raw_content": {
+        "original_chars": 19741,
+        "returned_chars": 2000,
+        "truncated": true
+      },
+      "extracted_text": {
+        "original_chars": 404,
+        "returned_chars": 404,
+        "truncated": false
+      }
+    }
+  },
+  "output_written": true
+}

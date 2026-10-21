@@ -1,0 +1,131 @@
+{
+  "url": "https://www.image-color-changer.com/square-image",
+  "status_code": 200,
+  "content": "<!DOCTYPE html><!--4VBNNNIOirX4UYnY_BDY2--><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/brand/icc-lockup-dark-v2.webp\" as=\"image\" type=\"image/webp\" fetchPriority=\"high\"/><link rel=\"preload\" as=\"image\" href=\"/brand/icc-lockup-light-v2.webp?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\"/><link rel=\"preload\" as=\"image\" href=\"/brand/icc-lockup-dark-v2.webp?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/8c3bc75c15cb9952.css?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/19ffec3d72987514.css?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/474ce293fb222d16.js?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\"/><script src=\"/_next/static/chunks/2877100b4aad7547.js?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" async=\"\"></script><script src=\"/_next/static/chunks/5208b4d785e83758.js?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" async=\"\"></script><script src=\"/_next/static/chunks/7d6514a90169e63d.js?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-cb0053be1d5697af.js?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" async=\"\"></script><script src=\"/_next/static/chunks/de77",
+  "raw_content": "<!DOCTYPE html><!--4VBNNNIOirX4UYnY_BDY2--><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/brand/icc-lockup-dark-v2.webp\" as=\"image\" type=\"image/webp\" fetchPriority=\"high\"/><link rel=\"preload\" as=\"image\" href=\"/brand/icc-lockup-light-v2.webp?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\"/><link rel=\"preload\" as=\"image\" href=\"/brand/icc-lockup-dark-v2.webp?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/8c3bc75c15cb9952.css?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/19ffec3d72987514.css?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/474ce293fb222d16.js?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\"/><script src=\"/_next/static/chunks/2877100b4aad7547.js?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" async=\"\"></script><script src=\"/_next/static/chunks/5208b4d785e83758.js?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" async=\"\"></script><script src=\"/_next/static/chunks/7d6514a90169e63d.js?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-cb0053be1d5697af.js?dpl=dpl_59uLViYKrUK8J12WdPWTR4r1nyvJ\" async=\"\"></script><script src=\"/_next/static/chunks/de77",
+  "is_spa": false,
+  "extracted_text": "- Home\n- Make an Image Square\nMake an Image Square\nCrop any photo to a perfect centred square \u2014 the 1:1 ratio profile pictures, product grids and social posts insist on.\nFree preview \u00b7 No signup \u00b7 ~10 seconds\nDrop an image to square off\nPNG, JPG, WebP or SVG \u2014 up to 20 MB\nDrop several at once \u2014 you can edit them all together in the app.\nRuns entirely in your browser. Your image is never uploaded.\nWhy so many places demand a square\nCropped, not squashed\nThis takes a centred square out of the image. It does not stretch the picture into a square frame, which is the other way of getting to 1:1 and the one that makes everyone look wider than they are.\nThe long sides go\nA 16:9 photo loses roughly a third of its width. Whatever matters has to be near the centre \u2014 check the edges before you commit, especially on a group photo where someone is standing at the end.\nWhy platforms want it\nSquare is the only ratio that renders identically in a grid, a list and a circular mask. That is why profile pictures, product thumbnails and post previews converge on it: one asset that cannot break any of the three layouts.\nNo quality cost\nCropping selects existing pixels, so the square is exactly as sharp as the source. Resize afterwards if the platform also specifies dimensions.\nTransparency is kept\nA transparent PNG squares up without gaining a background, so the result still drops onto any colour.\nBefore you square a photo\nCrop the composition first\nThe square is always centred. If your subject is",
+  "publication_date": "2026-10-07",
+  "accessibility_tree": null,
+  "accessibility_error": null,
+  "accessibility_partial": false,
+  "headers": {
+    "Access-Control-Allow-Origin": "*",
+    "Age": "149",
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "Content-Disposition": "inline",
+    "Content-Encoding": "gzip",
+    "Content-Security-Policy-Report-Only": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'self' https://app.image-color-changer.com; frame-ancestors 'none'; form-action 'self' https://app.image-color-changer.com; img-src 'self' data: blob: https:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://cdn.flowpoint.ai; worker-src 'self'; connect-src 'self' https://cdn.flowpoint.ai https://*.flowpoint.ai; manifest-src 'self'; upgrade-insecure-requests",
+    "Content-Type": "text/html; charset=utf-8",
+    "Date": "Thu, 08 Oct 2026 16:16:29 GMT",
+    "Etag": "W/\"12c219efb70ee25237e555ac1193597c\"",
+    "Origin-Trial": "Agc5TDcUg12z9OY6iDBaueCwhpocsUt83eOef7s3DPDxpJcstTT4MWKQcECyzdqkz/h+T/HyCUcZndCdLPSiKggAAABbeyJvcmlnaW4iOiJodHRwczovL3d3dy5pbWFnZS1jb2xvci1jaGFuZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViTUNQIiwiZXhwaXJ5IjoxNzk0ODczNjAwfQ==",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Server": "Vercel",
+    "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+    "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Matched-Path": "/square-image",
+    "X-Nextjs-Prerender": "1",
+    "X-Nextjs-Stale-Time": "300",
+    "X-Vercel-Cache": "HIT",
+    "X-Vercel-Id": "bom1::qxpsn-1791476189565-1c42f206cf7a",
+    "Transfer-Encoding": "chunked"
+  },
+  "redirect_chain": [],
+  "console_errors": [],
+  "render_diagnostics": [],
+  "render_engine": null,
+  "render_ms": null,
+  "mode_used": "raw",
+  "error": null,
+  "structured_data": {
+    "block_count": 5,
+    "processed_count": 5,
+    "total_bytes": 8064,
+    "truncated": false,
+    "blocks": [
+      {
+        "index": 1,
+        "size_bytes": 294,
+        "valid": true,
+        "types": [
+          "BreadcrumbList",
+          "ListItem"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 2,
+        "size_bytes": 576,
+        "valid": true,
+        "types": [
+          "HowTo",
+          "HowToStep"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 3,
+        "size_bytes": 1338,
+        "valid": true,
+        "types": [
+          "Answer",
+          "FAQPage",
+          "Question"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 4,
+        "size_bytes": 713,
+        "valid": true,
+        "types": [
+          "Offer",
+          "WebApplication"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 5,
+        "size_bytes": 5143,
+        "valid": true,
+        "types": [
+          "ContactPoint",
+          "ImageObject",
+          "Offer",
+          "OfferCatalog",
+          "Organization",
+          "Person",
+          "PostalAddress",
+          "SoftwareApplication",
+          "WebSite"
+        ],
+        "types_truncated": false
+      }
+    ]
+  },
+  "truncation": {
+    "limit": 1500,
+    "fields": {
+      "content": {
+        "original_chars": 365689,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "raw_content": {
+        "original_chars": 365689,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "extracted_text": {
+        "original_chars": 3613,
+        "returned_chars": 1500,
+        "truncated": true
+      }
+    }
+  },
+  "output_written": true
+}

@@ -66,14 +66,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return OUTPUT_FORMATS.some((supported) => supported === (format === "jpg" ? "jpeg" : format));
   }).map((pair) => ({
     url: `${siteUrl}/converter/${pair}`,
-    lastModified: "2026-10-08",
+    lastModified: "2026-10-21",
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
   const editions2027 = STATIC_PAGES.filter((page) => page.path.endsWith("-2026")).map((page) => ({
     url: `${siteUrl}${page.path.replace(/-2026$/, "-2027")}`,
-    lastModified: "2026-10-09",
+    lastModified: page.path.includes("discord") ? "2026-10-21" : "2026-10-09",
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));

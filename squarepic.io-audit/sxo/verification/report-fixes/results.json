@@ -1,0 +1,230 @@
+[
+  {
+    "viewport": [
+      1366,
+      900
+    ],
+    "initial": {
+      "docWidth": 1366,
+      "width": 1366,
+      "uploadBottom": 554.796875,
+      "exportBottom": 863
+    },
+    "transparent": {
+      "width": 1366,
+      "height": 900,
+      "docWidth": 1366,
+      "preview": {
+        "top": 153,
+        "bottom": 839,
+        "width": 686,
+        "height": 686
+      },
+      "export": {
+        "top": 672.609375,
+        "bottom": 863,
+        "width": 340,
+        "height": 190.390625
+      },
+      "styles": [
+        44,
+        44,
+        44,
+        44
+      ]
+    },
+    "downloads": [
+      {
+        "tool_name": "square",
+        "device_layout": "desktop",
+        "output_format": "png",
+        "editor_mode": "transparent"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "desktop",
+        "output_format": "png",
+        "editor_mode": "solid"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "desktop",
+        "output_format": "png",
+        "editor_mode": "solid"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "desktop",
+        "output_format": "png",
+        "editor_mode": "solid"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "desktop",
+        "output_format": "webp",
+        "editor_mode": "crop"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "desktop",
+        "output_format": "jpeg",
+        "editor_mode": "crop"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "desktop",
+        "output_format": "png",
+        "editor_mode": "crop"
+      }
+    ],
+    "page_errors": []
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "initial": {
+      "docWidth": 390,
+      "width": 390,
+      "uploadBottom": 436.84375,
+      "exportBottom": 1965
+    },
+    "transparent": {
+      "width": 390,
+      "height": 844,
+      "docWidth": 390,
+      "preview": {
+        "top": 139,
+        "bottom": 443,
+        "width": 304,
+        "height": 304
+      },
+      "export": {
+        "top": 618.609375,
+        "bottom": 811,
+        "width": 348,
+        "height": 192.390625
+      },
+      "styles": [
+        44,
+        44,
+        44,
+        44
+      ]
+    },
+    "downloads": [
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "png",
+        "editor_mode": "transparent"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "png",
+        "editor_mode": "solid"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "png",
+        "editor_mode": "solid"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "png",
+        "editor_mode": "solid"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "webp",
+        "editor_mode": "crop"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "jpeg",
+        "editor_mode": "crop"
+      }
+    ],
+    "page_errors": []
+  },
+  {
+    "viewport": [
+      320,
+      568
+    ],
+    "initial": {
+      "docWidth": 320,
+      "width": 320,
+      "uploadBottom": 492.265625,
+      "exportBottom": 2159.171875
+    },
+    "transparent": {
+      "width": 320,
+      "height": 568,
+      "docWidth": 320,
+      "preview": {
+        "top": 139,
+        "bottom": 257,
+        "width": 118,
+        "height": 118
+      },
+      "export": {
+        "top": 342.609375,
+        "bottom": 535,
+        "width": 278,
+        "height": 192.390625
+      },
+      "styles": [
+        44,
+        44,
+        44,
+        44
+      ]
+    },
+    "downloads": [
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "png",
+        "editor_mode": "transparent"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "png",
+        "editor_mode": "solid"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "png",
+        "editor_mode": "solid"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "png",
+        "editor_mode": "solid"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "webp",
+        "editor_mode": "crop"
+      },
+      {
+        "tool_name": "square",
+        "device_layout": "mobile",
+        "output_format": "jpeg",
+        "editor_mode": "crop"
+      }
+    ],
+    "page_errors": []
+  }
+]

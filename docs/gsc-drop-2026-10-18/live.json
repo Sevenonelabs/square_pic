@@ -1,0 +1,72 @@
+[
+  {
+    "url": "https://squarepic.io/",
+    "status": 200,
+    "final": "https://www.squarepic.io/",
+    "robots": null,
+    "canonical": [
+      "canonical\" href=\"https://www.squarepic.io\"/"
+    ],
+    "metaRobots": [
+      "<meta name=\"robots\" content=\"index, follow\"/>"
+    ],
+    "sample": null
+  },
+  {
+    "url": "https://www.squarepic.io/",
+    "status": 200,
+    "final": "https://www.squarepic.io/",
+    "robots": null,
+    "canonical": [
+      "canonical\" href=\"https://www.squarepic.io\"/"
+    ],
+    "metaRobots": [
+      "<meta name=\"robots\" content=\"index, follow\"/>"
+    ],
+    "sample": null
+  },
+  {
+    "url": "https://www.squarepic.io/robots.txt",
+    "status": 200,
+    "final": "https://www.squarepic.io/robots.txt",
+    "robots": null,
+    "canonical": [],
+    "metaRobots": [],
+    "sample": "# \u2500\u2500 Allow all crawlers \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nUser-agent: *\nAllow: /\nDisallow: /api/\n\n# \u2500\u2500 AI crawler rules \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: Claude-Web\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\n# \u2500\u2500 Sitemaps \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nSitemap: https://www.squarepic.io/sitemap.xml\nSitemap: https://www.squarepic.io/sitemap-images\n\n"
+  },
+  {
+    "url": "https://www.squarepic.io/sitemap.xml",
+    "status": 200,
+    "final": "https://www.squarepic.io/sitemap.xml",
+    "robots": null,
+    "canonical": [],
+    "metaRobots": [],
+    "sample": null
+  },
+  {
+    "url": "https://www.squarepic.io/upscaler",
+    "status": 200,
+    "final": "https://www.squarepic.io/upscaler",
+    "robots": null,
+    "canonical": [
+      "canonical\" href=\"https://www.squarepic.io/upscaler\"/"
+    ],
+    "metaRobots": [
+      "<meta name=\"robots\" content=\"index, follow\"/>"
+    ],
+    "sample": null
+  },
+  {
+    "url": "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+    "status": 200,
+    "final": "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+    "robots": null,
+    "canonical": [
+      "canonical\" href=\"https://www.squarepic.io/guides/instagram-reels-stories-guide\"/"
+    ],
+    "metaRobots": [
+      "<meta name=\"robots\" content=\"index, follow\"/>"
+    ],
+    "sample": null
+  }
+]

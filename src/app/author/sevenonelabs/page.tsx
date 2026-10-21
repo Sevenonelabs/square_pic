@@ -58,7 +58,7 @@ export default function AuthorPage() {
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-6">
           SevenOneLabs is the team behind SquarePic. We specialize in web performance optimization, computer graphics,
           and user interface design. Every image tool processes photos in the browser without uploading them.
-          The site uses analytics and a referral widget; see the <Link href="/privacy" className="text-[var(--accent)] hover:underline">privacy policy</Link>. Our team writes the image editing guides on SquarePic to help creators, marketers, and
+          The site uses analytics and offers optional startup recommendations; see the <Link href="/privacy" className="text-[var(--accent)] hover:underline">privacy policy</Link>. Our team writes the image editing guides on SquarePic to help creators, marketers, and
           developers prepare images correctly for every platform.
         </p>
 
@@ -83,8 +83,8 @@ export default function AuthorPage() {
           <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             SquarePic is open source. View the code, report issues, or contribute on{" "}
             <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">GitHub</a>.{" "}
-            Questions or feedback? Email{" "}
-            <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>.
+            Questions or feedback? Use the{" "}
+            <Link href="/support#contact-form" className="text-[var(--accent)] no-underline hover:underline">SquarePic support contact form</Link>.
           </p>
         </div>
       </article>

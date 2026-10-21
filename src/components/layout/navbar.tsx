@@ -69,10 +69,10 @@ export function Navbar() {
       onClick={() => apply(color.accent, color.glow)} aria-label={`${name} theme`}
       aria-pressed={current.accent === color.accent} title={`${name.charAt(0).toUpperCase() + name.slice(1)} theme`}
       className="flex size-11 items-center justify-center rounded-md hover:bg-white/10 aria-pressed:bg-white/10"
-    ><span className="size-[18px] rounded-sm" style={{ background: color.accent, boxShadow: current.accent === color.accent ? "0 0 0 2px #e6edf5" : "none" }} /></button>)}
+    ><span data-theme-swatch={name} className="theme-swatch size-[18px] rounded-sm" /></button>)}
   </div>;
 
-  return <header ref={headerRef} className="fixed top-[36px] left-3 right-3 z-50 flex h-16 items-center justify-between gap-2 rounded-lg border border-white/10 bg-[rgba(5,5,7,0.94)] px-4 shadow-lg backdrop-blur-2xl max-md:top-[30px] max-md:left-2 max-md:right-2 max-md:px-3">
+  return <header ref={headerRef} className="site-navbar fixed left-3 right-3 z-50 flex h-16 items-center justify-between gap-2 rounded-lg border border-white/10 bg-[rgba(5,5,7,0.94)] px-4 shadow-lg backdrop-blur-2xl max-md:left-2 max-md:right-2 max-md:px-3">
     <Link href="/" onClick={close} className="flex min-h-11 shrink-0 items-center gap-2 no-underline" aria-label="SquarePic home">
       <span className="size-6 rounded-sm border-[3px] border-[var(--accent)]" />
       <span className="text-lg font-extrabold tracking-tight text-[#e6edf5]">SquarePic</span>
@@ -110,11 +110,11 @@ export function Navbar() {
     </nav>
     <div className="flex items-center gap-2 max-lg:hidden">
       {palette}
-      <Link href="/image-size-calculator" onClick={close} className="inline-flex min-h-11 items-center whitespace-nowrap rounded-md bg-[var(--accent)] px-3 text-sm font-bold text-black hover:brightness-110 max-xl:hidden">Image Size Calculator</Link>
+      <Link href="/image-size-calculator" onClick={close} className="inline-flex min-h-11 items-center whitespace-nowrap rounded-md bg-[var(--accent)] px-3 text-sm font-bold text-black hover:brightness-110 max-xl:hidden">Calculate image dimensions</Link>
     </div>
     <button type="button" ref={(element) => { triggerRefs.current.mobile = element; }} onClick={() => setOpen(open === "mobile" ? null : "mobile")}
       className="hidden min-h-11 items-center gap-2 rounded-md border border-white/10 px-3 text-base font-semibold max-lg:flex"
-      aria-label={open === "mobile" ? "Close navigation" : "Open navigation"} aria-expanded={open === "mobile"} aria-controls="mobile-navigation">
+      aria-label={open === "mobile" ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open === "mobile"} aria-controls="mobile-navigation">
       Menu <span aria-hidden="true">{open === "mobile" ? "×" : "☰"}</span>
     </button>
     {open === "mobile" && <nav id="mobile-navigation" aria-label="Mobile navigation" className="absolute top-full left-0 right-0 mt-2 max-h-[calc(100dvh-120px)] overflow-y-auto rounded-lg border border-white/10 bg-[#0d1117] p-4 shadow-2xl lg:hidden">

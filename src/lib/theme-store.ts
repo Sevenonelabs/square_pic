@@ -23,13 +23,11 @@ function getRandomTheme(): { name: string; color: ThemeColor } {
   return { name: key, color: THEMES[key] };
 }
 
-function applyToDocument(accent: string, glow: string) {
+function applyToDocument(accent: string) {
   if (typeof document === "undefined") return;
-  document.documentElement.style.setProperty("--accent", accent);
-  document.documentElement.style.setProperty("--accent-glow", glow);
+  const name = THEME_KEYS.find((key) => THEMES[key].accent === accent);
+  if (name) document.documentElement.dataset.theme = name;
 }
-
-applyToDocument(THEMES.lime.accent, THEMES.lime.glow);
 
 interface ThemeState {
   current: ThemeColor;
@@ -40,12 +38,12 @@ interface ThemeState {
 export const useTheme = create<ThemeState>((set) => ({
   current: THEMES.lime,
   apply: (accent, glow) => {
-    applyToDocument(accent, glow);
+    applyToDocument(accent);
     set({ current: { accent, glow } });
   },
   pickRandom: () => {
     const { color } = getRandomTheme();
-    applyToDocument(color.accent, color.glow);
+    applyToDocument(color.accent);
     set({ current: color });
   },
 }));

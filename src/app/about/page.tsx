@@ -105,7 +105,7 @@ export default function AboutPage() {
           Who Built SquarePic
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          SquarePic is developed by <strong className="text-[#e6edf5]">SevenOneLabs</strong>, a software development lab building browser-based image tools. Images are processed locally and are not uploaded. Website analytics and the referral widget make network requests, as described in the <Link href="/privacy" className="text-[var(--accent)] hover:underline">privacy policy</Link>.
+          SquarePic is developed by <strong className="text-[#e6edf5]">SevenOneLabs</strong>, a software development lab building browser-based image tools. Images are processed locally and are not uploaded. Website analytics make network requests, as described in the <Link href="/privacy" className="text-[var(--accent)] hover:underline">privacy policy</Link>.
         </p>
       </section>
 
@@ -115,7 +115,7 @@ export default function AboutPage() {
           Open Source
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          SquarePic is open source software built by <strong className="text-[#e6edf5]">SevenOneLabs</strong>. The source code is available on <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">GitHub</a>. Contributions, issues, and feature requests are welcome. You can also reach us at <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>.
+          SquarePic is open source software built by <strong className="text-[#e6edf5]">SevenOneLabs</strong>. The source code is available on <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">GitHub</a>. Contributions, issues, and feature requests are welcome. You can also reach us through the <Link href="/support#contact-form" className="text-[var(--accent)] no-underline hover:underline">Support contact form</Link>.
         </p>
       </section>
     </div>

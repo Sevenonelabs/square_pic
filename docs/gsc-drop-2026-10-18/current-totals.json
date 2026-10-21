@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "data": {
+    "rows": [
+      {
+        "clicks": 402,
+        "impressions": 24058,
+        "ctr": 0.01670961842214648,
+        "position": 8.88615013716851
+      }
+    ],
+    "_pagination": {
+      "pagesFetched": 1,
+      "totalRowsFetched": 1
+    },
+    "responseAggregationType": "byProperty"
+  },
+  "meta": {
+    "command": "analytics query",
+    "durationMs": 17497
+  }
+}

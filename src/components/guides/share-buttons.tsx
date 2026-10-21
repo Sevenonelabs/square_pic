@@ -1,49 +1,56 @@
 "use client";
 
-import { useCallback } from "react";
-import { SITE_URL as SITE } from "@/lib/constants";
+import { useState } from "react";
+import { SITE_URL } from "@/lib/constants";
 
-export function ShareButtons({ path, title }: { path: string; url?: string; title: string }) {
-  const url = `${SITE}${path}`;
+export function ShareButtons({ path, title }: { path: string; title: string }) {
+  const url = `${SITE_URL}${path}`;
+  const [message, setMessage] = useState("");
+  const encodedUrl = encodeURIComponent(url);
+  const text = encodeURIComponent(title);
+  const links = [
+    { label: "X", href: `https://twitter.com/intent/tweet?text=${text}&url=${encodedUrl}` },
+    { label: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}` },
+    { label: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}` },
+    { label: "WhatsApp", href: `https://wa.me/?text=${text}%20${encodedUrl}` },
+  ];
+  const control = "inline-flex min-h-11 items-center justify-center rounded-md border border-white/10 px-3 py-2 text-sm font-semibold text-[#abb8c7] hover:text-[var(--accent)] hover:border-[var(--accent)]/40";
 
-  const copyLink = useCallback(() => {
-    navigator.clipboard.writeText(url);
-  }, [url]);
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText(url);
+      setMessage("Page link copied.");
+    } catch {
+      setMessage("Copy this page link from the field below.");
+    }
+  }
 
-  const twitter = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
-  const linkedin = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+  async function share() {
+    if (typeof navigator.share !== "function") {
+      setMessage("Choose a social link or copy the page link.");
+      return;
+    }
+    try {
+      await navigator.share({ title, url });
+      setMessage("Page shared.");
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      setMessage("Sharing is unavailable. Choose a social link or copy the page link.");
+    }
+  }
 
   return (
-    <div className="flex items-center gap-2">
-      <span className="text-[0.875rem] font-semibold text-[#8d9aaa] tracking-wider uppercase">Share</span>
-      <a
-        href={twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 text-[0.875rem] font-semibold text-[#8d9aaa] no-underline hover:text-[var(--accent)] transition-colors px-2.5 py-1 rounded-md border border-[rgba(255,255,255,0.06)] hover:border-[var(--accent)]/30"
-        aria-label="Share on X/Twitter"
-      >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        X
-      </a>
-      <a
-        href={linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 text-[0.875rem] font-semibold text-[#8d9aaa] no-underline hover:text-[var(--accent)] transition-colors px-2.5 py-1 rounded-md border border-[rgba(255,255,255,0.06)] hover:border-[var(--accent)]/30"
-        aria-label="Share on LinkedIn"
-      >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
-      <button
-        onClick={copyLink}
-        className="inline-flex items-center gap-1.5 text-[0.875rem] font-semibold text-[#8d9aaa] no-underline hover:text-[var(--accent)] transition-colors px-2.5 py-1 rounded-md border border-[rgba(255,255,255,0.06)] hover:border-[var(--accent)]/30 cursor-pointer bg-transparent"
-        aria-label="Copy link"
-      >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        Copy
-      </button>
+    <div aria-label="Share this page" className="flex flex-wrap items-center gap-2">
+      <span className="text-sm font-semibold text-[#abb8c7]">Share this page</span>
+      {links.map(({ label, href }) => (
+        <a key={label} href={href} target="_blank" rel="noopener noreferrer" className={control}>
+          Share on {label}
+        </a>
+      ))}
+      <button type="button" onClick={copyLink} className={control}>Copy page link</button>
+      <button type="button" onClick={share} className={control}>More sharing options</button>
+      <span role="status" className="basis-full min-h-6 text-sm text-[#abb8c7]">{message}</span>
+      {message.startsWith("Copy this") && <input aria-label="Page link to copy" value={url} readOnly onFocus={(event) => event.currentTarget.select()} className="basis-full min-h-11 rounded-md border border-white/10 bg-black/20 px-3 text-base" />}
     </div>
   );
 }

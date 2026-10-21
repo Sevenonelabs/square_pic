@@ -523,7 +523,7 @@ export function CropperTool() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.58-4.58a1 1 0 011.41 0L11 12m0 0l2.59-2.59a1 1 0 011.41 0L20 16m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
           </div>
-          <h3 className="text-[1.3rem] font-bold mb-2">Drop an image or click to browse</h3>
+          <p className="text-[1.3rem] font-bold mb-2">Drop an image or click to browse</p>
           <input ref={fileInputRef} type="file" hidden accept="image/*" onChange={(e) => e.target.files && handleFile(e.target.files[0])} />
         </motion.div>
       ) : (
@@ -554,7 +554,7 @@ export function CropperTool() {
             className="w-full lg:w-[280px] flex flex-col gap-3"
           >
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-              <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Aspect Ratio</h3>
+              <div className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Aspect Ratio</div>
               <div className="flex flex-wrap gap-1">
                 {RATIOS.map((r) => (
                   <button key={r.label} onClick={() => handleRatioChange(r.value)}
@@ -569,7 +569,7 @@ export function CropperTool() {
             </div>
 
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-              <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Zoom</h3>
+              <div className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Zoom</div>
               <div className="flex items-center gap-2 mb-1.5">
                 <button onClick={() => {
                   const nz = Math.max(0.1, zoomRef.current - 0.2);
@@ -602,7 +602,7 @@ export function CropperTool() {
             )}
 
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-              <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Export</h3>
+              <div className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Export</div>
               <div className="flex gap-1 mb-2">
                 {(["jpeg", "png", "webp"] as const).map((f) => (
                   <button key={f} onClick={() => setExpFormat(f)}

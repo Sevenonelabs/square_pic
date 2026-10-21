@@ -9,6 +9,12 @@ This file helps AI tools find SquarePic pages. It does not control search indexi
 - [Square image editor](https://www.squarepic.io/): Add blur or color backgrounds, crop, and resize photos.
 - [Image compressor](https://www.squarepic.io/compressor): Compress JPG, PNG, and WebP files, individually or in batches.
 - [Image converter](https://www.squarepic.io/converter): Convert image formats and download results.
+- [PNG to JPG converter](https://www.squarepic.io/converter/png-to-jpg): Convert PNG images to JPEG to reduce file size.
+- [JPG to PNG converter](https://www.squarepic.io/converter/jpg-to-png): Convert JPEG to lossless PNG without compression artifacts.
+- [PNG to WebP converter](https://www.squarepic.io/converter/png-to-webp): Retain alpha transparency with 50-70% smaller file size.
+- [JPG to WebP converter](https://www.squarepic.io/converter/jpg-to-webp): Convert JPEG to modern WebP for faster page load times.
+- [WebP to PNG converter](https://www.squarepic.io/converter/webp-to-png): Convert WebP to PNG for desktop and print compatibility.
+- [PNG to ICO converter](https://www.squarepic.io/converter/png-to-ico): Generate standards-compliant 256x256 website favicons.
 - [Photo cropper](https://www.squarepic.io/cropper): Crop with aspect ratio presets, zoom, and pan.
 - [Image upscaler](https://www.squarepic.io/upscaler): Enlarge photos with bicubic interpolation and sharpening.
 - [Image size calculator](https://www.squarepic.io/image-size-calculator): Browse platform dimensions and aspect ratios.

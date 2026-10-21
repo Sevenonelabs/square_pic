@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "data": {
+    "rows": [
+      {
+        "keys": [
+          "MOBILE"
+        ],
+        "clicks": 283,
+        "impressions": 11554,
+        "ctr": 0.024493681841786394,
+        "position": 7.395707114419249
+      },
+      {
+        "keys": [
+          "DESKTOP"
+        ],
+        "clicks": 118,
+        "impressions": 12321,
+        "ctr": 0.009577144712279847,
+        "position": 10.30119308497687
+      },
+      {
+        "keys": [
+          "TABLET"
+        ],
+        "clicks": 1,
+        "impressions": 183,
+        "ctr": 0.00546448087431694,
+        "position": 7.715846994535519
+      }
+    ],
+    "_pagination": {
+      "pagesFetched": 1,
+      "totalRowsFetched": 3
+    },
+    "responseAggregationType": "byProperty"
+  },
+  "meta": {
+    "command": "analytics query",
+    "durationMs": 17519
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "large_output_text": "OUTER BORDER (PADDING)\nPadding\n10%\nSTYLE\nBlur\nSolid\nCrop\nBLUR INTENSITY\nBlur\n20px\nADJUSTMENTS\nZoom\n100%\nEdge Radius\n0px\nSOCIAL SIZE\nInstagram\nFacebook\nX (Twitter)\nLinkedIn\nTikTok\nYouTube\nPinterest\nSnapchat\nWhatsApp\nTwitch\nReddit\nTelegram\nDiscord\nEXPORT\n\nOutput: 4096 x 4096 px. Full image fits inside the background.\n\nPNG\nJPEG\nWebP\nDownload & Share",
+  "large_download": {
+    "format": "PNG",
+    "width": 4096,
+    "height": 4096,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      168,
+      255
+    ]
+  },
+  "instagram_options": [
+    "Blur",
+    "Solid",
+    "Crop",
+    "Instagram",
+    "Facebook",
+    "X (Twitter)",
+    "LinkedIn",
+    "TikTok",
+    "YouTube",
+    "Pinterest",
+    "Snapchat",
+    "WhatsApp",
+    "Twitch",
+    "Reddit",
+    "Telegram",
+    "Discord",
+    "Profile Picture\n320x320",
+    "Landscape Post\n1080x566",
+    "Portrait Post\n1080x1350",
+    "Square Post\n1080x1080",
+    "Stories/Reels\n1080x1920",
+    "PNG",
+    "JPEG",
+    "WebP",
+    "Download & Share"
+  ],
+  "preset_text": "OUTER BORDER (PADDING)\nPadding\n10%\nSTYLE\nBlur\nSolid\nCrop\nBLUR INTENSITY\nBlur\n20px\nADJUSTMENTS\nZoom\n100%\nEdge Radius\n0px\nSOCIAL SIZE\nInstagram - Square Post\nCLEAR\nInstagram\nFacebook\nX (Twitter)\nLinkedIn\nTikTok\nYouTube\nPinterest\nSnapchat\nWhatsApp\nTwitch\nReddit\nTelegram\nDiscord\nProfile Picture\n320x320\nLandscape Post\n1080x566\nPortrait Post\n1080x1350\nSquare Post\n1080x1080\nStories/Reels\n1080x1920\nEXPORT\n\nOutput: 1080 x 1080 px. Full image fits inside the background.\n\nPNG\nJPEG\nWebP\nDownload & Share",
+  "preset_download": {
+    "format": "PNG",
+    "width": 1080,
+    "height": 1080,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      168,
+      255
+    ]
+  },
+  "transparent_solid_download": {
+    "format": "PNG",
+    "width": 600,
+    "height": 600,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      255,
+      255
+    ]
+  },
+  "examples": [
+    {
+      "alt": "A man in a white shirt against a gray background",
+      "loaded": true
+    },
+    {
+      "alt": "Full portrait with background added on the left and right",
+      "loaded": true
+    },
+    {
+      "alt": "Square crop of the portrait with the top and bottom trimmed",
+      "loaded": true
+    },
+    {
+      "alt": "A coffee cup surrounded by scattered coffee granules on a dark blue table",
+      "loaded": true
+    },
+    {
+      "alt": "Full coffee photo with background added above and below",
+      "loaded": true
+    },
+    {
+      "alt": "Square crop of the coffee photo with the left and right trimmed",
+      "loaded": true
+    }
+  ]
+}

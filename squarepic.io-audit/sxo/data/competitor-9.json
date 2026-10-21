@@ -1,0 +1,103 @@
+{
+  "url": "https://xatools.net/en/square-image/",
+  "status_code": 200,
+  "content": "<!DOCTYPE html>\n<html lang=\"en\" data-page-lang=\"en\" dir=\"ltr\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0\">\n<meta name=\"color-scheme\" content=\"dark\">\n<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n<meta name=\"mobile-web-app-capable\" content=\"yes\">\n<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\n<meta name=\"apple-mobile-web-app-title\" content=\"Xatools\">\n<title>Make an image square online without cropping or stretching (blurred background)</title>\n<meta name=\"description\" content=\"Turn any photo into a square for Instagram, WhatsApp or avatars: blurred background, solid colour, stretched or centre-cropped. No quality loss, free, no sign-up.\">\n\n<link rel=\"canonical\" href=\"https://xatools.net/en/square-image/\">\n<link rel=\"alternate\" hreflang=\"es\" href=\"https://xatools.net/imagen-cuadrada/\"><link rel=\"alternate\" hreflang=\"en\" href=\"https://xatools.net/en/square-image/\"><link rel=\"alternate\" hreflang=\"it\" href=\"https://xatools.net/it/immagine-quadrata/\"><link rel=\"alternate\" hreflang=\"fr\" href=\"https://xatools.net/fr/image-carree/\"><link rel=\"alternate\" hreflang=\"ar\" href=\"https://xatools.net/ar/%D8%B5%D9%88%D8%B1%D8%A9-%D9%85%D8%B1%D8%A8%D8%B9%D8%A9/\"><link rel=\"alternate\" hreflang=\"pt\" href=\"https://xatools.net/pt/imagem-quadrada/\"><link rel=\"alternate\" hreflang=\"tr\" href=\"https://xatools.net/tr/kare-resim/\"><link rel=\"alternate\" hreflang=\"x-def",
+  "raw_content": "<!DOCTYPE html>\n<html lang=\"en\" data-page-lang=\"en\" dir=\"ltr\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0\">\n<meta name=\"color-scheme\" content=\"dark\">\n<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n<meta name=\"mobile-web-app-capable\" content=\"yes\">\n<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\n<meta name=\"apple-mobile-web-app-title\" content=\"Xatools\">\n<title>Make an image square online without cropping or stretching (blurred background)</title>\n<meta name=\"description\" content=\"Turn any photo into a square for Instagram, WhatsApp or avatars: blurred background, solid colour, stretched or centre-cropped. No quality loss, free, no sign-up.\">\n\n<link rel=\"canonical\" href=\"https://xatools.net/en/square-image/\">\n<link rel=\"alternate\" hreflang=\"es\" href=\"https://xatools.net/imagen-cuadrada/\"><link rel=\"alternate\" hreflang=\"en\" href=\"https://xatools.net/en/square-image/\"><link rel=\"alternate\" hreflang=\"it\" href=\"https://xatools.net/it/immagine-quadrata/\"><link rel=\"alternate\" hreflang=\"fr\" href=\"https://xatools.net/fr/image-carree/\"><link rel=\"alternate\" hreflang=\"ar\" href=\"https://xatools.net/ar/%D8%B5%D9%88%D8%B1%D8%A9-%D9%85%D8%B1%D8%A8%D8%B9%D8%A9/\"><link rel=\"alternate\" hreflang=\"pt\" href=\"https://xatools.net/pt/imagem-quadrada/\"><link rel=\"alternate\" hreflang=\"tr\" href=\"https://xatools.net/tr/kare-resim/\"><link rel=\"alternate\" hreflang=\"x-def",
+  "is_spa": false,
+  "extracted_text": "Make any photo square, remove one-colour backgrounds and borders, or crop images and animated GIFs into shapes (heart, star, circle\u2026). Everything is processed in your browser: nothing is uploaded to any server.\nAutomatic two-step process: the image is made square by padding it with a white border and, at the same time, a version with that border removed (transparent) is generated. Only the colour touching the edges is removed; the inside is untouched even if it contains white.\n\ud83d\udcc1 Choose or drag an imageJPG, PNG, WEBP or GIF (first frame). You can also paste it with Ctrl+V.\nNo image loaded.\nBorder color\n#ffffffWhite\nTolerance\n18 Soft edge (antialiased cut)\nIf some border remains, raise the tolerance; if it eats into the image, lower it.\nTurn a rectangular image into a square without distorting it: blurred background, solid colour, stretched or cropped. Ideal for xat avatars, profiles and thumbnails.\n\ud83d\udcc1 Choose or drag an imageJPG, PNG, WEBP or GIF (first frame)\nThe preview is the real result at the chosen output size. Rescaling uses step-down reduction so it does not look blurry or pixelated.\nRemove borders (ClearBorder)\nRemoves the one-colour background or frame touching the edges of the image and makes it transparent. Pixels of the same colour inside the drawing are kept.\n\ud83d\udcc1 Choose or drag an imageJPG, PNG, WEBP or GIF (first frame)\nNo image loaded.\nColour to remove\n#ffffff\ud83d\udca7 EyedropperCorners\nClick on the preview to pick the colour.\nTolerance\n15 Also the inside (every pixel of t",
+  "publication_date": "2026-01-01",
+  "accessibility_tree": null,
+  "accessibility_error": null,
+  "accessibility_partial": false,
+  "headers": {
+    "Date": "Thu, 08 Oct 2026 16:16:32 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "x-frame-options": "DENY",
+    "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=XocxiWUR4dtPW21cOI4W%2BQvfK2Zgr%2FoiepMuPfLmPwCgfz0gA1DbDdqqQuTCoDWKfaEBOGKd0ML7ea5xxD5LXG5SSgzacRdHAJpPdeP4o%2BrMRSFkXAUedxiOLXEEkg%3D%3D\"}]}",
+    "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "Access-Control-Allow-Origin": "*",
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "x-content-type-options": "nosniff",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://xat.com https://www.xat.com https://s0.xat.com https://gs.xat.com https://xatblog.net https://illuxat.com https://wiki.xat.com https://i.imgur.com https://img.xatools.net https://img.3men2.com https://i.ibb.co https://iili.io; connect-src 'self' blob: data: https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co https://api.xatools.net https://img.xatools.net https://img.3men2.com https://i.ibb.co https://iili.io https://illuxat.com https://api.xatblog.net https://www.xat.com https://xat.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "vary": "accept-encoding",
+    "Server-Timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=14,cfOrigin;dur=93",
+    "Server": "cloudflare",
+    "cf-cache-status": "DYNAMIC",
+    "Content-Encoding": "gzip",
+    "CF-RAY": "a4767358ddc84777-MRS",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "redirect_chain": [],
+  "console_errors": [],
+  "render_diagnostics": [],
+  "render_engine": null,
+  "render_ms": null,
+  "mode_used": "raw",
+  "error": null,
+  "structured_data": {
+    "block_count": 3,
+    "processed_count": 3,
+    "total_bytes": 1972,
+    "truncated": false,
+    "blocks": [
+      {
+        "index": 1,
+        "size_bytes": 481,
+        "valid": true,
+        "types": [
+          "BreadcrumbList",
+          "ListItem"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 2,
+        "size_bytes": 618,
+        "valid": true,
+        "types": [
+          "Offer",
+          "Person",
+          "WebApplication"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 3,
+        "size_bytes": 873,
+        "valid": true,
+        "types": [
+          "Answer",
+          "FAQPage",
+          "Question"
+        ],
+        "types_truncated": false
+      }
+    ]
+  },
+  "truncation": {
+    "limit": 1500,
+    "fields": {
+      "content": {
+        "original_chars": 102124,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "raw_content": {
+        "original_chars": 102124,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "extracted_text": {
+        "original_chars": 3702,
+        "returned_chars": 1500,
+        "truncated": true
+      }
+    }
+  },
+  "output_written": true
+}

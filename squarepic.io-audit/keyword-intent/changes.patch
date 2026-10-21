@@ -1,0 +1,877 @@
+--- /dev/null
++++ b/scripts/verify-keyword-intent.py
+@@ -0,0 +1,165 @@
++"""Verify intent-to-editor journeys and actual exports against a local build.
++
++python scripts/verify-keyword-intent.py http://localhost:3100
++Requires the same Pillow, Playwright and Chromium as verify-tools.py.
++Analytics and the referral widget are blocked for this controlled local run.
++"""
++import io
++import json
++import os
++import sys
++from pathlib import Path
++from urllib.parse import urlsplit
++
++from PIL import Image
++from playwright.sync_api import sync_playwright, expect
++
++BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:3100"
++OUT = Path("squarepic.io-audit/keyword-intent/verification")
++OUT.mkdir(parents=True, exist_ok=True)
++checks, exports, errors = [], [], []
++fixtures = {}
++for fmt, extension in [("PNG", "png"), ("JPEG", "jpg"), ("WEBP", "webp")]:
++    image = Image.open("public/examples/square-source.png")
++    if fmt == "JPEG":
++        image = image.convert("RGB")
++    buffer = io.BytesIO()
++    image.save(buffer, format=fmt)
++    fixtures[extension] = {"name": f"artwork.{extension}", "mimeType": f"image/{'jpeg' if extension == 'jpg' else extension}", "buffer": buffer.getvalue()}
++
++with sync_playwright() as p:
++    browser = p.chromium.launch(headless=True, executable_path=os.getenv(
++        "CHROME_PATH", "C:/Users/shiva/plugins/claude-seo/ms-playwright/chromium-1243/chrome-win64/chrome.exe"))
++    context = browser.new_context(viewport={"width": 1366, "height": 900}, accept_downloads=True)
++    local_host = urlsplit(BASE).hostname
++    context.route("**/*", lambda route: route.continue_() if urlsplit(route.request.url).hostname == local_host else route.abort())
++    page = context.new_page()
++    page.on("pageerror", lambda error: errors.append(str(error)))
++
++    def visit(path):
++        response = page.goto(BASE + path, wait_until="load")
++        assert response.status == 200, (path, response.status)
++        # Next's route announcer mounts on the client. Server-rendered file
++        # inputs can accept a file before React has attached their handlers.
++        page.locator("#__next-route-announcer__").wait_for(state="attached")
++
++    def export(name, action, fmt, size):
++        with page.expect_download() as download:
++            action()
++        dest = OUT / (name + "-" + download.value.suggested_filename)
++        download.value.save_as(str(dest))
++        with Image.open(dest) as result:
++            result.load()
++            assert result.format == fmt and result.size == size, (name, result.format, result.size)
++            exports.append({"test": name, "format": result.format, "dimensions": list(result.size)})
++
++    # Click the exact match, ratio match and platform-browser results. A valid
++    # query string alone would not prove the destination exported the right size.
++    journeys = [
++        ("exact", 1200, 627, "/resize/linkedin?preset=landscape#resizer", (1200, 627)),
++        ("ratio", 720, 1280, "/resize/instagram?preset=stories#resizer", (1080, 1920)),
++        ("browse", 600, 400, "/resize/twitch?preset=panel#resizer", (320, 160)),
++    ]
++    for kind, width, height, target, size in journeys:
++        visit("/image-size-calculator")
++        page.get_by_label("Width (px)", exact=True).fill(str(width))
++        page.get_by_label("Height (px)", exact=True).fill(str(height))
++        if kind == "browse":
++            page.get_by_role("button", name="Twitch", exact=True).click()
++        page.locator(f'a[href="{target}"]').first.click()
++        expect(page).to_have_url(BASE + target)
++        page.locator('input[type="file"]').first.set_input_files(fixtures["png"])
++        page.get_by_role("button", name="Download & Share", exact=True).click()
++        export("calculator-" + kind, lambda: page.get_by_role("button", name="Download PNG", exact=True).click(), "PNG", size)
++        # The bottom CTA scrolls to the same editor without losing the photo.
++        page.get_by_role("link", name="Resize Your", exact=False).last.click()
++        expect(page).to_have_url(BASE + target)
++        expect(page.locator("canvas").first).to_be_visible()
++    checks.append("Calculator exact, ratio and browse links select presets and export the intended dimensions; bottom CTAs retain the loaded image.")
++
++    # Links from guides open the requested workflow, including the personal
++    # LinkedIn cover and the separate Discord invite background.
++    for guide, target, size in [
++        ("instagram-reels-stories-guide", "/resize/instagram?preset=stories#resizer", (1080, 1920)),
++        ("discord-image-sizes-2026", "/resize/discord?preset=serverSplash#resizer", (1920, 1080)),
++        ("linkedin-image-sizes-2026", "/resize/linkedin?preset=personalCover#resizer", (1584, 396)),
++        ("instagram-feed-sizes-2026", "/resize/instagram?preset=portrait#resizer", (1080, 1350)),
++    ]:
++        visit("/guides/" + guide)
++        page.locator(f'a[href="{target}"]').first.click()
++        page.locator('input[type="file"]').first.set_input_files(fixtures["png"])
++        page.get_by_role("button", name="Download & Share", exact=True).click()
++        export(guide, lambda: page.get_by_role("button", name="Download PNG", exact=True).click(), "PNG", size)
++    checks.append("Four guide links retain the placement through an actual image download.")
++
++    # The same dimensions occur on different platforms. Their shared size must
++    # not make a LinkedIn profile appear as an X profile in the selected label.
++    visit("/resize/linkedin?preset=profile#resizer")
++    page.locator('input[type="file"]').first.set_input_files(fixtures["png"])
++    expect(page.get_by_text("LinkedIn - Profile Picture", exact=True)).to_be_visible()
++    expect(page.get_by_role("button", name="LinkedIn", exact=True)).to_have_attribute("aria-pressed", "true")
++    checks.append("A shared square dimension retains the selected LinkedIn platform label.")
++
++    # Every advertised converter pair must produce its named format.
++    pairs = ["png-to-jpg", "jpg-to-png", "png-to-webp", "jpg-to-webp", "webp-to-png", "webp-to-jpg", "png-to-ico", "jpg-to-ico"]
++    for pair in pairs:
++        source, target = pair.split("-to-")
++        visit("/converter/" + pair)
++        page.locator('input[type="file"]').first.set_input_files(fixtures[source])
++        page.get_by_role("button", name="Convert All", exact=True).click()
++        fmt = {"jpg": "JPEG", "png": "PNG", "webp": "WEBP", "ico": "ICO"}[target]
++        export(pair, lambda: page.get_by_role("button", name="Download", exact=True).click(), fmt, (256, 171) if target == "ico" else (600, 400))
++        section = page.get_by_role("heading", name="Other conversions", exact=False).locator("..")
++        assert all(link.get_attribute("href").split("/")[-1] in pairs for link in section.get_by_role("link").all())
++    for pair in ["png-to-avif", "jpg-to-avif", "webp-to-avif", "png-to-gif", "jpg-to-gif", "webp-to-gif"]:
++        visit("/converter/" + pair)
++        expect(page.get_by_role("heading", level=1)).to_contain_text("unavailable")
++        expect(page.locator('input[type="file"]')).to_have_count(0)
++    checks.append("All eight supported converter pairs decode in the named format; six unsupported pairs disclose unavailability.")
++
++    # The assets on the upscaler page are the original output files, including
++    # their alpha channels. Next Image's resized previews alone cannot prove it.
++    visit("/upscaler")
++    for filename, size in [("square-source", (600, 400)), ("upscale-2x", (1200, 800)), ("upscale-4x", (2400, 1600))]:
++        response = context.request.get(BASE + f"/examples/{filename}.png")
++        assert response.status == 200 and response.headers["content-type"].startswith("image/png")
++        with Image.open(io.BytesIO(response.body())) as image:
++            image.load()
++            assert image.format == "PNG" and image.size == size
++            assert image.getchannel("A").getextrema() == (0, 255)
++    for route in ["/upscaler", "/cropper"]:
++        visit(route)
++        page.locator('input[type="file"]').first.set_input_files({"name": "invalid.txt", "mimeType": "text/plain", "buffer": b"not an image"})
++        expect(page.locator('p[role="alert"]')).to_contain_text("Choose an image file")
++    checks.append("Upscaler example files have correct PNG dimensions and transparency; cropper and upscaler report unsupported inputs.")
++
++    routes = ["/", "/upscaler", "/image-size-calculator", "/cropper", "/resize/instagram", "/resize/linkedin", "/resize/discord", "/resize/twitch",
++              "/guides/make-image-square-without-cropping", "/guides/instagram-feed-sizes-2026", "/guides/instagram-reels-stories-guide", "/guides/linkedin-image-sizes-2026", "/guides/discord-image-sizes-2026"]
++    for width in [320, 390, 1366]:
++        page.set_viewport_size({"width": width, "height": 900})
++        for route in routes:
++            visit(route)
++            assert page.locator("h1").count() == 1, route
++            assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), (route, width)
++            canonical = page.locator('link[rel="canonical"]').get_attribute("href")
++            assert canonical == "https://www.squarepic.io" + (route if route != "/" else ""), (route, canonical)
++            for text in page.locator('script[type="application/ld+json"]').all_text_contents():
++                json.loads(text)
++            if route in ["/upscaler", "/resize/twitch", "/image-size-calculator"] and width in [390, 1366]:
++                # Full-page screenshots do not trigger below-fold lazy images.
++                # Scroll them into view and decode them before capturing.
++                for picture in page.locator("img").all():
++                    picture.scroll_into_view_if_needed()
++                    picture.evaluate("image => image.decode()")
++                page.evaluate("async () => { await document.fonts.ready; await Promise.all(document.getAnimations().filter(a => Number.isFinite(a.effect.getComputedTiming().endTime)).map(a => a.finished.catch(() => {}))); }")
++                page.evaluate("window.scrollTo(0, 0)")
++                page.screenshot(path=str(OUT / f"{route.strip('/')}-{width}.png"), full_page=True)
++    checks.append("Thirteen priority pages have one H1, canonical metadata, parseable JSON-LD and no overflow at 320, 390 and 1366 pixels.")
++    assert not errors, errors
++    context.close()
++    browser.close()
++
++report = {"ok": True, "base": BASE, "checks": checks, "exports": exports, "page_errors": errors,
++          "limitations": ["Local Chromium checks with analytics and referral traffic blocked.", "No production deployment, platform recrawl or organic-outcome measurement in this run."]}
++(OUT / "results.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
++print(json.dumps(report, indent=2))
+--- a/src/app/converter/page.tsx
++++ b/src/app/converter/page.tsx
+@@ -14,7 +14,7 @@
+ export default function ConverterPage() {
+   return <>
+     <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Converter", url: `${SITE}/converter` }]} />
+-    <WebAppSchema name="SquarePic image converter" url={`${SITE}/converter`} description="Convert browser-decodable still images to JPEG, PNG, WebP or one PNG-backed ICO." />
++    <WebAppSchema name="SquarePic image converter" url={`${SITE}/converter`} description="Convert browser-decodable still images to JPEG, PNG, WebP or one PNG-backed ICO." dateModified="2026-10-08" />
+     <ConverterTool />
+     <ToolLinks current="/converter" />
+     <section className="w-full min-w-0 max-w-[900px] mx-auto px-4 pb-16 text-[#8d9aaa] leading-relaxed">
+@@ -35,7 +35,7 @@
+         <li>Choose the output for each file. JPEG and WebP quality changes can alter visible detail; even 100% is not a lossless mode.</li>
+         <li>Click Convert All, then download each result or use Download All for separate files.</li>
+       </ol>
+-      <p className="mb-5">Conversion keeps the first frame of an animated input and does not preserve animation or source metadata. Converting JPEG to PNG does not restore lost detail or remove a background. Images stay on your device; the site also uses analytics as described in our <Link href="/privacy" className="text-[var(--accent)] underline">privacy policy</Link>.</p>
++      <p className="mb-5">Conversion keeps one still frame of an animated input and does not preserve animation or source metadata. Converting JPEG to PNG does not restore lost detail or remove a background. Images stay on your device; the site also uses analytics as described in our <Link href="/privacy" className="text-[var(--accent)] underline">privacy policy</Link>.</p>
+       <h2 className="text-xl font-bold text-[#e6edf5] mb-3">Start with a selected conversion</h2>
+       <div className="flex flex-wrap gap-3">{["png-to-jpg", "jpg-to-png", "png-to-webp", "jpg-to-webp", "webp-to-png", "webp-to-jpg", "png-to-ico", "jpg-to-ico"].map((slug) => <Link key={slug} href={`/converter/${slug}`} className="text-[var(--accent)] underline">{slug.replace("-to-", " to ").toUpperCase()}</Link>)}</div>
+     </section>
+--- a/src/app/cropper/page.tsx
++++ b/src/app/cropper/page.tsx
+@@ -17,7 +17,7 @@
+   return (
+     <>
+       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Cropper", url: `${SITE}/cropper` }]} />
+-      <WebAppSchema name="SquarePic - Image Cropper" url={SITE + "/cropper"} description="Crop images online with precision. 8 drag handles, aspect ratio lock, zoom and pan, export to JPEG, PNG, or WebP." />
++      <WebAppSchema name="SquarePic - Image Cropper" url={SITE + "/cropper"} description="Select a bounded source-image region, preview its pixel dimensions and export JPEG, PNG or WebP without enlargement." dateModified="2026-10-08" />
+       <CropperTool />
+       <ToolLinks current="/cropper" />
+ 
+@@ -27,18 +27,18 @@
+             How to Crop Images for Social Media
+           </h2>
+           <p className="text-[0.9rem] text-[#8d9aaa] leading-relaxed">
+-            Cropping is one of the most fundamental image editing skills. The right crop can transform a
+-            mediocre composition into a striking image. Whether you are preparing images for Instagram,
+-            LinkedIn, or YouTube, choosing the correct aspect ratio is essential.
++            Select the part of your photo you want to keep, then check Export size before downloading.
++            The result contains the selected source pixels. Changing the preview zoom does not enlarge the export.
++            To reach a specific canvas size, use a platform resizer after cropping.
+           </p>
+         </div>
+ 
+         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+           {[
+             { title: "Precision Crop Controls", desc: "Our image cropper gives you eight drag handles for pixel-perfect control. Resize the crop area freely or lock the aspect ratio to maintain consistent dimensions across multiple images." },
+-            { title: "Aspect Ratio Lock", desc: "Keep your crop proportional with built-in presets for Instagram (1:1), portrait (4:5), widescreen (16:9), and story (9:16). The lock button toggles freeform mode for custom dimensions." },
++            { title: "Aspect Ratio Presets", desc: "Choose square 1:1, portrait 4:5, widescreen 16:9 or vertical 9:16. Choose Free when you want to change width and height independently." },
+             { title: "Zoom and Pan", desc: "Zoom in for detailed adjustments and pan around the image to position the crop area exactly where you want it. Fine-tune your composition without losing resolution." },
+-            { title: "Export at Full Resolution", desc: "The cropped image exports at the exact pixel dimensions you defined -- no downscaling. Download as JPEG, PNG, or WebP for maximum flexibility." },
++            { title: "Export Source Pixels", desc: "Export size shows the selected region in source pixels, rounded and kept inside the original image. A square crop from a 600 × 400 source cannot be larger than 400 × 400 without resizing afterward." },
+           ].map((c) => (
+             <div key={c.title} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+               <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">{c.title}</h3>
+@@ -46,6 +46,12 @@
+             </div>
+           ))}
+         </div>
++
++        <p className="text-[0.85rem] text-[#8d9aaa] leading-relaxed mb-8">
++          Start with a browser-decodable PNG, JPEG or WebP. PNG and WebP retain transparent pixels;
++          JPEG fills them with white. Animated inputs produce one still frame and source metadata is not copied.
++          A decode or export failure appears in the tool. Try a smaller image or save the source as PNG or JPEG.
++        </p>
+ 
+         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mb-10">
+           <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Aspect Ratio Quick Reference</h3>
+@@ -107,9 +113,9 @@
+             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Cropping for Different Platforms</h3>
+             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+               <li><strong className="text-[#e6edf5]">Instagram feed:</strong> Crop to 1:1 (1080x1080) for square posts or 4:5 (1080x1350) for portrait posts that fill more screen space.</li>
+-              <li><strong className="text-[#e6edf5]">Instagram Stories / Reels:</strong> Use 9:16 (1080x1920) full-screen vertical format. Keep text within the top and bottom safe zones.</li>
++              <li><strong className="text-[#e6edf5]">Instagram Stories / Reels:</strong> A 9:16 crop prepares vertical still artwork. Use the <Link href="/resize/instagram?preset=stories#resizer" className="text-[var(--accent)] hover:underline">1080 × 1920 editor</Link> for exact canvas dimensions, then check text against the current placement preview.</li>
+               <li><strong className="text-[#e6edf5]">YouTube thumbnails:</strong> Crop to 16:9 (1280x720) with bold, centered subjects. Thumbnails drive click-through rates.</li>
+-              <li><strong className="text-[#e6edf5]">LinkedIn banners:</strong> The cover photo is very short (1128x191). Crop tight and keep text in the safe center zone.</li>
++              <li><strong className="text-[#e6edf5]">LinkedIn covers:</strong> Personal and company covers use different shapes. Choose the <Link href="/resize/linkedin?preset=cover#resizer" className="text-[var(--accent)] hover:underline">1512 × 256 company Page cover</Link> or <Link href="/resize/linkedin?preset=personalCover#resizer" className="text-[var(--accent)] hover:underline">1584 × 396 personal cover</Link>, then inspect the upload preview.</li>
+               <li><strong className="text-[#e6edf5]">Facebook link previews:</strong> Open Graph images display at 1200x630 (1.91:1). Crop your images to this ratio for clean link shares.</li>
+             </ul>
+           </div>
+@@ -131,10 +137,10 @@
+             All image cropping happens locally in your browser. Your images never leave your device.
+           </p>
+         </div>
+-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: August 2026</p>
++        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: October 8, 2026</p>
+         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
+           <p className="text-[0.75rem] text-[#8d9aaa] text-center">
+-            Learn more: <Link href="/guides/social-media-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Social Media Image Sizes 2026</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram Crop Guide</Link> · <Link href="/guides/facebook-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Facebook Image Sizes</Link>
++            Learn more: <Link href="/image-size-calculator" className="text-[var(--accent)] no-underline hover:underline">Calculate aspect ratio</Link> · <Link href="/guides/make-image-square-without-cropping" className="text-[var(--accent)] no-underline hover:underline">Fit a photo without cropping</Link> · <Link href="/guides/instagram-feed-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">Instagram framing guide</Link> · <Link href="/guides/linkedin-image-sizes-2026" className="text-[var(--accent)] no-underline hover:underline">LinkedIn cover references</Link>
+           </p>
+         </div>
+       </section>
+--- a/src/app/guides/discord-image-sizes-2026/page.tsx
++++ b/src/app/guides/discord-image-sizes-2026/page.tsx
+@@ -50,14 +50,14 @@
+       { name: "Discord image sizes", url: `${SITE}${PATH}` },
+     ]} />
+     <ArticleSchema type="BlogPosting" title={TITLE} description={DESCRIPTION} url={`${SITE}${PATH}`}
+-      imageUrl={`${SITE}/og/og-discord-image-sizes.png`} datePublished="2026-07-19" dateModified="2026-10-07"
++      imageUrl={`${SITE}/og/og-discord-image-sizes.png`} datePublished="2026-07-19" dateModified="2026-10-08"
+       authorName="SevenOneLabs" authorUrl={`${SITE}/author/sevenonelabs`} />
+     <FAQPageSchema questions={FAQ_QUESTIONS} />
+     <article className="max-w-[680px] w-full mx-auto px-4 py-8">
+       <div className="mb-8">
+         <span className="text-[0.6rem] font-bold tracking-[0.12em] text-[var(--accent)]">Discord</span>
+         <h1 className="text-[1.8rem] font-extrabold tracking-tight mt-3 mb-2">{TITLE}</h1>
+-        <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated October 7, 2026 · by <Link href="/author/sevenonelabs" className={linkClass}>SevenOneLabs</Link></p>
++        <p className="text-[0.78rem] text-[#576675]">Published July 19, 2026 · Updated October 8, 2026 · by <Link href="/author/sevenonelabs" className={linkClass}>SevenOneLabs</Link></p>
+         <ShareButtons path={PATH} title={TITLE} />
+       </div>
+       <p className={paragraphClass}>A Discord server banner uses a 16:9 image of at least <strong className="text-[#e6edf5]">960 × 540 pixels</strong>.
+@@ -117,9 +117,10 @@
+         Its <a href={SOURCES.stickers} className={linkClass}>sticker requirements</a> specify exactly 320 × 320, a maximum of 512 KB, and PNG for static or APNG for animated stickers.
+         Do not use chat attachment limits as the limits for these assets.</p>
+       <h2 id="resize-workflow" className={headingClass}>How to resize a Discord banner or splash with SquarePic</h2>
++      <p className={paragraphClass}>Review method: SevenOneLabs compares the linked Discord Help references with SquarePic&apos;s presets and decoded downloads. The guide separates server access from image dimensions; the upload preview remains a separate check.</p>
+       <ol className="text-[0.95rem] text-[#8d9aaa] leading-relaxed list-decimal pl-5 space-y-2 mb-4">
+-        <li>Open the <Link href="/" className={linkClass}>photo editor</Link> and upload your source image.</li>
+-        <li>Under Social Size, choose Discord. Select Server Banner for 960 × 540 or Server Splash for 1920 × 1080. The <Link href="/resize/discord" className={linkClass}>Discord preset reference</Link> lists both sizes.</li>
++        <li>Open the <Link href="/resize/discord?preset=serverBanner#resizer" className={linkClass}>960 × 540 server-banner editor</Link> or the <Link href="/resize/discord?preset=serverSplash#resizer" className={linkClass}>1920 × 1080 invite-background editor</Link>.</li>
++        <li>Select your source image. The chosen Discord preset is already selected; confirm its export dimensions.</li>
+         <li>Choose Solid or Blur to fit the photo with background at 100% zoom. Choose Crop to fill the frame by trimming edges.</li>
+         <li>Download as JPG or PNG, then upload to the matching Discord setting and check its preview.</li>
+       </ol>
+@@ -132,7 +133,7 @@
+         <p className={paragraphClass}>{answer}</p>
+       </section>)}
+       <RelatedGuides current="discord-image-sizes-2026" />
+-      <Link href="/" className="inline-flex bg-[var(--accent)] text-black px-6 py-3 rounded-md font-bold mt-6">Prepare a Discord image</Link>
++      <Link href="/resize/discord?preset=serverBanner#resizer" className="inline-flex bg-[var(--accent)] text-black px-6 py-3 rounded-md font-bold mt-6">Prepare a Discord server banner</Link>
+     </article>
+   </>;
+ }
+--- a/src/app/guides/instagram-feed-sizes-2026/page.tsx
++++ b/src/app/guides/instagram-feed-sizes-2026/page.tsx
+@@ -13,10 +13,10 @@
+   <ArticleSchema title={TITLE} description="Working photo canvases and original fit/crop examples for Instagram artwork." url={`${SITE}${PATH}`} imageUrl={`${SITE}/og/og-instagram-feed-sizes.png`} datePublished="2026-07-19" dateModified="2026-10-08" authorName="SevenOneLabs" authorUrl={`${SITE}/author/sevenonelabs`} />
+   <article className="max-w-[680px] w-full mx-auto px-4 py-8 text-[#8d9aaa] leading-relaxed [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-[#e6edf5] [&_h2]:mt-8 [&_h2]:mb-3 [&_a]:text-[var(--accent)] [&_a]:underline">
+    <h1 className="text-3xl font-extrabold tracking-tight text-[#e6edf5] mb-4">{TITLE}</h1>
+-   <p className="text-sm mb-5">Updated October 8, 2026. By <Link href="/author/sevenonelabs">SevenOneLabs</Link>.</p>
++   <p className="text-sm mb-5">Updated October 8, 2026. By <Link href="/author/sevenonelabs">SevenOneLabs</Link>. Review method: compare exported image dimensions with SquarePic presets and check fit/crop examples. Instagram&apos;s help reference may require access; these sizes are working canvases.</p>
+    <p>A square file and its profile-grid preview can show different parts of a photo. Prepare the canvas you need, then check Instagram&apos;s actual preview before posting. The sizes below are SquarePic working presets, not a claim that Instagram requires or accepts only these sizes.</p>
+    <h2>Choose a working canvas</h2>
+-   <ul className="list-disc pl-5 space-y-2"><li>Square Post: 1080 x 1080, 1:1.</li><li>Portrait Post: 1080 x 1350, 4:5. This preset does not define the maximum supported portrait ratio.</li><li>Landscape Post: 1080 x 566, approximately 1.91:1.</li><li>Stories/Reels artwork: 1080 x 1920, 9:16. These are still images, not exported videos.</li><li>Profile Picture: 320 x 320 working canvas. Keep the subject central for a circular preview.</li></ul>
++   <ul className="list-disc pl-5 space-y-2"><li><Link href="/resize/instagram?preset=square#resizer">Square Post</Link>: 1080 x 1080, 1:1.</li><li><Link href="/resize/instagram?preset=portrait#resizer">Portrait Post</Link>: 1080 x 1350, 4:5. This preset does not define the maximum supported portrait ratio.</li><li><Link href="/resize/instagram?preset=landscape#resizer">Landscape Post</Link>: 1080 x 566, approximately 1.91:1.</li><li><Link href="/resize/instagram?preset=stories#resizer">Stories/Reels artwork</Link>: 1080 x 1920, 9:16. These are still images, not exported videos.</li><li><Link href="/resize/instagram?preset=profile#resizer">Profile Picture</Link>: 320 x 320 working canvas. Keep the subject central for a circular preview.</li></ul>
+    <p className="mt-4">Open the <Link href="/resize/instagram">Instagram image resizer</Link> to use these presets directly. For current upload behavior, consult <a href="https://help.instagram.com/1631821640426723">Instagram&apos;s photo-resolution help</a> and the upload screen. Publishing methods can differ, so preview carousel and feed placement separately.</p>
+    <h2>Fit the whole photo or crop the edges</h2>
+    <FramingExample />
+--- a/src/app/guides/instagram-reels-stories-guide/page.tsx
++++ b/src/app/guides/instagram-reels-stories-guide/page.tsx
+@@ -40,6 +40,7 @@
+         <Link href="/guides" className={linkStyle}>All image guides</Link>
+         <h1 className="text-[1.8rem] font-extrabold tracking-tight text-[#e6edf5] mt-3 mb-3">{TITLE}</h1>
+         <p className="text-[0.78rem] mb-6">Published July 19, 2026 · Updated October 8, 2026 · By <Link href="/author/sevenonelabs" className={linkStyle}>SevenOneLabs</Link></p>
++        <p className="text-[0.78rem] mb-4">Review method: compare SquarePic&apos;s exported still-image dimensions with its presets and separate artwork advice from platform requirements. Meta&apos;s ad reference required sign-in when checked October 8, 2026; the canvases below are practical recommendations, not verified organic upload limits.</p>
+         <h2 className={heading}>Are Instagram Reels and Stories the same size?</h2>
+         <p><strong className="text-[#e6edf5]">Yes, they can use the same 9:16 canvas.</strong> A 1080 × 1920 image is a practical starting size for vertical artwork in both formats. Matching dimensions do not guarantee the same visible area: account controls, captions, stickers, and cover previews can cover or crop different parts of the design.</p>
+         <p className="mt-3">This guide covers still Story images and Reel cover artwork. SquarePic exports images, not edited video files. For the feed, use the separate <Link href="/guides/instagram-feed-sizes-2026" className={linkStyle}>Instagram feed dimensions guide</Link>.</p>
+@@ -72,8 +73,8 @@
+         <p className="mt-3">If a square version is also needed elsewhere, create it separately. Our <Link href="/guides/make-image-square-without-cropping" className={linkStyle}>square-photo tutorial</Link> explains how padding preserves the whole picture and how cropping changes the visible area.</p>
+         <h2 className={heading}>Prepare a still image at 1080 × 1920</h2>
+         <ol className="list-decimal pl-5 space-y-2">
+-          <li>Review the <Link href="/resize/instagram" className={linkStyle}>Instagram image presets</Link>, then open the square-photo editor.</li>
+-          <li>Select Instagram under Social Size and choose Stories/Reels, 1080 × 1920.</li>
++          <li>Open the <Link href="/resize/instagram?preset=stories#resizer" className={linkStyle}>1080 × 1920 Stories/Reels editor</Link>. The vertical preset is already selected.</li>
++          <li>Select your source image and confirm the 1080 × 1920 export dimensions.</li>
+           <li>Use Blur or Solid to fit a landscape photo into the vertical frame. Keep Zoom at 100% to preserve its edges. Use Crop only if trimming the picture is acceptable.</li>
+           <li>Choose JPEG for photographs or PNG for artwork with sharp text. Export and inspect the image in Instagram with the intended caption and stickers.</li>
+         </ol>
+--- a/src/app/guides/linkedin-image-sizes-2026/page.tsx
++++ b/src/app/guides/linkedin-image-sizes-2026/page.tsx
+@@ -12,17 +12,17 @@
+   <ArticleSchema title={TITLE} description="LinkedIn personal and company Page covers, source references and practical export examples." url={`${SITE}${PATH}`} imageUrl={`${SITE}/og/og-linkedin-image-sizes.png`} datePublished="2026-07-19" dateModified="2026-10-08" authorName="SevenOneLabs" authorUrl={`${SITE}/author/sevenonelabs`} />
+   <article className="max-w-[680px] w-full mx-auto px-4 py-8 text-[#8d9aaa] leading-relaxed [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-[#e6edf5] [&_h2]:mt-8 [&_h2]:mb-3 [&_a]:text-[var(--accent)] [&_a]:underline">
+    <h1 className="text-3xl font-extrabold tracking-tight text-[#e6edf5] mb-4">{TITLE}</h1>
+-   <p className="text-sm mb-5">Official references checked October 8, 2026. By <Link href="/author/sevenonelabs">SevenOneLabs</Link>.</p>
++   <p className="text-sm mb-5">Official references checked October 8, 2026. By <Link href="/author/sevenonelabs">SevenOneLabs</Link>. Review method: compare LinkedIn Help with the editor&apos;s preset dimensions and decoded downloads. Check the destination preview separately.</p>
+    <p>A personal cover and a company Page cover use different shapes. Choose the matching preset in the <Link href="/resize/linkedin">LinkedIn image resizer</Link> before adding your photo.</p>
+    <h2>Official recommendations and limits</h2>
+    <p>LinkedIn recommends 1584 x 396 for a personal cover, uploaded as JPG or PNG below 8 MB. Its <a href="https://www.linkedin.com/help/linkedin/answer/a568217/">profile-cover help</a> also warns that the visible area changes with the browser window.</p>
+    <p className="mt-3">The <a href="https://www.linkedin.com/help/linkedin/answer/a563309/">Pages specifications</a> now recommend a 1512 x 256 company cover and a 400 x 400 logo, with PNG or JPEG files up to 3 MB. For a Page post containing a URL and custom image, that reference suggests 1200 x 627. It does not establish one required size for every image-only post.</p>
+    <h2>Working presets in SquarePic</h2>
+    <div className="overflow-x-auto"><table className="w-full text-sm text-left"><thead><tr><th className="p-2">Preset</th><th className="p-2">Canvas</th><th className="p-2">Purpose</th></tr></thead><tbody>
+-    <tr><th className="p-2">Personal Profile Cover</th><td className="p-2">1584 x 396</td><td className="p-2">4:1 cover artwork</td></tr>
+-    <tr><th className="p-2">Company Page Cover</th><td className="p-2">1512 x 256</td><td className="p-2">Current company cover recommendation</td></tr>
+-    <tr><th className="p-2">Landscape Post</th><td className="p-2">1200 x 627</td><td className="p-2">Custom link artwork, exact ratio 400:209</td></tr>
+-    <tr><th className="p-2">Square Post</th><td className="p-2">1200 x 1200</td><td className="p-2">Our square working canvas</td></tr>
++    <tr><th className="p-2"><Link href="/resize/linkedin?preset=personalCover#resizer">Personal Profile Cover</Link></th><td className="p-2">1584 x 396</td><td className="p-2">4:1 cover artwork</td></tr>
++    <tr><th className="p-2"><Link href="/resize/linkedin?preset=cover#resizer">Company Page Cover</Link></th><td className="p-2">1512 x 256</td><td className="p-2">Current company cover recommendation</td></tr>
++    <tr><th className="p-2"><Link href="/resize/linkedin?preset=landscape#resizer">Landscape Post</Link></th><td className="p-2">1200 x 627</td><td className="p-2">Custom link artwork, exact ratio 400:209</td></tr>
++    <tr><th className="p-2"><Link href="/resize/linkedin?preset=square#resizer">Square Post</Link></th><td className="p-2">1200 x 1200</td><td className="p-2">Our square working canvas</td></tr>
+    </tbody></table></div>
+    <h2>Fit a landscape photo without stretching</h2>
+    <p>For a 1200 x 800 source and a 1200 x 627 destination, fitting the whole photo gives approximately 941 x 627 photo pixels with background at either side. A centered Crop fills the canvas by removing about 87 rows from the top and bottom. Choose Solid or Blur to retain the whole photo, keep Zoom at 100%, and inspect the export dimensions.</p>
+--- a/src/app/guides/make-image-square-without-cropping/page.tsx
++++ b/src/app/guides/make-image-square-without-cropping/page.tsx
+@@ -22,12 +22,13 @@
+     <>
+       <BreadcrumbSchema items={[{ name: "Home", url: SITE_URL }, { name: "Guides", url: `${SITE_URL}/guides` }, { name: "Make a photo square", url: `${SITE_URL}${PATH}` }]} />
+       <ArticleSchema title={TITLE} description="A practical guide to fitting a full photograph inside a square canvas, with worked dimension examples."
+-        url={`${SITE_URL}${PATH}`} imageUrl={`${SITE_URL}/og/og-home.png`} datePublished="2026-10-07" dateModified="2026-10-07"
++        url={`${SITE_URL}${PATH}`} imageUrl={`${SITE_URL}/og/og-home.png`} datePublished="2026-10-07" dateModified="2026-10-08"
+         authorName="SevenOneLabs" authorUrl={`${SITE_URL}/author/sevenonelabs`} />
+       <article className="max-w-[680px] w-full mx-auto px-4 py-8 text-[0.95rem] text-[#8d9aaa] leading-relaxed">
+         <Link href="/guides" className={linkStyle}>All image guides</Link>
+         <h1 className="text-[1.8rem] font-extrabold text-[#e6edf5] tracking-tight mt-4 mb-3">{TITLE}</h1>
+         <p className="text-[0.78rem] mb-6">Published October 7, 2026 · By <Link href="/author/sevenonelabs" className={linkStyle}>SevenOneLabs</Link></p>
++        <p className="text-[0.78rem] mb-4">Review method: export the same source in Solid and Crop modes, decode the downloads, and compare their dimensions and retained edges. The examples use 0% Outer Border and 100% Zoom. Reviewed October 8, 2026.</p>
+         <p>To make an image square without cropping, place the entire photo inside a 1:1 canvas and fill the unused space with a solid color or blurred background. The photo keeps its proportions; only the surrounding canvas changes shape. Use <Link href="/" className={linkStyle}>SquarePic&apos;s square image maker</Link> to try both backgrounds.</p>
+         <nav aria-label="In this guide" className="my-6 p-5 border border-white/10 rounded-xl text-[0.85rem]">
+           <p className="font-bold text-[#e6edf5] mb-2">In this guide</p>
+--- a/src/app/image-size-calculator/page.tsx
++++ b/src/app/image-size-calculator/page.tsx
+@@ -74,12 +74,12 @@
+         { name: "Home", url: SITE },
+         { name: "Image Size Calculator", url: `${SITE}/image-size-calculator` },
+       ]} />
+-      <WebAppSchema name="SquarePic - Image Size Calculator" url={`${SITE}/image-size-calculator`} description="Find the perfect image dimensions for any social media platform with our interactive size calculator." />
++      <WebAppSchema name="SquarePic - Image Size Calculator" url={`${SITE}/image-size-calculator`} description="Calculate aspect ratio, megapixels and proportional resize dimensions, then open a matching image preset." dateModified="2026-10-08" />
+       <div className="max-w-[800px] w-full mx-auto px-4 py-8">
+       <h1 className="text-[1.8rem] font-extrabold tracking-tight mb-2">Image Size & Aspect Ratio Calculator</h1>
+       <p className="text-[0.9rem] text-[#8d9aaa] mb-6 leading-relaxed">
+-        Enter a photo&apos;s width and height to calculate its aspect ratio, megapixels, and resize dimensions.
+-        Find matching social media presets without stretching the image.
++        Enter width and height in pixels to calculate aspect ratio and megapixels. Set a new width to find
++        the proportional height, then open a matching image preset. This calculates dimensions, not compressed file size.
+       </p>
+ 
+       <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 mb-6">
+@@ -132,7 +132,7 @@
+                 <h3 className="text-[0.85rem] text-[#e6edf5] font-bold mb-2">Presets with the same aspect ratio</h3>
+                 <div className="flex flex-wrap gap-2">
+                   {ratioMatches.slice(0, 8).map((t) => (
+-                    <Link key={`${t.platform}-${t.key}`} href={`/resize/${t.platform}`}
++                    <Link key={`${t.platform}-${t.key}`} href={`/resize/${t.platform}?preset=${t.key}#resizer`}
+                       className="text-[0.75rem] text-[var(--accent)] hover:underline">
+                       {PLATFORMS.find((p) => p.key === t.platform)?.label} {t.label}: {t.w} × {t.h}
+                     </Link>
+@@ -153,10 +153,10 @@
+               return (
+                 <Link
+                   key={`${m.platform}-${m.key}`}
+-                  href={`/resize/${m.platform}`}
++                  href={`/resize/${m.platform}?preset=${m.key}#resizer`}
+                   className="block text-[0.75rem] text-[var(--accent)] no-underline hover:underline mt-1"
+                 >
+-                  {plat?.label || m.platform} -- {m.label} ({m.w}×{m.h})
++                  {plat?.label || m.platform}: {m.label}, {m.w}×{m.h}
+                 </Link>
+               );
+             })}
+@@ -194,7 +194,7 @@
+               {filteredTypes.map((t) => (
+                 <Link
+                   key={`${t.platform}-${t.key}`}
+-                  href={`/resize/${t.platform}`}
++                  href={`/resize/${t.platform}?preset=${t.key}#resizer`}
+                   className="flex items-center justify-between px-3 py-2 rounded-sm bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] no-underline transition-all hover:bg-[rgba(255,255,255,0.04)] hover:border-[rgba(255,255,255,0.08)]"
+                 >
+                   <span className="text-[0.78rem] text-[#e6edf5] font-semibold">{t.label}</span>
+@@ -212,17 +212,17 @@
+           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Consistent Brand Appearance</h3>
+             <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+-              Each social media platform displays images at specific dimensions. Using non-standard sizes forces
+-              platforms to crop, stretch, or letterbox your images, resulting in an inconsistent brand appearance.
+-              A 1080x1080 square image displays perfectly across Instagram, Facebook, and LinkedIn feeds.
++              Choose the canvas for the intended placement, such as a square post or a wide company cover.
++              The exported dimensions describe the file. The platform&apos;s feed, grid and avatar previews may
++              show different crops, so inspect the destination before publishing.
+             </p>
+           </div>
+           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Faster Page Load Times</h3>
+             <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+-              Uploading images at the exact display size eliminates unnecessary data. A 4000x3000 photo
+-              scaled down to 400x300 in the browser wastes bandwidth and slows page loads. Use the calculator
+-              above to find the exact dimensions for each platform, then resize to match.
++              A smaller pixel canvas can reduce image data, but the encoded byte size also depends on
++              format, quality and image content. This calculator cannot predict KB or MB.
++              Use the image compressor when you need to meet a file-size limit.
+             </p>
+           </div>
+           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+@@ -236,9 +236,9 @@
+           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Avoid Upscaling Issues</h3>
+             <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+-              Starting with an image that is smaller than the target dimensions means the platform must
+-              upscale it, causing blurriness and pixelation. Always upload images at or above the platform&apos;s
+-              recommended resolution. Our dimension calculator shows you the minimum size for each media type.
++              Increasing the calculated dimensions adds pixels without restoring missing detail.
++              Review the result at its intended display size before enlarging a small source.
++              The platform presets are working canvases; they do not establish minimum upload requirements.
+             </p>
+           </div>
+         </div>
+@@ -251,8 +251,8 @@
+             <li><strong className="text-[#e6edf5]">Search by dimensions:</strong> Enter your image&apos;s width and height in pixels. The calculator instantly checks if these dimensions match any standard social media image size.</li>
+             <li><strong className="text-[#e6edf5]">Browse by platform:</strong> Select a platform from the buttons above to see all supported image sizes for that platform, from profile pictures to cover photos and post dimensions.</li>
+             <li><strong className="text-[#e6edf5]">Calculate a resize:</strong> Enter a new width to see the proportional height. These are calculations; your image is not modified here.</li>
+-            <li><strong className="text-[#e6edf5]">Open a platform guide:</strong> Click a result to review its sizes, then open the editor and select the matching platform preset.</li>
+-            <li><strong className="text-[#e6edf5]">Common pairings:</strong> 1080x1080 (Instagram square), 1080x1920 (Instagram Stories), 1200x630 (Facebook link preview), 1280x720 (YouTube thumbnail) -- these are among the most frequently searched dimension pairs.</li>
++            <li><strong className="text-[#e6edf5]">Use a preset:</strong> Click a result to open its platform editor with that preset already selected.</li>
++            <li><strong className="text-[#e6edf5]">Check the calculation:</strong> 1200 × 800 simplifies to 3:2 and contains 960,000 pixels, or 0.96 MP. At a new width of 1080 pixels, the proportional height is 720.</li>
+           </ol>
+         </div>
+       </section>
+@@ -263,8 +263,8 @@
+           <div>
+             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-1">What is the most common image size for social media?</h3>
+             <p className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0">
+-              1080 x 1080 pixels (1:1 square) is the most universally supported size. Instagram, Facebook, LinkedIn,
+-              and X/Twitter all display square images natively. It is the safest choice for cross-platform posting.
++              A 1080 × 1080 square is one useful working canvas, but there is no single size for every placement.
++              Select the intended platform and asset, then check its upload preview.
+             </p>
+           </div>
+           <div>
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -52,14 +52,14 @@
+         applicationCategory: "MultimediaApplication",
+         operatingSystem: "Any",
+         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+-        dateModified: "2026-10-07",
++        dateModified: "2026-10-08",
+       }} />
+       <ToolAsHeroLayout
+         state={state}
+         onStateChange={update}
+         headline="Make an Image Square Without Cropping"
+         highlightWord="Without Cropping"
+-        microcopy="Make a square photo online with a blurred or solid background to keep the full picture. Choose Crop when you want to trim the edges instead. Export PNG, JPEG, or WebP for free, with no signup or watermark. Your image stays on your device."
++        microcopy="Fit a portrait or landscape photo into a square with a blurred or solid background. Keep the whole photo at 100% zoom, or choose Crop to trim the edges and fill the frame. Export PNG, JPEG or WebP in your browser without an account."
+         colorSwatches={COLOR_SWATCHES}
+       />
+ 
+@@ -81,7 +81,7 @@
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+           {[
+             { step: "1", title: "Upload Your Image", desc: "Select any image from your device. SquarePic supports JPEG, PNG, WebP, and more. Files up to 20 MB." },
+-            { step: "2", title: "Choose Your Style", desc: "Pick Dynamic Blur for a soft gradient background, Solid Fill for a clean color match, or Smart Crop to fill the square automatically." },
++            { step: "2", title: "Choose Your Style", desc: "Choose Blur or Solid to fit the whole photo with background. Crop fills the square with a centered crop. Check the preview for trimmed edges." },
+             { step: "3", title: "Download & Share", desc: "Export your square image as PNG, JPEG, or WebP. Ready to upload to Instagram, LinkedIn, Facebook, or any platform." },
+           ].map((c) => (
+             <div key={c.step} className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5 text-center">
+@@ -96,7 +96,7 @@
+           <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-5">
+             <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-2">Three Ways to Make a Square Image</h3>
+             <ul className="text-[0.8rem] text-[#8d9aaa] leading-relaxed m-0 pl-4 space-y-1">
+-              <li><strong className="text-[#e6edf5]">Dynamic Blur:</strong> Adds a blurred extension of your photo as the background. Creates a soft, professional look that Instagram influencers use for cohesive feeds.</li>
++              <li><strong className="text-[#e6edf5]">Blur:</strong> Uses a blurred copy of your photo to fill the background around the fitted image.</li>
+               <li><strong className="text-[#e6edf5]">Solid Fill:</strong> Adds a solid color background. Choose from preset colors or pick any custom color. Best for product photos and clean branding.</li>
+               <li><strong className="text-[#e6edf5]">Crop:</strong> Fills the square with a centered crop. Check the preview because subjects near an edge can be cut off.</li>
+             </ul>
+@@ -186,11 +186,12 @@
+             <div><h3 className="font-bold text-[#e6edf5]">How do I make a picture square without cropping?</h3><p>Select Blur or Solid, leave Zoom at 100%, and export a square preset. Background fills the empty space around your photo. Increasing Zoom can move its edges outside the canvas.</p></div>
+             <div><h3 className="font-bold text-[#e6edf5]">Will a square photo look stretched?</h3><p>SquarePic preserves the original proportions. Padding adds space; cropping removes edges. Neither method needs to stretch the photo to make its width and height equal.</p></div>
+             <div><h3 className="font-bold text-[#e6edf5]">Should I export PNG or JPEG?</h3><p>Use JPEG for photos when file size matters. Use PNG for text, logos, and lossless output. A lossless export does not recover detail missing from the source image.</p></div>
++            <div><h3 className="font-bold text-[#e6edf5]">What size will my square image be?</h3><p>Without a platform preset, the square uses the source&apos;s longest side. Exports are limited to 4096 pixels per side; larger canvases are reduced proportionally. The editor shows the actual export dimensions. Animated inputs become one still frame, and source metadata is not copied.</p></div>
+           </div>
+           <p className="text-[0.85rem] text-[#8d9aaa] mt-5">See the worked examples in our <Link href="/guides/make-image-square-without-cropping" className="text-[var(--accent)] hover:underline">guide to making an image square without cropping</Link>.</p>
+         </div>
+ 
+-        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: October 7, 2026</p>
++        <p className="text-[0.7rem] text-[#576675] text-center mt-8">Last updated: October 8, 2026</p>
+ 
+         <div className="bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 mt-8">
+           <h3 className="text-[0.85rem] font-extrabold text-[#e6edf5] mb-4">Resize Images for Every Platform</h3>
+--- a/src/app/resize/[platform]/page.tsx
++++ b/src/app/resize/[platform]/page.tsx
+@@ -73,8 +73,9 @@
+   "linkedin-profile": "Keep the face or logo centered and leave room for a circular preview.",
+   "linkedin-square": "A 1:1 post preset. Check that small text remains legible in the feed preview.",
+   "reddit-banner": "Extremely wide at 31:1 aspect ratio. Most of the width is cropped on mobile.",
+-  "twitch-panel": "Small informational boxes below the stream. Use consistent branding across all panels.",
+-  "twitch-banner": "Offline banners should include your streaming schedule and social links.",
++  "twitch-panel": "A 320-pixel-wide working canvas for an information panel. The 160-pixel height is our preset, not a required height.",
++  "twitch-banner": "Profile banner artwork at the top of the channel page. Check how the header scales at different window widths.",
++  "twitch-offlineBanner": "A separate still image for the video player when the channel is offline. This 1920 × 1080 canvas is a working preset.",
+   "twitter-cover": "Desktop shows full 1500x500. Mobile crops vertically.",
+   "twitter-profile": "The profile photo is circular. Keep your subject centered in the square frame.",
+   "twitter-landscape": "Images in tweets display at 1600x900. Horizontal images perform better than vertical on X.",
+@@ -89,6 +90,12 @@
+ };
+ 
+ const PLATFORM_BEST_PRACTICES: Record<string, { formats: string; tips: string; whyMatters: string; stats: string }> = {
++  twitch: {
++    formats: "Export JPEG for photographs or PNG for text and graphic edges. SquarePic exports still images; it does not produce an animated banner.",
++    tips: "Choose Profile Picture, Profile Banner, Panel or Video Player Banner in the editor. Upload the result to the matching Twitch setting and review it at the displayed size.",
++    whyMatters: "The profile banner sits on the channel page, while the offline image belongs to the video player. A panel uses a much narrower canvas, so prepare its text separately.",
++    stats: "Our panel preset is 320 × 160. Twitch's official help agrees on 320-pixel width but gives conflicting height and file-size limits. Check the current upload screen for those limits.",
++  },
+   discord: {
+     formats: "Export a static invite background as JPG or PNG. SquarePic creates still images; animated GIF banners and APNG stickers need another workflow.",
+     tips: "Select Discord under Social Size in the editor. Use Server Banner for 960 × 540 or Server Splash for 1920 × 1080, then check the matching Discord upload preview.",
+@@ -160,7 +167,8 @@
+   const label = key === "twitter" ? "X (Twitter)" : p.label;
+   const title = key === "instagram"
+     ? "Instagram Image Resizer & Square Photo Maker"
+-    : key === "linkedin" ? "LinkedIn Image Resizer & Pixel Sizes"
++    : key === "linkedin" ? "LinkedIn Image Resizer & 1200×627 Sizes"
++    : key === "twitch" ? "Twitch Image Resizer: Banners, Profiles & Panels"
+     : key === "discord" ? "Discord Banner & Invite Splash Image Resizer" : `${label} Image Sizes & Free Resizer`;
+   const desc = key === "instagram"
+     ? "Resize Instagram photos to square, portrait, landscape, or Story presets. Fit the full picture with blur or padding. Free, with no signup."
+@@ -212,7 +220,7 @@
+   return (
+     <>
+       <BreadcrumbSchema items={[{ name: "Home", url: siteUrl }, { name: `${p.label} Image Sizes`, url: pageUrl }]} />
+-      <WebAppSchema name={`SquarePic - ${p.label} Image Sizes`} url={pageUrl} description={`Resize still images with ${p.label} presets, preview and download on this page.`} dateModified={["instagram", "linkedin", "discord"].includes(key) ? "2026-10-07" : "2026-07-13"} />
++      <WebAppSchema name={`SquarePic - ${p.label} Image Sizes`} url={pageUrl} description={`Resize still images with ${p.label} presets, preview and download on this page.`} dateModified={["instagram", "linkedin", "discord", "twitch"].includes(key) ? "2026-10-08" : "2026-07-13"} />
+       <FAQPageSchema questions={faqQuestions} />
+       <div className="max-w-[920px] w-full mx-auto px-5 py-6">
+       <div className="text-center mb-8 p-8 bg-gradient-to-br from-[rgba(6,182,212,0.04)] to-[rgba(139,92,246,0.04)] border border-[rgba(6,182,212,0.08)] rounded-lg">
+@@ -220,7 +228,7 @@
+           <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 text-[var(--accent)]">
+             <path d={PLATFORM_ICONS[key] || "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"} />
+           </svg>
+-          {["instagram", "linkedin", "discord"].includes(key) ? `${p.label} Image Resizer and Pixel Sizes` : `${p.label} Image Sizes: Complete Dimensions Guide`}
++          {["instagram", "linkedin", "discord", "twitch"].includes(key) ? `${p.label} Image Resizer and Pixel Sizes` : `${p.label} Image Sizes: Complete Dimensions Guide`}
+         </h1>
+         <p className="text-[0.85rem] text-[#8d9aaa] max-w-[600px] mx-auto leading-relaxed">{p.description}</p>
+         <div className="flex justify-center gap-2 flex-wrap mt-5">
+@@ -238,7 +246,7 @@
+         <section className="mb-8 text-[0.9rem] text-[#8d9aaa] leading-relaxed">
+           <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mb-3">Choose a server banner or invite background</h2>
+           <p>Use the Server Banner preset for a 960 × 540 channel-list image. Server Splash creates a 1920 × 1080 invite background.
+-            Both are 16:9. Use the editor above or open the <Link href="/" className="text-[var(--accent)] hover:underline">photo editor</Link>, choose Discord under Social Size, then select the matching preset.</p>
++            Both are 16:9. Use the <a href="#resizer" className="text-[var(--accent)] hover:underline">Discord editor above</a> to choose the matching preset.</p>
+           <p className="mt-3">Fit with Solid or Blur at 100% zoom to retain the full photo, or use Crop to fill the frame.
+             Export invite artwork as JPG or PNG. The server&apos;s Boost access and upload placement determine where it appears.</p>
+           <p className="mt-3">Read the <Link href="/guides/discord-image-sizes-2026" className="text-[var(--accent)] hover:underline">Discord banner and missing-splash guide</Link> for current requirements and preview checks.</p>
+@@ -249,7 +257,7 @@
+         <section className="mb-8 text-[0.9rem] text-[#8d9aaa] leading-relaxed">
+           <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mb-3">{key === "linkedin" ? "What aspect ratio is 1200 × 627?" : "How to make a full photo fit an Instagram square"}</h2>
+           {key === "linkedin" ? <>
+-            <p>A 1200 × 627 image is approximately 1.91:1, a landscape shape. Its exact reduced ratio is 400:209.
++            <p>A 1200 × 627 image is approximately 1.914:1, a landscape shape. Its exact reduced ratio is 400:209.
+               LinkedIn&apos;s <a href="https://www.linkedin.com/help/linkedin/answer/a563309/image-specifications-for-your-linkedin-pages-and-career-pages" className="text-[var(--accent)] hover:underline">Pages image specifications</a> list this size for updates with a custom image.
+               A 1200 × 628 image is a similar shape but has one extra row of pixels; use 1200 × 627 when matching this preset.</p>
+             <p className="mt-3">For a square post, choose 1200 × 1200. The 1512 × 256 cover preset here is for a company Page, not a personal profile banner.
+@@ -260,9 +268,26 @@
+             <p className="mt-3">Other editor presets include 1080 × 1350 portrait, 1080 × 566 landscape, and 1080 × 1920 Stories/Reels artwork.
+               A square file and a profile-grid preview can have different visible areas. Review the destination&apos;s preview before posting.</p>
+           </>}
+-          <p className="mt-3">Use the editor above or open the <Link href="/" className="text-[var(--accent)] hover:underline">photo editor</Link>, select {p.label} under Social Size, then choose the preset you need.</p>
++          <p className="mt-3">Use the <a href="#resizer" className="text-[var(--accent)] hover:underline">{p.label} editor above</a> to select the preset, preview the fit or crop, and download.
++            {key === "linkedin" && " Official Pages guidance checked October 8, 2026. The 1200 × 627 recommendation applies to Page posts with a URL and custom image."}</p>
+           <p className="mt-3">Need to keep every edge? Follow our <Link href="/guides/make-image-square-without-cropping" className="text-[var(--accent)] hover:underline">guide to fitting a full photo in a square</Link>.
+             For dimensions in another ratio, use the <Link href="/image-size-calculator" className="text-[var(--accent)] hover:underline">aspect ratio calculator</Link>.</p>
++        </section>
++      )}
++
++      {key === "twitch" && (
++        <section className="mb-8 text-[0.9rem] text-[#8d9aaa] leading-relaxed">
++          <h2 className="text-[1.2rem] font-extrabold text-[#e6edf5] mb-3">Choose the Twitch asset before resizing</h2>
++          <p>The Profile Picture preset is a 300 × 300 working square. The Profile Banner preset is 1200 × 480,
++            which Twitch recommends for the channel header. Video Player Banner uses our 1920 × 1080 working canvas
++            for the image shown while the channel is offline. These are separate uploads.</p>
++          <p className="mt-3">Panel uses a 320 × 160 canvas for information below the stream. The width is 320 pixels;
++            160 is a practical preset height. Keep text readable at that width. Fit with Blur or Solid to retain the
++            whole source, or use Crop to trim its edges.</p>
++          <p className="mt-3">Official references reviewed October 8, 2026:
++            {" "}<a href="https://help.twitch.tv/s/article/channel-page-setup?language=en_US" className="text-[var(--accent)] hover:underline">Twitch channel setup</a> and
++            {" "}<a href="https://help.twitch.tv/s/article/how-to-edit-info-panels?language=en_US" className="text-[var(--accent)] hover:underline">panel editing</a>.
++            Indexed versions disagree on panel height and byte limits, so confirm those in the current upload screen.</p>
+         </section>
+       )}
+ 
+@@ -275,7 +300,7 @@
+ 
+       <div className="flex flex-col gap-3 mb-8">
+         {types.map(([typeKey, type]: [string, PresetType]) => {
+-          const header = TYPE_HEADERS[typeKey] || type.label;
++          const header = key === "twitch" ? type.label : TYPE_HEADERS[typeKey] || type.label;
+           const tip = TIPS[`${key}-${typeKey}`];
+           return (
+             <div
+@@ -386,6 +411,9 @@
+             {key === "instagram" ? "Reels vs Stories: dimensions and text placement" : "LinkedIn banners, profiles, and posts: detailed guide"}
+           </Link>
+         )}
++        {key === "instagram" && <Link href="/guides/instagram-feed-sizes-2026" className="block border border-white/10 rounded-xl p-4 text-[var(--accent)] hover:underline">
++          Instagram feed, portrait and profile image sizes
++        </Link>}
+         <Link href="/guides/social-media-image-sizes-2026" className="group bg-[rgba(255,255,255,0.015)] border border-[rgba(255,255,255,0.06)] rounded-xl p-4 no-underline transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.10)] hover:-translate-y-0.5">
+           <h3 className="text-[0.82rem] font-extrabold text-[#e6edf5] mb-1 group-hover:text-[var(--accent)] transition-colors">
+             {p.label} Image Sizes - Complete Guide
+@@ -405,7 +433,7 @@
+       </div>
+ 
+       <div className="text-center py-4">
+-        <Link href="/" className="inline-flex items-center gap-3 bg-[var(--accent)] text-black px-8 py-3.5 rounded-md text-base font-extrabold no-underline transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 shadow-[0_4px_20px_var(--accent-glow)]">
++        <a href="#resizer" className="inline-flex items-center gap-3 bg-[var(--accent)] text-black px-8 py-3.5 rounded-md text-base font-extrabold no-underline transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 shadow-[0_4px_20px_var(--accent-glow)]">
+           Resize Your {p.label} Image Free
+           <span className="inline-flex items-center justify-center w-6 h-6 rounded-sm bg-black/15 transition-transform duration-300">
+             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+@@ -413,7 +441,7 @@
+               <polyline points="12 5 19 12 12 19" />
+             </svg>
+           </span>
+-        </Link>
++        </a>
+       </div>
+     </div>
+     </>
+--- a/src/app/sitemap.ts
++++ b/src/app/sitemap.ts
+@@ -2,23 +2,23 @@
+ import { SITE_URL } from "@/lib/constants";
+ 
+ const STATIC_PAGES = [
+-  { path: "", priority: 1.0, freq: "weekly" as const, modified: "2026-10-07" },
++  { path: "", priority: 1.0, freq: "weekly" as const, modified: "2026-10-08" },
+   { path: "/compressor", priority: 0.9, freq: "weekly" as const, modified: "2026-10-07" },
+-  { path: "/converter", priority: 0.9, freq: "weekly" as const, modified: "2026-10-07" },
+-  { path: "/cropper", priority: 0.9, freq: "weekly" as const, modified: "2026-10-07" },
+-  { path: "/upscaler", priority: 0.9, freq: "weekly" as const, modified: "2026-10-07" },
++  { path: "/converter", priority: 0.9, freq: "weekly" as const, modified: "2026-10-08" },
++  { path: "/cropper", priority: 0.9, freq: "weekly" as const, modified: "2026-10-08" },
++  { path: "/upscaler", priority: 0.9, freq: "weekly" as const, modified: "2026-10-08" },
+   { path: "/guides", priority: 0.7, freq: "weekly" as const, modified: "2026-10-07" },
+-  { path: "/guides/make-image-square-without-cropping", priority: 0.8, freq: "monthly" as const, modified: "2026-10-07" },
++  { path: "/guides/make-image-square-without-cropping", priority: 0.8, freq: "monthly" as const, modified: "2026-10-08" },
+   { path: "/guides/social-media-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+-  { path: "/guides/instagram-feed-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+-  { path: "/guides/instagram-reels-stories-guide", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+-  { path: "/guides/linkedin-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
++  { path: "/guides/instagram-feed-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
++  { path: "/guides/instagram-reels-stories-guide", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
++  { path: "/guides/linkedin-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
+   { path: "/guides/youtube-banner-thumbnail-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+   { path: "/guides/tiktok-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+   { path: "/guides/facebook-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+   { path: "/guides/pinterest-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+-  { path: "/guides/discord-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-07" },
+-  { path: "/image-size-calculator", priority: 0.7, freq: "weekly" as const, modified: "2026-10-07" },
++  { path: "/guides/discord-image-sizes-2026", priority: 0.8, freq: "weekly" as const, modified: "2026-10-08" },
++  { path: "/image-size-calculator", priority: 0.7, freq: "weekly" as const, modified: "2026-10-08" },
+   { path: "/about", priority: 0.5, freq: "monthly" as const, modified: "2026-10-07" },
+   { path: "/author/sevenonelabs", priority: 0.4, freq: "monthly" as const, modified: "2026-10-07" },
+   { path: "/faq", priority: 0.5, freq: "monthly" as const, modified: "2026-10-07" },
+@@ -53,14 +53,14 @@
+ 
+   const platformEntries = Object.entries(SLUG_MAP).map(([slug]) => ({
+     url: `${siteUrl}/resize/${slug}`,
+-    lastModified: "2026-10-07",
++    lastModified: "2026-10-08",
+     changeFrequency: "weekly" as const,
+     priority: 0.8,
+   }));
+ 
+   const formatEntries = FORMAT_PAIRS.map((pair) => ({
+     url: `${siteUrl}/converter/${pair}`,
+-    lastModified: "2026-10-07",
++    lastModified: pair.endsWith("-avif") || pair.endsWith("-gif") ? "2026-10-07" : "2026-10-08",
+     changeFrequency: "monthly" as const,
+     priority: 0.7,
+   }));
+--- a/src/app/upscaler/page.tsx
++++ b/src/app/upscaler/page.tsx
+@@ -4,6 +4,7 @@
+ import { BreadcrumbSchema, WebAppSchema } from "@/components/schema-scripts";
+ import { SITE_URL as SITE } from "@/lib/constants";
+ import { ToolLinks } from "@/components/layout/tool-links";
++import { UpscaleOutputExample } from "@/components/guides/upscale-output-example";
+ 
+ export const metadata = pageMetadata({
+   title: "Free Image Upscaler: Enlarge PNG & JPG",
+@@ -26,7 +27,7 @@
+   return (
+     <>
+       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Image Upscaler", url: `${SITE}/upscaler` }]} />
+-      <WebAppSchema name="SquarePic - Image Upscaler" url={`${SITE}/upscaler`} description="Enlarge images locally using browser smoothing and optional sharpening, without an AI model." dateModified="2026-10-07" />
++      <WebAppSchema name="SquarePic - Image Upscaler" url={`${SITE}/upscaler`} description="Enlarge images locally using browser smoothing and optional sharpening, without an AI model." dateModified="2026-10-08" />
+       <UpscalerTool />
+       <ToolLinks current="/upscaler" />
+       <section className="max-w-[900px] mx-auto px-4 pb-16 text-[0.9rem] text-[#8d9aaa] leading-relaxed">
+@@ -52,6 +53,14 @@
+           </table>
+         </div>
+         <p className="mt-4">Use the <Link href="/image-size-calculator" className={linkStyle}>image size and aspect ratio calculator</Link> when you need a specific proportional size. Enlarging a rectangular photo does not make it square; follow the <Link href="/guides/make-image-square-without-cropping" className={linkStyle}>square-photo guide</Link> to add background or crop.</p>
++        <h2 className={heading}>Compare actual 2x and 4x downloads</h2>
++        <UpscaleOutputExample />
++        <h2 className={heading}>Supported files and output limits</h2>
++        <p>Start with a browser-decodable PNG, JPEG or WebP of up to 30 MB. Output is limited to 40 million pixels
++          and 16,384 pixels per side. Large images can still exceed a device&apos;s available memory.
++          If processing fails, choose a smaller source or lower multiplier and try again.</p>
++        <p className="mt-3">PNG and WebP retain transparency; JPEG fills transparent areas with white.
++          Animated inputs become one still frame. Source metadata is not copied to the export.</p>
+         <h2 className={heading}>Smoothing and sharpening have different jobs</h2>
+         <p>Smoothing resamples the source into a larger grid of pixels. Smart Sharpen then increases contrast around edges. It can make the result look crisper, but it cannot reconstruct missing detail. Turn it off if you see halos around edges or stronger noise in flat areas.</p>
+         <p className="mt-3">The implementation requests high-quality smoothing through Canvas and applies a local sharpening filter. It does not guarantee a particular bicubic algorithm or use a generative AI model. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/imageSmoothingQuality" className={linkStyle}>MDN&apos;s documentation of browser image smoothing</a> for how that setting works.</p>
+@@ -59,7 +68,7 @@
+         <div className="space-y-5">{questions.map((item) => <div key={item.question}><h3 className="font-bold text-[#e6edf5] mb-1">{item.question}</h3><p>{item.answer}</p></div>)}</div>
+         <h2 className={heading}>Prepare an enlarged image for its destination</h2>
+         <p>Review the output at its intended display size. For a banner or avatar, check the <Link href="/resize/linkedin" className={linkStyle}>LinkedIn dimensions</Link> or <Link href="/resize/instagram" className={linkStyle}>Instagram presets</Link> before exporting. If a larger image exceeds an upload limit, use the <Link href="/compressor" className={linkStyle}>image compressor</Link> after choosing the required dimensions.</p>
+-        <p className="text-[0.75rem] mt-8">Last updated: October 7, 2026</p>
++        <p className="text-[0.75rem] mt-8">Last updated: October 8, 2026</p>
+       </section>
+     </>
+   );
+--- /dev/null
++++ b/src/components/guides/upscale-output-example.tsx
+@@ -0,0 +1,31 @@
++import Image from "next/image";
++
++export function UpscaleOutputExample() {
++  return (
++    <figure className="my-6 rounded-xl border border-white/10 p-4">
++      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
++        {[
++          { file: "square-source", label: "Original", width: 600, height: 400 },
++          { file: "upscale-2x", label: "2x PNG", width: 1200, height: 800 },
++          { file: "upscale-4x", label: "4x PNG", width: 2400, height: 1600 },
++        ].map(({ file, label, width, height }) => (
++          <div key={file}>
++            <div className="aspect-[3/2] overflow-hidden rounded-lg bg-[#18212c]"
++              style={{ backgroundImage: "conic-gradient(#304354 25%, #18212c 0 50%, #304354 0 75%, #18212c 0)", backgroundSize: "20px 20px" }}>
++              <Image src={`/examples/${file}.png`} alt={`${label} of test artwork with red and blue edges, a green center and transparent areas`}
++                width={width} height={height} sizes="(max-width: 639px) 100vw, 33vw" className="w-full h-full object-contain" />
++            </div>
++            <p className="text-sm text-[#e6edf5] mt-2">{label}: {width} × {height}</p>
++            <a href={`/examples/${file}.png`} download className="text-sm text-[var(--accent)] hover:underline">Download {label.toLowerCase()} example</a>
++          </div>
++        ))}
++      </div>
++      <figcaption className="text-sm text-[#8d9aaa] mt-4">
++        Actual SquarePic PNG downloads from the same transparent test artwork, with Smart Sharpen enabled.
++        Both enlargements retain transparent areas; the checkerboard belongs to this preview.
++        The images appear at the same display size here. Open the downloads at 100% to inspect edge smoothing.
++        More output pixels do not restore missing source detail. Browser results can vary.
++      </figcaption>
++    </figure>
++  );
++}
+--- a/src/components/layout/tool-as-hero-layout.tsx
++++ b/src/components/layout/tool-as-hero-layout.tsx
+@@ -87,7 +87,8 @@
+ 
+   const activePresetLabel = (() => {
+     if (!state.targetWidth || !state.targetHeight) return null;
+-    for (const [, pv] of Object.entries(presets)) {
++    const candidates = socialPlatform ? [presets[socialPlatform]] : Object.values(presets);
++    for (const pv of candidates) {
+       for (const [, tv] of Object.entries(pv.types)) {
+         if (tv.w === state.targetWidth && tv.h === state.targetHeight) return `${pv.label} - ${tv.label}`;
+       }
+--- a/src/data/guides.ts
++++ b/src/data/guides.ts
+@@ -21,7 +21,7 @@
+   {
+     path: "/guides/instagram-feed-sizes-2026",
+     title: "Instagram Image Sizes 2026: Feed, Carousel & Profile",
+-    description: "Complete guide to Instagram feed post dimensions, carousel specs, profile picture sizes, and ad formats.",
++    description: "Working square, portrait and profile canvases, actual fit/crop examples and Instagram placement previews.",
+     date: "2026-07-19",
+   },
+   {
+@@ -33,7 +33,7 @@
+   {
+     path: "/guides/linkedin-image-sizes-2026",
+     title: "LinkedIn Image Sizes 2026: Banner, Profile & Post Dimensions",
+-    description: "Complete guide to LinkedIn image dimensions for 2026. Profile pictures, banner/cover photos, post sizes, carousel specs, and company page image requirements.",
++    description: "Dated official references for personal and company Page covers, post artwork and configured export presets.",
+     date: "2026-07-19",
+   },
+   {
+--- a/src/data/social-presets.json
++++ b/src/data/social-presets.json
+@@ -115,7 +115,7 @@
+   },
+   "linkedin": {
+     "label": "LinkedIn",
+-    "description": "LinkedIn image sizes for profiles, posts, company pages, and cover images. Banner display is 1128x191, shared images are 1200x627.",
++    "description": "Resize LinkedIn artwork for a 1200 × 627 landscape post, 1512 × 256 company Page cover, 1584 × 396 personal cover or square profile image. Choose the placement before exporting.",
+     "types": {
+       "profile": {
+         "label": "Profile Picture",
+@@ -307,7 +307,7 @@
+   },
+   "twitch": {
+     "label": "Twitch",
+-    "description": "Twitch image sizes for profile pictures, banners, panels, and offline screens. Panels are small 320x160 informational boxes below streams.",
++    "description": "Resize a Twitch profile image, channel header, offline player image or panel. Our panel preset is 320 × 160; each asset has its own upload setting and preview.",
+     "types": {
+       "profile": {
+         "label": "Profile Picture",
+@@ -316,7 +316,7 @@
+         "aspect": "1:1"
+       },
+       "banner": {
+-        "label": "Banner",
++        "label": "Profile Banner",
+         "w": 1200,
+         "h": 480,
+         "aspect": "2.5:1"
+@@ -328,7 +328,7 @@
+         "aspect": "2:1"
+       },
+       "offlineBanner": {
+-        "label": "Offline Banner",
++        "label": "Video Player Banner (Offline)",
+         "w": 1920,
+         "h": 1080,
+         "aspect": "16:9"

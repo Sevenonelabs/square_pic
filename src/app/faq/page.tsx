@@ -1,5 +1,6 @@
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BreadcrumbSchema, FAQPageSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
@@ -44,7 +45,7 @@ const FAQS = [
   },
   {
     q: "How can I contact support?",
-    a: "If you need help or any questions, you can email us at support@squarepic.io. We aim to respond as quickly as possible.",
+    a: "Use the contact form on our Support page to describe your question and open an email draft. Review and send the draft in your email app, or use the public GitHub support link.",
   },
   {
     q: "What image formats does SquarePic support?",
@@ -119,7 +120,7 @@ export default function FAQPage() {
             {section.items.map((i) => (
               <div key={i}>
                 <h3 className="text-[var(--accent)] mb-1 text-[1rem] font-bold">{FAQS[i].q}</h3>
-                <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">{FAQS[i].a}</p>
+                <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">{FAQS[i].a}{i === 8 && <> <Link href="/support#contact-form" className="text-[var(--accent)] underline">Open the support contact form</Link>.</>}</p>
               </div>
             ))}
           </div>

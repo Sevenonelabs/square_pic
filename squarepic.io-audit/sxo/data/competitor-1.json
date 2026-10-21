@@ -1,0 +1,92 @@
+{
+  "url": "https://square-image.org/",
+  "status_code": 200,
+  "content": "<!DOCTYPE html><html lang=\"en\" class=\"h-full geist_278e1efb-module__Tw9crG__variable geist_mono_1bf8cbf6-module__FlyLvG__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/797e433ab948586e-s.p.0r6juujl39pe6.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/0113jcf9_l0o5.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/0k97pqhf1-bx_.js\"/><script src=\"/_next/static/chunks/0fq-y6gtu5ptn.js\" async=\"\"></script><script src=\"/_next/static/chunks/17b5qmvblvpy8.js\" async=\"\"></script><script src=\"/_next/static/chunks/19o59-9onsevz.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-3-y-btjfhkwbm.js\" async=\"\"></script><script src=\"/_next/static/chunks/3hu8a564-_in0.js\" async=\"\"></script><script src=\"/_next/static/chunks/3n3yvff_6qsfw.js\" async=\"\"></script><script src=\"/_next/static/chunks/2tjb6f9z_wlk0.js\" async=\"\"></script><script src=\"/_next/static/chunks/27sn2jo_-5646.js\" async=\"\"></script><script src=\"/_next/static/chunks/2_apmntml4-nn.js\" async=\"\"></script><script src=\"/_next/static/chunks/0v8iqpxt2_3xp.js\" async=\"\"></script><link rel=\"preload\" href=\"https://www.googletagmanager.com/gtag/js?id=G-F30Y5TKM9P\" as=\"script\"/><meta nam",
+  "raw_content": "<!DOCTYPE html><html lang=\"en\" class=\"h-full geist_278e1efb-module__Tw9crG__variable geist_mono_1bf8cbf6-module__FlyLvG__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/797e433ab948586e-s.p.0r6juujl39pe6.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/0113jcf9_l0o5.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/0k97pqhf1-bx_.js\"/><script src=\"/_next/static/chunks/0fq-y6gtu5ptn.js\" async=\"\"></script><script src=\"/_next/static/chunks/17b5qmvblvpy8.js\" async=\"\"></script><script src=\"/_next/static/chunks/19o59-9onsevz.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-3-y-btjfhkwbm.js\" async=\"\"></script><script src=\"/_next/static/chunks/3hu8a564-_in0.js\" async=\"\"></script><script src=\"/_next/static/chunks/3n3yvff_6qsfw.js\" async=\"\"></script><script src=\"/_next/static/chunks/2tjb6f9z_wlk0.js\" async=\"\"></script><script src=\"/_next/static/chunks/27sn2jo_-5646.js\" async=\"\"></script><script src=\"/_next/static/chunks/2_apmntml4-nn.js\" async=\"\"></script><script src=\"/_next/static/chunks/0v8iqpxt2_3xp.js\" async=\"\"></script><link rel=\"preload\" href=\"https://www.googletagmanager.com/gtag/js?id=G-F30Y5TKM9P\" as=\"script\"/><meta nam",
+  "is_spa": false,
+  "extracted_text": "Make a Square Image From Any Photo\nCrop or pad any photo into a clean 1:1 square \u2014 a free, private square image tool that runs entirely in your browser. No signup, no watermark, no upload.\nDrop an image here, or browse\nPNG, JPG, WebP or GIF, up to 25 MB. You can also paste from your clipboard.\nRuns entirely in your browser. Your image is never uploaded.\nMake an image square in three steps\nNothing to install and nothing to learn. You go from photo to square in well under a minute.\n- 01Upload your imageDrag and drop, browse, or paste any PNG, JPG, WebP or GIF. It loads instantly in your browser.\n- 02Crop or fit to squareDrag the box to crop exactly what you want, or switch to fit and pad the whole picture with any background.\n- 03Download the squareSave your 1:1 image at full resolution. No watermark, no account, and no waiting in a queue.\nCrop or fit: two ways to make a square image\nEvery photo becomes a square one of two ways. Pick the mode that keeps what matters most in your image.\nCrop to square\nCut a 1:1 region out of your photo. Drag to reposition and zoom in or out to frame exactly what you want, then download a tight, fully-filled square with no borders.\nBest for social posts, avatars and thumbnails where the square should be completely filled.\nFit to square\nKeep the entire photo and pad the shorter sides with a background color until the canvas is a perfect square. This is how you make an image square without cropping anything out.\nBest for product shots, logos and ar",
+  "publication_date": "2026-01-01",
+  "accessibility_tree": null,
+  "accessibility_error": null,
+  "accessibility_partial": false,
+  "headers": {
+    "Access-Control-Allow-Origin": "*",
+    "Age": "1870669",
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "Content-Disposition": "inline",
+    "Content-Encoding": "gzip",
+    "Content-Type": "text/html; charset=utf-8",
+    "Date": "Thu, 08 Oct 2026 16:16:25 GMT",
+    "Etag": "W/\"f0090b7a652e2220db7fc984bcc56529\"",
+    "Server": "Vercel",
+    "Strict-Transport-Security": "max-age=63072000",
+    "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "X-Matched-Path": "/",
+    "X-Nextjs-Prerender": "1",
+    "X-Nextjs-Stale-Time": "300",
+    "X-Vercel-Cache": "HIT",
+    "X-Vercel-Id": "bom1::v5xh5-1791476185116-72e806685a27",
+    "Transfer-Encoding": "chunked"
+  },
+  "redirect_chain": [],
+  "console_errors": [],
+  "render_diagnostics": [],
+  "render_engine": null,
+  "render_ms": null,
+  "mode_used": "raw",
+  "error": null,
+  "structured_data": {
+    "block_count": 2,
+    "processed_count": 2,
+    "total_bytes": 6593,
+    "truncated": false,
+    "blocks": [
+      {
+        "index": 1,
+        "size_bytes": 6003,
+        "valid": true,
+        "types": [
+          "Answer",
+          "FAQPage",
+          "HowTo",
+          "HowToStep",
+          "Offer",
+          "Question",
+          "WebApplication"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 2,
+        "size_bytes": 590,
+        "valid": true,
+        "types": [
+          "Organization",
+          "WebSite"
+        ],
+        "types_truncated": false
+      }
+    ]
+  },
+  "truncation": {
+    "limit": 1500,
+    "fields": {
+      "content": {
+        "original_chars": 147744,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "raw_content": {
+        "original_chars": 147744,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "extracted_text": {
+        "original_chars": 4315,
+        "returned_chars": 1500,
+        "truncated": true
+      }
+    }
+  },
+  "output_written": true
+}

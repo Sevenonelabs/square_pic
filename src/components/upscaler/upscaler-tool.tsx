@@ -167,7 +167,7 @@ export function UpscalerTool() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
             </svg>
           </div>
-          <h3 className="text-[1.3rem] font-bold mb-2">Drop an image or click to browse</h3>
+          <p className="text-[1.3rem] font-bold mb-2">Drop an image or click to browse</p>
           <p className="text-[0.875rem] text-[#8d9aaa]">Browser-decodable images such as PNG, JPEG and WebP — up to 30 MB</p>
           <input ref={fileInputRef} type="file" hidden accept="image/*" onChange={(e) => e.target.files && handleFile(e.target.files[0])} />
         </motion.div>
@@ -263,7 +263,7 @@ export function UpscalerTool() {
             className="w-full lg:w-[280px] flex flex-col gap-3"
           >
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-              <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Original</h3>
+              <div className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Original</div>
               <div className="text-[0.875rem] text-[#8d9aaa] space-y-1">
                 <div className="truncate font-medium text-[#e6edf5]">{fileName}</div>
                 <div>{image.naturalWidth} &times; {image.naturalHeight} px</div>
@@ -272,7 +272,7 @@ export function UpscalerTool() {
             </div>
 
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-              <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Scale Factor</h3>
+              <div className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Scale Factor</div>
               <div className="flex gap-1 mb-2">
                 {SCALES.map((s) => (
                   <button key={s} disabled={processing} onClick={() => { setScale(s); setResult(null); setResultDataUrl(""); setDisplayMode("original"); }}
@@ -291,7 +291,7 @@ export function UpscalerTool() {
 
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa]">Smart Sharpen</h3>
+                <div className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa]">Smart Sharpen</div>
                 <button aria-label="Smart Sharpen" aria-pressed={sharpen} disabled={processing} onClick={() => { setSharpen(!sharpen); setResult(null); setResultDataUrl(""); setDisplayMode("original"); }}
                   className={`relative w-9 h-5 rounded-full transition-all cursor-pointer ${
                     sharpen ? "bg-[var(--accent)]" : "bg-[rgba(255,255,255,0.10)]"
@@ -353,7 +353,7 @@ export function UpscalerTool() {
                 </div>
 
                 <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-                  <h3 className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Export</h3>
+                  <div className="text-[0.875rem] tracking-[0.12em] uppercase font-bold text-[#8d9aaa] mb-2.5">Export</div>
                   <div className="flex gap-1 mb-2">
                     {(["png", "jpeg", "webp"] as const).map((f) => (
                       <button key={f} onClick={() => setExpFormat(f)}

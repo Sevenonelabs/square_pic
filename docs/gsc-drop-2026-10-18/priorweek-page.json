@@ -1,0 +1,259 @@
+{
+  "ok": true,
+  "data": {
+    "rows": [
+      {
+        "keys": [
+          "https://www.squarepic.io/"
+        ],
+        "clicks": 82,
+        "impressions": 4236,
+        "ctr": 0.01935788479697828,
+        "position": 7.691690273843248
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/upscaler"
+        ],
+        "clicks": 10,
+        "impressions": 211,
+        "ctr": 0.04739336492890995,
+        "position": 22.246445497630333
+      },
+      {
+        "keys": [
+          "https://squarepic.io/"
+        ],
+        "clicks": 6,
+        "impressions": 253,
+        "ctr": 0.023715415019762844,
+        "position": 2.7193675889328066
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/resize/instagram"
+        ],
+        "clicks": 2,
+        "impressions": 40,
+        "ctr": 0.05,
+        "position": 10.6
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/converter/png-to-avif"
+        ],
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/guides/discord-image-sizes-2026"
+        ],
+        "clicks": 1,
+        "impressions": 142,
+        "ctr": 0.007042253521126761,
+        "position": 16.190140845070424
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/image-size-calculator"
+        ],
+        "clicks": 1,
+        "impressions": 224,
+        "ctr": 0.004464285714285714,
+        "position": 32.70089285714286
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/resize/linkedin"
+        ],
+        "clicks": 1,
+        "impressions": 93,
+        "ctr": 0.010752688172043012,
+        "position": 9.989247311827956
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/resize/twitch"
+        ],
+        "clicks": 1,
+        "impressions": 39,
+        "ctr": 0.02564102564102564,
+        "position": 6.256410256410256
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/resize/x-twitter"
+        ],
+        "clicks": 1,
+        "impressions": 158,
+        "ctr": 0.006329113924050633,
+        "position": 8.879746835443038
+      },
+      {
+        "keys": [
+          "https://squarepic.io/guides/social-media-image-sizes-2026"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/about"
+        ],
+        "clicks": 0,
+        "impressions": 22,
+        "ctr": 0,
+        "position": 6.7272727272727275
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/blog/how-to-square-image-for-any-platform"
+        ],
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 5.416666666666667
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/compressor"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 18
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/converter"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 32
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/converter/jpg-to-gif"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/converter/jpg-to-ico"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/faq"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 10.6
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/guides"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 35
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/guides/instagram-feed-sizes-2026"
+        ],
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 9.285714285714286
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/guides/instagram-reels-stories-guide"
+        ],
+        "clicks": 0,
+        "impressions": 32,
+        "ctr": 0,
+        "position": 16.40625
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/guides/linkedin-image-sizes-2026"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 27.75
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/guides/social-media-image-sizes-2026"
+        ],
+        "clicks": 0,
+        "impressions": 103,
+        "ctr": 0,
+        "position": 6.320388349514563
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/guides/youtube-banner-thumbnail-sizes-2026"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 12.2
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/privacy"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/research"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "https://www.squarepic.io/support"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 5.5
+      }
+    ],
+    "_pagination": {
+      "pagesFetched": 1,
+      "totalRowsFetched": 27
+    },
+    "responseAggregationType": "byPage"
+  },
+  "meta": {
+    "command": "analytics query",
+    "durationMs": 17571
+  }
+}

@@ -14,7 +14,7 @@ import { SITE_URL as SITE } from "@/lib/constants";
 
 const PATH = "/guides/discord-image-sizes-2027";
 const TITLE = "Discord Server Banner Size 2027 & Invite Splash";
-const DESCRIPTION = "Find Discord server banner size, invite splash dimensions and server icon presets. Check Boost access and troubleshoot an image missing from your invite link.";
+const DESCRIPTION = "Discord banner and invite splash guide for 2027. Review server banner dimensions, Boost Level perks, profile headers, and working icon presets.";
 const SOURCES = {
   banners: "https://support.discord.com/hc/en-us/articles/360028716472-Server-Banners",
   invites: "https://support.discord.com/hc/en-us/articles/4415841146391-Server-Invite-Background",

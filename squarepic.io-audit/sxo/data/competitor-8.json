@@ -1,0 +1,84 @@
+{
+  "url": "https://www.makesquareimage.com/",
+  "status_code": 200,
+  "content": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/7b5971e3ac093468.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-d63a674b7398a8e2.js\" crossorigin=\"\"/><script src=\"/_next/static/chunks/fd9d1056-a0a67b907ca59d16.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/938-e78b478408683352.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/main-app-01dcb8892b176af1.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/99-7f790e51c6b4f54d.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/page-2d65df54dac4e56b.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/layout-d6260562b96f7810.js\" async=\"\"></script><link rel=\"preload\" href=\"https://www.googletagmanager.com/gtag/js?id=G-CQQKVL0VN5\" as=\"script\"/><link rel=\"icon\" href=\"/favicon.ico\"/><link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"/><link rel=\"manifest\" href=\"/site.webmanifest\"/><meta name=\"theme-color\" content=\"#3b82f6\"/><title>Make Image Square - Resize and Edit | Free Online Tool</title><meta name=\"description\" content=\"Make image square with white board backgrounds. Edit and transform your images into perfect squares and v",
+  "raw_content": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/7b5971e3ac093468.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-d63a674b7398a8e2.js\" crossorigin=\"\"/><script src=\"/_next/static/chunks/fd9d1056-a0a67b907ca59d16.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/938-e78b478408683352.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/main-app-01dcb8892b176af1.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/99-7f790e51c6b4f54d.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/page-2d65df54dac4e56b.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/layout-d6260562b96f7810.js\" async=\"\"></script><link rel=\"preload\" href=\"https://www.googletagmanager.com/gtag/js?id=G-CQQKVL0VN5\" as=\"script\"/><link rel=\"icon\" href=\"/favicon.ico\"/><link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"/><link rel=\"manifest\" href=\"/site.webmanifest\"/><meta name=\"theme-color\" content=\"#3b82f6\"/><title>Make Image Square - Resize and Edit | Free Online Tool</title><meta name=\"description\" content=\"Make image square with white board backgrounds. Edit and transform your images into perfect squares and v",
+  "is_spa": false,
+  "extracted_text": "Make Image Square - Edit and Resize\nMake image square with white board backgrounds. Edit and transform your images into perfect squares and various aspect ratios. Perfect for Instagram, Twitter, wallpapers, and more.\n\u2713 Make square images\u2713 White board editor\u2713 Batch processing\u2713 High quality output",
+  "publication_date": "2025-01-01",
+  "accessibility_tree": null,
+  "accessibility_error": null,
+  "accessibility_partial": false,
+  "headers": {
+    "Date": "Thu, 08 Oct 2026 16:16:32 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "access-control-allow-origin": "*",
+    "Age": "537462",
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "content-disposition": "inline",
+    "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Yr3julVHLJC2zTHJf5E%2FbLdeem1t2UxcQiuqCs%2BSwQTqGp1yTV8x%2FK04rwesnZE6kb6nYhCKiFjhlzQi5P5TlmjTeAjt%2FEBYx9oHciQSdWGCUL1c3vSFv8XTiymSqS7HgfPxrXu2vfg1YA%3D%3D\"}]}",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "Server": "cloudflare",
+    "strict-transport-security": "max-age=63072000",
+    "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url, accept-encoding",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-matched-path": "/",
+    "x-vercel-cache": "HIT",
+    "x-vercel-id": "cdg1::4cqhn-1791476192227-0a5cb81a6311",
+    "cf-cache-status": "DYNAMIC",
+    "Server-Timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=10,cfOrigin;dur=114",
+    "Content-Encoding": "gzip",
+    "CF-RAY": "a4767358cddb83cc-MRS",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "redirect_chain": [],
+  "console_errors": [],
+  "render_diagnostics": [],
+  "render_engine": null,
+  "render_ms": null,
+  "mode_used": "raw",
+  "error": null,
+  "structured_data": {
+    "block_count": 1,
+    "processed_count": 1,
+    "total_bytes": 631,
+    "truncated": false,
+    "blocks": [
+      {
+        "index": 1,
+        "size_bytes": 631,
+        "valid": true,
+        "types": [
+          "Offer",
+          "WebApplication"
+        ],
+        "types_truncated": false
+      }
+    ]
+  },
+  "truncation": {
+    "limit": 1500,
+    "fields": {
+      "content": {
+        "original_chars": 19741,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "raw_content": {
+        "original_chars": 19741,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "extracted_text": {
+        "original_chars": 296,
+        "returned_chars": 296,
+        "truncated": false
+      }
+    }
+  },
+  "output_written": true
+}

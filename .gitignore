@@ -68,3 +68,8 @@ __pycache__/
 /squarepic.io-audit/data/*.gif
 /squarepic.io-audit/data/*.ico
 /squarepic.io-audit/data/*.tiff
+/squarepic.io-audit/report-fixes/*.json
+/squarepic.io-audit/report-fixes/*.png
+/squarepic.io-audit/release/*.jpeg
+/squarepic.io-audit/release/*.txt
+/tmp/

@@ -55,21 +55,21 @@ with sync_playwright() as p:
     browser = p.chromium.launch(headless=True, executable_path="C:/Users/shiva/plugins/claude-seo/ms-playwright/chromium-1243/chrome-win64/chrome.exe")
     for width, height in [(1366, 900), (390, 844), (320, 568)]:
         context = browser.new_context(viewport={"width": width, "height": height}, accept_downloads=True)
-        context.route("**/google-analytics.com/**", lambda route: route.abort())
-        context.route("**/googletagmanager.com/**", lambda route: route.abort())
+        context.route("**google-analytics.com/**", lambda route: route.abort())
+        context.route("**googletagmanager.com/**", lambda route: route.abort())
         page = context.new_page()
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(BASE, wait_until="networkidle")
         page.evaluate("() => { window.events=[]; window.gtag=(...args)=>events.push(args); }")
-        # One compact comparison immediately follows the editor, before tool cards.
-        expect(page.locator('.image-editor-workspace + section')).to_contain_text("Keep the whole photo")
+        # The comparison remains visible content, independent of sharing layout.
+        expect(page.get_by_role('heading', name='Keep the whole photo or crop the edges', exact=True)).to_be_visible()
         initial = page.evaluate("""() => ({docWidth:document.documentElement.scrollWidth,width:innerWidth,
-          uploadBottom:document.querySelector('label[for="dz-upload"]').getBoundingClientRect().bottom,
-          exportBottom:document.querySelector('.editor-export').getBoundingClientRect().bottom})""")
+          uploadBottom:[...document.querySelectorAll('button')].find(b=>b.textContent.trim()==='Upload Your Image').getBoundingClientRect().bottom})""")
+        expect(page.locator('.editor-controls')).to_have_count(0)
         assert initial['docWidth'] <= width, initial
-        if height >= 700:
-            assert initial['uploadBottom'] <= height and initial['exportBottom'] <= height, initial
+        if height >= 700 and width >= 768:
+            assert initial['uploadBottom'] <= height, initial
         page.screenshot(path=str(OUT / f"initial-{width}.png"))
         page.locator('input[type="file"]').first.set_input_files(str(SOURCE.resolve()))
         page.get_by_role("button", name="Transparent", exact=True).click()

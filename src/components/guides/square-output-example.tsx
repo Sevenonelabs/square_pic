@@ -1,4 +1,13 @@
-import Image from "next/image";
+import { getImageProps, type ImageProps } from "next/image";
+
+function ExampleImage(props: ImageProps) {
+  // Keep Next's optimized URLs, responsive srcset and lazy loading while CSS
+  // handles presentation. The default transparent text style is unnecessary.
+  const { style, ...image } = getImageProps(props).props;
+  void style;
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img {...image} alt={props.alt} />;
+}
 
 const EXAMPLES = [
   { kind: "portrait", asset: "portrait", title: "Portrait photo", width: 900, height: 1350, edge: 1350,
@@ -22,7 +31,7 @@ export function SquareOutputExample({ compact = false, kind }: { compact?: boole
         ].filter(({ file }) => !compact || file !== "source").map(({ file, label, alt, width, height }) => (
           <div key={file}>
             <div className="aspect-square flex items-center bg-[#18212c] rounded-lg overflow-hidden">
-              <Image src={`/examples/${example.asset}-${file}.webp`} alt={alt} width={width} height={height}
+              <ExampleImage src={`/examples/${example.asset}-${file}.webp`} alt={alt} width={width} height={height}
                 sizes={compact ? "(max-width: 767px) 45vw, 400px" : "(max-width: 639px) 100vw, 33vw"} className="w-full h-full object-contain" />
             </div>
             <p className="text-[0.875rem] text-[#e6edf5] mt-2">{label}</p>

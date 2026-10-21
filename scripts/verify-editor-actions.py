@@ -13,8 +13,8 @@ with sync_playwright() as p:
   if engine=='chromium':opts['executable_path']='C:/Users/shiva/plugins/claude-seo/ms-playwright/chromium-1243/chrome-win64/chrome.exe'
   browser=getattr(p,engine).launch(**opts)
   context=browser.new_context(viewport={'width':390,'height':844},accept_downloads=True)
-  context.route('**/google-analytics.com/**',lambda route:route.abort())
-  context.route('**/googletagmanager.com/**',lambda route:route.abort())
+  context.route('**google-analytics.com/**',lambda route:route.abort())
+  context.route('**googletagmanager.com/**',lambda route:route.abort())
   page=context.new_page();page.goto(BASE+'/',wait_until='networkidle')
   page.locator('input[type=file]').first.set_input_files(str(Path('public/examples/portrait-source.webp').resolve()))
   page.get_by_role('button',name='WebP',exact=True).click()

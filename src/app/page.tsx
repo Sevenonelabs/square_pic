@@ -1,40 +1,11 @@
-"use client";
-
-import { useState, useCallback } from "react";
 import Link from "next/link";
-import { ToolAsHeroLayout } from "@/components/layout/tool-as-hero-layout";
+import { SquareImageTool } from "@/components/editor/square-image-tool";
+import { ShareButtons } from "@/components/guides/share-buttons";
 import { ToolLinks } from "@/components/layout/tool-links";
 import { SquareOutputExample } from "@/components/guides/square-output-example";
 import { JsonLd } from "@/components/schema-scripts";
-import type { EditorState } from "@/lib/editor-renderer";
-
-const DEFAULTS = {
-  blur: 20, padding: 10, scale: 100, radius: 0, color: "#F0F5FA",
-};
-
-const COLOR_SWATCHES = [
-  "#1E2328", "#787D82", "#F0F5FA", "#F0CDB4", "#B49B5A", "#F02328",
-  "#F07D28", "#F0F528", "#1EF528", "#50C3FA", "#1E23FA", "#8C23FA",
-  "#F055C8", "#782328", "#B4B928", "#1E2382",
-];
 
 export default function Home() {
-  const [state, setState] = useState<EditorState>({
-    image: null,
-    mode: "blur",
-    blurAmount: DEFAULTS.blur,
-    paddingPercent: DEFAULTS.padding,
-    imageScale: DEFAULTS.scale,
-    cornerRadius: DEFAULTS.radius,
-    backgroundColor: DEFAULTS.color,
-    targetWidth: 0,
-    targetHeight: 0,
-  });
-
-  const update = useCallback((partial: Partial<EditorState>) => {
-    setState((prev) => ({ ...prev, ...partial }));
-  }, []);
-
   return (
     <>
       <JsonLd data={{
@@ -52,16 +23,12 @@ export default function Home() {
         applicationCategory: "MultimediaApplication",
         operatingSystem: "Any",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        dateModified: "2026-10-08",
+        dateModified: "2026-10-09",
       }} />
-      <ToolAsHeroLayout
-        state={state}
-        onStateChange={update}
-        headline="Make an Image Square Without Cropping"
-        highlightWord="Without Cropping"
-        microcopy="Fit your photo into a square with a blurred, solid or transparent background. Keep the whole image at 100% zoom, or choose a centered Crop to fill the frame. Choose 1080, 1200 or a custom square size. No account needed."
-        colorSwatches={COLOR_SWATCHES}
-      />
+      <SquareImageTool />
+      <div className="w-full max-w-[1200px] mx-auto px-4 pt-5">
+        <ShareButtons path="/" title="Make an image square without cropping with SquarePic" />
+      </div>
 
       <ToolLinks />
 
@@ -182,7 +149,7 @@ export default function Home() {
           <h3 className="text-[0.875rem] font-extrabold text-[#e6edf5] mb-2">Private & Secure — No Uploads</h3>
           <p className="text-base text-[#8d9aaa] leading-relaxed m-0">
             SquarePic processes every image locally in your browser using HTML5 Canvas. Your photos never leave your device.
-            Image files stay on your device. Website analytics and the referral widget make network requests; see the <Link href="/privacy" className="text-[var(--accent)] hover:underline">privacy policy</Link> for details.
+            Image files stay on your device. Website analytics make network requests; see the <Link href="/privacy" className="text-[var(--accent)] hover:underline">privacy policy</Link> for details.
           </p>
         </div>
 
@@ -199,7 +166,7 @@ export default function Home() {
           <p className="text-base text-[#8d9aaa] mt-5">See the worked examples in our <Link href="/guides/make-image-square-without-cropping" className="text-[var(--accent)] hover:underline">guide to making an image square without cropping</Link>.</p>
         </div>
 
-        <p className="text-base text-[#8d9aaa] text-center mt-8">Last updated: October 8, 2026</p>
+        <p className="text-base text-[#8d9aaa] text-center mt-8">Last updated: October 9, 2026</p>
 
         <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
           <p className="text-base text-[#8d9aaa] text-center">

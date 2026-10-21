@@ -1,0 +1,67 @@
+{
+  "url": "https://circlecropimage.pro/square-image",
+  "status_code": 200,
+  "content": "<!DOCTYPE html><html lang=\"en\" class=\"noto_sans_mono_df30231f-module__q3SBHG__variable merriweather_7811c4b5-module__aQ7U7a__variable jetbrains_mono_8465f2c9-module__uL2Zya__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/><link rel=\"preload\" href=\"/_next/static/media/248e1dc0efc99276-s.p.1d6sb5kuiz5lw.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/7da1b2d9318915d2-s.p.1pt2_06aomutc.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" as=\"image\" href=\"/logo.png\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/38z2yidfokrso.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/1zqj2zi7ul05l.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/2ih2tfiet1gqd.js\"/><script src=\"/_next/static/chunks/0mpntbejg21vk.js\" async=\"\"></script><script src=\"/_next/static/chunks/1x3j3fxdm9s-1.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-0h0bibbm04u-j.js\" async=\"\"></script><script src=\"/_next/static/chunks/1n3rxadx_rwkc.js\" async=\"\"></script><script src=\"/_next/static/chunks/25csr0uv6psf3.js\" async=\"\"></script><script src=\"/_next/static/chunks/1v44z6y92yvaz.js\" async=",
+  "raw_content": "<!DOCTYPE html><html lang=\"en\" class=\"noto_sans_mono_df30231f-module__q3SBHG__variable merriweather_7811c4b5-module__aQ7U7a__variable jetbrains_mono_8465f2c9-module__uL2Zya__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/><link rel=\"preload\" href=\"/_next/static/media/248e1dc0efc99276-s.p.1d6sb5kuiz5lw.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/7da1b2d9318915d2-s.p.1pt2_06aomutc.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" as=\"image\" href=\"/logo.png\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/38z2yidfokrso.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/1zqj2zi7ul05l.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/2ih2tfiet1gqd.js\"/><script src=\"/_next/static/chunks/0mpntbejg21vk.js\" async=\"\"></script><script src=\"/_next/static/chunks/1x3j3fxdm9s-1.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-0h0bibbm04u-j.js\" async=\"\"></script><script src=\"/_next/static/chunks/1n3rxadx_rwkc.js\" async=\"\"></script><script src=\"/_next/static/chunks/25csr0uv6psf3.js\" async=\"\"></script><script src=\"/_next/static/chunks/1v44z6y92yvaz.js\" async=",
+  "is_spa": false,
+  "extracted_text": "Crop an image to square or add padding?\nMaking an image square is not the same as forcing its width and height to match. Pick the result you want, and the editor will preserve the original proportions so your photo never looks stretched.\nThe difference at a glance\nA crop fills every corner of the square but removes content from the longer sides. A fit keeps the complete image and uses a background to fill the rest of the 1:1 canvas. Both create a true square; the right choice depends on what cannot be lost.\n| Comparison of crop and fit modes for square images |  |  | \n|---|---|---|\n| Mode | Best for | What happens | \n|---|---|---|\n| Crop to square | Close-up portraits, thumbnails, edge-to-edge posts | Fills the canvas and trims the longer edges | \n| Keep the whole image | Logos, group photos, text, products | Preserves the full image and adds a background | \n| Transparent fit | Logos, product cutouts, design assets | Preserves the full image on a transparent PNG canvas | \nCrop an image to a precise 1:1 frame\nChoose Crop to square, then drag the photo until the subject sits where you want it. Use Crop zoom for a tighter composition. The crop stays locked to a square as you adjust it.\nMake an image square without cropping\nChoose Keep the whole image when a face, logo, caption, or product edge must remain visible. Use a blurred copy of the photo, an automatically selected or custom color, or a transparent background to fill the square around it. You can also scale the image down",
+  "publication_date": "2024-11-01",
+  "accessibility_tree": null,
+  "accessibility_error": null,
+  "accessibility_partial": false,
+  "headers": {
+    "Date": "Thu, 08 Oct 2026 16:16:29 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "x-content-type-options": "nosniff",
+    "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=4R5jyYoS%2BK56dI%2FA%2FiMs%2BRvcK%2FiwaCjYC8pWB%2Fyt5sh0CVZR74GV8eymsTfI6lGpgJOwR17jv6JsRX8%2FDmivRcASIqpi%2Fb%2F1nKsLqnKNYNZqEwthN9oIE7U9%2BguZRCVexuNQI5qr\"}]}",
+    "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "Access-Control-Allow-Origin": "*",
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "Speculation-Rules": "\"/cdn-cgi/speculation\"",
+    "Server-Timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=14,cfOrigin;dur=119",
+    "Server": "cloudflare",
+    "cf-cache-status": "DYNAMIC",
+    "vary": "accept-encoding",
+    "Content-Encoding": "gzip",
+    "CF-RAY": "a476734a6fd8146b-MRS",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "redirect_chain": [],
+  "console_errors": [],
+  "render_diagnostics": [],
+  "render_engine": null,
+  "render_ms": null,
+  "mode_used": "raw",
+  "error": null,
+  "structured_data": {
+    "block_count": 0,
+    "processed_count": 0,
+    "total_bytes": 0,
+    "truncated": false,
+    "blocks": []
+  },
+  "truncation": {
+    "limit": 1500,
+    "fields": {
+      "content": {
+        "original_chars": 169038,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "raw_content": {
+        "original_chars": 169038,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "extracted_text": {
+        "original_chars": 1528,
+        "returned_chars": 1500,
+        "truncated": true
+      }
+    }
+  },
+  "output_written": true
+}

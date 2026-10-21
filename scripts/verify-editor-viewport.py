@@ -50,8 +50,8 @@ with sync_playwright() as p:
         for w,h,touch in [(2878,1614,False),(1366,768,False),(1024,600,False),(375,667,True),(390,844,True),(320,568,True),(844,390,True)]:
             context=browser.new_context(viewport={'width':w,'height':h},has_touch=touch,device_scale_factor=2 if touch else 1,accept_downloads=True)
             # Development regressions do not become production analytics traffic.
-            context.route('**/google-analytics.com/**',lambda route:route.abort())
-            context.route('**/googletagmanager.com/**',lambda route:route.abort())
+            context.route('**google-analytics.com/**',lambda route:route.abort())
+            context.route('**googletagmanager.com/**',lambda route:route.abort())
             page=context.new_page()
             page.goto(BASE+'/',wait_until='networkidle')
             page.locator('input[type=file]').first.set_input_files(str(PHOTO))
@@ -82,8 +82,8 @@ with sync_playwright() as p:
             context.close()
 
         context=browser.new_context(viewport={'width':375,'height':667},accept_downloads=True)
-        context.route('**/google-analytics.com/**',lambda route:route.abort())
-        context.route('**/googletagmanager.com/**',lambda route:route.abort())
+        context.route('**google-analytics.com/**',lambda route:route.abort())
+        context.route('**googletagmanager.com/**',lambda route:route.abort())
         page=context.new_page();page.goto(BASE+'/resize/instagram',wait_until='networkidle')
         page.locator('input[type=file]').first.set_input_files(str(PHOTO))
         fit(page,f'{engine}-embedded-platform-editor')
@@ -98,8 +98,8 @@ with sync_playwright() as p:
 
         if '--photos' in sys.argv and engine=='chromium':
             context=browser.new_context(viewport={'width':1366,'height':900},accept_downloads=True)
-            context.route('**/google-analytics.com/**',lambda route:route.abort())
-            context.route('**/googletagmanager.com/**',lambda route:route.abort())
+            context.route('**google-analytics.com/**',lambda route:route.abort())
+            context.route('**googletagmanager.com/**',lambda route:route.abort())
             page=context.new_page()
             for kind,background in [('product-sneaker','#f5f1ed'),('portrait','#e8edf0')]:
                 page.goto(BASE+'/',wait_until='networkidle')

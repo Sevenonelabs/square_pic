@@ -1,6 +1,7 @@
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ContactForm } from "@/components/contact-form";
 import { BreadcrumbSchema } from "@/components/schema-scripts";
 import { SITE_URL as SITE } from "@/lib/constants";
 
@@ -75,14 +76,12 @@ export default function SupportPage() {
         </p>
       </section>
 
-      <section className="mb-6">
+      <section id="contact-form" className="mb-6">
         <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)]">Contact Us</h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           If you need further assistance, please visit our <Link href="/faq" className="text-[var(--accent)] no-underline hover:underline">FAQ page</Link> for common questions, or check our <Link href="/privacy" className="text-[var(--accent)] no-underline hover:underline">Privacy Policy</Link> and <Link href="/terms" className="text-[var(--accent)] no-underline hover:underline">Terms of Service</Link>.
         </p>
-        <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
-          You can also email us directly at <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>.
-        </p>
+        <ContactForm />
       </section>
     </div>
     </>

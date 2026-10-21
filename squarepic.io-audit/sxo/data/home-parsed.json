@@ -1,0 +1,373 @@
+{
+  "title": "Make an Image Square Without Cropping | SquarePic",
+  "meta_description": "Make a square image with blur or solid backgrounds. Keep the full photo, or crop to fill. Free PNG, JPG, and WebP export with no signup or watermark.",
+  "meta_robots": "index, follow",
+  "canonical": "https://www.squarepic.io",
+  "h1": [
+    "Make an Image SquareWithout Cropping"
+  ],
+  "h2": [
+    "More Free Image Tools",
+    "Make Any Photo Square in Seconds",
+    "Questions about making a photo square"
+  ],
+  "h3": [
+    "Outer Border (Padding)",
+    "Style",
+    "Blur Intensity",
+    "Adjustments",
+    "Social Size",
+    "Export",
+    "Image Converter",
+    "Image Compressor",
+    "Image Cropper",
+    "HD Image Upscaler",
+    "Upload Your Image",
+    "Choose Your Style",
+    "Download & Share",
+    "Three Ways to Make a Square Image",
+    "Best Uses for Square Images",
+    "Square Photos and Other Image Shapes",
+    "Why Make Images Square?",
+    "Square Image Best Practices",
+    "Private & Secure \u2014 No Uploads",
+    "How do I make a picture square without cropping?",
+    "Will a square photo look stretched?",
+    "Should I export PNG or JPEG?",
+    "Resize Images for Every Platform",
+    "Convert Between Image Formats"
+  ],
+  "images": [
+    {
+      "src": "https://www.squarepic.io/_next/image?url=%2Fexamples%2Fportrait-source.webp&w=3840&q=75",
+      "alt": "A man in a white shirt against a gray background",
+      "width": "900",
+      "height": "1350",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://www.squarepic.io/_next/image?url=%2Fexamples%2Fportrait-fit.webp&w=3840&q=75",
+      "alt": "Full portrait with background added on the left and right",
+      "width": "1350",
+      "height": "1350",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://www.squarepic.io/_next/image?url=%2Fexamples%2Fportrait-crop.webp&w=3840&q=75",
+      "alt": "Square crop of the portrait with the top and bottom trimmed",
+      "width": "1350",
+      "height": "1350",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://www.squarepic.io/_next/image?url=%2Fexamples%2Fproduct-source.webp&w=3840&q=75",
+      "alt": "A coffee cup surrounded by scattered coffee granules on a dark blue table",
+      "width": "900",
+      "height": "600",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://www.squarepic.io/_next/image?url=%2Fexamples%2Fproduct-fit.webp&w=3840&q=75",
+      "alt": "Full coffee photo with background added above and below",
+      "width": "900",
+      "height": "900",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://www.squarepic.io/_next/image?url=%2Fexamples%2Fproduct-crop.webp&w=3840&q=75",
+      "alt": "Square crop of the coffee photo with the left and right trimmed",
+      "width": "900",
+      "height": "900",
+      "loading": "lazy",
+      "lazy_method": "native"
+    }
+  ],
+  "links": {
+    "internal": [
+      {
+        "href": "https://www.squarepic.io/",
+        "text": "SquarePic",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/",
+        "text": "Home",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/guides",
+        "text": "Guides",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/image-size-calculator",
+        "text": "Image Size Calc",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/about",
+        "text": "About",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/support",
+        "text": "Support",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/faq",
+        "text": "FAQ",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/privacy",
+        "text": "Privacy",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/terms",
+        "text": "Terms",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/converter",
+        "text": "Image ConverterJPG, PNG, WebP, ICO",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/compressor",
+        "text": "Image CompressorReduce file size, batch",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/cropper",
+        "text": "Image CropperFree-form & preset ratios",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/upscaler",
+        "text": "HD Image Upscaler2x, 3x, 4x magnification",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/image-size-calculator",
+        "text": "Calculate your image's aspect ratio",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/privacy",
+        "text": "privacy policy",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/guides/make-image-square-without-cropping",
+        "text": "guide to making an image square without cropping",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/instagram",
+        "text": "Instagram",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/facebook",
+        "text": "Facebook",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/x-twitter",
+        "text": "X (Twitter)",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/linkedin",
+        "text": "LinkedIn",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/tiktok",
+        "text": "TikTok",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/youtube",
+        "text": "YouTube",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/pinterest",
+        "text": "Pinterest",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/snapchat",
+        "text": "Snapchat",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/whatsapp",
+        "text": "WhatsApp",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/twitch",
+        "text": "Twitch",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/reddit",
+        "text": "Reddit",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/telegram",
+        "text": "Telegram",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/discord",
+        "text": "Discord",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/converter/png-to-jpg",
+        "text": "PNG to JPG",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/converter/jpg-to-png",
+        "text": "JPG to PNG",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/converter/png-to-webp",
+        "text": "PNG to WebP",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/converter/jpg-to-webp",
+        "text": "JPG to WebP",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/converter/webp-to-png",
+        "text": "WebP to PNG",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/converter/webp-to-jpg",
+        "text": "WebP to JPG",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/guides/social-media-image-sizes-2026",
+        "text": "Social Media Image Sizes 2026",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/instagram",
+        "text": "Instagram Square Image Maker",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/whatsapp",
+        "text": "WhatsApp Image Resizer",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/resize/linkedin",
+        "text": "LinkedIn Image Resizer",
+        "rel": []
+      },
+      {
+        "href": "https://www.squarepic.io/guides/instagram-reels-stories-guide",
+        "text": "Reels & Stories Guide",
+        "rel": []
+      }
+    ],
+    "external": [
+      {
+        "href": "mailto:support@squarepic.io",
+        "text": "support@squarepic.io",
+        "rel": []
+      },
+      {
+        "href": "https://unsplash.com/photos/man-wearing-white-v-neck-shirt-iFgRcqHznqg",
+        "text": "Joseph Gonzalezon Unsplash",
+        "rel": []
+      },
+      {
+        "href": "https://unsplash.com/photos/ceramic-mug-on-table-OmOvMdiaZZ0",
+        "text": "Robert Shunevon Unsplash",
+        "rel": []
+      }
+    ]
+  },
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.squarepic.io/#organization",
+      "name": "SquarePic",
+      "alternateName": "Square Pic - Free Square Image Tool",
+      "url": "https://www.squarepic.io",
+      "description": "Free online square image maker, image resizer, compressor, and converter. Privacy-first, no uploads, no signup.",
+      "logo": "https://www.squarepic.io/images/logo-icon.svg",
+      "sameAs": [
+        "https://github.com/Sevenonelabs/square_pic"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@squarepic.io",
+        "contactType": "customer support"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SquarePic",
+      "url": "https://www.squarepic.io"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SquarePic",
+      "url": "https://www.squarepic.io",
+      "description": "Free online image editing toolkit. Square image maker, image resizer, compressor, converter, and cropper. Privacy-first, no uploads.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "dateModified": "2026-10-07"
+    }
+  ],
+  "open_graph": {
+    "og:title": "Make an Image Square Without Cropping | SquarePic",
+    "og:description": "Make a square image with blur or solid backgrounds. Keep the full photo, or crop to fill. Free PNG, JPG, and WebP export with no signup or watermark.",
+    "og:url": "https://www.squarepic.io",
+    "og:site_name": "SquarePic",
+    "og:locale": "en_US",
+    "og:image": "https://www.squarepic.io/og/og-home.png",
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "og:image:alt": "Make an Image Square Without Cropping | SquarePic",
+    "og:type": "website"
+  },
+  "twitter_card": {
+    "twitter:card": "summary_large_image",
+    "twitter:title": "Make an Image Square Without Cropping | SquarePic",
+    "twitter:description": "Make a square image with blur or solid backgrounds. Keep the full photo, or crop to fill. Free PNG, JPG, and WebP export with no signup or watermark.",
+    "twitter:image": "https://www.squarepic.io/og/og-home.png",
+    "twitter:image:alt": "Make an Image Square Without Cropping | SquarePic"
+  },
+  "word_count": 1006,
+  "hreflang": []
+}

@@ -1,0 +1,108 @@
+{
+  "url": "https://squareimage.dev/",
+  "status_code": 200,
+  "content": "<!DOCTYPE html><html lang=\"en\" dir=\"ltr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/31w7fd4iwi2-1.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/1d5_lacs-cq4e.js\"/><script src=\"/_next/static/chunks/1rsn1dago3cd5.js\" async=\"\"></script><script src=\"/_next/static/chunks/1flp-fswye0d3.js\" async=\"\"></script><script src=\"/_next/static/chunks/31iarpvmym1z2.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-1rnulmdxmnpqe.js\" async=\"\"></script><script src=\"/_next/static/chunks/292h3d25hg-lg.js\" async=\"\"></script><script src=\"/_next/static/chunks/158myu8e_yme3.js\" async=\"\"></script><script src=\"/_next/static/chunks/3374hgjo9oxe9.js\" async=\"\"></script><script src=\"/_next/static/chunks/2c_qypjyqhee_.js\" async=\"\"></script><link rel=\"preload\" href=\"/style.css?v=20260820-11\" as=\"style\"/><link rel=\"preload\" href=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5190197412150039\" as=\"script\" crossorigin=\"\"/><link rel=\"preload\" href=\"https://www.googletagmanager.com/gtag/js?id=G-DKVC0LEF34\" as=\"script\"/><meta name=\"yandex-verification\" content=\"f416f56f05142fa5\"/><meta name=\"baidu-site-verification\" content=\"codeva-x6mXq61IMo\"/><title>Square Image \u2013 Make Any Image Square Online, Free | SquareImage.dev</title><meta name=\"description\" content=\"Make any photo square in your browser \u2014 your im",
+  "raw_content": "<!DOCTYPE html><html lang=\"en\" dir=\"ltr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/31w7fd4iwi2-1.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/1d5_lacs-cq4e.js\"/><script src=\"/_next/static/chunks/1rsn1dago3cd5.js\" async=\"\"></script><script src=\"/_next/static/chunks/1flp-fswye0d3.js\" async=\"\"></script><script src=\"/_next/static/chunks/31iarpvmym1z2.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-1rnulmdxmnpqe.js\" async=\"\"></script><script src=\"/_next/static/chunks/292h3d25hg-lg.js\" async=\"\"></script><script src=\"/_next/static/chunks/158myu8e_yme3.js\" async=\"\"></script><script src=\"/_next/static/chunks/3374hgjo9oxe9.js\" async=\"\"></script><script src=\"/_next/static/chunks/2c_qypjyqhee_.js\" async=\"\"></script><link rel=\"preload\" href=\"/style.css?v=20260820-11\" as=\"style\"/><link rel=\"preload\" href=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5190197412150039\" as=\"script\" crossorigin=\"\"/><link rel=\"preload\" href=\"https://www.googletagmanager.com/gtag/js?id=G-DKVC0LEF34\" as=\"script\"/><meta name=\"yandex-verification\" content=\"f416f56f05142fa5\"/><meta name=\"baidu-site-verification\" content=\"codeva-x6mXq61IMo\"/><title>Square Image \u2013 Make Any Image Square Online, Free | SquareImage.dev</title><meta name=\"description\" content=\"Make any photo square in your browser \u2014 your im",
+  "is_spa": false,
+  "extracted_text": "Square Image: Make Any Image Square Online\nShort answer\nSquareImage.dev makes any photo square in the browser, free, with no account, no watermark and no upload: the image is processed on the device with Canvas. Four methods cover every case \u2014 a blurred background or a solid colour keeps the whole photo visible, a resize stretches it to 1:1, and a manual crop selects the region to keep. It accepts JPEG, PNG, WebP, GIF and BMP, and exports PNG, JPEG or WebP at 1080 x 1080, 1200 x 1200, the original edge length, or any custom square from 1 to 10,000 pixels.\nBy SquareImage \u00b7 Verified\nMake one photo square in this browser \u2014 your file is never uploaded to a server and never leaves your device. Nothing to install and no account. Keep the whole image with a blurred or solid-color background, resize it to 1:1, or choose the exact area to crop.\nHow do I make an image square?\n- Choose an image. Select or drag in a photo supported by your browser.\n- Pick a square method. Use blur, a solid color, resize, or a manual 1:1 crop.\n- Adjust the result. Change the blur amount, background color, or crop position when those controls appear.\n- Choose the output. Export at 1080px or 1200px, keep the original edge size, or enter a custom square size from 1 to 10,000 pixels. Select JPEG, PNG, or WebP.\n- Download. Save the finished square image directly to your device.\nWhich way should I square my photo?\nEach method solves a different composition problem. Start with blur if you want to preserve every ",
+  "publication_date": "2026-09-10",
+  "accessibility_tree": null,
+  "accessibility_error": null,
+  "accessibility_partial": false,
+  "headers": {
+    "Access-Control-Allow-Origin": "*",
+    "Age": "993488",
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "Content-Disposition": "inline",
+    "Content-Encoding": "gzip",
+    "Content-Type": "text/html; charset=utf-8",
+    "Date": "Thu, 08 Oct 2026 16:16:25 GMT",
+    "Etag": "W/\"9c39baf997fc8ded6b4b4c56fc9aee28\"",
+    "Server": "Vercel",
+    "Strict-Transport-Security": "max-age=63072000",
+    "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "X-Matched-Path": "/en",
+    "X-Nextjs-Prerender": "1",
+    "X-Nextjs-Rewritten-Path": "/en",
+    "X-Nextjs-Stale-Time": "300",
+    "X-Vercel-Cache": "HIT",
+    "X-Vercel-Id": "bom1::67txc-1791476184905-16b8959a7cfa",
+    "Transfer-Encoding": "chunked"
+  },
+  "redirect_chain": [],
+  "console_errors": [],
+  "render_diagnostics": [],
+  "render_engine": null,
+  "render_ms": null,
+  "mode_used": "raw",
+  "error": null,
+  "structured_data": {
+    "block_count": 4,
+    "processed_count": 4,
+    "total_bytes": 4237,
+    "truncated": false,
+    "blocks": [
+      {
+        "index": 1,
+        "size_bytes": 1105,
+        "valid": true,
+        "types": [
+          "ContactPoint",
+          "Organization"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 2,
+        "size_bytes": 477,
+        "valid": true,
+        "types": [
+          "WebSite"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 3,
+        "size_bytes": 823,
+        "valid": true,
+        "types": [
+          "Offer",
+          "WebApplication"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 4,
+        "size_bytes": 1832,
+        "valid": true,
+        "types": [
+          "Answer",
+          "FAQPage",
+          "Question"
+        ],
+        "types_truncated": false
+      }
+    ]
+  },
+  "truncation": {
+    "limit": 1500,
+    "fields": {
+      "content": {
+        "original_chars": 103746,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "raw_content": {
+        "original_chars": 103746,
+        "returned_chars": 1500,
+        "truncated": true
+      },
+      "extracted_text": {
+        "original_chars": 7083,
+        "returned_chars": 1500,
+        "truncated": true
+      }
+    }
+  },
+  "output_written": true
+}

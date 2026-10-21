@@ -16,7 +16,7 @@ export default function PrivacyPage() {
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Privacy Policy", url: `${SITE}/privacy` }]} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-2">Privacy Policy</h1>
-      <p className="text-center text-base text-[#8d9aaa] mb-6">Last updated: October 8, 2026</p>
+      <p className="text-center text-base text-[#8d9aaa] mb-6">Last updated: October 9, 2026</p>
 
       <section className="mb-6">
         <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
           Analytics
         </h2>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-4">
-          We use Google Analytics 4, Vercel Analytics and Vercel Speed Insights to measure page visits, device and browser information, performance, and tool events such as successful processing or a download. Google Analytics may use cookies and identifiers. Tool events send the tool name and output format, never your image content or file name. The StartupBar referral widget also contacts startupbar.co with page and session information.
+          We use Google Analytics 4, Vercel Analytics and Vercel Speed Insights to measure page visits, device and browser information, performance, and tool events such as successful processing or a download. Google Analytics loads after you interact with the page and may use cookies and identifiers. Google advertising signals and advertising personalization are disabled. Tool events send the tool name and output format, never your image content or file name. If you select Show startup recommendations in the footer, the StartupBar widget loads and contacts startupbar.co with page and session information. It does not load until you enable it.
         </p>
       </section>
 
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
           If you have questions about this privacy policy, please visit our <Link href="/faq" className="text-[var(--accent)] no-underline hover:underline">FAQ page</Link> or <Link href="/support" className="text-[var(--accent)] no-underline hover:underline">contact support</Link>. We are committed to protecting your privacy and being transparent about how SquarePic works.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          <strong className="text-[#e6edf5]">Email:</strong> <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>
+          <strong className="text-[#e6edf5]">Contact:</strong> <Link href="/support#contact-form" className="text-[var(--accent)] no-underline hover:underline">Support contact form</Link>
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
           <strong className="text-[#e6edf5]">Project:</strong> <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">github.com/Sevenonelabs/square_pic</a>

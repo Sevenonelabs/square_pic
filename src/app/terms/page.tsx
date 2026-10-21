@@ -16,7 +16,7 @@ export default function TermsPage() {
       <BreadcrumbSchema items={[{ name: "Home", url: SITE }, { name: "Terms of Service", url: `${SITE}/terms` }]} />
       <div className="max-w-[680px] w-full mx-auto px-4 py-8">
       <h1 className="text-center text-[2rem] font-extrabold tracking-tight mb-2">Terms of Service</h1>
-      <p className="text-center text-base text-[#8d9aaa] mb-6">Last updated: June 2026</p>
+      <p className="text-center text-base text-[#8d9aaa] mb-6">Last updated: October 9, 2026</p>
 
       <section className="mb-6">
         <h2 className="text-[0.875rem] font-bold uppercase tracking-[0.06em] text-[var(--accent)] mb-2 pb-1.5 border-b border-[rgba(255,255,255,0.06)] flex items-center gap-2">
@@ -87,7 +87,7 @@ export default function TermsPage() {
           If you have any questions about these terms, please reach out through our <Link href="/support" className="text-[var(--accent)] no-underline hover:underline">support page</Link> or email us directly.
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed mb-2">
-          <strong className="text-[#e6edf5]">Email:</strong> <a href="mailto:support@squarepic.io" className="text-[var(--accent)] no-underline hover:underline">support@squarepic.io</a>
+          <strong className="text-[#e6edf5]">Contact:</strong> <Link href="/support#contact-form" className="text-[var(--accent)] no-underline hover:underline">Support contact form</Link>
         </p>
         <p className="text-[0.95rem] text-[#8d9aaa] leading-relaxed">
           <strong className="text-[#e6edf5]">Project:</strong> <a href="https://github.com/Sevenonelabs/square_pic" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] no-underline hover:underline">github.com/Sevenonelabs/square_pic</a>

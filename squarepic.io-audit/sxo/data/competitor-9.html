@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en" data-page-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Xatools">
+<title>Make an image square online without cropping or stretching (blurred background)</title>
+<meta name="description" content="Turn any photo into a square for Instagram, WhatsApp or avatars: blurred background, solid colour, stretched or centre-cropped. No quality loss, free, no sign-up.">
+
+<link rel="canonical" href="https://xatools.net/en/square-image/">
+<link rel="alternate" hreflang="es" href="https://xatools.net/imagen-cuadrada/"><link rel="alternate" hreflang="en" href="https://xatools.net/en/square-image/"><link rel="alternate" hreflang="it" href="https://xatools.net/it/immagine-quadrata/"><link rel="alternate" hreflang="fr" href="https://xatools.net/fr/image-carree/"><link rel="alternate" hreflang="ar" href="https://xatools.net/ar/%D8%B5%D9%88%D8%B1%D8%A9-%D9%85%D8%B1%D8%A8%D8%B9%D8%A9/"><link rel="alternate" hreflang="pt" href="https://xatools.net/pt/imagem-quadrada/"><link rel="alternate" hreflang="tr" href="https://xatools.net/tr/kare-resim/"><link rel="alternate" hreflang="x-default" href="https://xatools.net/imagen-cuadrada/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Xatools"><meta property="og:title" content="Make an image square online without cropping or stretching (blurred background)"><meta property="og:description" content="Turn any photo into a square for Instagram, WhatsApp or avatars: blurred background, solid colour, stretched or centre-cropped. No quality loss, free, no sign-up."><meta property="og:url" content="https://xatools.net/en/square-image/"><meta property="og:image" content="https://xatools.net/assets/og.png"><meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07060e">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://s0.xat.com"><link rel="dns-prefetch" href="https://api.xatools.net">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css?v=37742500">
+<script>window.PFX="/en";window.SITE="https://xatools.net";window.SMILIES_COUNT=5900;</script>
+<script>window.XT_PRESET={"tab": "square"};</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://xatools.net/en/"}, {"@type": "ListItem", "position": 2, "name": "Image editor: resize, crop, rotate, square, border remover and magic cropper", "item": "https://xatools.net/en/imagenes/"}, {"@type": "ListItem", "position": 3, "name": "Make an image square without distorting it", "item": "https://xatools.net/en/square-image/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Make an image square online without cropping or stretching (blurred background)", "description": "Turn any photo into a square for Instagram, WhatsApp or avatars: blurred background, solid colour, stretched or centre-cropped. No quality loss, free, no sign-up.", "url": "https://xatools.net/en/square-image/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "3men2"}, "inLanguage": "en"}</script>
+</head>
+<body class="text-gray-200 min-h-screen flex flex-col justify-between antialiased">
+        <!-- Header (rediseño v2: pill flotante + menú móvil) -->
+    
+    <div id="lang-hint" class="hidden bg-purple-600/20 border-b border-purple-500/30 text-xs text-purple-100 px-4 py-2 flex items-center justify-center gap-3"><span>🌐</span><a class="underline font-bold" href="#"></a><button class="ml-2 text-purple-300 hover:text-white" aria-label="Close">✕</button></div>
+
+<header id="topbar">
+        
+        <div class="tb-shell">
+            
+            <a class="tb-brand" id="brand-link" href="/">
+                
+                <span class="tb-logo">3M</span>
+                
+                <span class="tb-name">
+                    
+                    <span class="tb-title">Xatools <span class="text-purple-300">by 3men2</span></span>
+                    
+                    <p class="tb-eyebrow">Tools for Xat</p>
+                
+                </span>
+            
+            </a>
+            
+            <nav class="flex flex-wrap gap-1 bg-white/5 p-1 rounded-lg" aria-label="Herramientas">
+
+<a data-tab="home" href="/en/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">Home</a>
+
+<a data-tab="conv" href="/en/convertidor/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">Converter</a>
+
+<a data-tab="sim" href="/en/simulador/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">Nick colours</a>
+
+<a data-tab="gen" href="/en/generadores/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">Colour generator</a>
+
+<a data-tab="text" href="/en/letras/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">Letters</a>
+
+<a data-tab="smi" href="/en/smileys/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">Smileys</a>
+
+<a data-tab="pow" href="/en/powers/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">Powers</a>
+
+<a data-tab="gif" href="/en/gif-2d/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">2D GIF</a>
+
+<a data-tab="ava" href="/en/avatar-animado/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">Avatar</a>
+
+<a data-tab="img" href="/en/imagenes/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all bg-purple-600 text-white">Image editor</a>
+
+<a data-tab="video" href="/en/video-a-gif/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">Video to GIF</a>
+
+<a data-tab="bg" href="/en/fondos/" class="tab-btn px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-400 hover:text-white">Backgrounds</a>
+
+</nav>
+
+<span class="text-gray-600 hidden sm:inline">|</span>
+
+<span class="text-xs text-gray-300 font-mono">@Marv (1997)</span>
+            
+            <div class="tb-side">
+                
+                <a class="tb-xat" href="https://xat.com" target="_blank" rel="noopener">xat.com ↗</a>
+                
+                <div class="tb-lang">
+                    
+                    <button id="lang-btn" class="tb-lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false" title="Language"><span id="lang-btn-label">Español</span><span class="tb-lang-caret" aria-hidden="true">▾</span></button>
+                    
+                    <div id="lang-menu" class="tb-lang-menu" role="listbox" hidden></div>
+                    
+                    <select id="lang-select" title="Language" tabindex="-1" aria-hidden="true"></select>
+                
+                </div>
+                
+                <button id="menu-open" class="tb-burger" type="button" aria-label="Menú" aria-expanded="false"><span></span><span></span></button>
+            
+            </div>
+        
+        </div>
+    
+    </header>
+
+    
+
+    <div id="mobile-menu" aria-hidden="true">
+        
+        <div class="mm-sheet">
+            
+            <div class="mm-top">
+                
+                <span class="tb-brand">
+                    
+                    <span class="tb-logo">3M</span>
+                    
+                    <span class="tb-name"><span class="tb-title">Xatools</span><span class="tb-eyebrow">by 3men2</span></span>
+                
+                </span>
+                
+                <button id="menu-close" class="mm-close" type="button" aria-label="Close">✕</button>
+            
+            </div>
+            
+            <div class="mm-nav"></div>
+            
+            <div class="mm-foot">
+                
+                <span class="font-mono">@Marv (1997)</span>
+                
+                <a href="https://xat.com" target="_blank" rel="noopener">xat.com ↗</a>
+            
+            </div>
+        
+        </div>
+    
+    </div>
+
+    
+
+    <script>
+    (function () {
+        var menu = document.getElementById('mobile-menu');
+        var openBtn = document.getElementById('menu-open');
+        var closeBtn = document.getElementById('menu-close');
+        var brand = document.getElementById('brand-link');
+        if (brand) brand.setAttribute('href', (window.PFX || '') + '/');
+        var nav = document.querySelector('.tb-shell nav[aria-label="Herramientas"]');
+        var slot = menu && menu.querySelector('.mm-nav');
+        if (nav && slot) slot.appendChild(nav.cloneNode(true));
+        function setOpen(v) {
+            if (!menu) return;
+            menu.classList.toggle('open', v);
+            menu.setAttribute('aria-hidden', v ? 'false' : 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', v ? 'true' : 'false');
+            document.documentElement.style.overflow = v ? 'hidden' : '';
+        }
+        if (openBtn) openBtn.addEventListener('click', function () { setOpen(true); });
+
+        // ---- selector de idioma: menú propio anclado bajo el botón ----
+        var sel = document.getElementById('lang-select');
+        var lbtn = document.getElementById('lang-btn');
+        var lmenu = document.getElementById('lang-menu');
+        var llabel = document.getElementById('lang-btn-label');
+        function syncLabel() {
+            if (!sel || !llabel) return;
+            var o = sel.options[sel.selectedIndex];
+            if (o) llabel.textContent = o.textContent;
+        }
+        function buildMenu() {
+            if (!sel || !lmenu) return;
+            lmenu.innerHTML = '';
+            Array.prototype.forEach.call(sel.options, function (o) {
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'tb-lang-item';
+                b.setAttribute('role', 'option');
+                b.textContent = o.textContent;
+                if (o.value === sel.value) { b.setAttribute('aria-selected', 'true'); b.classList.add('is-on'); }
+                b.addEventListener('click', function () {
+                    setLang(false);
+                    if (o.value === sel.value) return;
+                    sel.value = o.value;
+                    sel.dispatchEvent(new Event('change', { bubbles: true }));
+                });
+                lmenu.appendChild(b);
+            });
+        }
+        function setLang(v) {
+            if (!lmenu || !lbtn) return;
+            if (v) buildMenu();
+            lmenu.hidden = !v;
+            lbtn.setAttribute('aria-expanded', v ? 'true' : 'false');
+        }
+        if (lbtn) lbtn.addEventListener('click', function (e) { e.stopPropagation(); setLang(lmenu.hidden); });
+        document.addEventListener('click', function (e) { if (lmenu && !lmenu.hidden && !e.target.closest('.tb-lang')) setLang(false); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setLang(false); });
+        if (sel) sel.addEventListener('change', syncLabel);
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(syncLabel, 0); });
+        setTimeout(syncLabel, 300);
+        if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+        if (menu) menu.addEventListener('click', function (e) { if (e.target === menu) setOpen(false); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    })();
+    </script>
+
+
+
+<section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-5"><h1 class="text-xl sm:text-2xl font-black text-white">Make an image square without distorting it</h1></section>        <!-- ===================== IMÁGENES: square image · quitar bordes · cortador mágico ===================== -->
+    
+    <main id="tab-img" class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-6">
+        
+        <script>window.XT_UPLOADS = [['im-rb-download','nobg'],['im-nb-download-a','square'],['im-nb-download-b','noborder'],['im-sq-download','square'],['im-cb-download','noborder'],['im-cb-download-webp','noborder'],['im-modal-download','crop'],['fe-download','edit']];</script>
+        
+        <style>
+            .im-checker { background-color: #1a1a2a; background-image: linear-gradient(45deg, rgba(255,255,255,.08) 25%, transparent 25%), linear-gradient(-45deg, rgba(255,255,255,.08) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(255,255,255,.08) 75%), linear-gradient(-45deg, transparent 75%, rgba(255,255,255,.08) 75%); background-size: 16px 16px; background-position: 0 0, 0 8px, 8px -8px, -8px 0; }
+            .im-rb-tool.on, .im-rb-bg.on { background: rgba(147,51,234,.55); border-color: rgba(192,132,252,.8); color: #fff; }
+            #im-rb-stage { height: min(70vh, 640px); }
+            .im-swatch { width: 26px; height: 26px; border-radius: 8px; border: 2px solid rgba(255,255,255,.15); cursor: pointer; transition: transform .12s; }
+            .im-swatch:hover { transform: scale(1.12); }
+            .im-swatch.active { border-color: #a855f7; box-shadow: 0 0 0 2px rgba(168,85,247,.45); }
+            .im-drop { border: 2px dashed rgba(255,255,255,.14); transition: border-color .15s, background .15s; }
+            .im-drop.over, .im-drop:hover { border-color: rgba(168,85,247,.7); background: rgba(168,85,247,.06); }
+            #im-mc-stage { touch-action: none; user-select: none; -webkit-user-select: none; }
+            #im-mc-box { position: absolute; border: 1.5px solid #c084fc; box-shadow: 0 0 0 1px rgba(0,0,0,.5); cursor: move; outline: none; }
+            #im-mc-box:focus { border-color: #f0abfc; }
+            .im-h { position: absolute; width: 14px; height: 14px; margin: -7px 0 0 -7px; background: #fff; border: 2px solid #a855f7; border-radius: 50%; box-shadow: 0 1px 4px rgba(0,0,0,.6); }
+            .im-h[data-h="n"], .im-h[data-h="s"] { cursor: ns-resize; } .im-h[data-h="e"], .im-h[data-h="w"] { cursor: ew-resize; }
+            .im-h[data-h="nw"], .im-h[data-h="se"] { cursor: nwse-resize; } .im-h[data-h="ne"], .im-h[data-h="sw"] { cursor: nesw-resize; }
+            .im-shape { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,.06); background: rgba(255,255,255,.03); cursor: pointer; font-size: 10px; color: #9ca3af; }
+            .im-shape:hover { background: rgba(255,255,255,.08); color: #fff; }
+            .im-shape.active { border-color: #a855f7; background: rgba(168,85,247,.15); color: #fff; }
+            .im-shape svg { width: 30px; height: 30px; }
+            .im-eyedrop { cursor: crosshair !important; }
+        </style>
+
+        
+
+        <!-- Selector de herramienta -->
+        
+        <section class="glass-card rounded-2xl p-6 flex flex-col gap-4">
+            
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                
+                <div>
+                    
+                    <h2 class="font-bold text-white text-lg">Image editor</h2>
+                    
+                    <p class="text-xs text-gray-400">Make any photo square, remove one-colour backgrounds and borders, or crop images and animated GIFs into shapes (heart, star, circle…). Everything is processed in your browser: nothing is uploaded to any server.</p>
+                
+                </div>
+            
+            </div>
+            
+            <div class="flex flex-wrap gap-2">
+                
+                <button data-imgtab="rembg" class="im-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">🧠 Remove background (AI)</button>
+                
+                <button data-imgtab="sinbordes" class="im-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-purple-600 text-white">🪄 Borderless image</button>
+                
+                <button data-imgtab="square" class="im-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">⬛ Square image</button>
+                
+                <button data-imgtab="borde" class="im-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">🧹 Remove borders</button>
+                
+                <button data-imgtab="cortador" class="im-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">✂️ Magic cutter</button>
+                
+                <button data-imgtab="editor" class="im-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">↔️ Resize</button>
+                
+                <button data-imgtab="recortar" class="im-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">▣ Crop</button>
+                
+                <button data-imgtab="rotar" class="im-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">🔄 Rotate</button>
+            
+            </div>
+        
+        </section>
+
+        
+
+        <!-- ===================== 0 · IMAGEN SIN BORDES (cuadrar con borde blanco + quitar el borde) ===================== -->
+        
+        <section id="im-sinbordes" class="im-panel grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <div class="lg:col-span-4 min-w-0 glass-card rounded-2xl p-6 flex flex-col gap-4">
+                
+                <div>
+                    
+                    <h3 class="font-bold text-white text-sm uppercase tracking-wider">Borderless image</h3>
+                    
+                    <p class="text-xs text-gray-400 mt-1">Automatic two-step process: the image is made square by padding it with a white border and, at the same time, a version with that border removed (transparent) is generated. Only the colour touching the edges is removed; the inside is untouched even if it contains white.</p>
+                
+                </div>
+                
+                <label class="im-drop rounded-xl p-4 flex flex-col items-center gap-1 cursor-pointer text-center">
+                    
+                    <span class="text-sm text-gray-200 font-semibold">📁 Choose or drag an image</span>
+                    
+                    <span class="text-[10px] text-gray-500">JPG, PNG, WEBP or GIF (first frame). You can also paste it with Ctrl+V.</span>
+                    
+                    <input id="im-nb-file" type="file" accept="image/*" class="hidden">
+                
+                </label>
+                
+                <p id="im-nb-src-info" class="text-[10px] text-gray-500">No image loaded.</p>
+                
+                <div class="flex flex-col gap-2 border-t border-white/5 pt-3">
+                    
+                    <label class="text-xs font-semibold text-gray-400">Border color</label>
+                    
+                    <div class="flex flex-wrap items-center gap-2">
+                        
+                        <input id="im-nb-color" type="color" value="#ffffff" style="width:34px;height:34px">
+                        
+                        <span id="im-nb-color-hex" class="font-mono text-[11px] text-purple-300">#ffffff</span>
+                        
+                        <button id="im-nb-white" class="text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-3 py-2 rounded-lg">White</button>
+                    
+                    </div>
+                    
+                    <label class="flex items-center gap-2 text-[11px] text-gray-400">Tolerance
+                        <input id="im-nb-tol" type="range" min="0" max="100" value="18" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500">
+                        
+                        <span id="im-nb-tol-label" class="font-mono text-purple-300 w-8 text-right">18</span>
+                    
+                    </label>
+                    
+                    <label class="flex items-center gap-2 text-xs text-gray-300 cursor-pointer"><input id="im-nb-soft" type="checkbox" class="accent-purple-500" checked> Soft edge (antialiased cut)</label>
+                    
+                    <p class="text-[10px] text-gray-500">If some border remains, raise the tolerance; if it eats into the image, lower it.</p>
+                
+                </div>
+                
+                <div class="flex flex-col gap-2 border-t border-white/5 pt-3">
+                    
+                    <label class="text-xs font-semibold text-gray-400">Output size</label>
+                    
+                    <div class="flex flex-wrap items-center gap-2">
+                        
+                        <select id="im-nb-size" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none">
+                            
+                            <option value="0" selected>Original (longest side)</option>
+                            
+                            <option value="80">80 × 80 (xat avatar)</option>
+                            
+                            <option value="128">128 × 128</option>
+                            
+                            <option value="256">256 × 256</option>
+                            
+                            <option value="512">512 × 512</option>
+                            
+                            <option value="1080">1080 × 1080</option>
+                            
+                            <option value="custom">Custom…</option>
+                        
+                        </select>
+                        
+                        <input id="im-nb-size-custom" type="number" min="8" max="4096" value="512" class="hidden bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none w-24">
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="flex flex-col gap-2 border-t border-white/5 pt-3">
+                    
+                    <a id="im-nb-download-a" download="con-bordes.png" class="text-center bg-white/10 hover:bg-white/20 text-white font-bold text-sm px-4 py-3 rounded-xl cursor-pointer opacity-50 pointer-events-none">⬇ Download image (with borders)</a>
+                    
+                    <a id="im-nb-download-b" download="sin-bordes.png" class="text-center bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm px-4 py-3 rounded-xl cursor-pointer opacity-50 pointer-events-none">⬇ Download image (without borders)</a>
+                
+                </div>
+                
+                <p id="im-nb-info" class="text-[10px] text-gray-500">Load an image to start.</p>
+            
+            </div>
+            
+            <div class="lg:col-span-8 min-w-0 grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <div class="glass-card rounded-2xl p-5 flex flex-col gap-3">
+                    
+                    <span class="text-[10px] uppercase tracking-wider text-gray-500">With borders (square)</span>
+                    
+                    <div class="im-checker rounded-xl border border-white/10 flex items-center justify-center p-3 min-h-[240px]">
+                        
+                        <canvas id="im-nb-canvas-a" width="320" height="320" class="max-w-full max-h-[50vh] rounded-md"></canvas>
+                    
+                    </div>
+                    
+                    <p id="im-nb-info-a" class="text-[10px] text-gray-500">—</p>
+                
+                </div>
+                
+                <div class="glass-card rounded-2xl p-5 flex flex-col gap-3">
+                    
+                    <span class="text-[10px] uppercase tracking-wider text-gray-500">Without borders (transparent)</span>
+                    
+                    <div class="im-checker rounded-xl border border-white/10 flex items-center justify-center p-3 min-h-[240px]">
+                        
+                        <canvas id="im-nb-canvas-b" width="320" height="320" class="max-w-full max-h-[50vh] rounded-md"></canvas>
+                    
+                    </div>
+                    
+                    <p id="im-nb-info-b" class="text-[10px] text-gray-500">—</p>
+                
+                </div>
+            
+            </div>
+        
+        </section>
+
+        
+
+        <!-- ===================== A · SQUARE IMAGE ===================== -->
+        
+        <section id="im-square" class="im-panel grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <div class="lg:col-span-5 min-w-0 glass-card rounded-2xl p-6 flex flex-col gap-4">
+                
+                <div>
+                    
+                    <h3 class="font-bold text-white text-sm uppercase tracking-wider">Square image</h3>
+                    
+                    <p class="text-xs text-gray-400 mt-1">Turn a rectangular image into a square without distorting it: blurred background, solid colour, stretched or cropped. Ideal for xat avatars, profiles and thumbnails.</p>
+                
+                </div>
+                
+                <label class="im-drop rounded-xl p-4 flex flex-col items-center gap-1 cursor-pointer text-center">
+                    
+                    <span class="text-sm text-gray-200 font-semibold">📁 Choose or drag an image</span>
+                    
+                    <span class="text-[10px] text-gray-500">JPG, PNG, WEBP or GIF (first frame)</span>
+                    
+                    <input id="im-sq-file" type="file" accept="image/*" class="hidden">
+                
+                </label>
+                
+                <p id="im-sq-src-info" class="text-[10px] text-gray-500">No image loaded.</p>
+
+                
+
+                <div class="flex flex-col gap-2 border-t border-white/5 pt-3">
+                    
+                    <label class="text-xs font-semibold text-gray-400">Mode</label>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="im-sq-modes">
+                        
+                        <button data-mode="blur" class="im-sq-mode px-2 py-2 rounded-lg text-xs font-bold bg-purple-600 text-white">Blur</button>
+                        
+                        <button data-mode="color" class="im-sq-mode px-2 py-2 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">Colour</button>
+                        
+                        <button data-mode="stretch" class="im-sq-mode px-2 py-2 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">Stretched</button>
+                        
+                        <button data-mode="crop" class="im-sq-mode px-2 py-2 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">Cropped</button>
+                    
+                    </div>
+                    
+                    <div id="im-sq-opt-blur" class="flex flex-col gap-1">
+                        
+                        <label class="flex items-center gap-2 text-[11px] text-gray-400">Blur amount
+                            <input id="im-sq-blur" type="range" min="0" max="60" value="24" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500">
+                            
+                            <span id="im-sq-blur-label" class="font-mono text-purple-300 w-8 text-right">24</span>
+                        
+                        </label>
+                    
+                    </div>
+                    
+                    <div id="im-sq-opt-color" class="hidden flex flex-col gap-2">
+                        
+                        <div class="flex flex-wrap items-center gap-1.5" id="im-sq-swatches"></div>
+                        
+                        <label class="flex items-center gap-2 text-[11px] text-gray-400">Custom colour <input id="im-sq-color" type="color" value="#ffffff" style="width:34px;height:34px"></label>
+                    
+                    </div>
+                    
+                    <div id="im-sq-opt-crop" class="hidden flex flex-col gap-1">
+                        
+                        <label class="flex items-center gap-2 text-[11px] text-gray-400">Zoom
+                            <input id="im-sq-zoom" type="range" min="100" max="400" value="100" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500">
+                            
+                            <span id="im-sq-zoom-label" class="font-mono text-purple-300 w-10 text-right">1.00×</span>
+                        
+                        </label>
+                        
+                        <p class="text-[10px] text-gray-500">Drag on the preview to move the crop.</p>
+                    
+                    </div>
+                
+                </div>
+
+                
+
+                <div class="grid grid-cols-2 gap-3 border-t border-white/5 pt-3">
+                    
+                    <div class="flex flex-col gap-1">
+                        
+                        <label class="text-xs font-semibold text-gray-400">Output size</label>
+                        
+                        <select id="im-sq-size" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none">
+                            
+                            <option value="0">Original (longest side)</option>
+                            
+                            <option value="1080">1080 × 1080</option>
+                            
+                            <option value="800">800 × 800</option>
+                            
+                            <option value="400">400 × 400</option>
+                            
+                            <option value="200">200 × 200</option>
+                            
+                            <option value="100">100 × 100</option>
+                            
+                            <option value="80">80 × 80 (xat avatar)</option>
+                            
+                            <option value="custom">Custom…</option>
+                        
+                        </select>
+                        
+                        <input id="im-sq-size-custom" type="number" min="8" max="4096" value="512" class="hidden bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none">
+                    
+                    </div>
+                    
+                    <div class="flex flex-col gap-1">
+                        
+                        <label class="text-xs font-semibold text-gray-400">Format</label>
+                        
+                        <select id="im-sq-format" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none">
+                            
+                            <option value="png">PNG</option>
+                            
+                            <option value="jpg">JPG</option>
+                            
+                            <option value="webp">WEBP</option>
+                        
+                        </select>
+                        
+                        <label id="im-sq-quality-wrap" class="hidden flex items-center gap-2 text-[11px] text-gray-400">Quality
+                            <input id="im-sq-quality" type="range" min="30" max="100" value="92" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500">
+                            
+                            <span id="im-sq-quality-label" class="font-mono text-purple-300 w-8 text-right">92</span>
+                        
+                        </label>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="flex flex-wrap gap-2 border-t border-white/5 pt-3">
+                    
+                    <a id="im-sq-download" download="square.png" class="flex-1 min-w-[160px] text-center bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm px-4 py-3 rounded-xl cursor-pointer opacity-50 pointer-events-none">⬇ Download image</a>
+                
+                </div>
+                
+                <p id="im-sq-info" class="text-[10px] text-gray-500">Load an image to start.</p>
+            
+            </div>
+            
+            <div class="lg:col-span-7 min-w-0 glass-card rounded-2xl p-6 flex flex-col gap-3">
+                
+                <span class="text-[10px] uppercase tracking-wider text-gray-500">Preview</span>
+                
+                <div class="im-checker rounded-xl border border-white/10 flex items-center justify-center p-3 min-h-[280px]">
+                    
+                    <canvas id="im-sq-canvas" width="400" height="400" class="max-w-full max-h-[60vh] rounded-md" style="cursor:grab"></canvas>
+                
+                </div>
+                
+                <p class="text-[10px] text-gray-500">The preview is the real result at the chosen output size. Rescaling uses step-down reduction so it does not look blurry or pixelated.</p>
+            
+            </div>
+        
+        </section>
+
+        
+
+        <!-- ===================== B · QUITAR BORDES ===================== -->
+        
+        <section id="im-borde" class="im-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <div class="lg:col-span-5 min-w-0 glass-card rounded-2xl p-6 flex flex-col gap-4">
+                
+                <div>
+                    
+                    <h3 class="font-bold text-white text-sm uppercase tracking-wider">Remove borders (ClearBorder)</h3>
+                    
+                    <p class="text-xs text-gray-400 mt-1">Removes the one-colour background or frame touching the edges of the image and makes it transparent. Pixels of the same colour inside the drawing are kept.</p>
+                
+                </div>
+                
+                <label class="im-drop rounded-xl p-4 flex flex-col items-center gap-1 cursor-pointer text-center">
+                    
+                    <span class="text-sm text-gray-200 font-semibold">📁 Choose or drag an image</span>
+                    
+                    <span class="text-[10px] text-gray-500">JPG, PNG, WEBP or GIF (first frame)</span>
+                    
+                    <input id="im-cb-file" type="file" accept="image/*" class="hidden">
+                
+                </label>
+                
+                <p id="im-cb-src-info" class="text-[10px] text-gray-500">No image loaded.</p>
+                
+                <div class="flex flex-col gap-2 border-t border-white/5 pt-3">
+                    
+                    <label class="text-xs font-semibold text-gray-400">Colour to remove</label>
+                    
+                    <div class="flex flex-wrap items-center gap-1.5" id="im-cb-swatches"></div>
+                    
+                    <div class="flex flex-wrap items-center gap-2">
+                        
+                        <input id="im-cb-color" type="color" value="#ffffff" style="width:34px;height:34px">
+                        
+                        <span id="im-cb-color-hex" class="font-mono text-[11px] text-purple-300">#ffffff</span>
+                        
+                        <button id="im-cb-pick" class="text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-3 py-2 rounded-lg">💧 Eyedropper</button>
+                        
+                        <button id="im-cb-auto" class="text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-3 py-2 rounded-lg" title="Use the corner colour">Corners</button>
+                    
+                    </div>
+                    
+                    <p id="im-cb-pick-hint" class="hidden text-[10px] text-purple-300">Click on the preview to pick the colour.</p>
+                
+                </div>
+                
+                <div class="flex flex-col gap-2 border-t border-white/5 pt-3">
+                    
+                    <label class="flex items-center gap-2 text-[11px] text-gray-400">Tolerance
+                        <input id="im-cb-tol" type="range" min="0" max="100" value="15" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500">
+                        
+                        <span id="im-cb-tol-label" class="font-mono text-purple-300 w-8 text-right">15</span>
+                    
+                    </label>
+                    
+                    <label class="flex items-center gap-2 text-xs text-gray-300 cursor-pointer"><input id="im-cb-interior" type="checkbox" class="accent-purple-500"> Also the inside (every pixel of that colour, even if it does not touch the edge)</label>
+                    
+                    <label class="flex items-center gap-2 text-xs text-gray-300 cursor-pointer"><input id="im-cb-soft" type="checkbox" class="accent-purple-500" checked> Soft edge (antialiased cut)</label>
+                
+                </div>
+                
+                <div class="flex flex-wrap gap-2 border-t border-white/5 pt-3">
+                    
+                    <a id="im-cb-download" download="sin-borde.png" class="flex-1 min-w-[140px] text-center bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm px-4 py-3 rounded-xl cursor-pointer opacity-50 pointer-events-none">⬇ Download PNG</a>
+                    
+                    <a id="im-cb-download-webp" download="sin-borde.webp" class="bg-white/5 hover:bg-white/10 text-gray-200 text-sm px-4 py-3 rounded-xl cursor-pointer opacity-50 pointer-events-none">WEBP</a>
+                
+                </div>
+                
+                <p id="im-cb-info" class="text-[10px] text-gray-500">Load an image to start.</p>
+            
+            </div>
+            
+            <div class="lg:col-span-7 min-w-0 glass-card rounded-2xl p-6 flex flex-col gap-3">
+                
+                <div class="flex items-center justify-between">
+                    
+                    <span class="text-[10px] uppercase tracking-wider text-gray-500">Preview (result)</span>
+                    
+                    <label class="flex items-center gap-2 text-[11px] text-gray-400 cursor-pointer"><input id="im-cb-showsrc" type="checkbox" class="accent-purple-500"> Show original</label>
+                
+                </div>
+                
+                <div class="im-checker rounded-xl border border-white/10 flex items-center justify-center p-3 min-h-[280px]">
+                    
+                    <canvas id="im-cb-canvas" width="400" height="300" class="max-w-full max-h-[60vh] rounded-md"></canvas>
+                
+                </div>
+                
+                <p class="text-[10px] text-gray-500">Algorithm: flood fill from the four edges over pixels within the tolerance; the rest of the image stays intact.</p>
+            
+            </div>
+        
+        </section>
+
+        
+
+        <!-- ===================== C · CORTADOR MÁGICO ===================== -->
+        
+        <!-- ===== QUITAR FONDO (IA) ===== -->
+        
+        <section id="im-rembg" class="im-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <div class="lg:col-span-4 flex flex-col gap-3 min-w-0">
+                
+                <div>
+                    
+                    <h2 class="text-sm font-bold text-white">Remove background with AI</h2>
+                    
+                    <p class="text-[11px] text-gray-400 mt-1">Upload a photo and the AI cuts out the background right in your browser (the image is never sent to a server). No size limits, no watermarks: you download the PNG at the original resolution. If the automatic cut misses something, fix it by hand with the brushes and the wand.</p>
+                
+                </div>
+                
+                <label id="im-rb-drop" class="av-drop rounded-xl px-4 py-3 flex flex-col items-center justify-center gap-0.5 cursor-pointer text-center border border-dashed border-purple-400/40 bg-purple-900/10">
+                    
+                    <span class="text-sm font-semibold text-white">📷 Choose or drag an image</span>
+                    
+                    <span class="text-[10px] text-gray-500">JPG, PNG, WEBP · or paste with Ctrl+V · any resolution</span>
+                    
+                    <input id="im-rb-file" type="file" accept="image/*" class="hidden">
+                
+                </label>
+                
+                <div class="grid grid-cols-1 gap-2 text-[10px] text-gray-400">
+                    
+                    <label class="flex flex-col gap-0.5">AI model<select id="im-rb-model" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white"><option value="fast" selected>Fast · people and objects (4.6 MB · 2 s)</option><option value="best">Best quality · the finest cut (170 MB · 10–20 s)</option><option value="portrait">Bust portrait / selfie (6.6 MB)</option></select></label>
+                    
+                    <p class="text-[10px] text-gray-500">The model downloads once and stays cached in your browser. If the fast cut isn&#x27;t good enough (hair, busy backgrounds), try “Best quality”: it&#x27;s the same kind of cut the professional tools make, it just takes longer.</p>
+                
+                </div>
+                
+                <button id="im-rb-go" class="bg-purple-600 hover:bg-purple-500 disabled:opacity-40 text-white font-bold text-sm px-5 py-2.5 rounded-xl" disabled>🧠 Remove background</button>
+                
+                <div id="im-rb-progress" class="hidden"><div class="h-1.5 bg-white/10 rounded-full overflow-hidden"><div id="im-rb-bar" class="h-full bg-purple-500 transition-all" style="width:0%"></div></div><p id="im-rb-ptext" class="text-[10px] text-gray-400 mt-1"></p></div>
+                
+                <p id="im-rb-status" class="text-[11px] text-gray-400">Load an image to start.</p>
+
+                
+
+                <div id="im-rb-tools" class="hidden flex flex-col gap-3 border-t border-white/10 pt-3">
+                    
+                    <div>
+                        
+                        <span class="text-[10px] uppercase tracking-wider text-gray-500">Manual touch-up</span>
+                        
+                        <div class="grid grid-cols-2 gap-1.5 mt-1.5">
+                            
+                            <button type="button" class="im-rb-tool on text-[11px] font-bold px-2 py-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-200" data-tool="restore" title="Paint to bring back parts you want to keep">🖌️ Restore</button>
+                            
+                            <button type="button" class="im-rb-tool text-[11px] font-bold px-2 py-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-200" data-tool="erase" title="Paint to erase leftover background">🧽 Erase</button>
+                            
+                            <button type="button" class="im-rb-tool text-[11px] font-bold px-2 py-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-200" data-tool="wand-restore" title="Click a color area to restore it entirely">✨ Wand: restore</button>
+                            
+                            <button type="button" class="im-rb-tool text-[11px] font-bold px-2 py-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-200" data-tool="wand-erase" title="Click a color area to erase it entirely">🪄 Wand: erase</button>
+                            
+                            <button type="button" class="im-rb-tool text-[11px] font-bold px-2 py-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-200 col-span-2" data-tool="pan" title="Drag to pan the view (also with Shift or right button)">✋ Pan view</button>
+                        
+                        </div>
+                        
+                        <div id="im-rb-brush-opts" class="grid grid-cols-2 gap-2 mt-2 text-[10px] text-gray-400">
+                            
+                            <label class="flex flex-col gap-0.5">Brush size <span id="im-rb-brush-label" class="font-mono text-purple-300">40 px</span><input id="im-rb-brush" type="range" min="2" max="400" value="40" class="h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 mt-1"></label>
+                            
+                            <label class="flex flex-col gap-0.5">Hardness <span id="im-rb-hard-label" class="font-mono text-purple-300">60%</span><input id="im-rb-hard" type="range" min="0" max="100" value="60" class="h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 mt-1"></label>
+                        
+                        </div>
+                        
+                        <div id="im-rb-wand-opts" class="hidden grid grid-cols-1 gap-2 mt-2 text-[10px] text-gray-400">
+                            
+                            <label class="flex flex-col gap-0.5">Color tolerance <span id="im-rb-tol-label" class="font-mono text-purple-300">32</span><input id="im-rb-tol" type="range" min="2" max="120" value="32" class="h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 mt-1"></label>
+                        
+                        </div>
+                        
+                        <p class="text-[10px] text-gray-500 mt-1.5">Shortcuts: [ and ] change the size, X toggles restore/erase, Ctrl+Z undoes, wheel = zoom, Shift+drag = pan.</p>
+                    
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-1.5">
+                        
+                        <button id="im-rb-undo" type="button" class="text-[11px] bg-white/5 hover:bg-white/10 disabled:opacity-40 text-gray-200 px-2.5 py-1 rounded-lg" disabled>↶ Undo</button>
+                        
+                        <button id="im-rb-redo" type="button" class="text-[11px] bg-white/5 hover:bg-white/10 disabled:opacity-40 text-gray-200 px-2.5 py-1 rounded-lg" disabled>↷ Redo</button>
+                        
+                        <button id="im-rb-reset" type="button" class="text-[11px] bg-white/5 hover:bg-white/10 text-gray-200 px-2.5 py-1 rounded-lg">Back to automatic</button>
+                        
+                        <button id="im-rb-all" type="button" class="text-[11px] bg-white/5 hover:bg-white/10 text-gray-200 px-2.5 py-1 rounded-lg">Restore all</button>
+                        
+                        <button id="im-rb-none" type="button" class="text-[11px] bg-white/5 hover:bg-white/10 text-gray-200 px-2.5 py-1 rounded-lg">Erase all</button>
+                    
+                    </div>
+                    
+                    <div>
+                        
+                        <span class="text-[10px] uppercase tracking-wider text-gray-500">Refine the automatic edges</span>
+                        
+                        <div class="grid grid-cols-2 gap-2 mt-1.5 text-[10px] text-gray-400">
+                            
+                            <label class="flex flex-col gap-0.5">Threshold <span id="im-rb-thr-label" class="font-mono text-purple-300">50</span><input id="im-rb-thr" type="range" min="5" max="95" value="50" class="h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 mt-1"></label>
+                            
+                            <label class="flex flex-col gap-0.5">Transition <span id="im-rb-soft-label" class="font-mono text-purple-300">30</span><input id="im-rb-soft" type="range" min="0" max="100" value="30" class="h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 mt-1"></label>
+                            
+                            <label class="flex flex-col gap-0.5">Shrink ← → expand <span id="im-rb-shift-label" class="font-mono text-purple-300">0</span><input id="im-rb-shift" type="range" min="-12" max="12" value="0" class="h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 mt-1"></label>
+                            
+                            <label class="flex flex-col gap-0.5">Soften edge <span id="im-rb-feather-label" class="font-mono text-purple-300">0</span><input id="im-rb-feather" type="range" min="0" max="10" value="0" class="h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 mt-1"></label>
+                        
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+                
+
+                <div id="im-rb-out" class="hidden flex flex-col gap-2 border-t border-white/10 pt-3">
+                    
+                    <span id="im-rb-outinfo" class="text-[11px] text-gray-400"></span>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        
+                        <a id="im-rb-download" class="bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs px-4 py-2 rounded-lg cursor-pointer">⬇ PNG without background</a>
+                        
+                        <a id="im-rb-download-jpg" class="hidden bg-white/10 hover:bg-white/20 text-white font-bold text-xs px-4 py-2 rounded-lg cursor-pointer">⬇ JPG with the chosen background</a>
+                    
+                    </div>
+                    
+                    <label class="flex items-center gap-1.5 text-[11px] text-gray-300 cursor-pointer"><input id="im-rb-bgexport" type="checkbox" class="accent-purple-500"> Also export with the view&#x27;s background color</label>
+                
+                </div>
+            
+            </div>
+            
+            <div class="lg:col-span-8 flex flex-col gap-2 min-w-0">
+                
+                <div class="flex flex-wrap items-center justify-between gap-2 text-[10px] text-gray-400">
+                    
+                    <div class="flex items-center gap-1.5">
+                        
+                        <span class="uppercase tracking-wider text-gray-500">View background</span>
+                        
+                        <button type="button" class="im-rb-bg on px-2 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-200 text-[10px]" data-bg="checker">Transparent</button>
+                        
+                        <button type="button" class="im-rb-bg px-2 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-200 text-[10px]" data-bg="#ffffff">White</button>
+                        
+                        <button type="button" class="im-rb-bg px-2 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-200 text-[10px]" data-bg="#000000">Black</button>
+                        
+                        <button type="button" class="im-rb-bg px-2 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-200 text-[10px]" data-bg="custom">Colour</button>
+                        
+                        <input id="im-rb-bgcolor" type="color" value="#7c3aed" style="width:28px;height:24px" class="rounded border border-white/10 bg-transparent">
+                    
+                    </div>
+                    
+                    <div class="flex items-center gap-1.5">
+                        
+                        <button id="im-rb-compare" type="button" class="px-2 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-200 text-[10px] select-none" title="Hold to see the original">👁 Compare</button>
+                        
+                        <button id="im-rb-fit" type="button" class="px-2 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-200 text-[10px]">Fit</button>
+                        
+                        <button id="im-rb-100" type="button" class="px-2 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-200 text-[10px]">100%</button>
+                        
+                        <span id="im-rb-zoom" class="font-mono text-purple-300 w-10 text-right">100%</span>
+                        
+                        <span id="im-rb-info" class="font-mono text-gray-500"></span>
+                    
+                    </div>
+                
+                </div>
+                
+                <div id="im-rb-stage" class="rounded-xl border border-white/10 bg-black/40 overflow-hidden relative"><canvas id="im-rb-canvas" class="block w-full h-full touch-none" style="cursor:none"></canvas></div>
+                
+                <p class="text-[10px] text-gray-500">Zoom with the mouse wheel; drag with Shift, right button or “Pan view”. On mobile: one finger paints, use “Pan view” to move around.</p>
+            
+            </div>
+        
+        </section>
+
+        
+
+        <section id="im-cortador" class="im-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <div class="lg:col-span-4 min-w-0 glass-card rounded-2xl p-6 flex flex-col gap-4">
+                
+                <div>
+                    
+                    <h3 class="font-bold text-white text-sm uppercase tracking-wider">Magic cutter</h3>
+                    
+                    <p class="text-xs text-gray-400 mt-1">Crop an image or animated GIF into any shape: circle, heart, star, cloud… The GIF keeps all its frames and original quality.</p>
+                
+                </div>
+                
+                <label class="im-drop rounded-xl p-4 flex flex-col items-center gap-1 cursor-pointer text-center">
+                    
+                    <span class="text-sm text-gray-200 font-semibold">📁 Choose or drag an image or GIF</span>
+                    
+                    <span class="text-[10px] text-gray-500">JPG, PNG, WEBP or animated GIF</span>
+                    
+                    <input id="im-mc-file" type="file" accept="image/*" class="hidden">
+                
+                </label>
+                
+                <p id="im-mc-src-info" class="text-[10px] text-gray-500">No image loaded.</p>
+
+                
+
+                <div class="flex flex-col gap-2 border-t border-white/5 pt-3">
+                    
+                    <label class="text-xs font-semibold text-gray-400">Shape</label>
+                    
+                    <div id="im-mc-shapes" class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-4 gap-1.5"></div>
+                    
+                    <div id="im-mc-opt-radius" class="hidden flex flex-col gap-1">
+                        
+                        <label class="flex items-center gap-2 text-[11px] text-gray-400">Corner radius
+                            <input id="im-mc-radius" type="range" min="0" max="50" value="20" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500">
+                            
+                            <span id="im-mc-radius-label" class="font-mono text-purple-300 w-8 text-right">20%</span>
+                        
+                        </label>
+                    
+                    </div>
+                    
+                    <label class="flex items-center gap-2 text-xs text-gray-300 cursor-pointer"><input id="im-mc-lock" type="checkbox" class="accent-purple-500" checked> Keep shape proportion</label>
+                
+                </div>
+
+                
+
+                <div class="grid grid-cols-2 gap-2 border-t border-white/5 pt-3">
+                    
+                    <div class="flex flex-col gap-1"><label class="text-[10px] text-gray-500">X</label><input id="im-mc-x" type="number" min="0" value="0" class="bg-black/40 border border-white/10 rounded-lg p-1.5 text-xs text-white font-mono focus:outline-none"></div>
+                    
+                    <div class="flex flex-col gap-1"><label class="text-[10px] text-gray-500">Y</label><input id="im-mc-y" type="number" min="0" value="0" class="bg-black/40 border border-white/10 rounded-lg p-1.5 text-xs text-white font-mono focus:outline-none"></div>
+                    
+                    <div class="flex flex-col gap-1"><label class="text-[10px] text-gray-500">Width</label><input id="im-mc-w" type="number" min="1" value="0" class="bg-black/40 border border-white/10 rounded-lg p-1.5 text-xs text-white font-mono focus:outline-none"></div>
+                    
+                    <div class="flex flex-col gap-1"><label class="text-[10px] text-gray-500">Height</label><input id="im-mc-h" type="number" min="1" value="0" class="bg-black/40 border border-white/10 rounded-lg p-1.5 text-xs text-white font-mono focus:outline-none"></div>
+                    
+                    <div class="col-span-2 flex flex-wrap gap-2">
+                        
+                        <button id="im-mc-fit" class="text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-3 py-1.5 rounded-lg">Whole image</button>
+                        
+                        <button id="im-mc-center" class="text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-3 py-1.5 rounded-lg">Centre</button>
+                    
+                    </div>
+                
+                </div>
+
+                
+
+                <div class="flex flex-col gap-2 border-t border-white/5 pt-3">
+                    
+                    <label class="text-xs font-semibold text-gray-400">Output size</label>
+                    
+                    <div class="flex flex-wrap items-center gap-2">
+                        
+                        <select id="im-mc-out" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none flex-1">
+                            
+                            <option value="keep">Same as crop</option>
+                            
+                            <option value="fit">Fit to N px (longest side)</option>
+                            
+                            <option value="xat">xat avatar (80 px high)</option>
+                        
+                        </select>
+                        
+                        <input id="im-mc-out-n" type="number" min="8" max="2048" value="256" class="hidden w-20 bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none">
+                    
+                    </div>
+                    
+                    <label class="text-xs font-semibold text-gray-400 mt-1">Edges</label>
+                    
+                    <div class="flex flex-wrap items-center gap-2">
+                        
+                        <select id="im-mc-edge" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none flex-1">
+                            
+                            <option value="soft">Soft (PNG, real transparency)</option>
+                            
+                            <option value="gif">For GIF (binary transparency)</option>
+                        
+                        </select>
+                    
+                    </div>
+                    
+                    <div id="im-mc-matte-wrap" class="hidden flex items-center gap-2 text-[11px] text-gray-400">
+                        
+                        <label class="flex items-center gap-2 cursor-pointer"><input id="im-mc-matte-on" type="checkbox" class="accent-purple-500" checked> Edge background</label>
+                        
+                        <input id="im-mc-matte" type="color" value="#ffffff" style="width:30px;height:30px">
+                        
+                        <span class="text-[10px] text-gray-500">(colour of the chat where the GIF will go, avoids halos)</span>
+                    
+                    </div>
+                    
+                    <div class="flex flex-wrap items-center gap-2 text-[11px] text-gray-400">
+                        
+                        <label class="flex items-center gap-2 cursor-pointer"><input id="im-mc-stroke-on" type="checkbox" class="accent-purple-500"> Coloured edge</label>
+                        
+                        <input id="im-mc-stroke-color" type="color" value="#ffffff" style="width:30px;height:30px">
+                        
+                        <input id="im-mc-stroke-w" type="range" min="1" max="40" value="4" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500">
+                        
+                        <span id="im-mc-stroke-w-label" class="font-mono text-purple-300 w-8 text-right">4px</span>
+                    
+                    </div>
+                
+                </div>
+
+                
+
+                <div id="im-mc-gif-opts" class="hidden flex flex-col gap-2 border-t border-white/5 pt-3">
+                    
+                    <label class="text-xs font-semibold text-gray-400">GIF output</label>
+                    
+                    <select id="im-mc-gif-out" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none">
+                        
+                        <option value="gif">Animated GIF (palette per frame, original quality)</option>
+                        
+                        <option value="strip">PNG strip (frames in a row, height = frame height)</option>
+                        
+                        <option value="first">First frame as PNG</option>
+                    
+                    </select>
+                    
+                    <label class="flex items-center gap-2 text-xs text-gray-300 cursor-pointer"><input id="im-mc-dither" type="checkbox" class="accent-purple-500"> Dithering if a frame exceeds 255 colours</label>
+                
+                </div>
+
+                
+
+                <div class="flex flex-wrap gap-2 border-t border-white/5 pt-3">
+                    
+                    <button id="im-mc-go" class="flex-1 min-w-[160px] bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm px-4 py-3 rounded-xl disabled:opacity-50" disabled>✂️ Crop</button>
+                
+                </div>
+                
+                <div id="im-mc-progress" class="hidden flex flex-col gap-1">
+                    
+                    <div class="h-1.5 bg-gray-700 rounded-full overflow-hidden"><div id="im-mc-progress-bar" class="h-full bg-purple-500" style="width:0%"></div></div>
+                    
+                    <span id="im-mc-progress-text" class="text-[10px] text-gray-400">Processing…</span>
+                
+                </div>
+                
+                <p id="im-mc-info" class="text-[10px] text-gray-500">Load an image or GIF to start.</p>
+            
+            </div>
+            
+            <div class="lg:col-span-8 min-w-0 glass-card rounded-2xl p-6 flex flex-col gap-3">
+                
+                <div class="flex items-center justify-between gap-2">
+                    
+                    <span class="text-[10px] uppercase tracking-wider text-gray-500">Move or resize the box (arrow keys: 1 px · Shift: 10 px)</span>
+                    
+                    <span id="im-mc-dim" class="font-mono text-[11px] text-purple-300"></span>
+                
+                </div>
+                
+                <div class="im-checker rounded-xl border border-white/10 flex items-center justify-center p-3 min-h-[280px] overflow-hidden">
+                    
+                    <div id="im-mc-stage" class="relative inline-block leading-none">
+                        
+                        <canvas id="im-mc-canvas" width="400" height="300" class="block max-w-full rounded-md"></canvas>
+                        
+                        <canvas id="im-mc-overlay" width="400" height="300" class="absolute left-0 top-0 pointer-events-none"></canvas>
+                        
+                        <div id="im-mc-box" tabindex="0" class="hidden" role="application" aria-label="Recuadro de recorte">
+                            
+                            <div class="im-h" data-h="nw" style="left:0;top:0"></div><div class="im-h" data-h="n" style="left:50%;top:0"></div><div class="im-h" data-h="ne" style="left:100%;top:0"></div>
+                            
+                            <div class="im-h" data-h="w" style="left:0;top:50%"></div><div class="im-h" data-h="e" style="left:100%;top:50%"></div>
+                            
+                            <div class="im-h" data-h="sw" style="left:0;top:100%"></div><div class="im-h" data-h="s" style="left:50%;top:100%"></div><div class="im-h" data-h="se" style="left:100%;top:100%"></div>
+                        
+                        </div>
+                    
+                    </div>
+                
+                </div>
+                
+                <p class="text-[10px] text-gray-500">With an animated GIF the preview plays and the crop applies to every frame. Each frame keeps its own palette, so the resulting GIF loses no colours.</p>
+            
+            </div>
+        
+        </section>
+
+        
+
+        <!-- Modal de resultado -->
+        
+        <div id="im-modal" class="hidden fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm overflow-y-auto p-3 sm:p-8">
+            
+            <div class="mx-auto w-full max-w-2xl rounded-3xl bg-[#101020]/95 border border-white/10 shadow-2xl overflow-hidden">
+                
+                <div class="flex items-center justify-between px-5 py-3 border-b border-white/10">
+                    
+                    <h3 class="font-bold text-white text-sm">Result</h3>
+                    
+                    <button id="im-modal-close" class="text-gray-400 hover:text-white text-lg leading-none px-2" aria-label="Close">✕</button>
+                
+                </div>
+                
+                <div class="p-5 flex flex-col gap-4">
+                    
+                    <div class="im-checker rounded-xl border border-white/10 flex items-center justify-center p-3 min-h-[160px]">
+                        
+                        <img id="im-modal-img" alt="Result" class="max-w-full max-h-[60vh] rounded-md">
+                    
+                    </div>
+                    
+                    <p id="im-modal-info" class="text-[11px] text-gray-400"></p>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        
+                        <a id="im-modal-download" download="recorte.png" class="flex-1 min-w-[160px] text-center bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm px-4 py-3 rounded-xl cursor-pointer">⬇ Download</a>
+                        
+                        <button id="im-modal-ok" class="bg-white/5 hover:bg-white/10 text-gray-200 text-sm px-4 py-3 rounded-xl">Close</button>
+                    
+                    </div>
+                
+                </div>
+            
+            </div>
+        
+        </div>
+        
+        <!-- ===================== D · EDITOR: redimensionar · recortar · rotar (imágenes y GIF) ===================== -->
+        
+        <section id="im-editor" class="im-panel hidden">
+            
+            <!-- Editor de frames (redimensionar · recortar · rotar). Incluido en imagenes y video-a-gif. ids: fe-* -->
+
+<style>
+    .im-checker { background-color: #1a1a2a; background-image: linear-gradient(45deg, rgba(255,255,255,.08) 25%, transparent 25%), linear-gradient(-45deg, rgba(255,255,255,.08) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(255,255,255,.08) 75%), linear-gradient(-45deg, transparent 75%, rgba(255,255,255,.08) 75%); background-size: 16px 16px; background-position: 0 0, 0 8px, 8px -8px, -8px 0; }
+    .im-drop { border: 2px dashed rgba(255,255,255,.14); transition: border-color .15s, background .15s; }
+    .im-drop.over, .im-drop:hover { border-color: rgba(168,85,247,.7); background: rgba(168,85,247,.06); }
+    .im-h { position: absolute; width: 14px; height: 14px; margin: -7px 0 0 -7px; background: #fff; border: 2px solid #a855f7; border-radius: 50%; box-shadow: 0 1px 4px rgba(0,0,0,.6); }
+    .im-h[data-h="n"], .im-h[data-h="s"] { cursor: ns-resize; } .im-h[data-h="e"], .im-h[data-h="w"] { cursor: ew-resize; }
+    .im-h[data-h="nw"], .im-h[data-h="se"] { cursor: nwse-resize; } .im-h[data-h="ne"], .im-h[data-h="sw"] { cursor: nesw-resize; }
+</style>
+
+<div id="fe-root" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    
+    <div class="lg:col-span-4 min-w-0 glass-card rounded-2xl p-6 flex flex-col gap-4">
+        
+        <div>
+            
+            <h3 class="font-bold text-white text-sm uppercase tracking-wider">Editor: resize, crop and rotate</h3>
+            
+            <p class="text-xs text-gray-400 mt-1">Works with images (PNG, JPG, WEBP) and animated GIFs: every change is applied to all frames and the GIF keeps its animation. You can chain several steps and undo them.</p>
+        
+        </div>
+        
+        <label class="im-drop rounded-xl p-4 flex flex-col items-center gap-1 cursor-pointer text-center" id="fe-dropzone">
+            
+            <span class="text-sm text-gray-200 font-semibold">📁 Choose or drag an image or GIF</span>
+            
+            <span class="text-[10px] text-gray-500">PNG, JPG, WEBP or animated GIF</span>
+            
+            <input id="fe-file" type="file" accept="image/*" class="hidden">
+        
+        </label>
+        
+        <p id="fe-info" class="text-[10px] text-gray-500">No image loaded.</p>
+        
+        <div id="fe-empty" class="text-xs text-gray-500">Load an image or GIF to start.</div>
+        
+        <div id="fe-body" class="hidden flex flex-col gap-4">
+            
+            <div class="flex flex-wrap gap-1.5">
+                
+                <button data-mode="resize" class="fe-mode px-3 py-1.5 rounded-lg text-xs font-bold bg-purple-600 text-white">↔️ Resize</button>
+                
+                <button data-mode="crop" class="fe-mode px-3 py-1.5 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">✂️ Crop</button>
+                
+                <button data-mode="rotate" class="fe-mode px-3 py-1.5 rounded-lg text-xs font-bold bg-white/5 text-gray-300 hover:text-white">🔄 Rotate</button>
+            
+            </div>
+
+            
+
+            <!-- redimensionar -->
+            
+            <div id="fe-panel-resize" class="flex flex-col gap-3 border-t border-white/5 pt-3">
+                
+                <div class="grid grid-cols-2 gap-2">
+                    
+                    <label class="flex flex-col gap-1 text-[11px] text-gray-400">↔ Width (px)<input id="fe-w" type="number" min="1" max="4096" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none"></label>
+                    
+                    <label class="flex flex-col gap-1 text-[11px] text-gray-400">↕ Height (px)<input id="fe-h" type="number" min="1" max="4096" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none"></label>
+                
+                </div>
+                
+                <label class="flex items-center gap-2 text-xs text-gray-300 cursor-pointer"><input id="fe-lock" type="checkbox" checked class="accent-purple-500"> Keep aspect ratio (empty = automatic)</label>
+                
+                <label class="flex items-center gap-2 text-[11px] text-gray-400">Percentage <input id="fe-pct" type="number" min="1" max="800" placeholder="e.g. 50" class="w-24 bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none"> %</label>
+                
+                <div class="flex flex-wrap gap-1.5">
+                    
+                    <button data-w="orig" class="fe-preset text-[10px] bg-white/5 hover:bg-white/10 text-gray-300 px-2 py-1 rounded-lg">Original</button>
+                    
+                    <button data-w="800" class="fe-preset text-[10px] bg-white/5 hover:bg-white/10 text-gray-300 px-2 py-1 rounded-lg">800</button>
+                    
+                    <button data-w="600" class="fe-preset text-[10px] bg-white/5 hover:bg-white/10 text-gray-300 px-2 py-1 rounded-lg">600</button>
+                    
+                    <button data-w="480" class="fe-preset text-[10px] bg-white/5 hover:bg-white/10 text-gray-300 px-2 py-1 rounded-lg">480</button>
+                    
+                    <button data-w="320" class="fe-preset text-[10px] bg-white/5 hover:bg-white/10 text-gray-300 px-2 py-1 rounded-lg">320</button>
+                    
+                    <button data-w="200" class="fe-preset text-[10px] bg-white/5 hover:bg-white/10 text-gray-300 px-2 py-1 rounded-lg">200</button>
+                    
+                    <button data-w="80" class="fe-preset text-[10px] bg-white/5 hover:bg-white/10 text-gray-300 px-2 py-1 rounded-lg">80 (xat)</button>
+                
+                </div>
+                
+                <label class="flex flex-col gap-1 text-[11px] text-gray-400">If the aspect ratio does not match
+                    <select id="fe-method" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none">
+                        
+                        <option value="stretch">Stretch to fit</option>
+                        
+                        <option value="crop">Center and crop</option>
+                        
+                        <option value="fit" selected>Keep the original aspect ratio</option>
+                        
+                        <option value="pad">Add transparent padding</option>
+                    
+                    </select>
+                
+                </label>
+                
+                <button id="fe-apply-resize" class="bg-white/10 hover:bg-white/20 text-white font-bold text-sm px-4 py-2.5 rounded-xl">Apply resize</button>
+            
+            </div>
+
+            
+
+            <!-- recortar -->
+            
+            <div id="fe-panel-crop" class="hidden flex flex-col gap-3 border-t border-white/5 pt-3">
+                
+                <p class="text-[10px] text-gray-500">Draw or move the box over the preview (arrow keys: 1 px · Shift: 10 px).</p>
+                
+                <div class="grid grid-cols-4 gap-2">
+                    
+                    <label class="flex flex-col gap-1 text-[11px] text-gray-400">X<input id="fe-cx" type="number" min="0" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none"></label>
+                    
+                    <label class="flex flex-col gap-1 text-[11px] text-gray-400">Y<input id="fe-cy" type="number" min="0" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none"></label>
+                    
+                    <label class="flex flex-col gap-1 text-[11px] text-gray-400">Width<input id="fe-cw" type="number" min="1" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none"></label>
+                    
+                    <label class="flex flex-col gap-1 text-[11px] text-gray-400">Height<input id="fe-ch" type="number" min="1" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none"></label>
+                
+                </div>
+                
+                <label class="flex flex-col gap-1 text-[11px] text-gray-400">Aspect ratio
+                    <select id="fe-aspect" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none">
+                        
+                        <option value="0" selected>Free</option>
+                        
+                        <option value="1">Square 1:1</option>
+                        
+                        <option value="1.3333">4:3</option>
+                        
+                        <option value="0.75">3:4</option>
+                        
+                        <option value="1.7778">16:9</option>
+                        
+                        <option value="0.5625">9:16</option>
+                    
+                    </select>
+                
+                </label>
+                
+                <div class="flex flex-wrap gap-1.5">
+                    
+                    <button id="fe-crop-all" class="text-[10px] bg-white/5 hover:bg-white/10 text-gray-300 px-2 py-1 rounded-lg">Whole image</button>
+                    
+                    <button id="fe-crop-center" class="text-[10px] bg-white/5 hover:bg-white/10 text-gray-300 px-2 py-1 rounded-lg">Centre</button>
+                
+                </div>
+                
+                <button id="fe-apply-crop" class="bg-white/10 hover:bg-white/20 text-white font-bold text-sm px-4 py-2.5 rounded-xl">Apply crop</button>
+            
+            </div>
+
+            
+
+            <!-- rotar -->
+            
+            <div id="fe-panel-rotate" class="hidden flex flex-col gap-3 border-t border-white/5 pt-3">
+                
+                <div class="grid grid-cols-3 gap-2">
+                    
+                    <button data-rot="-90" class="fe-rot text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-2 py-2 rounded-lg">↺ 90° left</button>
+                    
+                    <button data-rot="90" class="fe-rot text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-2 py-2 rounded-lg">↻ 90° right</button>
+                    
+                    <button data-rot="180" class="fe-rot text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-2 py-2 rounded-lg">180°</button>
+                    
+                    <button data-rot="fh" class="fe-rot text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-2 py-2 rounded-lg">⇋ Flip horizontal</button>
+                    
+                    <button data-rot="fv" class="fe-rot text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-2 py-2 rounded-lg">⇅ Flip vertical</button>
+                
+                </div>
+                
+                <div class="flex flex-wrap items-center gap-2 text-[11px] text-gray-400">
+                    Free angle <input id="fe-angle" type="number" min="-360" max="360" step="0.5" value="15" class="w-20 bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white font-mono focus:outline-none"> °
+                    <select id="fe-bg" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none"><option value="transparent" selected>Transparent background</option><option value="color">Coloured background</option></select>
+                    
+                    <input id="fe-bgcolor" type="color" value="#ffffff" class="hidden" style="width:34px;height:34px">
+                    
+                    <button id="fe-apply-angle" class="text-xs bg-white/10 hover:bg-white/20 text-white font-bold px-3 py-2 rounded-lg">Apply angle</button>
+                
+                </div>
+            
+            </div>
+
+            
+
+            <div class="flex flex-wrap gap-2 border-t border-white/5 pt-3">
+                
+                <button id="fe-undo" class="text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-3 py-2 rounded-lg disabled:opacity-40" disabled>↶ Undo</button>
+                
+                <button id="fe-reset" class="text-xs bg-white/5 hover:bg-white/10 text-gray-200 px-3 py-2 rounded-lg">Restore original</button>
+            
+            </div>
+
+            
+
+            <!-- salida -->
+            
+            <div class="flex flex-col gap-2 border-t border-white/5 pt-3">
+                
+                <div class="flex flex-wrap items-center gap-2 text-[11px] text-gray-400">Format
+                    <select id="fe-format" class="bg-black/40 border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none">
+                        
+                        <option value="gif">GIF (animated)</option>
+                        
+                        <option value="png">PNG</option>
+                        
+                        <option value="jpg">JPG</option>
+                        
+                        <option value="webp">WEBP</option>
+                    
+                    </select>
+                    
+                    <label id="fe-quality-wrap" class="hidden flex items-center gap-2">Quality <input id="fe-quality" type="range" min="30" max="100" value="92" class="w-24 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500"><span id="fe-quality-label" class="font-mono text-purple-300">92</span></label>
+                
+                </div>
+                
+                <div id="fe-gif-opts" class="flex flex-wrap items-center gap-3 text-[11px] text-gray-400">
+                    
+                    <label class="flex items-center gap-1">Colours <select id="fe-colors" class="bg-black/40 border border-white/10 rounded-lg p-1.5 text-xs text-white focus:outline-none"><option value="256" selected>256</option><option value="128">128</option><option value="64">64</option><option value="32">32</option></select></label>
+                    
+                    <label class="flex items-center gap-1 cursor-pointer"><input id="fe-dither" type="checkbox" checked class="accent-purple-500"> Dithering</label>
+                    
+                    <label class="flex items-center gap-1">Loop <input id="fe-loop" type="number" min="0" max="999" value="0" class="w-16 bg-black/40 border border-white/10 rounded-lg p-1.5 text-xs text-white font-mono focus:outline-none"> (0 = infinite)</label>
+                
+                </div>
+                
+                <button id="fe-export" class="bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm px-4 py-3 rounded-xl">⚙️ Generate file</button>
+                
+                <div id="fe-progress" class="hidden flex flex-col gap-1"><div class="h-1.5 bg-gray-700 rounded-full overflow-hidden"><div id="fe-progress-bar" class="h-full bg-purple-500" style="width:0%"></div></div><span id="fe-progress-txt" class="text-[10px] text-gray-500"></span></div>
+                
+                <a id="fe-download" download="imagen.gif" class="text-center bg-white/10 hover:bg-white/20 text-white font-bold text-sm px-4 py-3 rounded-xl cursor-pointer opacity-50 pointer-events-none">⬇ Download</a>
+                
+                <p id="fe-out-info" class="text-[10px] text-gray-500"></p>
+            
+            </div>
+        
+        </div>
+    
+    </div>
+    
+    <div class="lg:col-span-8 min-w-0 glass-card rounded-2xl p-6 flex flex-col gap-3">
+        
+        <span class="text-[10px] uppercase tracking-wider text-gray-500">Preview</span>
+        
+        <div class="im-checker rounded-xl border border-white/10 flex items-center justify-center p-3 min-h-[280px]">
+            
+            <div id="fe-stage" class="relative inline-block" style="touch-action:none; user-select:none">
+                
+                <canvas id="fe-preview" width="400" height="300" class="block max-w-full max-h-[60vh] rounded-md"></canvas>
+                
+                <div id="fe-box" class="hidden" tabindex="0" style="position:absolute; border:1.5px solid #c084fc; box-shadow:0 0 0 1px rgba(0,0,0,.5), 0 0 0 9999px rgba(0,0,0,.35); cursor:move; outline:none">
+                    
+                    <span class="im-h" data-h="nw" style="left:0;top:0"></span><span class="im-h" data-h="n" style="left:50%;top:0"></span><span class="im-h" data-h="ne" style="left:100%;top:0"></span>
+                    
+                    <span class="im-h" data-h="w" style="left:0;top:50%"></span><span class="im-h" data-h="e" style="left:100%;top:50%"></span>
+                    
+                    <span class="im-h" data-h="sw" style="left:0;top:100%"></span><span class="im-h" data-h="s" style="left:50%;top:100%"></span><span class="im-h" data-h="se" style="left:100%;top:100%"></span>
+                
+                </div>
+            
+            </div>
+        
+        </div>
+        
+        <p class="text-[10px] text-gray-500">The preview shows the current state (GIFs play). Each applied step modifies all frames; use &quot;Undo&quot; to go back.</p>
+    
+    </div>
+
+</div>
+
+        
+
+        </section>
+
+    
+
+    </main>
+
+<section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-2"><p class="text-sm text-gray-400 max-w-4xl leading-relaxed">Upload the photo and choose how to fill the square: blurred background (Instagram style), solid colour, stretched or centre crop. Pick the output size (e.g. 1080×1080) and download as PNG, JPG or WEBP. Everything runs in your browser.</p></section><section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pb-10 flex flex-col gap-3"><h2 class="text-lg font-bold text-white">Frequently asked questions</h2><details class="glass-card rounded-xl px-5 py-3 group"><summary class="cursor-pointer font-semibold text-white text-sm list-none flex justify-between items-center"><span>How do I make a photo square without cropping?</span><span class="text-purple-400 group-open:rotate-45 transition-transform">+</span></summary><p class="text-sm text-gray-400 mt-2 leading-relaxed">Choose “Blur” or “Colour” mode: the whole photo is placed in the centre and the rest of the square is filled with a blurred background or the colour you pick.</p></details><details class="glass-card rounded-xl px-5 py-3 group"><summary class="cursor-pointer font-semibold text-white text-sm list-none flex justify-between items-center"><span>What size for Instagram?</span><span class="text-purple-400 group-open:rotate-45 transition-transform">+</span></summary><p class="text-sm text-gray-400 mt-2 leading-relaxed">1080×1080 px is the standard size for square posts. You can type any other size.</p></details><details class="glass-card rounded-xl px-5 py-3 group"><summary class="cursor-pointer font-semibold text-white text-sm list-none flex justify-between items-center"><span>What if I want to remove the white border?</span><span class="text-purple-400 group-open:rotate-45 transition-transform">+</span></summary><p class="text-sm text-gray-400 mt-2 leading-relaxed">Use the “Borderless image” tab: it squares the image with a white border and at the same time generates the version with that border removed (transparent), with two download buttons.</p></details></section><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I make a photo square without cropping?", "acceptedAnswer": {"@type": "Answer", "text": "Choose “Blur” or “Colour” mode: the whole photo is placed in the centre and the rest of the square is filled with a blurred background or the colour you pick."}}, {"@type": "Question", "name": "What size for Instagram?", "acceptedAnswer": {"@type": "Answer", "text": "1080×1080 px is the standard size for square posts. You can type any other size."}}, {"@type": "Question", "name": "What if I want to remove the white border?", "acceptedAnswer": {"@type": "Answer", "text": "Use the “Borderless image” tab: it squares the image with a white border and at the same time generates the version with that border removed (transparent), with two download buttons."}}]}</script><section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pb-10"><div class="glass-card rounded-2xl p-5 flex flex-col gap-3"><h2 class="text-sm font-bold text-white">Shortcuts and related tools</h2><div class="flex flex-wrap items-center gap-1.5"><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-circle/">Crop an image into a circle shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-heart/">Crop an image into a heart shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-star/">Crop an image into a star shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-rounded-corners/">Crop an image into a rounded square shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-hexagon/">Crop an image into a hexagon shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-cloud/">Crop an image into a cloud shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-triangle/">Crop an image into a triangle shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-flower/">Crop an image into a flower shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-moon/">Crop an image into a crescent moon shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-lightning-bolt/">Crop an image into a lightning bolt shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-shield/">Crop an image into a shield shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-oval/">Crop an image into a oval shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-speech-bubble/">Crop an image into a speech bubble shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image-broken-heart/">Crop an image into a broken heart shape</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/resize-image/">Resize an image</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/resize-gif/">Resize an animated GIF</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-image/">Crop an image</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-gif/">Crop an animated GIF</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/rotate-image/">Rotate an image</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/rotate-gif/">Rotate an animated GIF</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/remove-white-background/">Remove the white background and make it transparent</a><a class="inline-block text-[11px] border border-white/10 bg-white/5 hover:border-purple-400/60 hover:text-white text-gray-300 rounded-full px-3 py-1" href="/en/crop-animated-gif/">Crop an animated GIF</a></div></div></section>        <!-- Footer -->
+    
+    <footer class="border-t border-white/5 bg-black/40 py-5 px-6 text-center text-xs text-gray-500">
+        
+        <div class="max-w-7xl mx-auto flex flex-col gap-2 items-center">
+            
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-2 w-full">
+                
+                <p>Xatools by 3men2 © 2026 - Herramientas para xat.com · <a href="/en/acerca/" class="hover:text-purple-300">About Xatools</a></p>
+                
+                <p class="text-gray-400">Engine based on the xat HTML5 client · Power data: xat.com via <a href="/en/api/" class="text-purple-300 hover:underline">Xatools API</a></p>
+            
+            </div>
+            
+            <nav class="text-[11px] text-gray-500 flex flex-wrap justify-center gap-x-1" aria-label="Mapa del sitio"><a class="hover:text-purple-300" href="/en/">Home</a> · <a class="hover:text-purple-300" href="/en/convertidor/">Converter</a> · <a class="hover:text-purple-300" href="/en/simulador/">Nick colours</a> · <a class="hover:text-purple-300" href="/en/generadores/">Colour generator</a> · <a class="hover:text-purple-300" href="/en/letras/">Letters</a> · <a class="hover:text-purple-300" href="/en/smileys/">Smileys</a> · <a class="hover:text-purple-300" href="/en/powers/">Powers</a> · <a class="hover:text-purple-300" href="/en/gif-2d/">2D GIF</a> · <a class="hover:text-purple-300" href="/en/avatar-animado/">Avatar</a> · <a class="hover:text-purple-300" href="/en/imagenes/">Image editor</a> · <a class="hover:text-purple-300" href="/en/video-a-gif/">Video to GIF</a> · <a class="hover:text-purple-300" href="/en/fondos/">Backgrounds</a> · <a class="hover:text-purple-300" href="/en/usuario/">User online and powers</a> · <a class="hover:text-purple-300 text-[#8b95ff]" href="https://discord.gg/QdUutTCzU7" target="_blank" rel="noopener">Power alerts on Discord</a> · <span class="text-gray-500" title="Alternative link to paste in the xat chat (redirects to xatools.net)">Link for the xat chat: <a class="hover:text-purple-300 text-purple-300" href="https://3men2.com/" rel="nofollow">3men2.com</a></span></nav><nav class="text-[10px] text-gray-600 flex flex-wrap justify-center gap-x-1 max-w-5xl" aria-label="More tools"><a class="hover:text-purple-300 font-bold" href="/en/xat/">xat: guide and tools for xat.com</a> · <a class="hover:text-purple-300" href="/en/crop-image-circle/">Crop an image into a circle shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-heart/">Crop an image into a heart shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-star/">Crop an image into a star shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-rounded-corners/">Crop an image into a rounded square shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-hexagon/">Crop an image into a hexagon shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-cloud/">Crop an image into a cloud shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-triangle/">Crop an image into a triangle shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-flower/">Crop an image into a flower shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-moon/">Crop an image into a crescent moon shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-lightning-bolt/">Crop an image into a lightning bolt shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-shield/">Crop an image into a shield shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-oval/">Crop an image into a oval shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-speech-bubble/">Crop an image into a speech bubble shape</a> · <a class="hover:text-purple-300" href="/en/crop-image-broken-heart/">Crop an image into a broken heart shape</a> · <a class="hover:text-purple-300" href="/en/avatar-blinking/">Animated avatar with blinking eyes</a> · <a class="hover:text-purple-300" href="/en/avatar-sparkles/">Animated avatar with sparkles</a> · <a class="hover:text-purple-300" href="/en/avatar-flames/">Animated avatar with fire flames</a> · <a class="hover:text-purple-300" href="/en/avatar-explosions/">Animated avatar with explosions</a> · <a class="hover:text-purple-300" href="/en/avatar-glowing-border/">Animated avatar with glowing border</a> · <a class="hover:text-purple-300" href="/en/avatar-butterflies/">Animated avatar with butterflies</a> · <a class="hover:text-purple-300" href="/en/avatar-hearts/">Animated avatar with hearts</a> · <a class="hover:text-purple-300" href="/en/avatar-light-rays/">Animated avatar with light rays</a> · <a class="hover:text-purple-300" href="/en/avatar-gradient-border/">Animated avatar with gradient border</a> · <a class="hover:text-purple-300" href="/en/fancy-text-generator/">Fancy text fonts generator</a> · <a class="hover:text-purple-300" href="/en/small-text/">Tiny small text generator</a> · <a class="hover:text-purple-300" href="/en/strikethrough-text/">Strikethrough text generator</a> · <a class="hover:text-purple-300" href="/en/underline-text/">Underlined text generator</a> · <a class="hover:text-purple-300" href="/en/gothic-letters/">Gothic letters generator</a> · <a class="hover:text-purple-300" href="/en/cursive-letters/">Cursive letters generator</a> · <a class="hover:text-purple-300" href="/en/bold-text/">Bold text generator</a> · <a class="hover:text-purple-300" href="/en/upside-down-text/">Upside down text generator</a> · <a class="hover:text-purple-300" href="/en/bubble-letters/">Bubble letters generator</a> · <a class="hover:text-purple-300" href="/en/symbols/">Symbols to copy and paste generator</a> · <a class="hover:text-purple-300" href="/en/emojis/">Emojis to copy and paste generator</a> · <a class="hover:text-purple-300" href="/en/resize-image/">Resize an image</a> · <a class="hover:text-purple-300" href="/en/resize-gif/">Resize an animated GIF</a> · <a class="hover:text-purple-300" href="/en/crop-image/">Crop an image</a> · <a class="hover:text-purple-300" href="/en/crop-gif/">Crop an animated GIF</a> · <a class="hover:text-purple-300" href="/en/rotate-image/">Rotate an image</a> · <a class="hover:text-purple-300" href="/en/rotate-gif/">Rotate an animated GIF</a> · <a class="hover:text-purple-300" href="/en/square-image/">Make an image square without distorting it</a> · <a class="hover:text-purple-300" href="/en/remove-white-background/">Remove the white background and make it transparent</a> · <a class="hover:text-purple-300" href="/en/crop-animated-gif/">Crop an animated GIF</a> · <a class="hover:text-purple-300" href="/en/animated-text-gif/">Animated text GIF with your name</a> · <a class="hover:text-purple-300" href="/en/mp4-to-gif/">Convert MP4 to GIF</a> · <a class="hover:text-purple-300" href="/en/quill-name-gif/">Quill writing your name as a GIF</a> · <a class="hover:text-purple-300" href="/en/namegrad/">Namegrad: generator and codes for xat</a> · <a class="hover:text-purple-300" href="/en/namewave/">Namewave: animated wave for your nick</a> · <a class="hover:text-purple-300" href="/en/namecolor/">Namecolor: solid colour and glow for your nick</a> · <a class="hover:text-purple-300" href="/en/nameflag/">Nameflag: animated flag in your name</a> · <a class="hover:text-purple-300" href="/en/jewel-ruby/">Jewel: animated gem for your nick (Ruby)</a> · <a class="hover:text-purple-300" href="/en/xat-name-color-codes/">Colour codes for your xat name</a></nav><p class="text-[11px] text-gray-600"><a class="hover:text-purple-300" hreflang="es" href="https://xatools.net/">Español</a> · <a class="hover:text-purple-300" hreflang="en" href="https://xatools.net/en/">English</a> · <a class="hover:text-purple-300" hreflang="it" href="https://xatools.net/it/">Italiano</a> · <a class="hover:text-purple-300" hreflang="fr" href="https://xatools.net/fr/">Français</a> · <a class="hover:text-purple-300" hreflang="ar" href="https://xatools.net/ar/">العربية</a> · <a class="hover:text-purple-300" hreflang="pt" href="https://xatools.net/pt/">Português</a> · <a class="hover:text-purple-300" hreflang="tr" href="https://xatools.net/tr/">Türkçe</a></p><p class="text-[11px] text-gray-600 max-w-3xl">Disclaimer: this site is not affiliated with xat.com or its creators. xat and its logos are trademarks of their respective owners; content is provided for informational and community purposes only.</p>
+        
+        </div>
+    
+    </footer>
+
+
+
+
+<script src="/assets/i18n-en.js?v=107e1756"></script>
+<script src="/assets/core.js?v=594444c1"></script>
+<script src="/assets/img.js?v=bd3f9589"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"8b2b9380d5f64b7bbcf6e6601ce40d27","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

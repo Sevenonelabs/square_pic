@@ -202,7 +202,7 @@ export function OrgSchema({ siteUrl }: { siteUrl?: string }) {
         sameAs: ["https://github.com/Sevenonelabs/square_pic"],
         contactPoint: {
           "@type": "ContactPoint",
-          email: "support@squarepic.io",
+          url: `${base}/support#contact-form`,
           contactType: "customer support",
         },
       }}
